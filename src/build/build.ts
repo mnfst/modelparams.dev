@@ -51,8 +51,7 @@ async function writeApiIndex(modelCount: number): Promise<void> {
     endpoints: {
       catalog: "/api/v1/models.json",
       schema: "/api/v1/schema.json",
-      modelByIdApiKey: "/api/v1/models/{provider}/{model}.json",
-      modelByIdSubscription: "/api/v1/models/{provider}/{model}-subscription.json",
+      modelById: "/api/v1/models/{provider}/{auth}/{model}.json",
     },
     modelCount,
     docs: "https://github.com/modelparameters/modelparameters.dev#api",
@@ -88,9 +87,9 @@ export async function build(): Promise<{ models: number }> {
   await writeJson(path.join(DIST_API_DIR, "schema.json"), buildModelJsonSchema());
   await writeApiIndex(catalog.count);
   for (const model of models) {
-    const [provider, slug] = modelId(model).split("/");
-    if (!provider || !slug) continue;
-    await writeJson(path.join(DIST_API_DIR, "models", provider, `${slug}.json`), {
+    const [provider, auth, slug] = modelId(model).split("/");
+    if (!provider || !auth || !slug) continue;
+    await writeJson(path.join(DIST_API_DIR, "models", provider, auth, `${slug}.json`), {
       $schema: "https://modelparameters.dev/api/v1/schema.json",
       ...model,
     });

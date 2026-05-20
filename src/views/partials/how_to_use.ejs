@@ -36,14 +36,14 @@
       <p>The full catalog is static JSON, CORS-enabled, served from the edge.</p>
       <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models.json">https://modelparameters.dev/api/v1/models.json</a></code></pre>
       <p>
-        Each entry is keyed by <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">provider/model</code> for API-key variants; subscription variants append <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">-subscription</code>.
+        Each entry is keyed by <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">provider/auth/model</code>, where <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">auth</code> is <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">api</code> or <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">subscription</code>.
       </p>
     </section>
 
     <section class="space-y-3">
       <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Single model</h3>
-      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7.json">https://modelparameters.dev/api/v1/models/anthropic/claude-opus-4-7.json</a>
-curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7-subscription.json">https://modelparameters.dev/api/v1/models/anthropic/claude-opus-4-7-subscription.json</a></code></pre>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/api/claude-opus-4-7.json">https://modelparameters.dev/api/v1/models/anthropic/api/claude-opus-4-7.json</a>
+curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/subscription/claude-opus-4.json">https://modelparameters.dev/api/v1/models/anthropic/subscription/claude-opus-4.json</a></code></pre>
     </section>
 
     <section class="space-y-3">
@@ -73,7 +73,7 @@ curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent"
     <section class="space-y-3">
       <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Contribute</h3>
       <p>
-        The data lives in YAML under <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">models/{provider}/{model}-{auth}.yaml</code>
+        The data lives in YAML under <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">models/{provider}/{api|subscription}/{model}.yaml</code>
         in the <a class="text-accent underline hover:text-accent-hover" href="https://github.com/mnfst/modelparameters.dev" target="_blank" rel="noopener">GitHub repo</a>.
         Open a PR; CI validates against the schema and rebuilds.
       </p>

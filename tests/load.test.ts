@@ -50,42 +50,49 @@ async function writeModel(rel: string, body: string): Promise<void> {
 }
 
 describe("loadAllModels", () => {
-  it("loads valid YAML files (api_key is bare, subscription is suffixed)", async () => {
-    await writeModel("anthropic/claude-opus-4-7.yaml", VALID_OPUS);
-    await writeModel("anthropic/claude-opus-4-7-subscription.yaml", VALID_OPUS_SUB);
+  it("loads valid YAML files from provider/auth/model paths", async () => {
+    await writeModel("anthropic/api/claude-opus-4-7.yaml", VALID_OPUS);
+    await writeModel("anthropic/subscription/claude-opus-4-7.yaml", VALID_OPUS_SUB);
 
     const result = await loadAllModels(tmpRoot);
     expect(result.issues).toEqual([]);
     expect(result.models).toHaveLength(2);
     expect(result.models.map(modelId).sort()).toEqual([
-      "anthropic/claude-opus-4-7",
-      "anthropic/claude-opus-4-7-subscription",
+      "anthropic/api/claude-opus-4-7",
+      "anthropic/subscription/claude-opus-4-7",
     ]);
   });
 
   it("flags provider/path mismatch", async () => {
-    await writeModel("openai/claude-opus-4-7.yaml", VALID_OPUS);
+    await writeModel("openai/api/claude-opus-4-7.yaml", VALID_OPUS);
     const result = await loadAllModels(tmpRoot);
     expect(result.issues).toHaveLength(1);
     expect(result.issues[0]?.message).toMatch(/does not match expected id/);
   });
 
-  it("flags an api_key model placed in a -subscription filename", async () => {
-    await writeModel("anthropic/claude-opus-4-7-subscription.yaml", VALID_OPUS);
+  it("flags an api_key model placed in a subscription folder", async () => {
+    await writeModel("anthropic/subscription/claude-opus-4-7.yaml", VALID_OPUS);
     const result = await loadAllModels(tmpRoot);
     expect(result.issues).toHaveLength(1);
     expect(result.issues[0]?.message).toMatch(/does not match expected id/);
   });
 
-  it("flags a subscription model placed in a bare filename", async () => {
-    await writeModel("anthropic/claude-opus-4-7.yaml", VALID_OPUS_SUB);
+  it("flags a subscription model placed in an api folder", async () => {
+    await writeModel("anthropic/api/claude-opus-4-7.yaml", VALID_OPUS_SUB);
     const result = await loadAllModels(tmpRoot);
     expect(result.issues).toHaveLength(1);
     expect(result.issues[0]?.message).toMatch(/does not match expected id/);
+  });
+
+  it("flags an unsupported auth path folder", async () => {
+    await writeModel("anthropic/api_key/claude-opus-4-7.yaml", VALID_OPUS);
+    const result = await loadAllModels(tmpRoot);
+    expect(result.issues).toHaveLength(1);
+    expect(result.issues[0]?.message).toMatch(/models\/\{provider\}\/\{api\|subscription\}/);
   });
 
   it("reports YAML parse errors", async () => {
-    await writeModel("anthropic/broken.yaml", "provider: anthropic\n  : : :");
+    await writeModel("anthropic/api/broken.yaml", "provider: anthropic\n  : : :");
     const result = await loadAllModels(tmpRoot);
     expect(result.issues.length).toBeGreaterThan(0);
   });

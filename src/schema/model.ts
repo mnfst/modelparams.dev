@@ -180,10 +180,16 @@ export const Catalog = z
   .strict();
 export type Catalog = z.infer<typeof Catalog>;
 
-export function authSuffix(authType: AuthType): "" | "-subscription" {
-  return authType === "api_key" ? "" : "-subscription";
+export function authPathSegment(authType: AuthType): "api" | "subscription" {
+  return authType === "api_key" ? "api" : "subscription";
+}
+
+export function authTypeFromPathSegment(segment: string): AuthType | null {
+  if (segment === "api") return "api_key";
+  if (segment === "subscription") return "subscription";
+  return null;
 }
 
 export function modelId(model: Pick<Model, "provider" | "model" | "authType">): string {
-  return `${model.provider}/${model.model}${authSuffix(model.authType)}`;
+  return `${model.provider}/${authPathSegment(model.authType)}/${model.model}`;
 }
