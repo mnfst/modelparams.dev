@@ -19,12 +19,12 @@ function makeModel(overrides: Partial<Model> = {}): Model {
         group: "sampling",
       },
       {
-        path: "stream",
+        path: "logprobs",
         type: "boolean",
-        label: "Stream",
+        label: "Log probabilities",
         description: "y",
         default: false,
-        group: "output_format",
+        group: "observability",
       },
     ],
     ...overrides,
@@ -54,7 +54,7 @@ describe("buildCapabilityFacets", () => {
     });
     const facets = buildCapabilityFacets([m1, m2]);
     expect(facets[0]).toEqual({ path: "temperature", count: 2 });
-    expect(facets.map((f) => f.path)).toContain("stream");
+    expect(facets.map((f) => f.path)).toContain("logprobs");
     expect(facets.map((f) => f.path)).toContain("top_p");
   });
 });

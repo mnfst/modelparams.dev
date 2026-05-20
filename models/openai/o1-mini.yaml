@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
 provider: openai
 authType: api_key
-model: o1
+model: o1-mini
 params:
   - path: max_tokens
     type: integer

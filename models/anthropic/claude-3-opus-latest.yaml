@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
-model: claude-sonnet-4-6
+model: claude-3-opus-latest
 params:
   - path: max_tokens
     type: integer
@@ -60,26 +60,3 @@ params:
         thinking.type:
           - adaptive
           - enabled
-  - path: thinking.type
-    type: enum
-    label: Thinking mode
-    description: Controls the Anthropic thinking mode values supported by this model.
-    default: disabled
-    values:
-      - disabled
-      - adaptive
-      - enabled
-    group: reasoning
-  - path: thinking.budget_tokens
-    type: integer
-    label: Budget tokens
-    description: >-
-      Maximum token budget Anthropic may use for extended thinking before producing the final
-      answer.
-    default: 4096
-    range:
-      min: 1024
-    group: reasoning
-    applicability:
-      only:
-        thinking.type: enabled

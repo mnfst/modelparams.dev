@@ -2,6 +2,8 @@
 
 Thanks for helping build the catalog. There are two main ways to contribute: **adding/updating model data**, and **improving the site itself**.
 
+The formal catalog convention is the [Model Parameters convention](docs/model-parameters-schema.md).
+
 ## Adding or updating a model
 
 1. **Pick the filename.** API-key models are bare; subscription models get a `-subscription` suffix.
@@ -33,6 +35,7 @@ Thanks for helping build the catalog. There are two main ways to contribute: **a
    - `only`: object (or array of objects) of `path: value-or-array`. The parameter applies only when _all_ listed paths match.
    - `except`: object (or array of objects) of `path: value-or-array`. The parameter does _not_ apply when any of the listed conditions match.
    - You can also use `{ not: <value> }` to say "any value except this one".
+   - See the [schema doc](docs/model-parameters-schema.md#applicability) for the exact rule syntax and evaluation semantics.
 
 6. **Auth-type rules of thumb:**
    - **`api_key`:** list parameters from the official API reference. Don't invent ones the API doesn't accept.

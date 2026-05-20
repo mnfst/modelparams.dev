@@ -3,37 +3,22 @@ provider: openai
 authType: api_key
 model: o3-mini
 params:
-  - path: max_completion_tokens
+  - path: max_tokens
     type: integer
-    label: Max completion tokens
-    description: Upper bound on combined reasoning + response tokens.
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    default: 4096
     range:
       min: 1
     group: generation_length
   - path: reasoning_effort
     type: enum
     label: Reasoning effort
-    description: How much the model should think before answering.
+    description: Controls how much reasoning the model should perform before producing an answer.
     default: medium
-    values: [low, medium, high]
+    values:
+      - minimal
+      - low
+      - medium
+      - high
     group: reasoning
-  - path: response_format
-    type: enum
-    label: Response format
-    description: Output format constraint.
-    default: text
-    values: [text, json_schema]
-    group: output_format
-  - path: stream
-    type: boolean
-    label: Stream
-    description: Stream the visible response (not reasoning tokens).
-    default: false
-    group: output_format
-  - path: service_tier
-    type: enum
-    label: Service tier
-    description: Latency/cost tier.
-    default: auto
-    values: [auto, default, flex]
-    group: provider_metadata
