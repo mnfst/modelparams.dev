@@ -13,7 +13,6 @@ The public runtime sources are:
 
 - `https://modelparameters.dev/api/v1/models.json`
 - `https://modelparameters.dev/api/v1/schema.json`
-- `https://modelparameters.dev/api/v1/models/{provider}/{api|subscription}/{model}.json`
 
 ## Catalog Entry
 
@@ -49,9 +48,6 @@ Conventions:
 - `model` is the provider-native model id without path separators. It may
   contain dots or colons when the upstream model id does.
 - `authType` is `api_key` or `subscription`.
-- Source files live under `models/{provider}/api/{model}.yaml` for API-key
-  routes and `models/{provider}/subscription/{model}.yaml` for subscription
-  routes. The `api` folder maps to `authType: "api_key"`.
 - `params` is the non-empty list of parameters for that exact route.
 - `path` is a snake_case dot path into stored params and outbound request params.
 - `stream` is reserved for API-level streaming capability metadata and is not a

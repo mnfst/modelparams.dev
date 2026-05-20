@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Model, authPathSegment, authTypeFromPathSegment, modelId } from "../src/schema/model.js";
+import { Model, modelId, authSuffix } from "../src/schema/model.js";
 import { buildModelJsonSchema } from "../src/schema/generate.js";
 
 const VALID_MODEL = {
@@ -266,22 +266,19 @@ describe("Model schema", () => {
   });
 });
 
-describe("modelId / auth path helpers", () => {
-  it("derives id from provider/authType/model", () => {
+describe("modelId / authSuffix", () => {
+  it("derives id from provider/model/authType (no suffix for api_key)", () => {
     expect(modelId({ provider: "anthropic", model: "claude-opus-4-7", authType: "api_key" })).toBe(
-      "anthropic/api/claude-opus-4-7",
+      "anthropic/claude-opus-4-7",
     );
     expect(modelId({ provider: "openai", model: "gpt-4o", authType: "subscription" })).toBe(
-      "openai/subscription/gpt-4o",
+      "openai/gpt-4o-subscription",
     );
   });
 
-  it("maps public auth path segments to schema auth types", () => {
-    expect(authPathSegment("api_key")).toBe("api");
-    expect(authPathSegment("subscription")).toBe("subscription");
-    expect(authTypeFromPathSegment("api")).toBe("api_key");
-    expect(authTypeFromPathSegment("subscription")).toBe("subscription");
-    expect(authTypeFromPathSegment("api_key")).toBeNull();
+  it("authSuffix returns empty for api_key, -subscription otherwise", () => {
+    expect(authSuffix("api_key")).toBe("");
+    expect(authSuffix("subscription")).toBe("-subscription");
   });
 });
 

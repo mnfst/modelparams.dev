@@ -23,8 +23,8 @@ The generated JSON Schema is available at
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The short version:
 
-1. Pick a unique ID: `<provider>/<auth>/<model>`, where `<auth>` is `api` or `subscription`. Example: `mistral/api/mistral-large`.
-2. Add a YAML file at `models/<provider>/<auth>/<model>.yaml`.
+1. Pick a unique ID: `<provider>/<model>` for the API-key variant, `<provider>/<model>-subscription` for the subscription variant. Example: `mistral/mistral-large`.
+2. Add a YAML file at `models/<provider>/<model>.yaml` (or `models/<provider>/<model>-subscription.yaml`).
 3. Open a PR. CI validates against the schema and rebuilds.
 
 ## Local development

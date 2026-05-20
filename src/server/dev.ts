@@ -88,10 +88,10 @@ function makeApp(): express.Express {
     res.json(buildModelJsonSchema());
   });
 
-  app.get("/api/v1/models/:provider/:auth/:slug.json", async (req, res, next) => {
+  app.get("/api/v1/models/:provider/:slug.json", async (req, res, next) => {
     try {
       const { models } = await getCache();
-      const wanted = `${req.params.provider}/${req.params.auth}/${req.params.slug}`;
+      const wanted = `${req.params.provider}/${req.params.slug}`;
       const model = models.find((m) => modelId(m) === wanted);
       if (!model) {
         res.status(404).json({ error: "not_found", id: wanted });

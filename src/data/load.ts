@@ -2,13 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import yaml from "js-yaml";
 import { z } from "zod";
-import {
-  Model,
-  authPathSegment,
-  authTypeFromPathSegment,
-  modelId,
-  type Model as ModelType,
-} from "../schema/model.js";
+import { Model, modelId, type Model as ModelType } from "../schema/model.js";
 import { MODELS_DIR } from "./paths.js";
 
 export interface LoadIssue {
@@ -51,12 +45,13 @@ function formatZodIssue(error: z.ZodError): string {
 function expectedIdFromPath(file: string, modelsDir: string): string {
   const rel = path.relative(modelsDir, file);
   const parts = rel.split(path.sep);
-  if (parts.length !== 3) return "";
-  const [provider, authSegment, filename] = parts;
-  const authType = authTypeFromPathSegment(authSegment!);
-  if (!provider || !authType || !filename) return "";
-  const model = filename.replace(/\.(ya?ml)$/i, "");
-  return `${provider}/${authPathSegment(authType)}/${model}`;
+  if (parts.length < 2) return "";
+  const provider = parts[0]!;
+  const filename = parts
+    .slice(1)
+    .join("/")
+    .replace(/\.(ya?ml)$/i, "");
+  return `${provider}/${filename}`;
 }
 
 function validateOne(
@@ -70,26 +65,15 @@ function validateOne(
   }
   const model = parsed.data;
   const expectedId = expectedIdFromPath(file, modelsDir);
-  if (!expectedId) {
-    return {
-      issue: {
-        file,
-        message: 'model files must live at "models/{provider}/{api|subscription}/{model}.yaml".',
-      },
-    };
-  }
   const derivedId = modelId(model);
 
-  if (derivedId !== expectedId) {
-    const expectedFilename = path.join(
-      model.provider,
-      authPathSegment(model.authType),
-      `${model.model}.yaml`,
-    );
+  if (expectedId && derivedId !== expectedId) {
+    const expectedFilename =
+      model.authType === "api_key" ? `${model.model}.yaml` : `${model.model}-subscription.yaml`;
     return {
       issue: {
         file,
-        message: `derived id "${derivedId}" does not match expected id "${expectedId}" from file path. Expected path "${expectedFilename}".`,
+        message: `derived id "${derivedId}" does not match expected id "${expectedId}" from file path. Expected filename "${expectedFilename}".`,
       },
     };
   }
