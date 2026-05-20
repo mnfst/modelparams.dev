@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: anthropic
+authType: api_key
+model: claude-haiku-4-5
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    default: 4096
+    range:
+      min: 1
+      max: 8192
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness in sampling.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Nucleus sampling cutoff.
+    default: 0.999
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    applicability:
+      except:
+        temperature:
+          not: 1
+  - path: top_k
+    type: integer
+    label: Top K
+    description: Limits sampling to the top K most likely tokens.
+    default: 0
+    range:
+      min: 0
+    group: sampling
+  - path: stop_sequences
+    type: string
+    label: Stop sequences
+    description: Up to 4 custom stop strings.
+    group: sampling
+  - path: stream
+    type: boolean
+    label: Stream
+    description: Stream tokens incrementally.
+    default: false
+    group: output_format
+  - path: system
+    type: string
+    label: System prompt
+    description: System prompt providing context and instructions to the model.
+    group: provider_metadata

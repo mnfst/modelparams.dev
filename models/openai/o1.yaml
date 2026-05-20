@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: openai
+authType: api_key
+model: o1
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max completion tokens
+    description: Upper bound on tokens for both reasoning and the visible response.
+    range:
+      min: 1
+    group: generation_length
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: How much internal reasoning the model should do before answering.
+    default: medium
+    values: [low, medium, high]
+    group: reasoning
+  - path: response_format
+    type: enum
+    label: Response format
+    description: Output format constraint. JSON modes use the structured outputs system.
+    default: text
+    values: [text, json_schema]
+    group: output_format
+  - path: service_tier
+    type: enum
+    label: Service tier
+    description: Latency/cost tier.
+    default: auto
+    values: [auto, default, flex]
+    group: provider_metadata

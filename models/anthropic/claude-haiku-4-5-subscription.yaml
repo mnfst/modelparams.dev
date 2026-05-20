@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: anthropic
+authType: subscription
+model: claude-haiku-4-5
+params:
+  - path: response_style
+    type: enum
+    label: Response style
+    description: Conversation tone preset.
+    default: normal
+    values: [normal, concise, explanatory, formal]
+    group: output_format
+  - path: artifacts
+    type: boolean
+    label: Artifacts
+    description: Open long outputs in the side panel.
+    default: true
+    group: tooling

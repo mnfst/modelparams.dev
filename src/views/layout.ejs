@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" class="<%= initialThemeClass %>">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>" />
+    <link rel="canonical" href="<%= canonicalUrl %>" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:description" content="<%= description %>" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta property="og:site_name" content="modelparameters.dev" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= description %>" />
+
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("mp-theme");
+          var prefersDark =
+            window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = stored || (prefersDark ? "dark" : "light");
+          document.documentElement.classList.toggle("dark", theme === "dark");
+        } catch (_e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased">
+    <%- include("partials/header") %>
+
+    <main class="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
+      <%- body %>
+    </main>
+
+    <%- include("partials/footer") %>
+
+    <%- include("partials/how_to_use") %>
+
+    <script type="application/ld+json">
+      <%- structuredData %>
+    </script>
+    <script type="module" src="/assets/main.js"></script>
+  </body>
+</html>

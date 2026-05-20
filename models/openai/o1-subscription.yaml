@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: openai
+authType: subscription
+model: o1
+params:
+  - path: custom_instructions
+    type: string
+    label: Custom instructions
+    description: Free-form context applied to every conversation.
+    group: provider_metadata
+  - path: memory
+    type: boolean
+    label: Memory
+    description: ChatGPT memory across conversations. Currently limited for o-series models.
+    default: false
+    group: tooling
+  - path: canvas
+    type: boolean
+    label: Canvas
+    description: Open long-form writing or code in the Canvas side panel.
+    default: false
+    group: tooling

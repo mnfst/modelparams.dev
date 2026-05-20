@@ -1,0 +1,94 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: anthropic
+authType: api_key
+model: claude-opus-4-7
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    default: 4096
+    range:
+      min: 1
+      max: 64000
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused and deterministic; higher values make outputs more varied.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.1
+    group: sampling
+    applicability:
+      except:
+        thinking.type: [adaptive, enabled]
+  - path: top_p
+    type: number
+    label: Top P
+    description: Nucleus sampling. Consider tokens whose cumulative probability reaches this value.
+    default: 0.999
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    applicability:
+      except:
+        - thinking.type: [adaptive, enabled]
+        - temperature:
+            not: 1
+  - path: top_k
+    type: integer
+    label: Top K
+    description: Limits token sampling to the top K most likely next tokens.
+    default: 0
+    range:
+      min: 0
+    group: sampling
+    applicability:
+      except:
+        thinking.type: [adaptive, enabled]
+  - path: stop_sequences
+    type: string
+    label: Stop sequences
+    description: Up to 4 custom strings that, when produced, cause the model to stop generating.
+    group: sampling
+  - path: stream
+    type: boolean
+    label: Stream
+    description: Stream the response back incrementally as Server-Sent Events.
+    default: false
+    group: output_format
+  - path: system
+    type: string
+    label: System prompt
+    description: System prompt providing context and instructions to the model.
+    group: provider_metadata
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: Controls whether extended or adaptive thinking is enabled for this model.
+    default: disabled
+    values: [disabled, adaptive, enabled]
+    group: reasoning
+  - path: thinking.budget_tokens
+    type: integer
+    label: Thinking budget tokens
+    description: Maximum token budget Anthropic may use for extended thinking before producing the final answer.
+    default: 4096
+    range:
+      min: 1024
+    group: reasoning
+    applicability:
+      only:
+        thinking.type: enabled
+  - path: service_tier
+    type: enum
+    label: Service tier
+    description: Priority tier for the request. `standard_only` avoids priority-tier billing.
+    default: auto
+    values: [auto, standard_only]
+    group: provider_metadata

@@ -1,0 +1,124 @@
+<section class="pt-10 sm:pt-14">
+  <h1
+    class="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
+  >
+    Every parameter, for every model.
+  </h1>
+  <p
+    class="mt-4 max-w-2xl text-pretty text-base text-slate-600 dark:text-slate-300 sm:text-lg"
+  >
+    An open, community-maintained catalog of LLM model parameters. Search,
+    filter, and link straight to the knobs you can turn. API-key and subscription
+    variants of the same model are listed separately, because they behave
+    differently.
+  </p>
+</section>
+
+<section class="mt-8" aria-label="Search and filters">
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+    <label class="relative flex-1">
+      <span class="sr-only">Search models</span>
+      <svg
+        class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M9 3.5a5.5 5.5 0 1 0 3.5 9.74l4.13 4.13a.75.75 0 1 0 1.06-1.06l-4.13-4.13A5.5 5.5 0 0 0 9 3.5ZM5 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"
+          clip-rule="evenodd"
+        />
+      </svg>
+      <input
+        type="search"
+        id="search"
+        data-search
+        placeholder="Search models (e.g. opus, gpt-4o, haiku)"
+        autocomplete="off"
+        class="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm shadow-sm placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-800 dark:bg-slate-900 dark:placeholder:text-slate-500"
+      />
+    </label>
+    <div class="flex flex-wrap items-center gap-2">
+      <button
+        type="button"
+        data-auth-filter="all"
+        class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+        data-active="true"
+      >
+        All
+      </button>
+      <button
+        type="button"
+        data-auth-filter="api_key"
+        class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+      >
+        API key
+      </button>
+      <button
+        type="button"
+        data-auth-filter="subscription"
+        class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+      >
+        Subscription
+      </button>
+    </div>
+  </div>
+
+  <% if (providers.length > 0) { %>
+  <div class="mt-4">
+    <p class="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+      Filter by provider
+    </p>
+    <div class="flex flex-wrap gap-2" data-provider-bar>
+      <% for (const p of providers) { %>
+      <% const logo = helpers.logoFor(p.provider); %>
+      <button
+        type="button"
+        data-provider="<%= p.provider %>"
+        class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+      >
+        <% if (logo) { %>
+        <span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- logo %></span>
+        <% } %>
+        <span><%= helpers.providerLabel(p.provider) %></span>
+        <span class="tabular-nums opacity-60"><%= p.count %></span>
+      </button>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+
+  <% if (capabilities.length > 0) { %>
+  <div class="mt-4">
+    <p class="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+      Filter by parameter
+    </p>
+    <div class="flex flex-wrap gap-2" data-capability-bar>
+      <% for (const cap of capabilities) { %>
+      <button
+        type="button"
+        data-capability="<%= cap.path %>"
+        class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+      >
+        <code class="font-mono"><%= cap.path %></code>
+        <span class="tabular-nums opacity-60"><%= cap.count %></span>
+      </button>
+      <% } %>
+    </div>
+  </div>
+  <% } %>
+</section>
+
+<section class="mt-8" aria-label="Models">
+  <div class="mb-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+    <p>
+      <span data-visible-count><%= models.length %></span> of
+      <span class="tabular-nums"><%= models.length %></span> models
+    </p>
+    <p data-empty-state class="hidden italic">No models match your filters.</p>
+  </div>
+  <div class="flex flex-col gap-2" data-model-list>
+    <% for (const model of models) { %> <%- include("partials/model_row", { model: model, helpers: helpers }) %> <% } %>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+<dialog
+  id="how-to-use"
+  class="how-to-use w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-0 text-slate-900 shadow-2xl backdrop:bg-slate-900/60 backdrop:backdrop-blur-sm dark:bg-slate-900 dark:text-slate-100"
+  aria-labelledby="how-to-use-title"
+>
+  <div class="sticky top-0 flex items-center justify-between border-b border-slate-200 bg-white/95 px-6 py-4 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95">
+    <h2 id="how-to-use-title" class="text-lg font-semibold tracking-tight">How to use</h2>
+    <button
+      type="button"
+      data-close-how-to-use
+      aria-label="Close"
+      class="-mr-2 inline-flex h-9 w-9 items-center justify-center rounded-md text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+    >
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="space-y-6 px-6 py-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+    <section class="space-y-3">
+      <p>
+        <a href="/" class="font-medium text-accent hover:text-accent-hover">modelparameters.dev</a>
+        is an open, community-maintained catalog of LLM model parameters. Each entry shows the
+        knobs you can turn — type, default, range, and the conditions that gate it.
+      </p>
+      <p>
+        The same model accessed via an <strong>API key</strong> and via a
+        <strong>subscription</strong> usually exposes a different set of parameters. We list both
+        as separate entries so the data stays honest.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Catalog API</h3>
+      <p>The full catalog is static JSON, CORS-enabled, served from the edge.</p>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models.json">https://modelparameters.dev/api/v1/models.json</a></code></pre>
+      <p>
+        Each entry is keyed by <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">provider/model</code> for API-key variants; subscription variants append <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">-subscription</code>.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Single model</h3>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7.json">https://modelparameters.dev/api/v1/models/anthropic/claude-opus-4-7.json</a>
+curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7-subscription.json">https://modelparameters.dev/api/v1/models/anthropic/claude-opus-4-7-subscription.json</a></code></pre>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">JSON Schema</h3>
+      <p>
+        Every entry validates against a JSON Schema you can use in your editor or pipeline.
+      </p>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/schema.json">https://modelparameters.dev/api/v1/schema.json</a></code></pre>
+      <p>
+        Add this header to any YAML you author for autocomplete in VS Code:
+      </p>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code># yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json</code></pre>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Logos</h3>
+      <p>
+        Provider logos are available at <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">/assets/logos/{provider}.svg</code>
+        where <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">{provider}</code> is the provider slug. They use <code class="font-mono">currentColor</code> so they inherit your text color.
+      </p>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/assets/logos/anthropic.svg">https://modelparameters.dev/assets/logos/anthropic.svg</a></code></pre>
+      <p class="text-xs text-slate-500 dark:text-slate-400">
+        Logos are sourced from the <a class="underline" href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener">models.dev</a> repo (MIT) and used under nominative fair use.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Contribute</h3>
+      <p>
+        The data lives in YAML under <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">models/{provider}/{model}-{auth}.yaml</code>
+        in the <a class="text-accent underline hover:text-accent-hover" href="https://github.com/mnfst/modelparameters.dev" target="_blank" rel="noopener">GitHub repo</a>.
+        Open a PR; CI validates against the schema and rebuilds.
+      </p>
+    </section>
+  </div>
+
+  <div class="sticky bottom-0 flex items-center justify-between gap-4 border-t border-slate-200 bg-white/95 px-6 py-3 text-xs text-slate-500 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95 dark:text-slate-400">
+    <a class="hover:text-slate-900 dark:hover:text-white" href="https://github.com/mnfst/modelparameters.dev" target="_blank" rel="noopener">Edit on GitHub</a>
+    <span>MIT licensed</span>
+  </div>
+</dialog>

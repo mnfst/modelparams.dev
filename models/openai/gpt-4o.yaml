@@ -1,0 +1,103 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: openai
+authType: api_key
+model: gpt-4o
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max completion tokens
+    description: Upper bound on the number of tokens that can be generated for the completion.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Sampling temperature. Higher values produce more random output.
+    default: 1
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Nucleus sampling. Consider tokens whose probability mass sums to top_p.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    applicability:
+      except:
+        temperature:
+          not: 1
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Positive values push the model to talk about new topics.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Positive values penalize tokens based on their existing frequency in the text.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: stop
+    type: string
+    label: Stop sequences
+    description: Up to 4 sequences where the model will stop generating.
+    group: sampling
+  - path: stream
+    type: boolean
+    label: Stream
+    description: Stream partial deltas as Server-Sent Events.
+    default: false
+    group: output_format
+  - path: seed
+    type: integer
+    label: Seed
+    description: When set, the system attempts deterministic sampling. Same seed + params should give similar output.
+    group: sampling
+  - path: response_format
+    type: enum
+    label: Response format
+    description: Constrains the output format.
+    default: text
+    values: [text, json_object, json_schema]
+    group: output_format
+  - path: logprobs
+    type: boolean
+    label: Log probabilities
+    description: Return log probabilities of output tokens.
+    default: false
+    group: observability
+  - path: top_logprobs
+    type: integer
+    label: Top logprobs
+    description: Number of most likely tokens to return logprobs for at each position.
+    range:
+      min: 0
+      max: 20
+    group: observability
+    applicability:
+      only:
+        logprobs: true
+  - path: service_tier
+    type: enum
+    label: Service tier
+    description: Latency/cost tier. `flex` is cheaper with best-effort latency.
+    default: auto
+    values: [auto, default, flex]
+    group: provider_metadata

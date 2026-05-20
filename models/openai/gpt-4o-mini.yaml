@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: openai
+authType: api_key
+model: gpt-4o-mini
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max completion tokens
+    description: Upper bound on generated tokens.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Sampling temperature.
+    default: 1
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Nucleus sampling cutoff.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    applicability:
+      except:
+        temperature:
+          not: 1
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Penalize tokens based on whether they have appeared in the text so far.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalize tokens based on their existing frequency.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: stop
+    type: string
+    label: Stop sequences
+    description: Up to 4 stop sequences.
+    group: sampling
+  - path: stream
+    type: boolean
+    label: Stream
+    description: Stream tokens as they are produced.
+    default: false
+    group: output_format
+  - path: seed
+    type: integer
+    label: Seed
+    description: Attempt deterministic sampling.
+    group: sampling
+  - path: response_format
+    type: enum
+    label: Response format
+    description: Constrain output format.
+    default: text
+    values: [text, json_object, json_schema]
+    group: output_format
