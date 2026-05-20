@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+provider: deepseek
+authType: api_key
+model: deepseek-v4-flash
+params:
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: Controls whether DeepSeek uses thinking mode before producing the final answer.
+    default: enabled
+    values:
+      - enabled
+      - disabled
+    group: reasoning
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Controls DeepSeek thinking effort when thinking mode is enabled.
+    default: high
+    values:
+      - high
+      - max
+    group: reasoning
+    applicability:
+      only:
+        thinking.type: enabled
