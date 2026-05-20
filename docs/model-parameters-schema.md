@@ -44,10 +44,14 @@ parameters.
 Conventions:
 
 - `provider`, `authType`, and `model` identify exactly one model route.
-- `provider` and `model` are kebab-case slugs.
+- `provider` is a kebab-case slug.
+- `model` is the provider-native model id without path separators. It may
+  contain dots or colons when the upstream model id does.
 - `authType` is `api_key` or `subscription`.
 - `params` is the non-empty list of parameters for that exact route.
 - `path` is a snake_case dot path into stored params and outbound request params.
+- `stream` is reserved for API-level streaming capability metadata and is not a
+  valid MPS parameter path.
 - `type` is the semantic data type, not a UI control kind.
 - `label` is user-facing copy.
 - `description` explains the raw provider parameter.

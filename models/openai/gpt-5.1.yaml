@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
 provider: openai
 authType: api_key
-model: gpt-4o-mini
+model: gpt-5.1
 params:
   - path: max_tokens
     type: integer
@@ -35,3 +35,14 @@ params:
       max: 1
       step: 0.01
     group: sampling
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Controls how much reasoning the model should perform before producing an answer.
+    default: none
+    values:
+      - none
+      - low
+      - medium
+      - high
+    group: reasoning

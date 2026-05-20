@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
-model: claude-sonnet-4-6
+model: claude-3-7-sonnet-20250219
 params:
   - path: max_tokens
     type: integer
@@ -67,7 +67,6 @@ params:
     default: disabled
     values:
       - disabled
-      - adaptive
       - enabled
     group: reasoning
   - path: thinking.budget_tokens

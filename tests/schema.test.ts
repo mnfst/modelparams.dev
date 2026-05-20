@@ -17,12 +17,12 @@ const VALID_MODEL = {
       group: "sampling",
     },
     {
-      path: "stream",
+      path: "logprobs",
       type: "boolean",
-      label: "Stream",
-      description: "Stream tokens.",
+      label: "Log probabilities",
+      description: "Return log probabilities of output tokens.",
       default: false,
-      group: "output_format",
+      group: "observability",
     },
   ],
 };
@@ -35,6 +35,25 @@ describe("Model schema", () => {
 
   it("rejects unknown authType", () => {
     const result = Model.safeParse({ ...VALID_MODEL, authType: "free" });
+    expect(result.success).toBe(false);
+  });
+
+  it("accepts provider-native model ids with dots", () => {
+    const result = Model.safeParse({ ...VALID_MODEL, provider: "openai", model: "gpt-4.1" });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects path separators in model ids", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      provider: "deepseek",
+      model: "deepseek/deepseek-chat",
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects unknown top-level fields", () => {
+    const result = Model.safeParse({ ...VALID_MODEL, metadata: { source: "docs" } });
     expect(result.success).toBe(false);
   });
 
@@ -90,6 +109,40 @@ describe("Model schema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("rejects API-level capabilities as params", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      params: [
+        {
+          path: "stream",
+          type: "boolean",
+          label: "Stream",
+          description: "Streaming is configured at request/API level.",
+          default: false,
+          group: "output_format",
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects unknown parameter fields", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      params: [
+        {
+          path: "temperature",
+          type: "number",
+          label: "Temperature",
+          description: "x",
+          group: "sampling",
+          ui: { control: "slider" },
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
   it("accepts dot-notation param paths", () => {
     const result = Model.safeParse({
       ...VALID_MODEL,
@@ -125,6 +178,74 @@ describe("Model schema", () => {
       ],
     });
     expect(result.success).toBe(true);
+  });
+
+  it("rejects unknown applicability operators", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      params: [
+        {
+          path: "top_p",
+          type: "number",
+          label: "Top P",
+          description: "x",
+          group: "sampling",
+          applicability: { except: [{ temperature: { gte: 1 } }] },
+        },
+      ],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it("rejects empty applicability arrays and match objects", () => {
+    const emptyArray = Model.safeParse({
+      ...VALID_MODEL,
+      params: [
+        {
+          path: "top_p",
+          type: "number",
+          label: "Top P",
+          description: "x",
+          group: "sampling",
+          applicability: { except: [] },
+        },
+      ],
+    });
+    const emptyMatch = Model.safeParse({
+      ...VALID_MODEL,
+      params: [
+        {
+          path: "top_p",
+          type: "number",
+          label: "Top P",
+          description: "x",
+          group: "sampling",
+          applicability: { except: {} },
+        },
+      ],
+    });
+
+    expect(emptyArray.success).toBe(false);
+    expect(emptyMatch.success).toBe(false);
+  });
+
+  it("rejects enum defaults outside values", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      params: [
+        {
+          path: "reasoning_effort",
+          type: "enum",
+          label: "Reasoning effort",
+          description: "x",
+          default: "ultra",
+          values: ["low", "medium", "high"],
+          group: "reasoning",
+        },
+      ],
+    });
+
+    expect(result.success).toBe(false);
   });
 
   it("rejects range where max < min", () => {
