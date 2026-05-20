@@ -1,0 +1,23 @@
+models/deepseek/deepseek-v3.2.yaml
+  s_d55d26a37e6be3::t_18bdd51e0223ca 1-14
+models/deepseek/deepseek-v3.1.yaml
+  s_d55d26a37e6be3::t_bc57bba7cbbca9 1-14
+models/deepseek/deepseek-v4.yaml
+  s_d55d26a37e6be3::t_98bef5ce8b8f99 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "0826866630738fab2a152481a3f77ede39661e86",
+  "prompts": {},
+  "sessions": {
+    "s_d55d26a37e6be3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e3cc4-24e3-74b0-a24b-ea4a41761278",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
