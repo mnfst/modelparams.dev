@@ -1,6 +1,6 @@
 node_modules/
-dist/
-build/
+/dist/
+/build/
 .cache/
 *.log
 .DS_Store
