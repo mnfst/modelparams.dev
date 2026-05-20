@@ -15,6 +15,10 @@ You can access this data through an API.
 curl https://modelparameters.dev/api/v1/models.json
 ```
 
+The catalog follows the [Model Parameters convention](docs/model-parameters-schema.md).
+The generated JSON Schema is available at
+`https://modelparameters.dev/api/v1/schema.json`.
+
 ## Adding a model or a parameter
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). The short version:
