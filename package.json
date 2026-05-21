@@ -1,5 +1,5 @@
 {
-  "name": "modelparameters.dev",
+  "name": "modelparams.dev",
   "version": "0.1.0",
   "description": "An open catalog of LLM model parameters. The community-maintained source of truth for every knob you can turn.",
   "type": "module",
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/mnfst/modelparameters.dev.git"
   },
-  "homepage": "https://modelparameters.dev",
+  "homepage": "https://modelparams.dev",
   "bugs": {
     "url": "https://github.com/mnfst/modelparameters.dev/issues"
   },

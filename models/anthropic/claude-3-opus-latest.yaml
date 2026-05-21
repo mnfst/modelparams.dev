@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
 model: claude-3-opus-latest

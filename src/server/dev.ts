@@ -97,7 +97,7 @@ function makeApp(): express.Express {
         res.status(404).json({ error: "not_found", id: wanted });
         return;
       }
-      res.json({ $schema: "https://modelparameters.dev/api/v1/schema.json", ...model });
+      res.json({ $schema: "https://modelparams.dev/api/v1/schema.json", ...model });
     } catch (err) {
       next(err);
     }
@@ -117,7 +117,7 @@ async function main(): Promise<void> {
   watch();
   const app = makeApp();
   app.listen(PORT, () => {
-    console.log(`[dev] modelparameters.dev → http://localhost:${PORT}`);
+    console.log(`[dev] modelparams.dev → http://localhost:${PORT}`);
   });
 }
 

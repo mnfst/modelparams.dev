@@ -18,7 +18,7 @@ import { logoFor } from "../data/logos.js";
 import { VIEWS_DIR } from "../data/paths.js";
 import { modelId, type Catalog, type Model } from "../schema/model.js";
 
-const SITE_URL = process.env.SITE_URL ?? "https://modelparameters.dev";
+const SITE_URL = process.env.SITE_URL ?? "https://modelparams.dev";
 const SITE_DESCRIPTION =
   "An open, community-maintained catalog of LLM model parameters. Search and filter every knob you can turn — API-key and subscription variants tracked separately.";
 
@@ -33,7 +33,7 @@ function buildStructuredData(models: Model[]): string {
   const data = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "modelparameters.dev catalog",
+    name: "modelparams.dev catalog",
     description: SITE_DESCRIPTION,
     numberOfItems: models.length,
     itemListElement: models.slice(0, 50).map((m, i) => ({
@@ -75,7 +75,7 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
   });
 
   const html = await ejs.renderFile(layoutPath, {
-    title: "modelparameters.dev — Open catalog of LLM model parameters",
+    title: "modelparams.dev — Open catalog of LLM model parameters",
     description: SITE_DESCRIPTION,
     canonicalUrl: SITE_URL,
     initialThemeClass: opts.initialThemeClass ?? "",

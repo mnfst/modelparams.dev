@@ -17,7 +17,7 @@ import { buildModelJsonSchema } from "../schema/generate.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
 import { renderIndex } from "./render.js";
 
-const SITE_URL = process.env.SITE_URL ?? "https://modelparameters.dev";
+const SITE_URL = process.env.SITE_URL ?? "https://modelparams.dev";
 
 async function cleanDist(): Promise<void> {
   await fs.rm(DIST_DIR, { recursive: true, force: true });
@@ -46,7 +46,7 @@ async function writeRobotsAndSitemap(): Promise<void> {
 
 async function writeApiIndex(modelCount: number): Promise<void> {
   const body = {
-    name: "modelparameters.dev API",
+    name: "modelparams.dev API",
     version: "v1",
     endpoints: {
       catalog: "/api/v1/models.json",
@@ -91,7 +91,7 @@ export async function build(): Promise<{ models: number }> {
     const [provider, slug] = modelId(model).split("/");
     if (!provider || !slug) continue;
     await writeJson(path.join(DIST_API_DIR, "models", provider, `${slug}.json`), {
-      $schema: "https://modelparameters.dev/api/v1/schema.json",
+      $schema: "https://modelparams.dev/api/v1/schema.json",
       ...model,
     });
   }
