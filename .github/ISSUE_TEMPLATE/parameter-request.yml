@@ -1,0 +1,83 @@
+name: Request model parameters
+description: Request a new or updated provider/model parameter entry.
+title: "[Catalog]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request parameter coverage for a model in modelparameters.dev.
+
+        This catalog covers configurable request parameters such as `temperature`, `top_p`, `max_tokens`, `reasoning_effort`, and `thinking.type`. It does not track pricing, streaming support, auth setup, endpoints, fallback behavior, or proxy behavior.
+
+  - type: input
+    id: provider
+    attributes:
+      label: Provider
+      description: Use the provider slug when you know it.
+      placeholder: openai, anthropic, google, mistral
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      description: Use the provider-native model id.
+      placeholder: gpt-5, claude-sonnet-4-5, gemini-2.5-pro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: auth-type
+    attributes:
+      label: Auth type
+      description: Pick the route this request applies to.
+      options:
+        - API key
+        - Subscription
+        - Both
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: docs
+    attributes:
+      label: Official documentation
+      description: Link to the provider docs that define these parameters. Official references are preferred over blog posts or screenshots.
+      placeholder: |
+        https://docs.example.com/api-reference/chat/create
+    validations:
+      required: true
+
+  - type: textarea
+    id: parameters
+    attributes:
+      label: Parameters to add or update
+      description: List the parameters you want added. Include path, type, default, allowed values, numeric range, and applicability rules if you know them.
+      placeholder: |
+        - `temperature`: number, default 1, range 0-2, sampling
+        - `max_tokens`: integer, range min 1, generation_length
+        - `reasoning_effort`: enum, values `low`, `medium`, `high`, reasoning
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Add anything maintainers should know, such as model-specific restrictions or parameters that are accepted by one auth type but not the other.
+      placeholder: This parameter is only available when extended thinking is disabled.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      description: Please confirm this request fits the MPS catalog scope.
+      options:
+        - label: This request is about configurable model request parameters, not pricing, rate limits, endpoints, auth setup, streaming support, or proxy behavior.
+          required: true
+        - label: I linked the closest official provider documentation I could find.
+          required: true
