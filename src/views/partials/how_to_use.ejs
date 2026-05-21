@@ -5,19 +5,48 @@
 >
   <div class="sticky top-0 flex items-center justify-between border-b border-slate-200 bg-white/95 px-6 py-4 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95">
     <h2 id="how-to-use-title" class="text-lg font-semibold tracking-tight">How to use</h2>
-    <button
-      type="button"
-      data-close-how-to-use
-      aria-label="Close"
-      class="-mr-2 inline-flex h-9 w-9 items-center justify-center rounded-md text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
-    >
-      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
-      </svg>
-    </button>
+    <div class="-mr-2 flex items-center gap-1">
+      <button
+        type="button"
+        data-copy-how-to-use
+        aria-label="Copy this guide as Markdown"
+        class="inline-flex items-center gap-1.5 rounded-md border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+      >
+        <svg data-copy-idle viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="9" y="9" width="11" height="11" rx="2" />
+          <path d="M5 15V5a2 2 0 0 1 2-2h10" />
+        </svg>
+        <svg data-copy-done viewBox="0 0 24 24" class="hidden h-4 w-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m20 6-11 11-5-5" />
+        </svg>
+        <span data-copy-label aria-live="polite">Copy</span>
+      </button>
+      <button
+        type="button"
+        data-close-how-to-use
+        aria-label="Close"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
+      >
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div class="space-y-6 px-6 py-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+    <div class="flex items-start gap-3 rounded-xl border border-accent/20 bg-accent/5 px-4 py-3 dark:border-accent/30 dark:bg-accent/10">
+      <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.95-6.95-1.41 1.41M8.46 15.54l-1.41 1.41m11.31 0-1.41-1.41M8.46 8.46 7.05 7.05" />
+        <circle cx="12" cy="12" r="3.5" />
+      </svg>
+      <p class="text-xs text-slate-600 dark:text-slate-300">
+        Building with an AI agent? Hit <span class="font-semibold text-slate-900 dark:text-white">Copy</span>
+        to grab this whole guide as Markdown and paste it in — or point your agent straight at
+        <a href="/llms.txt" class="font-medium text-accent underline decoration-dotted underline-offset-2 hover:text-accent-hover">/llms.txt</a>.
+      </p>
+    </div>
+
     <section class="space-y-3">
       <p>
         <a href="/" class="font-medium text-accent hover:text-accent-hover">modelparameters.dev</a>
@@ -84,4 +113,6 @@ curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent"
     <a class="hover:text-slate-900 dark:hover:text-white" href="https://github.com/mnfst/modelparameters.dev" target="_blank" rel="noopener">Edit on GitHub</a>
     <span>MIT licensed</span>
   </div>
+
+  <script type="text/markdown" id="how-to-use-md"><%- usageGuide %></script>
 </dialog>

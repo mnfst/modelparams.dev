@@ -2,6 +2,7 @@ import path from "node:path";
 import chokidar from "chokidar";
 import express from "express";
 import { buildCapabilityFacets, buildCatalog, buildProviderFacets } from "../data/catalog.js";
+import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
 import { loadAllModels } from "../data/load.js";
 import { CLIENT_DIR, DIST_ASSETS_DIR, MODELS_DIR, VIEWS_DIR } from "../data/paths.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
@@ -10,6 +11,7 @@ import { renderIndex } from "../build/render.js";
 import { modelId, type Model } from "../schema/model.js";
 
 const PORT = Number(process.env.PORT ?? 3000);
+const SITE_URL = process.env.SITE_URL ?? "https://modelparameters.dev";
 
 interface CacheEntry {
   models: Model[];
@@ -33,18 +35,32 @@ async function getCache(): Promise<CacheEntry> {
   return cache ?? (await refresh());
 }
 
+// Ignore dotfiles by basename only. The previous regex (/(^|[\\/])\../) tested the
+// full absolute path, so a dot-segment in an ancestor dir — e.g. a checkout under
+// ~/.paseo/... — matched and silently disabled the entire watch.
+const ignoreDotfiles = (target: string): boolean => path.basename(target).startsWith(".");
+
+// Poll by default so the watch is reliable on container, overlay, and network
+// mounts where native FS events don't propagate; set CHOKIDAR_USEPOLLING=false to
+// use native events on a normal local disk. awaitWriteFinish avoids half-written reads.
+const WATCH_OPTIONS = {
+  ignoreInitial: true,
+  ignored: ignoreDotfiles,
+  usePolling: process.env.CHOKIDAR_USEPOLLING !== "false",
+  interval: 300,
+  binaryInterval: 600,
+  awaitWriteFinish: { stabilityThreshold: 200, pollInterval: 50 },
+};
+
 function watch(): void {
-  const watcher = chokidar.watch([MODELS_DIR, VIEWS_DIR], {
-    ignoreInitial: true,
-    ignored: /(^|[\\/])\../,
-  });
+  const watcher = chokidar.watch([MODELS_DIR, VIEWS_DIR], WATCH_OPTIONS);
   watcher.on("all", async (event, file) => {
     console.log(`[dev] ${event} ${path.relative(process.cwd(), file)} — refreshing`);
     cache = null;
     await refresh();
   });
 
-  const clientWatcher = chokidar.watch(CLIENT_DIR, { ignoreInitial: true });
+  const clientWatcher = chokidar.watch(CLIENT_DIR, WATCH_OPTIONS);
   clientWatcher.on("all", async () => {
     console.log("[dev] client changed — rebundling");
     await rebuildClientAssets();
@@ -86,6 +102,24 @@ function makeApp(): express.Express {
 
   app.get("/api/v1/schema.json", (_req, res) => {
     res.json(buildModelJsonSchema());
+  });
+
+  app.get("/llms.txt", async (_req, res, next) => {
+    try {
+      const { models } = await getCache();
+      res.type("text/plain; charset=utf-8").send(buildLlmsTxt(SITE_URL, models));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/llms-full.txt", async (_req, res, next) => {
+    try {
+      const { models } = await getCache();
+      res.type("text/plain; charset=utf-8").send(buildLlmsFullTxt(SITE_URL, models));
+    } catch (err) {
+      next(err);
+    }
   });
 
   app.get("/api/v1/models/:provider/:slug.json", async (req, res, next) => {

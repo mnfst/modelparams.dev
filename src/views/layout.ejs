@@ -6,6 +6,7 @@
     <title><%= title %></title>
     <meta name="description" content="<%= description %>" />
     <link rel="canonical" href="<%= canonicalUrl %>" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM-friendly site overview" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<%= title %>" />
@@ -39,7 +40,7 @@
 
     <%- include("partials/footer") %>
 
-    <%- include("partials/how_to_use") %>
+    <%- include("partials/how_to_use", { usageGuide: usageGuide }) %>
 
     <script type="application/ld+json">
       <%- structuredData %>

@@ -1,3 +1,5 @@
+import { setupWebMCP } from "./webmcp.js";
+
 type AuthFilter = "all" | "api_key" | "subscription";
 
 interface FilterState {
@@ -40,6 +42,57 @@ function setupHowToUseModal(): void {
   });
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) close();
+  });
+}
+
+async function copyText(text: string): Promise<boolean> {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    /* fall through to the execCommand path below */
+  }
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } catch {
+    copied = false;
+  }
+  document.body.removeChild(textarea);
+  return copied;
+}
+
+function setupCopyHowToUse(): void {
+  const button = document.querySelector<HTMLButtonElement>("[data-copy-how-to-use]");
+  const source = document.getElementById("how-to-use-md");
+  if (!button || !source) return;
+
+  const label = button.querySelector<HTMLElement>("[data-copy-label]");
+  const idleIcon = button.querySelector<HTMLElement>("[data-copy-idle]");
+  const doneIcon = button.querySelector<HTMLElement>("[data-copy-done]");
+  const idleText = label?.textContent ?? "Copy";
+  let resetTimer = 0;
+
+  button.addEventListener("click", async () => {
+    const copied = await copyText((source.textContent ?? "").trim());
+    if (label) label.textContent = copied ? "Copied" : "Press ⌘C";
+    idleIcon?.classList.toggle("hidden", copied);
+    doneIcon?.classList.toggle("hidden", !copied);
+    window.clearTimeout(resetTimer);
+    resetTimer = window.setTimeout(() => {
+      if (label) label.textContent = idleText;
+      idleIcon?.classList.remove("hidden");
+      doneIcon?.classList.add("hidden");
+    }, 2000);
   });
 }
 
@@ -100,6 +153,14 @@ function setupSearch(): void {
     state.query = input.value.trim().toLowerCase();
     applyFilters();
   });
+
+  // Deep link: /?q=opus pre-fills the search (backs the schema.org SearchAction).
+  const initial = new URLSearchParams(window.location.search).get("q");
+  if (initial) {
+    input.value = initial;
+    state.query = initial.trim().toLowerCase();
+    applyFilters();
+  }
 }
 
 function setupAuthFilters(): void {
@@ -136,8 +197,10 @@ function setupToggleChips(selector: string, datasetKey: string, bucket: Set<stri
 document.addEventListener("DOMContentLoaded", () => {
   setupThemeToggle();
   setupHowToUseModal();
+  setupCopyHowToUse();
   setupSearch();
   setupAuthFilters();
   setupToggleChips("[data-provider]", "provider", state.providers);
   setupToggleChips("[data-capability]", "capability", state.capabilities);
+  setupWebMCP();
 });

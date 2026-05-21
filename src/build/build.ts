@@ -6,13 +6,14 @@ import {
   buildProviderFacets,
 } from "../data/catalog.js";
 import { loadAllModels } from "../data/load.js";
+import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
 import {
   DIST_API_DIR,
   DIST_ASSETS_DIR,
   DIST_DIR,
   MODELS_DIR,
 } from "../data/paths.js";
-import { modelId } from "../schema/model.js";
+import { modelId, type Model } from "../schema/model.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
 import { renderIndex } from "./render.js";
@@ -30,15 +31,36 @@ async function writeJson(file: string, payload: unknown): Promise<void> {
   await fs.writeFile(file, JSON.stringify(payload, null, 2) + "\n", "utf8");
 }
 
+async function writeLlmsFiles(models: Model[]): Promise<void> {
+  await fs.writeFile(path.join(DIST_DIR, "llms.txt"), buildLlmsTxt(SITE_URL, models), "utf8");
+  await fs.writeFile(
+    path.join(DIST_DIR, "llms-full.txt"),
+    buildLlmsFullTxt(SITE_URL, models),
+    "utf8",
+  );
+}
+
 async function writeRobotsAndSitemap(): Promise<void> {
-  const robots = `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+  const robots = `# AI agents welcome. Machine-readable overview: ${SITE_URL}/llms.txt\nUser-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`;
   await fs.writeFile(path.join(DIST_DIR, "robots.txt"), robots, "utf8");
 
   const today = new Date().toISOString().slice(0, 10);
+  const urls = [
+    { loc: `${SITE_URL}/`, priority: "1.0" },
+    { loc: `${SITE_URL}/llms.txt`, priority: "0.8" },
+    { loc: `${SITE_URL}/llms-full.txt`, priority: "0.7" },
+    { loc: `${SITE_URL}/api/v1/models.json`, priority: "0.5" },
+    { loc: `${SITE_URL}/api/v1/schema.json`, priority: "0.5" },
+  ];
+  const body = urls
+    .map(
+      ({ loc, priority }) =>
+        `  <url><loc>${loc}</loc><lastmod>${today}</lastmod><priority>${priority}</priority></url>`,
+    )
+    .join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>${SITE_URL}/</loc><lastmod>${today}</lastmod><priority>1.0</priority></url>
-  <url><loc>${SITE_URL}/api/v1/models.json</loc><lastmod>${today}</lastmod><priority>0.5</priority></url>
+${body}
 </urlset>
 `;
   await fs.writeFile(path.join(DIST_DIR, "sitemap.xml"), sitemap, "utf8");
@@ -99,6 +121,7 @@ export async function build(): Promise<{ models: number }> {
   console.log("Bundling client + styles...");
   await Promise.all([bundleClientScript(), compileStyles(), copyStaticAssets()]);
 
+  await writeLlmsFiles(models);
   await writeRobotsAndSitemap();
 
   const elapsed = ((Date.now() - startedAt) / 1000).toFixed(2);
