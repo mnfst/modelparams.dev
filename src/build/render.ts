@@ -28,6 +28,8 @@ export interface RenderOptions {
   capabilities: CapabilityFacet[];
   providers: ProviderFacet[];
   initialThemeClass?: string;
+  /** Inject the Vercel Web Analytics snippet. Enabled for production builds; off in dev. */
+  analytics?: boolean;
 }
 
 function buildStructuredData(models: Model[]): string {
@@ -111,6 +113,7 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
     initialThemeClass: opts.initialThemeClass ?? "",
     structuredData: buildStructuredData(opts.catalog.models),
     usageGuide: usageGuideMarkdown(SITE_URL),
+    analytics: opts.analytics ?? false,
     body,
   });
 
