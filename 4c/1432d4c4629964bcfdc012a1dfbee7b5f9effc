@@ -1,0 +1,33 @@
+models/anthropic/claude-sonnet-4-20250514.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+models/openai/gpt-5-chat-latest.yaml
+  s_d55d26a37e6be3::t_153bbbb9adac14 6,12
+.gitignore
+  s_d55d26a37e6be3::t_3ecf4bb26d475e 8
+models/anthropic/claude-opus-4-5-20251101.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+src/smoke/provider-params.ts
+  s_d55d26a37e6be3::t_3ecf4bb26d475e 42,83-89,95-101,139,156,351-353,364-368,382-386,573-575
+  s_d55d26a37e6be3::t_d78aa7d30483ed 1-41,43-82,90-94,102-138,140-155,157-350,354-363,369-381,387-431,458-572,576-636
+  s_d55d26a37e6be3::t_26327b1eecd122 432-457
+models/anthropic/claude-opus-4-1-20250805.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+models/anthropic/claude-opus-4-20250514.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "4c1432d4c4629964bcfdc012a1dfbee7b5f9effc",
+  "prompts": {},
+  "sessions": {
+    "s_d55d26a37e6be3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e3cc4-24e3-74b0-a24b-ea4a41761278",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
