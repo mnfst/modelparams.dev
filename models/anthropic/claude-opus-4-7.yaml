@@ -18,4 +18,30 @@ params:
     default: disabled
     values:
       - disabled
+      - adaptive
+    group: reasoning
+  - path: thinking.display
+    type: enum
+    label: Thinking display
+    description: Controls whether Anthropic returns summarized or omitted thinking content.
+    default: omitted
+    values:
+      - summarized
+      - omitted
+    group: reasoning
+    applicability:
+      only:
+        thinking.type:
+          - adaptive
+  - path: output_config.effort
+    type: enum
+    label: Effort
+    description: Controls Anthropic response thoroughness and token spend.
+    default: high
+    values:
+      - low
+      - medium
+      - high
+      - xhigh
+      - max
     group: reasoning

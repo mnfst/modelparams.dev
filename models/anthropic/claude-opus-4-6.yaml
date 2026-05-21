@@ -27,6 +27,7 @@ params:
       except:
         - thinking.type:
             - enabled
+            - adaptive
         - top_p:
             not: null
   - path: top_p
@@ -45,6 +46,7 @@ params:
       except:
         - thinking.type:
             - enabled
+            - adaptive
         - temperature:
             not: null
   - path: top_k
@@ -59,6 +61,7 @@ params:
       except:
         thinking.type:
           - enabled
+          - adaptive
   - path: thinking.type
     type: enum
     label: Thinking mode
@@ -66,6 +69,7 @@ params:
     default: disabled
     values:
       - disabled
+      - adaptive
       - enabled
     group: reasoning
   - path: thinking.budget_tokens
@@ -81,3 +85,28 @@ params:
     applicability:
       only:
         thinking.type: enabled
+  - path: thinking.display
+    type: enum
+    label: Thinking display
+    description: Controls whether Anthropic returns summarized or omitted thinking content.
+    default: summarized
+    values:
+      - summarized
+      - omitted
+    group: reasoning
+    applicability:
+      only:
+        thinking.type:
+          - adaptive
+          - enabled
+  - path: output_config.effort
+    type: enum
+    label: Effort
+    description: Controls Anthropic response thoroughness and token spend.
+    default: high
+    values:
+      - low
+      - medium
+      - high
+      - max
+    group: reasoning

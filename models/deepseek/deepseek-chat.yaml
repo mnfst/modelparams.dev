@@ -3,12 +3,52 @@ provider: deepseek
 authType: api_key
 model: deepseek-chat
 params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    default: 4096
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: >-
+      Controls randomness. In DeepSeek thinking mode this parameter is accepted for compatibility
+      but has no effect.
+    default: 1
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+    applicability:
+      except:
+        thinking.type:
+          - enabled
+  - path: top_p
+    type: number
+    label: Top P
+    description: >-
+      Controls nucleus sampling. In DeepSeek thinking mode this parameter is accepted for
+      compatibility but has no effect.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    applicability:
+      except:
+        thinking.type:
+          - enabled
   - path: thinking.type
     type: enum
     label: Thinking mode
-    description: Controls whether DeepSeek thinking mode is enabled for this model.
-    default: enabled
+    description: Controls whether DeepSeek uses thinking mode before producing the final answer.
+    default: disabled
     values:
-      - enabled
       - disabled
+      - enabled
     group: reasoning
