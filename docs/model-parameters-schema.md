@@ -5,9 +5,10 @@ modelparams.dev to describe the request parameters available for a specific
 provider, auth type, and model.
 
 This catalog is metadata. It describes knobs a consumer can put into an outbound
-model request, such as `temperature`, `top_p`, `max_tokens`, or
-`thinking.type`. It does not describe API transport capabilities, proxy behavior,
-authentication flows, endpoint compatibility, pricing, or UI control types.
+model request, such as `temperature`, `top_p`, `max_tokens`,
+`thinking.type`, or `generationConfig.topK`. It does not describe API transport
+capabilities, proxy behavior, authentication flows, endpoint compatibility,
+pricing, or UI control types.
 
 The public runtime sources are:
 
@@ -49,7 +50,9 @@ Conventions:
   contain dots or colons when the upstream model id does.
 - `authType` is `api_key` or `subscription`.
 - `params` is the non-empty list of parameters for that exact route.
-- `path` is a snake_case dot path into stored params and outbound request params.
+- `path` is the exact provider API request parameter path in dot notation. Use
+  the provider's documented field casing, such as `top_p`,
+  `thinking.budget_tokens`, or `generationConfig.topK`.
 - `stream` is reserved for API-level streaming capability metadata and is not a
   valid MPS parameter path.
 - `type` is the semantic data type, not a UI control kind.
@@ -115,7 +118,7 @@ This means: disable the parameter when `thinking.type` is `adaptive` or
 
 ## Match Values
 
-Each match key is a snake_case dot path. Each match value uses one of:
+Each match key is a provider API request parameter path. Each match value uses one of:
 
 - JSON primitive: string, number, boolean, or null
 - non-empty array of JSON primitives

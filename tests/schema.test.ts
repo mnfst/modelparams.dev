@@ -99,6 +99,25 @@ describe("Model schema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("accepts provider API paths with native casing", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      provider: "google",
+      model: "gemini-3.5-flash",
+      params: [
+        {
+          path: "generationConfig.thinkingConfig.thinkingLevel",
+          type: "enum",
+          label: "Thinking level",
+          description: "x",
+          values: ["low", "medium", "high"],
+          group: "reasoning",
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
+
   it("rejects bad param path", () => {
     const result = Model.safeParse({
       ...VALID_MODEL,
@@ -173,6 +192,27 @@ describe("Model schema", () => {
           applicability: {
             only: { "thinking.type": "enabled" },
             except: [{ temperature: { not: 1 } }],
+          },
+        },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("accepts provider API paths in applicability rules", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      provider: "google",
+      model: "gemini-3.5-flash",
+      params: [
+        {
+          path: "generationConfig.thinkingConfig.includeThoughts",
+          type: "boolean",
+          label: "Include thoughts",
+          description: "x",
+          group: "reasoning",
+          applicability: {
+            except: { "generationConfig.thinkingConfig.thinkingLevel": "minimal" },
           },
         },
       ],

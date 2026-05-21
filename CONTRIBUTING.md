@@ -21,7 +21,7 @@ The formal catalog convention is the [Model Parameters convention](docs/model-pa
 3. **Required top-level fields:** `provider`, `authType` (`api_key` or `subscription`), `model`, `params`.
 
 4. **Parameter shape:** each item in `params` has:
-   - `path` (required): snake_case, supports dot notation for nested fields (`thinking.type`).
+   - `path` (required): exact provider API request parameter path; supports dot notation for nested fields (`thinking.type`, `generationConfig.topK`).
    - `type` (required): one of `boolean`, `enum`, `integer`, `number`, `string`.
    - `label` (required): human-readable name (e.g. `"Max tokens"`).
    - `description` (required): one sentence, ≤500 chars.

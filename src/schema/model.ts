@@ -19,7 +19,7 @@ export type ParameterGroup = z.infer<typeof ParameterGroup>;
 
 const PROVIDER_SLUG = /^[a-z0-9][a-z0-9-]*$/;
 const MODEL_ID = /^[a-z0-9][a-z0-9._:-]*$/;
-const PARAM_PATH = /^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)*$/;
+const PARAM_PATH = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*$/;
 const BLOCKED_PARAM_PATHS = new Set(["stream"]);
 
 export const Range = z
@@ -48,7 +48,7 @@ const ApplicabilityValue = z.union([JsonPrimitive, JsonPrimitiveArray, Applicabi
 
 export const ApplicabilityRule = z
   .record(
-    z.string().regex(PARAM_PATH, "applicability keys must be snake_case dot paths"),
+    z.string().regex(PARAM_PATH, "applicability keys must be provider API dot paths"),
     ApplicabilityValue,
   )
   .refine((rule) => Object.keys(rule).length > 0, {
@@ -73,7 +73,7 @@ const baseParameterShape = {
   path: z
     .string()
     .min(1)
-    .regex(PARAM_PATH, "param path must be snake_case dot-notation (e.g. `thinking.type`)"),
+    .regex(PARAM_PATH, "param path must be a provider API dot path (e.g. `thinking.type`)"),
   label: z.string().min(1).max(80),
   description: z.string().min(1).max(500),
   group: ParameterGroup,
