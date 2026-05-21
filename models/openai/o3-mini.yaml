@@ -3,13 +3,13 @@ provider: openai
 authType: api_key
 model: o3-mini
 params:
-  - path: max_tokens
+  - path: max_completion_tokens
     type: integer
     label: Max tokens
     description: Maximum number of output tokens the model may generate.
     default: 4096
     range:
-      min: 1
+      min: 16
     group: generation_length
   - path: reasoning_effort
     type: enum
@@ -17,8 +17,8 @@ params:
     description: Controls how much reasoning the model should perform before producing an answer.
     default: medium
     values:
-      - minimal
       - low
       - medium
       - high
+      - xhigh
     group: reasoning

@@ -11,55 +11,6 @@ params:
     range:
       min: 1
     group: generation_length
-  - path: temperature
-    type: number
-    label: Temperature
-    description: >-
-      Controls randomness. Lower values make outputs more focused; higher values make them more
-      varied.
-    default: 1
-    range:
-      min: 0
-      max: 1
-      step: 0.1
-    group: sampling
-    applicability:
-      except:
-        thinking.type:
-          - adaptive
-          - enabled
-  - path: top_p
-    type: number
-    label: Top P
-    description: >-
-      Controls nucleus sampling by limiting generation to tokens whose cumulative probability
-      reaches this value.
-    default: 1
-    range:
-      min: 0
-      max: 1
-      step: 0.01
-    group: sampling
-    applicability:
-      except:
-        - thinking.type:
-            - adaptive
-            - enabled
-        - temperature:
-            not: 1
-  - path: top_k
-    type: integer
-    label: Top K
-    description: Limits token sampling to the top K most likely next tokens.
-    default: 0
-    range:
-      min: 0
-    group: sampling
-    applicability:
-      except:
-        thinking.type:
-          - adaptive
-          - enabled
   - path: thinking.type
     type: enum
     label: Thinking mode
@@ -68,4 +19,29 @@ params:
     values:
       - disabled
       - adaptive
+    group: reasoning
+  - path: thinking.display
+    type: enum
+    label: Thinking display
+    description: Controls whether Anthropic returns summarized or omitted thinking content.
+    default: omitted
+    values:
+      - summarized
+      - omitted
+    group: reasoning
+    applicability:
+      only:
+        thinking.type:
+          - adaptive
+  - path: output_config.effort
+    type: enum
+    label: Effort
+    description: Controls Anthropic response thoroughness and token spend.
+    default: high
+    values:
+      - low
+      - medium
+      - high
+      - xhigh
+      - max
     group: reasoning

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
-model: claude-haiku-4-5-20251001
+model: claude-opus-4-20250514
 params:
   - path: max_tokens
     type: integer
@@ -27,8 +27,6 @@ params:
       except:
         - thinking.type:
             - enabled
-        - top_p:
-            not: null
   - path: top_p
     type: number
     label: Top P
@@ -45,8 +43,6 @@ params:
       except:
         - thinking.type:
             - enabled
-        - temperature:
-            not: null
   - path: top_k
     type: integer
     label: Top K
@@ -81,3 +77,16 @@ params:
     applicability:
       only:
         thinking.type: enabled
+  - path: thinking.display
+    type: enum
+    label: Thinking display
+    description: Controls whether Anthropic returns summarized or omitted thinking content.
+    default: summarized
+    values:
+      - summarized
+      - omitted
+    group: reasoning
+    applicability:
+      only:
+        thinking.type:
+          - enabled
