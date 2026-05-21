@@ -1,0 +1,20 @@
+.github/ISSUE_TEMPLATE/parameter-request.yml
+  s_97efe38e9cd95b::t_def2c0d5762153 1-7,9-83
+  s_97efe38e9cd95b::t_bb6adc5f42c002 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "ca14de95fe8e4cb1d2e56778c7a2668bd2ab682a",
+  "prompts": {},
+  "sessions": {
+    "s_97efe38e9cd95b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e49ea-52b8-7773-829b-2378237fc586",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
