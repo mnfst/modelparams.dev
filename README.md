@@ -1,23 +1,23 @@
-# modelparameters.dev
+# modelparams.dev
 
 > An open, community-maintained catalog of LLM model parameters.
 
 [![CI](https://github.com/mnfst/modelparameters.dev/actions/workflows/ci.yml/badge.svg)](https://github.com/mnfst/modelparameters.dev/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-[modelproviders.dev](https://modelproviders.dev) is an open-source database that lists the parameters available for popular AI models. It is heavily inspired on [models.dev](https://github.com/anomalyco/models.dev) and we use it at [Manifest](https://manifest.build/).
+[modelparams.dev](https://modelparams.dev) is an open-source database that lists the parameters available for popular AI models. It is heavily inspired on [models.dev](https://github.com/anomalyco/models.dev) and we use it at [Manifest](https://manifest.build/).
 
 ## API
 
 You can access this data through an API.
 
 ```
-curl https://modelparameters.dev/api/v1/models.json
+curl https://modelparams.dev/api/v1/models.json
 ```
 
 The catalog follows the [Model Parameters convention](docs/model-parameters-schema.md).
 The generated JSON Schema is available at
-`https://modelparameters.dev/api/v1/schema.json`.
+`https://modelparams.dev/api/v1/schema.json`.
 
 ## Adding a model or a parameter
 

@@ -20,7 +20,7 @@
   <div class="space-y-6 px-6 py-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
     <section class="space-y-3">
       <p>
-        <a href="/" class="font-medium text-accent hover:text-accent-hover">modelparameters.dev</a>
+        <a href="/" class="font-medium text-accent hover:text-accent-hover">modelparams.dev</a>
         is an open, community-maintained catalog of LLM model parameters. Each entry shows the
         knobs you can turn — type, default, range, and the conditions that gate it.
       </p>
@@ -34,7 +34,7 @@
     <section class="space-y-3">
       <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Catalog API</h3>
       <p>The full catalog is static JSON, CORS-enabled, served from the edge.</p>
-      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models.json">https://modelparameters.dev/api/v1/models.json</a></code></pre>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models.json">https://modelparams.dev/api/v1/models.json</a></code></pre>
       <p>
         Each entry is keyed by <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">provider/model</code> for API-key variants; subscription variants append <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">-subscription</code>.
       </p>
@@ -42,8 +42,8 @@
 
     <section class="space-y-3">
       <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Single model</h3>
-      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7.json">https://modelparameters.dev/api/v1/models/anthropic/claude-opus-4-7.json</a>
-curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7-subscription.json">https://modelparameters.dev/api/v1/models/anthropic/claude-opus-4-7-subscription.json</a></code></pre>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7.json">https://modelparams.dev/api/v1/models/anthropic/claude-opus-4-7.json</a>
+curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7-subscription.json">https://modelparams.dev/api/v1/models/anthropic/claude-opus-4-7-subscription.json</a></code></pre>
     </section>
 
     <section class="space-y-3">
@@ -51,11 +51,11 @@ curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent"
       <p>
         Every entry validates against a JSON Schema you can use in your editor or pipeline.
       </p>
-      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/schema.json">https://modelparameters.dev/api/v1/schema.json</a></code></pre>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/schema.json">https://modelparams.dev/api/v1/schema.json</a></code></pre>
       <p>
         Add this header to any YAML you author for autocomplete in VS Code:
       </p>
-      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code># yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json</code></pre>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code># yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json</code></pre>
     </section>
 
     <section class="space-y-3">
@@ -64,7 +64,7 @@ curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent"
         Provider logos are available at <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">/assets/logos/{provider}.svg</code>
         where <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">{provider}</code> is the provider slug. They use <code class="font-mono">currentColor</code> so they inherit your text color.
       </p>
-      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/assets/logos/anthropic.svg">https://modelparameters.dev/assets/logos/anthropic.svg</a></code></pre>
+      <pre class="overflow-x-auto rounded-lg bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/assets/logos/anthropic.svg">https://modelparams.dev/assets/logos/anthropic.svg</a></code></pre>
       <p class="text-xs text-slate-500 dark:text-slate-400">
         Logos are sourced from the <a class="underline" href="https://github.com/anomalyco/models.dev" target="_blank" rel="noopener">models.dev</a> repo (MIT) and used under nominative fair use.
       </p>

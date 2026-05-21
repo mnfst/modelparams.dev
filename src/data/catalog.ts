@@ -1,6 +1,6 @@
 import type { Catalog, Model } from "../schema/model.js";
 
-const SCHEMA_URL = "https://modelparameters.dev/api/v1/schema.json";
+const SCHEMA_URL = "https://modelparams.dev/api/v1/schema.json";
 
 export function buildCatalog(models: Model[]): Catalog {
   return {

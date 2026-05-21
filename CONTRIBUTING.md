@@ -15,7 +15,7 @@ The formal catalog convention is the [Model Parameters convention](docs/model-pa
 2. **Start the file with the schema header** so your editor gives you autocomplete:
 
    ```yaml
-   # yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+   # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
    ```
 
 3. **Required top-level fields:** `provider`, `authType` (`api_key` or `subscription`), `model`, `params`.
@@ -54,7 +54,7 @@ The formal catalog convention is the [Model Parameters convention](docs/model-pa
 ## Example
 
 ```yaml
-# yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
 model: claude-sonnet-4-6

@@ -36,7 +36,7 @@ describe("buildCatalog", () => {
     const catalog = buildCatalog([makeModel()]);
     expect(catalog.count).toBe(1);
     expect(catalog.models).toHaveLength(1);
-    expect(catalog.$schema).toBe("https://modelparameters.dev/api/v1/schema.json");
+    expect(catalog.$schema).toBe("https://modelparams.dev/api/v1/schema.json");
     expect(typeof catalog.generatedAt).toBe("string");
   });
 });

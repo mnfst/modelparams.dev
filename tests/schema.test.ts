@@ -286,7 +286,7 @@ describe("JSON Schema generator", () => {
   it("produces a draft-07 schema with $id", () => {
     const schema = buildModelJsonSchema();
     expect(schema.$schema).toBe("http://json-schema.org/draft-07/schema#");
-    expect(schema.$id).toBe("https://modelparameters.dev/api/v1/schema.json");
+    expect(schema.$id).toBe("https://modelparams.dev/api/v1/schema.json");
     expect(typeof schema.title).toBe("string");
   });
 });

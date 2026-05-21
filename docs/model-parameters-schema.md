@@ -1,7 +1,7 @@
 # Model Parameters Convention
 
 The Model Parameters Schema (MPS) convention is the JSON/YAML shape used by
-modelparameters.dev to describe the request parameters available for a specific
+modelparams.dev to describe the request parameters available for a specific
 provider, auth type, and model.
 
 This catalog is metadata. It describes knobs a consumer can put into an outbound
@@ -11,8 +11,8 @@ authentication flows, endpoint compatibility, pricing, or UI control types.
 
 The public runtime sources are:
 
-- `https://modelparameters.dev/api/v1/models.json`
-- `https://modelparameters.dev/api/v1/schema.json`
+- `https://modelparams.dev/api/v1/models.json`
+- `https://modelparams.dev/api/v1/schema.json`
 
 ## Catalog Entry
 
