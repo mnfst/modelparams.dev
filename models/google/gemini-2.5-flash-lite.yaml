@@ -37,22 +37,12 @@ params:
     description: Limits token sampling to the top K most likely next tokens.
     default: 64
     range:
-      min: 1
+      min: 0
     group: sampling
   - path: generationConfig.seed
     type: integer
     label: Seed
     description: Optional seed used for decoding when reproducible sampling is desired.
-    group: sampling
-  - path: generationConfig.presencePenalty
-    type: number
-    label: Presence penalty
-    description: Penalizes tokens that have already appeared in the response to encourage new vocabulary.
-    group: sampling
-  - path: generationConfig.frequencyPenalty
-    type: number
-    label: Frequency penalty
-    description: Penalizes tokens proportionally to how often they have already appeared in the response.
     group: sampling
   - path: generationConfig.thinkingConfig.thinkingBudget
     type: integer
