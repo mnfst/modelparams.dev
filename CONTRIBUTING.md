@@ -103,6 +103,32 @@ params:
         thinking.type: enabled
 ```
 
+## Removing parameters is blocked
+
+Once a parameter is published for a model, **it cannot be removed**. People using
+that model in [Manifest](https://manifest.build/) may already have the parameter
+configured; dropping it from the catalog takes away their ability to see or change
+that setting and breaks their setup.
+
+CI enforces this. The `Param guard` workflow (`npm run guard:params`) compares your
+PR against `main` and **fails if any parameter `path` that exists on a model is gone**
+— this includes renaming a `path` (the old name counts as removed). You can run the
+same check locally before opening a PR:
+
+```bash
+npm run guard:params            # compares against origin/main
+npm run guard:params -- --base <ref>   # compare against a specific ref
+```
+
+What is _not_ blocked: adding new parameters, editing a parameter's metadata
+(label, description, default, range, values, applicability), and removing a whole
+model file. Only the disappearance of a `path` from a model that still exists is
+treated as a breaking removal.
+
+If a removal is genuinely necessary (e.g. a parameter was added by mistake), a
+maintainer must add the **`allow-param-removal`** label to the PR. The label
+re-runs the check and skips the guard, leaving a visible warning on the run.
+
 ## Site changes
 
 The website code lives under `src/`:
