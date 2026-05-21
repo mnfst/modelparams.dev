@@ -1,11 +1,11 @@
 name: Request model parameters
 description: Request a new or updated provider/model parameter entry.
-title: "[Catalog]: "
 body:
   - type: markdown
     attributes:
       value: |
         Use this form to request parameter coverage for a model in modelparameters.dev.
+        Suggested issue title: `<provider>/<model>: parameter coverage`.
 
         This catalog covers configurable request parameters such as `temperature`, `top_p`, `max_tokens`, `reasoning_effort`, and `thinking.type`. It does not track pricing, streaming support, auth setup, endpoints, fallback behavior, or proxy behavior.
 
