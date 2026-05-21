@@ -33,15 +33,3 @@ params:
       only:
         thinking.type:
           - adaptive
-  - path: output_config.effort
-    type: enum
-    label: Effort
-    description: Controls Anthropic response thoroughness and token spend.
-    default: high
-    values:
-      - low
-      - medium
-      - high
-      - xhigh
-      - max
-    group: reasoning
