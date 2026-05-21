@@ -20,6 +20,7 @@
     "build": "tsx src/build/build.ts",
     "dev": "tsx watch src/server/dev.ts",
     "validate": "tsx src/data/validate.ts",
+    "smoke:params": "tsx src/smoke/provider-params.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write .",

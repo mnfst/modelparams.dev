@@ -3,38 +3,14 @@ provider: openai
 authType: api_key
 model: gpt-5.1
 params:
-  - path: max_tokens
+  - path: max_completion_tokens
     type: integer
     label: Max tokens
     description: Maximum number of output tokens the model may generate.
     default: 4096
     range:
-      min: 1
+      min: 16
     group: generation_length
-  - path: temperature
-    type: number
-    label: Temperature
-    description: >-
-      Controls randomness. Lower values make outputs more focused; higher values make them more
-      varied.
-    default: 1
-    range:
-      min: 0
-      max: 2
-      step: 0.1
-    group: sampling
-  - path: top_p
-    type: number
-    label: Top P
-    description: >-
-      Controls nucleus sampling by limiting generation to tokens whose cumulative probability
-      reaches this value.
-    default: 1
-    range:
-      min: 0
-      max: 1
-      step: 0.01
-    group: sampling
   - path: reasoning_effort
     type: enum
     label: Reasoning effort
