@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: mistral
+authType: api_key
+model: magistral-medium-latest
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate in the completion.
+    range:
+      min: 1
+    group: generation_length
+  - path: stop
+    type: string
+    label: Stop sequence
+    description: Stops generation when this string is detected.
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    range:
+      min: 0
+      max: 1.5
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: random_seed
+    type: integer
+    label: Random seed
+    description: Seed used for deterministic sampling when reproducible outputs are desired.
+    range:
+      min: 0
+    group: sampling
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Penalizes repeated words or phrases to encourage a wider variety of generated content.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalizes words based on how often they already appear in the generated text.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Controls whether the model returns normal text or JSON mode output.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format
+  - path: safe_prompt
+    type: boolean
+    label: Safe prompt
+    description: Controls whether Mistral injects its safety prompt before the conversation.
+    default: false
+    group: provider_metadata
