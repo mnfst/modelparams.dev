@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparameters.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
-model: claude-sonnet-4
+model: claude-sonnet-4-20250514
 params:
   - path: max_tokens
     type: integer
@@ -25,9 +25,8 @@ params:
     group: sampling
     applicability:
       except:
-        thinking.type:
-          - adaptive
-          - enabled
+        - thinking.type:
+            - enabled
   - path: top_p
     type: number
     label: Top P
@@ -43,10 +42,7 @@ params:
     applicability:
       except:
         - thinking.type:
-            - adaptive
             - enabled
-        - temperature:
-            not: 1
   - path: top_k
     type: integer
     label: Top K
@@ -58,7 +54,6 @@ params:
     applicability:
       except:
         thinking.type:
-          - adaptive
           - enabled
   - path: thinking.type
     type: enum
@@ -67,7 +62,6 @@ params:
     default: disabled
     values:
       - disabled
-      - adaptive
       - enabled
     group: reasoning
   - path: thinking.budget_tokens
@@ -83,3 +77,16 @@ params:
     applicability:
       only:
         thinking.type: enabled
+  - path: thinking.display
+    type: enum
+    label: Thinking display
+    description: Controls whether Anthropic returns summarized or omitted thinking content.
+    default: summarized
+    values:
+      - summarized
+      - omitted
+    group: reasoning
+    applicability:
+      only:
+        thinking.type:
+          - enabled
