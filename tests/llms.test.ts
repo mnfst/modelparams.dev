@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { buildLlmsFullTxt, buildLlmsTxt, usageGuideMarkdown } from "../src/data/llms.js";
 import type { Model } from "../src/schema/model.js";
 
-const SITE = "https://modelparameters.dev";
+const SITE = "https://modelparams.dev";
 
 function makeModel(overrides: Partial<Model> = {}): Model {
   return {
@@ -37,7 +37,7 @@ function makeModel(overrides: Partial<Model> = {}): Model {
 describe("usageGuideMarkdown", () => {
   it("renders the guide as Markdown with the catalog endpoints", () => {
     const md = usageGuideMarkdown(SITE);
-    expect(md.startsWith("# How to use modelparameters.dev")).toBe(true);
+    expect(md.startsWith("# How to use modelparams.dev")).toBe(true);
     expect(md).toContain(`curl ${SITE}/api/v1/models.json`);
     expect(md).toContain(`curl ${SITE}/api/v1/schema.json`);
     expect(md).toContain(`${SITE}/llms-full.txt`);
@@ -47,14 +47,14 @@ describe("usageGuideMarkdown", () => {
   it("threads the provided site url through every reference", () => {
     const md = usageGuideMarkdown("http://localhost:3000");
     expect(md).toContain("curl http://localhost:3000/api/v1/models.json");
-    expect(md).not.toContain("https://modelparameters.dev");
+    expect(md).not.toContain("https://modelparams.dev");
   });
 });
 
 describe("buildLlmsTxt", () => {
   it("follows the llms.txt shape: H1, summary, sections, model links", () => {
     const txt = buildLlmsTxt(SITE, [makeModel(), makeModel({ authType: "subscription" })]);
-    expect(txt.startsWith("# modelparameters.dev")).toBe(true);
+    expect(txt.startsWith("# modelparams.dev")).toBe(true);
     expect(txt).toContain("\n> An open, community-maintained catalog");
     expect(txt).toContain("## API");
     expect(txt).toContain("## Models");
@@ -77,7 +77,7 @@ describe("buildLlmsTxt", () => {
 describe("buildLlmsFullTxt", () => {
   it("embeds the usage guide and dumps each parameter with constraints", () => {
     const full = buildLlmsFullTxt(SITE, [makeModel()]);
-    expect(full).toContain("# How to use modelparameters.dev");
+    expect(full).toContain("# How to use modelparams.dev");
     expect(full).toContain("# Full catalog");
     expect(full).toContain("## Anthropic");
     expect(full).toContain("### anthropic/claude-opus-4-7");

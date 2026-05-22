@@ -4,7 +4,7 @@ import { authLabel, modelLabel, paramGroupLabel, providerLabel } from "./display
 import { groupParams } from "./group.js";
 import { modelId, type Model, type Parameter } from "../schema/model.js";
 
-const REPO_URL = "https://github.com/mnfst/modelparameters.dev";
+const REPO_URL = "https://github.com/mnfst/modelparams.dev";
 
 function modelJsonUrl(siteUrl: string, model: Model): string {
   return `${siteUrl}/api/v1/models/${modelId(model)}.json`;
@@ -20,9 +20,9 @@ function plural(n: number, word: string): string {
 
 function guideIntro(siteUrl: string): string[] {
   return [
-    "# How to use modelparameters.dev",
+    "# How to use modelparams.dev",
     "",
-    `[modelparameters.dev](${siteUrl}) is an open, community-maintained catalog of LLM model`,
+    `[modelparams.dev](${siteUrl}) is an open, community-maintained catalog of LLM model`,
     "parameters. Each entry shows the knobs you can turn — type, default, range, and the",
     "conditions that gate it.",
     "",
@@ -141,7 +141,7 @@ function sortById(models: Model[]): Model[] {
  */
 export function buildLlmsTxt(siteUrl: string, models: Model[]): string {
   const lines: string[] = [
-    "# modelparameters.dev",
+    "# modelparams.dev",
     "",
     "> An open, community-maintained catalog of LLM model parameters — every knob you can",
     "> turn, for every model, with API-key and subscription variants tracked separately.",

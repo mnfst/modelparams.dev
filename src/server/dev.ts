@@ -8,10 +8,13 @@ import { CLIENT_DIR, DIST_ASSETS_DIR, MODELS_DIR, VIEWS_DIR } from "../data/path
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "../build/assets.js";
 import { renderIndex } from "../build/render.js";
+import { renderModelPage } from "../build/render-model.js";
+import { renderProviderPage } from "../build/render-provider.js";
+import { renderGlossaryPage } from "../build/render-glossary.js";
+import { SITE_URL } from "../data/site.js";
 import { modelId, type Model } from "../schema/model.js";
 
 const PORT = Number(process.env.PORT ?? 3000);
-const SITE_URL = process.env.SITE_URL ?? "https://modelparameters.dev";
 
 interface CacheEntry {
   models: Model[];
@@ -86,6 +89,47 @@ function makeApp(): express.Express {
       const html = await renderIndex({ catalog, capabilities, providers });
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(html);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/glossary", async (_req, res, next) => {
+    try {
+      const { models } = await getCache();
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderGlossaryPage(models));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/providers/:provider", async (req, res, next) => {
+    try {
+      const { models } = await getCache();
+      const providerModels = models.filter((m) => m.provider === req.params.provider);
+      if (providerModels.length === 0) {
+        res.status(404).type("text/plain").send("Unknown provider");
+        return;
+      }
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderProviderPage(req.params.provider, providerModels, models));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/models/:provider/:slug", async (req, res, next) => {
+    try {
+      const { models } = await getCache();
+      const wanted = `${req.params.provider}/${req.params.slug}`;
+      const model = models.find((m) => modelId(m) === wanted);
+      if (!model) {
+        res.status(404).type("text/plain").send("Unknown model");
+        return;
+      }
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderModelPage(model, models));
     } catch (err) {
       next(err);
     }

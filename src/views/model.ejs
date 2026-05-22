@@ -1,0 +1,70 @@
+<%
+  const providerLogo = helpers.logoFor(model.provider);
+  const authName = helpers.authLabel(model.authType);
+  const authClasses =
+    model.authType === "api_key"
+      ? "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200"
+      : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200";
+%>
+<%- include("partials/breadcrumbs", { items: [
+  { name: "Home", href: "/" },
+  { name: providerName, href: providerPath },
+  { name: modelName }
+] }) %>
+
+<section class="pt-6">
+  <div class="flex flex-wrap items-center gap-2.5">
+    <span class="provider-badge inline-flex shrink-0 items-center gap-1.5 rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+      <% if (providerLogo) { %>
+      <span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- providerLogo %></span>
+      <% } %>
+      <span><%= providerName %></span>
+    </span>
+    <span class="inline-flex shrink-0 items-center rounded-md px-2 py-0.5 text-xs font-medium <%= authClasses %>"><%= authName %></span>
+    <span class="text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span>
+  </div>
+  <h1 class="mt-3 text-balance text-2xl font-bold tracking-tight sm:text-3xl">
+    <%= providerName %> <%= modelName %><% if (isSubscription) { %> (subscription)<% } %> parameters
+  </h1>
+  <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-600 dark:text-slate-300 sm:text-base">
+    <%= intro %>
+  </p>
+</section>
+
+<section class="mt-8" aria-label="Parameters">
+  <% if (model.params.length === 0) { %>
+  <p class="rounded-xl border border-slate-200 bg-white px-4 py-6 text-sm italic text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+    No parameters documented yet.
+  </p>
+  <% } else { %>
+  <div class="rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm sm:px-5 dark:border-slate-800 dark:bg-slate-900">
+    <%- include("partials/param_table", { params: model.params, helpers: helpers }) %>
+  </div>
+  <% } %>
+</section>
+
+<section class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+  <a href="<%= jsonPath %>" class="font-medium text-accent hover:text-accent-hover">This model as JSON</a>
+  <a href="<%= providerPath %>" class="text-slate-600 underline hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">All <%= providerName %> models</a>
+  <a href="/glossary" class="text-slate-600 underline hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Parameter glossary</a>
+  <a href="/" class="text-slate-600 underline hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Full catalog</a>
+</section>
+
+<% if (siblings.length > 0) { %>
+<section class="mt-10 border-t border-slate-200 pt-6 dark:border-slate-800" aria-label="Related models">
+  <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+    Other <%= providerName %> models
+  </h2>
+  <div class="mt-3 flex flex-wrap gap-2">
+    <% for (const sibling of siblings) { %>
+    <a
+      href="<%= helpers.modelPagePath(sibling) %>"
+      class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+    >
+      <span><%= helpers.modelLabel(sibling) %></span>
+      <% if (sibling.authType === "subscription") { %><span class="opacity-60">subscription</span><% } %>
+    </a>
+    <% } %>
+  </div>
+</section>
+<% } %>
