@@ -54,5 +54,8 @@
     <% if (model.params.length === 0) { %>
     <p class="text-sm italic text-slate-500 dark:text-slate-400">No parameters documented yet.</p>
     <% } else { %> <%- include("param_table", { params: model.params, helpers: helpers }) %> <% } %>
+    <div class="mt-3 text-right">
+      <a href="<%= helpers.modelPagePath(model) %>" class="text-xs font-medium text-accent hover:text-accent-hover">Open <%= modelName %> page →</a>
+    </div>
   </div>
 </details>

@@ -248,7 +248,7 @@ function buildTools(): ToolDefinition[] {
     {
       name: "get_usage_guide",
       description:
-        "Return the modelparameters.dev usage guide as Markdown: how to call the API, the " +
+        "Return the modelparams.dev usage guide as Markdown: how to call the API, the " +
         "JSON Schema, logos, and how to contribute. Hand this to a coding agent verbatim.",
       inputSchema: { type: "object", properties: {} },
       execute: () => ({ content: [{ type: "text", text: usageGuideText() }] }),
