@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: xai
+authType: api_key
+model: grok-build-0.1
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max completion tokens
+    description: Upper bound for visible output tokens generated in the chat completion.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 1
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: seed
+    type: integer
+    label: Seed
+    description: Optional seed used for decoding when reproducible sampling is desired.
+    group: sampling
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Controls whether the model returns text, JSON mode output, or structured JSON schema output.
+    default: text
+    values:
+      - text
+      - json_object
+      - json_schema
+    group: output_format
+  - path: parallel_tool_calls
+    type: boolean
+    label: Parallel tool calls
+    description: Controls whether the model may perform more than one tool call in a response.
+    default: true
+    group: tooling

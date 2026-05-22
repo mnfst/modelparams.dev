@@ -74,6 +74,7 @@ describe("display helpers", () => {
   it("knows the canonical provider names", () => {
     expect(providerLabel("anthropic")).toBe("Anthropic");
     expect(providerLabel("openai")).toBe("OpenAI");
+    expect(providerLabel("xai")).toBe("xAI");
   });
 
   it("uses overrides for known model display names", () => {
