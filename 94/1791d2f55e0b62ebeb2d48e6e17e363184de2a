@@ -1,0 +1,26 @@
+models/xai/grok-4.20-0309-reasoning.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-53
+models/xai/grok-build-0.1.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-53
+models/xai/grok-4.3.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-51,53-64
+  s_576e1fed5899c6::t_2e8af71a3d39b6 52
+models/xai/grok-4.20-0309-non-reasoning.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "941791d2f55e0b62ebeb2d48e6e17e363184de2a",
+  "prompts": {},
+  "sessions": {
+    "s_576e1fed5899c6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e4fbe-d392-70c1-9812-f4e265698ed7",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}
