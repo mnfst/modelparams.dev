@@ -10,6 +10,11 @@ params:
     range:
       min: 1
     group: generation_length
+  - path: stop
+    type: string
+    label: Stop sequence
+    description: Stops generation when this string is produced; the API accepts up to four stop sequences.
+    group: generation_length
   - path: temperature
     type: number
     label: Temperature
@@ -51,6 +56,14 @@ params:
       - enabled
       - disabled
     group: reasoning
+  - path: tool_choice
+    type: enum
+    label: Tool choice
+    description: Controls how the model selects tools; z.ai documents auto as the only supported value.
+    default: auto
+    values:
+      - auto
+    group: tooling
   - path: response_format.type
     type: enum
     label: Response format
