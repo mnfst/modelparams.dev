@@ -1,29 +1,21 @@
-name: Request model parameters
-description: Request a new or updated provider/model parameter entry.
+name: Add or fix parameters on a model
+description: A model is already listed, but its parameter list is incomplete or out of date.
+title: "Parameters: <provider>/<model>"
+labels: ["parameters"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form to request parameter coverage for a model in modelparameters.dev.
-        Suggested issue title: `<provider>/<model>: parameter coverage`.
+        Use this when the model is already on the site but its parameters are missing or stale. If a value on an existing parameter is simply wrong, "Report incorrect data" is the better fit.
 
-        This catalog covers configurable request parameters such as `temperature`, `top_p`, `max_tokens`, `reasoning_effort`, and `thinking.type`. It does not track pricing, streaming support, auth setup, endpoints, fallback behavior, or proxy behavior.
-
-  - type: input
-    id: provider
-    attributes:
-      label: Provider
-      description: Use the provider slug when you know it.
-      placeholder: openai, anthropic, google, mistral
-    validations:
-      required: true
+        This catalog covers configurable request parameters such as `temperature`, `top_p`, `max_tokens`, `reasoning_effort`, and `thinking.type`. It does not track pricing, rate limits, endpoints, auth setup, streaming, or proxy behavior.
 
   - type: input
     id: model
     attributes:
       label: Model
-      description: Use the provider-native model id.
-      placeholder: gpt-5, claude-sonnet-4-5, gemini-2.5-pro
+      description: The id as shown on the site.
+      placeholder: anthropic/claude-opus-4-7
     validations:
       required: true
 
@@ -31,12 +23,11 @@ body:
     id: auth-type
     attributes:
       label: Auth type
-      description: Pick the route this request applies to.
+      description: Pick the route this applies to.
       options:
         - API key
         - Subscription
         - Both
-        - Not sure
     validations:
       required: true
 
@@ -44,7 +35,7 @@ body:
     id: docs
     attributes:
       label: Official documentation
-      description: Link to the provider docs that define these parameters. Official references are preferred over blog posts or screenshots.
+      description: Link to the provider docs that define these parameters.
       placeholder: |
         https://docs.example.com/api-reference/chat/create
     validations:
@@ -54,11 +45,10 @@ body:
     id: parameters
     attributes:
       label: Parameters to add or update
-      description: List the parameters you want added. Include path, type, default, allowed values, numeric range, and applicability rules if you know them.
+      description: List each one. Include path, type, default, allowed values, range, and any applicability rule you know.
       placeholder: |
-        - `temperature`: number, default 1, range 0-2, sampling
-        - `max_tokens`: integer, range min 1, generation_length
-        - `reasoning_effort`: enum, values `low`, `medium`, `high`, reasoning
+        - reasoning_effort: enum, values low/medium/high, reasoning
+        - top_p: number, default 1, range 0-1, sampling
     validations:
       required: true
 
@@ -66,8 +56,8 @@ body:
     id: notes
     attributes:
       label: Notes
-      description: Add anything maintainers should know, such as model-specific restrictions or parameters that are accepted by one auth type but not the other.
-      placeholder: This parameter is only available when extended thinking is disabled.
+      description: Optional. Model-specific restrictions, or a parameter that one auth type accepts and the other doesn't.
+      placeholder: This parameter only applies when extended thinking is off.
     validations:
       required: false
 
@@ -75,9 +65,6 @@ body:
     id: scope
     attributes:
       label: Scope check
-      description: Please confirm this request fits the MPS catalog scope.
       options:
-        - label: This request is about configurable model request parameters, not pricing, rate limits, endpoints, auth setup, streaming support, or proxy behavior.
-          required: true
-        - label: I linked the closest official provider documentation I could find.
+        - label: This is about configurable request parameters, not pricing, rate limits, endpoints, auth setup, or streaming.
           required: true

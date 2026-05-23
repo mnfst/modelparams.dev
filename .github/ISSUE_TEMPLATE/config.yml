@@ -1,0 +1,12 @@
+# Blank issues stay enabled on purpose: the forms are here to guide, not to block.
+blank_issues_enabled: true
+contact_links:
+  - name: How to contribute
+    url: https://github.com/mnfst/modelparams.dev/blob/main/CONTRIBUTING.md
+    about: Read this before adding or editing model data.
+  - name: Model Parameters convention
+    url: https://github.com/mnfst/modelparams.dev/blob/main/docs/model-parameters-schema.md
+    about: The schema every model file follows.
+  - name: Browse the catalog
+    url: https://modelparams.dev
+    about: Check whether the model or parameter is already listed.
