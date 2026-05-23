@@ -10,6 +10,7 @@ const PROVIDER_LABELS: Record<string, string> = {
   deepseek: "DeepSeek",
   cohere: "Cohere",
   perplexity: "Perplexity",
+  "z-ai": "Z.ai",
 };
 
 const MODEL_LABEL_OVERRIDES: Record<string, string> = {
@@ -20,6 +21,18 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "openai/o3": "o3",
   "openai/o3-mini": "o3-mini",
   "openai/o4-mini": "o4-mini",
+  "z-ai/glm-5.1": "GLM-5.1",
+  "z-ai/glm-5": "GLM-5",
+  "z-ai/glm-5-turbo": "GLM-5-Turbo",
+  "z-ai/glm-4.7": "GLM-4.7",
+  "z-ai/glm-4.7-flash": "GLM-4.7-Flash",
+  "z-ai/glm-4.7-flashx": "GLM-4.7-FlashX",
+  "z-ai/glm-4.6": "GLM-4.6",
+  "z-ai/glm-4.5": "GLM-4.5",
+  "z-ai/glm-4.5-air": "GLM-4.5-Air",
+  "z-ai/glm-4.5-x": "GLM-4.5-X",
+  "z-ai/glm-4.5-airx": "GLM-4.5-AirX",
+  "z-ai/glm-4.5-flash": "GLM-4.5-Flash",
 };
 
 const AUTH_LABELS: Record<AuthType, string> = {
