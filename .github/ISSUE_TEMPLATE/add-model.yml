@@ -1,0 +1,83 @@
+# When a provider is added, add its slug to the Provider dropdown below.
+name: Add a model
+description: A provider we already track is missing one of its models.
+title: "Add model: <provider>/<model>"
+labels: ["model"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when the provider is already in the catalog but a model is missing.
+        If the provider itself isn't listed yet, use "Add a provider" instead.
+
+        Please check [modelparams.dev](https://modelparams.dev) first so we don't track the same model twice.
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider
+      options:
+        - anthropic
+        - deepseek
+        - google
+        - mistral
+        - openai
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: Model id
+      description: The provider-native id, spelled exactly as the API spells it.
+      placeholder: claude-opus-4-7, gpt-5.2, gemini-2.5-pro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: auth-type
+    attributes:
+      label: Auth type
+      description: "API key is the developer API. Subscription is the consumer app, like ChatGPT or Claude.ai."
+      options:
+        - API key
+        - Subscription
+        - Both
+    validations:
+      required: true
+
+  - type: textarea
+    id: docs
+    attributes:
+      label: Official documentation
+      description: Link to the provider docs that list this model's parameters. Official references beat blog posts and screenshots.
+      placeholder: https://docs.anthropic.com/en/api/messages
+    validations:
+      required: true
+
+  - type: textarea
+    id: params
+    attributes:
+      label: Known parameters
+      description: Optional. List any parameters you already know, with default, range, or allowed values if you have them.
+      placeholder: |
+        - temperature: number, default 1, range 0-1, sampling
+        - max_tokens: integer, range min 1, generation_length
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Optional. Restrictions, or parameters that differ between the API-key and subscription routes.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick check
+      options:
+        - label: This model isn't already listed on modelparams.dev.
+          required: true
