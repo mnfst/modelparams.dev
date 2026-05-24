@@ -1,0 +1,19 @@
+models/xai/grok-4.20-multi-agent-0309.yaml
+  s_4edf044b4c0a16::t_42b6291b84d808 1-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "fad54a2978ef17020272b9045841a1df4c3532a1",
+  "prompts": {},
+  "sessions": {
+    "s_4edf044b4c0a16": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e58c8-5baa-7bd1-91f0-d8348c1a6d4c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
