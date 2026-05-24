@@ -3,10 +3,10 @@ provider: minimax
 authType: api_key
 model: minimax-m2
 params:
-  - path: max_completion_tokens
+  - path: max_tokens
     type: integer
-    label: Max completion tokens
-    description: Maximum number of tokens to generate in the completion.
+    label: Max tokens
+    description: Maximum number of tokens to generate in the response.
     range:
       min: 1
     group: generation_length
@@ -32,9 +32,12 @@ params:
       max: 1
       step: 0.01
     group: sampling
-  - path: reasoning_split
-    type: boolean
-    label: Split reasoning
-    description: Returns the model's reasoning in a separate reasoning_details field instead of inline with the response.
-    default: false
+  - path: thinking
+    type: enum
+    label: Thinking mode
+    description: Controls the thinking/reasoning mode. When enabled, the model shows its reasoning before the final answer.
+    default: disabled
+    values:
+      - disabled
+      - enabled
     group: reasoning
