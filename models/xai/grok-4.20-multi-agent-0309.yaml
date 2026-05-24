@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: xai
+authType: api_key
+model: grok-4.20-multi-agent-0309
+params:
+  - path: max_output_tokens
+    type: integer
+    label: Max output tokens
+    description: Upper bound for output tokens generated in the Responses API response.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 0.7
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 0.95
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: reasoning.effort
+    type: enum
+    label: Reasoning effort
+    description: Controls whether the Responses API request uses the 4-agent or 16-agent multi-agent setup.
+    values:
+      - low
+      - medium
+      - high
+      - xhigh
+    group: reasoning
+  - path: text.format.type
+    type: enum
+    label: Text format
+    description: Controls whether the Responses API returns free-form text, JSON mode output, or structured JSON schema output.
+    default: text
+    values:
+      - text
+      - json_object
+      - json_schema
+    group: output_format
