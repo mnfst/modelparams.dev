@@ -4,6 +4,17 @@ Thanks for helping build the catalog. There are two main ways to contribute: **a
 
 The formal catalog convention is the [Model Parameters convention](docs/model-parameters-schema.md).
 
+## Found a problem, or want something added?
+
+Open an issue. The [issue forms](https://github.com/mnfst/modelparams.dev/issues/new/choose) cover the usual cases:
+
+- Add a model, when a provider we already track is missing one of its models.
+- Add a provider, for a maker that isn't in the catalog yet.
+- Add or fix parameters, when a model is listed but its parameters are incomplete or stale.
+- Report incorrect data, when a default, range, value, or rule is wrong.
+
+You don't need to know the schema to file one. A link to the official docs is the most useful thing you can include.
+
 ## Adding or updating a model
 
 1. **Pick the filename.** API-key models are bare; subscription models get a `-subscription` suffix.
@@ -149,6 +160,9 @@ Conventions:
 
 ## Pull requests
 
+The PR description starts from a template with a short "type of change" checklist. Tick what fits so a reviewer can see at a glance what the PR does. It's a hint, not a gate.
+
 - One change per PR, small and focused.
 - Make sure CI is green before requesting review.
-- For new providers, link to the official docs URL in the PR description.
+- A bot labels your PR by the files it touches (`model`, `provider`, `site`, `meta`). Nothing for you to do.
+- For a new provider, link the official docs and add a logo at `src/client/logos/<slug>.svg`. Without one, the site shows a generic mark.
