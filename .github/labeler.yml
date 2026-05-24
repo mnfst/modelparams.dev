@@ -1,0 +1,27 @@
+# Auto-labels PRs by the files they touch. Read by .github/workflows/labeler.yml.
+# A provider PR usually touches both models/ and a logo, so it lands two labels.
+model:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "models/**"
+
+provider:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/client/logos/**"
+
+site:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/**"
+          - "tests/**"
+          - "tailwind.config.ts"
+          - "postcss.config.cjs"
+          - "vitest.config.ts"
+
+meta:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+          - "docs/**"
+          - "*.md"

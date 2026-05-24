@@ -1,0 +1,37 @@
+name: Sync labels
+
+# Creates (or updates) the label set the issue forms and the labeler rely on.
+# Runs on merge to main whenever this file changes, and on demand. Edit a label
+# here and the next run brings the repo in line. Uses the built-in gh CLI, so
+# there's no third-party action to trust.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/label-sync.yml"
+
+permissions:
+  issues: write
+
+jobs:
+  sync:
+    name: Create or update labels
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Sync
+        run: |
+          set -euo pipefail
+          sync() {
+            gh label create "$1" --color "$2" --description "$3" --force --repo "$GITHUB_REPOSITORY"
+          }
+          sync "model"              "1d76db" "Add a model that's missing"
+          sync "provider"           "5319e7" "Add a provider that's missing"
+          sync "parameters"         "0e8a16" "Add or update parameters on a model"
+          sync "incorrect-data"     "d93f0b" "A value in the catalog is wrong"
+          sync "site"               "c5def5" "Website code or tooling"
+          sync "meta"               "ededed" "Repo docs, CI, and config"
+          sync "allow-param-removal" "fbca04" "Maintainer override: allow a parameter removal"
