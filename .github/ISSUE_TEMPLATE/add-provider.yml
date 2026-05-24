@@ -1,0 +1,62 @@
+name: Add a provider
+description: A model maker that isn't in the catalog yet (a new company or API).
+title: "Add provider: <name>"
+labels: ["provider"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for a provider we don't track at all. A new provider means a new folder under `models/`, and ideally a logo so it doesn't fall back to the generic mark.
+
+  - type: input
+    id: name
+    attributes:
+      label: Provider name
+      placeholder: xAI, Cohere, Perplexity
+    validations:
+      required: true
+
+  - type: input
+    id: slug
+    attributes:
+      label: Provider slug
+      description: Lowercase and kebab-case. This becomes the folder name under models/ and the provider field in each file.
+      placeholder: xai, cohere, perplexity
+    validations:
+      required: true
+
+  - type: textarea
+    id: models
+    attributes:
+      label: First models to add
+      description: Which models should we start with, and is each one API key, subscription, or both?
+      placeholder: |
+        grok-4 (API key)
+        grok-4-heavy (API key)
+    validations:
+      required: true
+
+  - type: textarea
+    id: docs
+    attributes:
+      label: API documentation
+      description: Link to the official parameter reference.
+      placeholder: https://docs.x.ai/api
+    validations:
+      required: true
+
+  - type: textarea
+    id: logo
+    attributes:
+      label: Logo
+      description: Optional. Link to an official SVG logo, or say if you'll add one in your PR. Without a logo the site uses a generic placeholder.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick check
+      options:
+        - label: This provider isn't already listed on modelparams.dev.
+          required: true
