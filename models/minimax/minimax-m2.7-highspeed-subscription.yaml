@@ -32,3 +32,9 @@ params:
       max: 1
       step: 0.01
     group: sampling
+  - path: thinking
+    type: boolean
+    label: Thinking
+    description: Enables the model's reasoning process to be returned in the response.
+    default: false
+    group: reasoning
