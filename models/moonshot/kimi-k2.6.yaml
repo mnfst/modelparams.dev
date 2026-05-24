@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: moonshot
+authType: api_key
+model: kimi-k2.6
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate in the chat completion.
+    range:
+      min: 1
+    group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Controls whether Kimi reasons step by step before answering. Thinking is enabled by default;
+      set disabled to respond directly.
+    default: enabled
+    values:
+      - enabled
+      - disabled
+    group: reasoning
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Forces the response into plain text or a JSON object.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format
