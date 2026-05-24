@@ -50,9 +50,3 @@ params:
       - json_object
       - json_schema
     group: output_format
-  - path: parallel_tool_calls
-    type: boolean
-    label: Parallel tool calls
-    description: Controls whether the model may perform more than one tool call in a response.
-    default: true
-    group: tooling
