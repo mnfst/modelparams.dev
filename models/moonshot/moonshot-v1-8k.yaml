@@ -64,17 +64,6 @@ params:
       max: 2
       step: 0.1
     group: sampling
-  - path: tool_choice
-    type: enum
-    label: Tool choice
-    description: >-
-      Controls whether the model may call tools. Moonshot supports auto, none, and required.
-    default: auto
-    values:
-      - auto
-      - none
-      - required
-    group: tooling
   - path: response_format.type
     type: enum
     label: Response format
