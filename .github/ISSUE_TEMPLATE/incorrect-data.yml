@@ -1,0 +1,52 @@
+name: Report incorrect data
+description: Something in the catalog is wrong (bad default, wrong range, a parameter the API doesn't accept).
+title: "Incorrect data: <model>"
+labels: ["incorrect-data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when a value in the catalog is wrong. For a model or provider that's missing entirely, use the other forms.
+
+  - type: input
+    id: model
+    attributes:
+      label: Affected model
+      description: The id as shown on the site.
+      placeholder: anthropic/claude-opus-4-7, openai/gpt-5.2-subscription
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What's wrong?
+      options:
+        - Wrong default
+        - Wrong range (min, max, or step)
+        - Wrong enum values
+        - Wrong applicability rule
+        - Parameter is listed but the API doesn't accept it
+        - Parameter is missing
+        - Wrong provider or model id
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: What it says now, and what it should be
+      description: Be specific. Name the parameter path, the current value, and the correct one.
+      placeholder: |
+        temperature shows a range of 0-2, but the API rejects anything above 1.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Official source
+      description: Link to the docs that back up the correction.
+    validations:
+      required: true
