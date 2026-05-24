@@ -11,6 +11,7 @@ const PROVIDER_LABELS: Record<string, string> = {
   minimax: "MiniMax",
   cohere: "Cohere",
   perplexity: "Perplexity",
+  moonshot: "Moonshot AI",
 };
 
 const MODEL_LABEL_OVERRIDES: Record<string, string> = {
@@ -28,6 +29,11 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "minimax/minimax-m2.5-highspeed": "MiniMax M2.5 Highspeed",
   "minimax/minimax-m2.7": "MiniMax M2.7",
   "minimax/minimax-m2.7-highspeed": "MiniMax M2.7 Highspeed",
+  "moonshot/kimi-k2.6": "Kimi K2.6",
+  "moonshot/kimi-k2.5": "Kimi K2.5",
+  "moonshot/moonshot-v1-8k": "Moonshot v1 8K",
+  "moonshot/moonshot-v1-32k": "Moonshot v1 32K",
+  "moonshot/moonshot-v1-128k": "Moonshot v1 128K",
 };
 
 const AUTH_LABELS: Record<AuthType, string> = {
