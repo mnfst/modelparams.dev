@@ -12,6 +12,7 @@ const PROVIDER_LABELS: Record<string, string> = {
   cohere: "Cohere",
   perplexity: "Perplexity",
   "z-ai": "Z.ai",
+  moonshot: "Moonshot AI",
 };
 
 const MODEL_LABEL_OVERRIDES: Record<string, string> = {
@@ -41,6 +42,11 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "z-ai/glm-4.5-x": "GLM-4.5-X",
   "z-ai/glm-4.5-airx": "GLM-4.5-AirX",
   "z-ai/glm-4.5-flash": "GLM-4.5-Flash",
+  "moonshot/kimi-k2.6": "Kimi K2.6",
+  "moonshot/kimi-k2.5": "Kimi K2.5",
+  "moonshot/moonshot-v1-8k": "Moonshot v1 8K",
+  "moonshot/moonshot-v1-32k": "Moonshot v1 32K",
+  "moonshot/moonshot-v1-128k": "Moonshot v1 128K",
 };
 
 const AUTH_LABELS: Record<AuthType, string> = {
