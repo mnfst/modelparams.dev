@@ -1,0 +1,45 @@
+models/z-ai/glm-4.6-subscription.yaml
+  s_f532f74d9a54e0::t_232f26275a3313 2-41
+models/z-ai/glm-5-subscription.yaml
+  s_f532f74d9a54e0::t_232f26275a3313 2-41
+models/minimax/MiniMax-M2.5-subscription.yaml
+  s_f532f74d9a54e0::t_85cb0f831b0f38 4
+models/minimax/MiniMax-M2.1-subscription.yaml
+  s_f532f74d9a54e0::t_85cb0f831b0f38 4
+models/minimax/MiniMax-M2.5-highspeed-subscription.yaml
+  s_f532f74d9a54e0::t_85cb0f831b0f38 4
+src/schema/model.ts
+  s_f532f74d9a54e0::t_ea9366fe6ce627 21
+models/minimax/MiniMax-M2-subscription.yaml
+  s_f532f74d9a54e0::t_85cb0f831b0f38 4
+models/minimax/MiniMax-M2.7-highspeed-subscription.yaml
+  s_f532f74d9a54e0::t_85cb0f831b0f38 4
+models/z-ai/glm-4.5-subscription.yaml
+  s_f532f74d9a54e0::t_232f26275a3313 2-41
+tests/schema.test.ts
+  s_f532f74d9a54e0::t_f8925f2f73f2fe 46-50
+docs/model-parameters-schema.md
+  s_f532f74d9a54e0::t_c7dcee7a909423 49-50
+tests/catalog.test.ts
+  s_f532f74d9a54e0::t_dea2782eae5713 5-6,118-142
+models/minimax/MiniMax-M2.7-subscription.yaml
+  s_f532f74d9a54e0::t_85cb0f831b0f38 4
+models/minimax/MiniMax-M2.1-highspeed-subscription.yaml
+  s_f532f74d9a54e0::t_85cb0f831b0f38 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "1eca5c10036cc46f96953f363db4b47d723530ca",
+  "prompts": {},
+  "sessions": {
+    "s_f532f74d9a54e0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5edb-77d7-70f0-bf2e-fe0a4ede59eb",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}
