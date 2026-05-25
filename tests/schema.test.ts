@@ -43,6 +43,11 @@ describe("Model schema", () => {
     expect(result.success).toBe(true);
   });
 
+  it("accepts provider-native model ids with uppercase characters", () => {
+    const result = Model.safeParse({ ...VALID_MODEL, provider: "minimax", model: "MiniMax-M2.7" });
+    expect(result.success).toBe(true);
+  });
+
   it("rejects path separators in model ids", () => {
     const result = Model.safeParse({
       ...VALID_MODEL,

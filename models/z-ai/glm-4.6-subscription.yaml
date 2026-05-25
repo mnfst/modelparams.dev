@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: z-ai
 authType: subscription
-model: glm-4.5-air
+model: glm-4.6
 params:
   - path: max_tokens
     type: integer
@@ -14,7 +14,7 @@ params:
     type: number
     label: Temperature
     description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
-    default: 0.6
+    default: 1
     range:
       min: 0
       max: 1

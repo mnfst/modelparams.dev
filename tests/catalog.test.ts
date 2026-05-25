@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import { buildCapabilityFacets, buildCatalog, uniqueProviders } from "../src/data/catalog.js";
 import { describeApplicability } from "../src/data/applicability.js";
 import { modelLabel, providerLabel } from "../src/data/display.js";
+import { loadAllModels } from "../src/data/load.js";
+import { modelId } from "../src/schema/model.js";
 import type { Model } from "../src/schema/model.js";
 
 function makeModel(overrides: Partial<Model> = {}): Model {
@@ -111,5 +113,32 @@ describe("describeApplicability", () => {
   it("formats `not` expressions with ≠", () => {
     const out = describeApplicability({ except: [{ temperature: { not: 1 } }] });
     expect(out.except[0]).toBe("temperature ≠ 1");
+  });
+});
+
+describe("provider catalog rows", () => {
+  it("keeps Z.ai Coding Plan params aligned with the API-key rows", async () => {
+    const { models, issues } = await loadAllModels();
+    expect(issues).toEqual([]);
+
+    const byId = new Map(models.map((model) => [modelId(model), model]));
+    const sharedModels = [
+      "glm-5.1",
+      "glm-5-turbo",
+      "glm-5",
+      "glm-4.7",
+      "glm-4.6",
+      "glm-4.5",
+      "glm-4.5-air",
+    ];
+
+    for (const model of sharedModels) {
+      const apiKey = byId.get(`z-ai/${model}`);
+      const subscription = byId.get(`z-ai/${model}-subscription`);
+
+      expect(subscription?.params.map((param) => param.path)).toEqual(
+        apiKey?.params.map((param) => param.path),
+      );
+    }
   });
 });

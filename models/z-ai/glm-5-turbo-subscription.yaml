@@ -20,6 +20,9 @@ params:
       max: 1
       step: 0.1
     group: sampling
+    applicability:
+      except:
+        do_sample: false
   - path: top_p
     type: number
     label: Top P
@@ -30,6 +33,15 @@ params:
       max: 1
       step: 0.01
     group: sampling
+    applicability:
+      except:
+        do_sample: false
+  - path: do_sample
+    type: boolean
+    label: Do sample
+    description: When false, the model uses greedy decoding and ignores temperature and top_p.
+    default: true
+    group: sampling
   - path: thinking.type
     type: enum
     label: Thinking mode
@@ -39,3 +51,12 @@ params:
       - enabled
       - disabled
     group: reasoning
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Forces the response into plain text or a JSON object.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format
