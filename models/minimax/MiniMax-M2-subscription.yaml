@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: minimax
 authType: subscription
-model: minimax-m2.7
+model: MiniMax-M2
 params:
   - path: max_tokens
     type: integer

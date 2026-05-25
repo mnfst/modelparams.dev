@@ -46,8 +46,8 @@ Conventions:
 
 - `provider`, `authType`, and `model` identify exactly one model route.
 - `provider` is a kebab-case slug.
-- `model` is the provider-native model id without path separators. It may
-  contain dots or colons when the upstream model id does.
+- `model` is the provider-native model id without path separators. Preserve
+  upstream casing; it may contain dots or colons when the upstream model id does.
 - `authType` is `api_key` or `subscription`.
 - `params` is the non-empty list of parameters for that exact route.
 - `path` is the exact provider API request parameter path in dot notation. Use
