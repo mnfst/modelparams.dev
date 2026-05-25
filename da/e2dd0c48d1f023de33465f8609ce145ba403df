@@ -1,0 +1,19 @@
+models/opencode-go/mimo-v2.5-subscription.yaml
+  s_a4cb783200a54c::t_65d95f94a9ee57 1-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "dae2dd0c48d1f023de33465f8609ce145ba403df",
+  "prompts": {},
+  "sessions": {
+    "s_a4cb783200a54c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5f31-ea20-72b3-93bc-eba66d3fa25d",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
