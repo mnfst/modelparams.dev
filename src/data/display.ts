@@ -92,12 +92,27 @@ function titleCase(slug: string): string {
     .join(" ");
 }
 
-function mergeAdjacentNumbers(parts: string[]): string[] {
+// Collapses numeric slug segments into readable versions and dates:
+//   "4" "1"          → "4.1"        (short version segments join with dots)
+//   "2024" "11" "20" → "2024-11-20" (a 4-digit year + month/day reads as a date)
+//   "20250514"       → "20250514"   (8-digit date stamp is left intact)
+// This keeps a trailing date from fusing onto a version, e.g.
+// "claude-opus-4-20250514" → "Claude Opus 4 20250514", not "4.20250514".
+function formatNumericRuns(parts: string[]): string[] {
   const out: string[] = [];
-  for (const part of parts) {
-    const prev = out[out.length - 1];
-    if (prev !== undefined && /^\d+$/.test(prev) && /^\d+$/.test(part)) {
-      out[out.length - 1] = `${prev}.${part}`;
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i]!;
+    if (/^\d{4}$/.test(part)) {
+      const date = [part];
+      while (date.length < 3 && /^\d{2}$/.test(parts[i + 1] ?? "")) date.push(parts[++i]!);
+      out.push(date.join("-"));
+    } else if (/^\d{1,2}$/.test(part)) {
+      const prev = out[out.length - 1];
+      if (prev !== undefined && /^\d{1,2}(\.\d{1,2})*$/.test(prev)) {
+        out[out.length - 1] = `${prev}.${part}`;
+      } else {
+        out.push(part);
+      }
     } else {
       out.push(part);
     }
@@ -112,7 +127,7 @@ export function providerLabel(provider: string): string {
 export function modelLabel(model: Pick<Model, "provider" | "model">): string {
   const key = `${model.provider}/${model.model}`;
   if (MODEL_LABEL_OVERRIDES[key]) return MODEL_LABEL_OVERRIDES[key];
-  const parts = mergeAdjacentNumbers(model.model.split("-"));
+  const parts = formatNumericRuns(model.model.split("-"));
   return parts
     .map((part) => (/^\d+(\.\d+)?$/.test(part) ? part : part[0]!.toUpperCase() + part.slice(1)))
     .join(" ");

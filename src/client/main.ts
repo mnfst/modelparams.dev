@@ -1,12 +1,14 @@
 import { setupWebMCP } from "./webmcp.js";
 
 type AuthFilter = "all" | "api_key" | "subscription";
+type SortMode = "provider" | "name" | "params";
 
 interface FilterState {
   query: string;
   auth: AuthFilter;
   providers: Set<string>;
   capabilities: Set<string>;
+  sort: SortMode;
 }
 
 const state: FilterState = {
@@ -14,6 +16,7 @@ const state: FilterState = {
   auth: "all",
   providers: new Set(),
   capabilities: new Set(),
+  sort: "provider",
 };
 
 function setupHowToUseModal(): void {
@@ -144,6 +147,9 @@ function applyFilters(): void {
 
   const empty = document.querySelector<HTMLElement>("[data-empty-state]");
   if (empty) empty.classList.toggle("hidden", visible !== 0);
+
+  updateGroupHeaders();
+  syncFilterChrome();
 }
 
 function setupSearch(): void {
@@ -152,6 +158,14 @@ function setupSearch(): void {
   input.addEventListener("input", () => {
     state.query = input.value.trim().toLowerCase();
     applyFilters();
+  });
+
+  const clear = document.querySelector<HTMLButtonElement>("[data-search-clear]");
+  clear?.addEventListener("click", () => {
+    input.value = "";
+    state.query = "";
+    applyFilters();
+    input.focus();
   });
 
   // Deep link: /?q=opus pre-fills the search (backs the schema.org SearchAction).
@@ -163,6 +177,11 @@ function setupSearch(): void {
   }
 }
 
+function setActive(el: Element, active: boolean): void {
+  el.setAttribute("data-active", String(active));
+  el.setAttribute("aria-pressed", String(active));
+}
+
 function setupAuthFilters(): void {
   const buttons = document.querySelectorAll<HTMLButtonElement>("[data-auth-filter]");
   buttons.forEach((btn) => {
@@ -170,7 +189,7 @@ function setupAuthFilters(): void {
       const auth = btn.dataset.authFilter as AuthFilter | undefined;
       if (!auth) return;
       state.auth = auth;
-      buttons.forEach((b) => b.setAttribute("data-active", String(b === btn)));
+      buttons.forEach((b) => setActive(b, b === btn));
       applyFilters();
     });
   });
@@ -184,13 +203,187 @@ function setupToggleChips(selector: string, datasetKey: string, bucket: Set<stri
       if (!value) return;
       if (bucket.has(value)) {
         bucket.delete(value);
-        chip.setAttribute("data-active", "false");
+        setActive(chip, false);
       } else {
         bucket.add(value);
-        chip.setAttribute("data-active", "true");
+        setActive(chip, true);
       }
       applyFilters();
     });
+  });
+}
+
+function hasActiveFilters(): boolean {
+  return (
+    state.query !== "" ||
+    state.auth !== "all" ||
+    state.providers.size > 0 ||
+    state.capabilities.size > 0
+  );
+}
+
+function syncFilterChrome(): void {
+  const clear = document.querySelector<HTMLElement>("[data-clear-filters]");
+  if (clear) clear.classList.toggle("hidden", !hasActiveFilters());
+
+  const searchClear = document.querySelector<HTMLElement>("[data-search-clear]");
+  if (searchClear) searchClear.classList.toggle("hidden", state.query === "");
+
+  // The "/" hint and the clear button share the same slot; show one at a time.
+  const hint = document.querySelector<HTMLElement>("[data-search-hint]");
+  if (hint) hint.style.display = state.query === "" ? "" : "none";
+}
+
+function setupClearFilters(): void {
+  const button = document.querySelector<HTMLButtonElement>("[data-clear-filters]");
+  if (!button) return;
+  button.addEventListener("click", () => {
+    state.query = "";
+    state.auth = "all";
+    state.providers.clear();
+    state.capabilities.clear();
+
+    const input = document.querySelector<HTMLInputElement>("[data-search]");
+    if (input) input.value = "";
+
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-auth-filter]")
+      .forEach((b) => setActive(b, b.dataset.authFilter === "all"));
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-provider], [data-capability]")
+      .forEach((c) => setActive(c, false));
+
+    applyFilters();
+  });
+}
+
+const modelList = (): HTMLElement | null => document.querySelector("[data-model-list]");
+
+// Snapshot of the server-rendered order (headers + rows), used to restore grouping.
+let originalOrder: Element[] = [];
+
+function updateGroupHeaders(): void {
+  const list = modelList();
+  if (!list) return;
+  const headers = list.querySelectorAll<HTMLElement>("[data-group-header]");
+
+  // Provider headers only make sense in the grouped (provider) ordering.
+  if (state.sort !== "provider") {
+    headers.forEach((h) => h.classList.add("hidden"));
+    return;
+  }
+
+  // Show a header only when its group has at least one visible row.
+  let current: HTMLElement | null = null;
+  let hasVisible = false;
+  const finalize = (): void => {
+    if (current) current.classList.toggle("hidden", !hasVisible);
+  };
+  for (const child of Array.from(list.children) as HTMLElement[]) {
+    if (child.matches("[data-group-header]")) {
+      finalize();
+      current = child;
+      hasVisible = false;
+    } else if (child.classList.contains("model") && !child.classList.contains("hidden")) {
+      hasVisible = true;
+    }
+  }
+  finalize();
+}
+
+function reorderList(): void {
+  const list = modelList();
+  if (!list) return;
+  if (originalOrder.length === 0) originalOrder = Array.from(list.children);
+
+  if (state.sort === "provider") {
+    originalOrder.forEach((el) => list.appendChild(el));
+    return;
+  }
+
+  const rows = Array.from(list.querySelectorAll<HTMLElement>(".model"));
+  rows.sort((a, b) => {
+    const nameA = a.dataset.modelName ?? "";
+    const nameB = b.dataset.modelName ?? "";
+    if (state.sort === "name") return nameA.localeCompare(nameB);
+    const byParams = Number(b.dataset.modelParams ?? 0) - Number(a.dataset.modelParams ?? 0);
+    return byParams !== 0 ? byParams : nameA.localeCompare(nameB);
+  });
+  rows.forEach((row) => list.appendChild(row));
+}
+
+function setupSort(): void {
+  const select = document.querySelector<HTMLSelectElement>("[data-sort]");
+  if (!select) return;
+  originalOrder = Array.from(modelList()?.children ?? []);
+  select.addEventListener("change", () => {
+    state.sort = (select.value as SortMode) || "provider";
+    reorderList();
+    applyFilters();
+  });
+}
+
+function setupModelLinks(): void {
+  document.querySelectorAll<HTMLAnchorElement>("[data-model-link]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      // Leave modified clicks (open in new tab, etc.) to the browser.
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
+        return;
+      }
+      // A plain click navigates to the model page rather than toggling the row.
+      event.preventDefault();
+      const href = link.getAttribute("href");
+      if (href) window.location.href = href;
+    });
+  });
+}
+
+function setupSearchShortcut(): void {
+  const input = document.querySelector<HTMLInputElement>("[data-search]");
+  if (!input) return;
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "/" || event.metaKey || event.ctrlKey || event.altKey) return;
+    const target = event.target as HTMLElement | null;
+    const tag = target?.tagName.toLowerCase();
+    if (tag === "input" || tag === "textarea" || target?.isContentEditable) return;
+    event.preventDefault();
+    input.focus();
+  });
+}
+
+function setupCapabilityCollapse(): void {
+  const bar = document.querySelector<HTMLElement>("[data-capability-bar]");
+  const button = document.querySelector<HTMLButtonElement>("[data-capability-expand]");
+  if (!bar || !button) return;
+
+  const LIMIT = 12;
+  const chips = Array.from(bar.querySelectorAll<HTMLElement>("[data-capability]"));
+  if (chips.length <= LIMIT) return;
+
+  let expanded = false;
+  const render = (): void => {
+    chips.forEach((chip, i) => chip.classList.toggle("hidden", !expanded && i >= LIMIT));
+    button.textContent = expanded ? "Show fewer" : `Show all ${chips.length} parameters`;
+    button.setAttribute("aria-expanded", String(expanded));
+  };
+
+  button.classList.remove("hidden");
+  render();
+  button.addEventListener("click", () => {
+    expanded = !expanded;
+    render();
+  });
+}
+
+function setupMobileMenu(): void {
+  const menu = document.querySelector<HTMLDetailsElement>("[data-mobile-menu]");
+  if (!menu) return;
+  // Close after a selection or when clicking outside.
+  menu
+    .querySelectorAll("a, [data-open-how-to-use]")
+    .forEach((el) => el.addEventListener("click", () => menu.removeAttribute("open")));
+  document.addEventListener("click", (event) => {
+    if (menu.open && !menu.contains(event.target as Node)) menu.removeAttribute("open");
   });
 }
 
@@ -198,9 +391,17 @@ document.addEventListener("DOMContentLoaded", () => {
   setupThemeToggle();
   setupHowToUseModal();
   setupCopyHowToUse();
+  setupMobileMenu();
   setupSearch();
   setupAuthFilters();
   setupToggleChips("[data-provider]", "provider", state.providers);
   setupToggleChips("[data-capability]", "capability", state.capabilities);
+  setupCapabilityCollapse();
+  setupClearFilters();
+  setupSort();
+  setupModelLinks();
+  setupSearchShortcut();
+  updateGroupHeaders();
+  syncFilterChrome();
   setupWebMCP();
 });

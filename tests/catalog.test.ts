@@ -88,6 +88,20 @@ describe("display helpers", () => {
     expect(modelLabel({ provider: "anthropic", model: "claude-sonnet-4-6" })).toBe(
       "Claude Sonnet 4.6",
     );
+    expect(modelLabel({ provider: "anthropic", model: "claude-opus-4-1-20250805" })).toBe(
+      "Claude Opus 4.1 20250805",
+    );
+  });
+
+  it("keeps date stamps separate from version numbers", () => {
+    // An 8-digit date stamp must not fuse onto the version (the "4.20250514" bug).
+    expect(modelLabel({ provider: "anthropic", model: "claude-opus-4-20250514" })).toBe(
+      "Claude Opus 4 20250514",
+    );
+    // A hyphenated YYYY-MM-DD date reads as a date, not a dotted version.
+    expect(modelLabel({ provider: "openai", model: "gpt-4-turbo-2024-04-09" })).toBe(
+      "Gpt 4 Turbo 2024-04-09",
+    );
   });
 });
 

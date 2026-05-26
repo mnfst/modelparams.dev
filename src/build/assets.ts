@@ -29,6 +29,7 @@ export async function compileStyles(): Promise<void> {
 }
 
 export async function copyStaticAssets(): Promise<void> {
+  await fs.mkdir(DIST_ASSETS_DIR, { recursive: true });
   await Promise.all(
     ["favicon.svg", "og.png", "apple-touch-icon.png"].map((name) =>
       fs.copyFile(path.join(CLIENT_DIR, name), path.join(DIST_ASSETS_DIR, name)),

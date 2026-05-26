@@ -14,59 +14,84 @@
   </p>
 </section>
 
-<section class="mt-8" aria-label="Search and filters">
+<div
+  role="search"
+  aria-label="Search and filter models"
+  class="sticky top-0 z-20 mt-8 -mx-4 border-b border-slate-200 bg-white/90 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 dark:border-slate-800 dark:bg-slate-950/90"
+>
   <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-    <label class="relative flex-1">
-      <span class="sr-only">Search models</span>
-      <svg
-        class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M9 3.5a5.5 5.5 0 1 0 3.5 9.74l4.13 4.13a.75.75 0 1 0 1.06-1.06l-4.13-4.13A5.5 5.5 0 0 0 9 3.5ZM5 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"
-          clip-rule="evenodd"
+      <label class="relative flex-1">
+        <span class="sr-only">Search models</span>
+        <svg
+          class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9 3.5a5.5 5.5 0 1 0 3.5 9.74l4.13 4.13a.75.75 0 1 0 1.06-1.06l-4.13-4.13A5.5 5.5 0 0 0 9 3.5ZM5 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <input
+          type="search"
+          id="search"
+          data-search
+          placeholder="Search models (e.g. opus, gpt-4o, haiku)"
+          autocomplete="off"
+          class="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-9 text-sm shadow-sm placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-800 dark:bg-slate-900 dark:placeholder:text-slate-500"
         />
-      </svg>
-      <input
-        type="search"
-        id="search"
-        data-search
-        placeholder="Search models (e.g. opus, gpt-4o, haiku)"
-        autocomplete="off"
-        class="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm shadow-sm placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-800 dark:bg-slate-900 dark:placeholder:text-slate-500"
-      />
-    </label>
-    <div class="flex flex-wrap items-center gap-2">
-      <button
-        type="button"
-        data-auth-filter="all"
-        class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
-        data-active="true"
-      >
-        All
-      </button>
-      <button
-        type="button"
-        data-auth-filter="api_key"
-        class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
-      >
-        API key
-      </button>
-      <button
-        type="button"
-        data-auth-filter="subscription"
-        class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
-      >
-        Subscription
-      </button>
+        <button
+          type="button"
+          data-search-clear
+          aria-label="Clear search"
+          class="absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+        >
+          <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" d="M6 6l8 8M14 6l-8 8" />
+          </svg>
+        </button>
+        <kbd
+          data-search-hint
+          aria-hidden="true"
+          class="pointer-events-none absolute right-2.5 top-1/2 hidden -translate-y-1/2 rounded border border-slate-200 bg-slate-50 px-1.5 py-0.5 font-mono text-[11px] leading-none text-slate-400 sm:block dark:border-slate-700 dark:bg-slate-800 dark:text-slate-500"
+          >/</kbd
+        >
+      </label>
+      <div class="flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          data-auth-filter="all"
+          class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+          data-active="true"
+          aria-pressed="true"
+        >
+          All
+        </button>
+        <button
+          type="button"
+          data-auth-filter="api_key"
+          class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+          aria-pressed="false"
+        >
+          API key
+        </button>
+        <button
+          type="button"
+          data-auth-filter="subscription"
+          class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+          aria-pressed="false"
+        >
+          Subscription
+        </button>
+      </div>
     </div>
-  </div>
+</div>
 
+<section class="mt-4" aria-label="Filters">
   <% if (providers.length > 0) { %>
-  <div class="mt-4">
+  <div>
     <p class="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
       Filter by provider
     </p>
@@ -76,6 +101,7 @@
       <button
         type="button"
         data-provider="<%= p.provider %>"
+        aria-pressed="false"
         class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
       >
         <% if (logo) { %>
@@ -99,6 +125,7 @@
       <button
         type="button"
         data-capability="<%= cap.path %>"
+        aria-pressed="false"
         class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
       >
         <code class="font-mono"><%= cap.path %></code>
@@ -106,19 +133,73 @@
       </button>
       <% } %>
     </div>
+    <button
+      type="button"
+      data-capability-expand
+      aria-expanded="false"
+      class="mt-2 hidden text-xs font-medium text-accent hover:text-accent-hover"
+    >
+      Show all <%= capabilities.length %> parameters
+    </button>
   </div>
   <% } %>
 </section>
 
 <section class="mt-8" aria-label="Models">
-  <div class="mb-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+  <%
+    const byProvider = new Map();
+    for (const m of models) {
+      const list = byProvider.get(m.provider) || [];
+      list.push(m);
+      byProvider.set(m.provider, list);
+    }
+  %>
+  <div class="mb-3 flex items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
     <p>
       <span data-visible-count><%= models.length %></span> of
       <span class="tabular-nums"><%= models.length %></span> models
     </p>
-    <p data-empty-state class="hidden italic">No models match your filters.</p>
+    <div class="flex items-center gap-2">
+      <label class="flex items-center gap-1.5">
+        <span class="sr-only">Sort models</span>
+        <select
+          data-sort
+          class="rounded-md border border-slate-200 bg-white px-2 py-1 text-xs font-medium text-slate-600 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
+        >
+          <option value="provider">Group by provider</option>
+          <option value="name">Name (A–Z)</option>
+          <option value="params">Most parameters</option>
+        </select>
+      </label>
+      <button
+        type="button"
+        data-clear-filters
+        class="hidden items-center gap-1 rounded-md border border-slate-200 px-2.5 py-1 font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+      >
+        <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M6 6l8 8M14 6l-8 8" />
+        </svg>
+        Clear all filters
+      </button>
+    </div>
   </div>
   <div class="flex flex-col gap-2" data-model-list>
-    <% for (const model of models) { %> <%- include("partials/model_row", { model: model, helpers: helpers }) %> <% } %>
+    <% for (const pf of providers) { %>
+    <% const group = byProvider.get(pf.provider) || []; %>
+    <% const groupLogo = helpers.logoFor(pf.provider); %>
+    <h2
+      data-group-header
+      data-provider="<%= pf.provider %>"
+      class="flex items-center gap-2 px-1 pb-1 pt-4 text-xs font-semibold uppercase tracking-wide text-slate-500 first:pt-0 dark:text-slate-400"
+    >
+      <% if (groupLogo) { %><span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- groupLogo %></span><% } %>
+      <span><%= helpers.providerLabel(pf.provider) %></span>
+      <span class="font-normal tabular-nums text-slate-400 dark:text-slate-500"><%= group.length %></span>
+    </h2>
+    <% for (const model of group) { %><%- include("partials/model_row", { model: model, helpers: helpers }) %><% } %>
+    <% } %>
   </div>
+  <p data-empty-state class="mt-6 hidden text-center text-sm italic text-slate-500 dark:text-slate-400">
+    No models match your filters.
+  </p>
 </section>

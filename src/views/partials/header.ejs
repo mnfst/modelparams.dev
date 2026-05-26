@@ -13,32 +13,34 @@
       </span>
       <span class="text-base sm:text-lg">modelparams.dev</span>
     </a>
-    <nav class="flex items-center gap-1 text-sm">
-      <button
-        type="button"
-        data-open-how-to-use
-        class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-      >
-        How to use
-      </button>
-      <a
-        href="/api/v1/models.json"
-        class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-      >
-        API
-      </a>
-      <a
-        href="https://github.com/mnfst/modelparams.dev"
-        class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-        rel="noopener"
-      >
-        GitHub
-      </a>
+    <div class="flex items-center gap-1">
+      <nav class="hidden items-center gap-1 text-sm sm:flex">
+        <button
+          type="button"
+          data-open-how-to-use
+          class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+        >
+          How to use
+        </button>
+        <a
+          href="/api/v1/models.json"
+          class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+        >
+          API
+        </a>
+        <a
+          href="https://github.com/mnfst/modelparams.dev"
+          class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+          rel="noopener"
+        >
+          GitHub
+        </a>
+      </nav>
       <button
         type="button"
         data-theme-toggle
         aria-label="Toggle dark mode"
-        class="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
       >
         <svg
           class="h-4 w-4 dark:hidden"
@@ -62,6 +64,41 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" />
         </svg>
       </button>
-    </nav>
+      <details class="group relative sm:hidden" data-mobile-menu>
+        <summary
+          class="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          aria-label="Open menu"
+        >
+          <svg class="h-5 w-5 group-open:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg class="hidden h-5 w-5 group-open:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </summary>
+        <div class="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-lg border border-slate-200 bg-white py-1 text-sm shadow-lg dark:border-slate-800 dark:bg-slate-900">
+          <button
+            type="button"
+            data-open-how-to-use
+            class="block w-full px-4 py-2 text-left text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+          >
+            How to use
+          </button>
+          <a
+            href="/api/v1/models.json"
+            class="block px-4 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+          >
+            API
+          </a>
+          <a
+            href="https://github.com/mnfst/modelparams.dev"
+            class="block px-4 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+        </div>
+      </details>
+    </div>
   </div>
 </header>

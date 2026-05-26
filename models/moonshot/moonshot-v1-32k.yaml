@@ -5,7 +5,7 @@ model: moonshot-v1-32k
 params:
   - path: max_completion_tokens
     type: integer
-    label: Max tokens
+    label: Max completion tokens
     description: Maximum number of tokens to generate in the chat completion.
     range:
       min: 1
