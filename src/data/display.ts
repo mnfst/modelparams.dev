@@ -57,6 +57,13 @@ const AUTH_LABELS: Record<AuthType, string> = {
   subscription: "Subscription",
 };
 
+// Canonical display labels for parameters whose per-model YAML labels drift.
+// The raw data (and JSON API) stay untouched; this only normalizes what the
+// site renders, the same way MODEL_LABEL_OVERRIDES prettifies model slugs.
+const PARAM_LABEL_OVERRIDES: Record<string, string> = {
+  max_completion_tokens: "Max completion tokens",
+};
+
 const PARAM_GROUP_LABELS: Record<string, string> = {
   generation_length: "Length",
   sampling: "Sampling",
@@ -135,6 +142,10 @@ export function modelLabel(model: Pick<Model, "provider" | "model">): string {
 
 export function authLabel(authType: AuthType): string {
   return AUTH_LABELS[authType];
+}
+
+export function paramLabel(path: string, fallback: string): string {
+  return PARAM_LABEL_OVERRIDES[path] ?? fallback;
 }
 
 export function paramGroupLabel(group: string): string {

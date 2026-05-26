@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { buildCapabilityFacets, buildCatalog, uniqueProviders } from "../src/data/catalog.js";
 import { describeApplicability } from "../src/data/applicability.js";
-import { modelLabel, providerLabel } from "../src/data/display.js";
+import { modelLabel, paramLabel, providerLabel } from "../src/data/display.js";
 import { loadAllModels } from "../src/data/load.js";
 import { modelId } from "../src/schema/model.js";
 import type { Model } from "../src/schema/model.js";
@@ -91,6 +91,11 @@ describe("display helpers", () => {
     expect(modelLabel({ provider: "anthropic", model: "claude-opus-4-1-20250805" })).toBe(
       "Claude Opus 4.1 20250805",
     );
+  });
+
+  it("normalizes drifting parameter labels at display time", () => {
+    expect(paramLabel("max_completion_tokens", "Max tokens")).toBe("Max completion tokens");
+    expect(paramLabel("temperature", "Temperature")).toBe("Temperature");
   });
 
   it("keeps date stamps separate from version numbers", () => {

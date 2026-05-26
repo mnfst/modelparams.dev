@@ -5,7 +5,7 @@ model: gpt-5.4
 params:
   - path: max_completion_tokens
     type: integer
-    label: Max completion tokens
+    label: Max tokens
     description: Maximum number of output tokens the model may generate.
     default: 4096
     range:

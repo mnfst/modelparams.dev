@@ -2,7 +2,7 @@
 // unique parameter path, grouped by parameter group. Powers the /glossary page
 // and its DefinedTermSet structured data.
 
-import { paramGroupLabel } from "./display.js";
+import { paramGroupLabel, paramLabel } from "./display.js";
 import { ParameterGroup, modelId, type Model } from "../schema/model.js";
 
 export interface GlossaryEntry {
@@ -69,7 +69,7 @@ function aggregate(models: Model[]): Map<string, Bucket> {
 function toEntry(path: string, bucket: Bucket): GlossaryEntry {
   return {
     path,
-    label: mostCommon(bucket.labels),
+    label: paramLabel(path, mostCommon(bucket.labels)),
     group: bucket.group,
     types: [...bucket.types].sort(),
     modelCount: bucket.models.size,
