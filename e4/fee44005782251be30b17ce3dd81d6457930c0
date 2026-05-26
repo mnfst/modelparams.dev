@@ -1,0 +1,39 @@
+models/anthropic/claude-sonnet-4-6-subscription.yaml
+  s_24fefa10b8203a::t_df59a49a82fa1b 1-112
+models/anthropic/claude-sonnet-4-5-subscription.yaml
+  s_24fefa10b8203a::t_ce4c0594b4a95a 1-85
+models/anthropic/claude-opus-4-7-subscription.yaml
+  s_24fefa10b8203a::t_1d41fb531aa641 1-47
+models/anthropic/claude-sonnet-4-5-20250929-subscription.yaml
+  s_24fefa10b8203a::t_be83bf50f47fbc 1-83
+models/anthropic/claude-opus-4-1-20250805-subscription.yaml
+  s_24fefa10b8203a::t_04b0faa50e840b 1-96
+models/anthropic/claude-sonnet-4-20250514-subscription.yaml
+  s_24fefa10b8203a::t_799668bfa28d1d 1-92
+models/anthropic/claude-haiku-4-5-subscription.yaml
+  s_24fefa10b8203a::t_e9008c719dcf37 1-84
+models/anthropic/claude-opus-4-6-subscription.yaml
+  s_24fefa10b8203a::t_e7e14e851ef7b4 1-112
+models/anthropic/claude-opus-4-20250514-subscription.yaml
+  s_24fefa10b8203a::t_545b930e76e8cd 1-92
+models/anthropic/claude-haiku-4-5-20251001-subscription.yaml
+  s_24fefa10b8203a::t_8ef754bac37fe2 1-83
+models/anthropic/claude-opus-4-5-20251101-subscription.yaml
+  s_24fefa10b8203a::t_21b45ade58de29 1-106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.1",
+  "base_commit_sha": "e4fee44005782251be30b17ce3dd81d6457930c0",
+  "prompts": {},
+  "sessions": {
+    "s_24fefa10b8203a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "00c4bca9-f61f-4962-b95d-20bc45a7b839",
+        "model": "deepseek-v4-pro"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
