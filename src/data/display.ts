@@ -1,6 +1,7 @@
 import type { AuthType, Model } from "../schema/model.js";
 
 const PROVIDER_LABELS: Record<string, string> = {
+  alibaba: "Alibaba",
   anthropic: "Anthropic",
   openai: "OpenAI",
   google: "Google",
@@ -48,6 +49,7 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "moonshot/moonshot-v1-8k": "Moonshot v1 8K",
   "moonshot/moonshot-v1-32k": "Moonshot v1 32K",
   "moonshot/moonshot-v1-128k": "Moonshot v1 128K",
+  "alibaba/qwen3.5": "Qwen3.5",
 };
 
 const AUTH_LABELS: Record<AuthType, string> = {
