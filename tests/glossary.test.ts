@@ -44,4 +44,20 @@ describe("buildGlossary", () => {
     expect(groups).toHaveLength(1);
     expect(groups[0]?.group).toBe("generation_length");
   });
+
+  it("normalizes max_completion_tokens so it is distinct from max_tokens", () => {
+    const maxCompletion = {
+      path: "max_completion_tokens",
+      type: "integer",
+      label: "Max tokens",
+      description: "Output cap.",
+      group: "generation_length",
+    } as Model["params"][number];
+
+    const groups = buildGlossary([model("openai", "gpt", [maxCompletion])]);
+    const entry = groups
+      .find((g) => g.group === "generation_length")
+      ?.entries.find((e) => e.path === "max_completion_tokens");
+    expect(entry?.label).toBe("Max completion tokens");
+  });
 });

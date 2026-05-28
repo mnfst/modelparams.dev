@@ -17,6 +17,7 @@
   data-model-provider="<%= model.provider %>"
   data-model-auth="<%= model.authType %>"
   data-model-capabilities="<%= capabilities %>"
+  data-model-params="<%= model.params.length %>"
   id="<%= id.replace('/', '--') %>"
 >
   <summary
@@ -30,7 +31,11 @@
       <% } %>
       <span><%= providerName %></span>
     </span>
-    <span class="flex-1 truncate text-sm font-semibold sm:text-base"><%= modelName %></span>
+    <a
+      href="<%= helpers.modelPagePath(model) %>"
+      data-model-link
+      class="flex-1 truncate text-sm font-semibold hover:text-accent sm:text-base dark:hover:text-accent"
+    ><%= modelName %></a>
     <span class="inline-flex shrink-0 items-center rounded-md px-2 py-0.5 text-xs font-medium <%= authClasses %>"
       ><%= authName %></span
     >
