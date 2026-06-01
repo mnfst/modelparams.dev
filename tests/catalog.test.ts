@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { buildCapabilityFacets, buildCatalog, uniqueProviders } from "../src/data/catalog.js";
 import { describeApplicability } from "../src/data/applicability.js";
-import { modelLabel, providerLabel } from "../src/data/display.js";
+import { modelLabel, paramLabel, providerLabel } from "../src/data/display.js";
 import { loadAllModels } from "../src/data/load.js";
 import { modelId } from "../src/schema/model.js";
 import type { Model } from "../src/schema/model.js";
@@ -87,6 +87,25 @@ describe("display helpers", () => {
   it("title-cases unknown model slugs and joins versions with dots", () => {
     expect(modelLabel({ provider: "anthropic", model: "claude-sonnet-4-6" })).toBe(
       "Claude Sonnet 4.6",
+    );
+    expect(modelLabel({ provider: "anthropic", model: "claude-opus-4-1-20250805" })).toBe(
+      "Claude Opus 4.1 20250805",
+    );
+  });
+
+  it("normalizes drifting parameter labels at display time", () => {
+    expect(paramLabel("max_completion_tokens", "Max tokens")).toBe("Max completion tokens");
+    expect(paramLabel("temperature", "Temperature")).toBe("Temperature");
+  });
+
+  it("keeps date stamps separate from version numbers", () => {
+    // An 8-digit date stamp must not fuse onto the version (the "4.20250514" bug).
+    expect(modelLabel({ provider: "anthropic", model: "claude-opus-4-20250514" })).toBe(
+      "Claude Opus 4 20250514",
+    );
+    // A hyphenated YYYY-MM-DD date reads as a date, not a dotted version.
+    expect(modelLabel({ provider: "openai", model: "gpt-4-turbo-2024-04-09" })).toBe(
+      "Gpt 4 Turbo 2024-04-09",
     );
   });
 });

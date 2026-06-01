@@ -1,7 +1,7 @@
 // JSON-LD builders for every page type. Pure functions of (data, siteUrl) so
 // they can be unit-tested without touching the filesystem or the renderer.
 
-import { modelLabel, providerLabel } from "../data/display.js";
+import { modelLabel, paramLabel, providerLabel } from "../data/display.js";
 import type { GlossaryGroup } from "../data/glossary.js";
 import { SITE_DESCRIPTION, SITE_NAME } from "../data/site.js";
 import {
@@ -125,7 +125,7 @@ export function buildModelStructuredData(
     variableMeasured: model.params.map((param) => ({
       "@type": "PropertyValue",
       name: param.path,
-      alternateName: param.label,
+      alternateName: paramLabel(param.path, param.label),
       description: param.description,
     })),
   };

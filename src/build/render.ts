@@ -8,6 +8,7 @@ import {
   modelLabel,
   paramGroupIcon,
   paramGroupLabel,
+  paramLabel,
   providerLabel,
 } from "../data/display.js";
 import { groupParams } from "../data/group.js";
@@ -29,6 +30,7 @@ export const viewHelpers = {
   authLabel,
   paramGroupLabel,
   paramGroupIcon,
+  paramLabel,
   conditionIcon,
   describeApplicability,
   groupParams,
