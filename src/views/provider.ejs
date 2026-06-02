@@ -23,20 +23,15 @@
 <section class="mt-8" aria-label="<%= providerName %> models">
   <ul class="grid grid-cols-1 gap-2 sm:grid-cols-2">
     <% for (const model of models) { %>
-    <%
-      const authName = helpers.authLabel(model.authType);
-      const authClasses =
-        model.authType === "api_key"
-          ? "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200"
-          : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200";
-    %>
     <li>
       <a
         href="<%= helpers.modelPagePath(model) %>"
         class="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
       >
         <span class="flex-1 truncate text-sm font-semibold sm:text-base"><%= helpers.modelLabel(model) %></span>
-        <span class="inline-flex shrink-0 items-center rounded-md px-2 py-0.5 text-xs font-medium <%= authClasses %>"><%= authName %></span>
+        <% if (model.authType === "subscription") { %>
+        <span class="inline-flex shrink-0 items-center rounded-md bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"><%= helpers.authLabel(model.authType) %></span>
+        <% } %>
         <span class="shrink-0 text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span>
         <svg class="h-4 w-4 shrink-0 text-slate-300 dark:text-slate-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.085 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd" />

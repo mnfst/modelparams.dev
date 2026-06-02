@@ -2,11 +2,7 @@
   const id = helpers.modelId(model);
   const providerName = helpers.providerLabel(model.provider);
   const modelName = helpers.modelLabel(model);
-  const authName = helpers.authLabel(model.authType);
-  const authClasses =
-    model.authType === "api_key"
-      ? "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200"
-      : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200";
+  const isSubscription = model.authType === "subscription";
   const capabilities = model.params.map((p) => p.path).join(" ");
   const providerLogo = helpers.logoFor(model.provider);
 %>
@@ -36,9 +32,11 @@
       data-model-link
       class="flex-1 truncate text-sm font-semibold hover:text-accent sm:text-base dark:hover:text-accent"
     ><%= modelName %></a>
-    <span class="inline-flex shrink-0 items-center rounded-md px-2 py-0.5 text-xs font-medium <%= authClasses %>"
-      ><%= authName %></span
+    <% if (isSubscription) { %>
+    <span class="inline-flex shrink-0 items-center rounded-md bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"
+      ><%= helpers.authLabel(model.authType) %></span
     >
+    <% } %>
     <span class="shrink-0 text-xs tabular-nums text-slate-500 dark:text-slate-400"
       ><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span
     >

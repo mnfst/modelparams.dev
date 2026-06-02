@@ -1,10 +1,5 @@
 <%
   const providerLogo = helpers.logoFor(model.provider);
-  const authName = helpers.authLabel(model.authType);
-  const authClasses =
-    model.authType === "api_key"
-      ? "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-200"
-      : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200";
 %>
 <%- include("partials/breadcrumbs", { items: [
   { name: "Home", href: "/" },
@@ -20,7 +15,9 @@
       <% } %>
       <span><%= providerName %></span>
     </span>
-    <span class="inline-flex shrink-0 items-center rounded-md px-2 py-0.5 text-xs font-medium <%= authClasses %>"><%= authName %></span>
+    <% if (isSubscription) { %>
+    <span class="inline-flex shrink-0 items-center rounded-md bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"><%= helpers.authLabel(model.authType) %></span>
+    <% } %>
     <span class="text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span>
   </div>
   <h1 class="mt-3 text-balance text-2xl font-bold tracking-tight sm:text-3xl">
