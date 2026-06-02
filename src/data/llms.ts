@@ -11,7 +11,8 @@ function modelJsonUrl(siteUrl: string, model: Model): string {
 }
 
 function modelTitle(model: Model): string {
-  return `${providerLabel(model.provider)} ${modelLabel(model)} (${authLabel(model.authType)})`;
+  const variant = model.authType === "subscription" ? ` (${authLabel(model.authType)})` : "";
+  return `${providerLabel(model.provider)} ${modelLabel(model)}${variant}`;
 }
 
 function plural(n: number, word: string): string {
