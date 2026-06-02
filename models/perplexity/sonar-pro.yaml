@@ -1,0 +1,94 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: perplexity
+authType: api_key
+model: sonar-pro
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    range:
+      min: 1
+      max: 128000
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: search_mode
+    type: enum
+    label: Search mode
+    description: Selects the corpus the model searches when grounding its answer.
+    values:
+      - web
+      - academic
+      - sec
+    group: provider_metadata
+  - path: search_recency_filter
+    type: enum
+    label: Search recency filter
+    description: Restricts web search results to a recent time window.
+    values:
+      - hour
+      - day
+      - week
+      - month
+      - year
+    group: provider_metadata
+  - path: search_domain_filter
+    type: string
+    label: Search domain filter
+    description: Limits search to, or excludes, specific domains.
+    group: provider_metadata
+  - path: search_after_date_filter
+    type: string
+    label: Search after date
+    description: Restricts search results to content published after this date (MM/DD/YYYY).
+    group: provider_metadata
+  - path: search_before_date_filter
+    type: string
+    label: Search before date
+    description: Restricts search results to content published before this date (MM/DD/YYYY).
+    group: provider_metadata
+  - path: web_search_options.search_context_size
+    type: enum
+    label: Search context size
+    description: Controls how much web search context is retrieved before generating the answer.
+    default: low
+    values:
+      - low
+      - medium
+      - high
+    group: provider_metadata
+  - path: return_images
+    type: boolean
+    label: Return images
+    description: Controls whether the response may include related images from the search.
+    default: false
+    group: provider_metadata
+  - path: return_related_questions
+    type: boolean
+    label: Return related questions
+    description: Controls whether the response includes suggested follow-up questions.
+    default: false
+    group: provider_metadata
+  - path: disable_search
+    type: boolean
+    label: Disable search
+    description: Turns off web search so the model answers from its own knowledge only.
+    default: false
+    group: provider_metadata
