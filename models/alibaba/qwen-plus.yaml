@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: alibaba
+authType: api_key
+model: qwen-plus
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: extra_body.top_k
+    type: integer
+    label: Top K
+    description: Limits generation to the selected number of highest-probability tokens.
+    default: 20
+    range:
+      min: 1
+    group: sampling
+  - path: extra_body.chat_template_kwargs.enable_thinking
+    type: boolean
+    label: Enable thinking
+    description: Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.
+    default: true
+    group: reasoning

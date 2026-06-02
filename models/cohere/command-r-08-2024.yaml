@@ -1,0 +1,95 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: cohere
+authType: api_key
+model: command-r-08-2024
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    range:
+      min: 1
+    group: generation_length
+  - path: stop_sequences
+    type: string
+    label: Stop sequences
+    description: Stops generation when one of these sequences is detected; up to five are allowed.
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 0.3
+    range:
+      min: 0
+      step: 0.1
+    group: sampling
+  - path: p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 0.75
+    range:
+      min: 0.01
+      max: 0.99
+      step: 0.01
+    group: sampling
+  - path: k
+    type: integer
+    label: Top K
+    description: Limits sampling to the K most likely tokens; 0 disables top-k sampling.
+    default: 0
+    range:
+      min: 0
+      max: 500
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalizes tokens proportional to how often they have already appeared to reduce repetition.
+    default: 0
+    range:
+      min: 0
+      max: 1
+      step: 0.1
+    group: sampling
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Penalizes tokens that have already appeared to encourage a wider variety of content.
+    default: 0
+    range:
+      min: 0
+      max: 1
+      step: 0.1
+    group: sampling
+  - path: seed
+    type: integer
+    label: Seed
+    description: Seed used for best-effort deterministic sampling when reproducible outputs are desired.
+    group: sampling
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Controls whether the model returns normal text or JSON object output.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format
+  - path: logprobs
+    type: boolean
+    label: Log probabilities
+    description: Controls whether the response includes log probabilities for the generated tokens.
+    default: false
+    group: observability
+  - path: safety_mode
+    type: enum
+    label: Safety mode
+    description: Controls Cohere's built-in safety instructions applied to the generation.
+    default: CONTEXTUAL
+    values:
+      - CONTEXTUAL
+      - STRICT
+      - OFF
+    group: provider_metadata
