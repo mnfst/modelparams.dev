@@ -61,6 +61,13 @@ params:
       max: 2
       step: 0.1
     group: sampling
+  - path: prompt_mode
+    type: enum
+    label: Prompt mode
+    description: Enables Mistral's reasoning system prompt; leave unset to disable the default reasoning behavior.
+    values:
+      - reasoning
+    group: reasoning
   - path: response_format.type
     type: enum
     label: Response format

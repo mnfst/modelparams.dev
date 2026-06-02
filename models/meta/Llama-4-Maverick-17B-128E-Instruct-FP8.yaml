@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: meta
+authType: api_key
+model: Llama-4-Maverick-17B-128E-Instruct-FP8
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    group: sampling
+  - path: top_k
+    type: integer
+    label: Top K
+    description: Limits generation to the selected number of highest-probability tokens.
+    group: sampling
+  - path: repetition_penalty
+    type: number
+    label: Repetition penalty
+    description: Penalizes tokens that have already appeared to reduce repetition in the output.
+    group: sampling
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Controls whether the model returns normal text or a schema-constrained JSON object.
+    default: text
+    values:
+      - text
+      - json_schema
+    group: output_format
+  - path: tool_choice
+    type: enum
+    label: Tool choice
+    description: Controls whether the model may call tools, must call one, or skips tool calls.
+    values:
+      - auto
+      - none
+      - required
+    group: tooling
