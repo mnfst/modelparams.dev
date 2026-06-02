@@ -5,6 +5,9 @@
   "type": "module",
   "private": true,
   "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mnfst/modelparams.dev.git"
