@@ -175,7 +175,7 @@ export const MODEL_IDS = [
   "z-ai/glm-5-turbo",
   "z-ai/glm-5-turbo-subscription",
   "z-ai/glm-5.1",
-  "z-ai/glm-5.1-subscription",
+  "z-ai/glm-5.1-subscription"
 ] as const;
 
 export type ModelId = (typeof MODEL_IDS)[number];
@@ -193,7 +193,7 @@ export const PROVIDERS = [
   "openai",
   "perplexity",
   "xai",
-  "z-ai",
+  "z-ai"
 ] as const;
 
 export type Provider = (typeof PROVIDERS)[number];
