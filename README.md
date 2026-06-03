@@ -13,6 +13,8 @@ You can access this data through an API.
 
 ```
 curl https://modelparams.dev/api/v1/models.json
+curl https://modelparams.dev/api/v1/params/gpt-5.5.json
+curl https://modelparams.dev/api/v1/params/gpt-5.5-subscription.json
 ```
 
 The catalog follows the [Model Parameters convention](docs/model-parameters-schema.md).
