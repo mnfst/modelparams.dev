@@ -1,0 +1,39 @@
+src/views/partials/how_to_use.ejs
+  s_c1e2284966bb9e::t_d10b3d18c9ba2f 70-74
+src/data/llms.ts
+  s_c1e2284966bb9e::t_da2821f9f3de9a 49-55
+  s_c1e2284966bb9e::t_2c0ac4511fd728 164
+tests/server.test.ts
+  s_c1e2284966bb9e::t_722324924380a0 103-128
+src/data/model-params.ts
+  s_c1e2284966bb9e::t_9378fcbe80979d 1-18,39,41
+  s_c1e2284966bb9e::t_fa992ad4bcdf14 19-25,27-38,40
+tests/catalog.test.ts
+  s_c1e2284966bb9e::t_486f2fe1106b62 5-10,120-146
+  s_c1e2284966bb9e::t_698c4beaf195e7 81-119
+src/build/build.ts
+  s_c1e2284966bb9e::t_b18c79692ae363 11,152-153
+  s_c1e2284966bb9e::t_9902ca4b133d2e 32,107-108
+src/server/app.ts
+  s_c1e2284966bb9e::t_9d461d8c9c71f0 4,96-106
+README.md
+  s_c1e2284966bb9e::t_8d51d4b4cbd0f3 16-17
+tests/llms.test.ts
+  s_c1e2284966bb9e::t_6a33d57710b833 42-43,52,63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "01802681c235940251cf9828a0061315cb5d7588",
+  "prompts": {},
+  "sessions": {
+    "s_c1e2284966bb9e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e8ea9-2adb-7c30-ba7d-9e546f4ae53c",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
