@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: nvidia
+authType: api_key
+model: riva-translate-4b-instruct-v1.1
+params:
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.
+    default: 0
+    range:
+      min: 0
+      max: 1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.
+    default: 0.9
+    range:
+      max: 1
+    group: sampling
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate. Generation stops when this limit is reached.
+    default: 512
+    range:
+      min: 1
+      max: 4096
+    group: generation_length
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
+    default: 0
+    range:
+      min: -2
+      max: 2
+    group: sampling
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+    default: 0
+    range:
+      min: -2
+      max: 2
+    group: sampling
+  - path: stop
+    type: string
+    label: Stop
+    description: A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.
+    group: generation_length

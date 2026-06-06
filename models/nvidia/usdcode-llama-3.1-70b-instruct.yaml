@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: nvidia
+authType: api_key
+model: usdcode-llama-3.1-70b-instruct
+params:
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.
+    default: 0.1
+    range:
+      min: 0
+      max: 1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.
+    default: 1
+    range:
+      max: 1
+    group: sampling
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate. Generation stops when this limit is reached.
+    default: 1024
+    range:
+      min: 1
+      max: 2048
+    group: generation_length
+  - path: expert_type
+    type: enum
+    label: Expert type
+    description: The type of expert to use. 'knowledge' answers with USD knowledge, 'code' responds with vanilla OpenUSD code, 'helperfunction' uses high-level helper functions, and 'auto' lets the LLM determine which expert to use.
+    default: auto
+    values:
+      - auto
+      - code
+      - knowledge
+      - helperfunction
+    group: provider_metadata

@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: nvidia
+authType: api_key
+model: gliner-pii
+params:
+  - path: labels
+    type: string
+    label: Labels
+    description: Entity types to detect. If not specified, uses the default set of 55 PII categories including email, phone_number, ssn, first_name, last_name, and address.
+    group: provider_metadata
+  - path: threshold
+    type: number
+    label: Threshold
+    description: Confidence threshold for entity detection. Lower values detect more entities but may include false positives.
+    default: 0.5
+    range:
+      min: 0
+      max: 1
+    group: sampling
+  - path: chunk_length
+    type: integer
+    label: Chunk length
+    description: Context window size for processing. Longer texts are automatically split into chunks with overlap for complete coverage. Must be greater than overlap.
+    default: 384
+    range:
+      min: 1
+      max: 2048
+    group: provider_metadata
+  - path: overlap
+    type: integer
+    label: Overlap
+    description: Token overlap between chunks to prevent entity clipping. Must be less than chunk_length.
+    default: 128
+    range:
+      min: 0
+      max: 512
+    group: provider_metadata
+  - path: flat_ner
+    type: boolean
+    label: Flat NER
+    description: When true, prevents overlapping entity spans. When false, may return nested entities such as both a full name and its constituent first name.
+    default: false
+    group: provider_metadata
