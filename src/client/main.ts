@@ -16,7 +16,7 @@ const state: FilterState = {
   auth: "all",
   providers: new Set(),
   capabilities: new Set(),
-  sort: "provider",
+  sort: "name",
 };
 
 function setupHowToUseModal(): void {
@@ -99,6 +99,24 @@ function setupCopyHowToUse(): void {
   });
 }
 
+function setupCopyNpm(): void {
+  const btn = document.querySelector<HTMLButtonElement>("[data-copy-npm]");
+  if (!btn) return;
+  const idle = btn.querySelector<HTMLElement>("[data-copy-npm-idle]");
+  const done = btn.querySelector<HTMLElement>("[data-copy-npm-done]");
+  let timer = 0;
+  btn.addEventListener("click", async () => {
+    await copyText("npm i modelparams");
+    idle?.classList.add("hidden");
+    done?.classList.remove("hidden");
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      idle?.classList.remove("hidden");
+      done?.classList.add("hidden");
+    }, 2000);
+  });
+}
+
 function setupThemeToggle(): void {
   const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
   if (!toggle) return;
@@ -150,6 +168,7 @@ function applyFilters(): void {
 
   updateGroupHeaders();
   syncFilterChrome();
+  updateFilterCount();
 }
 
 function setupSearch(): void {
@@ -338,6 +357,29 @@ function setupModelLinks(): void {
   });
 }
 
+function setupScrollTopButton(): void {
+  const btn = document.querySelector<HTMLButtonElement>("[data-scroll-top]");
+  const list = document.querySelector<HTMLElement>("[data-model-list]");
+  const searchBar = document.querySelector<HTMLElement>(".search-bar");
+  if (!btn || !list) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      btn.classList.toggle("hidden", entry.isIntersecting);
+      btn.classList.toggle("flex", !entry.isIntersecting);
+    },
+    { threshold: 0 },
+  );
+
+  const firstRow = list.querySelector(".model");
+  if (firstRow) observer.observe(firstRow);
+
+  btn.addEventListener("click", () => {
+    const target = searchBar || list;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
 function setupSearchShortcut(): void {
   const input = document.querySelector<HTMLInputElement>("[data-search]");
   if (!input) return;
@@ -351,28 +393,98 @@ function setupSearchShortcut(): void {
   });
 }
 
-function setupCapabilityCollapse(): void {
-  const bar = document.querySelector<HTMLElement>("[data-capability-bar]");
-  const button = document.querySelector<HTMLButtonElement>("[data-capability-expand]");
-  if (!bar || !button) return;
+function setupFilterPanel(): void {
+  const toggle = document.querySelector<HTMLButtonElement>("[data-toggle-filters]");
+  const panel = document.querySelector<HTMLElement>("[data-filter-panel]");
+  const chevron = document.querySelector<HTMLElement>("[data-filter-chevron]");
+  if (!toggle || !panel) return;
 
-  const LIMIT = 12;
-  const chips = Array.from(bar.querySelectorAll<HTMLElement>("[data-capability]"));
-  if (chips.length <= LIMIT) return;
+  toggle.addEventListener("click", () => {
+    const isClosed = panel.classList.toggle("filter-panel-closed");
+    toggle.setAttribute("aria-expanded", String(!isClosed));
+    chevron?.classList.toggle("rotate-180", !isClosed);
+  });
+}
 
-  let expanded = false;
-  const render = (): void => {
-    chips.forEach((chip, i) => chip.classList.toggle("hidden", !expanded && i >= LIMIT));
-    button.textContent = expanded ? "Show fewer" : `Show all ${chips.length} parameters`;
-    button.setAttribute("aria-expanded", String(expanded));
+function updateFilterCount(): void {
+  const badge = document.querySelector<HTMLElement>("[data-active-filter-count]");
+  if (!badge) return;
+  const count = state.providers.size + state.capabilities.size + (state.auth !== "all" ? 1 : 0);
+  if (count > 0) {
+    badge.textContent = String(count);
+    badge.classList.remove("hidden");
+  } else {
+    badge.classList.add("hidden");
+  }
+}
+
+function setupViewModeToggle(): void {
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-view-mode]");
+  const grid = document.querySelector<HTMLElement>("[data-provider-grid]");
+  const list = document.querySelector<HTMLElement>("[data-provider-list]");
+  if (!buttons.length || !grid || !list) return;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const mode = btn.dataset.viewMode;
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.setAttribute("data-active", String(active));
+        b.setAttribute("aria-pressed", String(active));
+      });
+      grid.classList.toggle("hidden", mode === "list");
+      list.classList.toggle("hidden", mode === "grid");
+      list.classList.toggle("flex", mode === "list");
+    });
+  });
+}
+
+function setupJsonModal(): void {
+  const dialog = document.getElementById("json-modal") as HTMLDialogElement | null;
+  if (!dialog) return;
+
+  const opener = document.querySelector<HTMLButtonElement>("[data-open-json-modal]");
+  const closer = document.querySelector<HTMLButtonElement>("[data-close-json-modal]");
+  const copyBtn = document.querySelector<HTMLButtonElement>("[data-copy-json]");
+  const jsonContent = document.getElementById("json-content");
+
+  opener?.addEventListener("click", () => {
+    dialog.showModal();
+    document.documentElement.style.overflow = "hidden";
+  });
+
+  const close = (): void => {
+    if (dialog.open) dialog.close();
+    document.documentElement.style.overflow = "";
   };
 
-  button.classList.remove("hidden");
-  render();
-  button.addEventListener("click", () => {
-    expanded = !expanded;
-    render();
+  closer?.addEventListener("click", close);
+  dialog.addEventListener("cancel", close);
+  dialog.addEventListener("close", () => {
+    document.documentElement.style.overflow = "";
   });
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) close();
+  });
+
+  if (copyBtn && jsonContent) {
+    const idle = copyBtn.querySelector<HTMLElement>("[data-copy-json-idle]");
+    const done = copyBtn.querySelector<HTMLElement>("[data-copy-json-done]");
+    const label = copyBtn.querySelector<HTMLElement>("[data-copy-json-label]");
+    let timer = 0;
+    copyBtn.addEventListener("click", async () => {
+      await copyText(jsonContent.textContent?.trim() ?? "");
+      idle?.classList.add("hidden");
+      done?.classList.remove("hidden");
+      if (label) label.textContent = "Copied";
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        idle?.classList.remove("hidden");
+        done?.classList.add("hidden");
+        if (label) label.textContent = "Copy";
+      }, 2000);
+    });
+  }
 }
 
 function setupMobileMenu(): void {
@@ -389,18 +501,23 @@ function setupMobileMenu(): void {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupThemeToggle();
+  setupCopyNpm();
   setupHowToUseModal();
   setupCopyHowToUse();
   setupMobileMenu();
+  setupJsonModal();
+  setupViewModeToggle();
   setupSearch();
   setupAuthFilters();
   setupToggleChips("[data-provider]", "provider", state.providers);
   setupToggleChips("[data-capability]", "capability", state.capabilities);
-  setupCapabilityCollapse();
+  setupFilterPanel();
   setupClearFilters();
   setupSort();
+  reorderList();
   setupModelLinks();
   setupSearchShortcut();
+  setupScrollTopButton();
   updateGroupHeaders();
   syncFilterChrome();
   setupWebMCP();

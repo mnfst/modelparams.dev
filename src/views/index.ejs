@@ -1,25 +1,67 @@
-<section class="pt-10 sm:pt-14">
-  <h1
-    class="text-balance text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
-  >
-    Every LLM parameter, for every model.
-  </h1>
-  <p
-    class="mt-4 max-w-2xl text-pretty text-base text-slate-600 dark:text-slate-300 sm:text-lg"
-  >
-    An open, community-maintained catalog of LLM model parameters. Search,
-    filter, and link straight to the knobs you can turn. API-key and subscription
-    variants of the same model are listed separately, because they behave
-    differently.
-  </p>
+<section class="hero-cover -mt-[1px]">
+  <div class="mx-auto max-w-6xl px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 lg:px-8 lg:pb-32 lg:pt-24">
+    <h1 class="text-balance font-bold tracking-tight" style="font-size:4.5rem;line-height:1.05">
+      Every LLM parameter,<br />for every model.
+    </h1>
+    <p class="mt-4 max-w-2xl text-pretty text-base text-slate-700 sm:text-lg">
+      An open, community-maintained catalog of LLM model parameters.
+      Browse the UI below, query the API, or install the npm package.
+    </p>
+
+    <div class="mt-8 flex flex-wrap items-center gap-4">
+      <!-- npm install — code snippet to copy -->
+      <div class="flex items-center border-2 border-slate-700 bg-slate-800 px-6 py-3 dark:border-slate-500 dark:bg-slate-900">
+        <code class="font-mono text-sm text-slate-200"><span class="select-none text-slate-500">$ </span><span class="select-all">npm i modelparams</span></code>
+        <button
+          type="button"
+          data-copy-npm
+          aria-label="Copy to clipboard"
+          class="group ml-6 shrink-0 text-slate-400 hover:text-white"
+        >
+          <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-copy-npm-idle>
+            <rect x="5" y="5" width="9" height="9" rx="1" />
+            <path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5" />
+          </svg>
+          <svg viewBox="0 0 16 16" class="hidden h-4 w-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-copy-npm-done>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.5 8.5l3 3 6-6" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- GitHub -->
+      <a
+        href="https://github.com/AidenYangX/modelparams"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
+      >
+        <svg viewBox="0 0 16 16" class="h-4 w-4 shrink-0" fill="currentColor" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+        </svg>
+        GitHub
+      </a>
+
+      <!-- API docs — ghost link -->
+      <a
+        href="/api"
+        class="inline-flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 shrink-0" aria-hidden="true">
+          <path d="M6 13h6v4l6-5-6-5v4H6z" />
+        </svg>
+        Use the API
+      </a>
+    </div>
+  </div>
 </section>
 
 <div
   role="search"
   aria-label="Search and filter models"
-  class="sticky top-0 z-20 mt-8 -mx-4 border-b border-slate-200 bg-white/90 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 dark:border-slate-800 dark:bg-slate-950/90"
+  class="search-bar -mx-4 px-4 py-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
 >
-  <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+  <div class="search-card rounded-xl border border-slate-200 bg-white p-4 shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-slate-950/50">
+  <div class="flex items-center gap-3">
       <label class="relative flex-1">
         <span class="sr-only">Search models</span>
         <svg
@@ -40,13 +82,13 @@
           data-search
           placeholder="Search models (e.g. opus, gpt-4o, haiku)"
           autocomplete="off"
-          class="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-9 pr-9 text-sm shadow-sm placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-800 dark:bg-slate-900 dark:placeholder:text-slate-500"
+          class="w-full rounded-lg border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-9 text-sm placeholder:text-slate-400 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-700 dark:bg-slate-800 dark:placeholder:text-slate-500 dark:focus:bg-slate-900"
         />
         <button
           type="button"
           data-search-clear
           aria-label="Clear search"
-          class="absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-md p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+          class="absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-md p-1 text-slate-400 hover:bg-warm-hover hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-200"
         >
           <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" d="M6 6l8 8M14 6l-8 8" />
@@ -59,11 +101,37 @@
           >/</kbd
         >
       </label>
-      <div class="flex flex-wrap items-center gap-2">
+      <button
+        type="button"
+        data-toggle-filters
+        aria-expanded="false"
+        class="inline-flex shrink-0 items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:bg-warm-hover dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800"
+      >
+        <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M1.5 3.5h13M3.5 8h9M5.5 12.5h5" />
+        </svg>
+        Filters
+        <span data-active-filter-count class="hidden rounded bg-accent px-1.5 py-0.5 text-[10px] font-semibold tabular-nums text-white"></span>
+        <svg viewBox="0 0 16 16" class="h-3 w-3 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" data-filter-chevron aria-hidden="true">
+          <path d="M4 6l4 4 4-4" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div data-filter-panel class="filter-panel-closed border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+  <div data-filter-scroll class="overflow-y-auto">
+  <div class="mx-auto max-w-6xl p-4 sm:p-6">
+    <div>
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+        Access type
+      </p>
+      <div class="flex flex-wrap gap-2">
         <button
           type="button"
           data-auth-filter="all"
-          class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
           data-active="true"
           aria-pressed="true"
         >
@@ -72,7 +140,7 @@
         <button
           type="button"
           data-auth-filter="api_key"
-          class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
           aria-pressed="false"
         >
           API key
@@ -80,72 +148,70 @@
         <button
           type="button"
           data-auth-filter="subscription"
-          class="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800"
+          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
           aria-pressed="false"
         >
           Subscription
         </button>
       </div>
     </div>
+
+    <% if (providers.length > 0) { %>
+    <div class="mt-4 border-t border-slate-100 pt-4 dark:border-slate-800">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+        Providers
+      </p>
+      <div class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4" data-provider-bar>
+        <% for (const p of providers) { %>
+        <% const logo = helpers.logoFor(p.provider); %>
+        <button
+          type="button"
+          data-provider="<%= p.provider %>"
+          data-provider-slug="<%= p.provider %>"
+          aria-pressed="false"
+          class="inline-flex items-center gap-2 rounded-none border border-slate-200 bg-white px-3 py-2 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+        >
+          <% if (logo) { %>
+          <span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- logo %></span>
+          <% } %>
+          <span class="flex-1 text-left"><%= helpers.providerLabel(p.provider) %></span>
+          <span class="rounded bg-warm-tag px-1.5 py-0.5 text-[10px] tabular-nums text-slate-500 dark:bg-slate-800 dark:text-slate-400"><%= p.count %></span>
+        </button>
+        <% } %>
+      </div>
+    </div>
+    <% } %>
+
+    <% if (capabilities.length > 0) { %>
+    <div class="mt-4 border-t border-slate-100 pt-4 dark:border-slate-800">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+        Parameters
+      </p>
+      <div class="grid grid-cols-2 gap-2 sm:grid-cols-3" data-capability-bar>
+        <% for (const cap of capabilities) { %>
+        <div class="group/tip relative">
+          <button
+            type="button"
+            data-capability="<%= cap.path %>"
+            aria-pressed="false"
+            class="inline-flex w-full items-center gap-2 rounded-none border border-slate-200 bg-white px-3 py-2 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+          >
+            <code class="min-w-0 flex-1 truncate text-left font-mono"><%= cap.path %></code>
+            <span class="shrink-0 rounded bg-warm-tag px-1.5 py-0.5 text-[10px] tabular-nums text-slate-500 data-[active=true]:bg-white/20 data-[active=true]:text-white dark:bg-slate-800 dark:text-slate-400"><%= cap.count %></span>
+          </button>
+          <span class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 hidden -translate-x-1/2 whitespace-nowrap rounded bg-slate-900 px-2.5 py-1.5 font-mono text-[11px] text-white shadow-lg group-hover/tip:block dark:bg-warm-tag dark:text-slate-900"
+            ><%= cap.path %></span>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <% } %>
+    </div>
+    </div>
+  </div>
 </div>
 
-<section class="mt-4" aria-label="Filters">
-  <% if (providers.length > 0) { %>
-  <div>
-    <p class="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
-      Filter by provider
-    </p>
-    <div class="flex flex-wrap gap-2" data-provider-bar>
-      <% for (const p of providers) { %>
-      <% const logo = helpers.logoFor(p.provider); %>
-      <button
-        type="button"
-        data-provider="<%= p.provider %>"
-        aria-pressed="false"
-        class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
-      >
-        <% if (logo) { %>
-        <span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- logo %></span>
-        <% } %>
-        <span><%= helpers.providerLabel(p.provider) %></span>
-        <span class="tabular-nums opacity-60"><%= p.count %></span>
-      </button>
-      <% } %>
-    </div>
-  </div>
-  <% } %>
-
-  <% if (capabilities.length > 0) { %>
-  <div class="mt-4">
-    <p class="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
-      Filter by parameter
-    </p>
-    <div class="flex flex-wrap gap-2" data-capability-bar>
-      <% for (const cap of capabilities) { %>
-      <button
-        type="button"
-        data-capability="<%= cap.path %>"
-        aria-pressed="false"
-        class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
-      >
-        <code class="font-mono"><%= cap.path %></code>
-        <span class="tabular-nums opacity-60"><%= cap.count %></span>
-      </button>
-      <% } %>
-    </div>
-    <button
-      type="button"
-      data-capability-expand
-      aria-expanded="false"
-      class="mt-2 hidden text-xs font-medium text-accent hover:text-accent-hover"
-    >
-      Show all <%= capabilities.length %> parameters
-    </button>
-  </div>
-  <% } %>
-</section>
-
-<section class="mt-8" aria-label="Models">
+<section class="mt-4" aria-label="Models">
   <%
     const byProvider = new Map();
     for (const m of models) {
@@ -166,7 +232,6 @@
           data-sort
           class="rounded-md border border-slate-200 bg-white px-2 py-1 text-xs font-medium text-slate-600 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
         >
-          <option value="provider">Group by provider</option>
           <option value="name">Name (A–Z)</option>
           <option value="params">Most parameters</option>
         </select>
@@ -174,7 +239,7 @@
       <button
         type="button"
         data-clear-filters
-        class="hidden items-center gap-1 rounded-md border border-slate-200 px-2.5 py-1 font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+        class="hidden items-center gap-1 rounded-md border border-slate-200 px-2.5 py-1 font-medium text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
       >
         <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" d="M6 6l8 8M14 6l-8 8" />
@@ -183,18 +248,15 @@
       </button>
     </div>
   </div>
-  <div class="flex flex-col gap-2" data-model-list>
+  <div class="model-list flex flex-col" data-model-list>
     <% for (const pf of providers) { %>
     <% const group = byProvider.get(pf.provider) || []; %>
-    <% const groupLogo = helpers.logoFor(pf.provider); %>
     <h2
       data-group-header
       data-provider="<%= pf.provider %>"
-      class="flex items-center gap-2 px-1 pb-1 pt-4 text-xs font-semibold uppercase tracking-wide text-slate-500 first:pt-0 dark:text-slate-400"
+      class="sr-only"
     >
-      <% if (groupLogo) { %><span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- groupLogo %></span><% } %>
-      <span><%= helpers.providerLabel(pf.provider) %></span>
-      <span class="font-normal tabular-nums text-slate-400 dark:text-slate-500"><%= group.length %></span>
+      <%= helpers.providerLabel(pf.provider) %>
     </h2>
     <% for (const model of group) { %><%- include("partials/model_row", { model: model, helpers: helpers }) %><% } %>
     <% } %>
@@ -203,3 +265,14 @@
     No models match your filters.
   </p>
 </section>
+
+<button
+  type="button"
+  data-scroll-top
+  aria-label="Scroll to search"
+  class="fixed bottom-6 right-6 z-30 hidden h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white shadow-lg hover:bg-warm-hover dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
+>
+  <svg viewBox="0 0 16 16" class="h-4 w-4 text-slate-600 dark:text-slate-300" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <path d="M8 12V4M4 7l4-4 4 4" />
+  </svg>
+</button>

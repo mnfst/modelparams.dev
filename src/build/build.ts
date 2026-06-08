@@ -21,6 +21,7 @@ import { modelId, type Model } from "../schema/model.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
 import { renderIndex } from "./render.js";
+import { renderApiPage } from "./render-api.js";
 import { renderGlossaryPage } from "./render-glossary.js";
 import { renderModelPage } from "./render-model.js";
 import { renderProviderPage } from "./render-provider.js";
@@ -93,6 +94,7 @@ async function writeHtmlPages(models: Model[]): Promise<void> {
   }
 
   await fs.writeFile(path.join(DIST_DIR, "glossary.html"), await renderGlossaryPage(models), "utf8");
+  await fs.writeFile(path.join(DIST_DIR, "api.html"), await renderApiPage(models), "utf8");
 }
 
 async function writeApiIndex(modelCount: number): Promise<void> {

@@ -9,18 +9,18 @@
 
 <section class="pt-6">
   <div class="flex flex-wrap items-center gap-2.5">
-    <span class="provider-badge inline-flex shrink-0 items-center gap-1.5 rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+    <a href="<%= providerPath %>" data-provider-slug="<%= model.provider %>" class="inline-flex shrink-0 items-center gap-1.5 bg-slate-900 px-2.5 py-1 text-xs font-medium text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-warm-hover">
       <% if (providerLogo) { %>
       <span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- providerLogo %></span>
       <% } %>
       <span><%= providerName %></span>
-    </span>
+    </a>
     <% if (isSubscription) { %>
-    <span class="inline-flex shrink-0 items-center rounded-md bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"><%= helpers.authLabel(model.authType) %></span>
+    <span class="inline-flex shrink-0 items-center bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"><%= helpers.authLabel(model.authType) %></span>
     <% } %>
     <span class="text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span>
   </div>
-  <h1 class="mt-3 text-balance text-2xl font-bold tracking-tight sm:text-3xl">
+  <h1 class="mt-3 text-balance font-bold tracking-tight">
     <%= providerName %> <%= modelName %><% if (isSubscription) { %> (subscription)<% } %> parameters
   </h1>
   <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-600 dark:text-slate-300 sm:text-base">
@@ -30,36 +30,82 @@
 
 <section class="mt-8" aria-label="Parameters">
   <% if (model.params.length === 0) { %>
-  <p class="rounded-xl border border-slate-200 bg-white px-4 py-6 text-sm italic text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+  <p class="text-sm italic text-slate-500 dark:text-slate-400">
     No parameters documented yet.
   </p>
   <% } else { %>
-  <div class="rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm sm:px-5 dark:border-slate-800 dark:bg-slate-900">
-    <%- include("partials/param_table", { params: model.params, helpers: helpers }) %>
-  </div>
+  <%- include("partials/param_table", { params: model.params, helpers: helpers }) %>
   <% } %>
 </section>
 
-<section class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-  <a href="<%= jsonPath %>" class="font-medium text-accent hover:text-accent-hover">This model as JSON</a>
-  <a href="<%= providerPath %>" class="text-slate-600 underline hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">All <%= providerName %> models</a>
-  <a href="/glossary" class="text-slate-600 underline hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Parameter glossary</a>
-  <a href="/" class="text-slate-600 underline hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Full catalog</a>
-</section>
+<h2 class="mt-8 text-slate-900 dark:text-slate-100">Resources</h2>
+<div class="mt-3 grid grid-cols-1 text-sm sm:grid-cols-2 lg:grid-cols-4">
+  <button type="button" data-open-json-modal class="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-3 text-accent hover:bg-warm-hover hover:text-accent-hover dark:border-slate-800 dark:hover:bg-slate-900 sm:-mr-px sm:-mb-px lg:-mb-0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 shrink-0" aria-hidden="true"><path d="M4 8c0 2.8-1.68 2.99-2.01 3v2c.1 0 2.01.03 2.01 3 0 4.74 3.27 6 5 6h1v-2h-.99C8.7 20 6 19.83 6 16c0-1.99-.67-3.25-1.5-4C5.34 11.25 6 9.99 6 8c0-3.83 2.7-3.99 3-4h1V2H9C7.27 2 4 3.26 4 8m16 0c0-4.74-3.27-6-5-6h-1v2h.99C15.3 4 18 4.17 18 8c0 1.99.67 3.25 1.5 4-.84.75-1.5 2.01-1.5 4 0 3.83-2.7 3.99-3 4h-1v2h1c1.73 0 5-1.26 5-6 0-2.8 1.68-2.99 2.01-3v-2c-.1 0-2.01-.03-2.01-3"></path></svg>
+    JSON
+  </button>
+  <a href="<%= providerPath %>" class="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-3 text-accent hover:bg-warm-hover hover:text-accent-hover dark:border-slate-800 dark:hover:bg-slate-900 sm:-mb-px lg:-mb-0 lg:-mr-px" data-provider-slug="<%= model.provider %>">
+    <% if (providerLogo) { %><span class="provider-logo inline-flex h-4 w-4 shrink-0 items-center justify-center" aria-hidden="true"><%- providerLogo %></span><% } %>
+    All <%= providerName %> models
+  </a>
+  <a href="/glossary" class="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-3 text-accent hover:bg-warm-hover hover:text-accent-hover dark:border-slate-800 dark:hover:bg-slate-900 sm:-mr-px lg:-mr-px">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 shrink-0" aria-hidden="true"><path d="M8 6h9v2H8z"></path><path d="M20 2H6C4.35 2 3 3.35 3 5v14c0 1.65 1.35 3 3 3h15v-2H6c-.55 0-1-.45-1-1s.45-1 1-1h14c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1m-6 14H6c-.35 0-.69.07-1 .18V5c0-.55.45-1 1-1h13v12z"></path></svg>
+    Glossary
+  </a>
+  <a href="/" class="inline-flex items-center justify-center gap-2 border border-slate-200 px-4 py-3 text-accent hover:bg-warm-hover hover:text-accent-hover dark:border-slate-800 dark:hover:bg-slate-900">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 shrink-0" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M5 19V5h14v14z"></path><path d="M7 7h10v2H7zm0 4h10v2H7zm0 4h10v2H7z"></path></svg>
+    Full catalog
+  </a>
+</div>
+
+<!-- JSON Modal -->
+<dialog id="json-modal" class="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white p-0 text-slate-900 shadow-2xl backdrop:bg-slate-900/60 backdrop:backdrop-blur-sm dark:bg-slate-900 dark:text-slate-100">
+  <div class="flex items-center justify-between border-b border-slate-200 px-6 py-4 dark:border-slate-800">
+    <h2 class="text-lg font-semibold tracking-tight"><%= modelName %> — JSON</h2>
+    <button type="button" data-close-json-modal aria-label="Close" class="inline-flex h-9 w-9 items-center justify-center text-slate-500 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M18 6 6 18M6 6l12 12" /></svg>
+    </button>
+  </div>
+  <div class="px-6 py-4">
+    <p class="text-sm text-slate-600 dark:text-slate-300">
+      The full model definition as served by the API. Copy it or open the endpoint directly.
+    </p>
+    <div class="mt-3 flex items-center gap-3">
+      <a href="<%= jsonPath %>" target="_blank" rel="noopener noreferrer" class="text-sm text-accent hover:text-accent-hover"><%= jsonPath %></a>
+    </div>
+    <div class="relative mt-4">
+      <button type="button" data-copy-json class="absolute right-2 top-2 inline-flex items-center gap-1.5 border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">
+        <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-copy-json-idle><rect x="5" y="5" width="9" height="9" rx="1" /><path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5" /></svg>
+        <svg viewBox="0 0 16 16" class="hidden h-3.5 w-3.5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-copy-json-done><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 8.5l3 3 6-6" /></svg>
+        <span data-copy-json-label>Copy</span>
+      </button>
+      <pre class="max-h-[50vh] overflow-auto border border-slate-100 bg-slate-50 p-4 pr-20 font-mono text-xs leading-relaxed text-slate-800 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200" id="json-content"><%= modelJson %></pre>
+    </div>
+  </div>
+</dialog>
 
 <% if (siblings.length > 0) { %>
-<section class="mt-10 border-t border-slate-200 pt-6 dark:border-slate-800" aria-label="Related models">
-  <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+<section class="mt-10" aria-label="Related models">
+  <h2 class="text-slate-900 dark:text-slate-100">
     Other <%= providerName %> models
   </h2>
-  <div class="mt-3 flex flex-wrap gap-2">
+  <div class="model-list mt-4 flex flex-col">
     <% for (const sibling of siblings) { %>
     <a
       href="<%= helpers.modelPagePath(sibling) %>"
-      class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+      class="model flex items-center border border-slate-200 bg-white px-4 py-3 transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
     >
-      <span><%= helpers.modelLabel(sibling) %></span>
-      <% if (sibling.authType === "subscription") { %><span class="opacity-60">subscription</span><% } %>
+      <span class="truncate text-sm text-slate-900 dark:text-slate-100"><%= helpers.modelLabel(sibling) %></span>
+      <% if (sibling.authType === "subscription") { %>
+      <span class="ml-3 bg-emerald-100 px-1.5 py-0.5 text-[10px] font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"><%= helpers.authLabel(sibling.authType) %></span>
+      <% } %>
+      <span class="ml-auto shrink-0 text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= sibling.params.length %> param<%= sibling.params.length === 1 ? "" : "s" %></span>
+      <span class="ml-3 inline-flex shrink-0 items-center gap-1 text-xs font-medium text-accent hover:text-accent-hover">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5" aria-hidden="true">
+          <path d="M12 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6"></path><path d="M12 19c7.63 0 9.93-6.62 9.95-6.68.07-.21.07-.43 0-.63-.02-.07-2.32-6.68-9.95-6.68s-9.93 6.61-9.95 6.67c-.07.21-.07.43 0 .63.02.07 2.32 6.68 9.95 6.68Zm0-12c5.35 0 7.42 3.85 7.93 5-.5 1.16-2.58 5-7.93 5s-7.42-3.84-7.93-5c.5-1.16 2.58-5 7.93-5"></path>
+        </svg>
+        View
+      </span>
     </a>
     <% } %>
   </div>

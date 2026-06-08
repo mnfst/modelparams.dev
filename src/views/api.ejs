@@ -1,0 +1,86 @@
+<section class="pt-10 sm:pt-14 pb-16">
+  <h1 class="font-bold tracking-tight">How to use the API</h1>
+
+  <div class="mt-8 max-w-3xl space-y-8 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+    <div class="flex items-start gap-3 border border-accent/20 bg-accent/5 px-4 py-3 dark:border-accent/30 dark:bg-accent/10">
+      <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m13.95-6.95-1.41 1.41M8.46 15.54l-1.41 1.41m11.31 0-1.41-1.41M8.46 8.46 7.05 7.05" />
+        <circle cx="12" cy="12" r="3.5" />
+      </svg>
+      <p class="text-xs text-slate-600 dark:text-slate-300">
+        Building with an AI agent? Point it at
+        <a href="/llms.txt" class="font-medium text-accent underline decoration-dotted underline-offset-2 hover:text-accent-hover">/llms.txt</a>
+        for a machine-readable overview, or copy any snippet below.
+      </p>
+    </div>
+
+    <section class="space-y-3">
+      <p>
+        <a href="/" class="font-medium text-accent hover:text-accent-hover">modelparams.dev</a>
+        is an open, community-maintained catalog of LLM model parameters. Each entry shows the
+        knobs you can turn — type, default, range, and the conditions that gate it.
+      </p>
+      <p>
+        The same model accessed via an <strong>API key</strong> and via a
+        <strong>subscription</strong> usually exposes a different set of parameters. We list both
+        as separate entries so the data stays honest.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Catalog API</h3>
+      <p>The full catalog is static JSON, CORS-enabled, served from the edge.</p>
+      <pre class="overflow-x-auto bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models.json">https://modelparams.dev/api/v1/models.json</a></code></pre>
+      <p>
+        Each entry is keyed by <code class="bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">provider/model</code> for API-key variants; subscription variants append <code class="bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">-subscription</code>.
+      </p>
+      <p>
+        If you only need the params for one model contract, use the providerless endpoint.
+      </p>
+      <pre class="overflow-x-auto bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/params/gpt-5.5.json">https://modelparams.dev/api/v1/params/gpt-5.5.json</a></code></pre>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Single model</h3>
+      <pre class="overflow-x-auto bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/models/anthropic/claude-opus-4-7.json">https://modelparams.dev/api/v1/models/anthropic/claude-opus-4-7.json</a></code></pre>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">JSON Schema</h3>
+      <p>
+        Every entry validates against a JSON Schema you can use in your editor or pipeline.
+      </p>
+      <pre class="overflow-x-auto bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/api/v1/schema.json">https://modelparams.dev/api/v1/schema.json</a></code></pre>
+      <p>
+        Add this header to any YAML you author for autocomplete in VS Code:
+      </p>
+      <pre class="overflow-x-auto bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code># yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json</code></pre>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">npm package</h3>
+      <p>
+        Install the package to query the catalog locally or in your build pipeline.
+      </p>
+      <pre class="overflow-x-auto bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>npm i modelparams</code></pre>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Logos</h3>
+      <p>
+        Provider logos are available at <code class="bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">/assets/logos/{provider}.svg</code>.
+        They use <code class="font-mono">currentColor</code> so they inherit your text color.
+      </p>
+      <pre class="overflow-x-auto bg-slate-100 px-3 py-2 font-mono text-xs text-slate-800 dark:bg-slate-800 dark:text-slate-200"><code>curl <a class="underline decoration-dotted underline-offset-2 hover:text-accent" href="/assets/logos/anthropic.svg">https://modelparams.dev/assets/logos/anthropic.svg</a></code></pre>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Contribute</h3>
+      <p>
+        The data lives in YAML under <code class="bg-slate-100 px-1.5 py-0.5 font-mono text-xs dark:bg-slate-800">models/{provider}/{model}-{auth}.yaml</code>
+        in the <a class="text-accent underline hover:text-accent-hover" href="https://github.com/mnfst/modelparams.dev" target="_blank" rel="noopener">GitHub repo</a>.
+        Open a PR; CI validates against the schema and rebuilds.
+      </p>
+    </section>
+  </div>
+</section>
