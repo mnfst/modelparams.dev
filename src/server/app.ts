@@ -8,6 +8,7 @@ import { renderIndex } from "../build/render.js";
 import { renderModelPage } from "../build/render-model.js";
 import { renderProviderPage } from "../build/render-provider.js";
 import { renderGlossaryPage } from "../build/render-glossary.js";
+import { renderApiPage } from "../build/render-api.js";
 import { SITE_URL } from "../data/site.js";
 import { modelId, type Model } from "../schema/model.js";
 
@@ -34,6 +35,16 @@ export function makeApp(loadModels: LoadModels): express.Express {
       const html = await renderIndex({ catalog, capabilities, providers });
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(html);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/api", async (_req, res, next) => {
+    try {
+      const models = await loadModels();
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderApiPage(models));
     } catch (err) {
       next(err);
     }

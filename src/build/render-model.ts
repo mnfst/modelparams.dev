@@ -55,6 +55,7 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
     modelName: modelLabel(model),
     providerPath: providerPagePath(model.provider),
     jsonPath: modelJsonPath(model),
+    modelJson: JSON.stringify({ $schema: "https://modelparams.dev/api/v1/schema.json", ...model }, null, 2),
     isSubscription: model.authType === "subscription",
   });
 

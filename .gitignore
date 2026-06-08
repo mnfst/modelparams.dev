@@ -12,3 +12,4 @@ packages/*/*.tsbuildinfo
 coverage/
 .vscode/
 .idea/
+.gstack/

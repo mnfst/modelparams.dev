@@ -6,6 +6,58 @@
   html {
     scroll-behavior: smooth;
   }
+  body {
+    font-size: 0.875rem; /* 14px base for body text */
+  }
+  .bg-site {
+    background-color: #FEFDFB;
+  }
+  html.dark .bg-site {
+    background-color: #171717;
+  }
+
+  /* ── Supabase-style dark palette ── */
+  html.dark {
+    --dark-bg: #171717;
+    --dark-card: #1f1f1f;
+    --dark-border: hsla(60, 2%, 12%, 0.17);
+    --dark-hover: #2a2a2a;
+  }
+
+  /* Override Tailwind dark defaults to warm neutrals */
+  html.dark .dark\:bg-slate-900 { background-color: var(--dark-card) !important; }
+  html.dark .dark\:bg-slate-950 { background-color: var(--dark-bg) !important; }
+  html.dark .dark\:bg-slate-950\/90 { background-color: rgba(23, 23, 23, 0.9) !important; }
+  html.dark .dark\:bg-slate-800 { background-color: #262626 !important; }
+  html.dark .dark\:border-slate-800 { border-color: hsla(60, 2%, 12%, 0.17) !important; }
+  html.dark .dark\:border-slate-700 { border-color: hsla(60, 2%, 12%, 0.25) !important; }
+  html.dark .dark\:hover\:bg-slate-800:hover { background-color: var(--dark-hover) !important; }
+  html.dark .dark\:hover\:bg-slate-700:hover { background-color: #333 !important; }
+  html.dark .dark\:hover\:border-slate-700:hover { border-color: #444 !important; }
+  html.dark .dark\:hover\:border-slate-600:hover { border-color: #555 !important; }
+
+  /* Lighten accent in dark mode for readability */
+  html.dark .text-accent { color: #7b83ff !important; }
+  html.dark .hover\:text-accent-hover:hover { color: #9da3ff !important; }
+
+  /* Active filter states must override dark border/bg overrides */
+  html.dark [data-active="true"].dark\:data-\[active\=true\]\:bg-accent {
+    background-color: #2530F0 !important;
+    border-color: #2530F0 !important;
+  }
+
+  /* ── Major Third type scale (1.250) — headings use Inria Serif ── */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Ovo", Georgia, Cambria, serif;
+    font-weight: 400;
+  }
+  h1 { font-size: 3.052rem;  line-height: 1.1;  }
+  h2 { font-size: 1.563rem;  line-height: 1.25; }
+  h3 { font-size: 1.25rem;   line-height: 1.3;  }
+  h4 { font-size: 1.125rem;  line-height: 1.35; }
+  h5 { font-size: 1rem;      line-height: 1.4;  }
+  h6 { font-size: 0.875rem;  line-height: 1.4;  }
+
   details > summary::-webkit-details-marker {
     display: none;
   }
@@ -18,30 +70,106 @@
 
 @layer components {
   .provider-logo svg,
-  .group-heading svg,
+  .group-heading svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
   td .inline-flex > svg {
     width: 100%;
     height: 100%;
     display: block;
   }
+
 }
 
-/* Separate parameter groups with breathing room + a hairline divider.
-   First group sits flush with the table head; later groups get spaced. */
-table.params-table > tbody > tr.group-heading > th {
+
+
+
+/* ── Logo gradient (mesh-style) ── */
+.logo-gradient {
+  background-color: #3b3de8;
+  background-image:
+    radial-gradient(circle at 25% 110%, #e84393 0%, transparent 70%),
+    radial-gradient(circle at 105% 30%, #2ecc71 0%, transparent 65%),
+    radial-gradient(circle at 60% 40%, #8e44ad 0%, transparent 75%),
+    radial-gradient(circle at -10% -5%, #4285f4 0%, transparent 95%),
+    radial-gradient(circle at 80% 95%, #f39c12 0%, transparent 60%);
+}
+
+/* ── Providers mega menu animation ── */
+[data-providers-menu] {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-providers-menu].providers-menu-hidden {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
+/* ── Collapsed borders on model cards (solid) ── */
+.model-list > .model + .model {
+  margin-top: -1px;
+}
+.model-list > .model:hover {
+  z-index: 1;
+}
+
+/* Separate parameter groups with breathing room. */
+.group-section + .group-section > .group-heading {
   padding-top: 1.5rem;
-  padding-bottom: 0.5rem;
-}
-table.params-table > tbody:first-of-type > tr.group-heading > th {
-  padding-top: 0.5rem;
-  border-top: none;
-}
-table.params-table > tbody + tbody > tr.group-heading > th {
-  border-top: 1px solid rgb(226 232 240); /* slate-200 */
-}
-html.dark table.params-table > tbody + tbody > tr.group-heading > th {
-  border-top-color: rgb(30 41 59); /* slate-800 */
 }
 table.params-table > tbody > tr:last-child > td {
   padding-bottom: 0.75rem;
+}
+
+/* ── Clean parameter tables: grey header + thin row separators ── */
+table.params-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgb(241 245 249); /* slate-100 */
+}
+html.dark table.params-table {
+  border-color: rgb(51 65 85); /* slate-700 */
+}
+table.params-table > thead > tr > th {
+  padding: 0.5rem 0.75rem;
+  background: #f5f1eb;
+  border-bottom: 1px solid rgb(241 245 249); /* slate-100 */
+}
+table.params-table > tbody > tr > td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgb(241 245 249); /* slate-100 */
+}
+table.params-table > tbody > tr:last-child > td {
+  border-bottom: none;
+}
+html.dark table.params-table {
+  border-color: hsla(60, 2%, 12%, 0.17);
+}
+html.dark table.params-table > thead > tr > th {
+  background: #1a1a1a;
+  border-bottom-color: hsla(60, 2%, 12%, 0.17);
+}
+html.dark table.params-table > tbody > tr > td {
+  border-bottom-color: hsla(60, 2%, 12%, 0.12);
+}
+
+/* ── Filter panel slide animation ── */
+[data-filter-panel] {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition: grid-template-rows 0.25s ease, opacity 0.2s ease;
+}
+[data-filter-panel] > * {
+  overflow: hidden;
+}
+[data-filter-panel].filter-panel-closed {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  border-color: transparent;
+  box-shadow: none;
 }
