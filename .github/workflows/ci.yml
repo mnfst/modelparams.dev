@@ -43,3 +43,42 @@ jobs:
           name: dist
           path: dist/
           retention-days: 7
+
+  modelparams-pkg:
+    name: modelparams package (codegen + build + tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Codegen
+        run: npm run codegen --workspace=modelparams
+
+      - name: Verify generated files are in sync
+        run: |
+          if ! git diff --quiet -- packages/modelparams/src/generated; then
+            echo "::error::Generated files in packages/modelparams/src/generated are out of date."
+            echo "Run \`npm run codegen --workspace=modelparams\` locally and commit the result."
+            git diff --stat -- packages/modelparams/src/generated
+            exit 1
+          fi
+
+      - name: Typecheck package
+        run: npm run typecheck --workspace=modelparams
+
+      - name: Build package
+        run: npm run build --workspace=modelparams
+
+      - name: Runtime tests
+        run: npm test --workspace=modelparams
+
+      - name: Type-level tests (tsd)
+        run: npm run test:types --workspace=modelparams
