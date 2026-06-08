@@ -1,0 +1,76 @@
+{
+  "name": "modelparams",
+  "version": "0.0.0",
+  "description": "TypeScript types and runtime data for LLM model parameters. Generated from the modelparams.dev open catalog.",
+  "keywords": [
+    "llm",
+    "ai",
+    "openai",
+    "anthropic",
+    "claude",
+    "gpt",
+    "gemini",
+    "model-parameters",
+    "types",
+    "typescript",
+    "catalog"
+  ],
+  "license": "MIT",
+  "author": "modelparams.dev contributors",
+  "homepage": "https://modelparams.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnfst/modelparams.dev.git",
+    "directory": "packages/modelparams"
+  },
+  "bugs": {
+    "url": "https://github.com/mnfst/modelparams.dev/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./data": {
+      "types": "./dist/generated/data.d.ts",
+      "import": "./dist/generated/data.js"
+    },
+    "./defaults": {
+      "types": "./dist/generated/defaults.d.ts",
+      "import": "./dist/generated/defaults.js"
+    },
+    "./model-ids": {
+      "types": "./dist/generated/model-ids.d.ts",
+      "import": "./dist/generated/model-ids.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "codegen": "tsx scripts/codegen.ts",
+    "prebuild": "npm run codegen",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pretest:types": "npm run build",
+    "test:types": "tsd",
+    "prepublishOnly": "npm run build && npm run test && npm run test:types"
+  },
+  "devDependencies": {
+    "tsd": "^0.31.0"
+  },
+  "tsd": {
+    "directory": "test-d"
+  }
+}
