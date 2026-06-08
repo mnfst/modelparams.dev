@@ -11,7 +11,8 @@ function modelJsonUrl(siteUrl: string, model: Model): string {
 }
 
 function modelTitle(model: Model): string {
-  return `${providerLabel(model.provider)} ${modelLabel(model)} (${authLabel(model.authType)})`;
+  const variant = model.authType === "subscription" ? ` (${authLabel(model.authType)})` : "";
+  return `${providerLabel(model.provider)} ${modelLabel(model)}${variant}`;
 }
 
 function plural(n: number, word: string): string {
@@ -44,6 +45,14 @@ function guideApi(siteUrl: string): string[] {
     "",
     "Each entry is keyed by `provider/model` for API-key variants; subscription variants",
     "append `-subscription`.",
+    "",
+    "When you only need the parameter list for a model contract, use the providerless",
+    "params endpoint. Subscription contracts are model slugs with `-subscription`:",
+    "",
+    "```bash",
+    `curl ${siteUrl}/api/v1/params/gpt-5.5.json`,
+    `curl ${siteUrl}/api/v1/params/gpt-5.5-subscription.json`,
+    "```",
     "",
     "## Single model",
     "",
@@ -152,6 +161,7 @@ export function buildLlmsTxt(siteUrl: string, models: Model[]): string {
     "",
     "## API",
     `- [Full catalog](${siteUrl}/api/v1/models.json): Every model and its parameters in one JSON file (${plural(models.length, "model")}).`,
+    `- [Providerless params](${siteUrl}/api/v1/params/gpt-5.5.json): Params for one model slug; append \`-subscription\` for subscription contracts.`,
     `- [JSON Schema](${siteUrl}/api/v1/schema.json): Validates every entry; use it for editor autocomplete or CI checks.`,
     `- [API index](${siteUrl}/api/v1/index.json): Endpoint map and live model count.`,
     "",

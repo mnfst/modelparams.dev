@@ -86,6 +86,22 @@ not belong in `params`:
 - pricing and rate limits
 - UI-only control metadata
 
+A model's parameter list reflects what its API accepts today, not what earlier
+models in the same family accepted. Providers routinely drop knobs on newer
+models; reasoning-tuned releases in particular tend to remove sampling controls
+(`temperature`, `top_p`, `top_k`) and fixed thinking budgets. A newer model that
+exposes fewer parameters than its predecessor is expected, not a sign of an
+incomplete entry. List exactly what the current API reference documents — do not
+carry a parameter forward only because a sibling model still has it.
+
+For example, Anthropic's Claude Opus 4.7 and 4.8 drop `temperature`, `top_p`,
+`top_k`, and `thinking.budget_tokens` (fixed-budget extended thinking is gone, so
+`thinking.type` no longer offers `enabled` — only adaptive thinking remains).
+Each lists four parameters where Opus 4.5 and 4.6 list eight. OpenAI's GPT-5 and
+`o`-series reasoning models expose only `max_completion_tokens` and
+`reasoning_effort` for the same reason. Sending a removed parameter returns an
+API error, so listing it would describe a request the model rejects.
+
 ## Applicability
 
 `applicability` controls whether a parameter is available for the current draft

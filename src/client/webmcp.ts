@@ -46,7 +46,7 @@ interface ModelContext {
   provideContext?: (context: { tools: ToolDefinition[] }) => void;
 }
 
-function modelId(model: CatalogModel): string {
+export function modelId(model: CatalogModel): string {
   const suffix = model.authType === "subscription" ? "-subscription" : "";
   return `${model.provider}/${model.model}${suffix}`;
 }
@@ -113,7 +113,10 @@ function setToggleGroup(selector: string, key: string, wanted: string[]): void {
   });
 }
 
-function searchModels(catalog: Catalog, params: Record<string, unknown>) {
+// Pure catalog filter shared by the agent tool and exercised directly in tests.
+// Side-effect free so the search contract agents depend on can be unit-tested
+// without a DOM; the visible-filter mirroring lives in searchModels below.
+export function searchCatalog(catalog: Catalog, params: Record<string, unknown>) {
   const query = asString(params.query)?.toLowerCase();
   const auth = asString(params.auth);
   const providers = asStringList(params.provider);
@@ -132,8 +135,6 @@ function searchModels(catalog: Catalog, params: Record<string, unknown>) {
     return true;
   });
 
-  reflectInUi({ query: asString(params.query) ?? "", auth, providers, capabilities });
-
   return {
     total: matches.length,
     returned: Math.min(matches.length, limit),
@@ -147,6 +148,17 @@ function searchModels(catalog: Catalog, params: Record<string, unknown>) {
       parameters: model.params.map((p) => p.path),
     })),
   };
+}
+
+function searchModels(catalog: Catalog, params: Record<string, unknown>) {
+  const result = searchCatalog(catalog, params);
+  reflectInUi({
+    query: asString(params.query) ?? "",
+    auth: asString(params.auth),
+    providers: asStringList(params.provider),
+    capabilities: asStringList(params.capability),
+  });
+  return result;
 }
 
 async function getModelParameters(params: Record<string, unknown>): Promise<ToolResponse> {

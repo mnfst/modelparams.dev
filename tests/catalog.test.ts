@@ -2,6 +2,12 @@ import { describe, it, expect } from "vitest";
 import { buildCapabilityFacets, buildCatalog, uniqueProviders } from "../src/data/catalog.js";
 import { describeApplicability } from "../src/data/applicability.js";
 import { modelLabel, paramLabel, providerLabel } from "../src/data/display.js";
+import {
+  findModelParams,
+  listModelParamsResponses,
+  modelParamSlug,
+  modelParamsResponse,
+} from "../src/data/model-params.js";
 import { loadAllModels } from "../src/data/load.js";
 import { modelId } from "../src/schema/model.js";
 import type { Model } from "../src/schema/model.js";
@@ -69,6 +75,75 @@ describe("uniqueProviders", () => {
       makeModel({ provider: "openai", model: "gpt-4o" }),
     ]);
     expect(result).toEqual(["anthropic", "openai"]);
+  });
+});
+
+describe("providerless model params", () => {
+  it("uses -subscription as the model slug variant", () => {
+    expect(modelParamSlug(makeModel())).toBe("claude-opus-4-7");
+    expect(modelParamSlug(makeModel({ authType: "subscription" }))).toBe(
+      "claude-opus-4-7-subscription",
+    );
+  });
+
+  it("returns only model slug and params", () => {
+    const response = modelParamsResponse(makeModel());
+    expect(response).toEqual({
+      model: "claude-opus-4-7",
+      params: makeModel().params,
+    });
+  });
+
+  it("finds api-key and subscription params by providerless slug", () => {
+    const apiKey = makeModel();
+    const subscription = makeModel({
+      authType: "subscription",
+      params: [
+        {
+          path: "thinking.type",
+          type: "enum",
+          label: "Thinking",
+          description: "Thinking mode.",
+          values: ["disabled", "enabled"],
+          group: "reasoning",
+        },
+      ],
+    });
+
+    expect(findModelParams([apiKey, subscription], "claude-opus-4-7")).toEqual(
+      modelParamsResponse(apiKey),
+    );
+    expect(findModelParams([apiKey, subscription], "claude-opus-4-7-subscription")).toEqual(
+      modelParamsResponse(subscription),
+    );
+    expect(findModelParams([apiKey, subscription], "unknown")).toBeNull();
+  });
+
+  it("deduplicates identical providerless model param sets", () => {
+    const one = makeModel({ provider: "anthropic" });
+    const two = makeModel({ provider: "openrouter" });
+
+    expect(listModelParamsResponses([one, two])).toEqual([modelParamsResponse(one)]);
+  });
+
+  it("rejects conflicting providerless model param sets", () => {
+    const one = makeModel({ provider: "anthropic" });
+    const two = makeModel({
+      provider: "openrouter",
+      params: [
+        {
+          path: "top_p",
+          type: "number",
+          label: "Top P",
+          description: "Nucleus sampling.",
+          group: "sampling",
+        },
+      ],
+    });
+
+    expect(() => listModelParamsResponses([one, two])).toThrow(
+      'Conflicting params for providerless model slug "claude-opus-4-7"',
+    );
   });
 });
 

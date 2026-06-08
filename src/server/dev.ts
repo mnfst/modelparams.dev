@@ -1,18 +1,10 @@
 import path from "node:path";
 import chokidar from "chokidar";
-import express from "express";
-import { buildCapabilityFacets, buildCatalog, buildProviderFacets } from "../data/catalog.js";
-import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
 import { loadAllModels } from "../data/load.js";
-import { CLIENT_DIR, DIST_ASSETS_DIR, MODELS_DIR, VIEWS_DIR } from "../data/paths.js";
-import { buildModelJsonSchema } from "../schema/generate.js";
+import { CLIENT_DIR, MODELS_DIR, VIEWS_DIR } from "../data/paths.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "../build/assets.js";
-import { renderIndex } from "../build/render.js";
-import { renderModelPage } from "../build/render-model.js";
-import { renderProviderPage } from "../build/render-provider.js";
-import { renderGlossaryPage } from "../build/render-glossary.js";
-import { SITE_URL } from "../data/site.js";
-import { modelId, type Model } from "../schema/model.js";
+import { type Model } from "../schema/model.js";
+import { makeApp } from "./app.js";
 
 const PORT = Number(process.env.PORT ?? 3000);
 
@@ -74,126 +66,12 @@ async function rebuildClientAssets(): Promise<void> {
   await Promise.all([bundleClientScript(false), compileStyles(), copyStaticAssets()]);
 }
 
-function makeApp(): express.Express {
-  const app = express();
-  app.disable("x-powered-by");
-
-  app.use("/assets", express.static(DIST_ASSETS_DIR, { maxAge: 0 }));
-
-  app.get("/", async (_req, res, next) => {
-    try {
-      const { models } = await getCache();
-      const catalog = buildCatalog(models);
-      const capabilities = buildCapabilityFacets(models);
-      const providers = buildProviderFacets(models);
-      const html = await renderIndex({ catalog, capabilities, providers });
-      res.setHeader("Cache-Control", "no-store");
-      res.type("html").send(html);
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/glossary", async (_req, res, next) => {
-    try {
-      const { models } = await getCache();
-      res.setHeader("Cache-Control", "no-store");
-      res.type("html").send(await renderGlossaryPage(models));
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/providers/:provider", async (req, res, next) => {
-    try {
-      const { models } = await getCache();
-      const providerModels = models.filter((m) => m.provider === req.params.provider);
-      if (providerModels.length === 0) {
-        res.status(404).type("text/plain").send("Unknown provider");
-        return;
-      }
-      res.setHeader("Cache-Control", "no-store");
-      res.type("html").send(await renderProviderPage(req.params.provider, providerModels, models));
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/models/:provider/:slug", async (req, res, next) => {
-    try {
-      const { models } = await getCache();
-      const wanted = `${req.params.provider}/${req.params.slug}`;
-      const model = models.find((m) => modelId(m) === wanted);
-      if (!model) {
-        res.status(404).type("text/plain").send("Unknown model");
-        return;
-      }
-      res.setHeader("Cache-Control", "no-store");
-      res.type("html").send(await renderModelPage(model, models));
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/api/v1/models.json", async (_req, res, next) => {
-    try {
-      const { models } = await getCache();
-      res.json(buildCatalog(models));
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/api/v1/schema.json", (_req, res) => {
-    res.json(buildModelJsonSchema());
-  });
-
-  app.get("/llms.txt", async (_req, res, next) => {
-    try {
-      const { models } = await getCache();
-      res.type("text/plain; charset=utf-8").send(buildLlmsTxt(SITE_URL, models));
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/llms-full.txt", async (_req, res, next) => {
-    try {
-      const { models } = await getCache();
-      res.type("text/plain; charset=utf-8").send(buildLlmsFullTxt(SITE_URL, models));
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/api/v1/models/:provider/:slug.json", async (req, res, next) => {
-    try {
-      const { models } = await getCache();
-      const wanted = `${req.params.provider}/${req.params.slug}`;
-      const model = models.find((m) => modelId(m) === wanted);
-      if (!model) {
-        res.status(404).json({ error: "not_found", id: wanted });
-        return;
-      }
-      res.json({ $schema: "https://modelparams.dev/api/v1/schema.json", ...model });
-    } catch (err) {
-      next(err);
-    }
-  });
-
-  app.get("/healthz", (_req, res) => {
-    res.json({ ok: true });
-  });
-
-  return app;
-}
-
 async function main(): Promise<void> {
   console.log("[dev] bundling client assets...");
   await rebuildClientAssets();
   await refresh();
   watch();
-  const app = makeApp();
+  const app = makeApp(async () => (await getCache()).models);
   app.listen(PORT, () => {
     console.log(`[dev] modelparams.dev → http://localhost:${PORT}`);
   });
