@@ -18,13 +18,13 @@ const SLUG_TO_LOBE: Record<string, string> = {
   openai: "openai",
   anthropic: "anthropic",
   google: "google-color",
-  meta: "meta-color",
+  meta: "meta",
   mistral: "mistral-color",
   cohere: "cohere-color",
   deepseek: "deepseek-color",
   xai: "xai",
   perplexity: "perplexity-color",
-  minimax: "minimax-color",
+  minimax: "minimax",
   moonshot: "moonshot",
   alibaba: "alibabacloud-color",
   "z-ai": "zai",
@@ -60,8 +60,30 @@ function readLogo(slug: string): string | null {
   return content;
 }
 
+let logoInstanceCounter = 0;
+
+/** Make gradient/filter IDs unique per SVG instance to avoid collisions. */
+function dedupeIds(svg: string): string {
+  const suffix = `_${++logoInstanceCounter}`;
+  const ids = new Set<string>();
+  // Collect all id="..." values
+  svg.replace(/\bid="([^"]+)"/g, (_, id) => {
+    ids.add(id);
+    return _;
+  });
+  if (ids.size === 0) return svg;
+  let result = svg;
+  for (const id of ids) {
+    result = result.replaceAll(`id="${id}"`, `id="${id}${suffix}"`);
+    result = result.replaceAll(`#${id})`, `#${id}${suffix})`);
+    result = result.replaceAll(`"#${id}"`, `"#${id}${suffix}"`);
+  }
+  return result;
+}
+
 export function logoFor(provider: string): string | null {
-  return readLogo(provider) ?? readLogo("_default");
+  const svg = readLogo(provider) ?? readLogo("_default");
+  return svg ? dedupeIds(svg) : null;
 }
 
 export function listLogoFiles(): string[] {

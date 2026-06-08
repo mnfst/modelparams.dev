@@ -78,6 +78,7 @@ export async function renderShell(meta: ShellMeta, body: string): Promise<string
     structuredData: meta.structuredData,
     ogImageUrl: absolute(SITE_URL, OG_IMAGE_PATH),
     providerHubs: meta.providerHubs,
+    helpers: viewHelpers,
     usageGuide: usageGuideMarkdown(SITE_URL),
     initialThemeClass: meta.initialThemeClass ?? "",
     analytics: meta.analytics ?? false,

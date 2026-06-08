@@ -20,7 +20,7 @@
   html.dark {
     --dark-bg: #171717;
     --dark-card: #1f1f1f;
-    --dark-border: #2e2e2e;
+    --dark-border: hsla(60, 2%, 12%, 0.17);
     --dark-hover: #2a2a2a;
   }
 
@@ -29,16 +29,22 @@
   html.dark .dark\:bg-slate-950 { background-color: var(--dark-bg) !important; }
   html.dark .dark\:bg-slate-950\/90 { background-color: rgba(23, 23, 23, 0.9) !important; }
   html.dark .dark\:bg-slate-800 { background-color: #262626 !important; }
-  html.dark .dark\:border-slate-800 { border-color: var(--dark-border) !important; }
-  html.dark .dark\:border-slate-700 { border-color: #383838 !important; }
+  html.dark .dark\:border-slate-800 { border-color: hsla(60, 2%, 12%, 0.17) !important; }
+  html.dark .dark\:border-slate-700 { border-color: hsla(60, 2%, 12%, 0.25) !important; }
   html.dark .dark\:hover\:bg-slate-800:hover { background-color: var(--dark-hover) !important; }
   html.dark .dark\:hover\:bg-slate-700:hover { background-color: #333 !important; }
   html.dark .dark\:hover\:border-slate-700:hover { border-color: #444 !important; }
   html.dark .dark\:hover\:border-slate-600:hover { border-color: #555 !important; }
 
-  /* Lighten accent links in dark mode for readability */
+  /* Lighten accent in dark mode for readability */
   html.dark .text-accent { color: #7b83ff !important; }
   html.dark .hover\:text-accent-hover:hover { color: #9da3ff !important; }
+
+  /* Active filter states must override dark border/bg overrides */
+  html.dark [data-active="true"].dark\:data-\[active\=true\]\:bg-accent {
+    background-color: #2530F0 !important;
+    border-color: #2530F0 !important;
+  }
 
   /* ── Major Third type scale (1.250) — headings use Inria Serif ── */
   h1, h2, h3, h4, h5, h6 {
@@ -91,6 +97,18 @@
     radial-gradient(circle at 80% 95%, #f39c12 0%, transparent 60%);
 }
 
+/* ── Providers mega menu animation ── */
+[data-providers-menu] {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-providers-menu].providers-menu-hidden {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
 /* ── Collapsed borders on model cards (solid) ── */
 .model-list > .model + .model {
   margin-top: -1px;
@@ -129,14 +147,14 @@ table.params-table > tbody > tr:last-child > td {
   border-bottom: none;
 }
 html.dark table.params-table {
-  border-color: var(--dark-border);
+  border-color: hsla(60, 2%, 12%, 0.17);
 }
 html.dark table.params-table > thead > tr > th {
   background: #1a1a1a;
-  border-bottom-color: var(--dark-border);
+  border-bottom-color: hsla(60, 2%, 12%, 0.17);
 }
 html.dark table.params-table > tbody > tr > td {
-  border-bottom-color: #242424;
+  border-bottom-color: hsla(60, 2%, 12%, 0.12);
 }
 
 /* ── Filter panel slide animation ── */

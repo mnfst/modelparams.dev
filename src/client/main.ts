@@ -487,6 +487,37 @@ function setupJsonModal(): void {
   }
 }
 
+function setupProvidersMenu(): void {
+  const toggle = document.querySelector<HTMLButtonElement>("[data-providers-toggle]");
+  const menu = document.querySelector<HTMLElement>("[data-providers-menu]");
+  const chevron = document.querySelector<HTMLElement>("[data-providers-chevron]");
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const hidden = menu.classList.toggle("providers-menu-hidden");
+    chevron?.classList.toggle("rotate-180", !hidden);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      !menu.classList.contains("providers-menu-hidden") &&
+      !menu.contains(e.target as Node) &&
+      !toggle.contains(e.target as Node)
+    ) {
+      menu.classList.add("providers-menu-hidden");
+      chevron?.classList.remove("rotate-180");
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !menu.classList.contains("providers-menu-hidden")) {
+      menu.classList.add("providers-menu-hidden");
+      chevron?.classList.remove("rotate-180");
+    }
+  });
+}
+
 function setupMobileMenu(): void {
   const menu = document.querySelector<HTMLDetailsElement>("[data-mobile-menu]");
   if (!menu) return;
@@ -504,6 +535,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCopyNpm();
   setupHowToUseModal();
   setupCopyHowToUse();
+  setupProvidersMenu();
   setupMobileMenu();
   setupJsonModal();
   setupViewModeToggle();

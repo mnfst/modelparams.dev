@@ -43,7 +43,7 @@
     </script>
   </head>
   <body class="bg-site text-slate-900 dark:text-slate-100 antialiased">
-    <%- include("partials/header") %>
+    <%- include("partials/header", { providerHubs: providerHubs, helpers: helpers }) %>
 
     <main class="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
       <%- body %>

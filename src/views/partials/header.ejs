@@ -1,4 +1,7 @@
-<header class="border-b border-slate-200 dark:border-slate-800">
+<%
+  const sortedProviders = (providerHubs || []).slice().sort((a, b) => a.label.localeCompare(b.label));
+%>
+<header class="relative border-b border-slate-200 dark:border-slate-800">
   <div
     class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8"
   >
@@ -16,23 +19,36 @@
     </a>
     <div class="flex items-center gap-1">
       <nav class="hidden items-center gap-1 text-sm sm:flex">
-        <button
-          type="button"
-          data-open-how-to-use
-          class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-        >
-          How to use
-        </button>
+        <!-- Providers dropdown -->
+        <div class="relative" data-providers-dropdown>
+          <button
+            type="button"
+            data-providers-toggle
+            class="inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+          >
+            Providers
+            <svg viewBox="0 0 16 16" class="h-3 w-3 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" data-providers-chevron aria-hidden="true">
+              <path d="M4 6l4 4 4-4" />
+            </svg>
+          </button>
+        </div>
         <a
-          href="/api/v1/models.json"
+          href="/api"
           class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
         >
           API
         </a>
         <a
-          href="https://github.com/mnfst/modelparams.dev"
+          href="/glossary"
           class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-          rel="noopener"
+        >
+          Glossary
+        </a>
+        <a
+          href="https://github.com/mnfst/modelparams.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-md px-3 py-1.5 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
         >
           GitHub
         </a>
@@ -65,6 +81,7 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z" />
         </svg>
       </button>
+      <!-- Mobile menu -->
       <details class="group relative sm:hidden" data-mobile-menu>
         <summary
           class="inline-flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md text-slate-600 hover:bg-warm-hover dark:text-slate-300 dark:hover:bg-slate-800"
@@ -77,29 +94,40 @@
             <path stroke-linecap="round" d="M18 6 6 18M6 6l12 12" />
           </svg>
         </summary>
-        <div class="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-lg border border-slate-200 bg-white py-1 text-sm shadow-lg dark:border-slate-800 dark:bg-slate-900">
-          <button
-            type="button"
-            data-open-how-to-use
-            class="block w-full px-4 py-2 text-left text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-          >
-            How to use
-          </button>
-          <a
-            href="/api/v1/models.json"
-            class="block px-4 py-2 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-          >
-            API
+        <div class="absolute right-0 top-full z-30 mt-2 w-56 overflow-hidden border border-slate-200 bg-white py-1 text-sm shadow-lg dark:border-slate-800 dark:bg-[#1f1f1f]">
+          <a href="/api" class="block px-4 py-2 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">API</a>
+          <a href="https://github.com/mnfst/modelparams.dev" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">GitHub</a>
+          <div class="my-1 border-t border-slate-200 dark:border-slate-800"></div>
+          <p class="px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Providers</p>
+          <% for (const hub of sortedProviders) { %>
+          <% const mLogo = helpers.logoFor(hub.provider); %>
+          <a href="<%= hub.href %>" data-provider-slug="<%= hub.provider %>" class="flex items-center gap-2 px-4 py-2 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">
+            <% if (mLogo) { %><span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- mLogo %></span><% } %>
+            <%= hub.label %>
           </a>
-          <a
-            href="https://github.com/mnfst/modelparams.dev"
-            class="block px-4 py-2 text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-            rel="noopener"
-          >
-            GitHub
-          </a>
+          <% } %>
         </div>
       </details>
+    </div>
+  </div>
+
+  <!-- Providers mega menu -->
+  <div data-providers-menu class="providers-menu-hidden absolute left-0 right-0 z-30 border-b border-slate-200 bg-white shadow-lg dark:border-slate-800 dark:bg-[#1f1f1f]">
+    <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Providers</p>
+      <div class="grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
+        <% for (const hub of sortedProviders) { %>
+        <% const pLogo = helpers.logoFor(hub.provider); %>
+        <a
+          href="<%= hub.href %>"
+          data-provider-slug="<%= hub.provider %>"
+          class="flex items-center gap-2.5 rounded px-3 py-2.5 text-sm text-slate-700 hover:bg-warm-hover dark:text-slate-300 dark:hover:bg-[#2a2a2a]"
+        >
+          <% if (pLogo) { %><span class="provider-logo inline-flex h-4 w-4 shrink-0 items-center justify-center" aria-hidden="true"><%- pLogo %></span><% } %>
+          <span><%= hub.label %></span>
+        </a>
+        <% } %>
+      </div>
     </div>
   </div>
 </header>

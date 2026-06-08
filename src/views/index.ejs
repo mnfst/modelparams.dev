@@ -3,7 +3,7 @@
     <h1 class="text-balance font-bold tracking-tight" style="font-size:4.5rem;line-height:1.05">
       Every LLM parameter,<br />for every model.
     </h1>
-    <p class="mt-4 max-w-2xl text-pretty text-base text-slate-700 sm:text-lg">
+    <p class="mt-4 max-w-2xl text-pretty text-base text-slate-600 dark:text-slate-400 sm:text-lg">
       An open, community-maintained catalog of LLM model parameters.
       Browse the UI below, query the API, or install the npm package.
     </p>
@@ -30,7 +30,7 @@
 
       <!-- GitHub -->
       <a
-        href="https://github.com/AidenYangX/modelparams"
+        href="https://github.com/mnfst/modelparams.dev"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
@@ -123,15 +123,27 @@
 <div data-filter-panel class="filter-panel-closed border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
   <div data-filter-scroll class="overflow-y-auto">
   <div class="mx-auto max-w-6xl p-4 sm:p-6">
-    <div>
-      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+    <div class="mb-4 flex items-center justify-between">
+      <p class="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
         Access type
       </p>
+      <button
+        type="button"
+        data-clear-filters
+        class="hidden items-center gap-1 text-xs font-medium text-accent hover:text-accent-hover"
+      >
+        <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M6 6l8 8M14 6l-8 8" />
+        </svg>
+        Clear all
+      </button>
+    </div>
+    <div>
       <div class="flex flex-wrap gap-2">
         <button
           type="button"
           data-auth-filter="all"
-          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
+          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
           data-active="true"
           aria-pressed="true"
         >
@@ -140,7 +152,7 @@
         <button
           type="button"
           data-auth-filter="api_key"
-          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
+          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
           aria-pressed="false"
         >
           API key
@@ -148,7 +160,7 @@
         <button
           type="button"
           data-auth-filter="subscription"
-          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
+          class="rounded-none border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
           aria-pressed="false"
         >
           Subscription
@@ -236,16 +248,6 @@
           <option value="params">Most parameters</option>
         </select>
       </label>
-      <button
-        type="button"
-        data-clear-filters
-        class="hidden items-center gap-1 rounded-md border border-slate-200 px-2.5 py-1 font-medium text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-      >
-        <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" d="M6 6l8 8M14 6l-8 8" />
-        </svg>
-        Clear all filters
-      </button>
     </div>
   </div>
   <div class="model-list flex flex-col" data-model-list>
