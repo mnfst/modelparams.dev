@@ -365,6 +365,7 @@ function setupScrollTopButton(): void {
 
   const observer = new IntersectionObserver(
     ([entry]) => {
+      if (!entry) return;
       btn.classList.toggle("hidden", entry.isIntersecting);
       btn.classList.toggle("flex", !entry.isIntersecting);
     },

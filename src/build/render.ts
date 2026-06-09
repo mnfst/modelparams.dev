@@ -7,7 +7,6 @@ import {
   conditionIcon,
   modelLabel,
   paramGroupColor,
-  paramGroupColor,
   paramGroupIcon,
   paramGroupLabel,
   paramLabel,
