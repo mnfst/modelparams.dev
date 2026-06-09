@@ -1,5 +1,12 @@
 import { expectAssignable, expectError, expectType } from "tsd";
-import type { ParamsOf } from "../dist/index.js";
+import { getModel, parseParams, paramsSchema } from "../dist/index.js";
+import type {
+  JsonPrimitive,
+  Param,
+  ParamsOf,
+  ParseParamsResult,
+  StandardSchemaV1,
+} from "../dist/index.js";
 
 type Haiku = ParamsOf<"anthropic/claude-haiku-4-5-20251001">;
 
@@ -24,3 +31,15 @@ expectError<Haiku>({ max_tokens: "lots" });
 // All keys are optional (we use Partial)
 const empty: Haiku = {};
 expectType<Haiku>(empty);
+
+// The precise catalog params assign to the loose `Param` type with no cast.
+expectAssignable<readonly Param[]>(getModel("openai/gpt-4.1").params);
+
+// parseParams returns the discriminated result and rejects unknown model ids.
+expectType<ParseParamsResult>(parseParams("openai/gpt-4.1", {}));
+expectError(parseParams("openai/not-a-real-model", {}));
+
+// paramsSchema is a Standard Schema over a validated params record.
+expectAssignable<StandardSchemaV1<unknown, Record<string, JsonPrimitive>>>(
+  paramsSchema("openai/gpt-4.1"),
+);

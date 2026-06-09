@@ -72,18 +72,43 @@ if (thinking?.type === "enum") {
 }
 ```
 
+### Validate untrusted params at runtime
+
+`ParamsOf<Id>` is compile-time only — it can't help against a JSON request body. `parseParams` validates an untrusted object against the catalog (unknown keys, numeric ranges, enum values):
+
+```ts
+import { parseParams } from "modelparams";
+
+app.post("/chat", (req, res) => {
+  const result = parseParams("openai/gpt-4.1", req.body.params);
+  if (!result.success) return res.status(422).json({ issues: result.issues });
+  openai.chat.completions.create({ model: "gpt-4.1", messages, ...result.value });
+});
+```
+
+Prefer a schema? `paramsSchema(id)` returns a [Standard Schema](https://standardschema.dev), so it drops into tRPC, Hono, TanStack Form, and anything else that speaks the spec:
+
+```ts
+import { paramsSchema } from "modelparams";
+
+app.post("/chat", validator("json", paramsSchema("openai/gpt-4.1")), handler);
+```
+
 ## API
 
 ### Types
 
-| Type                 | Description                                                               |
-| -------------------- | ------------------------------------------------------------------------- |
-| `ParamsOf<Id>`       | Optional parameters for model `Id`. The headline type.                    |
-| `StrictParamsOf<Id>` | Same shape, every field required.                                         |
-| `ModelId`            | Union of all `"provider/model"` ids (including `-subscription` variants). |
-| `Provider`           | Union of provider slugs (`"anthropic"`, `"openai"`, …).                   |
-| `ParamsById`         | Mapped type: `{ [Id in ModelId]: ParamsByIdMap[Id] }`.                    |
-| `CatalogEntry`       | The full catalog object for one model.                                    |
+| Type                 | Description                                                                                                           |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `ParamsOf<Id>`       | Optional parameters for model `Id`. The headline type.                                                                |
+| `StrictParamsOf<Id>` | Same shape, every field required.                                                                                     |
+| `ModelId`            | Union of all `"provider/model"` ids (including `-subscription` variants).                                             |
+| `Provider`           | Union of provider slugs (`"anthropic"`, `"openai"`, …).                                                               |
+| `ParamsById`         | Mapped type: `{ [Id in ModelId]: ParamsByIdMap[Id] }`.                                                                |
+| `CatalogEntry`       | The full catalog object for one model.                                                                                |
+| `Param`              | A parameter definition in a loose, iterable shape — `getModel(id).params` assigns to `readonly Param[]` with no cast. |
+| `ParseParamsResult`  | The discriminated result of `parseParams`.                                                                            |
+| `StandardSchemaV1`   | The [Standard Schema](https://standardschema.dev) interface `paramsSchema` returns.                                   |
 
 ### Functions
 
@@ -94,6 +119,8 @@ if (thinking?.type === "enum") {
 | `getParam(id, path)`       | A single parameter's definition (range, enum values, etc.). |
 | `listModels({ provider })` | List model ids, optionally filtered by provider.            |
 | `listAllModels()`          | The full `CATALOG` array.                                   |
+| `parseParams(id, input)`   | Validate an untrusted params object against the catalog.    |
+| `paramsSchema(id)`         | A Standard Schema that validates a params object for `id`.  |
 
 ### Constants
 
