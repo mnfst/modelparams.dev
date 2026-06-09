@@ -99,7 +99,7 @@ jobs:
         if: steps.bump.outputs.next != ''
         env:
           NEXT: ${{ steps.bump.outputs.next }}
-        run: npm version "$NEXT" --no-git-tag-version --workspace=modelparams
+        run: npm version "$NEXT" --no-git-tag-version --allow-same-version --workspace=modelparams
 
       - name: Publish to npm
         if: steps.bump.outputs.next != ''
