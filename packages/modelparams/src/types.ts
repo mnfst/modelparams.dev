@@ -23,3 +23,52 @@ export type ParamsOf<Id extends ModelId> = Partial<ParamsById[Id]>;
  * through the type system.
  */
 export type StrictParamsOf<Id extends ModelId> = ParamsById[Id];
+
+/** A JSON-primitive parameter value. */
+export type JsonPrimitive = string | number | boolean | null;
+
+/** The kind of a parameter's value. */
+export type ParamType = "boolean" | "enum" | "integer" | "number" | "string";
+
+/** The semantic group a parameter belongs to (drives grouped settings UIs). */
+export type ParamGroup =
+  | "generation_length"
+  | "sampling"
+  | "reasoning"
+  | "tooling"
+  | "output_format"
+  | "observability"
+  | "provider_metadata";
+
+/** Numeric bounds for an `integer` / `number` parameter. */
+export interface ParamRange {
+  readonly min?: number;
+  readonly max?: number;
+  readonly step?: number;
+}
+
+/**
+ * A single parameter definition in a loose, easy-to-iterate shape — the runtime
+ * counterpart to the precise per-model `ParamsOf<Id>` types.
+ *
+ * The precise `getModel(id).params` / `getParam(...)` values assign to `Param`
+ * without a cast, so you can annotate a loop variable as `Param` and read
+ * `range` / `values` uniformly instead of narrowing a deep `as const` union.
+ *
+ * @example
+ * import { getModel, type Param } from "modelparams";
+ * const params: readonly Param[] = getModel("openai/gpt-4.1").params;
+ * for (const p of params) renderControl(p.path, p.type, p.range, p.values);
+ */
+export interface Param {
+  readonly path: string;
+  readonly label: string;
+  readonly description: string;
+  readonly group: ParamGroup;
+  readonly type: ParamType;
+  readonly default?: JsonPrimitive;
+  /** Present on `integer` / `number` params. */
+  readonly range?: ParamRange;
+  /** Present on `enum` params. */
+  readonly values?: readonly JsonPrimitive[];
+}
