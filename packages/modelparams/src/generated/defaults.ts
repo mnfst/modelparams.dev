@@ -86,6 +86,16 @@ export const DEFAULTS = {
     top_p: 1,
     top_k: 0,
   },
+  "anthropic/claude-fable-5": {
+    max_tokens: 4096,
+    "thinking.display": "omitted",
+    "output_config.effort": "high",
+  },
+  "anthropic/claude-fable-5-subscription": {
+    max_tokens: 4096,
+    "thinking.display": "omitted",
+    "output_config.effort": "high",
+  },
   "anthropic/claude-haiku-4": {
     max_tokens: 4096,
     temperature: 1,
