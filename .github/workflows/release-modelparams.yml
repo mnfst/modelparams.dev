@@ -7,10 +7,16 @@ name: Release modelparams
 #   • any other catalog change                    → PATCH
 #   • no semantic catalog change                  → skipped
 #
-# Provenance: signed via npm OIDC. Configure a trusted publisher for the
-# `modelparams` package on npmjs.com (Settings → Trusted Publishers → GitHub
-# Actions → org=mnfst, repo=modelparams.dev, workflow=release-modelparams.yml).
-# Once configured, `NPM_TOKEN` is no longer needed.
+# Tag-only release: the workflow never pushes to the (protected) main branch.
+# The published version is the latest `modelparams@x.y.z` git tag, bumped by the
+# classifier; the first release seeds from packages/modelparams/package.json.
+# The version bump is applied in-CI for the tarball but is not committed back, so
+# the git tags are the source of truth for the published version.
+#
+# Auth: npm OIDC trusted publishing (no token). Requires npm >= 11.5.1, which
+# ships with Node 24. Configure the trusted publisher for the `modelparams`
+# package on npmjs.com (Settings → Trusted Publishers → GitHub Actions →
+# org=mnfst, repo=modelparams.dev, workflow=release-modelparams.yml).
 
 on:
   push:
@@ -41,18 +47,19 @@ jobs:
     name: Build and publish
     runs-on: ubuntu-latest
     permissions:
-      contents: write # tag + auto-bump commit
+      contents: write # create release + tag
       id-token: write # npm OIDC provenance
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # full history for diff-based version bump
+          fetch-tags: true # release tags drive the next version
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24" # npm >= 11.5.1 for OIDC trusted publishing
           cache: "npm"
           registry-url: "https://registry.npmjs.org"
 
@@ -82,56 +89,26 @@ jobs:
         run: npx tsx packages/modelparams/scripts/compute-version.ts
         env:
           BASE_REF: "HEAD~1"
-
-      - name: Apply forced level (workflow_dispatch)
-        if: github.event_name == 'workflow_dispatch' && inputs.force_level != ''
-        id: force
-        run: |
-          CURRENT=$(node -p "require('./packages/modelparams/package.json').version")
-          case "${{ inputs.force_level }}" in
-            major) NEXT=$(node -e "const [M]=process.argv[1].split('.');console.log(\`\${+M+1}.0.0\`)" "$CURRENT");;
-            patch) NEXT=$(node -e "const [M,m,p]=process.argv[1].split('.');console.log(\`\${M}.\${m}.\${+p+1}\`)" "$CURRENT");;
-          esac
-          echo "level=${{ inputs.force_level }}" >> "$GITHUB_OUTPUT"
-          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
-
-      - name: Resolve effective version
-        id: resolved
-        run: |
-          LEVEL="${{ steps.force.outputs.level || steps.bump.outputs.level }}"
-          NEXT="${{ steps.force.outputs.next || steps.bump.outputs.next }}"
-          echo "level=$LEVEL" >> "$GITHUB_OUTPUT"
-          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
+          FORCE_LEVEL: ${{ inputs.force_level }}
 
       - name: Skip publish (no semantic change)
-        if: steps.resolved.outputs.next == ''
-        run: echo "::notice::No semantic catalog change since HEAD~1 — nothing to publish."
+        if: steps.bump.outputs.next == ''
+        run: echo "::notice::No semantic catalog change since the last release — nothing to publish."
 
-      - name: Bump package.json + commit + tag
-        if: steps.resolved.outputs.next != ''
+      - name: Set package version (no commit)
+        if: steps.bump.outputs.next != ''
         env:
-          NEXT: ${{ steps.resolved.outputs.next }}
-        run: |
-          cd packages/modelparams
-          npm version "$NEXT" --no-git-tag-version
-          cd ../..
-          git config user.name  "modelparams-bot"
-          git config user.email "bot@modelparams.dev"
-          git add packages/modelparams/package.json packages/modelparams/src/generated
-          git commit -m "release: modelparams@$NEXT"
-          git tag "modelparams@$NEXT"
-          git push origin HEAD:main --follow-tags
+          NEXT: ${{ steps.bump.outputs.next }}
+        run: npm version "$NEXT" --no-git-tag-version --workspace=modelparams
 
       - name: Publish to npm
-        if: steps.resolved.outputs.next != ''
+        if: steps.bump.outputs.next != ''
         run: npm publish --workspace=modelparams --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Create GitHub release
-        if: steps.resolved.outputs.next != ''
+      - name: Create GitHub release + tag
+        if: steps.bump.outputs.next != ''
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: "modelparams@${{ steps.resolved.outputs.next }}"
-          name: "modelparams@${{ steps.resolved.outputs.next }}"
+          tag_name: "modelparams@${{ steps.bump.outputs.next }}"
+          name: "modelparams@${{ steps.bump.outputs.next }}"
           generate_release_notes: true
