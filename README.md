@@ -1,3 +1,8 @@
+<div align="center">
+  <img width="500" height="91" alt="mps 1" src="https://github.com/user-attachments/assets/5316cfd4-1005-48e5-850c-3e7e9e2f74f1" />
+</div>
+<hr>
+
 # modelparams.dev
 
 > An open, community-maintained catalog of LLM model parameters.
