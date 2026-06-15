@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: nvidia
+authType: api_key
+model: llama-3.1-nemotron-safety-guard-8b-v3
+params:
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 0
+    range:
+      min: 0
+      max: 1
+    group: sampling

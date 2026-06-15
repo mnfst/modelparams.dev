@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: nvidia
+authType: api_key
+model: nemoguard-jailbreak-detect
+params: []

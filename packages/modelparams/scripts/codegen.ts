@@ -32,6 +32,10 @@ function quoteKey(k: string): string {
 function emitParamsByIdEntry(m: Model): string {
   const id = modelId(m);
   const fields = m.params.map((p) => `    ${quoteKey(p.path)}: ${tsType(p)};`).join("\n");
+  if (fields.length === 0) {
+    return `  ${JSON.stringify(id)}: Record<string, never>;`;
+  }
+
   return `  ${JSON.stringify(id)}: {\n${fields}\n  };`;
 }
 
