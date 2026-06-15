@@ -2,7 +2,8 @@
 
 > An open, community-maintained catalog of LLM model parameters.
 
-[![CI](https://github.com/mnfst/modelparams.dev/actions/workflows/ci.yml/badge.svg)](https://github.com/mnfst/modelparams.dev/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/modelparams.svg)](https://www.npmjs.com/package/modelparams)
+[![npm downloads](https://img.shields.io/npm/dm/modelparams.svg)](https://www.npmjs.com/package/modelparams)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [modelparams.dev](https://modelparams.dev) is an open-source database that lists the parameters available for popular AI models. It is heavily inspired on [models.dev](https://github.com/anomalyco/models.dev) and we use it at [Manifest](https://manifest.build/).
