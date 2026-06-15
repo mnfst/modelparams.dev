@@ -114,6 +114,28 @@ params:
         thinking.type: enabled
 ```
 
+## Fewer parameters can be correct
+
+A model's parameter list is exactly what its API accepts today — not a superset of
+what older models in the family accepted. Providers drop knobs on newer models, and
+reasoning-focused releases in particular tend to remove sampling controls
+(`temperature`, `top_p`, `top_k`) and fixed thinking budgets. So a newer model with
+_fewer_ parameters than its predecessor is usually correct, not incomplete.
+
+Two examples already in the catalog:
+
+- **Anthropic Claude Opus 4.7 / 4.8** list four parameters where Opus 4.5 / 4.6 list
+  eight. `temperature`, `top_p`, `top_k`, and `thinking.budget_tokens` were removed:
+  extended thinking with a fixed budget is gone, so `thinking.type` no longer offers
+  `enabled` — only adaptive thinking remains.
+- **OpenAI GPT-5 and the `o`-series** expose only `max_completion_tokens` and
+  `reasoning_effort` — sampling parameters don't apply to those models.
+
+Before reporting a model's parameters as incomplete, check the provider's current
+API reference for that specific model. If the API no longer accepts a parameter, it
+does not belong in the catalog — even if a sibling model still lists it. Adding it
+back would describe a request the model rejects.
+
 ## Removing parameters is blocked
 
 Once a parameter is published for a model, **it cannot be removed**. People using

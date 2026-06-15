@@ -4,3 +4,5 @@ build/
 coverage/
 *.min.js
 *.min.css
+packages/modelparams/src/generated/
+packages/*/dist/

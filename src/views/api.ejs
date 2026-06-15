@@ -1,0 +1,134 @@
+<%- include("partials/breadcrumbs", { items: [
+  { name: "Home", href: "/" },
+  { name: "API" }
+] }) %>
+
+<section class="pt-6 pb-16">
+  <h1 class="tracking-tight">How to use the API</h1>
+  <p class="mt-3 max-w-2xl text-pretty text-slate-600 dark:text-slate-300">
+    The full catalog is available as static JSON, CORS-enabled, served from the edge.
+    You can also install the npm package or point your AI agent at <a href="/llms.txt" class="text-accent hover:text-accent-hover">/llms.txt</a>.
+  </p>
+
+  <div class="mt-10 max-w-3xl space-y-12">
+
+    <!-- Tip -->
+    <div class="flex items-start gap-3 border-l-2 border-accent bg-accent/5 px-5 py-4 dark:border-[hsla(60,2%,12%,0.3)] dark:bg-[#1f1f1f]">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-accent dark:text-slate-400" aria-hidden="true">
+        <g fill="currentColor" opacity="0.4"><path d="m21.6,16.39l-2.77-1.23-1.23-2.77c-.11-.24-.34-.39-.6-.4-.27-.02-.5.15-.61.39l-1.23,2.67-2.78,1.34c-.23.11-.38.35-.38.61,0,.26.16.49.4.6l2.77,1.23,1.23,2.77c.11.24.35.4.61.4s.5-.15.61-.4l1.23-2.77,2.77-1.23c.24-.11.4-.35.4-.61s-.16-.5-.4-.61Z"/><path d="m7.76,18.63l-1.66-.74-.74-1.66c-.06-.14-.21-.24-.36-.24-.16-.01-.3.09-.37.23l-.74,1.6-1.67.8c-.14.07-.23.21-.23.37,0,.16.1.3.24.36l1.66.74.74,1.66c.06.14.21.24.37.24s.3-.09.37-.24l.74-1.66,1.66-.74c.14-.06.24-.21.24-.37s-.09-.3-.24-.37Z"/></g><g fill="currentColor" opacity="1"><path d="m16.41,10.41c.36-.16.59-.52.59-.91s-.23-.75-.59-.91l-4.15-1.84-1.84-4.15c-.16-.36-.51-.59-.91-.59h0c-.39,0-.74.23-.91.58l-1.85,4.01-4.18,2.01c-.35.17-.57.53-.57.92s.24.74.59.9l4.15,1.84,1.84,4.15c.16.36.52.59.91.59s.75-.23.91-.59l1.84-4.15,4.15-1.84Zm-5.82.68l-1.09,2.44-1.09-2.44c-.1-.23-.28-.41-.51-.51l-2.53-1.12,2.55-1.23c.21-.1.38-.27.47-.48l1.08-2.33,1.1,2.48c.1.23.28.41.51.51l2.44,1.09-2.44,1.09c-.23.1-.41.28-.51.51Z"/></g>
+      </svg>
+      <p class="text-sm text-slate-700 dark:text-slate-300">
+        Building with an AI agent? Point it at
+        <a href="/llms.txt" target="_blank" rel="noopener noreferrer" class="font-medium text-accent hover:text-accent-hover">/llms.txt</a>
+        for a machine-readable overview, or copy any snippet below.
+      </p>
+    </div>
+
+    <!-- Full catalog -->
+    <section>
+      <h2 class="text-slate-900 dark:text-slate-100">Full catalog</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">
+        Returns every model in the catalog with all parameters, types, defaults, and ranges.
+      </p>
+      <div class="relative mt-4">
+        <div class="absolute right-3 top-3 flex items-center gap-2">
+          <span class="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400">GET</span>
+        </div>
+        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>curl https://modelparams.dev/api/v1/models.json</code></pre>
+      </div>
+      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">
+        Each entry is keyed by <code class="bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-slate-700 dark:bg-[#262626] dark:text-slate-300">provider/model</code> for API-key variants.
+        Subscription variants append <code class="bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-slate-700 dark:bg-[#262626] dark:text-slate-300">-subscription</code>.
+      </p>
+    </section>
+
+    <!-- Single model by provider -->
+    <section>
+      <h2 class="text-slate-900 dark:text-slate-100">Single model</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">
+        Fetch the full definition for a specific model, including its provider.
+      </p>
+      <div class="relative mt-4">
+        <div class="absolute right-3 top-3">
+          <span class="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400">GET</span>
+        </div>
+        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>curl https://modelparams.dev/api/v1/models/anthropic/claude-opus-4-7.json</code></pre>
+      </div>
+    </section>
+
+    <!-- Providerless params -->
+    <section>
+      <h2 class="text-slate-900 dark:text-slate-100">Parameters only</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">
+        If you only need the parameters for a model without knowing the provider, use the providerless endpoint.
+      </p>
+      <div class="relative mt-4">
+        <div class="absolute right-3 top-3">
+          <span class="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400">GET</span>
+        </div>
+        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>curl https://modelparams.dev/api/v1/params/gpt-5.5.json</code></pre>
+      </div>
+    </section>
+
+    <!-- JSON Schema -->
+    <section>
+      <h2 class="text-slate-900 dark:text-slate-100">JSON Schema</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">
+        Every entry validates against a JSON Schema you can use in your editor or CI pipeline.
+      </p>
+      <div class="relative mt-4">
+        <div class="absolute right-3 top-3">
+          <span class="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase text-emerald-800 dark:bg-emerald-950 dark:text-emerald-400">GET</span>
+        </div>
+        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>curl https://modelparams.dev/api/v1/schema.json</code></pre>
+      </div>
+      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">
+        Add this header to any YAML you author for autocomplete in VS Code:
+      </p>
+      <div class="mt-2">
+        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code># yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json</code></pre>
+      </div>
+    </section>
+
+    <!-- npm -->
+    <section>
+      <h2 class="text-slate-900 dark:text-slate-100">npm package</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">
+        Install the package to query the catalog locally or in your build pipeline.
+      </p>
+      <div class="mt-4">
+        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>npm i modelparams</code></pre>
+      </div>
+    </section>
+
+    <!-- Logos -->
+    <section>
+      <h2 class="text-slate-900 dark:text-slate-100">Logos</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">
+        Provider logos are available as SVGs. They use <code class="bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-slate-700 dark:bg-[#262626] dark:text-slate-300">currentColor</code> so they inherit your text color.
+      </p>
+      <div class="mt-4">
+        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>curl https://modelparams.dev/assets/logos/anthropic.svg</code></pre>
+      </div>
+      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">
+        Replace <code class="bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-slate-700 dark:bg-[#262626] dark:text-slate-300">anthropic</code> with any provider slug:
+        <code class="font-mono text-xs">openai</code>,
+        <code class="font-mono text-xs">google</code>,
+        <code class="font-mono text-xs">meta</code>,
+        <code class="font-mono text-xs">mistral</code>,
+        <code class="font-mono text-xs">deepseek</code>, etc.
+      </p>
+    </section>
+
+    <!-- Contribute -->
+    <section>
+      <h2 class="text-slate-900 dark:text-slate-100">Contribute</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">
+        The data lives in YAML under <code class="bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-slate-700 dark:bg-[#262626] dark:text-slate-300">models/{provider}/{model}-{auth}.yaml</code>
+        in the <a class="text-accent hover:text-accent-hover" href="https://github.com/mnfst/modelparams.dev" target="_blank" rel="noopener">GitHub repo</a>.
+        Open a PR, CI validates against the schema and rebuilds the site automatically.
+      </p>
+    </section>
+
+  </div>
+</section>

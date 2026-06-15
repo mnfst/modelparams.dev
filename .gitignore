@@ -1,6 +1,8 @@
 node_modules/
 /dist/
 /build/
+packages/*/dist/
+packages/*/*.tsbuildinfo
 .cache/
 *.log
 .DS_Store
@@ -10,3 +12,4 @@ node_modules/
 coverage/
 .vscode/
 .idea/
+.gstack/

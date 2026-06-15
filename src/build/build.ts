@@ -8,6 +8,7 @@ import {
 } from "../data/catalog.js";
 import { loadAllModels } from "../data/load.js";
 import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
+import { listModelParamsResponses } from "../data/model-params.js";
 import {
   DIST_API_DIR,
   DIST_ASSETS_DIR,
@@ -20,6 +21,7 @@ import { modelId, type Model } from "../schema/model.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
 import { renderIndex } from "./render.js";
+import { renderApiPage } from "./render-api.js";
 import { renderGlossaryPage } from "./render-glossary.js";
 import { renderModelPage } from "./render-model.js";
 import { renderProviderPage } from "./render-provider.js";
@@ -28,6 +30,7 @@ async function cleanDist(): Promise<void> {
   await fs.rm(DIST_DIR, { recursive: true, force: true });
   await fs.mkdir(DIST_ASSETS_DIR, { recursive: true });
   await fs.mkdir(path.join(DIST_API_DIR, "models"), { recursive: true });
+  await fs.mkdir(path.join(DIST_API_DIR, "params"), { recursive: true });
 }
 
 async function writeJson(file: string, payload: unknown): Promise<void> {
@@ -91,6 +94,7 @@ async function writeHtmlPages(models: Model[]): Promise<void> {
   }
 
   await fs.writeFile(path.join(DIST_DIR, "glossary.html"), await renderGlossaryPage(models), "utf8");
+  await fs.writeFile(path.join(DIST_DIR, "api.html"), await renderApiPage(models), "utf8");
 }
 
 async function writeApiIndex(modelCount: number): Promise<void> {
@@ -102,6 +106,8 @@ async function writeApiIndex(modelCount: number): Promise<void> {
       schema: "/api/v1/schema.json",
       modelByIdApiKey: "/api/v1/models/{provider}/{model}.json",
       modelByIdSubscription: "/api/v1/models/{provider}/{model}-subscription.json",
+      paramsByModelApiKey: "/api/v1/params/{model}.json",
+      paramsByModelSubscription: "/api/v1/params/{model}-subscription.json",
     },
     modelCount,
     docs: "https://github.com/mnfst/modelparams.dev#api",
@@ -143,6 +149,10 @@ export async function build(): Promise<{ models: number }> {
       $schema: "https://modelparams.dev/api/v1/schema.json",
       ...model,
     });
+  }
+
+  for (const params of listModelParamsResponses(models)) {
+    await writeJson(path.join(DIST_API_DIR, "params", `${params.model}.json`), params);
   }
 
   console.log("Bundling client + styles...");

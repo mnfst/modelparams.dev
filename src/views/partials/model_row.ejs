@@ -7,7 +7,7 @@
   const providerLogo = helpers.logoFor(model.provider);
 %>
 <details
-  class="model group rounded-xl border border-slate-200 bg-white shadow-sm transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+  class="model group border border-slate-200 bg-white transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
   data-model-id="<%= id %>"
   data-model-name="<%= modelName.toLowerCase() %>"
   data-model-provider="<%= model.provider %>"
@@ -17,43 +17,45 @@
   id="<%= id.replace('/', '--') %>"
 >
   <summary
-    class="flex cursor-pointer list-none flex-wrap items-center gap-3 px-4 py-3 sm:px-5"
+    class="flex cursor-pointer list-none items-center px-4 py-3 sm:px-6"
   >
-    <span
-      class="provider-badge inline-flex shrink-0 items-center gap-1.5 rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
-    >
-      <% if (providerLogo) { %>
-      <span class="provider-logo inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- providerLogo %></span>
-      <% } %>
-      <span><%= providerName %></span>
-    </span>
     <a
       href="<%= helpers.modelPagePath(model) %>"
       data-model-link
-      class="flex-1 truncate text-sm font-semibold hover:text-accent sm:text-base dark:hover:text-accent"
+      class="truncate text-sm hover:text-accent sm:text-base dark:hover:text-accent"
     ><%= modelName %></a>
+    <span class="mx-4 text-slate-300 dark:text-slate-600" aria-hidden="true">|</span>
+    <span
+      class="provider-badge inline-flex shrink-0 items-center gap-1.5 text-sm sm:text-base"
+      data-provider-slug="<%= model.provider %>"
+    >
+      <% if (providerLogo) { %>
+      <span class="provider-logo inline-flex h-4 w-4 shrink-0 items-center justify-center" aria-hidden="true"><%- providerLogo %></span>
+      <% } %>
+      <span class="text-slate-600 dark:text-slate-300"><%= providerName %></span>
+    </span>
     <% if (isSubscription) { %>
-    <span class="inline-flex shrink-0 items-center rounded-md bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"
+    <span class="ml-3 inline-flex shrink-0 items-center rounded-md bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"
       ><%= helpers.authLabel(model.authType) %></span
     >
     <% } %>
-    <span class="shrink-0 text-xs tabular-nums text-slate-500 dark:text-slate-400"
+    <span class="ml-auto shrink-0 text-xs tabular-nums text-slate-500 dark:text-slate-400"
       ><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span
     >
     <svg
-      class="h-4 w-4 shrink-0 text-slate-400 transition-transform group-open:rotate-90"
-      viewBox="0 0 20 20"
-      fill="currentColor"
+      class="ml-2 h-4 w-4 shrink-0 text-slate-400 transition-transform group-open:rotate-90"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
       aria-hidden="true"
     >
-      <path
-        fill-rule="evenodd"
-        d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.085 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z"
-        clip-rule="evenodd"
-      />
+      <path d="M6.5 4l3.5 4-3.5 4" />
     </svg>
   </summary>
-  <div class="border-t border-slate-200 px-4 py-4 sm:px-5 dark:border-slate-800">
+  <div class="border-t border-slate-200 px-4 py-4 sm:px-6 dark:border-slate-800">
     <% if (model.params.length === 0) { %>
     <p class="text-sm italic text-slate-500 dark:text-slate-400">No parameters documented yet.</p>
     <% } else { %> <%- include("param_table", { params: model.params, helpers: helpers }) %> <% } %>

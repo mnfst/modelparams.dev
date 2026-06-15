@@ -1,12 +1,14 @@
 import express from "express";
 import { buildCapabilityFacets, buildCatalog, buildProviderFacets } from "../data/catalog.js";
 import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
+import { findModelParams } from "../data/model-params.js";
 import { DIST_ASSETS_DIR } from "../data/paths.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { renderIndex } from "../build/render.js";
 import { renderModelPage } from "../build/render-model.js";
 import { renderProviderPage } from "../build/render-provider.js";
 import { renderGlossaryPage } from "../build/render-glossary.js";
+import { renderApiPage } from "../build/render-api.js";
 import { SITE_URL } from "../data/site.js";
 import { modelId, type Model } from "../schema/model.js";
 
@@ -33,6 +35,16 @@ export function makeApp(loadModels: LoadModels): express.Express {
       const html = await renderIndex({ catalog, capabilities, providers });
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(html);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/api", async (_req, res, next) => {
+    try {
+      const models = await loadModels();
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderApiPage(models));
     } catch (err) {
       next(err);
     }
@@ -90,6 +102,19 @@ export function makeApp(loadModels: LoadModels): express.Express {
 
   app.get("/api/v1/schema.json", (_req, res) => {
     res.json(buildModelJsonSchema());
+  });
+
+  app.get("/api/v1/params/:slug.json", async (req, res, next) => {
+    try {
+      const params = findModelParams(await loadModels(), req.params.slug);
+      if (!params) {
+        res.status(404).json({ error: "not_found", model: req.params.slug });
+        return;
+      }
+      res.json(params);
+    } catch (err) {
+      next(err);
+    }
   });
 
   app.get("/llms.txt", async (_req, res, next) => {
