@@ -52,8 +52,3 @@ params:
     label: Stop
     description: A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.
     group: generation_length
-  - path: tools
-    type: string
-    label: Tools
-    description: A list of tools the model may call. If no tools are provided, the model will not call any tools.
-    group: tooling

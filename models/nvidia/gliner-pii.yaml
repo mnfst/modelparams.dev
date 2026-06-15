@@ -3,11 +3,6 @@ provider: nvidia
 authType: api_key
 model: gliner-pii
 params:
-  - path: labels
-    type: string
-    label: Labels
-    description: Entity types to detect. If not specified, uses the default set of 55 PII categories including email, phone_number, ssn, first_name, last_name, and address.
-    group: provider_metadata
   - path: threshold
     type: number
     label: Threshold

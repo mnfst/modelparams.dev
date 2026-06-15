@@ -2,9 +2,4 @@
 provider: nvidia
 authType: api_key
 model: nemoguard-jailbreak-detect
-params:
-  - path: input
-    type: string
-    label: Input
-    description: The text to classify for jailbreak attempts. Accepts a string or an array of strings.
-    group: provider_metadata
+params: []
