@@ -1,0 +1,114 @@
+name: Release modelparams
+
+# Publishes the `modelparams` npm package when the catalog or codegen pipeline
+# changes on main. Versioning is driven by the same diff classifier
+# (`findRemovedParams`) that `param-guard.yml` uses on PRs:
+#   • any param removed on a still-existing model → MAJOR
+#   • any other catalog change                    → PATCH
+#   • no semantic catalog change                  → skipped
+#
+# Tag-only release: the workflow never pushes to the (protected) main branch.
+# The published version is the latest `modelparams@x.y.z` git tag, bumped by the
+# classifier; the first release seeds from packages/modelparams/package.json.
+# The version bump is applied in-CI for the tarball but is not committed back, so
+# the git tags are the source of truth for the published version.
+#
+# Auth: npm OIDC trusted publishing (no token). Requires npm >= 11.5.1, which
+# ships with Node 24. Configure the trusted publisher for the `modelparams`
+# package on npmjs.com (Settings → Trusted Publishers → GitHub Actions →
+# org=mnfst, repo=modelparams.dev, workflow=release-modelparams.yml).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "models/**"
+      - "packages/modelparams/**"
+      - "src/schema/model.ts"
+      - "src/data/load.ts"
+      - "src/data/removals.ts"
+      - "src/data/git-baseline.ts"
+      - ".github/workflows/release-modelparams.yml"
+  workflow_dispatch:
+    inputs:
+      force_level:
+        description: "Force bump level (overrides auto-detect)"
+        required: false
+        type: choice
+        options: ["", "patch", "major"]
+        default: ""
+
+concurrency:
+  group: release-modelparams
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create release + tag
+      id-token: write # npm OIDC provenance
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history for diff-based version bump
+          fetch-tags: true # release tags drive the next version
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24" # npm >= 11.5.1 for OIDC trusted publishing
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate catalog
+        run: npm run validate
+
+      - name: Typecheck (root)
+        run: npm run typecheck
+
+      - name: Codegen
+        run: npm run codegen --workspace=modelparams
+
+      - name: Build package
+        run: npm run build --workspace=modelparams
+
+      - name: Runtime tests
+        run: npm test --workspace=modelparams
+
+      - name: Type-level tests (tsd)
+        run: npm run test:types --workspace=modelparams
+
+      - name: Compute next version
+        id: bump
+        run: npx tsx packages/modelparams/scripts/compute-version.ts
+        env:
+          BASE_REF: "HEAD~1"
+          FORCE_LEVEL: ${{ inputs.force_level }}
+
+      - name: Skip publish (no semantic change)
+        if: steps.bump.outputs.next == ''
+        run: echo "::notice::No semantic catalog change since the last release — nothing to publish."
+
+      - name: Set package version (no commit)
+        if: steps.bump.outputs.next != ''
+        env:
+          NEXT: ${{ steps.bump.outputs.next }}
+        run: npm version "$NEXT" --no-git-tag-version --allow-same-version --workspace=modelparams
+
+      - name: Publish to npm
+        if: steps.bump.outputs.next != ''
+        run: npm publish --workspace=modelparams --provenance --access public
+
+      - name: Create GitHub release + tag
+        if: steps.bump.outputs.next != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "modelparams@${{ steps.bump.outputs.next }}"
+          name: "modelparams@${{ steps.bump.outputs.next }}"
+          generate_release_notes: true

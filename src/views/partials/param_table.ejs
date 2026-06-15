@@ -2,85 +2,85 @@
   const groups = helpers.groupParams(params);
 %>
 <div class="-mx-1 overflow-x-auto px-1">
-  <table class="params-table w-full min-w-[56rem] text-left text-sm">
-    <thead class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
-      <tr>
-        <th scope="col" class="w-44 py-2 pr-3 font-medium">Parameter</th>
-        <th scope="col" class="w-40 py-2 pr-3 font-medium">Type</th>
-        <th scope="col" class="w-20 py-2 pr-3 font-medium">Default</th>
-        <th scope="col" class="py-2 pr-3 font-medium">Description</th>
-        <th scope="col" class="w-64 py-2 font-medium">Condition</th>
-      </tr>
-    </thead>
-    <% for (const groupItem of groups) { %>
-    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-      <tr class="group-heading">
-        <th colspan="5" scope="colgroup" class="px-0 py-3 text-left">
-          <span class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-700 dark:text-slate-200">
-            <span class="inline-flex h-4 w-4 items-center justify-center text-slate-500 dark:text-slate-400">
-              <%- helpers.paramGroupIcon(groupItem.group) %>
-            </span>
-            <%= helpers.paramGroupLabel(groupItem.group) %>
-            <span class="font-normal normal-case tracking-normal text-slate-400 dark:text-slate-500">
-              · <%= groupItem.params.length %> param<%= groupItem.params.length === 1 ? "" : "s" %>
-            </span>
-          </span>
-        </th>
-      </tr>
-      <% for (const param of groupItem.params) { %>
-      <%
-        const applicability = helpers.describeApplicability(param.applicability);
-        const hasCondition = applicability.only.length > 0 || applicability.except.length > 0;
-        let typeDetail = "";
-        if (param.type === "enum") {
-          typeDetail = `(${param.values.join(" | ")})`;
-        } else if ((param.type === "number" || param.type === "integer") && param.range) {
-          const lo = param.range.min !== undefined ? param.range.min : "-∞";
-          const hi = param.range.max !== undefined ? param.range.max : "+∞";
-          typeDetail = `(${lo}…${hi}${param.range.step ? ` step ${param.range.step}` : ""})`;
-        }
-      %>
-      <tr>
-        <td class="py-2 pr-3 align-top">
-          <div class="font-medium text-slate-900 dark:text-slate-100"><%= helpers.paramLabel(param.path, param.label) %></div>
-          <code class="mt-0.5 inline-block rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
-            ><%= param.path %></code>
-        </td>
-        <td class="py-2 pr-3 align-top font-mono text-xs text-slate-600 dark:text-slate-300">
-          <%= param.type %>
-          <% if (typeDetail) { %><span class="text-slate-400"><%= typeDetail %></span><% } %>
-        </td>
-        <td class="py-2 pr-3 align-top font-mono text-xs text-slate-600 dark:text-slate-300">
-          <% if (param.default === undefined) { %>
-          <span class="text-slate-400">—</span>
-          <% } else { %><%= JSON.stringify(param.default) %><% } %>
-        </td>
-        <td class="py-2 pr-3 align-top text-slate-700 dark:text-slate-300">
-          <%= param.description %>
-        </td>
-        <td class="py-2 align-top">
-          <% if (!hasCondition) { %>
-          <span class="text-slate-300 dark:text-slate-700" aria-label="No condition">—</span>
-          <% } else { %>
-          <div class="flex flex-col gap-1">
-            <% if (applicability.only.length > 0) { %>
-            <span class="inline-flex items-start gap-1.5 rounded-md bg-emerald-50 px-2 py-1 text-xs leading-snug text-emerald-900 ring-1 ring-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-200 dark:ring-emerald-900/60">
-              <span class="mt-0.5 inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center"><%- helpers.conditionIcon("only") %></span>
-              <span><span class="font-semibold">Only when</span> <%= applicability.only.join(" and ") %></span>
-            </span>
+  <% for (const groupItem of groups) { %>
+  <div class="group-section">
+    <div class="group-heading px-0 py-3">
+      <span class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-700 dark:text-slate-200">
+        <span class="inline-flex h-6 w-6 items-center justify-center rounded p-1 text-slate-700 dark:text-slate-300" style="background-color: <%= helpers.paramGroupColor(groupItem.group) %>">
+          <%- helpers.paramGroupIcon(groupItem.group) %>
+        </span>
+        <%= helpers.paramGroupLabel(groupItem.group) %>
+        <span class="rounded-full bg-warm-tag px-2 py-0.5 text-[10px] font-medium normal-case tracking-normal text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+          <%= groupItem.params.length %> param<%= groupItem.params.length === 1 ? "" : "s" %>
+        </span>
+      </span>
+    </div>
+    <table class="params-table w-full min-w-[56rem] text-left text-sm">
+      <thead class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        <tr>
+          <th scope="col" class="w-44 py-2 pr-3 font-medium">Parameter</th>
+          <th scope="col" class="w-40 py-2 pr-3 font-medium">Type</th>
+          <th scope="col" class="w-20 py-2 pr-3 font-medium">Default</th>
+          <th scope="col" class="py-2 pr-3 font-medium">Description</th>
+          <th scope="col" class="w-64 py-2 font-medium">Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const param of groupItem.params) { %>
+        <%
+          const applicability = helpers.describeApplicability(param.applicability);
+          const hasCondition = applicability.only.length > 0 || applicability.except.length > 0;
+          let typeDetail = "";
+          if (param.type === "enum") {
+            typeDetail = `(${param.values.join(" | ")})`;
+          } else if ((param.type === "number" || param.type === "integer") && param.range) {
+            const lo = param.range.min !== undefined ? param.range.min : "-∞";
+            const hi = param.range.max !== undefined ? param.range.max : "+∞";
+            typeDetail = `(${lo}…${hi}${param.range.step ? ` step ${param.range.step}` : ""})`;
+          }
+        %>
+        <tr>
+          <td class="py-2 pr-3 align-top">
+            <div class="font-medium text-slate-900 dark:text-slate-100"><%= helpers.paramLabel(param.path, param.label) %></div>
+            <code class="mt-0.5 inline-block rounded bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+              ><%= param.path %></code>
+          </td>
+          <td class="py-2 pr-3 align-top font-mono text-xs text-slate-600 dark:text-slate-300">
+            <%= param.type %>
+            <% if (typeDetail) { %><span class="text-slate-400"><%= typeDetail %></span><% } %>
+          </td>
+          <td class="py-2 pr-3 align-top font-mono text-xs text-slate-600 dark:text-slate-300">
+            <% if (param.default === undefined) { %>
+            <span class="text-slate-400">—</span>
+            <% } else { %><%= JSON.stringify(param.default) %><% } %>
+          </td>
+          <td class="py-2 pr-3 align-top text-slate-700 dark:text-slate-300">
+            <%= param.description %>
+          </td>
+          <td class="py-2 align-top">
+            <% if (!hasCondition) { %>
+            <span class="text-slate-300 dark:text-slate-700" aria-label="No condition">—</span>
+            <% } else { %>
+            <div class="flex flex-col gap-1">
+              <% if (applicability.only.length > 0) { %>
+              <span class="inline-flex items-center gap-2 text-xs leading-snug text-slate-900 dark:text-slate-100">
+                <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-emerald-300 p-1 text-emerald-600 dark:border-emerald-800 dark:text-emerald-400"><%- helpers.conditionIcon("only") %></span>
+                <span><span class="font-semibold">Only when</span> <%= applicability.only.join(" and ") %></span>
+              </span>
+              <% } %>
+              <% if (applicability.except.length > 0) { %>
+              <span class="inline-flex items-center gap-2 text-xs leading-snug text-slate-900 dark:text-slate-100">
+                <span class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded border border-amber-300 p-1 text-amber-600 dark:border-amber-800 dark:text-amber-400"><%- helpers.conditionIcon("except") %></span>
+                <span><span class="font-semibold">Not when</span> <%= applicability.except.join(" or ") %></span>
+              </span>
+              <% } %>
+            </div>
             <% } %>
-            <% if (applicability.except.length > 0) { %>
-            <span class="inline-flex items-start gap-1.5 rounded-md bg-amber-50 px-2 py-1 text-xs leading-snug text-amber-900 ring-1 ring-amber-200 dark:bg-amber-950/40 dark:text-amber-200 dark:ring-amber-900/60">
-              <span class="mt-0.5 inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center"><%- helpers.conditionIcon("except") %></span>
-              <span><span class="font-semibold">Not when</span> <%= applicability.except.join(" or ") %></span>
-            </span>
-            <% } %>
-          </div>
-          <% } %>
-        </td>
-      </tr>
-      <% } %>
-    </tbody>
-    <% } %>
-  </table>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
 </div>

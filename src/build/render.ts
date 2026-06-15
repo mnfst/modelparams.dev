@@ -6,6 +6,7 @@ import {
   authLabel,
   conditionIcon,
   modelLabel,
+  paramGroupColor,
   paramGroupIcon,
   paramGroupLabel,
   paramLabel,
@@ -28,6 +29,7 @@ export const viewHelpers = {
   modelLabel,
   providerLabel,
   authLabel,
+  paramGroupColor,
   paramGroupLabel,
   paramGroupIcon,
   paramLabel,
@@ -42,6 +44,8 @@ export const viewHelpers = {
 export interface HubLink {
   href: string;
   label: string;
+  provider: string;
+  count: number;
 }
 
 /** Sitewide footer links to each provider hub, ordered by model count. */
@@ -49,6 +53,8 @@ export function hubLinks(models: Model[]): HubLink[] {
   return buildProviderFacets(models).map((facet) => ({
     href: providerPagePath(facet.provider),
     label: providerLabel(facet.provider),
+    provider: facet.provider,
+    count: facet.count,
   }));
 }
 
@@ -71,6 +77,7 @@ export async function renderShell(meta: ShellMeta, body: string): Promise<string
     structuredData: meta.structuredData,
     ogImageUrl: absolute(SITE_URL, OG_IMAGE_PATH),
     providerHubs: meta.providerHubs,
+    helpers: viewHelpers,
     usageGuide: usageGuideMarkdown(SITE_URL),
     initialThemeClass: meta.initialThemeClass ?? "",
     analytics: meta.analytics ?? false,

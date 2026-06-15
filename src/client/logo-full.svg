@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 32">
+  <defs>
+    <radialGradient id="fg1" cx="10%" cy="5%" r="80%"><stop offset="0%" stop-color="#4285f4"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+    <radialGradient id="fg2" cx="95%" cy="15%" r="65%"><stop offset="0%" stop-color="#2ecc71"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+    <radialGradient id="fg3" cx="60%" cy="40%" r="75%"><stop offset="0%" stop-color="#8e44ad"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+    <radialGradient id="fg4" cx="25%" cy="110%" r="70%"><stop offset="0%" stop-color="#e84393"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+    <radialGradient id="fg5" cx="80%" cy="95%" r="60%"><stop offset="0%" stop-color="#f39c12"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  </defs>
+  <!-- Icon -->
+  <rect width="32" height="32" rx="7" fill="#3b3de8"/>
+  <rect width="32" height="32" rx="7" fill="url(#fg1)"/>
+  <rect width="32" height="32" rx="7" fill="url(#fg2)"/>
+  <rect width="32" height="32" rx="7" fill="url(#fg3)"/>
+  <rect width="32" height="32" rx="7" fill="url(#fg4)"/>
+  <rect width="32" height="32" rx="7" fill="url(#fg5)"/>
+  <g transform="translate(4 4)">
+    <g fill="white" opacity="0.7"><path d="M8 16A2 2 0 1 0 8 20 2 2 0 1 0 8 16z"/><path d="m8,11h8c2.76,0,5-2.24,5-5s-2.24-5-5-5h-8c-2.76,0-5,2.24-5,5s2.24,5,5,5Zm8-7.5c1.36,0,2.5,1.14,2.5,2.5s-1.14,2.5-2.5,2.5-2.5-1.14-2.5-2.5,1.14-2.5,2.5-2.5Z"/></g>
+    <g fill="white"><path d="m16,13h-8c-2.76,0-5,2.24-5,5s2.24,5,5,5h8c2.76,0,5-2.24,5-5s-2.24-5-5-5Zm0,8h-8c-1.65,0-3-1.35-3-3s1.35-3,3-3h8c1.65,0,3,1.35,3,3s-1.35,3-3,3Z"/></g>
+  </g>
+  <!-- Text -->
+  <text x="42" y="22" font-family="Outfit, system-ui, sans-serif" font-size="16" font-weight="600" fill="#1a1a1a">modelparams.dev</text>
+</svg>
