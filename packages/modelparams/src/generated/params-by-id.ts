@@ -913,6 +913,114 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "nvidia/gliner-pii": {
+    threshold: number;
+    chunk_length: number;
+    overlap: number;
+    flat_ner: boolean;
+  };
+  "nvidia/llama-3.1-nemoguard-8b-topic-control": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    stop: string;
+  };
+  "nvidia/llama-3.1-nemotron-nano-8b-v1": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/llama-3.1-nemotron-safety-guard-8b-v3": {
+    temperature: number;
+  };
+  "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/llama-3.3-nemotron-super-49b-v1": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/llama-3.3-nemotron-super-49b-v1.5": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/nemoguard-jailbreak-detect": Record<string, never>;
+  "nvidia/nemotron-3-nano-30b-a3b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/nemotron-3-super-120b-a12b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "low" | "high";
+    reasoning_budget: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/nemotron-3-ultra-550b-a55b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "medium" | "high";
+    reasoning_budget: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/nemotron-content-safety-reasoning-4b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    seed: number;
+    stop: string;
+  };
+  "nvidia/nemotron-mini-4b-instruct": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    stop: string;
+  };
+  "nvidia/riva-translate-4b-instruct-v1.1": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    stop: string;
+  };
+  "nvidia/usdcode-llama-3.1-70b-instruct": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    expert_type: "auto" | "code" | "knowledge" | "helperfunction";
+  };
   "openai/chatgpt-4o-latest": {
     max_tokens: number;
     temperature: number;

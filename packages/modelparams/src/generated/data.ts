@@ -9918,6 +9918,982 @@ export const CATALOG = [
     ]
   },
   {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "gliner-pii",
+    "params": [
+      {
+        "path": "threshold",
+        "label": "Threshold",
+        "description": "Confidence threshold for entity detection. Lower values detect more entities but may include false positives.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.5,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "chunk_length",
+        "label": "Chunk length",
+        "description": "Context window size for processing. Longer texts are automatically split into chunks with overlap for complete coverage. Must be greater than overlap.",
+        "group": "provider_metadata",
+        "type": "integer",
+        "default": 384,
+        "range": {
+          "min": 1,
+          "max": 2048
+        }
+      },
+      {
+        "path": "overlap",
+        "label": "Overlap",
+        "description": "Token overlap between chunks to prevent entity clipping. Must be less than chunk_length.",
+        "group": "provider_metadata",
+        "type": "integer",
+        "default": 128,
+        "range": {
+          "min": 0,
+          "max": 512
+        }
+      },
+      {
+        "path": "flat_ner",
+        "label": "Flat NER",
+        "description": "When true, prevents overlapping entity spans. When false, may return nested entities such as both a full name and its constituent first name.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "llama-3.1-nemoguard-8b-topic-control",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.5,
+        "range": {
+          "min": 0,
+          "max": 2
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 1024,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "llama-3.1-nemotron-nano-8b-v1",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 16384
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Changing the seed produces a different response with similar characteristics. Fix the seed to reproduce results.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "llama-3.1-nemotron-safety-guard-8b-v3",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "llama-3.1-nemotron-ultra-253b-v1",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 16384
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Changing the seed produces a different response with similar characteristics. Fix the seed to reproduce results.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "llama-3.3-nemotron-super-49b-v1",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 16384
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Changing the seed produces a different response with similar characteristics. Fix the seed to reproduce results.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "llama-3.3-nemotron-super-49b-v1.5",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 65536,
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Changing the seed produces a different response with similar characteristics. Fix the seed to reproduce results.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "nemoguard-jailbreak-detect",
+    "params": []
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "nemotron-3-nano-30b-a3b",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Repeated requests with the same seed and parameters should return the same result.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "nemotron-3-super-120b-a12b",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls the reasoning mode. 'none' disables reasoning tokens, 'low' enables low-effort reasoning, and 'high' enables full reasoning.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "none",
+          "low",
+          "high"
+        ]
+      },
+      {
+        "path": "reasoning_budget",
+        "label": "Reasoning budget",
+        "description": "Maximum number of tokens the model may use for internal reasoning before being forced to end the reasoning trace. Use -1 to disable budget enforcement.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": -1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Repeated requests with the same seed and parameters should return the same result.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "nemotron-3-ultra-550b-a55b",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls the reasoning mode. 'none' disables reasoning tokens, 'medium' enables efficient reasoning, and 'high' enables full reasoning.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "none",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "reasoning_budget",
+        "label": "Reasoning budget",
+        "description": "Maximum number of tokens the model may use for internal reasoning before being forced to end the reasoning trace. Use -1 to disable budget enforcement.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": -1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Repeated requests with the same seed and parameters should return the same result.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "nemotron-content-safety-reasoning-4b",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Repeated requests with the same seed and parameters should return the same result.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "nemotron-mini-4b-instruct",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.2,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.7,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 1024,
+        "range": {
+          "min": 1,
+          "max": 4096
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "riva-translate-4b-instruct-v1.1",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.9,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 512,
+        "range": {
+          "min": 1,
+          "max": 4096
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "model": "usdcode-llama-3.1-70b-instruct",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.1,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 1024,
+        "range": {
+          "min": 1,
+          "max": 2048
+        }
+      },
+      {
+        "path": "expert_type",
+        "label": "Expert type",
+        "description": "The type of expert to use. 'knowledge' answers with USD knowledge, 'code' responds with vanilla OpenUSD code, 'helperfunction' uses high-level helper functions, and 'auto' lets the LLM determine which expert to use.",
+        "group": "provider_metadata",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "code",
+          "knowledge",
+          "helperfunction"
+        ]
+      }
+    ]
+  },
+  {
     "provider": "openai",
     "authType": "api_key",
     "model": "chatgpt-4o-latest",
