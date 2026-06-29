@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: nvidia
+authType: subscription
+model: nemotron-3-ultra
+params:
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.
+    default: 1
+    range:
+      max: 1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.
+    default: 0.95
+    range:
+      max: 1
+    group: sampling
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate. Generation stops when this limit is reached.
+    default: 16384
+    range:
+      min: 1
+      max: 32768
+    group: generation_length
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Controls the reasoning mode. 'none' disables reasoning tokens, 'medium' enables efficient reasoning, and 'high' enables full reasoning.
+    default: high
+    values:
+      - none
+      - medium
+      - high
+    group: reasoning
+  - path: reasoning_budget
+    type: integer
+    label: Reasoning budget
+    description: Maximum number of tokens the model may use for internal reasoning before being forced to end the reasoning trace. Use -1 to disable budget enforcement.
+    default: 16384
+    range:
+      min: -1
+      max: 32768
+    group: reasoning
+  - path: stop
+    type: string
+    label: Stop
+    description: A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.
+    group: generation_length

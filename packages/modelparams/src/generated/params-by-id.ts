@@ -886,6 +886,19 @@ export type ParamsById = {
     "thinking.type": "enabled" | "disabled";
     "response_format.type": "text" | "json_object";
   };
+  "moonshot/kimi-k2.6-subscription": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    "response_format.type": "text" | "json_object";
+  };
+  "moonshot/kimi-k2.7-code-highspeed-subscription": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "moonshot/kimi-k2.7-code-subscription": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object";
+  };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;
     temperature: number;
@@ -990,6 +1003,14 @@ export type ParamsById = {
     reasoning_effort: "none" | "medium" | "high";
     reasoning_budget: number;
     seed: number;
+    stop: string;
+  };
+  "nvidia/nemotron-3-ultra-subscription": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "medium" | "high";
+    reasoning_budget: number;
     stop: string;
   };
   "nvidia/nemotron-content-safety-reasoning-4b": {
@@ -1299,6 +1320,23 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "xiaomi/mimo-v2.5": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    temperature: number;
+    top_p: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "xiaomi/mimo-v2.5-pro": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    temperature: number;
+    top_p: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    stop: string;
+    "response_format.type": "text" | "json_object";
+  };
+  "xiaomi/mimo-v2.5-subscription": {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
     temperature: number;
