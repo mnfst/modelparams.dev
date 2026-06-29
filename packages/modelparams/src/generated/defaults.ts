@@ -706,6 +706,16 @@ export const DEFAULTS = {
     "thinking.type": "enabled",
     "response_format.type": "text",
   },
+  "moonshot/kimi-k2.6-subscription": {
+    "thinking.type": "enabled",
+    "response_format.type": "text",
+  },
+  "moonshot/kimi-k2.7-code-highspeed-subscription": {
+    "response_format.type": "text",
+  },
+  "moonshot/kimi-k2.7-code-subscription": {
+    "response_format.type": "text",
+  },
   "moonshot/moonshot-v1-128k": {
     temperature: 0.3,
     top_p: 1,

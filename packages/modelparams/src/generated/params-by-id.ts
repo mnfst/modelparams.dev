@@ -886,6 +886,19 @@ export type ParamsById = {
     "thinking.type": "enabled" | "disabled";
     "response_format.type": "text" | "json_object";
   };
+  "moonshot/kimi-k2.6-subscription": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    "response_format.type": "text" | "json_object";
+  };
+  "moonshot/kimi-k2.7-code-highspeed-subscription": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "moonshot/kimi-k2.7-code-subscription": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object";
+  };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;
     temperature: number;

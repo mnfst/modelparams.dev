@@ -9640,6 +9640,105 @@ export const CATALOG = [
   },
   {
     "provider": "moonshot",
+    "authType": "subscription",
+    "model": "kimi-k2.6",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the chat completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls whether Kimi reasons step by step before answering. Thinking is enabled by default; set disabled to respond directly.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "moonshot",
+    "authType": "subscription",
+    "model": "kimi-k2.7-code-highspeed",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the chat completion, covering both thinking and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "moonshot",
+    "authType": "subscription",
+    "model": "kimi-k2.7-code",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the chat completion, covering both thinking and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "moonshot",
     "authType": "api_key",
     "model": "moonshot-v1-128k",
     "params": [
