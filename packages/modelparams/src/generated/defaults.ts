@@ -1056,6 +1056,12 @@ export const DEFAULTS = {
     top_p: 1,
     "response_format.type": "text",
   },
+  "xiaomi/mimo-v2.5": {
+    "thinking.type": "enabled",
+    temperature: 1,
+    top_p: 0.95,
+    "response_format.type": "text",
+  },
   "z-ai/glm-4.5": {
     temperature: 0.6,
     top_p: 0.95,
