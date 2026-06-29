@@ -798,6 +798,13 @@ export const DEFAULTS = {
     reasoning_effort: "high",
     reasoning_budget: 16384,
   },
+  "nvidia/nemotron-3-ultra-subscription": {
+    temperature: 1,
+    top_p: 0.95,
+    max_tokens: 16384,
+    reasoning_effort: "high",
+    reasoning_budget: 16384,
+  },
   "nvidia/nemotron-content-safety-reasoning-4b": {
     temperature: 1,
     top_p: 1,

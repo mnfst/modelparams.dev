@@ -992,6 +992,14 @@ export type ParamsById = {
     seed: number;
     stop: string;
   };
+  "nvidia/nemotron-3-ultra-subscription": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "medium" | "high";
+    reasoning_budget: number;
+    stop: string;
+  };
   "nvidia/nemotron-content-safety-reasoning-4b": {
     temperature: number;
     top_p: number;

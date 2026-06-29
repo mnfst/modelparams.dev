@@ -10634,6 +10634,79 @@ export const CATALOG = [
   },
   {
     "provider": "nvidia",
+    "authType": "subscription",
+    "model": "nemotron-3-ultra",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls the reasoning mode. 'none' disables reasoning tokens, 'medium' enables efficient reasoning, and 'high' enables full reasoning.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "none",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "reasoning_budget",
+        "label": "Reasoning budget",
+        "description": "Maximum number of tokens the model may use for internal reasoning before being forced to end the reasoning trace. Use -1 to disable budget enforcement.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": -1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
     "authType": "api_key",
     "model": "nemotron-content-safety-reasoning-4b",
     "params": [

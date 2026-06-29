@@ -120,6 +120,7 @@ export const MODEL_IDS = [
   "nvidia/nemotron-3-nano-30b-a3b",
   "nvidia/nemotron-3-super-120b-a12b",
   "nvidia/nemotron-3-ultra-550b-a55b",
+  "nvidia/nemotron-3-ultra-subscription",
   "nvidia/nemotron-content-safety-reasoning-4b",
   "nvidia/nemotron-mini-4b-instruct",
   "nvidia/riva-translate-4b-instruct-v1.1",
