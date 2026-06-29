@@ -1,0 +1,27 @@
+models/xiaomi/mimo-v2.5-subscription.yaml
+  s_24fc4145b9c9da::t_4b8d9ca2c55245 1-61
+packages/modelparams/src/generated/data.ts
+  s_24fc4145b9c9da::t_f0de6e159454f9 13369-13445
+packages/modelparams/src/generated/defaults.ts
+  s_24fc4145b9c9da::t_7c619a18fac64d 1065-1070
+packages/modelparams/src/generated/model-ids.ts
+  s_24fc4145b9c9da::t_2c30b344297681 178
+packages/modelparams/src/generated/params-by-id.ts
+  s_24fc4145b9c9da::t_d1f8ebdce1c6a9 1308-1314
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "1c2ade27146c2734f2f0d50419cedfa8cfa1ace5",
+  "prompts": {},
+  "sessions": {
+    "s_24fc4145b9c9da": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f12a4-5c55-7bf3-9c4f-5e170d64d4c8",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
