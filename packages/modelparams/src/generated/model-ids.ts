@@ -174,6 +174,7 @@ export const MODEL_IDS = [
   "xai/grok-4.20-multi-agent-0309",
   "xai/grok-4.3",
   "xai/grok-build-0.1",
+  "xiaomi/mimo-v2.5",
   "z-ai/glm-4.5",
   "z-ai/glm-4.5-air",
   "z-ai/glm-4.5-air-subscription",
@@ -211,6 +212,7 @@ export const PROVIDERS = [
   "openai",
   "perplexity",
   "xai",
+  "xiaomi",
   "z-ai"
 ] as const;
 

@@ -13348,6 +13348,83 @@ export const CATALOG = [
     ]
   },
   {
+    "provider": "xiaomi",
+    "authType": "api_key",
+    "model": "mimo-v2.5",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, covering both the thinking trace and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls whether MiMo reasons step by step before answering. Enabled by default; set disabled to respond directly.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values are more focused; higher values are more varied. Ignored while thinking is enabled, where it is forced to 1.0.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "thinking.type": "enabled"
+          }
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Nucleus sampling cutoff. Ignored while thinking is enabled, where it is forced to 0.95.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "thinking.type": "enabled"
+          }
+        },
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.5",
