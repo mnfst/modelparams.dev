@@ -1305,6 +1305,13 @@ export type ParamsById = {
     top_p: number;
     "response_format.type": "text" | "json_object";
   };
+  "xiaomi/mimo-v2.5-subscription": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    temperature: number;
+    top_p: number;
+    "response_format.type": "text" | "json_object";
+  };
   "z-ai/glm-4.5": {
     max_tokens: number;
     temperature: number;
