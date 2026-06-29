@@ -1,0 +1,37 @@
+models/moonshot/kimi-k2.6-subscription.yaml
+  s_01bd2528a03879::t_8e66eb25864122 1-32
+models/moonshot/kimi-k2.7-code-highspeed-subscription.yaml
+  s_01bd2528a03879::t_57edda7f41172c 1-21
+models/moonshot/kimi-k2.7-code-subscription.yaml
+  s_01bd2528a03879::t_d82347f8c57eec 1-21
+models/nvidia/nemotron-3-ultra-subscription.yaml
+  s_01bd2528a03879::t_6a1115a24e9d7b 1-54
+models/xiaomi/mimo-v2.5-pro.yaml
+  s_01bd2528a03879::t_7711e74e00f6e6 1-86
+models/xiaomi/mimo-v2.5-subscription.yaml
+  s_01bd2528a03879::t_099bd28457b698 1-61
+packages/modelparams/src/generated/data.ts
+  s_01bd2528a03879::t_7d9609f96a6b60 9641-9739,10734-10806,13541-13727
+packages/modelparams/src/generated/defaults.ts
+  s_01bd2528a03879::t_12f049b4086524 709-718,811-817,1082-1095
+packages/modelparams/src/generated/model-ids.ts
+  s_01bd2528a03879::t_8c10772d42c2f2 109-111,126,182-183
+packages/modelparams/src/generated/params-by-id.ts
+  s_01bd2528a03879::t_c774330a1ac906 889-901,1008-1015,1329-1345
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "2ef00c4cd784e42306942f1567a86d51ac17ebef",
+  "prompts": {},
+  "sessions": {
+    "s_01bd2528a03879": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "78fab2f2-2bbd-40c1-bac5-23b7bf0cfa60",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
