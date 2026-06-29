@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: xiaomi
+authType: api_key
+model: mimo-v2.5-pro
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate, covering both the thinking trace and the final answer.
+    range:
+      min: 1
+    group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Controls whether MiMo reasons step by step before answering. Enabled by default;
+      set disabled to respond directly.
+    default: enabled
+    values:
+      - enabled
+      - disabled
+    group: reasoning
+  - path: temperature
+    type: number
+    label: Temperature
+    description: >-
+      Controls randomness. Lower values are more focused; higher values are more varied.
+      Ignored while thinking is enabled, where it is forced to 1.0.
+    default: 1
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+    applicability:
+      except:
+        thinking.type: enabled
+  - path: top_p
+    type: number
+    label: Top P
+    description: >-
+      Nucleus sampling cutoff. Ignored while thinking is enabled, where it is forced to 0.95.
+    default: 0.95
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    applicability:
+      except:
+        thinking.type: enabled
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Penalizes tokens that have already appeared, encouraging the model to introduce new topics.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalizes tokens in proportion to how often they have appeared, reducing verbatim repetition.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: stop
+    type: string
+    label: Stop sequences
+    description: Up to a few sequences where generation stops; the stop text is not included in the output.
+    group: generation_length
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Forces the response into plain text or a JSON object.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format

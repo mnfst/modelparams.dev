@@ -706,6 +706,16 @@ export const DEFAULTS = {
     "thinking.type": "enabled",
     "response_format.type": "text",
   },
+  "moonshot/kimi-k2.6-subscription": {
+    "thinking.type": "enabled",
+    "response_format.type": "text",
+  },
+  "moonshot/kimi-k2.7-code-highspeed-subscription": {
+    "response_format.type": "text",
+  },
+  "moonshot/kimi-k2.7-code-subscription": {
+    "response_format.type": "text",
+  },
   "moonshot/moonshot-v1-128k": {
     temperature: 0.3,
     top_p: 1,
@@ -792,6 +802,13 @@ export const DEFAULTS = {
     reasoning_budget: 16384,
   },
   "nvidia/nemotron-3-ultra-550b-a55b": {
+    temperature: 1,
+    top_p: 0.95,
+    max_tokens: 16384,
+    reasoning_effort: "high",
+    reasoning_budget: 16384,
+  },
+  "nvidia/nemotron-3-ultra-subscription": {
     temperature: 1,
     top_p: 0.95,
     max_tokens: 16384,
@@ -1057,6 +1074,20 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "xiaomi/mimo-v2.5": {
+    "thinking.type": "enabled",
+    temperature: 1,
+    top_p: 0.95,
+    "response_format.type": "text",
+  },
+  "xiaomi/mimo-v2.5-pro": {
+    "thinking.type": "enabled",
+    temperature: 1,
+    top_p: 0.95,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+  },
+  "xiaomi/mimo-v2.5-subscription": {
     "thinking.type": "enabled",
     temperature: 1,
     top_p: 0.95,
