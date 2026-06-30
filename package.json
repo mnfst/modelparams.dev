@@ -1,7 +1,7 @@
 {
   "name": "modelparams.dev",
   "version": "0.1.0",
-  "description": "An open catalog of LLM model parameters. The community-maintained source of truth for every knob you can turn.",
+  "description": "An open catalog of model parameters. The community-maintained source of truth for every knob you can turn.",
   "type": "module",
   "private": true,
   "license": "MIT",

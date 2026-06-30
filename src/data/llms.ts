@@ -23,7 +23,7 @@ function guideIntro(siteUrl: string): string[] {
   return [
     "# How to use modelparams.dev",
     "",
-    `[modelparams.dev](${siteUrl}) is an open, community-maintained catalog of LLM model`,
+    `[modelparams.dev](${siteUrl}) is an open, community-maintained catalog of model`,
     "parameters. Each entry shows the knobs you can turn — type, default, range, and the",
     "conditions that gate it.",
     "",
@@ -152,7 +152,7 @@ export function buildLlmsTxt(siteUrl: string, models: Model[]): string {
   const lines: string[] = [
     "# modelparams.dev",
     "",
-    "> An open, community-maintained catalog of LLM model parameters — every knob you can",
+    "> An open, community-maintained catalog of model parameters — every knob you can",
     "> turn, for every model, with API-key and subscription variants tracked separately.",
     "",
     "All data is machine-readable: CORS-enabled static JSON validated against a published JSON",

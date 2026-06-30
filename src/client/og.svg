@@ -8,9 +8,9 @@
   </g>
   <text x="168" y="133" font-family="DejaVu Sans" font-weight="bold" font-size="36" fill="#0f172a">modelparams.dev</text>
 
-  <text x="80" y="320" font-family="DejaVu Sans" font-weight="bold" font-size="76" fill="#0f172a">Every LLM parameter,</text>
+  <text x="80" y="320" font-family="DejaVu Sans" font-weight="bold" font-size="76" fill="#0f172a">Every parameter,</text>
   <text x="80" y="408" font-family="DejaVu Sans" font-weight="bold" font-size="76" fill="#6366f1">for every model.</text>
 
-  <text x="80" y="486" font-family="DejaVu Sans" font-size="32" fill="#475569">An open catalog of LLM model parameters</text>
+  <text x="80" y="486" font-family="DejaVu Sans" font-size="32" fill="#475569">An open catalog of model parameters</text>
   <text x="80" y="556" font-family="DejaVu Sans" font-size="23" fill="#94a3b8">Search · filter · JSON API · llms.txt · MIT licensed</text>
 </svg>
