@@ -1,7 +1,7 @@
 {
   "name": "modelparams",
   "version": "0.0.1",
-  "description": "TypeScript types and runtime data for LLM model parameters. Generated from the modelparams.dev open catalog.",
+  "description": "TypeScript types and runtime data for model parameters. Generated from the modelparams.dev open catalog.",
   "keywords": [
     "llm",
     "ai",

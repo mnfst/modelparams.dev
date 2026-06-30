@@ -20,7 +20,7 @@ export function modelPageTitle(model: Model): string {
 export function modelPageDescription(model: Model): string {
   const who = `${providerLabel(model.provider)} ${modelLabel(model)}${authNote(model)}`;
   if (model.params.length === 0) {
-    return `${who}: no parameters documented yet. Browse the open catalog of LLM model parameters on ${SITE_NAME}.`;
+    return `${who}: no parameters documented yet. Browse the open catalog of model parameters on ${SITE_NAME}.`;
   }
   const paths = model.params.map((param) => param.path);
   const sample = paths.slice(0, 4).join(", ");

@@ -5,7 +5,7 @@
 
 # modelparams.dev
 
-> An open, community-maintained catalog of LLM model parameters.
+> An open, community-maintained catalog of model parameters.
 
 [![npm version](https://img.shields.io/npm/v/modelparams.svg)](https://www.npmjs.com/package/modelparams)
 [![npm downloads](https://img.shields.io/npm/dm/modelparams.svg)](https://www.npmjs.com/package/modelparams)

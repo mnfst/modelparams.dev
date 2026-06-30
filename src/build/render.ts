@@ -104,7 +104,7 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
 
   return renderShell(
     {
-      title: `${SITE_NAME} — Open catalog of LLM model parameters`,
+      title: `${SITE_NAME} — Open catalog of model parameters`,
       description: SITE_DESCRIPTION,
       canonicalUrl: `${SITE_URL}/`,
       structuredData: buildHomeStructuredData(

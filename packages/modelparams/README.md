@@ -1,6 +1,6 @@
 # modelparams
 
-> **Typed LLM model parameters for TypeScript.** Generated from the open [modelparams.dev](https://modelparams.dev) catalog.
+> **Typed model parameters for TypeScript.** Generated from the open [modelparams.dev](https://modelparams.dev) catalog.
 
 ```bash
 npm install modelparams
