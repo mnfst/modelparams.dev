@@ -16,8 +16,31 @@ export function providerPagePath(provider: string): string {
   return `/providers/${provider}`;
 }
 
-/** Parameter glossary page. */
+/** Parameter glossary page — the hub that links out to each parameter page. */
 export const GLOSSARY_PATH = "/glossary";
+
+/**
+ * URL-safe slug for a parameter path: lowercased, with nested-path dots turned into
+ * hyphens, e.g. `thinking.type` → `thinking-type`. Underscores are kept so that
+ * `top_p` stays `top_p` and a dotted path never collides with its snake_case twin
+ * (e.g. `reasoning.effort` → `reasoning-effort` vs `reasoning_effort`).
+ */
+export function parameterSlug(path: string): string {
+  return path
+    .toLowerCase()
+    .replace(/\./g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** Canonical HTML page for a single parameter, e.g. /parameters/temperature. */
+export function parameterPagePath(path: string): string {
+  return `/parameters/${parameterSlug(path)}`;
+}
+
+/** In-page anchor id for a parameter row on a model page, e.g. param-top-p. */
+export function parameterAnchorId(path: string): string {
+  return `param-${parameterSlug(path)}`;
+}
 
 /** Existing JSON API endpoint for a model (unchanged; referenced for linking). */
 export function modelJsonPath(model: ModelRef): string {

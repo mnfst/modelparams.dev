@@ -9,21 +9,30 @@ import {
 import { loadAllModels } from "../data/load.js";
 import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
 import { listModelParamsResponses } from "../data/model-params.js";
+import { buildParameterIndex } from "../data/parameters.js";
 import {
   DIST_API_DIR,
   DIST_ASSETS_DIR,
   DIST_DIR,
   MODELS_DIR,
+  REPO_ROOT,
 } from "../data/paths.js";
 import { SITE_URL } from "../data/site.js";
-import { GLOSSARY_PATH, modelPagePath, providerPagePath } from "../data/urls.js";
+import {
+  GLOSSARY_PATH,
+  modelPagePath,
+  parameterPagePath,
+  providerPagePath,
+} from "../data/urls.js";
 import { modelId, type Model } from "../schema/model.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
+import { gitLastmodMap, modelLastmod } from "./lastmod.js";
 import { renderIndex } from "./render.js";
 import { renderApiPage } from "./render-api.js";
 import { renderGlossaryPage } from "./render-glossary.js";
 import { renderModelPage } from "./render-model.js";
+import { renderParameterPage } from "./render-parameter.js";
 import { renderProviderPage } from "./render-provider.js";
 
 async function cleanDist(): Promise<void> {
@@ -54,19 +63,32 @@ async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
   // Sitemaps list canonical, indexable HTML pages only — the JSON API and the
   // .txt agent files are intentionally excluded (they're not search results).
   const today = new Date().toISOString().slice(0, 10);
-  const entries: { path: string; priority: string }[] = [
-    { path: "/", priority: "1.0" },
-    { path: GLOSSARY_PATH, priority: "0.7" },
+  const dates = gitLastmodMap(REPO_ROOT);
+  // Aggregate pages (home, glossary, providers, parameters) track the build date;
+  // each model URL carries the commit date of its own YAML so lastmod stays honest.
+  const entries: { path: string; priority: string; lastmod: string }[] = [
+    { path: "/", priority: "1.0", lastmod: today },
+    { path: GLOSSARY_PATH, priority: "0.7", lastmod: today },
     ...uniqueProviders(models).map((provider) => ({
       path: providerPagePath(provider),
       priority: "0.8",
+      lastmod: today,
     })),
-    ...models.map((model) => ({ path: modelPagePath(model), priority: "0.6" })),
+    ...buildParameterIndex(models).map((detail) => ({
+      path: parameterPagePath(detail.path),
+      priority: "0.7",
+      lastmod: today,
+    })),
+    ...models.map((model) => ({
+      path: modelPagePath(model),
+      priority: "0.6",
+      lastmod: modelLastmod(model, dates, today),
+    })),
   ];
   const body = entries
     .map(
-      ({ path: loc, priority }) =>
-        `  <url><loc>${SITE_URL}${loc}</loc><lastmod>${today}</lastmod><priority>${priority}</priority></url>`,
+      ({ path: loc, priority, lastmod }) =>
+        `  <url><loc>${SITE_URL}${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`,
     )
     .join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -95,6 +117,24 @@ async function writeHtmlPages(models: Model[]): Promise<void> {
 
   await fs.writeFile(path.join(DIST_DIR, "glossary.html"), await renderGlossaryPage(models), "utf8");
   await fs.writeFile(path.join(DIST_DIR, "api.html"), await renderApiPage(models), "utf8");
+}
+
+async function writeParameterPages(models: Model[]): Promise<void> {
+  const details = buildParameterIndex(models);
+  const dir = path.join(DIST_DIR, "parameters");
+  await fs.mkdir(dir, { recursive: true });
+  const seen = new Set<string>();
+  for (const detail of details) {
+    if (seen.has(detail.slug)) {
+      throw new Error(`Duplicate parameter slug "${detail.slug}" (path "${detail.path}")`);
+    }
+    seen.add(detail.slug);
+    await fs.writeFile(
+      path.join(dir, `${detail.slug}.html`),
+      await renderParameterPage(detail, models),
+      "utf8",
+    );
+  }
 }
 
 async function writeApiIndex(modelCount: number): Promise<void> {
@@ -158,8 +198,9 @@ export async function build(): Promise<{ models: number }> {
   console.log("Bundling client + styles...");
   await Promise.all([bundleClientScript(), compileStyles(), copyStaticAssets()]);
 
-  console.log("Rendering model, provider, and glossary pages...");
+  console.log("Rendering model, provider, parameter, and glossary pages...");
   await writeHtmlPages(models);
+  await writeParameterPages(models);
 
   await writeLlmsFiles(models);
   await writeRobotsAndSitemap(models);

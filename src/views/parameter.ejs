@@ -1,0 +1,156 @@
+<%- include("partials/breadcrumbs", { items: [
+  { name: "Home", href: "/" },
+  { name: "Glossary", href: glossaryPath },
+  { name: detail.label }
+] }) %>
+
+<section class="pt-6">
+  <div class="flex flex-wrap items-center gap-2.5">
+    <span class="inline-flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 text-xs font-medium text-white dark:bg-white dark:text-slate-900">
+      <span class="inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center" aria-hidden="true"><%- helpers.paramGroupIcon(detail.group) %></span>
+      <%= groupLabel %>
+    </span>
+    <% for (const t of detail.types) { %>
+    <span class="rounded bg-warm-tag px-1.5 py-0.5 font-mono text-[10px] text-slate-600 dark:bg-[#262626] dark:text-slate-400"><%= t %></span>
+    <% } %>
+    <span class="text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= detail.modelCount %> model<%= detail.modelCount === 1 ? "" : "s" %></span>
+  </div>
+  <h1 class="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-balance font-bold tracking-tight">
+    <span><%= detail.label %></span>
+    <code class="font-mono text-base font-normal text-slate-500 dark:text-slate-400"><%= detail.path %></code>
+  </h1>
+  <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-600 dark:text-slate-300 sm:text-base">
+    <%= detail.description %>
+  </p>
+  <dl class="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+    <div class="flex items-center gap-2">
+      <dt class="text-slate-500 dark:text-slate-400">Type</dt>
+      <dd class="font-mono text-slate-900 dark:text-slate-100"><%= detail.types.join(", ") %></dd>
+    </div>
+    <div class="flex items-center gap-2">
+      <dt class="text-slate-500 dark:text-slate-400">Default</dt>
+      <dd class="font-mono text-slate-900 dark:text-slate-100"><%= defaultSummary %></dd>
+    </div>
+    <% if (rangeSummary) { %>
+    <div class="flex items-center gap-2">
+      <dt class="text-slate-500 dark:text-slate-400">Range</dt>
+      <dd class="font-mono text-slate-900 dark:text-slate-100"><%= rangeSummary %></dd>
+    </div>
+    <% } %>
+  </dl>
+</section>
+
+<section class="mt-8" aria-label="Default and range by model">
+  <h2 class="text-slate-900 dark:text-slate-100"><code class="font-mono"><%= detail.path %></code> by model</h2>
+  <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
+    The exact type, default, range, and conditions for <code class="font-mono"><%= detail.path %></code> on each model that documents it.
+  </p>
+  <div class="-mx-1 mt-4 overflow-x-auto px-1">
+    <table class="params-table w-full min-w-[48rem] text-left text-sm">
+      <thead class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        <tr>
+          <th scope="col" class="py-2 pr-3 font-medium">Model</th>
+          <th scope="col" class="w-32 py-2 pr-3 font-medium">Provider</th>
+          <th scope="col" class="w-28 py-2 pr-3 font-medium">Type</th>
+          <th scope="col" class="w-20 py-2 pr-3 font-medium">Default</th>
+          <th scope="col" class="w-40 py-2 pr-3 font-medium">Range / values</th>
+          <th scope="col" class="w-56 py-2 font-medium">Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const usage of detail.usages) { %>
+        <%
+          const param = usage.param;
+          const applicability = helpers.describeApplicability(param.applicability);
+          const hasCondition = applicability.only.length > 0 || applicability.except.length > 0;
+          let rangeText = "—";
+          if (param.type === "enum") {
+            rangeText = param.values.join(" | ");
+          } else if ((param.type === "number" || param.type === "integer") && param.range) {
+            const lo = param.range.min !== undefined ? param.range.min : "−∞";
+            const hi = param.range.max !== undefined ? param.range.max : "+∞";
+            rangeText = `${lo}…${hi}${param.range.step ? ` step ${param.range.step}` : ""}`;
+          }
+        %>
+        <tr>
+          <td class="py-2 pr-3 align-top">
+            <a href="<%= helpers.modelPagePath(usage.model) %>" class="font-medium text-accent hover:text-accent-hover"><%= usage.modelName %></a>
+            <% if (usage.model.authType === "subscription") { %>
+            <span class="ml-1.5 rounded bg-emerald-100 px-1 py-0.5 text-[10px] font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"><%= helpers.authLabel(usage.model.authType) %></span>
+            <% } %>
+          </td>
+          <td class="py-2 pr-3 align-top">
+            <a href="<%= helpers.providerPagePath(usage.provider) %>" class="text-slate-600 hover:text-accent dark:text-slate-300"><%= usage.providerName %></a>
+          </td>
+          <td class="py-2 pr-3 align-top font-mono text-xs text-slate-600 dark:text-slate-300"><%= param.type %></td>
+          <td class="py-2 pr-3 align-top font-mono text-xs text-slate-600 dark:text-slate-300">
+            <% if (param.default === undefined) { %><span class="text-slate-400">—</span><% } else { %><%= JSON.stringify(param.default) %><% } %>
+          </td>
+          <td class="py-2 pr-3 align-top font-mono text-xs text-slate-600 dark:text-slate-300"><%= rangeText %></td>
+          <td class="py-2 align-top text-xs leading-snug text-slate-700 dark:text-slate-300">
+            <% if (!hasCondition) { %>
+            <span class="text-slate-300 dark:text-slate-700" aria-label="No condition">—</span>
+            <% } else { %>
+            <% if (applicability.only.length > 0) { %><div><span class="font-semibold">Only when</span> <%= applicability.only.join(" and ") %></div><% } %>
+            <% if (applicability.except.length > 0) { %><div><span class="font-semibold">Not when</span> <%= applicability.except.join(" or ") %></div><% } %>
+            <% } %>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<% if (notDocumented.length > 0) { %>
+<section class="mt-10">
+  <details class="group">
+    <summary class="flex cursor-pointer list-none items-center gap-2 text-slate-900 dark:text-slate-100">
+      <svg class="h-4 w-4 shrink-0 text-slate-400 transition-transform group-open:rotate-90" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.5 4l3.5 4-3.5 4" /></svg>
+      <h2 class="text-base font-semibold">Models without <code class="font-mono"><%= detail.path %></code> documented yet</h2>
+    </summary>
+    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+      These models don't list <code class="font-mono"><%= detail.path %></code> in the catalog. That may mean the provider doesn't accept it, or it simply hasn't been added yet — the data is community-maintained.
+    </p>
+    <% for (const grp of notDocumented) { %>
+    <div class="mt-3">
+      <p class="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400"><%= grp.providerName %></p>
+      <div class="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm">
+        <% for (const m of grp.models) { %>
+        <a href="<%= helpers.modelPagePath(m) %>" class="text-accent hover:text-accent-hover"><%= helpers.modelLabel(m) %></a>
+        <% } %>
+      </div>
+    </div>
+    <% } %>
+  </details>
+</section>
+<% } %>
+
+<% if (related.length > 0) { %>
+<section class="mt-10">
+  <h2 class="text-slate-900 dark:text-slate-100">Related <%= groupLabel.toLowerCase() %> parameters</h2>
+  <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+    <% for (const other of related) { %>
+    <a href="<%= helpers.parameterPagePath(other.path) %>" class="flex flex-col border border-slate-200 bg-white px-4 py-3 transition-colors hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700">
+      <span class="truncate text-sm font-medium text-slate-900 dark:text-slate-100"><%= other.label %></span>
+      <code class="mt-0.5 truncate font-mono text-xs text-slate-500 dark:text-slate-400"><%= other.path %></code>
+    </a>
+    <% } %>
+  </div>
+</section>
+<% } %>
+
+<section class="mt-10 border-t border-slate-200 pt-6 dark:border-slate-800">
+  <h2 class="text-slate-900 dark:text-slate-100">Resources</h2>
+  <div class="mt-3 grid grid-cols-2 text-sm lg:grid-cols-3">
+    <a href="<%= glossaryPath %>" class="inline-flex items-center justify-center gap-2 border border-slate-200 bg-white px-4 py-3 text-accent hover:bg-warm-hover hover:text-accent-hover dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:-mr-px">
+      All parameters
+    </a>
+    <a href="/api" class="inline-flex items-center justify-center gap-2 border border-slate-200 bg-white px-4 py-3 text-accent hover:bg-warm-hover hover:text-accent-hover dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 sm:-mr-px">
+      Use the API
+    </a>
+    <a href="/" class="inline-flex items-center justify-center gap-2 border border-slate-200 bg-white px-4 py-3 text-accent hover:bg-warm-hover hover:text-accent-hover dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800">
+      Full catalog
+    </a>
+  </div>
+</section>

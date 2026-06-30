@@ -171,6 +171,23 @@ describe("GET /glossary", () => {
   });
 });
 
+describe("GET /parameters/:slug", () => {
+  it("renders a parameter page for a known parameter", async () => {
+    const res = await get("/parameters/temperature");
+    expect(res.status).toBe(200);
+    expect(res.headers.get("content-type")).toContain("text/html");
+    const body = await res.text();
+    expect(body).toContain("<!doctype html>");
+    expect(body).toContain("temperature");
+  });
+
+  it("404s for an unknown parameter", async () => {
+    const res = await get("/parameters/not-a-parameter");
+    expect(res.status).toBe(404);
+    expect(await res.text()).toBe("Unknown parameter");
+  });
+});
+
 describe("GET /providers/:provider", () => {
   it("renders a hub for a known provider", async () => {
     const res = await get("/providers/anthropic");
