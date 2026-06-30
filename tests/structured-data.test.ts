@@ -3,9 +3,11 @@ import {
   buildGlossaryStructuredData,
   buildHomeStructuredData,
   buildModelStructuredData,
+  buildParameterStructuredData,
   buildProviderStructuredData,
 } from "../src/build/structured-data.js";
 import { buildGlossary } from "../src/data/glossary.js";
+import { buildParameterIndex } from "../src/data/parameters.js";
 import type { Model } from "../src/schema/model.js";
 
 const SITE = "https://modelparams.dev";
@@ -80,5 +82,20 @@ describe("buildGlossaryStructuredData", () => {
 
     expect(json).toContain('"@type":"DefinedTermSet"');
     expect(json).toContain('"termCode":"temperature"');
+  });
+});
+
+describe("buildParameterStructuredData", () => {
+  it("emits a DefinedTerm, breadcrumb, and a model ItemList", () => {
+    const detail = buildParameterIndex([model()])[0]!;
+    const json = buildParameterStructuredData(detail, "desc", SITE);
+
+    expect(json).toContain('"@type":"DefinedTerm"');
+    expect(json).toContain('"termCode":"temperature"');
+    expect(json).toContain(`${SITE}/parameters/temperature#term`);
+    expect(json).toContain('"@type":"BreadcrumbList"');
+    expect(json).toContain('"@type":"ItemList"');
+    expect(json).toContain(`${SITE}/models/anthropic/claude-opus-4-7`);
+    expect(json).not.toContain("modelparameters.dev");
   });
 });

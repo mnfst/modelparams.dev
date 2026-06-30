@@ -2,6 +2,8 @@ import { describeApplicability } from "./applicability.js";
 import { buildProviderFacets } from "./catalog.js";
 import { authLabel, modelLabel, paramGroupLabel, providerLabel } from "./display.js";
 import { groupParams } from "./group.js";
+import { buildParameterIndex } from "./parameters.js";
+import { parameterPagePath } from "./urls.js";
 import { modelId, type Model, type Parameter } from "../schema/model.js";
 
 const REPO_URL = "https://github.com/mnfst/modelparams.dev";
@@ -168,8 +170,14 @@ export function buildLlmsTxt(siteUrl: string, models: Model[]): string {
     "## Guides",
     `- [Usage guide + full parameter dump](${siteUrl}/llms-full.txt): How to call the API plus every model's parameters inline.`,
     "",
-    "## Models",
+    "## Parameters",
   ];
+  for (const detail of buildParameterIndex(models)) {
+    lines.push(
+      `- [${detail.path}](${siteUrl}${parameterPagePath(detail.path)}): ${detail.label} — default, range, and the ${plural(detail.modelCount, "model")} that accept it.`,
+    );
+  }
+  lines.push("", "## Models");
   for (const model of sortById(models)) {
     lines.push(
       `- [${modelId(model)}](${modelJsonUrl(siteUrl, model)}): ${modelTitle(model)} — ${plural(model.params.length, "parameter")}.`,

@@ -2,10 +2,12 @@ import express from "express";
 import { buildCapabilityFacets, buildCatalog, buildProviderFacets } from "../data/catalog.js";
 import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
 import { findModelParams } from "../data/model-params.js";
+import { buildParameterIndex } from "../data/parameters.js";
 import { DIST_ASSETS_DIR } from "../data/paths.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { renderIndex } from "../build/render.js";
 import { renderModelPage } from "../build/render-model.js";
+import { renderParameterPage } from "../build/render-parameter.js";
 import { renderProviderPage } from "../build/render-provider.js";
 import { renderGlossaryPage } from "../build/render-glossary.js";
 import { renderApiPage } from "../build/render-api.js";
@@ -55,6 +57,21 @@ export function makeApp(loadModels: LoadModels): express.Express {
       const models = await loadModels();
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(await renderGlossaryPage(models));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/parameters/:slug", async (req, res, next) => {
+    try {
+      const models = await loadModels();
+      const detail = buildParameterIndex(models).find((d) => d.slug === req.params.slug);
+      if (!detail) {
+        res.status(404).type("text/plain").send("Unknown parameter");
+        return;
+      }
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderParameterPage(detail, models));
     } catch (err) {
       next(err);
     }

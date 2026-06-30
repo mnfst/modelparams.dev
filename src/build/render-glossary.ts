@@ -11,11 +11,11 @@ import { hubLinks, renderShell, viewHelpers } from "./render.js";
 const GLOSSARY_TITLE = `LLM parameter glossary · ${SITE_NAME}`;
 
 const GLOSSARY_DESCRIPTION =
-  "Every LLM API parameter in the catalog, defined: what temperature, top_p, max_tokens, reasoning effort and the rest do, with their types and which models support them.";
+  "Every LLM API parameter in the catalog, defined: what temperature, top_p, max_tokens, reasoning effort and the rest do. Open any parameter for its default and range on every model that accepts it.";
 
 function glossaryIntro(groups: GlossaryGroup[]): string {
   const total = groups.reduce((sum, groupItem) => sum + groupItem.entries.length, 0);
-  return `${total} parameters appear across the catalog. This page defines each one, grouped by what it controls, and notes its type and how many models expose it. Definitions come from the same community-maintained data as the JSON API.`;
+  return `${total} parameters appear across the catalog. This page defines each one, grouped by what it controls. Open any parameter for the full breakdown — its default, range, and conditions on every model that accepts it. Definitions come from the same community-maintained data as the JSON API.`;
 }
 
 export async function renderGlossaryPage(allModels: Model[]): Promise<string> {

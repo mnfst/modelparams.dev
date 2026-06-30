@@ -28,15 +28,40 @@
   </p>
 </section>
 
+<% if (model.params.length >= 2) { %>
+<nav class="mt-6 flex flex-wrap gap-2" aria-label="Jump to parameter">
+  <% for (const param of model.params) { %>
+  <a href="#<%= helpers.parameterAnchorId(param.path) %>" class="rounded-full border border-slate-200 bg-white px-2.5 py-1 font-mono text-xs text-slate-600 hover:border-slate-300 hover:text-accent dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"><%= param.path %></a>
+  <% } %>
+</nav>
+<% } %>
+
 <section class="mt-8" aria-label="Parameters">
   <% if (model.params.length === 0) { %>
   <p class="text-sm italic text-slate-500 dark:text-slate-400">
     No parameters documented yet.
   </p>
   <% } else { %>
-  <%- include("partials/param_table", { params: model.params, helpers: helpers }) %>
+  <%- include("partials/param_table", { params: model.params, helpers: helpers, detail: true }) %>
   <% } %>
 </section>
+
+<% if (proseGroups.length > 0) { %>
+<section class="mt-10" aria-label="Parameter summary">
+  <h2 class="text-slate-900 dark:text-slate-100"><%= providerName %> <%= modelName %> parameters in brief</h2>
+  <p class="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300">
+    <%= providerName %> <%= modelName %><% if (isSubscription) { %> via subscription<% } %> documents <%= model.params.length %> API parameter<%= model.params.length === 1 ? "" : "s" %>, grouped by what they control:
+  </p>
+  <ul class="mt-3 max-w-2xl space-y-2 text-sm text-slate-700 dark:text-slate-300">
+    <% for (const grp of proseGroups) { %>
+    <li>
+      <span class="font-medium text-slate-900 dark:text-slate-100"><%= grp.label %>:</span>
+      <% grp.clauses.forEach(function (clause, i) { %><code class="font-mono text-slate-600 dark:text-slate-300"><%= clause.path %></code><% if (clause.fact) { %> <%= clause.fact %><% } %><%= i < grp.clauses.length - 1 ? "; " : "." %> <% }) %>
+    </li>
+    <% } %>
+  </ul>
+</section>
+<% } %>
 
 <h2 class="mt-8 text-slate-900 dark:text-slate-100">Resources</h2>
 <div class="mt-3 grid grid-cols-1 text-sm sm:grid-cols-2 lg:grid-cols-4">

@@ -3,12 +3,14 @@
 
 import { modelLabel, paramLabel, providerLabel } from "../data/display.js";
 import type { GlossaryGroup } from "../data/glossary.js";
+import type { ParameterDetail } from "../data/parameters.js";
 import { SITE_DESCRIPTION, SITE_NAME } from "../data/site.js";
 import {
   GLOSSARY_PATH,
   absolute,
   modelJsonPath,
   modelPagePath,
+  parameterPagePath,
   providerPagePath,
 } from "../data/urls.js";
 import { type Model } from "../schema/model.js";
@@ -160,6 +162,40 @@ export function buildProviderStructuredData(
     { name: providerLabel(provider), path: providerPagePath(provider) },
   ]);
   return graph([crumbs, itemList]);
+}
+
+export function buildParameterStructuredData(
+  detail: ParameterDetail,
+  description: string,
+  siteUrl: string,
+): string {
+  const pagePath = parameterPagePath(detail.path);
+  const definedTerm = {
+    "@type": "DefinedTerm",
+    "@id": `${siteUrl}${pagePath}#term`,
+    name: detail.label,
+    termCode: detail.path,
+    description,
+    url: absolute(siteUrl, pagePath),
+    inDefinedTermSet: `${siteUrl}${GLOSSARY_PATH}#termset`,
+  };
+  const itemList = {
+    "@type": "ItemList",
+    name: `Models that support ${detail.path}`,
+    numberOfItems: detail.modelCount,
+    itemListElement: detail.usages.map((usage, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absolute(siteUrl, modelPagePath(usage.model)),
+      name: `${usage.providerName} ${usage.modelName}`,
+    })),
+  };
+  const crumbs = breadcrumb(siteUrl, [
+    { name: "Home", path: "/" },
+    { name: "Glossary", path: GLOSSARY_PATH },
+    { name: detail.label, path: pagePath },
+  ]);
+  return graph([crumbs, definedTerm, itemList]);
 }
 
 export function buildGlossaryStructuredData(groups: GlossaryGroup[], siteUrl: string): string {

@@ -17,7 +17,13 @@ import { usageGuideMarkdown } from "../data/llms.js";
 import { logoFor } from "../data/logos.js";
 import { VIEWS_DIR } from "../data/paths.js";
 import { OG_IMAGE_PATH, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "../data/site.js";
-import { absolute, modelPagePath, providerPagePath } from "../data/urls.js";
+import {
+  absolute,
+  modelPagePath,
+  parameterAnchorId,
+  parameterPagePath,
+  providerPagePath,
+} from "../data/urls.js";
 import { modelId, type Catalog, type Model } from "../schema/model.js";
 import { buildHomeStructuredData } from "./structured-data.js";
 
@@ -38,6 +44,8 @@ export const viewHelpers = {
   groupParams,
   logoFor,
   modelPagePath,
+  parameterPagePath,
+  parameterAnchorId,
   providerPagePath,
 };
 
