@@ -2,6 +2,7 @@
 // they can be unit-tested without touching the filesystem or the renderer.
 
 import { modelLabel, paramLabel, providerLabel } from "../data/display.js";
+import type { ModelFaq } from "../data/faq.js";
 import type { GlossaryGroup } from "../data/glossary.js";
 import type { ParameterDetail } from "../data/parameters.js";
 import { SITE_DESCRIPTION, SITE_NAME } from "../data/site.js";
@@ -14,6 +15,9 @@ import {
   providerPagePath,
 } from "../data/urls.js";
 import { type Model } from "../schema/model.js";
+
+const REPO_URL = "https://github.com/mnfst/modelparams.dev";
+const NPM_URL = "https://www.npmjs.com/package/modelparams";
 
 interface Crumb {
   name: string;
@@ -36,6 +40,17 @@ function graph(nodes: unknown[]): string {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": nodes });
 }
 
+function organizationNode(siteUrl: string) {
+  return {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#org`,
+    name: SITE_NAME,
+    url: `${siteUrl}/`,
+    description: SITE_DESCRIPTION,
+    sameAs: [REPO_URL, NPM_URL],
+  };
+}
+
 function homeWebsiteNode(siteUrl: string) {
   return {
     "@type": "WebSite",
@@ -43,6 +58,7 @@ function homeWebsiteNode(siteUrl: string) {
     url: `${siteUrl}/`,
     name: SITE_NAME,
     description: SITE_DESCRIPTION,
+    publisher: { "@id": `${siteUrl}/#org` },
     potentialAction: {
       "@type": "SearchAction",
       target: { "@type": "EntryPoint", urlTemplate: `${siteUrl}/?q={search_term_string}` },
@@ -61,7 +77,7 @@ function homeDatasetNode(siteUrl: string, imageUrl: string) {
     image: imageUrl,
     license: "https://opensource.org/licenses/MIT",
     isAccessibleForFree: true,
-    creator: { "@type": "Organization", name: SITE_NAME, url: `${siteUrl}/` },
+    creator: { "@id": `${siteUrl}/#org` },
     distribution: {
       "@type": "DataDownload",
       encodingFormat: "application/json",
@@ -97,16 +113,30 @@ export function buildHomeStructuredData(
   imageUrl: string,
 ): string {
   return graph([
+    organizationNode(siteUrl),
     homeWebsiteNode(siteUrl),
     homeDatasetNode(siteUrl, imageUrl),
     homeItemListNode(models, siteUrl),
   ]);
 }
 
+function faqPageNode(faqs: ModelFaq[], model: Model, siteUrl: string) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${siteUrl}${modelPagePath(model)}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+}
+
 export function buildModelStructuredData(
   model: Model,
   description: string,
   siteUrl: string,
+  faqs: ModelFaq[] = [],
 ): string {
   const name = `${providerLabel(model.provider)} ${modelLabel(model)} parameters`;
   const dataset = {
@@ -136,7 +166,9 @@ export function buildModelStructuredData(
     { name: providerLabel(model.provider), path: providerPagePath(model.provider) },
     { name: modelLabel(model), path: modelPagePath(model) },
   ]);
-  return graph([crumbs, dataset]);
+  const nodes: unknown[] = [crumbs, dataset];
+  if (faqs.length > 0) nodes.push(faqPageNode(faqs, model, siteUrl));
+  return graph(nodes);
 }
 
 export function buildProviderStructuredData(

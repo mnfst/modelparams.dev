@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { homeDescription, homeTitle } from "../src/build/render.js";
 import {
   modelPageDescription,
   modelPageTitle,
@@ -80,6 +81,22 @@ describe("model page meta", () => {
     const desc = modelPageDescription(model());
     expect(desc).toContain("Anthropic Claude Opus 4.7");
     expect(desc).toContain("temperature");
+  });
+});
+
+describe("home page meta", () => {
+  it("names the surface and carries the live model count in the title", () => {
+    expect(homeTitle(198)).toBe("Compare model parameters across 198 models · modelparams.dev");
+  });
+
+  it("leads the description with real parameters and live counts", () => {
+    const desc = homeDescription(198, 15, ["temperature", "top_p", "max_tokens"]);
+    expect(desc).toContain("Compare temperature, top_p, max_tokens");
+    expect(desc).toContain("198 models from 15 providers");
+  });
+
+  it("still reads cleanly when no sample parameters are available", () => {
+    expect(homeDescription(198, 15, [])).toContain("Compare every API parameter");
   });
 });
 

@@ -16,7 +16,7 @@ import { groupParams } from "../data/group.js";
 import { usageGuideMarkdown } from "../data/llms.js";
 import { logoFor } from "../data/logos.js";
 import { VIEWS_DIR } from "../data/paths.js";
-import { OG_IMAGE_PATH, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "../data/site.js";
+import { OG_IMAGE_PATH, SITE_NAME, SITE_URL } from "../data/site.js";
 import {
   absolute,
   modelPagePath,
@@ -102,6 +102,25 @@ export interface RenderOptions {
   analytics?: boolean;
 }
 
+/** Concrete, query-shaped homepage title — names the surface, carries the live model count. */
+export function homeTitle(modelCount: number): string {
+  return `Compare model parameters across ${modelCount} models · ${SITE_NAME}`;
+}
+
+/**
+ * Benefit-first homepage description that names real parameters (the ones users
+ * actually search) plus live counts, instead of the generic site blurb.
+ */
+export function homeDescription(
+  modelCount: number,
+  providerCount: number,
+  sampleParams: string[],
+): string {
+  const lead =
+    sampleParams.length > 0 ? `Compare ${sampleParams.join(", ")}, and every other ` : "Compare every ";
+  return `${lead}API parameter — defaults, ranges, and the conditions that gate each — across ${modelCount} models from ${providerCount} providers. An open, community-maintained catalog.`;
+}
+
 export async function renderIndex(opts: RenderOptions): Promise<string> {
   const body = await ejs.renderFile(path.join(VIEWS_DIR, "index.ejs"), {
     models: opts.catalog.models,
@@ -110,10 +129,11 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
     helpers: viewHelpers,
   });
 
+  const sampleParams = opts.capabilities.slice(0, 3).map((cap) => cap.path);
   return renderShell(
     {
-      title: `${SITE_NAME} — Open catalog of model parameters`,
-      description: SITE_DESCRIPTION,
+      title: homeTitle(opts.catalog.models.length),
+      description: homeDescription(opts.catalog.models.length, opts.providers.length, sampleParams),
       canonicalUrl: `${SITE_URL}/`,
       structuredData: buildHomeStructuredData(
         opts.catalog.models,

@@ -2,6 +2,7 @@ import path from "node:path";
 import ejs from "ejs";
 import { describeApplicability } from "../data/applicability.js";
 import { modelLabel, paramGroupLabel, providerLabel } from "../data/display.js";
+import { modelFaq } from "../data/faq.js";
 import { groupParams } from "../data/group.js";
 import { VIEWS_DIR } from "../data/paths.js";
 import { SITE_NAME, SITE_URL } from "../data/site.js";
@@ -82,10 +83,12 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
     .filter((other) => other.provider === model.provider && modelId(other) !== modelId(model))
     .sort((a, b) => modelLabel(a).localeCompare(modelLabel(b)));
 
+  const faqs = modelFaq(model);
   const body = await ejs.renderFile(path.join(VIEWS_DIR, "model.ejs"), {
     model,
     helpers: viewHelpers,
     siblings,
+    faqs,
     intro: modelIntro(model),
     providerName: providerLabel(model.provider),
     modelName: modelLabel(model),
@@ -102,7 +105,7 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
       title: modelPageTitle(model),
       description,
       canonicalUrl: absolute(SITE_URL, modelPagePath(model)),
-      structuredData: buildModelStructuredData(model, description, SITE_URL),
+      structuredData: buildModelStructuredData(model, description, SITE_URL, faqs),
       providerHubs: hubLinks(allModels),
     },
     body,

@@ -47,6 +47,16 @@ describe("buildHomeStructuredData", () => {
     expect(json).not.toContain("modelparameters.dev");
     expect(listItemCount(json)).toBe(60);
   });
+
+  it("publishes an Organization node linked to GitHub and npm", () => {
+    const json = buildHomeStructuredData([model()], SITE, `${SITE}/assets/og.png`);
+
+    expect(json).toContain('"@type":"Organization"');
+    expect(json).toContain(`"@id":"${SITE}/#org"`);
+    expect(json).toContain("https://github.com/mnfst/modelparams.dev");
+    expect(json).toContain("https://www.npmjs.com/package/modelparams");
+    expect(json).toContain(`"publisher":{"@id":"${SITE}/#org"}`);
+  });
 });
 
 describe("buildModelStructuredData", () => {
@@ -58,6 +68,20 @@ describe("buildModelStructuredData", () => {
     expect(json).toContain(`${SITE}/api/v1/models/anthropic/claude-opus-4-7.json`);
     expect(json).toContain(`"item":"${SITE}/models/anthropic/claude-opus-4-7"`);
     expect(json).toContain('"name":"temperature"');
+  });
+
+  it("appends a FAQPage node only when faqs are supplied", () => {
+    const withoutFaqs = buildModelStructuredData(model(), "desc", SITE);
+    expect(withoutFaqs).not.toContain('"@type":"FAQPage"');
+
+    const withFaqs = buildModelStructuredData(model(), "desc", SITE, [
+      { question: "What is the default temperature?", answer: "The default is 1." },
+    ]);
+    expect(withFaqs).toContain(`"@id":"${SITE}/models/anthropic/claude-opus-4-7#faq"`);
+    expect(withFaqs).toContain('"@type":"FAQPage"');
+    expect(withFaqs).toContain('"@type":"Question"');
+    expect(withFaqs).toContain('"@type":"Answer"');
+    expect(withFaqs).toContain('"text":"The default is 1."');
   });
 });
 

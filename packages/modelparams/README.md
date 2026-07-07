@@ -8,6 +8,8 @@ npm install modelparams
 
 Stop guessing which knobs each model accepts. Get autocomplete on every parameter, compile-time errors on typos and unsupported settings, and the catalog's defaults at runtime — for every provider in one tiny zero-dependency package.
 
+**Catalog & API:** [browse the catalog](https://modelparams.dev) · [JSON API](https://modelparams.dev/api/v1/models.json) · [API docs](https://modelparams.dev/api) · [llms.txt](https://modelparams.dev/llms.txt)
+
 ## Why
 
 You're calling `claude-opus-4-7` with `frequency_penalty` set. TypeScript doesn't tell you the param doesn't exist. The provider silently ignores it. Your evals drift. Multiply by every model in your router.
