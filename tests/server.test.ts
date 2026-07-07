@@ -160,6 +160,14 @@ describe("GET / (home)", () => {
     expect(body).toContain("<!doctype html>");
     expect(body).toContain("modelparams.dev");
   });
+
+  it("carries a concrete title and a crawlable browse-by-parameter section", async () => {
+    const body = await get("/").then((r) => r.text());
+    expect(body).toContain("Compare model parameters across 3 models");
+    expect(body).toContain("Browse by parameter");
+    expect(body).toContain('href="/parameters/temperature"');
+    expect(body).toContain('href="/parameters/max_tokens"');
+  });
 });
 
 describe("GET /glossary", () => {
@@ -215,6 +223,13 @@ describe("GET /models/:provider/:slug", () => {
     const res = await get("/models/anthropic/does-not-exist");
     expect(res.status).toBe(404);
     expect(await res.text()).toBe("Unknown model");
+  });
+
+  it("renders a data-driven FAQ with a FAQPage node", async () => {
+    const body = await get("/models/anthropic/claude-opus-4-7").then((r) => r.text());
+    expect(body).toContain("Frequently asked questions");
+    expect(body).toContain("What is the default temperature for Anthropic Claude Opus 4.7?");
+    expect(body).toContain('"@type":"FAQPage"');
   });
 });
 

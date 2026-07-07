@@ -268,6 +268,29 @@
   </p>
 </section>
 
+<% if (capabilities.length > 0) { %>
+<section class="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800" aria-label="Browse by parameter">
+  <div class="flex items-baseline justify-between gap-3">
+    <h2 class="text-slate-900 dark:text-slate-100">Browse by parameter</h2>
+    <a href="/glossary" class="shrink-0 text-sm font-medium text-accent hover:text-accent-hover">All parameters →</a>
+  </div>
+  <p class="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300">
+    Open any parameter to see its default, range, and every model that accepts it.
+  </p>
+  <div class="mt-4 flex flex-wrap gap-2">
+    <% for (const cap of capabilities) { %>
+    <a
+      href="<%= helpers.parameterPagePath(cap.path) %>"
+      class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 font-mono text-xs text-slate-600 hover:border-slate-300 hover:text-accent dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700"
+    >
+      <%= cap.path %>
+      <span class="tabular-nums text-slate-400 dark:text-slate-500"><%= cap.count %></span>
+    </a>
+    <% } %>
+  </div>
+</section>
+<% } %>
+
 <button
   type="button"
   data-scroll-top
