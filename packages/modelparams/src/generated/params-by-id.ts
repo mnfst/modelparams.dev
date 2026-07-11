@@ -358,6 +358,15 @@ export type ParamsById = {
     "thinking.type": "disabled" | "adaptive" | "enabled";
     "thinking.budget_tokens": number;
   };
+  "anthropic/claude-sonnet-5": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "max";
+  };
   "cohere/command-a-03-2025": {
     max_tokens: number;
     stop_sequences: string;
