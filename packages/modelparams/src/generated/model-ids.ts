@@ -165,6 +165,7 @@ export const MODEL_IDS = [
   "openai/gpt-5.5-subscription",
   "openai/gpt-5.6-luna",
   "openai/gpt-5.6-sol",
+  "openai/gpt-5.6-terra",
   "openai/o1",
   "openai/o1-mini",
   "openai/o1-preview",
