@@ -996,6 +996,10 @@ export const DEFAULTS = {
     "reasoning.summary": "auto",
     "text.verbosity": "medium",
   },
+  "openai/gpt-5.6-luna": {
+    max_completion_tokens: 4096,
+    reasoning_effort: "none",
+  },
   "openai/o1": {
     max_completion_tokens: 4096,
     reasoning_effort: "medium",
