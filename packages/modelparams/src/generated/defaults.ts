@@ -1005,6 +1005,10 @@ export const DEFAULTS = {
     "reasoning.summary": "auto",
     "text.verbosity": "medium",
   },
+  "openai/gpt-5.6-sol": {
+    max_completion_tokens: 4096,
+    reasoning_effort: "none",
+  },
   "openai/gpt-5.6-terra": {
     max_completion_tokens: 4096,
     reasoning_effort: "none",
