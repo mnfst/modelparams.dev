@@ -4679,6 +4679,141 @@ export const CATALOG = [
     ]
   },
   {
+    "provider": "anthropic",
+    "authType": "api_key",
+    "model": "claude-sonnet-5",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "applicability": {
+          "except": [
+            {
+              "thinking.type": [
+                "adaptive"
+              ]
+            },
+            {
+              "top_p": {
+                "not": null
+              }
+            }
+          ]
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "applicability": {
+          "except": [
+            {
+              "thinking.type": [
+                "adaptive"
+              ]
+            },
+            {
+              "temperature": {
+                "not": null
+              }
+            }
+          ]
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "thinking.type": [
+              "adaptive"
+            ]
+          }
+        },
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls the Anthropic thinking mode values supported by this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "adaptive"
+        ]
+      },
+      {
+        "path": "thinking.display",
+        "label": "Thinking display",
+        "description": "Controls whether Anthropic returns summarized or omitted thinking content.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "thinking.type": [
+              "adaptive"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "summarized",
+        "values": [
+          "summarized",
+          "omitted"
+        ]
+      },
+      {
+        "path": "output_config.effort",
+        "label": "Effort",
+        "description": "Controls Anthropic response thoroughness and token spend.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-a-03-2025",
