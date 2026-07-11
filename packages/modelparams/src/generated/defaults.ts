@@ -330,6 +330,15 @@ export const DEFAULTS = {
     "thinking.type": "disabled",
     "thinking.budget_tokens": 4096,
   },
+  "anthropic/claude-sonnet-5": {
+    max_tokens: 4096,
+    temperature: 1,
+    top_p: 1,
+    top_k: 0,
+    "thinking.type": "disabled",
+    "thinking.display": "summarized",
+    "output_config.effort": "high",
+  },
   "cohere/command-a-03-2025": {
     temperature: 0.3,
     p: 0.75,
