@@ -1,0 +1,27 @@
+models/openai/gpt-5.6-sol.yaml
+  s_c4bf65292376a4::t_b3464de83faabe 1-24
+packages/modelparams/src/generated/data.ts
+  s_c4bf65292376a4::t_47e52da886bef6 12582-12613
+packages/modelparams/src/generated/defaults.ts
+  s_c4bf65292376a4::t_2766bb1d0e5ead 1008-1011
+packages/modelparams/src/generated/model-ids.ts
+  s_c4bf65292376a4::t_18630b8fca5ae8 166
+packages/modelparams/src/generated/params-by-id.ts
+  s_c4bf65292376a4::t_24316ec3500d65 1210-1213
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "1bb81dd932fd9c043a1f0bf9ec71986c1b9c9b9a",
+  "prompts": {},
+  "sessions": {
+    "s_c4bf65292376a4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "227d61a9-8822-43fb-b0ab-035f0238ae60",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
