@@ -280,15 +280,6 @@ export type ParamsById = {
     "thinking.type": "disabled" | "adaptive" | "enabled";
     "thinking.budget_tokens": number;
   };
-  "anthropic/claude-sonnet-4-20250514": {
-    max_tokens: number;
-    temperature: number;
-    top_p: number;
-    top_k: number;
-    "thinking.type": "disabled" | "enabled";
-    "thinking.budget_tokens": number;
-    "thinking.display": "summarized" | "omitted";
-  };
   "anthropic/claude-sonnet-4-20250514-subscription": {
     max_tokens: number;
     temperature: number;
