@@ -7460,6 +7460,96 @@ export const CATALOG = [
     ]
   },
   {
+    "provider": "google",
+    "authType": "api_key",
+    "model": "gemma-4-31b-it",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Number of thinking tokens Gemini should use; -1 uses dynamic thinking, 0 disables thinking, and fixed budgets start at 512 tokens.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
     "provider": "meta",
     "authType": "api_key",
     "model": "Llama-3.3-70B-Instruct",
