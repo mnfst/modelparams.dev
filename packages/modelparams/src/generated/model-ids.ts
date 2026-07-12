@@ -72,6 +72,7 @@ export const MODEL_IDS = [
   "google/gemini-3.1-flash-lite-subscription",
   "google/gemini-3.1-pro-preview-subscription",
   "google/gemini-3.5-flash",
+  "google/gemma-4-26b-a4b-it",
   "meta/Llama-3.3-70B-Instruct",
   "meta/Llama-3.3-8B-Instruct",
   "meta/Llama-4-Maverick-17B-128E-Instruct-FP8",
