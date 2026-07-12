@@ -541,6 +541,14 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemma-4-31b-it": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingBudget": 0,
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
   "meta/Llama-3.3-70B-Instruct": {
     "response_format.type": "text",
   },
