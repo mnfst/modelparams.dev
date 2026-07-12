@@ -28,7 +28,6 @@ export const MODEL_IDS = [
   "anthropic/claude-haiku-4-subscription",
   "anthropic/claude-opus-4-1-20250805",
   "anthropic/claude-opus-4-1-20250805-subscription",
-  "anthropic/claude-opus-4-20250514",
   "anthropic/claude-opus-4-20250514-subscription",
   "anthropic/claude-opus-4-5-20251101",
   "anthropic/claude-opus-4-5-20251101-subscription",

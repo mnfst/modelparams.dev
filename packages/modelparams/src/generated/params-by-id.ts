@@ -190,15 +190,6 @@ export type ParamsById = {
     "thinking.budget_tokens": number;
     "thinking.display": "summarized" | "omitted";
   };
-  "anthropic/claude-opus-4-20250514": {
-    max_tokens: number;
-    temperature: number;
-    top_p: number;
-    top_k: number;
-    "thinking.type": "disabled" | "enabled";
-    "thinking.budget_tokens": number;
-    "thinking.display": "summarized" | "omitted";
-  };
   "anthropic/claude-opus-4-20250514-subscription": {
     max_tokens: number;
     temperature: number;

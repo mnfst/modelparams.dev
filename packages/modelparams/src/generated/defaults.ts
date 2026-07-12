@@ -162,15 +162,6 @@ export const DEFAULTS = {
     "thinking.budget_tokens": 4096,
     "thinking.display": "summarized",
   },
-  "anthropic/claude-opus-4-20250514": {
-    max_tokens: 4096,
-    temperature: 1,
-    top_p: 1,
-    top_k: 0,
-    "thinking.type": "disabled",
-    "thinking.budget_tokens": 4096,
-    "thinking.display": "summarized",
-  },
   "anthropic/claude-opus-4-20250514-subscription": {
     max_tokens: 4096,
     temperature: 1,
