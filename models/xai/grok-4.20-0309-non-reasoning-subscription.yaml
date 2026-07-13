@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: xai
+authType: subscription
+model: grok-4.20-0309-non-reasoning
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max completion tokens
+    description: Upper bound for visible output tokens generated in the chat completion.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 1
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: seed
+    type: integer
+    label: Seed
+    description: Optional seed used for decoding when reproducible sampling is desired.
+    group: sampling
+  - path: stop
+    type: string
+    label: Stop sequence
+    description: Stops generation when this sequence is produced. xAI accepts up to four stop sequences.
+    group: generation_length
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Controls whether the model returns text, JSON mode output, or structured JSON schema output.
+    default: text
+    values:
+      - text
+      - json_object
+      - json_schema
+    group: output_format
