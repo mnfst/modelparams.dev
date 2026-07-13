@@ -1097,7 +1097,17 @@ export const DEFAULTS = {
     top_p: 1,
     "response_format.type": "text",
   },
+  "xai/grok-4.20-0309-non-reasoning-subscription": {
+    temperature: 1,
+    top_p: 1,
+    "response_format.type": "text",
+  },
   "xai/grok-4.20-0309-reasoning": {
+    temperature: 1,
+    top_p: 1,
+    "response_format.type": "text",
+  },
+  "xai/grok-4.20-0309-reasoning-subscription": {
     temperature: 1,
     top_p: 1,
     "response_format.type": "text",
@@ -1113,7 +1123,30 @@ export const DEFAULTS = {
     reasoning_effort: "low",
     "response_format.type": "text",
   },
+  "xai/grok-4.3-subscription": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "low",
+    "response_format.type": "text",
+  },
+  "xai/grok-4.5": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "low",
+    "response_format.type": "text",
+  },
+  "xai/grok-4.5-subscription": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "low",
+    "response_format.type": "text",
+  },
   "xai/grok-build-0.1": {
+    temperature: 1,
+    top_p: 1,
+    "response_format.type": "text",
+  },
+  "xai/grok-build-0.1-subscription": {
     temperature: 1,
     top_p: 1,
     "response_format.type": "text",

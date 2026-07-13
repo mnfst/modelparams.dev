@@ -1341,7 +1341,22 @@ export type ParamsById = {
     stop: string;
     "response_format.type": "text" | "json_object" | "json_schema";
   };
+  "xai/grok-4.20-0309-non-reasoning-subscription": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    stop: string;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
   "xai/grok-4.20-0309-reasoning": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.20-0309-reasoning-subscription": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -1363,7 +1378,38 @@ export type ParamsById = {
     reasoning_effort: "none" | "low" | "medium" | "high";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
+  "xai/grok-4.3-subscription": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.5": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.5-subscription": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
   "xai/grok-build-0.1": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-build-0.1-subscription": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
