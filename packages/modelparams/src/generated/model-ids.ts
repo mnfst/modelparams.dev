@@ -67,6 +67,7 @@ export const MODEL_IDS = [
   "google/gemini-2.5-flash-subscription",
   "google/gemini-2.5-pro",
   "google/gemini-2.5-pro-subscription",
+  "google/gemini-3-flash-preview",
   "google/gemini-3-flash-preview-subscription",
   "google/gemini-3.1-flash-lite-preview-subscription",
   "google/gemini-3.1-flash-lite-subscription",
