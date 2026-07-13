@@ -1241,13 +1241,28 @@ export type ParamsById = {
     max_completion_tokens: number;
     reasoning_effort: "none" | "low" | "medium" | "high";
   };
+  "openai/gpt-5.6-luna-subscription": {
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
+    "reasoning.summary": "auto" | "concise" | "detailed" | "none";
+    "text.verbosity": "low" | "medium" | "high";
+  };
   "openai/gpt-5.6-sol": {
     max_completion_tokens: number;
     reasoning_effort: "none" | "low" | "medium" | "high";
   };
+  "openai/gpt-5.6-sol-subscription": {
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
+    "reasoning.summary": "auto" | "concise" | "detailed" | "none";
+    "text.verbosity": "low" | "medium" | "high";
+  };
   "openai/gpt-5.6-terra": {
     max_completion_tokens: number;
     reasoning_effort: "none" | "low" | "medium" | "high";
+  };
+  "openai/gpt-5.6-terra-subscription": {
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
+    "reasoning.summary": "auto" | "concise" | "detailed" | "none";
+    "text.verbosity": "low" | "medium" | "high";
   };
   "openai/o1": {
     max_completion_tokens: number;

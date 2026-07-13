@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: openai
+authType: subscription
+model: gpt-5.6-luna
+params:
+  - path: reasoning.effort
+    type: enum
+    label: Reasoning effort
+    description: Controls how much reasoning the model should perform before producing an answer.
+    default: medium
+    values:
+      - none
+      - low
+      - medium
+      - high
+      - xhigh
+      - max
+    group: reasoning
+  - path: reasoning.summary
+    type: enum
+    label: Reasoning summary
+    description: Controls the level of reasoning summary returned with the response.
+    default: auto
+    values:
+      - auto
+      - concise
+      - detailed
+      - none
+    group: reasoning
+  - path: text.verbosity
+    type: enum
+    label: Verbosity
+    description: Controls how concise or detailed the model's final text response should be.
+    default: medium
+    values:
+      - low
+      - medium
+      - high
+    group: output_format
