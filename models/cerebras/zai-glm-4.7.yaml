@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: cerebras
+authType: api_key
+model: zai-glm-4.7
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate, including reasoning tokens.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied. Adjust this or top_p, not both.
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalizes tokens by how often they have appeared, reducing verbatim repetition.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Penalizes tokens that have already appeared, encouraging the model to introduce new topics.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: seed
+    type: integer
+    label: Seed
+    description: Seed used for best-effort deterministic sampling when reproducible outputs are desired.
+    group: sampling
+  - path: stop
+    type: string
+    label: Stop
+    description: A string or list of strings where the API will stop generating further tokens. Cerebras accepts up to four stop sequences.
+    group: generation_length
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Controls how much reasoning the model performs before answering. 'none' disables reasoning.
+    values:
+      - none
+      - low
+      - medium
+      - high
+    group: reasoning
+  - path: clear_thinking
+    type: boolean
+    label: Clear thinking
+    description: When true, the model's thinking from previous turns is excluded from the conversation context; when false, it is preserved, which is useful for agentic workflows.
+    default: true
+    group: reasoning
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Forces the response into plain text or a JSON object.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format
