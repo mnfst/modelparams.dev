@@ -1,0 +1,22 @@
+src/data/logos.ts
+  s_3364a7e7019405::t_a1580c3c70bac4 31
+models/groq/qwen3-32b.yaml
+  s_3364a7e7019405::t_1d38f849dad20b 1-32,53-89
+  s_3364a7e7019405::t_1fe45f50f43ae8 33-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "a7a4e181a158bf3a20003891d3bc24098cf4ba30",
+  "prompts": {},
+  "sessions": {
+    "s_3364a7e7019405": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b30fe2d-3590-46ed-8d06-ca5b13ff3536",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
