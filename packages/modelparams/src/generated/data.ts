@@ -12883,6 +12883,55 @@ export const CATALOG = [
   },
   {
     "provider": "openai",
+    "authType": "subscription",
+    "model": "gpt-5.6-luna",
+    "params": [
+      {
+        "path": "reasoning.effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "none",
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      },
+      {
+        "path": "reasoning.summary",
+        "label": "Reasoning summary",
+        "description": "Controls the level of reasoning summary returned with the response.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "concise",
+          "detailed"
+        ]
+      },
+      {
+        "path": "text.verbosity",
+        "label": "Verbosity",
+        "description": "Controls how concise or detailed the model's final text response should be.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.6-sol",
     "params": [
@@ -12915,6 +12964,55 @@ export const CATALOG = [
   },
   {
     "provider": "openai",
+    "authType": "subscription",
+    "model": "gpt-5.6-sol",
+    "params": [
+      {
+        "path": "reasoning.effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "none",
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      },
+      {
+        "path": "reasoning.summary",
+        "label": "Reasoning summary",
+        "description": "Controls the level of reasoning summary returned with the response.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "concise",
+          "detailed"
+        ]
+      },
+      {
+        "path": "text.verbosity",
+        "label": "Verbosity",
+        "description": "Controls how concise or detailed the model's final text response should be.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.6-terra",
     "params": [
@@ -12938,6 +13036,55 @@ export const CATALOG = [
         "default": "none",
         "values": [
           "none",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "subscription",
+    "model": "gpt-5.6-terra",
+    "params": [
+      {
+        "path": "reasoning.effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "none",
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      },
+      {
+        "path": "reasoning.summary",
+        "label": "Reasoning summary",
+        "description": "Controls the level of reasoning summary returned with the response.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "concise",
+          "detailed"
+        ]
+      },
+      {
+        "path": "text.verbosity",
+        "label": "Verbosity",
+        "description": "Controls how concise or detailed the model's final text response should be.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "medium",
+        "values": [
           "low",
           "medium",
           "high"
