@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: openai
+authType: api_key
+model: gpt-oss-120b
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    range:
+      min: 1
+      max: 131072
+    group: generation_length
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Controls how much reasoning the model should perform before producing an answer.
+    values:
+      - low
+      - medium
+      - high
+    group: reasoning
