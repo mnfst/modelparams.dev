@@ -1,0 +1,22 @@
+src/data/logos.ts
+  s_3364a7e7019405::t_b7bebc8ed7ac64 31
+models/cerebras/zai-glm-4.7.yaml
+  s_3364a7e7019405::t_4bc1469c4edeac 1-60,71-85
+  s_3364a7e7019405::t_934a55cd1083dd 61-70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "10418375d9db9a8d2c5a45b84ecc3634109ac2bc",
+  "prompts": {},
+  "sessions": {
+    "s_3364a7e7019405": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b30fe2d-3590-46ed-8d06-ca5b13ff3536",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
