@@ -25,7 +25,6 @@ params:
       - auto
       - concise
       - detailed
-      - none
     group: reasoning
   - path: text.verbosity
     type: enum

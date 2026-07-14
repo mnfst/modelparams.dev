@@ -12912,8 +12912,7 @@ export const CATALOG = [
         "values": [
           "auto",
           "concise",
-          "detailed",
-          "none"
+          "detailed"
         ]
       },
       {
@@ -12994,8 +12993,7 @@ export const CATALOG = [
         "values": [
           "auto",
           "concise",
-          "detailed",
-          "none"
+          "detailed"
         ]
       },
       {
@@ -13076,8 +13074,7 @@ export const CATALOG = [
         "values": [
           "auto",
           "concise",
-          "detailed",
-          "none"
+          "detailed"
         ]
       },
       {
