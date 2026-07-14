@@ -29,6 +29,7 @@ const SLUG_TO_LOBE: Record<string, string> = {
   alibaba: "alibabacloud-color",
   "z-ai": "zai",
   groq: "groq",
+  cerebras: "cerebras-color",
 };
 
 const cache = new Map<string, string | null>();
