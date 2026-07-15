@@ -1131,6 +1131,11 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
+  "openai/gpt-4o-mini-search-preview": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
   "openai/gpt-5": {
     max_completion_tokens: number;
     reasoning_effort: "minimal" | "low" | "medium" | "high";

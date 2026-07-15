@@ -923,6 +923,11 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 1,
   },
+  "openai/gpt-4o-mini-search-preview": {
+    max_tokens: 4096,
+    temperature: 1,
+    top_p: 1,
+  },
   "openai/gpt-5": {
     max_completion_tokens: 4096,
     reasoning_effort: "medium",
