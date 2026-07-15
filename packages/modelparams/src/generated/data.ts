@@ -12188,6 +12188,39 @@ export const CATALOG = [
   },
   {
     "provider": "openai",
+    "authType": "api_key",
+    "model": "gpt-5.2-chat-latest",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 16
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "none",
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.2-codex",
     "params": [

@@ -1164,6 +1164,10 @@ export type ParamsById = {
     max_completion_tokens: number;
     reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
+  "openai/gpt-5.2-chat-latest": {
+    max_completion_tokens: number;
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
+  };
   "openai/gpt-5.2-codex-subscription": {
     "reasoning.effort": "minimal" | "low" | "medium" | "high" | "xhigh";
     "reasoning.summary": "auto" | "concise" | "detailed" | "none";
