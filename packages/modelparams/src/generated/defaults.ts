@@ -873,6 +873,11 @@ export const DEFAULTS = {
     max_tokens: 1024,
     expert_type: "auto",
   },
+  "openai/chat-latest": {
+    max_tokens: 4096,
+    temperature: 1,
+    top_p: 1,
+  },
   "openai/chatgpt-4o-latest": {
     max_tokens: 4096,
     temperature: 1,

@@ -1081,6 +1081,11 @@ export type ParamsById = {
     max_tokens: number;
     expert_type: "auto" | "code" | "knowledge" | "helperfunction";
   };
+  "openai/chat-latest": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
   "openai/chatgpt-4o-latest": {
     max_tokens: number;
     temperature: number;
