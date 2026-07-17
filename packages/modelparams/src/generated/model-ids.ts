@@ -113,6 +113,7 @@ export const MODEL_IDS = [
   "moonshot/kimi-k2.6-subscription",
   "moonshot/kimi-k2.7-code-highspeed-subscription",
   "moonshot/kimi-k2.7-code-subscription",
+  "moonshot/kimi-k3",
   "moonshot/moonshot-v1-128k",
   "moonshot/moonshot-v1-32k",
   "moonshot/moonshot-v1-8k",

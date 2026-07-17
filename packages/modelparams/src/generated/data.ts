@@ -10145,6 +10145,47 @@ export const CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "model": "kimi-k3",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the chat completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls whether Kimi reasons step by step before answering, or responds directly when set to disabled.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text, a JSON object, or JSON matching a provided schema.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "moonshot",
+    "authType": "api_key",
     "model": "moonshot-v1-128k",
     "params": [
       {
