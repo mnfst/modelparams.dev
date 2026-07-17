@@ -749,6 +749,9 @@ export const DEFAULTS = {
   "moonshot/kimi-k2.7-code-subscription": {
     "response_format.type": "text",
   },
+  "moonshot/kimi-k3": {
+    "response_format.type": "text",
+  },
   "moonshot/moonshot-v1-128k": {
     temperature: 0.3,
     top_p: 1,
