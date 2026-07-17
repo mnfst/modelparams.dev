@@ -10171,13 +10171,14 @@ export const CATALOG = [
       {
         "path": "response_format.type",
         "label": "Response format",
-        "description": "Forces the response into plain text or a JSON object.",
+        "description": "Forces the response into plain text, a JSON object, or JSON matching a provided schema.",
         "group": "output_format",
         "type": "enum",
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       }
     ]

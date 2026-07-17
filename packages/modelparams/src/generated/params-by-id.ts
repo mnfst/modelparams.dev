@@ -941,7 +941,7 @@ export type ParamsById = {
   "moonshot/kimi-k3": {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
   };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;
