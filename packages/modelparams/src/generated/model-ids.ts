@@ -135,6 +135,7 @@ export const MODEL_IDS = [
   "nvidia/usdcode-llama-3.1-70b-instruct",
   "openai/chatgpt-4o-latest",
   "openai/gpt-3.5-turbo",
+  "openai/gpt-3.5-turbo-16k",
   "openai/gpt-4-turbo",
   "openai/gpt-4-turbo-2024-04-09",
   "openai/gpt-4.1",

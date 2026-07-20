@@ -886,6 +886,11 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 1,
   },
+  "openai/gpt-3.5-turbo-16k": {
+    max_tokens: 4096,
+    temperature: 1,
+    top_p: 1,
+  },
   "openai/gpt-4-turbo": {
     max_tokens: 4096,
     temperature: 1,
