@@ -116,6 +116,7 @@ export const MODEL_IDS = [
   "moonshot/kimi-k3",
   "moonshot/moonshot-v1-128k",
   "moonshot/moonshot-v1-32k",
+  "moonshot/moonshot-v1-32k-vision-preview",
   "moonshot/moonshot-v1-8k",
   "nvidia/gliner-pii",
   "nvidia/llama-3.1-nemoguard-8b-topic-control",
