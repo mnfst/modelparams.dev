@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: google
-authType: subscription
+authType: api_key
 model: gemini-3.1-flash-lite
 params:
   - path: generationConfig.maxOutputTokens

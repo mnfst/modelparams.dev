@@ -54,6 +54,30 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3.6-flash": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.7-max": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.7-plus": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwq-plus": {
     max_tokens: number;
     temperature: number;
@@ -576,6 +600,16 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-3.1-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-3.1-flash-lite-preview-subscription": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -626,6 +660,48 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemma-3-12b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3-1b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3-27b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3-4b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3n-E2B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3n-E4B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-4-12B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
   "google/gemma-4-26b-a4b-it": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -647,6 +723,18 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemma-4-E2B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-4-E4B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
   };
   "meta/Llama-3.3-70B-Instruct": {
     max_completion_tokens: number;
@@ -931,6 +1019,14 @@ export type ParamsById = {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
     "response_format.type": "text" | "json_object";
+  };
+  "moonshot/kimi-k2.7-code": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "moonshot/kimi-k2.7-code-highspeed": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
   };
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
     max_completion_tokens: number;
@@ -1647,6 +1743,24 @@ export type ParamsById = {
     top_p: number;
     do_sample: boolean;
     "thinking.type": "enabled" | "disabled";
+    "response_format.type": "text" | "json_object";
+  };
+  "z-ai/glm-5.2": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    do_sample: boolean;
+    "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
+    "response_format.type": "text" | "json_object";
+  };
+  "z-ai/glm-5.2-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    do_sample: boolean;
+    "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
     "response_format.type": "text" | "json_object";
   };
 };

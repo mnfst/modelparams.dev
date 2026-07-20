@@ -31,6 +31,18 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen3.6-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen3.7-max": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen3.7-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwq-plus": {
     "extra_body.top_k": 20,
   },
@@ -501,6 +513,14 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemini-3.1-flash-lite": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
   "google/gemini-3.1-flash-lite-preview-subscription": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
@@ -513,7 +533,7 @@ export const DEFAULTS = {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
     "generationConfig.topK": 64,
-    "generationConfig.thinkingConfig.thinkingLevel": "high",
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
@@ -541,6 +561,41 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemma-3-12b-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
+  "google/gemma-3-1b-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
+  "google/gemma-3-27b-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
+  "google/gemma-3-4b-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
+  "google/gemma-3n-E2B-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
+  "google/gemma-3n-E4B-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
+  "google/gemma-4-12B-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
   "google/gemma-4-26b-a4b-it": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
@@ -556,6 +611,16 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.thinkingBudget": 0,
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
+  },
+  "google/gemma-4-E2B-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
+  },
+  "google/gemma-4-E4B-it": {
+    temperature: 1,
+    top_p: 0.95,
+    top_k: 64,
   },
   "meta/Llama-3.3-70B-Instruct": {
     "response_format.type": "text",
@@ -741,6 +806,14 @@ export const DEFAULTS = {
   },
   "moonshot/kimi-k2.6-subscription": {
     "thinking.type": "enabled",
+    "response_format.type": "text",
+  },
+  "moonshot/kimi-k2.7-code": {
+    max_completion_tokens: 32768,
+    "response_format.type": "text",
+  },
+  "moonshot/kimi-k2.7-code-highspeed": {
+    max_completion_tokens: 32768,
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
@@ -1348,6 +1421,24 @@ export const DEFAULTS = {
     top_p: 0.95,
     do_sample: true,
     "thinking.type": "enabled",
+    "response_format.type": "text",
+  },
+  "z-ai/glm-5.2": {
+    max_tokens: 65536,
+    temperature: 1,
+    top_p: 0.95,
+    do_sample: true,
+    "thinking.type": "enabled",
+    reasoning_effort: "max",
+    "response_format.type": "text",
+  },
+  "z-ai/glm-5.2-subscription": {
+    max_tokens: 65536,
+    temperature: 1,
+    top_p: 0.95,
+    do_sample: true,
+    "thinking.type": "enabled",
+    reasoning_effort: "max",
     "response_format.type": "text",
   },
 } as const satisfies { [K in ModelId]: Partial<ParamsById[K]> };
