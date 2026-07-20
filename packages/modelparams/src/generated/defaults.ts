@@ -969,6 +969,10 @@ export const DEFAULTS = {
     "reasoning.summary": "auto",
     "text.verbosity": "medium",
   },
+  "openai/gpt-5.3-chat-latest": {
+    max_completion_tokens: 4096,
+    reasoning_effort: "medium",
+  },
   "openai/gpt-5.3-codex": {
     max_completion_tokens: 4096,
     reasoning_effort: "medium",

@@ -153,6 +153,7 @@ export const MODEL_IDS = [
   "openai/gpt-5.2",
   "openai/gpt-5.2-codex-subscription",
   "openai/gpt-5.2-subscription",
+  "openai/gpt-5.3-chat-latest",
   "openai/gpt-5.3-codex",
   "openai/gpt-5.3-codex-spark-subscription",
   "openai/gpt-5.3-codex-subscription",

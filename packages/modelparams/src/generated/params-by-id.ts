@@ -1181,6 +1181,10 @@ export type ParamsById = {
     "reasoning.summary": "auto" | "concise" | "detailed" | "none";
     "text.verbosity": "low" | "medium" | "high";
   };
+  "openai/gpt-5.3-chat-latest": {
+    max_completion_tokens: number;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh";
+  };
   "openai/gpt-5.3-codex": {
     max_completion_tokens: number;
     reasoning_effort: "low" | "medium" | "high" | "xhigh";
