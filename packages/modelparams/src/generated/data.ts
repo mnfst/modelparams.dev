@@ -7185,10 +7185,10 @@ export const CATALOG = [
       {
         "path": "generationConfig.thinkingConfig.thinkingLevel",
         "label": "Thinking level",
-        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "description": "Controls Gemini 3.5 Flash reasoning effort.",
         "group": "reasoning",
         "type": "enum",
-        "default": "minimal",
+        "default": "medium",
         "values": [
           "minimal",
           "low",

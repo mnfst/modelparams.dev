@@ -517,7 +517,7 @@ export const DEFAULTS = {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
     "generationConfig.topK": 64,
-    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.thinkingLevel": "medium",
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
