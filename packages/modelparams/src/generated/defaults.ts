@@ -1059,6 +1059,28 @@ export const DEFAULTS = {
     "reasoning.summary": "auto",
     "text.verbosity": "medium",
   },
+  "openai/gpt-oss-120b": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "medium",
+    "response_format.type": "text",
+  },
+  "openai/gpt-oss-20b": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "medium",
+    "response_format.type": "text",
+  },
+  "openai/gpt-oss-safeguard-120b": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "medium",
+  },
+  "openai/gpt-oss-safeguard-20b": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "medium",
+  },
   "openai/o1": {
     max_completion_tokens: 4096,
     reasoning_effort: "medium",
@@ -1109,6 +1131,12 @@ export const DEFAULTS = {
     return_images: false,
     return_related_questions: false,
     disable_search: false,
+  },
+  "thinking-machines/Inkling": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "high",
+    separate_reasoning: true,
   },
   "xai/grok-4.20-0309-non-reasoning": {
     temperature: 1,
