@@ -133,6 +133,7 @@ export const MODEL_IDS = [
   "nvidia/nemotron-mini-4b-instruct",
   "nvidia/riva-translate-4b-instruct-v1.1",
   "nvidia/usdcode-llama-3.1-70b-instruct",
+  "openai/chat-latest",
   "openai/chatgpt-4o-latest",
   "openai/gpt-3.5-turbo",
   "openai/gpt-4-turbo",
