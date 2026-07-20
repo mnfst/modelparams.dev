@@ -7438,6 +7438,17 @@ export const CATALOG = [
         "default": 0
       },
       {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Toggles Gemma 4 reasoning; high enables thinking and minimal disables it.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "minimal",
+          "high"
+        ]
+      },
+      {
         "path": "generationConfig.thinkingConfig.includeThoughts",
         "label": "Include thoughts",
         "description": "Controls whether Gemini returns available thought summaries in the response parts.",
@@ -7526,6 +7537,17 @@ export const CATALOG = [
         "group": "reasoning",
         "type": "integer",
         "default": 0
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Toggles Gemma 4 reasoning; high enables thinking and minimal disables it.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "minimal",
+          "high"
+        ]
       },
       {
         "path": "generationConfig.thinkingConfig.includeThoughts",
@@ -13136,6 +13158,258 @@ export const CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "model": "gpt-oss-120b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 131072
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or a schema-constrained JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls whether the model may call tools, must call one, or skips tool calls.",
+        "group": "tooling",
+        "type": "enum",
+        "values": [
+          "auto",
+          "none",
+          "required"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
+    "model": "gpt-oss-20b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 131072
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or a schema-constrained JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls whether the model may call tools, must call one, or skips tool calls.",
+        "group": "tooling",
+        "type": "enum",
+        "values": [
+          "auto",
+          "none",
+          "required"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
+    "model": "gpt-oss-safeguard-120b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 131072
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model performs when interpreting the provided safety policy before returning a classification.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
+    "model": "gpt-oss-safeguard-20b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 131072
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model performs when interpreting the provided safety policy before returning a classification.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
     "model": "o1",
     "params": [
       {
@@ -13863,6 +14137,67 @@ export const CATALOG = [
         "group": "provider_metadata",
         "type": "boolean",
         "default": false
+      }
+    ]
+  },
+  {
+    "provider": "thinking-machines",
+    "authType": "api_key",
+    "model": "Inkling",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much thinking Inkling performs before answering. Accepts a preset name or a number between 0.0 and 0.99; presets map to numeric effort levels (none=0.0, minimal=0.1, low=0.2, medium=0.7, high=0.9, xhigh=0.99).",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "none",
+          "minimal",
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ]
+      },
+      {
+        "path": "separate_reasoning",
+        "label": "Separate reasoning",
+        "description": "Returns the model's reasoning in a dedicated reasoning_content field instead of interleaving it with the final message content.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
       }
     ]
   },

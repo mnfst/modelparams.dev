@@ -50,6 +50,14 @@ params:
     description: Number of thinking tokens Gemini should use; -1 uses dynamic thinking, 0 disables thinking, and fixed budgets start at 512 tokens.
     default: 0
     group: reasoning
+  - path: generationConfig.thinkingConfig.thinkingLevel
+    type: enum
+    label: Thinking level
+    description: Toggles Gemma 4 reasoning; high enables thinking and minimal disables it.
+    values:
+      - minimal
+      - high
+    group: reasoning
   - path: generationConfig.thinkingConfig.includeThoughts
     type: boolean
     label: Include thoughts

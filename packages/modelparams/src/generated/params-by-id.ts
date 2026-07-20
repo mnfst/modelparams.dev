@@ -633,6 +633,7 @@ export type ParamsById = {
     "generationConfig.topK": number;
     "generationConfig.seed": number;
     "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
@@ -643,6 +644,7 @@ export type ParamsById = {
     "generationConfig.topK": number;
     "generationConfig.seed": number;
     "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
@@ -1269,6 +1271,34 @@ export type ParamsById = {
     "reasoning.summary": "auto" | "concise" | "detailed";
     "text.verbosity": "low" | "medium" | "high";
   };
+  "openai/gpt-oss-120b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
+  "openai/gpt-oss-20b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
+  "openai/gpt-oss-safeguard-120b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+  };
+  "openai/gpt-oss-safeguard-20b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+  };
   "openai/o1": {
     max_completion_tokens: number;
     reasoning_effort: "low" | "medium" | "high" | "xhigh";
@@ -1352,6 +1382,13 @@ export type ParamsById = {
     return_images: boolean;
     return_related_questions: boolean;
     disable_search: boolean;
+  };
+  "thinking-machines/Inkling": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh";
+    separate_reasoning: boolean;
   };
   "xai/grok-4.20-0309-non-reasoning": {
     max_completion_tokens: number;
