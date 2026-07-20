@@ -1098,6 +1098,11 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
+  "openai/gpt-4": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
   "openai/gpt-4-turbo": {
     max_tokens: number;
     temperature: number;
