@@ -1751,7 +1751,6 @@ export type ParamsById = {
     top_p: number;
     do_sample: boolean;
     "thinking.type": "enabled" | "disabled";
-    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
     "response_format.type": "text" | "json_object";
   };
   "z-ai/glm-5.2-subscription": {

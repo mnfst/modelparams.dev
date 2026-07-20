@@ -1424,12 +1424,10 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5.2": {
-    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
     "thinking.type": "enabled",
-    reasoning_effort: "max",
     "response_format.type": "text",
   },
   "z-ai/glm-5.2-subscription": {

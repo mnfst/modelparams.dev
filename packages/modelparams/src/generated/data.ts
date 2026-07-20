@@ -17681,10 +17681,8 @@ export const CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
-        "default": 65536,
         "range": {
-          "min": 1,
-          "max": 131072
+          "min": 1
         }
       },
       {
@@ -17741,28 +17739,6 @@ export const CATALOG = [
         "values": [
           "enabled",
           "disabled"
-        ]
-      },
-      {
-        "path": "reasoning_effort",
-        "label": "Reasoning effort",
-        "description": "Controls how much reasoning effort GLM-5.2 spends when thinking is enabled.",
-        "group": "reasoning",
-        "applicability": {
-          "only": {
-            "thinking.type": "enabled"
-          }
-        },
-        "type": "enum",
-        "default": "max",
-        "values": [
-          "none",
-          "minimal",
-          "low",
-          "medium",
-          "high",
-          "xhigh",
-          "max"
         ]
       },
       {
