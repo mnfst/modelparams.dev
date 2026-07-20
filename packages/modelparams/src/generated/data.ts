@@ -7,6 +7,66 @@ export const CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "model": "kimi-k2.7-code",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
     "model": "qwen-flash",
     "params": [
       {
