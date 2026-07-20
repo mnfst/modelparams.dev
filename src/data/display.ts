@@ -32,6 +32,7 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "minimax/minimax-m2.5-highspeed": "MiniMax M2.5 Highspeed",
   "minimax/minimax-m2.7": "MiniMax M2.7",
   "minimax/minimax-m2.7-highspeed": "MiniMax M2.7 Highspeed",
+  "z-ai/glm-5.2": "GLM-5.2",
   "z-ai/glm-5.1": "GLM-5.1",
   "z-ai/glm-5": "GLM-5",
   "z-ai/glm-5-turbo": "GLM-5-Turbo",
