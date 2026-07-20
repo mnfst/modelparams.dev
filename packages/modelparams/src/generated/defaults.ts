@@ -945,6 +945,10 @@ export const DEFAULTS = {
     max_completion_tokens: 4096,
     reasoning_effort: "none",
   },
+  "openai/gpt-5.1-chat-latest": {
+    max_completion_tokens: 4096,
+    reasoning_effort: "none",
+  },
   "openai/gpt-5.1-codex-max-subscription": {
     "reasoning.effort": "medium",
     "reasoning.summary": "auto",
