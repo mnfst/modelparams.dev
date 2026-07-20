@@ -47,8 +47,8 @@ params:
   - path: generationConfig.thinkingConfig.thinkingLevel
     type: enum
     label: Thinking level
-    description: Controls Gemini 3.1 Flash-Lite reasoning effort.
-    default: minimal
+    description: Controls Gemini 3.5 Flash reasoning effort.
+    default: medium
     values:
       - minimal
       - low
