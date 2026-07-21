@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: moonshot
+authType: api_key
+model: moonshot-v1-8k-vision-preview
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate in the chat completion.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: >-
+      Controls randomness. Lower values make outputs more focused; higher values make them more
+      varied.
+    default: 0.3
+    range:
+      min: 0
+      max: 1
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: >-
+      Controls nucleus sampling by limiting generation to tokens within the selected cumulative
+      probability.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: n
+    type: integer
+    label: Number of completions
+    description: How many chat completion choices to generate for the request.
+    default: 1
+    range:
+      min: 1
+      max: 5
+    group: generation_length
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: >-
+      Penalizes tokens that have already appeared, encouraging the model to talk about new topics.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalizes tokens by how often they have appeared, reducing verbatim repetition.
+    default: 0
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Forces the response into plain text or a JSON object.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format
