@@ -849,6 +849,14 @@ export const DEFAULTS = {
     frequency_penalty: 0,
     "response_format.type": "text",
   },
+  "moonshot/moonshot-v1-auto": {
+    temperature: 0.3,
+    top_p: 1,
+    n: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+  },
   "nvidia/gliner-pii": {
     threshold: 0.5,
     chunk_length: 384,

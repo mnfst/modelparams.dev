@@ -1068,6 +1068,15 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "moonshot/moonshot-v1-auto": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    n: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "nvidia/gliner-pii": {
     threshold: number;
     chunk_length: number;
