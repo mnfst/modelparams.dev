@@ -7603,6 +7603,102 @@ export const CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "model": "gemini-3.6-flash",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "google",
+    "authType": "api_key",
     "model": "gemini-flash-latest",
     "params": [
       {
