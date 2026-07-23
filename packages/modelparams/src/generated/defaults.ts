@@ -39,6 +39,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/qwen3.7-max-preview": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwen3.7-plus": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
