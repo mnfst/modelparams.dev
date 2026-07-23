@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: alibaba
+authType: api_key
+model: deepseek-v4-pro
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate, including both reasoning and the final answer.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: extra_body.top_k
+    type: integer
+    label: Top K
+    description: Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.
+    default: 20
+    range:
+      min: 0
+    group: sampling
+  - path: extra_body.enable_thinking
+    type: boolean
+    label: Enable thinking
+    description: Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.
+    default: true
+    group: reasoning
+  - path: extra_body.thinking_budget
+    type: integer
+    label: Thinking budget
+    description: Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.
+    range:
+      min: 1
+    group: reasoning
+    applicability:
+      only:
+        extra_body.enable_thinking: true
