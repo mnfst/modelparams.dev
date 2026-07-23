@@ -5,6 +5,10 @@ import type { ModelId } from "./model-ids.js";
 import type { ParamsById } from "./params-by-id.js";
 
 export const DEFAULTS = {
+  "alibaba/deepseek-v4-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwen-flash": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
