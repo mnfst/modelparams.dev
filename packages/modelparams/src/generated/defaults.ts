@@ -16,6 +16,9 @@ export const DEFAULTS = {
   "alibaba/qwen3-coder-flash": {
     "extra_body.top_k": 20,
   },
+  "alibaba/qwen3-coder-next": {
+    "extra_body.top_k": 20,
+  },
   "alibaba/qwen3-coder-plus": {
     "extra_body.top_k": 20,
   },

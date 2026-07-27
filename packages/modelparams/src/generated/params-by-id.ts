@@ -27,6 +27,12 @@ export type ParamsById = {
     top_p: number;
     "extra_body.top_k": number;
   };
+  "alibaba/qwen3-coder-next": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+  };
   "alibaba/qwen3-coder-plus": {
     max_tokens: number;
     temperature: number;
