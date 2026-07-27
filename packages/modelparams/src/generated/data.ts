@@ -3759,6 +3759,150 @@ export const CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "model": "claude-opus-5",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls the Anthropic thinking mode values supported by this model.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "output_config.effort": [
+              "xhigh",
+              "max"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "adaptive",
+        "values": [
+          "disabled",
+          "adaptive"
+        ]
+      },
+      {
+        "path": "thinking.display",
+        "label": "Thinking display",
+        "description": "Controls whether Anthropic returns summarized or omitted thinking content.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "thinking.type": [
+              "adaptive"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "omitted",
+        "values": [
+          "summarized",
+          "omitted"
+        ]
+      },
+      {
+        "path": "output_config.effort",
+        "label": "Effort",
+        "description": "Controls Anthropic response thoroughness and token spend.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "anthropic",
+    "authType": "subscription",
+    "model": "claude-opus-5",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls the Anthropic thinking mode values supported by this model.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "output_config.effort": [
+              "xhigh",
+              "max"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "adaptive",
+        "values": [
+          "disabled",
+          "adaptive"
+        ]
+      },
+      {
+        "path": "thinking.display",
+        "label": "Thinking display",
+        "description": "Controls whether Anthropic returns summarized or omitted thinking content.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "thinking.type": [
+              "adaptive"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "omitted",
+        "values": [
+          "summarized",
+          "omitted"
+        ]
+      },
+      {
+        "path": "output_config.effort",
+        "label": "Effort",
+        "description": "Controls Anthropic response thoroughness and token spend.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "anthropic",
+    "authType": "api_key",
     "model": "claude-sonnet-4-20250514",
     "params": [
       {

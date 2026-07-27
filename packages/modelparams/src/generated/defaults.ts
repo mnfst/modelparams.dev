@@ -264,6 +264,18 @@ export const DEFAULTS = {
     "thinking.type": "disabled",
     "thinking.budget_tokens": 4096,
   },
+  "anthropic/claude-opus-5": {
+    max_tokens: 4096,
+    "thinking.type": "adaptive",
+    "thinking.display": "omitted",
+    "output_config.effort": "high",
+  },
+  "anthropic/claude-opus-5-subscription": {
+    max_tokens: 4096,
+    "thinking.type": "adaptive",
+    "thinking.display": "omitted",
+    "output_config.effort": "high",
+  },
   "anthropic/claude-sonnet-4-20250514": {
     max_tokens: 4096,
     temperature: 1,
