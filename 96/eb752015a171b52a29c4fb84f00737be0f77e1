@@ -1,0 +1,27 @@
+models/xai/grok-4.20-0309-non-reasoning-subscription.yaml
+  s_1544253ee011e8::t_46f834e7be32bf 1-52
+models/xai/grok-4.20-0309-reasoning-subscription.yaml
+  s_1544253ee011e8::t_e4254efd5889af 1-47
+models/xai/grok-4.3-subscription.yaml
+  s_1544253ee011e8::t_9fbef595fe0b28 1-58
+models/xai/grok-4.5-subscription.yaml
+  s_1544253ee011e8::t_4322cd778402f9 1-58
+models/xai/grok-build-0.1-subscription.yaml
+  s_1544253ee011e8::t_9d03dea00b933b 1-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "96eb752015a171b52a29c4fb84f00737be0f77e1",
+  "prompts": {},
+  "sessions": {
+    "s_1544253ee011e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b7bbb77d-d1c8-4b51-bb16-14b9668ab28a",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
