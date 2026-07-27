@@ -304,6 +304,18 @@ export type ParamsById = {
     "thinking.type": "disabled" | "adaptive" | "enabled";
     "thinking.budget_tokens": number;
   };
+  "anthropic/claude-opus-5": {
+    max_tokens: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "anthropic/claude-opus-5-subscription": {
+    max_tokens: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
   "anthropic/claude-sonnet-4-20250514": {
     max_tokens: number;
     temperature: number;
