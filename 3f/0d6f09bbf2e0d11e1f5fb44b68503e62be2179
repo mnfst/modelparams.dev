@@ -1,0 +1,25 @@
+packages/modelparams/src/generated/data.ts
+  s_33bd43dc2796c1::t_17ecbe9a900c96 3759-3902
+packages/modelparams/src/generated/defaults.ts
+  s_33bd43dc2796c1::t_165887fe31f191 267-278
+packages/modelparams/src/generated/model-ids.ts
+  s_33bd43dc2796c1::t_c8ba8c8e5a18e3 45-46
+packages/modelparams/src/generated/params-by-id.ts
+  s_33bd43dc2796c1::t_b4e0a66217412b 307-318
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "3f0d6f09bbf2e0d11e1f5fb44b68503e62be2179",
+  "prompts": {},
+  "sessions": {
+    "s_33bd43dc2796c1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa38c-2c28-74c1-8217-90f5c5d6b62c",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
