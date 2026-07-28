@@ -113,18 +113,27 @@ describe("model page meta", () => {
 });
 
 describe("home page meta", () => {
-  it("names the surface and carries the live model count in the title", () => {
-    expect(homeTitle(198)).toBe("Compare model parameters across 198 models · modelparams.dev");
+  it("leads with the brand and carries the live model count in the title", () => {
+    expect(homeTitle(198)).toBe("modelparams.dev — LLM Parameters for 198 Models");
   });
 
-  it("leads the description with real parameters and live counts", () => {
+  it("opens the description on the brand, then real parameters and live counts", () => {
     const desc = homeDescription(198, 15, ["temperature", "top_p", "max_tokens"]);
+    expect(desc.startsWith("modelparams.dev is the open catalog of LLM API parameters.")).toBe(
+      true,
+    );
     expect(desc).toContain("Compare temperature, top_p, max_tokens");
     expect(desc).toContain("198 models from 15 providers");
   });
 
   it("still reads cleanly when no sample parameters are available", () => {
-    expect(homeDescription(198, 15, [])).toContain("Compare every API parameter");
+    expect(homeDescription(198, 15, [])).toContain("Compare every knob you can turn");
+  });
+
+  it("keeps the brand-first title and description inside the SERP budget", () => {
+    expect(homeTitle(1000).length).toBeLessThanOrEqual(TITLE_MAX);
+    const wide = homeDescription(1000, 40, ["temperature", "top_p", "max_tokens"]);
+    expect(wide.length).toBeLessThanOrEqual(DESCRIPTION_MAX);
   });
 });
 
