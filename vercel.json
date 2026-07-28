@@ -15,6 +15,10 @@
       ]
     },
     {
+      "source": "/api/v1/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
       "source": "/(llms.txt|llms-full.txt)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },

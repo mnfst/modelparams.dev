@@ -18,7 +18,9 @@ import {
   REPO_ROOT,
 } from "../data/paths.js";
 import { SITE_URL } from "../data/site.js";
+import { buildRobotsTxt } from "../data/robots.js";
 import {
+  API_PATH,
   GLOSSARY_PATH,
   modelPagePath,
   parameterPagePath,
@@ -57,11 +59,11 @@ async function writeLlmsFiles(models: Model[]): Promise<void> {
 }
 
 async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
-  const robots = `# AI agents welcome. Machine-readable overview: ${SITE_URL}/llms.txt\nUser-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`;
-  await fs.writeFile(path.join(DIST_DIR, "robots.txt"), robots, "utf8");
+  await fs.writeFile(path.join(DIST_DIR, "robots.txt"), buildRobotsTxt(SITE_URL), "utf8");
 
   // Sitemaps list canonical, indexable HTML pages only — the JSON API and the
   // .txt agent files are intentionally excluded (they're not search results).
+  // /api is the HTML documentation page, so it belongs here.
   const today = new Date().toISOString().slice(0, 10);
   const dates = gitLastmodMap(REPO_ROOT);
   // Aggregate pages (home, glossary, providers, parameters) track the build date;
@@ -69,6 +71,7 @@ async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
   const entries: { path: string; priority: string; lastmod: string }[] = [
     { path: "/", priority: "1.0", lastmod: today },
     { path: GLOSSARY_PATH, priority: "0.7", lastmod: today },
+    { path: API_PATH, priority: "0.5", lastmod: today },
     ...uniqueProviders(models).map((provider) => ({
       path: providerPagePath(provider),
       priority: "0.8",

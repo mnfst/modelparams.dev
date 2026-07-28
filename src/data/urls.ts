@@ -19,6 +19,9 @@ export function providerPagePath(provider: string): string {
 /** Parameter glossary page — the hub that links out to each parameter page. */
 export const GLOSSARY_PATH = "/glossary";
 
+/** API documentation page. The HTML docs, not the JSON endpoints under /api/v1. */
+export const API_PATH = "/api";
+
 /**
  * URL-safe slug for a parameter path: lowercased, with nested-path dots turned into
  * hyphens, e.g. `thinking.type` → `thinking-type`. Underscores are kept so that
