@@ -1,14 +1,21 @@
 import path from "node:path";
 import ejs from "ejs";
 import { describeApplicability } from "../data/applicability.js";
-import { modelLabel, paramGroupLabel, providerLabel } from "../data/display.js";
+import { modelFullLabel, modelLabel, paramGroupLabel, providerLabel } from "../data/display.js";
 import { modelFaq } from "../data/faq.js";
 import { groupParams } from "../data/group.js";
 import { VIEWS_DIR } from "../data/paths.js";
 import { SITE_NAME, SITE_URL } from "../data/site.js";
-import { absolute, modelJsonPath, modelPagePath, providerPagePath } from "../data/urls.js";
+import {
+  absolute,
+  modelJsonPath,
+  modelPagePath,
+  ogImagePath,
+  providerPagePath,
+} from "../data/urls.js";
 import { modelId, type Model, type Parameter } from "../schema/model.js";
 import { buildModelStructuredData } from "./structured-data.js";
+import { DESCRIPTION_MAX, fitDescription, fitTitle, sampleList } from "./meta.js";
 import { hubLinks, renderShell, viewHelpers } from "./render.js";
 
 function authNote(model: Model): string {
@@ -16,20 +23,31 @@ function authNote(model: Model): string {
 }
 
 export function modelPageTitle(model: Model): string {
+  // The auth variant is never dropped: the API-key and subscription pages are
+  // separate URLs, so a fallback without it would give them the same title.
   const variant = model.authType === "subscription" ? " (subscription)" : "";
-  return `${providerLabel(model.provider)} ${modelLabel(model)}${variant} parameters · ${SITE_NAME}`;
+  const who = `${modelFullLabel(model)}${variant}`;
+  return fitTitle([`${who} parameters · ${SITE_NAME}`, `${who} parameters`, who]);
 }
 
+const PARAM_TAIL = ". Type, default, range, and gating conditions for each.";
+
 export function modelPageDescription(model: Model): string {
-  const who = `${providerLabel(model.provider)} ${modelLabel(model)}${authNote(model)}`;
+  const who = `${modelFullLabel(model)}${authNote(model)}`;
   if (model.params.length === 0) {
     return `${who}: no parameters documented yet. Browse the open catalog of model parameters on ${SITE_NAME}.`;
   }
-  const paths = model.params.map((param) => param.path);
-  const sample = paths.slice(0, 4).join(", ");
-  const more = paths.length > 4 ? ", and more" : "";
   const count = `${model.params.length} API parameter${model.params.length === 1 ? "" : "s"}`;
-  return `All ${count} for ${who}: ${sample}${more}. See each type, default, range, and the conditions that gate it.`;
+  const head = `All ${count} for ${who}`;
+  const paths = model.params.map((param) => param.path);
+  const sample = sampleList(paths, DESCRIPTION_MAX - head.length - PARAM_TAIL.length - 2);
+  // A long model name can leave no room for even one parameter path; when that
+  // happens the sample is dropped rather than allowed to overflow.
+  return fitDescription([
+    `${head}: ${sample}${PARAM_TAIL}`,
+    `${head}${PARAM_TAIL}`,
+    `${who}: ${count}, with type, default, range, and gating conditions.`,
+  ]);
 }
 
 /** A short, factual clause describing a parameter's default, range, values, and gate. */
@@ -67,7 +85,7 @@ export function modelParamProse(model: Model): ParamProseGroup[] {
 }
 
 export function modelIntro(model: Model): string {
-  const who = `${providerLabel(model.provider)} ${modelLabel(model)}`;
+  const who = modelFullLabel(model);
   if (model.params.length === 0) {
     return `No parameters are documented yet for ${who}. The data is community-maintained, so this page fills in as entries land.`;
   }
@@ -92,6 +110,7 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
     intro: modelIntro(model),
     providerName: providerLabel(model.provider),
     modelName: modelLabel(model),
+    fullName: modelFullLabel(model),
     providerPath: providerPagePath(model.provider),
     jsonPath: modelJsonPath(model),
     modelJson: JSON.stringify({ $schema: "https://modelparams.dev/api/v1/schema.json", ...model }, null, 2),
@@ -105,6 +124,8 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
       title: modelPageTitle(model),
       description,
       canonicalUrl: absolute(SITE_URL, modelPagePath(model)),
+      ogImage: ogImagePath(modelPagePath(model)),
+      ogType: "article",
       structuredData: buildModelStructuredData(model, description, SITE_URL, faqs),
       providerHubs: hubLinks(allModels),
     },

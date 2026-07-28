@@ -29,13 +29,15 @@ import {
 import { modelId, type Model } from "../schema/model.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
-import { gitLastmodMap, modelLastmod } from "./lastmod.js";
+import { gitLastmodMap, modelLastmod, newestLastmod } from "./lastmod.js";
 import { renderIndex } from "./render.js";
 import { renderApiPage } from "./render-api.js";
 import { renderGlossaryPage } from "./render-glossary.js";
 import { renderModelPage } from "./render-model.js";
-import { renderParameterPage } from "./render-parameter.js";
+import { defaultSummary,renderParameterPage, rangeSummary } from "./render-parameter.js";
+import { renderNotFoundPage } from "./render-not-found.js";
 import { renderProviderPage } from "./render-provider.js";
+import { writeOgImages } from "./og.js";
 
 async function cleanDist(): Promise<void> {
   await fs.rm(DIST_DIR, { recursive: true, force: true });
@@ -66,21 +68,23 @@ async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
   // /api is the HTML documentation page, so it belongs here.
   const today = new Date().toISOString().slice(0, 10);
   const dates = gitLastmodMap(REPO_ROOT);
-  // Aggregate pages (home, glossary, providers, parameters) track the build date;
-  // each model URL carries the commit date of its own YAML so lastmod stays honest.
+  // Every URL's lastmod comes from the commit dates of the model YAML behind it,
+  // so a rebuild that changed nothing doesn't claim the whole site is fresh. An
+  // aggregate page is as new as the newest model it lists.
+  const freshest = (subset: Model[]): string => newestLastmod(subset, dates, today);
   const entries: { path: string; priority: string; lastmod: string }[] = [
-    { path: "/", priority: "1.0", lastmod: today },
-    { path: GLOSSARY_PATH, priority: "0.7", lastmod: today },
-    { path: API_PATH, priority: "0.5", lastmod: today },
+    { path: "/", priority: "1.0", lastmod: freshest(models) },
+    { path: GLOSSARY_PATH, priority: "0.7", lastmod: freshest(models) },
+    { path: API_PATH, priority: "0.5", lastmod: freshest(models) },
     ...uniqueProviders(models).map((provider) => ({
       path: providerPagePath(provider),
       priority: "0.8",
-      lastmod: today,
+      lastmod: freshest(models.filter((model) => model.provider === provider)),
     })),
     ...buildParameterIndex(models).map((detail) => ({
       path: parameterPagePath(detail.path),
       priority: "0.7",
-      lastmod: today,
+      lastmod: freshest(detail.usages.map((usage) => usage.model)),
     })),
     ...models.map((model) => ({
       path: modelPagePath(model),
@@ -120,6 +124,7 @@ async function writeHtmlPages(models: Model[]): Promise<void> {
 
   await fs.writeFile(path.join(DIST_DIR, "glossary.html"), await renderGlossaryPage(models), "utf8");
   await fs.writeFile(path.join(DIST_DIR, "api.html"), await renderApiPage(models), "utf8");
+  await fs.writeFile(path.join(DIST_DIR, "404.html"), await renderNotFoundPage(models), "utf8");
 }
 
 async function writeParameterPages(models: Model[]): Promise<void> {
@@ -204,6 +209,13 @@ export async function build(): Promise<{ models: number }> {
   console.log("Rendering model, provider, parameter, and glossary pages...");
   await writeHtmlPages(models);
   await writeParameterPages(models);
+
+  console.log("Generating social cards...");
+  const cards = await writeOgImages(models, uniqueProviders(models), {
+    defaultSummary,
+    rangeSummary,
+  });
+  console.log(`  ${cards} social cards written.`);
 
   await writeLlmsFiles(models);
   await writeRobotsAndSitemap(models);

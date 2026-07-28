@@ -1,6 +1,6 @@
 import { describeApplicability } from "./applicability.js";
 import { buildProviderFacets } from "./catalog.js";
-import { authLabel, modelLabel, paramGroupLabel, providerLabel } from "./display.js";
+import { authLabel, modelFullLabel, paramGroupLabel, providerLabel } from "./display.js";
 import { groupParams } from "./group.js";
 import { buildParameterIndex } from "./parameters.js";
 import { parameterPagePath } from "./urls.js";
@@ -14,7 +14,7 @@ function modelJsonUrl(siteUrl: string, model: Model): string {
 
 function modelTitle(model: Model): string {
   const variant = model.authType === "subscription" ? ` (${authLabel(model.authType)})` : "";
-  return `${providerLabel(model.provider)} ${modelLabel(model)}${variant}`;
+  return `${modelFullLabel(model)}${variant}`;
 }
 
 function plural(n: number, word: string): string {

@@ -20,11 +20,13 @@ import { OG_IMAGE_PATH, SITE_NAME, SITE_URL } from "../data/site.js";
 import {
   absolute,
   modelPagePath,
+  ogImagePath,
   parameterAnchorId,
   parameterPagePath,
   providerPagePath,
 } from "../data/urls.js";
 import { modelId, type Catalog, type Model } from "../schema/model.js";
+import { fitDescription, fitTitle } from "./meta.js";
 import { buildHomeStructuredData } from "./structured-data.js";
 
 const LAYOUT_PATH = path.join(VIEWS_DIR, "layout.ejs");
@@ -72,6 +74,12 @@ export interface ShellMeta {
   canonicalUrl: string;
   structuredData: string;
   providerHubs: HubLink[];
+  /** Root-relative path of this page's share image; falls back to the site card. */
+  ogImage?: string;
+  /** og:type — "website" for hubs, "article" for the content pages. */
+  ogType?: string;
+  /** Robots directive; omitted (index, follow) for every indexable page. */
+  robots?: string;
   initialThemeClass?: string;
   analytics?: boolean;
 }
@@ -83,7 +91,9 @@ export async function renderShell(meta: ShellMeta, body: string): Promise<string
     description: meta.description,
     canonicalUrl: meta.canonicalUrl,
     structuredData: meta.structuredData,
-    ogImageUrl: absolute(SITE_URL, OG_IMAGE_PATH),
+    ogImageUrl: absolute(SITE_URL, meta.ogImage ?? OG_IMAGE_PATH),
+    ogType: meta.ogType ?? "website",
+    robots: meta.robots ?? "",
     providerHubs: meta.providerHubs,
     helpers: viewHelpers,
     usageGuide: usageGuideMarkdown(SITE_URL),
@@ -102,23 +112,42 @@ export interface RenderOptions {
   analytics?: boolean;
 }
 
-/** Concrete, query-shaped homepage title — names the surface, carries the live model count. */
+/**
+ * Brand-first homepage title. Interior pages read "<page> · modelparams.dev";
+ * the homepage inverts that so the brand leads, which is what a branded search
+ * ("modelparams") and a link in a feed both want to see first. "LLM parameters"
+ * is the head term people actually type — "model parameters" reads as weights
+ * to an ML audience, so the descriptive half says LLM. The live count carries
+ * the scale that makes the result worth clicking.
+ */
 export function homeTitle(modelCount: number): string {
-  return `Compare model parameters across ${modelCount} models · ${SITE_NAME}`;
+  return fitTitle([
+    `${SITE_NAME} — LLM Parameters for ${modelCount} Models`,
+    `${SITE_NAME} — LLM Parameters`,
+  ]);
 }
 
 /**
- * Benefit-first homepage description that names real parameters (the ones users
- * actually search) plus live counts, instead of the generic site blurb.
+ * Description in sentence case (Title Case here reads as spam), opening on the
+ * brand and the category it owns, then the specific parameter names users
+ * search for plus the live counts.
  */
 export function homeDescription(
   modelCount: number,
   providerCount: number,
   sampleParams: string[],
 ): string {
-  const lead =
-    sampleParams.length > 0 ? `Compare ${sampleParams.join(", ")}, and every other ` : "Compare every ";
-  return `${lead}API parameter — defaults, ranges, and the conditions that gate each — across ${modelCount} models from ${providerCount} providers. An open, community-maintained catalog.`;
+  const knobs =
+    sampleParams.length > 0
+      ? `Compare ${sampleParams.join(", ")} and every other knob`
+      : "Compare every knob you can turn";
+  const reach = `across ${modelCount} models from ${providerCount} providers`;
+  const lead = `${SITE_NAME} is the open catalog of LLM API parameters.`;
+  return fitDescription([
+    `${lead} ${knobs} ${reach}, with defaults, ranges and gating conditions.`,
+    `${lead} ${knobs} ${reach}.`,
+    `${lead} ${knobs}.`,
+  ]);
 }
 
 export async function renderIndex(opts: RenderOptions): Promise<string> {
@@ -135,6 +164,7 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
       title: homeTitle(opts.catalog.models.length),
       description: homeDescription(opts.catalog.models.length, opts.providers.length, sampleParams),
       canonicalUrl: `${SITE_URL}/`,
+      ogImage: ogImagePath("/"),
       structuredData: buildHomeStructuredData(
         opts.catalog.models,
         SITE_URL,
