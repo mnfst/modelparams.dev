@@ -28,6 +28,15 @@ export function makeApp(loadModels: LoadModels): express.Express {
 
   app.use("/assets", express.static(DIST_ASSETS_DIR, { maxAge: 0 }));
 
+  // The JSON API is for programmatic callers, not search results: `noindex` keeps
+  // crawlers on the HTML pages while every endpoint stays fetchable. Scoped to
+  // /api/v1 so the HTML docs page at /api keeps its place in the index. Production
+  // is static, so vercel.json carries the same header — this is dev/test parity.
+  app.use("/api/v1", (_req, res, next) => {
+    res.setHeader("X-Robots-Tag", "noindex");
+    next();
+  });
+
   app.get("/", async (_req, res, next) => {
     try {
       const models = await loadModels();
