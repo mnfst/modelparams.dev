@@ -8,21 +8,43 @@ import {
 } from "../data/parameters.js";
 import { VIEWS_DIR } from "../data/paths.js";
 import { SITE_NAME, SITE_URL } from "../data/site.js";
-import { GLOSSARY_PATH, absolute, parameterPagePath } from "../data/urls.js";
+import { GLOSSARY_PATH, absolute, ogImagePath, parameterPagePath } from "../data/urls.js";
 import { type Model, type Parameter } from "../schema/model.js";
 import { buildParameterStructuredData } from "./structured-data.js";
+import { fitDescription, fitTitle } from "./meta.js";
 import { hubLinks, renderShell, viewHelpers } from "./render.js";
 
 const RELATED_LIMIT = 12;
 
+/** Last segment of a dotted path, e.g. generationConfig.topP → topP. */
+function shortPath(path: string): string {
+  return path.split(".").at(-1)!;
+}
+
 export function parameterPageTitle(detail: ParameterDetail): string {
-  return `${detail.label} (${detail.path}) parameter — defaults & ranges · ${SITE_NAME}`;
+  const { label, path } = detail;
+  return fitTitle([
+    `${label} (${path}) parameter — defaults & ranges · ${SITE_NAME}`,
+    `${label} (${path}) — defaults & ranges · ${SITE_NAME}`,
+    `${label} (${path}) — defaults & ranges`,
+    `${label} (${path}) parameter`,
+    `${label} (${shortPath(path)}) parameter — defaults & ranges`,
+    `${label} (${shortPath(path)}) parameter`,
+    `${label} parameter — defaults & ranges`,
+  ]);
 }
 
 export function parameterPageDescription(detail: ParameterDetail): string {
   const group = paramGroupLabel(detail.group).toLowerCase();
-  const models = `${detail.modelCount} model${detail.modelCount === 1 ? "" : "s"}`;
-  return `${detail.label} (${detail.path}) is an LLM ${group} parameter. Compare its type, default, and valid range across the ${models} in the catalog that accept it.`;
+  const one = detail.modelCount === 1;
+  const models = `${detail.modelCount} model${one ? "" : "s"} that ${one ? "accepts" : "accept"} it`;
+  const range = "Compare its type, default, and valid range across the";
+  return fitDescription([
+    `${detail.label} (${detail.path}) is an LLM ${group} parameter. ${range} ${models}.`,
+    `${detail.path} is an LLM ${group} parameter. ${range} ${models}.`,
+    `${detail.label} (${shortPath(detail.path)}) is an LLM ${group} parameter. ${range} ${models}.`,
+    `${detail.label}: LLM ${group} parameter. Type, default, and range across ${models}.`,
+  ]);
 }
 
 function rangeOf(param: Parameter): { min?: number; max?: number } | undefined {
@@ -32,7 +54,7 @@ function rangeOf(param: Parameter): { min?: number; max?: number } | undefined {
 }
 
 /** Most common default across the models that set one, or a "varies" note. */
-function defaultSummary(detail: ParameterDetail): string {
+export function defaultSummary(detail: ParameterDetail): string {
   const defaults = detail.usages
     .map((u) => u.param.default)
     .filter((d): d is NonNullable<typeof d> => d !== undefined)
@@ -43,7 +65,7 @@ function defaultSummary(detail: ParameterDetail): string {
 }
 
 /** Widest numeric span any model allows, e.g. "0 – 2". */
-function rangeSummary(detail: ParameterDetail): string {
+export function rangeSummary(detail: ParameterDetail): string {
   let min: number | undefined;
   let max: number | undefined;
   for (const usage of detail.usages) {
@@ -82,6 +104,8 @@ export async function renderParameterPage(
       title: parameterPageTitle(detail),
       description,
       canonicalUrl: absolute(SITE_URL, parameterPagePath(detail.path)),
+      ogImage: ogImagePath(parameterPagePath(detail.path)),
+      ogType: "article",
       structuredData: buildParameterStructuredData(detail, description, SITE_URL),
       providerHubs: hubLinks(allModels),
     },

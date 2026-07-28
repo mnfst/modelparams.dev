@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { buildCapabilityFacets, buildCatalog, uniqueProviders } from "../src/data/catalog.js";
 import { describeApplicability } from "../src/data/applicability.js";
-import { modelLabel, paramLabel, providerLabel } from "../src/data/display.js";
+import { modelFullLabel, modelLabel, paramLabel, providerLabel } from "../src/data/display.js";
 import {
   findModelParams,
   listModelParamsResponses,
@@ -180,8 +180,32 @@ describe("display helpers", () => {
     );
     // A hyphenated YYYY-MM-DD date reads as a date, not a dotted version.
     expect(modelLabel({ provider: "openai", model: "gpt-4-turbo-2024-04-09" })).toBe(
-      "Gpt 4 Turbo 2024-04-09",
+      "GPT-4 Turbo 2024-04-09",
     );
+  });
+
+  it("spells brand tokens the way the vendor does", () => {
+    expect(modelLabel({ provider: "openai", model: "gpt-5.1" })).toBe("GPT-5.1");
+    expect(modelLabel({ provider: "openai", model: "gpt-oss-120b" })).toBe("GPT-OSS 120B");
+    expect(modelLabel({ provider: "alibaba", model: "qwq-plus" })).toBe("QwQ Plus");
+    expect(modelLabel({ provider: "google", model: "gemma-3-4b-it" })).toBe("Gemma 3 4B IT");
+    expect(modelLabel({ provider: "nvidia", model: "nemotron-3-nano-30b-a3b" })).toBe(
+      "Nemotron 3 Nano 30B A3B",
+    );
+    expect(modelLabel({ provider: "nvidia", model: "llama-3.3-nemotron-super-49b-v1.5" })).toBe(
+      "Llama 3.3 Nemotron Super 49B v1.5",
+    );
+  });
+
+  it("does not repeat the provider when the model name already carries it", () => {
+    expect(modelFullLabel({ provider: "deepseek", model: "deepseek-chat" })).toBe("DeepSeek Chat");
+    expect(modelFullLabel({ provider: "minimax", model: "minimax-m3" })).toBe("MiniMax M3");
+    expect(modelFullLabel({ provider: "mistral", model: "mistral-large-latest" })).toBe(
+      "Mistral Large Latest",
+    );
+    // ...but a model that doesn't carry the brand still gets it prefixed.
+    expect(modelFullLabel({ provider: "openai", model: "gpt-5.1" })).toBe("OpenAI GPT-5.1");
+    expect(modelFullLabel({ provider: "z-ai", model: "glm-5.2" })).toBe("Z.ai GLM-5.2");
   });
 });
 

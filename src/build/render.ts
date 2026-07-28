@@ -20,11 +20,13 @@ import { OG_IMAGE_PATH, SITE_NAME, SITE_URL } from "../data/site.js";
 import {
   absolute,
   modelPagePath,
+  ogImagePath,
   parameterAnchorId,
   parameterPagePath,
   providerPagePath,
 } from "../data/urls.js";
 import { modelId, type Catalog, type Model } from "../schema/model.js";
+import { fitDescription } from "./meta.js";
 import { buildHomeStructuredData } from "./structured-data.js";
 
 const LAYOUT_PATH = path.join(VIEWS_DIR, "layout.ejs");
@@ -72,6 +74,12 @@ export interface ShellMeta {
   canonicalUrl: string;
   structuredData: string;
   providerHubs: HubLink[];
+  /** Root-relative path of this page's share image; falls back to the site card. */
+  ogImage?: string;
+  /** og:type — "website" for hubs, "article" for the content pages. */
+  ogType?: string;
+  /** Robots directive; omitted (index, follow) for every indexable page. */
+  robots?: string;
   initialThemeClass?: string;
   analytics?: boolean;
 }
@@ -83,7 +91,9 @@ export async function renderShell(meta: ShellMeta, body: string): Promise<string
     description: meta.description,
     canonicalUrl: meta.canonicalUrl,
     structuredData: meta.structuredData,
-    ogImageUrl: absolute(SITE_URL, OG_IMAGE_PATH),
+    ogImageUrl: absolute(SITE_URL, meta.ogImage ?? OG_IMAGE_PATH),
+    ogType: meta.ogType ?? "website",
+    robots: meta.robots ?? "",
     providerHubs: meta.providerHubs,
     helpers: viewHelpers,
     usageGuide: usageGuideMarkdown(SITE_URL),
@@ -117,8 +127,13 @@ export function homeDescription(
   sampleParams: string[],
 ): string {
   const lead =
-    sampleParams.length > 0 ? `Compare ${sampleParams.join(", ")}, and every other ` : "Compare every ";
-  return `${lead}API parameter — defaults, ranges, and the conditions that gate each — across ${modelCount} models from ${providerCount} providers. An open, community-maintained catalog.`;
+    sampleParams.length > 0 ? `Compare ${sampleParams.join(", ")} and every other ` : "Compare every ";
+  const reach = `across ${modelCount} models from ${providerCount} providers`;
+  return fitDescription([
+    `${lead}API parameter ${reach} — defaults, ranges, and gating conditions. Open, community-maintained.`,
+    `${lead}API parameter ${reach} — defaults, ranges, and gating conditions.`,
+    `${lead}API parameter ${reach}.`,
+  ]);
 }
 
 export async function renderIndex(opts: RenderOptions): Promise<string> {
@@ -135,6 +150,7 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
       title: homeTitle(opts.catalog.models.length),
       description: homeDescription(opts.catalog.models.length, opts.providers.length, sampleParams),
       canonicalUrl: `${SITE_URL}/`,
+      ogImage: ogImagePath("/"),
       structuredData: buildHomeStructuredData(
         opts.catalog.models,
         SITE_URL,

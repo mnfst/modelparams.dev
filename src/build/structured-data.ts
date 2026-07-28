@@ -1,7 +1,7 @@
 // JSON-LD builders for every page type. Pure functions of (data, siteUrl) so
 // they can be unit-tested without touching the filesystem or the renderer.
 
-import { modelLabel, paramLabel, providerLabel } from "../data/display.js";
+import { modelFullLabel, modelLabel, paramLabel, providerLabel } from "../data/display.js";
 import type { ModelFaq } from "../data/faq.js";
 import type { GlossaryGroup } from "../data/glossary.js";
 import type { ParameterDetail } from "../data/parameters.js";
@@ -138,7 +138,7 @@ export function buildModelStructuredData(
   siteUrl: string,
   faqs: ModelFaq[] = [],
 ): string {
-  const name = `${providerLabel(model.provider)} ${modelLabel(model)} parameters`;
+  const name = `${modelFullLabel(model)} parameters`;
   const dataset = {
     "@type": "Dataset",
     "@id": `${siteUrl}${modelPagePath(model)}#dataset`,
@@ -219,7 +219,7 @@ export function buildParameterStructuredData(
       "@type": "ListItem",
       position: index + 1,
       url: absolute(siteUrl, modelPagePath(usage.model)),
-      name: `${usage.providerName} ${usage.modelName}`,
+      name: modelFullLabel(usage.model),
     })),
   };
   const crumbs = breadcrumb(siteUrl, [
