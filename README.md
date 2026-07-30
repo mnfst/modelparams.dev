@@ -47,6 +47,40 @@ curl https://modelparams.dev/api/v1/params/gpt-5.5.json
 
 Schema at `https://modelparams.dev/api/v1/schema.json`, per the [Model Parameters convention](docs/model-parameters-schema.md).
 
+### Validate a request
+
+POST the parameters you're about to send. You get back what's wrong — including combinations the provider rejects — and a corrected payload.
+
+```bash
+curl -s https://modelparams.dev/api/v1/validate \
+  -H 'Content-Type: application/json' \
+  -d '{"model":"claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
+```
+
+```json
+{
+  "valid": false,
+  "issues": [
+    {
+      "path": "top_p",
+      "code": "not_applicable",
+      "message": "top_p does not apply when temperature ≠ 1",
+      "conflictsWith": ["temperature"]
+    }
+  ],
+  "safeParams": { "temperature": 0.5 }
+}
+```
+
+## Agents
+
+```bash
+npx -y modelparams-mcp              # MCP server: 4 tools, stdio, no network needed
+npx skills add mnfst/modelparams.dev # the companion agent skill
+```
+
+The MCP server exposes `validate_model_params`, `get_model_params`, `list_models`, and `find_models_supporting`. Details in the [package README](packages/modelparams-mcp/README.md). There's also [llms.txt](https://modelparams.dev/llms.txt) if you'd rather just point an agent at a URL.
+
 ## Adding a model
 
 Drop a YAML file in `models/<provider>/`, open a PR, and CI validates it against the schema. Details in [CONTRIBUTING.md](CONTRIBUTING.md). Can't open a PR? [File an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) with a link to the docs.
@@ -58,7 +92,8 @@ npm install
 npm run dev          # http://localhost:3000
 npm run build        # → dist/
 npm run validate     # check every YAML
-npm test
+npm test             # site tests, including the /api/v1/validate function
+npm test --workspaces # + both published packages
 ```
 
 ## License

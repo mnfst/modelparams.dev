@@ -1,3 +1,5 @@
+import { checkApplicability } from "./applicability.js";
+import { checkValue } from "./check-value.js";
 import type { ModelId } from "./generated/model-ids.js";
 import { getModel } from "./helpers.js";
 import type { JsonPrimitive, Param } from "./types.js";
@@ -15,36 +17,17 @@ export type ParseParamsResult =
   | { readonly success: true; readonly value: Record<string, JsonPrimitive> }
   | { readonly success: false; readonly issues: readonly ParamIssue[] };
 
-/** Validate one value against a parameter definition. Returns an error message, or null if ok. */
-function checkValue(def: Param, value: unknown): string | null {
-  if (def.type === "boolean") {
-    return typeof value === "boolean" ? null : "must be a boolean";
-  }
-  if (def.type === "string") {
-    return typeof value === "string" ? null : "must be a string";
-  }
-  if (def.type === "enum") {
-    const values = def.values ?? [];
-    if (values.includes(value as JsonPrimitive)) return null;
-    return `must be one of ${values.map((v) => JSON.stringify(v)).join(", ")}`;
-  }
-  // "integer" | "number"
-  if (typeof value !== "number" || Number.isNaN(value)) return "must be a number";
-  if (def.type === "integer" && !Number.isInteger(value)) return "must be an integer";
-  const { min, max } = def.range ?? {};
-  if (min !== undefined && value < min) return `must be >= ${min}`;
-  if (max !== undefined && value > max) return `must be <= ${max}`;
-  return null;
-}
-
 /**
  * Validate an untrusted params object (e.g. an HTTP request body) against a
  * model's catalog. Unknown keys, wrong types, out-of-range numbers and invalid
  * enum values are reported. This is the runtime complement to `ParamsOf<Id>`,
  * which only constrains params known at compile time.
  *
- * Note: parameters are validated independently; cross-parameter `applicability`
- * rules (e.g. a knob that only applies when another is set) are not yet enforced.
+ * Cross-parameter `applicability` rules are enforced too, so combinations the
+ * provider rejects at runtime — `temperature` alongside a thinking budget, say —
+ * surface here rather than as a 400 from the provider. Every parameter is
+ * checked in isolation first; conflicts are only reported once each value is
+ * individually valid.
  *
  * @example
  * const result = parseParams("openai/gpt-4.1", req.body.params);
@@ -77,7 +60,23 @@ export function parseParams(id: ModelId, input: unknown): ParseParamsResult {
     value[key] = raw as JsonPrimitive;
   }
 
-  return issues.length > 0 ? { success: false, issues } : { success: true, value };
+  if (issues.length > 0) return { success: false, issues };
+
+  // Only worth asking once every value is individually sound — an out-of-range
+  // temperature would otherwise produce a confusing conflict report on top of
+  // the range error.
+  const conflicts = checkApplicability(id, value);
+  if (conflicts.length > 0) {
+    return {
+      success: false,
+      issues: conflicts.map((conflict) => ({
+        message: conflict.message,
+        path: [conflict.path],
+      })),
+    };
+  }
+
+  return { success: true, value };
 }
 
 /**

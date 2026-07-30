@@ -156,8 +156,10 @@ async function writeApiIndex(modelCount: number): Promise<void> {
       modelByIdSubscription: "/api/v1/models/{provider}/{model}-subscription.json",
       paramsByModelApiKey: "/api/v1/params/{model}.json",
       paramsByModelSubscription: "/api/v1/params/{model}-subscription.json",
+      validate: "POST /api/v1/validate",
     },
     modelCount,
+    mcp: "npx -y modelparams-mcp",
     docs: "https://github.com/mnfst/modelparams.dev#api",
   };
   await writeJson(path.join(DIST_API_DIR, "index.json"), body);
