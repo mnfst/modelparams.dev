@@ -6,7 +6,12 @@ export type {
   ParamGroup,
   ParamRange,
   JsonPrimitive,
+  Applicability,
+  ApplicabilityCondition,
+  ApplicabilityRule,
+  ApplicabilityValue,
 } from "./types.js";
+export type { ApplicabilityIssue, DropCode, DroppedParam, DropResult } from "./applicability.js";
 export type { ModelId, Provider } from "./generated/model-ids.js";
 export type { ParamsById } from "./generated/params-by-id.js";
 export type { CatalogEntry } from "./generated/data.js";
@@ -23,3 +28,6 @@ export { CATALOG, BY_ID } from "./generated/data.js";
 
 export { getModel, getDefaults, listModels, getParam, listAllModels } from "./helpers.js";
 export { parseParams, paramsSchema } from "./parse.js";
+export { checkApplicability, dropUnsupported, isApplicable } from "./applicability.js";
+export { resolveModelId } from "./resolve.js";
+export type { ResolveResult } from "./resolve.js";
