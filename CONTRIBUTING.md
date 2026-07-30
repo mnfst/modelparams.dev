@@ -179,6 +179,9 @@ The website code lives under `src/`:
 - `src/client/` — browser-side TypeScript (search, filter, dark mode), Tailwind entry, and the vendored Outfit fonts under `fonts/` that social cards are rendered with.
 - `src/build/` — SSG pipeline (renders pages, compiles assets, emits JSON API, generates a social card per page).
 - `src/server/` — Express dev server.
+
+Everything the catalog ships beyond the static site:
+
 - `api/` — Vercel Functions, currently `POST /api/v1/validate`. These serve paths the
   static build doesn't emit; the rest of `/api/v1/*` stays static JSON from `dist/`.
 
