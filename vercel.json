@@ -19,6 +19,14 @@
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
     },
     {
+      "source": "/api/v1/validate",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    },
+    {
       "source": "/(llms.txt|llms-full.txt)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },

@@ -47,6 +47,31 @@ curl https://modelparams.dev/api/v1/params/gpt-5.5.json
 
 Schema at `https://modelparams.dev/api/v1/schema.json`, per the [Model Parameters convention](docs/model-parameters-schema.md).
 
+### Validate a request
+
+POST the parameters you're about to send. You get back what's wrong — including combinations the provider rejects — and a corrected payload.
+
+```bash
+curl -s https://modelparams.dev/api/v1/validate \
+  -H 'Content-Type: application/json' \
+  -d '{"model":"claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
+```
+
+```json
+{
+  "valid": false,
+  "issues": [
+    {
+      "path": "top_p",
+      "code": "not_applicable",
+      "message": "top_p does not apply when temperature ≠ 1",
+      "conflictsWith": ["temperature"]
+    }
+  ],
+  "safeParams": { "temperature": 0.5 }
+}
+```
+
 ## Adding a model
 
 Drop a YAML file in `models/<provider>/`, open a PR, and CI validates it against the schema. Details in [CONTRIBUTING.md](CONTRIBUTING.md). Can't open a PR? [File an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) with a link to the docs.
