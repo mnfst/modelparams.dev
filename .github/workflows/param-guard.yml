@@ -10,7 +10,13 @@ name: Param guard
 
 on:
   pull_request:
-    branches: [main]
+    # Also run on PRs stacked onto a feature branch, not just those targeting
+    # main, so every PR in a stack is verified before its base lands.
+    branches:
+      - main
+      - "feat/**"
+      - "fix/**"
+      - "chore/**"
     types: [opened, synchronize, reopened, labeled, unlabeled]
 
 jobs:
