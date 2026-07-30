@@ -812,11 +812,15 @@ export const DEFAULTS = {
   "moonshot/kimi-k2.5": {
     "thinking.type": "enabled",
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.6": {
     "thinking.type": "enabled",
     "thinking.keep": null,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.6-subscription": {
     "thinking.type": "enabled",
@@ -827,11 +831,15 @@ export const DEFAULTS = {
     max_completion_tokens: 32768,
     "thinking.type": "enabled",
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.7-code-highspeed": {
     max_completion_tokens: 32768,
     "thinking.type": "enabled",
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
     "thinking.type": "enabled",
@@ -844,6 +852,8 @@ export const DEFAULTS = {
   "moonshot/kimi-k3": {
     reasoning_effort: "max",
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/moonshot-v1-128k": {
     temperature: 0.3,
@@ -852,6 +862,8 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/moonshot-v1-32k": {
     temperature: 0.3,
@@ -860,6 +872,8 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/moonshot-v1-8k": {
     temperature: 0.3,
@@ -868,6 +882,8 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "nvidia/gliner-pii": {
     threshold: 0.5,
