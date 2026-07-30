@@ -184,13 +184,19 @@ Everything the catalog ships beyond the static site:
 
 - `api/` — Vercel Functions, currently `POST /api/v1/validate`. These serve paths the
   static build doesn't emit; the rest of `/api/v1/*` stays static JSON from `dist/`.
+- `packages/modelparams/` — the npm package: generated types plus the runtime
+  validation helpers. `src/generated/` is committed and CI checks it against the YAML,
+  so run `npm run codegen --workspace=modelparams` after changing the catalog.
+- `packages/modelparams-mcp/` — the MCP server. Ships in lockstep with `modelparams`
+  and pins it exactly.
 
 Conventions:
 
 - TypeScript, ES modules, strict mode.
 - No file over 300 lines, no function over 50 lines.
 - Format with Prettier, lint with ESLint. `npm run format` and `npm run lint` will set you straight.
-- Tests live under `tests/` and run with Vitest.
+- Tests live under `tests/` and run with Vitest. Each package has its own suite;
+  `npm test --workspaces` runs them.
 - `npm run typecheck` covers the site and `api/` (via `tsconfig.api.json`).
 
 ## Pull requests
