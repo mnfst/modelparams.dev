@@ -11,6 +11,16 @@ params:
     range:
       min: 1
     group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Thinking is always on for this model. Enabled is the only accepted value; disabled returns an
+      error.
+    default: enabled
+    values:
+      - enabled
+    group: reasoning
   - path: response_format.type
     type: enum
     label: Response format

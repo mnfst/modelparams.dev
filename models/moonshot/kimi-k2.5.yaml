@@ -14,8 +14,9 @@ params:
     type: enum
     label: Thinking mode
     description: >-
-      Controls whether Kimi reasons step by step before answering, or responds directly when set to
-      disabled.
+      Controls whether Kimi reasons step by step before answering. Thinking is enabled by default;
+      set disabled to respond directly.
+    default: enabled
     values:
       - enabled
       - disabled

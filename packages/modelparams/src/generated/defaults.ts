@@ -810,31 +810,39 @@ export const DEFAULTS = {
     safe_prompt: false,
   },
   "moonshot/kimi-k2.5": {
+    "thinking.type": "enabled",
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.6": {
     "thinking.type": "enabled",
+    "thinking.keep": null,
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.6-subscription": {
     "thinking.type": "enabled",
+    "thinking.keep": null,
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.7-code": {
     max_completion_tokens: 32768,
+    "thinking.type": "enabled",
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.7-code-highspeed": {
     max_completion_tokens: 32768,
+    "thinking.type": "enabled",
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
+    "thinking.type": "enabled",
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.7-code-subscription": {
+    "thinking.type": "enabled",
     "response_format.type": "text",
   },
   "moonshot/kimi-k3": {
+    reasoning_effort: "max",
     "response_format.type": "text",
   },
   "moonshot/moonshot-v1-128k": {

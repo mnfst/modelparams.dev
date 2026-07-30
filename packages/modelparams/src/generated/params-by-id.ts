@@ -1025,32 +1025,38 @@ export type ParamsById = {
   "moonshot/kimi-k2.6": {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k2.6-subscription": {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k2.7-code": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "moonshot/kimi-k2.7-code-highspeed": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k2.7-code-subscription": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k3": {
     max_completion_tokens: number;
-    "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "low" | "high" | "max";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "moonshot/moonshot-v1-128k": {

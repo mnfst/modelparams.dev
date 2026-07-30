@@ -10905,9 +10905,10 @@ export const CATALOG = [
       {
         "path": "thinking.type",
         "label": "Thinking mode",
-        "description": "Controls whether Kimi reasons step by step before answering, or responds directly when set to disabled.",
+        "description": "Controls whether Kimi reasons step by step before answering. Thinking is enabled by default; set disabled to respond directly.",
         "group": "reasoning",
         "type": "enum",
+        "default": "enabled",
         "values": [
           "enabled",
           "disabled"
@@ -10955,6 +10956,18 @@ export const CATALOG = [
         ]
       },
       {
+        "path": "thinking.keep",
+        "label": "Keep prior reasoning",
+        "description": "Set to all to carry reasoning content from earlier assistant turns into the request; leave null to send only the final answers.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": null,
+        "values": [
+          "all",
+          null
+        ]
+      },
+      {
         "path": "response_format.type",
         "label": "Response format",
         "description": "Forces the response into plain text or a JSON object.",
@@ -10996,6 +11009,18 @@ export const CATALOG = [
         ]
       },
       {
+        "path": "thinking.keep",
+        "label": "Keep prior reasoning",
+        "description": "Set to all to carry reasoning content from earlier assistant turns into the request; leave null to send only the final answers.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": null,
+        "values": [
+          "all",
+          null
+        ]
+      },
+      {
         "path": "response_format.type",
         "label": "Response format",
         "description": "Forces the response into plain text or a JSON object.",
@@ -11024,6 +11049,17 @@ export const CATALOG = [
         "range": {
           "min": 1
         }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
       },
       {
         "path": "response_format.type",
@@ -11057,6 +11093,17 @@ export const CATALOG = [
         }
       },
       {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
+      },
+      {
         "path": "response_format.type",
         "label": "Response format",
         "description": "Forces the response into plain text, a JSON object, or JSON matching a provided schema.",
@@ -11087,6 +11134,17 @@ export const CATALOG = [
         }
       },
       {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
+      },
+      {
         "path": "response_format.type",
         "label": "Response format",
         "description": "Forces the response into plain text or a JSON object.",
@@ -11114,6 +11172,17 @@ export const CATALOG = [
         "range": {
           "min": 1
         }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
       },
       {
         "path": "response_format.type",
@@ -11145,14 +11214,16 @@ export const CATALOG = [
         }
       },
       {
-        "path": "thinking.type",
-        "label": "Thinking mode",
-        "description": "Controls whether Kimi reasons step by step before answering, or responds directly when set to disabled.",
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning Kimi performs before answering. Thinking is always on for this model, so it cannot be turned off.",
         "group": "reasoning",
         "type": "enum",
+        "default": "max",
         "values": [
-          "enabled",
-          "disabled"
+          "low",
+          "high",
+          "max"
         ]
       },
       {

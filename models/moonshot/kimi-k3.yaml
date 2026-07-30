@@ -10,15 +10,17 @@ params:
     range:
       min: 1
     group: generation_length
-  - path: thinking.type
+  - path: reasoning_effort
     type: enum
-    label: Thinking mode
+    label: Reasoning effort
     description: >-
-      Controls whether Kimi reasons step by step before answering, or responds directly when set to
-      disabled.
+      Controls how much reasoning Kimi performs before answering. Thinking is always on for this
+      model, so it cannot be turned off.
+    default: max
     values:
-      - enabled
-      - disabled
+      - low
+      - high
+      - max
     group: reasoning
   - path: response_format.type
     type: enum
