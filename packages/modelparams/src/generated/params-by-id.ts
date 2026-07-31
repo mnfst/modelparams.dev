@@ -7,6 +7,13 @@
  * parameters they want to override.
  */
 export type ParamsById = {
+  "alibaba/qwen-coder-plus": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen-flash": {
     max_tokens: number;
     temperature: number;
