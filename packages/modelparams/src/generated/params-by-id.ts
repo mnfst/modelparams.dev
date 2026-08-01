@@ -21,6 +21,12 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3-coder-480b-a35b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+  };
   "alibaba/qwen3-coder-flash": {
     max_tokens: number;
     temperature: number;

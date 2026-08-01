@@ -13,6 +13,9 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen3-coder-480b-a35b-instruct": {
+    "extra_body.top_k": 20,
+  },
   "alibaba/qwen3-coder-flash": {
     "extra_body.top_k": 20,
   },
