@@ -145,8 +145,9 @@ that setting and breaks their setup.
 
 CI enforces this. The `Param guard` workflow (`npm run guard:params`) compares your
 PR against `main` and **fails if any parameter `path` that exists on a model is gone**
-— this includes renaming a `path` (the old name counts as removed). You can run the
-same check locally before opening a PR:
+— this includes renaming a `path` (the old name counts as removed). The comparison
+runs against the merge base, so parameters `main` gained after you branched are not
+counted against you. You can run the same check locally before opening a PR:
 
 ```bash
 npm run guard:params            # compares against origin/main
