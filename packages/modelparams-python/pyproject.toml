@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "modelparams"
+version = "0.0.1"
+description = "Typed model parameters for Python, generated from the modelparams.dev catalog."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "modelparams.dev contributors" }]
+keywords = ["ai", "llm", "model-parameters", "pydantic", "typing"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Typing :: Typed",
+]
+dependencies = ["pydantic>=2.10,<3", "typing-extensions>=4.12"]
+
+[project.urls]
+Homepage = "https://modelparams.dev"
+Repository = "https://github.com/mnfst/modelparameters.dev"
+Issues = "https://github.com/mnfst/modelparameters.dev/issues"
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "mypy>=1.13",
+  "pytest>=8.3",
+  "ruff>=0.9",
+  "twine>=6.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/modelparams"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/LICENSE", "/README.md", "/pyproject.toml", "/src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+extend-exclude = ["src/modelparams/_generated", "src/modelparams/types"]
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unused_ignores = true
+files = ["src/modelparams", "tests/typecheck"]
