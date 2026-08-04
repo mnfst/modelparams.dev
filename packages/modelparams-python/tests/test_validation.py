@@ -21,6 +21,11 @@ def test_accepts_valid_and_empty_params() -> None:
     assert validate_params(GPT, {}) == {}
 
 
+def test_accepts_catalog_defaults_mapping() -> None:
+    defaults = get_defaults(GPT)
+    assert validate_params(GPT, defaults) == dict(defaults)
+
+
 def test_rejects_unknown_keys_and_collects_errors() -> None:
     with pytest.raises(ValidationError) as caught:
         validate_params(GPT, {"temperature": 5, "nope": 1})
