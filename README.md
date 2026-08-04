@@ -36,6 +36,26 @@ await new OpenAI().chat.completions.create({ model: "gpt-4.1", messages, ...para
 
 Defaults, runtime validation, and the helper APIs are in the [package README](packages/modelparams/README.md).
 
+## Python
+
+```bash
+pip install modelparams
+```
+
+Generated `TypedDict` definitions provide model-specific autocomplete and static checking, while
+Pydantic validates untrusted values at runtime:
+
+```python
+from modelparams import validate_params
+from modelparams.types.openai import Gpt_4_1Params
+
+params: Gpt_4_1Params = {"max_tokens": 1024, "temperature": 0.7}
+validated = validate_params("openai/gpt-4.1", params)
+```
+
+Defaults, catalog helpers, and validation details are in the
+[Python package README](packages/modelparams-python/README.md).
+
 ## API
 
 Prefer raw JSON?
@@ -58,6 +78,7 @@ npm install
 npm run dev          # http://localhost:3000
 npm run build        # → dist/
 npm run validate     # check every YAML
+npm run codegen:python # regenerate the Python package catalog and types
 npm test
 ```
 
