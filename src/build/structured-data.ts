@@ -18,6 +18,7 @@ import { type Model } from "../schema/model.js";
 
 const REPO_URL = "https://github.com/mnfst/modelparams.dev";
 const NPM_URL = "https://www.npmjs.com/package/modelparams";
+const PYPI_URL = "https://pypi.org/project/modelparams/";
 
 interface Crumb {
   name: string;
@@ -47,7 +48,7 @@ function organizationNode(siteUrl: string) {
     name: SITE_NAME,
     url: `${siteUrl}/`,
     description: SITE_DESCRIPTION,
-    sameAs: [REPO_URL, NPM_URL],
+    sameAs: [REPO_URL, NPM_URL, PYPI_URL],
   };
 }
 

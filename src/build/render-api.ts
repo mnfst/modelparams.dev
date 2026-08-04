@@ -8,7 +8,7 @@ import { hubLinks, renderShell, viewHelpers } from "./render.js";
 
 const API_TITLE = `API documentation · ${SITE_NAME}`;
 const API_DESCRIPTION =
-  "How to use the modelparams.dev JSON API, npm package, and provider logos. Static, CORS-enabled, served from the edge.";
+  "How to use the modelparams.dev JSON API, npm and Python packages, and provider logos. Static, CORS-enabled, served from the edge.";
 
 export async function renderApiPage(allModels: Model[]): Promise<string> {
   const body = await ejs.renderFile(path.join(VIEWS_DIR, "api.ejs"), {
