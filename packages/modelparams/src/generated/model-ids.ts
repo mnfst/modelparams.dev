@@ -4,6 +4,7 @@
 export const MODEL_IDS = [
   "alibaba/qwen-flash",
   "alibaba/qwen-plus",
+  "alibaba/qwen3-30b-a3b-instruct-2507",
   "alibaba/qwen3-coder-flash",
   "alibaba/qwen3-coder-plus",
   "alibaba/qwen3-max",
