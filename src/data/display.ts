@@ -11,6 +11,7 @@ const PROVIDER_LABELS: Record<string, string> = {
   mistral: "Mistral",
   deepseek: "DeepSeek",
   minimax: "MiniMax",
+  nvidia: "NVIDIA",
   cohere: "Cohere",
   perplexity: "Perplexity",
   "z-ai": "Z.ai",
@@ -22,9 +23,13 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "openai/gpt-4o-mini": "GPT-4o mini",
   "openai/o1": "o1",
   "openai/o1-mini": "o1-mini",
+  "openai/o1-preview": "o1-preview",
   "openai/o3": "o3",
   "openai/o3-mini": "o3-mini",
+  "openai/o3-pro": "o3-pro",
   "openai/o4-mini": "o4-mini",
+  "deepseek/deepseek-v4-flash": "DeepSeek-V4 Flash",
+  "deepseek/deepseek-v4-pro": "DeepSeek-V4 Pro",
   "minimax/minimax-m2": "MiniMax M2",
   "minimax/minimax-m2.1": "MiniMax M2.1",
   "minimax/minimax-m2.1-highspeed": "MiniMax M2.1 Highspeed",
@@ -32,6 +37,7 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "minimax/minimax-m2.5-highspeed": "MiniMax M2.5 Highspeed",
   "minimax/minimax-m2.7": "MiniMax M2.7",
   "minimax/minimax-m2.7-highspeed": "MiniMax M2.7 Highspeed",
+  "z-ai/glm-5.2": "GLM-5.2",
   "z-ai/glm-5.1": "GLM-5.1",
   "z-ai/glm-5": "GLM-5",
   "z-ai/glm-5-turbo": "GLM-5-Turbo",
@@ -50,7 +56,41 @@ const MODEL_LABEL_OVERRIDES: Record<string, string> = {
   "moonshot/moonshot-v1-32k": "Moonshot v1 32K",
   "moonshot/moonshot-v1-128k": "Moonshot v1 128K",
   "alibaba/qwen3.5": "Qwen3.5",
+  "mistral/open-mistral-nemo": "Mistral NeMo",
 };
+
+// Slug tokens whose canonical casing can't be derived by title-casing, keyed by
+// the lowercased token. Without these, `gpt-5.1` renders as "Gpt 5.1" — which
+// misses the exact-match spelling every search for the model actually uses.
+const TOKEN_CASING: Record<string, string> = {
+  gpt: "GPT",
+  chatgpt: "ChatGPT",
+  oss: "OSS",
+  glm: "GLM",
+  qwq: "QwQ",
+  minimax: "MiniMax",
+  deepseek: "DeepSeek",
+  mimo: "MiMo",
+  gliner: "GLiNER",
+  nemoguard: "NemoGuard",
+  usdcode: "USDCode",
+  fp8: "FP8",
+  it: "IT",
+  pii: "PII",
+  ai: "AI",
+  o1: "o1",
+  o3: "o3",
+  o4: "o4",
+};
+
+/** Families written joined to the version that follows: GPT-5.1, GLM-4.7. */
+const HYPHENATED_FAMILIES = new Set(["GPT", "GLM"]);
+
+/** Size/variant tokens that are simply uppercased: 70b → 70B, a4b → A4B, 128e → 128E. */
+const SIZE_TOKEN = /^(?:\d+(?:\.\d+)?[bkm]|[aer]\d+(?:\.\d+)?b|\d+e)$/i;
+
+/** Revision tokens keep their lowercase v: v1, v1.1, v2.5. */
+const REVISION_TOKEN = /^v\d+(?:\.\d+)*$/i;
 
 const AUTH_LABELS: Record<AuthType, string> = {
   api_key: "API key",
@@ -141,13 +181,44 @@ export function providerLabel(provider: string): string {
   return PROVIDER_LABELS[provider] ?? titleCase(provider);
 }
 
+/** Canonical casing for one slug token: brand map first, then shape rules. */
+function castToken(token: string): string {
+  if (token.length === 0) return token;
+  const known = TOKEN_CASING[token.toLowerCase()];
+  if (known) return known;
+  if (SIZE_TOKEN.test(token)) return token.toUpperCase();
+  if (REVISION_TOKEN.test(token)) return token.toLowerCase();
+  if (/^\d+(\.\d+)?$/.test(token)) return token;
+  return token[0]!.toUpperCase() + token.slice(1);
+}
+
+/** Joins cast tokens, binding a family prefix to what follows: ["GPT","5.1"] → "GPT-5.1". */
+function joinTokens(tokens: string[]): string {
+  return tokens.reduce(
+    (acc, token, i) =>
+      i === 0 ? token : acc + (HYPHENATED_FAMILIES.has(tokens[i - 1]!) ? "-" : " ") + token,
+    "",
+  );
+}
+
 export function modelLabel(model: Pick<Model, "provider" | "model">): string {
   const key = `${model.provider}/${model.model}`;
   if (MODEL_LABEL_OVERRIDES[key]) return MODEL_LABEL_OVERRIDES[key];
-  const parts = formatNumericRuns(model.model.split("-"));
-  return parts
-    .map((part) => (/^\d+(\.\d+)?$/.test(part) ? part : part[0]!.toUpperCase() + part.slice(1)))
-    .join(" ");
+  return joinTokens(formatNumericRuns(model.model.split("-")).map(castToken));
+}
+
+/**
+ * Provider + model as one phrase for titles, descriptions, and prose — without
+ * stuttering when the model name already carries the brand ("DeepSeek Chat",
+ * not "DeepSeek DeepSeek Chat"; "Mistral Large", not "Mistral Mistral Large").
+ */
+export function modelFullLabel(model: Pick<Model, "provider" | "model">): string {
+  const provider = providerLabel(model.provider);
+  const label = modelLabel(model);
+  const carriesBrand =
+    label.slice(0, provider.length).toLowerCase() === provider.toLowerCase() &&
+    !/[a-z0-9]/i.test(label.charAt(provider.length));
+  return carriesBrand ? label : `${provider} ${label}`;
 }
 
 export function authLabel(authType: AuthType): string {

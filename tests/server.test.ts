@@ -163,7 +163,7 @@ describe("GET / (home)", () => {
 
   it("carries a concrete title and a crawlable browse-by-parameter section", async () => {
     const body = await get("/").then((r) => r.text());
-    expect(body).toContain("Compare model parameters across 3 models");
+    expect(body).toContain("modelparams.dev — LLM Parameters for 3 Models");
     expect(body).toContain("Browse by parameter");
     expect(body).toContain('href="/parameters/temperature"');
     expect(body).toContain('href="/parameters/max_tokens"');
@@ -230,6 +230,40 @@ describe("GET /models/:provider/:slug", () => {
     expect(body).toContain("Frequently asked questions");
     expect(body).toContain("What is the default temperature for Anthropic Claude Opus 4.7?");
     expect(body).toContain('"@type":"FAQPage"');
+  });
+});
+
+describe("crawl policy", () => {
+  it.each([
+    "/api/v1/models.json",
+    "/api/v1/schema.json",
+    "/api/v1/params/claude-opus-4-7.json",
+    "/api/v1/models/anthropic/claude-opus-4-7.json",
+  ])("noindexes %s so it stays out of search results", async (path) => {
+    const res = await get(path);
+    expect(res.headers.get("x-robots-tag")).toBe("noindex");
+  });
+
+  it("noindexes JSON 404s too, so bad endpoints cannot get indexed either", async () => {
+    const res = await get("/api/v1/models/anthropic/does-not-exist.json");
+    expect(res.status).toBe(404);
+    expect(res.headers.get("x-robots-tag")).toBe("noindex");
+  });
+
+  it.each(["/", "/api", "/glossary", "/parameters/temperature", "/providers/anthropic"])(
+    "leaves %s indexable",
+    async (path) => {
+      const res = await get(path);
+      expect(res.status).toBe(200);
+      expect(res.headers.get("x-robots-tag")).toBeNull();
+    },
+  );
+
+  it("does not hand crawlers a followable link to a model's JSON", async () => {
+    const body = await get("/models/anthropic/claude-opus-4-7").then((r) => r.text());
+    expect(body).toContain(
+      '<a href="/api/v1/models/anthropic/claude-opus-4-7.json" target="_blank" rel="noopener noreferrer nofollow"',
+    );
   });
 });
 

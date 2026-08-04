@@ -43,6 +43,26 @@ Kimi_K2_6_SubscriptionParams = TypedDict(
 )
 setattr(Kimi_K2_6_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Kimi_K2_7_CodeParams = TypedDict(
+    "Kimi_K2_7_CodeParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Kimi_K2_7_CodeParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Kimi_K2_7_Code_HighspeedParams = TypedDict(
+    "Kimi_K2_7_Code_HighspeedParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Kimi_K2_7_Code_HighspeedParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Kimi_K2_7_Code_Highspeed_SubscriptionParams = TypedDict(
     "Kimi_K2_7_Code_Highspeed_SubscriptionParams",
     {
@@ -62,6 +82,17 @@ Kimi_K2_7_Code_SubscriptionParams = TypedDict(
     total=False,
 )
 setattr(Kimi_K2_7_Code_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Kimi_K3Params = TypedDict(
+    "Kimi_K3Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["enabled", "disabled"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Kimi_K3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Moonshot_V1_128kParams = TypedDict(
     "Moonshot_V1_128kParams",
@@ -112,8 +143,11 @@ __all__ = [
     "Kimi_K2_5Params",
     "Kimi_K2_6Params",
     "Kimi_K2_6_SubscriptionParams",
+    "Kimi_K2_7_CodeParams",
+    "Kimi_K2_7_Code_HighspeedParams",
     "Kimi_K2_7_Code_Highspeed_SubscriptionParams",
     "Kimi_K2_7_Code_SubscriptionParams",
+    "Kimi_K3Params",
     "Moonshot_V1_128kParams",
     "Moonshot_V1_32kParams",
     "Moonshot_V1_8kParams",

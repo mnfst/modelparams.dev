@@ -48,7 +48,7 @@ params:
     type: enum
     label: Thinking level
     description: Controls Gemini 3.1 Flash-Lite reasoning effort.
-    default: high
+    default: minimal
     values:
       - minimal
       - low

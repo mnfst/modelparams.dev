@@ -56,16 +56,16 @@ params:
   - path: reasoning_effort
     type: enum
     label: Reasoning effort
-    description: Controls how much reasoning the model performs when thinking is enabled.
+    description: Controls how much reasoning effort GLM-5.2 spends when thinking is enabled.
     default: max
     values:
-      - max
-      - xhigh
-      - high
-      - medium
-      - low
-      - minimal
       - none
+      - minimal
+      - low
+      - medium
+      - high
+      - xhigh
+      - max
     group: reasoning
     applicability:
       only:

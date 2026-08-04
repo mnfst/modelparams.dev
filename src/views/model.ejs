@@ -21,7 +21,7 @@
     <span class="text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span>
   </div>
   <h1 class="mt-3 text-balance font-bold tracking-tight">
-    <%= providerName %> <%= modelName %><% if (isSubscription) { %> (subscription)<% } %> parameters
+    <%= fullName %><% if (isSubscription) { %> (subscription)<% } %> parameters
   </h1>
   <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-600 dark:text-slate-300 sm:text-base">
     <%= intro %>
@@ -110,7 +110,7 @@
       The full model definition as served by the API. Copy it or open the endpoint directly.
     </p>
     <div class="mt-3 flex items-center gap-3">
-      <a href="<%= jsonPath %>" target="_blank" rel="noopener noreferrer" class="text-sm text-accent hover:text-accent-hover"><%= jsonPath %></a>
+      <a href="<%= jsonPath %>" target="_blank" rel="noopener noreferrer nofollow" class="text-sm text-accent hover:text-accent-hover"><%= jsonPath %></a>
     </div>
     <div class="relative mt-4">
       <button type="button" data-copy-json class="absolute right-2 top-2 inline-flex items-center gap-1.5 border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-warm-hover hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white">

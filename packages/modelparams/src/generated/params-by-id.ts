@@ -54,6 +54,38 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3.6-flash": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.7-max": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.7-plus": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.8-max": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwq-plus": {
     max_tokens: number;
     temperature: number;
@@ -280,6 +312,18 @@ export type ParamsById = {
     "thinking.type": "disabled" | "adaptive" | "enabled";
     "thinking.budget_tokens": number;
   };
+  "anthropic/claude-opus-5": {
+    max_tokens: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "anthropic/claude-opus-5-subscription": {
+    max_tokens: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
   "anthropic/claude-sonnet-4-20250514": {
     max_tokens: number;
     temperature: number;
@@ -366,6 +410,18 @@ export type ParamsById = {
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "max";
+  };
+  "cerebras/zai-glm-4.7": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    clear_thinking: boolean;
+    "response_format.type": "text" | "json_object";
   };
   "cohere/command-a-03-2025": {
     max_tokens: number;
@@ -576,6 +632,16 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-3.1-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-3.1-flash-lite-preview-subscription": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -615,6 +681,104 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-flash-latest": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemma-3-12b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3-1b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3-27b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3-4b-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3n-E2B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-3n-E4B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-4-12B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-4-26b-a4b-it": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemma-4-31b-it": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemma-4-E2B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "google/gemma-4-E4B-it": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+  };
+  "groq/qwen3-32b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
   };
   "meta/Llama-3.3-70B-Instruct": {
     max_completion_tokens: number;
@@ -900,6 +1064,14 @@ export type ParamsById = {
     "thinking.type": "enabled" | "disabled";
     "response_format.type": "text" | "json_object";
   };
+  "moonshot/kimi-k2.7-code": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "moonshot/kimi-k2.7-code-highspeed": {
+    max_completion_tokens: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
     max_completion_tokens: number;
     "response_format.type": "text" | "json_object";
@@ -907,6 +1079,11 @@ export type ParamsById = {
   "moonshot/kimi-k2.7-code-subscription": {
     max_completion_tokens: number;
     "response_format.type": "text" | "json_object";
+  };
+  "moonshot/kimi-k3": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    "response_format.type": "text" | "json_object" | "json_schema";
   };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;
@@ -1211,9 +1388,56 @@ export type ParamsById = {
     max_completion_tokens: number;
     reasoning_effort: "none" | "low" | "medium" | "high";
   };
+  "openai/gpt-5.6-luna-subscription": {
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
+    "reasoning.summary": "auto" | "concise" | "detailed";
+    "text.verbosity": "low" | "medium" | "high";
+  };
   "openai/gpt-5.6-sol": {
     max_completion_tokens: number;
     reasoning_effort: "none" | "low" | "medium" | "high";
+  };
+  "openai/gpt-5.6-sol-subscription": {
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
+    "reasoning.summary": "auto" | "concise" | "detailed";
+    "text.verbosity": "low" | "medium" | "high";
+  };
+  "openai/gpt-5.6-terra": {
+    max_completion_tokens: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+  };
+  "openai/gpt-5.6-terra-subscription": {
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
+    "reasoning.summary": "auto" | "concise" | "detailed";
+    "text.verbosity": "low" | "medium" | "high";
+  };
+  "openai/gpt-oss-120b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
+  "openai/gpt-oss-20b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
+  "openai/gpt-oss-safeguard-120b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+  };
+  "openai/gpt-oss-safeguard-20b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
   };
   "openai/o1": {
     max_completion_tokens: number;
@@ -1299,6 +1523,13 @@ export type ParamsById = {
     return_related_questions: boolean;
     disable_search: boolean;
   };
+  "thinking-machines/Inkling": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh";
+    separate_reasoning: boolean;
+  };
   "xai/grok-4.20-0309-non-reasoning": {
     max_completion_tokens: number;
     temperature: number;
@@ -1307,7 +1538,22 @@ export type ParamsById = {
     stop: string;
     "response_format.type": "text" | "json_object" | "json_schema";
   };
+  "xai/grok-4.20-0309-non-reasoning-subscription": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    stop: string;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
   "xai/grok-4.20-0309-reasoning": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.20-0309-reasoning-subscription": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -1329,7 +1575,38 @@ export type ParamsById = {
     reasoning_effort: "none" | "low" | "medium" | "high";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
+  "xai/grok-4.3-subscription": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.5": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.5-subscription": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
   "xai/grok-build-0.1": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-build-0.1-subscription": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -1510,6 +1787,24 @@ export type ParamsById = {
     top_p: number;
     do_sample: boolean;
     "thinking.type": "enabled" | "disabled";
+    "response_format.type": "text" | "json_object";
+  };
+  "z-ai/glm-5.2": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    do_sample: boolean;
+    "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
+    "response_format.type": "text" | "json_object";
+  };
+  "z-ai/glm-5.2-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    do_sample: boolean;
+    "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
     "response_format.type": "text" | "json_object";
   };
 };

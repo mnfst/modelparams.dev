@@ -19,6 +19,9 @@ export function providerPagePath(provider: string): string {
 /** Parameter glossary page — the hub that links out to each parameter page. */
 export const GLOSSARY_PATH = "/glossary";
 
+/** API documentation page. The HTML docs, not the JSON endpoints under /api/v1. */
+export const API_PATH = "/api";
+
 /**
  * URL-safe slug for a parameter path: lowercased, with nested-path dots turned into
  * hyphens, e.g. `thinking.type` → `thinking-type`. Underscores are kept so that
@@ -40,6 +43,15 @@ export function parameterPagePath(path: string): string {
 /** In-page anchor id for a parameter row on a model page, e.g. param-top-p. */
 export function parameterAnchorId(path: string): string {
   return `param-${parameterSlug(path)}`;
+}
+
+/**
+ * Social-share image for a page, mirroring the page's own URL:
+ * /models/openai/gpt-5.1 → /assets/og/models/openai/gpt-5.1.png. The build
+ * writes a PNG at each of these; /assets/og.png stays the site-wide fallback.
+ */
+export function ogImagePath(pagePath: string): string {
+  return pagePath === "/" ? "/assets/og/home.png" : `/assets/og${pagePath}.png`;
 }
 
 /** Existing JSON API endpoint for a model (unchanged; referenced for linking). */

@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: thinking-machines
+authType: api_key
+model: Inkling
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 1
+    range:
+      min: 0
+      max: 1
+    group: sampling
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Controls how much thinking Inkling performs before answering. Accepts a preset name or a number between 0.0 and 0.99; presets map to numeric effort levels (none=0.0, minimal=0.1, low=0.2, medium=0.7, high=0.9, xhigh=0.99).
+    default: high
+    values:
+      - none
+      - minimal
+      - low
+      - medium
+      - high
+      - xhigh
+    group: reasoning
+  - path: separate_reasoning
+    type: boolean
+    label: Separate reasoning
+    description: Returns the model's reasoning in a dedicated reasoning_content field instead of interleaving it with the final message content.
+    default: true
+    group: reasoning

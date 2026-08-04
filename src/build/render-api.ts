@@ -2,7 +2,7 @@ import path from "node:path";
 import ejs from "ejs";
 import { VIEWS_DIR } from "../data/paths.js";
 import { SITE_NAME, SITE_URL } from "../data/site.js";
-import { absolute } from "../data/urls.js";
+import { API_PATH, absolute, ogImagePath } from "../data/urls.js";
 import { type Model } from "../schema/model.js";
 import { hubLinks, renderShell, viewHelpers } from "./render.js";
 
@@ -19,7 +19,8 @@ export async function renderApiPage(allModels: Model[]): Promise<string> {
     {
       title: API_TITLE,
       description: API_DESCRIPTION,
-      canonicalUrl: absolute(SITE_URL, "/api"),
+      canonicalUrl: absolute(SITE_URL, API_PATH),
+      ogImage: ogImagePath(API_PATH),
       structuredData: "{}",
       providerHubs: hubLinks(allModels),
     },

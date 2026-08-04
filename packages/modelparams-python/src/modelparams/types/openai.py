@@ -380,6 +380,17 @@ Gpt_5_6_LunaParams = TypedDict(
 )
 setattr(Gpt_5_6_LunaParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_5_6_Luna_SubscriptionParams = TypedDict(
+    "Gpt_5_6_Luna_SubscriptionParams",
+    {
+        "reasoning.effort": Literal["none", "low", "medium", "high", "xhigh", "max"],
+        "reasoning.summary": Literal["auto", "concise", "detailed"],
+        "text.verbosity": Literal["low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_5_6_Luna_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_5_6_SolParams = TypedDict(
     "Gpt_5_6_SolParams",
     {
@@ -390,11 +401,47 @@ Gpt_5_6_SolParams = TypedDict(
 )
 setattr(Gpt_5_6_SolParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_5_6_Sol_SubscriptionParams = TypedDict(
+    "Gpt_5_6_Sol_SubscriptionParams",
+    {
+        "reasoning.effort": Literal["none", "low", "medium", "high", "xhigh", "max"],
+        "reasoning.summary": Literal["auto", "concise", "detailed"],
+        "text.verbosity": Literal["low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_5_6_Sol_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_5_6_TerraParams = TypedDict(
+    "Gpt_5_6_TerraParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=16)],
+        "reasoning_effort": Literal["none", "low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_5_6_TerraParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_5_6_Terra_SubscriptionParams = TypedDict(
+    "Gpt_5_6_Terra_SubscriptionParams",
+    {
+        "reasoning.effort": Literal["none", "low", "medium", "high", "xhigh", "max"],
+        "reasoning.summary": Literal["auto", "concise", "detailed"],
+        "text.verbosity": Literal["low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_5_6_Terra_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_Oss_120bParams = TypedDict(
     "Gpt_Oss_120bParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "top_p": Annotated[float, Field(ge=0, le=1)],
         "reasoning_effort": Literal["low", "medium", "high"],
+        "response_format.type": Literal["text", "json_schema"],
+        "tool_choice": Literal["auto", "none", "required"],
     },
     total=False,
 )
@@ -404,11 +451,39 @@ Gpt_Oss_20bParams = TypedDict(
     "Gpt_Oss_20bParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "top_p": Annotated[float, Field(ge=0, le=1)],
         "reasoning_effort": Literal["low", "medium", "high"],
+        "response_format.type": Literal["text", "json_schema"],
+        "tool_choice": Literal["auto", "none", "required"],
     },
     total=False,
 )
 setattr(Gpt_Oss_20bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_Oss_Safeguard_120bParams = TypedDict(
+    "Gpt_Oss_Safeguard_120bParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "reasoning_effort": Literal["low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_Oss_Safeguard_120bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_Oss_Safeguard_20bParams = TypedDict(
+    "Gpt_Oss_Safeguard_20bParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "reasoning_effort": Literal["low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_Oss_Safeguard_20bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 O1Params = TypedDict(
     "O1Params",
@@ -516,9 +591,15 @@ __all__ = [
     "Gpt_5_5_Pro_SubscriptionParams",
     "Gpt_5_5_SubscriptionParams",
     "Gpt_5_6_LunaParams",
+    "Gpt_5_6_Luna_SubscriptionParams",
     "Gpt_5_6_SolParams",
+    "Gpt_5_6_Sol_SubscriptionParams",
+    "Gpt_5_6_TerraParams",
+    "Gpt_5_6_Terra_SubscriptionParams",
     "Gpt_Oss_120bParams",
     "Gpt_Oss_20bParams",
+    "Gpt_Oss_Safeguard_120bParams",
+    "Gpt_Oss_Safeguard_20bParams",
     "O1Params",
     "O1_MiniParams",
     "O1_PreviewParams",

@@ -1,11 +1,13 @@
-// Rasterizes the brand SVGs into the PNG assets that social platforms and iOS
-// require (they don't reliably accept SVG). Run manually after editing
-// `og.svg` or `favicon.svg` — `sharp` is intentionally NOT a project
-// dependency, so pull it in ad hoc:
+// Rasterizes favicon.svg into the apple-touch-icon PNG that iOS requires (it
+// doesn't accept SVG). Run manually after editing `favicon.svg` — `sharp` is
+// intentionally NOT a project dependency, so pull it in ad hoc:
 //
 //   npx -y -p sharp node scripts/gen-images.mjs
 //
-// Outputs are committed under src/client/ and copied into dist/assets at build.
+// The output is committed under src/client/ and copied into dist/assets at build.
+//
+// Social cards are NOT generated here: `npm run build` renders one per page from
+// the catalog data (src/build/og.ts), so there is nothing to regenerate by hand.
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -23,5 +25,4 @@ async function rasterize(srcSvg, outPng, width, height, density) {
   console.log(`wrote src/client/${outPng} (${width}x${height})`);
 }
 
-await rasterize("og.svg", "og.png", 1200, 630, 144);
 await rasterize("favicon.svg", "apple-touch-icon.png", 180, 180, 600);

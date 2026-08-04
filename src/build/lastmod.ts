@@ -43,3 +43,21 @@ export function gitLastmodMap(repoRoot: string): Map<string, string> {
 export function modelLastmod(model: Model, dates: Map<string, string>, fallback: string): string {
   return dates.get(modelSourcePath(model)) ?? fallback;
 }
+
+/**
+ * The most recent lastmod across a set of models — the honest date for an
+ * aggregate page (home, a provider hub, a parameter page), which is only as
+ * fresh as the newest entry it lists.
+ */
+export function newestLastmod(
+  models: Model[],
+  dates: Map<string, string>,
+  fallback: string,
+): string {
+  let newest = "";
+  for (const model of models) {
+    const date = modelLastmod(model, dates, fallback);
+    if (date > newest) newest = date;
+  }
+  return newest || fallback;
+}

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: google
+authType: api_key
+model: gemma-3n-E4B-it
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate; output shares the 32K context window with the input.
+    range:
+      min: 1
+      max: 32768
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 0.95
+    range:
+      min: 0
+      max: 1
+    group: sampling
+  - path: top_k
+    type: integer
+    label: Top K
+    description: Limits generation to the selected number of highest-probability tokens.
+    default: 64
+    range:
+      min: 0
+    group: sampling

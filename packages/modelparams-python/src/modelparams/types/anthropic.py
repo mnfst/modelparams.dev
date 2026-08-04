@@ -404,6 +404,30 @@ Claude_Opus_4_SubscriptionParams = TypedDict(
 )
 setattr(Claude_Opus_4_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Claude_Opus_5Params = TypedDict(
+    "Claude_Opus_5Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["disabled", "adaptive"],
+        "thinking.display": Literal["summarized", "omitted"],
+        "output_config.effort": Literal["low", "medium", "high", "xhigh", "max"],
+    },
+    total=False,
+)
+setattr(Claude_Opus_5Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Claude_Opus_5_SubscriptionParams = TypedDict(
+    "Claude_Opus_5_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["disabled", "adaptive"],
+        "thinking.display": Literal["summarized", "omitted"],
+        "output_config.effort": Literal["low", "medium", "high", "xhigh", "max"],
+    },
+    total=False,
+)
+setattr(Claude_Opus_5_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Claude_Sonnet_4_20250514Params = TypedDict(
     "Claude_Sonnet_4_20250514Params",
     {
@@ -581,6 +605,8 @@ __all__ = [
     "Claude_Opus_4_8Params",
     "Claude_Opus_4_8_SubscriptionParams",
     "Claude_Opus_4_SubscriptionParams",
+    "Claude_Opus_5Params",
+    "Claude_Opus_5_SubscriptionParams",
     "Claude_Sonnet_4_20250514Params",
     "Claude_Sonnet_4_20250514_SubscriptionParams",
     "Claude_Sonnet_4_5Params",

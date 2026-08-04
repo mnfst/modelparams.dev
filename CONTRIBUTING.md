@@ -145,8 +145,9 @@ that setting and breaks their setup.
 
 CI enforces this. The `Param guard` workflow (`npm run guard:params`) compares your
 PR against `main` and **fails if any parameter `path` that exists on a model is gone**
-— this includes renaming a `path` (the old name counts as removed). You can run the
-same check locally before opening a PR:
+— this includes renaming a `path` (the old name counts as removed). The comparison
+runs against the merge base, so parameters `main` gained after you branched are not
+counted against you. You can run the same check locally before opening a PR:
 
 ```bash
 npm run guard:params            # compares against origin/main
@@ -169,8 +170,8 @@ The website code lives under `src/`:
 - `src/schema/` — Zod types (single source of truth) and JSON Schema generator.
 - `src/data/` — YAML loader, catalog builder, display helpers, applicability formatter.
 - `src/views/` — EJS templates (layout, partials, index page).
-- `src/client/` — browser-side TypeScript (search, filter, dark mode) and Tailwind entry.
-- `src/build/` — SSG pipeline (renders pages, compiles assets, emits JSON API).
+- `src/client/` — browser-side TypeScript (search, filter, dark mode), Tailwind entry, and the vendored Outfit fonts under `fonts/` that social cards are rendered with.
+- `src/build/` — SSG pipeline (renders pages, compiles assets, emits JSON API, generates a social card per page).
 - `src/server/` — Express dev server.
 
 Conventions:

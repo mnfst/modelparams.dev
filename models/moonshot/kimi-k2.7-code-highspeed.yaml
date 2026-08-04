@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: moonshot
+authType: api_key
+model: kimi-k2.7-code-highspeed
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate in the chat completion, including reasoning tokens.
+    default: 32768
+    range:
+      min: 1
+    group: generation_length
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Forces the response into plain text, a JSON object, or JSON matching a provided schema.
+    default: text
+    values:
+      - text
+      - json_object
+      - json_schema
+    group: output_format

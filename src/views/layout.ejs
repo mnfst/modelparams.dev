@@ -6,21 +6,25 @@
     <title><%= title %></title>
     <meta name="description" content="<%= description %>" />
     <link rel="canonical" href="<%= canonicalUrl %>" />
+    <% if (robots) { %><meta name="robots" content="<%= robots %>" /><% } %>
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM-friendly site overview" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="<%= ogType %>" />
     <meta property="og:title" content="<%= title %>" />
     <meta property="og:description" content="<%= description %>" />
     <meta property="og:url" content="<%= canonicalUrl %>" />
     <meta property="og:site_name" content="modelparams.dev" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="<%= ogImageUrl %>" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="modelparams.dev — an open catalog of model parameters" />
+    <meta property="og:image:alt" content="<%= title %>" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="<%= title %>" />
     <meta name="twitter:description" content="<%= description %>" />
     <meta name="twitter:image" content="<%= ogImageUrl %>" />
+    <meta name="twitter:image:alt" content="<%= title %>" />
 
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />

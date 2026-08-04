@@ -24,6 +24,20 @@ Grok_4_20_0309_Non_ReasoningParams = TypedDict(
 )
 setattr(Grok_4_20_0309_Non_ReasoningParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Grok_4_20_0309_Non_Reasoning_SubscriptionParams = TypedDict(
+    "Grok_4_20_0309_Non_Reasoning_SubscriptionParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "seed": int,
+        "stop": str,
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Grok_4_20_0309_Non_Reasoning_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Grok_4_20_0309_ReasoningParams = TypedDict(
     "Grok_4_20_0309_ReasoningParams",
     {
@@ -36,6 +50,19 @@ Grok_4_20_0309_ReasoningParams = TypedDict(
     total=False,
 )
 setattr(Grok_4_20_0309_ReasoningParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Grok_4_20_0309_Reasoning_SubscriptionParams = TypedDict(
+    "Grok_4_20_0309_Reasoning_SubscriptionParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "seed": int,
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Grok_4_20_0309_Reasoning_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Grok_4_20_Multi_Agent_0309Params = TypedDict(
     "Grok_4_20_Multi_Agent_0309Params",
@@ -64,6 +91,20 @@ Grok_4_3Params = TypedDict(
 )
 setattr(Grok_4_3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Grok_4_3_SubscriptionParams = TypedDict(
+    "Grok_4_3_SubscriptionParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "seed": int,
+        "reasoning_effort": Literal["none", "low", "medium", "high"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Grok_4_3_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Grok_4_5Params = TypedDict(
     "Grok_4_5Params",
     {
@@ -71,7 +112,7 @@ Grok_4_5Params = TypedDict(
         "temperature": Annotated[float, Field(ge=0, le=2)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "seed": int,
-        "reasoning_effort": Literal["low", "medium", "high"],
+        "reasoning_effort": Literal["none", "low", "medium", "high"],
         "response_format.type": Literal["text", "json_object", "json_schema"],
     },
     total=False,
@@ -85,7 +126,7 @@ Grok_4_5_SubscriptionParams = TypedDict(
         "temperature": Annotated[float, Field(ge=0, le=2)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "seed": int,
-        "reasoning_effort": Literal["low", "medium", "high"],
+        "reasoning_effort": Literal["none", "low", "medium", "high"],
         "response_format.type": Literal["text", "json_object", "json_schema"],
     },
     total=False,
@@ -105,12 +146,29 @@ Grok_Build_0_1Params = TypedDict(
 )
 setattr(Grok_Build_0_1Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Grok_Build_0_1_SubscriptionParams = TypedDict(
+    "Grok_Build_0_1_SubscriptionParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "seed": int,
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Grok_Build_0_1_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Grok_4_20_0309_Non_ReasoningParams",
+    "Grok_4_20_0309_Non_Reasoning_SubscriptionParams",
     "Grok_4_20_0309_ReasoningParams",
+    "Grok_4_20_0309_Reasoning_SubscriptionParams",
     "Grok_4_20_Multi_Agent_0309Params",
     "Grok_4_3Params",
+    "Grok_4_3_SubscriptionParams",
     "Grok_4_5Params",
     "Grok_4_5_SubscriptionParams",
     "Grok_Build_0_1Params",
+    "Grok_Build_0_1_SubscriptionParams",
 ]

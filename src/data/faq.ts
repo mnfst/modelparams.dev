@@ -3,7 +3,7 @@
 // logic. The questions mirror real long-tail queries ("what is the default
 // temperature for <model>") and every answer is derived from the tracked data.
 
-import { modelLabel, providerLabel } from "./display.js";
+import { modelFullLabel } from "./display.js";
 import type { Model, Parameter } from "../schema/model.js";
 
 export interface ModelFaq {
@@ -17,7 +17,7 @@ const MAX_FAQS = 5;
 
 function subjectOf(model: Model): string {
   const auth = model.authType === "subscription" ? " (subscription)" : "";
-  return `${providerLabel(model.provider)} ${modelLabel(model)}${auth}`;
+  return `${modelFullLabel(model)}${auth}`;
 }
 
 function defaultAnswer(param: Parameter, subject: string): string {
