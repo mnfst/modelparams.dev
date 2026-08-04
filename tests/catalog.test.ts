@@ -242,6 +242,7 @@ describe("provider catalog rows", () => {
     const byId = new Map(models.map((model) => [modelId(model), model]));
     const sharedModels = [
       "glm-5.1",
+      "glm-5.2",
       "glm-5-turbo",
       "glm-5",
       "glm-4.7",

@@ -367,6 +367,12 @@ export const DEFAULTS = {
     "thinking.display": "summarized",
     "output_config.effort": "high",
   },
+  "cerebras/zai-glm-4.7": {
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    clear_thinking: true,
+    "response_format.type": "text",
+  },
   "cohere/command-a-03-2025": {
     temperature: 0.3,
     p: 0.75,
@@ -637,6 +643,14 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 0.95,
     top_k: 64,
+  },
+  "groq/qwen3-32b": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    reasoning_effort: "default",
+    "response_format.type": "text",
   },
   "meta/Llama-3.3-70B-Instruct": {
     "response_format.type": "text",

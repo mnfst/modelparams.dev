@@ -411,6 +411,18 @@ export type ParamsById = {
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "max";
   };
+  "cerebras/zai-glm-4.7": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+    clear_thinking: boolean;
+    "response_format.type": "text" | "json_object";
+  };
   "cohere/command-a-03-2025": {
     max_tokens: number;
     stop_sequences: string;
@@ -755,6 +767,18 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
     top_k: number;
+  };
+  "groq/qwen3-32b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
   };
   "meta/Llama-3.3-70B-Instruct": {
     max_completion_tokens: number;
