@@ -101,7 +101,9 @@ describe("modelParamProse", () => {
 
 describe("model page meta", () => {
   it("titles api-key and subscription variants distinctly", () => {
-    expect(modelPageTitle(model())).toBe("Anthropic Claude Opus 4.7 parameters · modelparams.dev");
+    expect(modelPageTitle(model())).toBe(
+      "Anthropic Claude Opus 4.7 API parameters · modelparams.dev",
+    );
     expect(modelPageTitle(model({ authType: "subscription" }))).toContain("(subscription)");
   });
 
@@ -114,7 +116,7 @@ describe("model page meta", () => {
 
 describe("home page meta", () => {
   it("leads with the brand and carries the live model count in the title", () => {
-    expect(homeTitle(198)).toBe("modelparams.dev — LLM Parameters for 198 Models");
+    expect(homeTitle(198)).toBe("modelparams.dev — LLM API Parameters for 198 Models");
   });
 
   it("opens the description on the brand, then real parameters and live counts", () => {
@@ -139,10 +141,26 @@ describe("home page meta", () => {
 
 describe("provider page meta", () => {
   it("names the provider and counts its models", () => {
-    expect(providerPageTitle("anthropic")).toBe("Anthropic model parameters · modelparams.dev");
+    expect(providerPageTitle("anthropic")).toBe("Anthropic API parameters · modelparams.dev");
     expect(providerPageDescription("anthropic", [model(), model()])).toContain(
       "2 Anthropic models",
     );
+  });
+});
+
+// The word "parameters" alone is what someone types when they want a weight
+// count. Every page title has to carry the qualifier that separates the two
+// senses, including after `fitTitle` drops candidates to fit the SERP budget.
+describe("titles disambiguate parameters from weight counts", () => {
+  it("keeps API in the model title even at the shortest fallback", () => {
+    const long = model({ provider: "alibaba", model: "qwen3-8-max-thinking-preview-long" });
+    expect(modelPageTitle(long)).toContain("API parameters");
+    expect(modelPageTitle(model({ authType: "subscription" }))).toContain("API parameters");
+  });
+
+  it("keeps API in the home and provider titles", () => {
+    expect(homeTitle(1000)).toContain("API Parameters");
+    expect(providerPageTitle("openai")).toContain("API parameters");
   });
 });
 

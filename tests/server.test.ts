@@ -163,10 +163,21 @@ describe("GET / (home)", () => {
 
   it("carries a concrete title and a crawlable browse-by-parameter section", async () => {
     const body = await get("/").then((r) => r.text());
-    expect(body).toContain("modelparams.dev — LLM Parameters for 3 Models");
-    expect(body).toContain("Browse by parameter");
+    expect(body).toContain("modelparams.dev — LLM API Parameters for 3 Models");
+    expect(body).toContain("Browse by API parameter");
     expect(body).toContain('href="/parameters/temperature"');
     expect(body).toContain('href="/parameters/max_tokens"');
+  });
+});
+
+describe("GET /model-parameters-vs-api-parameters", () => {
+  it("serves the page that absorbs weight-count queries", async () => {
+    const res = await get("/model-parameters-vs-api-parameters");
+    expect(res.status).toBe(200);
+    expect(res.headers.get("content-type")).toContain("text/html");
+    const body = await res.text();
+    expect(body).toContain("Model parameters vs. API parameters");
+    expect(body).toContain("How many parameters does GPT-3.5 have?");
   });
 });
 

@@ -5,8 +5,9 @@ import { modelFullLabel, modelLabel, paramLabel, providerLabel } from "../data/d
 import type { ModelFaq } from "../data/faq.js";
 import type { GlossaryGroup } from "../data/glossary.js";
 import type { ParameterDetail } from "../data/parameters.js";
-import { SITE_DESCRIPTION, SITE_NAME } from "../data/site.js";
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME } from "../data/site.js";
 import {
+  DISAMBIGUATION_PATH,
   GLOSSARY_PATH,
   absolute,
   modelJsonPath,
@@ -18,6 +19,30 @@ import { type Model } from "../schema/model.js";
 
 const REPO_URL = "https://github.com/mnfst/modelparams.dev";
 const NPM_URL = "https://www.npmjs.com/package/modelparams";
+
+/** Stable @id for the concept node every dataset on the site points `about` at. */
+function conceptId(siteUrl: string): string {
+  return `${siteUrl}/#api-parameter`;
+}
+
+/**
+ * The subject of this whole site, stated once as an entity: an API request
+ * parameter, not a trained weight. `variableMeasured` already names temperature
+ * and top_p on each model page, which is good evidence of the intended sense;
+ * this makes it explicit rather than inferred, so a crawler resolving "model
+ * parameters" has something to bind to besides the ambiguous word itself.
+ */
+function apiParameterConceptNode(siteUrl: string) {
+  return {
+    "@type": "DefinedTerm",
+    "@id": conceptId(siteUrl),
+    name: "LLM API parameter",
+    description:
+      "A setting sent in the body of an LLM API request — temperature, top_p, max_tokens and the like. Not the same as a model parameter in the sense of a trained weight, which is what a parameter count measures.",
+    inDefinedTermSet: `${siteUrl}${GLOSSARY_PATH}#termset`,
+    url: absolute(siteUrl, DISAMBIGUATION_PATH),
+  };
+}
 
 interface Crumb {
   name: string;
@@ -75,6 +100,8 @@ function homeDatasetNode(siteUrl: string, imageUrl: string) {
     description: SITE_DESCRIPTION,
     url: `${siteUrl}/`,
     image: imageUrl,
+    keywords: SITE_KEYWORDS,
+    about: { "@id": conceptId(siteUrl) },
     license: "https://opensource.org/licenses/MIT",
     isAccessibleForFree: true,
     creator: { "@id": `${siteUrl}/#org` },
@@ -115,15 +142,22 @@ export function buildHomeStructuredData(
   return graph([
     organizationNode(siteUrl),
     homeWebsiteNode(siteUrl),
+    apiParameterConceptNode(siteUrl),
     homeDatasetNode(siteUrl, imageUrl),
     homeItemListNode(models, siteUrl),
   ]);
 }
 
-function faqPageNode(faqs: ModelFaq[], model: Model, siteUrl: string) {
+/** Both the model FAQ and the disambiguation FAQ reduce to this shape. */
+interface QuestionAnswer {
+  question: string;
+  answer: string;
+}
+
+function faqPageNode(faqs: QuestionAnswer[], id: string) {
   return {
     "@type": "FAQPage",
-    "@id": `${siteUrl}${modelPagePath(model)}#faq`,
+    "@id": id,
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -138,7 +172,7 @@ export function buildModelStructuredData(
   siteUrl: string,
   faqs: ModelFaq[] = [],
 ): string {
-  const name = `${modelFullLabel(model)} parameters`;
+  const name = `${modelFullLabel(model)} API parameters`;
   const dataset = {
     "@type": "Dataset",
     "@id": `${siteUrl}${modelPagePath(model)}#dataset`,
@@ -146,6 +180,8 @@ export function buildModelStructuredData(
     description,
     url: absolute(siteUrl, modelPagePath(model)),
     isPartOf: { "@id": `${siteUrl}/#dataset` },
+    keywords: SITE_KEYWORDS,
+    about: { "@id": conceptId(siteUrl) },
     license: "https://opensource.org/licenses/MIT",
     isAccessibleForFree: true,
     creator: { "@type": "Organization", name: SITE_NAME, url: `${siteUrl}/` },
@@ -166,8 +202,10 @@ export function buildModelStructuredData(
     { name: providerLabel(model.provider), path: providerPagePath(model.provider) },
     { name: modelLabel(model), path: modelPagePath(model) },
   ]);
-  const nodes: unknown[] = [crumbs, dataset];
-  if (faqs.length > 0) nodes.push(faqPageNode(faqs, model, siteUrl));
+  const nodes: unknown[] = [crumbs, apiParameterConceptNode(siteUrl), dataset];
+  if (faqs.length > 0) {
+    nodes.push(faqPageNode(faqs, `${siteUrl}${modelPagePath(model)}#faq`));
+  }
   return graph(nodes);
 }
 
@@ -179,7 +217,7 @@ export function buildProviderStructuredData(
 ): string {
   const itemList = {
     "@type": "ItemList",
-    name: `${providerLabel(provider)} model parameters`,
+    name: `${providerLabel(provider)} API parameters`,
     description,
     numberOfItems: models.length,
     itemListElement: models.map((model, index) => ({
@@ -230,6 +268,39 @@ export function buildParameterStructuredData(
   return graph([crumbs, definedTerm, itemList]);
 }
 
+/**
+ * The disambiguation page is the only place on the site that should match a
+ * weight-count query, so it's the only place carrying those questions in an
+ * FAQPage. It states both senses and points `about` at the one this catalog
+ * covers, which is what lets the model pages stay out of that result set.
+ */
+export function buildDisambiguationStructuredData(
+  faqs: QuestionAnswer[],
+  description: string,
+  siteUrl: string,
+): string {
+  const pagePath = DISAMBIGUATION_PATH;
+  const page = {
+    "@type": "WebPage",
+    "@id": `${siteUrl}${pagePath}#page`,
+    name: "Model parameters vs. API parameters",
+    url: absolute(siteUrl, pagePath),
+    description,
+    about: { "@id": conceptId(siteUrl) },
+    isPartOf: { "@id": `${siteUrl}/#website` },
+  };
+  const crumbs = breadcrumb(siteUrl, [
+    { name: "Home", path: "/" },
+    { name: "Model parameters vs. API parameters", path: pagePath },
+  ]);
+  return graph([
+    crumbs,
+    apiParameterConceptNode(siteUrl),
+    page,
+    faqPageNode(faqs, `${siteUrl}${pagePath}#faq`),
+  ]);
+}
+
 export function buildGlossaryStructuredData(groups: GlossaryGroup[], siteUrl: string): string {
   const terms = groups
     .flatMap((groupItem) => groupItem.entries)
@@ -243,7 +314,9 @@ export function buildGlossaryStructuredData(groups: GlossaryGroup[], siteUrl: st
   const termSet = {
     "@type": "DefinedTermSet",
     "@id": `${siteUrl}${GLOSSARY_PATH}#termset`,
-    name: "LLM parameter glossary",
+    name: "LLM API parameter glossary",
+    description:
+      "Definitions for the settings you send in an LLM API request. Not model weight counts.",
     url: absolute(siteUrl, GLOSSARY_PATH),
     hasDefinedTerm: terms,
   };

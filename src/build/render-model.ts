@@ -7,6 +7,7 @@ import { groupParams } from "../data/group.js";
 import { VIEWS_DIR } from "../data/paths.js";
 import { SITE_NAME, SITE_URL } from "../data/site.js";
 import {
+  DISAMBIGUATION_PATH,
   absolute,
   modelJsonPath,
   modelPagePath,
@@ -27,7 +28,15 @@ export function modelPageTitle(model: Model): string {
   // separate URLs, so a fallback without it would give them the same title.
   const variant = model.authType === "subscription" ? " (subscription)" : "";
   const who = `${modelFullLabel(model)}${variant}`;
-  return fitTitle([`${who} parameters · ${SITE_NAME}`, `${who} parameters`, who]);
+  // "API" survives every fallback, including the shortest. Bare "<model>
+  // parameters" is what people type when they want a weight count, and a title
+  // that matches it pulls the page into the wrong result set — so the site name
+  // and then the provider prefix go first, and the qualifier never does.
+  return fitTitle([
+    `${who} API parameters · ${SITE_NAME}`,
+    `${who} API parameters`,
+    `${modelLabel(model)}${variant} API parameters`,
+  ]);
 }
 
 const PARAM_TAIL = ". Type, default, range, and gating conditions for each.";
@@ -35,7 +44,7 @@ const PARAM_TAIL = ". Type, default, range, and gating conditions for each.";
 export function modelPageDescription(model: Model): string {
   const who = `${modelFullLabel(model)}${authNote(model)}`;
   if (model.params.length === 0) {
-    return `${who}: no parameters documented yet. Browse the open catalog of model parameters on ${SITE_NAME}.`;
+    return `${who}: no API parameters documented yet. Browse the open catalog of LLM API parameters on ${SITE_NAME}.`;
   }
   const count = `${model.params.length} API parameter${model.params.length === 1 ? "" : "s"}`;
   const head = `All ${count} for ${who}`;
@@ -87,13 +96,13 @@ export function modelParamProse(model: Model): ParamProseGroup[] {
 export function modelIntro(model: Model): string {
   const who = modelFullLabel(model);
   if (model.params.length === 0) {
-    return `No parameters are documented yet for ${who}. The data is community-maintained, so this page fills in as entries land.`;
+    return `No API parameters are documented yet for ${who}. The data is community-maintained, so this page fills in as entries land.`;
   }
   const access =
     model.authType === "subscription"
       ? " when you reach it through a subscription rather than an API key"
       : "";
-  return `These are the parameters ${SITE_NAME} tracks for ${who}${access}. Each row gives the type, default, valid range or values, and the conditions that gate it. It's the same data the JSON API serves.`;
+  return `These are the API parameters ${SITE_NAME} tracks for ${who}${access} — the settings you send in a request. Each row gives the type, default, valid range or values, and the conditions that gate it. It's the same data the JSON API serves.`;
 }
 
 export async function renderModelPage(model: Model, allModels: Model[]): Promise<string> {
@@ -116,6 +125,7 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
     modelJson: JSON.stringify({ $schema: "https://modelparams.dev/api/v1/schema.json", ...model }, null, 2),
     isSubscription: model.authType === "subscription",
     proseGroups: modelParamProse(model),
+    disambiguationPath: DISAMBIGUATION_PATH,
   });
 
   const description = modelPageDescription(model);
