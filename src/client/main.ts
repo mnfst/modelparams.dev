@@ -99,21 +99,23 @@ function setupCopyHowToUse(): void {
   });
 }
 
-function setupCopyNpm(): void {
-  const btn = document.querySelector<HTMLButtonElement>("[data-copy-npm]");
-  if (!btn) return;
-  const idle = btn.querySelector<HTMLElement>("[data-copy-npm-idle]");
-  const done = btn.querySelector<HTMLElement>("[data-copy-npm-done]");
-  let timer = 0;
-  btn.addEventListener("click", async () => {
-    await copyText("npm i modelparams");
-    idle?.classList.add("hidden");
-    done?.classList.remove("hidden");
-    window.clearTimeout(timer);
-    timer = window.setTimeout(() => {
-      idle?.classList.remove("hidden");
-      done?.classList.add("hidden");
-    }, 2000);
+function setupCopyInstallCommands(): void {
+  document.querySelectorAll<HTMLButtonElement>("[data-copy-install]").forEach((btn) => {
+    const command = btn.dataset.copyInstall;
+    if (!command) return;
+    const idle = btn.querySelector<HTMLElement>("[data-copy-install-idle]");
+    const done = btn.querySelector<HTMLElement>("[data-copy-install-done]");
+    let timer = 0;
+    btn.addEventListener("click", async () => {
+      await copyText(command);
+      idle?.classList.add("hidden");
+      done?.classList.remove("hidden");
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        idle?.classList.remove("hidden");
+        done?.classList.add("hidden");
+      }, 2000);
+    });
   });
 }
 
@@ -533,7 +535,7 @@ function setupMobileMenu(): void {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupThemeToggle();
-  setupCopyNpm();
+  setupCopyInstallCommands();
   setupHowToUseModal();
   setupCopyHowToUse();
   setupProvidersMenu();

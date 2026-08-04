@@ -5,24 +5,42 @@
     </h1>
     <p class="mt-4 max-w-2xl text-pretty text-base text-slate-600 dark:text-slate-400 sm:text-lg">
       An open, community-maintained catalog of model parameters.
-      Browse the UI below, query the API, or install the npm package.
+      Browse the UI below, query the API, or install the npm or Python package.
     </p>
 
     <div class="mt-8 flex flex-wrap items-center gap-4">
-      <!-- npm install — code snippet to copy -->
+      <!-- package install — code snippets to copy -->
       <div class="flex items-center border-2 border-slate-700 bg-slate-800 px-6 py-3 dark:border-slate-500 dark:bg-slate-900">
         <code class="font-mono text-sm text-slate-200"><span class="select-none text-slate-500">$ </span><span class="select-all">npm i modelparams</span></code>
         <button
           type="button"
-          data-copy-npm
-          aria-label="Copy to clipboard"
+          data-copy-install="npm i modelparams"
+          aria-label="Copy npm install command"
           class="group ml-6 shrink-0 text-slate-400 hover:text-white"
         >
-          <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-copy-npm-idle>
+          <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-copy-install-idle>
             <rect x="5" y="5" width="9" height="9" rx="1" />
             <path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5" />
           </svg>
-          <svg viewBox="0 0 16 16" class="hidden h-4 w-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-copy-npm-done>
+          <svg viewBox="0 0 16 16" class="hidden h-4 w-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-copy-install-done>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.5 8.5l3 3 6-6" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex items-center border-2 border-slate-700 bg-slate-800 px-6 py-3 dark:border-slate-500 dark:bg-slate-900">
+        <code class="font-mono text-sm text-slate-200"><span class="select-none text-slate-500">$ </span><span class="select-all">pip install modelparams</span></code>
+        <button
+          type="button"
+          data-copy-install="pip install modelparams"
+          aria-label="Copy Python install command"
+          class="group ml-6 shrink-0 text-slate-400 hover:text-white"
+        >
+          <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" data-copy-install-idle>
+            <rect x="5" y="5" width="9" height="9" rx="1" />
+            <path d="M5 11H3.5A1.5 1.5 0 012 9.5v-7A1.5 1.5 0 013.5 1h7A1.5 1.5 0 0112 2.5V5" />
+          </svg>
+          <svg viewBox="0 0 16 16" class="hidden h-4 w-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-copy-install-done>
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.5 8.5l3 3 6-6" />
           </svg>
         </button>

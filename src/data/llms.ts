@@ -89,6 +89,20 @@ function guideApi(siteUrl: string): string[] {
   ];
 }
 
+function guidePackages(): string[] {
+  return [
+    "## Packages",
+    "",
+    "Install the typed catalog package for your language:",
+    "",
+    "```bash",
+    "npm install modelparams",
+    "pip install modelparams",
+    "```",
+    "",
+  ];
+}
+
 function guideAgents(siteUrl: string): string[] {
   return [
     "## Contribute",
@@ -112,7 +126,12 @@ function guideAgents(siteUrl: string): string[] {
  * it backs the modal's Copy button and the body of /llms-full.txt.
  */
 export function usageGuideMarkdown(siteUrl: string): string {
-  return [...guideIntro(siteUrl), ...guideApi(siteUrl), ...guideAgents(siteUrl)].join("\n");
+  return [
+    ...guideIntro(siteUrl),
+    ...guidePackages(),
+    ...guideApi(siteUrl),
+    ...guideAgents(siteUrl),
+  ].join("\n");
 }
 
 function fmtValue(value: unknown): string {
