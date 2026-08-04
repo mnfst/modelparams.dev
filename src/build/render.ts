@@ -123,8 +123,8 @@ export interface RenderOptions {
  */
 export function homeTitle(modelCount: number): string {
   return fitTitle([
-    `${SITE_NAME} — LLM API Parameters for ${modelCount} Models`,
-    `${SITE_NAME} — LLM API Parameters`,
+    `${SITE_NAME} · LLM API Parameters for ${modelCount} Models`,
+    `${SITE_NAME} · LLM API Parameters`,
   ]);
 }
 

@@ -116,7 +116,7 @@ describe("model page meta", () => {
 
 describe("home page meta", () => {
   it("leads with the brand and carries the live model count in the title", () => {
-    expect(homeTitle(198)).toBe("modelparams.dev — LLM API Parameters for 198 Models");
+    expect(homeTitle(198)).toBe("modelparams.dev · LLM API Parameters for 198 Models");
   });
 
   it("opens the description on the brand, then real parameters and live counts", () => {

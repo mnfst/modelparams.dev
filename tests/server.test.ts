@@ -163,7 +163,7 @@ describe("GET / (home)", () => {
 
   it("carries a concrete title and a crawlable browse-by-parameter section", async () => {
     const body = await get("/").then((r) => r.text());
-    expect(body).toContain("modelparams.dev — LLM API Parameters for 3 Models");
+    expect(body).toContain("modelparams.dev · LLM API Parameters for 3 Models");
     expect(body).toContain("Browse by API parameter");
     expect(body).toContain('href="/parameters/temperature"');
     expect(body).toContain('href="/parameters/max_tokens"');
