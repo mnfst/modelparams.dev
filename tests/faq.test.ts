@@ -32,11 +32,20 @@ function model(over: Partial<Model> = {}): Model {
 }
 
 describe("modelFaq", () => {
-  it("leads with the parameter count and names the model", () => {
+  it("leads with the supported parameters and names the model", () => {
     const faqs = modelFaq(model());
-    expect(faqs[0]!.question).toBe("How many parameters does Anthropic Claude Opus 4.7 accept?");
+    expect(faqs[0]!.question).toBe("Which API parameters does Anthropic Claude Opus 4.7 support?");
     expect(faqs[0]!.answer).toContain("2 API parameters");
     expect(faqs[0]!.answer).toContain("temperature");
+  });
+
+  // "How many parameters does X have" is the weight-count query. Matching it here
+  // would pull every model page into that result set; /model-parameters-vs-api-parameters
+  // carries it instead.
+  it("never phrases a question as a weight-count lookup", () => {
+    for (const faq of modelFaq(model())) {
+      expect(faq.question).not.toMatch(/how many parameters/i);
+    }
   });
 
   it("answers default questions with the value and range from the data", () => {
@@ -69,7 +78,7 @@ describe("modelFaq", () => {
       }),
     );
     expect(faqs).toHaveLength(1);
-    expect(faqs[0]!.question).toContain("How many parameters");
+    expect(faqs[0]!.question).toContain("Which API parameters");
   });
 
   it("returns nothing for a model with no parameters", () => {

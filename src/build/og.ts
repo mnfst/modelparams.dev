@@ -14,6 +14,7 @@ import { buildParameterIndex, type ParameterDetail } from "../data/parameters.js
 import { CLIENT_DIR, DIST_ASSETS_DIR, DIST_DIR } from "../data/paths.js";
 import {
   API_PATH,
+  DISAMBIGUATION_PATH,
   GLOSSARY_PATH,
   modelPagePath,
   ogImagePath,
@@ -68,7 +69,7 @@ export function providerCard(provider: string, models: Model[]): OgCard {
   const paths = paramPaths(models);
   return {
     eyebrow: "Provider",
-    headline: `${providerLabel(provider)} model parameters`,
+    headline: `${providerLabel(provider)} API parameters`,
     subline: `${models.length} model${models.length === 1 ? "" : "s"} · ${paths.length} parameters tracked`,
     chips: paths.slice(0, CHIP_LIMIT),
   };
@@ -87,8 +88,16 @@ export function parameterCard(detail: ParameterDetail, facts: string[]): OgCard 
 export function glossaryCard(parameterCount: number): OgCard {
   return {
     eyebrow: "Glossary",
-    headline: "LLM parameter glossary",
+    headline: "LLM API parameter glossary",
     subline: `${parameterCount} parameters defined, with defaults and ranges`,
+  };
+}
+
+export function disambiguationCard(): OgCard {
+  return {
+    eyebrow: "Explainer",
+    headline: "Model parameters vs. API parameters",
+    subline: "Weight count or request settings — which one you're looking for",
   };
 }
 
@@ -140,6 +149,7 @@ export async function writeOgImages(
   await writeCard("/", home);
   await writeCard(GLOSSARY_PATH, glossaryCard(details.length));
   await writeCard(API_PATH, apiCard(models.length));
+  await writeCard(DISAMBIGUATION_PATH, disambiguationCard());
 
   for (const provider of providers) {
     const providerModels = models.filter((model) => model.provider === provider);

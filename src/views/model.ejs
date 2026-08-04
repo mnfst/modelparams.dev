@@ -21,10 +21,15 @@
     <span class="text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span>
   </div>
   <h1 class="mt-3 text-balance font-bold tracking-tight">
-    <%= fullName %><% if (isSubscription) { %> (subscription)<% } %> parameters
+    <%= fullName %><% if (isSubscription) { %> (subscription)<% } %> API parameters
   </h1>
   <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-600 dark:text-slate-300 sm:text-base">
     <%= intro %>
+  </p>
+  <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-500 dark:text-slate-400">
+    After the parameter <em>count</em> instead — how many weights <%= modelName %> has?
+    That's a different number, and we don't track it.
+    <a href="<%= disambiguationPath %>" class="text-accent hover:text-accent-hover">Here's the difference</a>.
   </p>
 </section>
 
