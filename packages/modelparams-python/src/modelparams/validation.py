@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from functools import cache
 from typing import Any, cast
 
@@ -16,4 +17,6 @@ def params_adapter(model_id: ModelId) -> TypeAdapter[Any]:
 
 
 def validate_params(model_id: ModelId, params: object) -> dict[str, JsonPrimitive]:
+    if isinstance(params, Mapping):
+        params = dict(params)
     return cast(dict[str, JsonPrimitive], params_adapter(model_id).validate_python(params))
