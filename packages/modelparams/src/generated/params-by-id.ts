@@ -904,6 +904,17 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
+  "mistral/codestral-2508": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+    safe_prompt: boolean;
+  };
   "mistral/codestral-latest": {
     max_tokens: number;
     stop: string;
