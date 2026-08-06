@@ -9,6 +9,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen-max": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
   "alibaba/qwen-plus": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
