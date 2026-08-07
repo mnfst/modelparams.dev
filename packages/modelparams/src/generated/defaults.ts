@@ -799,6 +799,13 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/mistral-code-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/mistral-large-latest": {
     top_p: 1,
     presence_penalty: 0,
