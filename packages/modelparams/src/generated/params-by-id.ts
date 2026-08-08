@@ -1395,6 +1395,10 @@ export type ParamsById = {
     "reasoning.summary": "auto" | "concise" | "detailed" | "none";
     "text.verbosity": "low" | "medium" | "high";
   };
+  "openai/gpt-5.6": {
+    max_completion_tokens: number;
+    reasoning_effort: "none" | "low" | "medium" | "high";
+  };
   "openai/gpt-5.6-luna": {
     max_completion_tokens: number;
     reasoning_effort: "none" | "low" | "medium" | "high";
