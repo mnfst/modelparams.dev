@@ -806,6 +806,13 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/mistral-medium-2604": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/mistral-medium-3.5": {
     top_p: 1,
     presence_penalty: 0,
