@@ -1060,6 +1060,18 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
     safe_prompt: boolean;
   };
+  "mistral/zai-glm-5-2": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    prompt_mode: "reasoning";
+    "response_format.type": "text" | "json_object";
+    safe_prompt: boolean;
+  };
   "moonshot/kimi-k2.5": {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
