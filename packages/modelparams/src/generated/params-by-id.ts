@@ -816,6 +816,17 @@ export type ParamsById = {
     "response_format.type": "text" | "json_schema";
     tool_choice: "auto" | "none" | "required";
   };
+  "meta/muse-spark-1.1": {
+    max_completion_tokens: number;
+    reasoning_effort: "minimal" | "low" | "medium" | "high" | "xhigh";
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    prompt_cache_retention: "in_memory" | "24h";
+  };
   "meta/muse-spark-1.2-contributor": {
     max_completion_tokens: number;
     reasoning_effort: "minimal" | "low" | "medium" | "high" | "xhigh";

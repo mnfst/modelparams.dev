@@ -70,6 +70,23 @@ Llama_4_Scout_17b_16e_Instruct_Fp8Params = TypedDict(
 )
 setattr(Llama_4_Scout_17b_16e_Instruct_Fp8Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Muse_Spark_1_1Params = TypedDict(
+    "Muse_Spark_1_1Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["minimal", "low", "medium", "high", "xhigh"],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "seed": int,
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "prompt_cache_retention": Literal["in_memory", "24h"],
+    },
+    total=False,
+)
+setattr(Muse_Spark_1_1Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Muse_Spark_1_2_ContributorParams = TypedDict(
     "Muse_Spark_1_2_ContributorParams",
     {
@@ -92,5 +109,6 @@ __all__ = [
     "Llama_3_3_8b_InstructParams",
     "Llama_4_Maverick_17b_128e_Instruct_Fp8Params",
     "Llama_4_Scout_17b_16e_Instruct_Fp8Params",
+    "Muse_Spark_1_1Params",
     "Muse_Spark_1_2_ContributorParams",
 ]

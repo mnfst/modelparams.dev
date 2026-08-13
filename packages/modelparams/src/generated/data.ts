@@ -9061,6 +9061,134 @@ export const CATALOG = [
   {
     "provider": "meta",
     "authType": "api_key",
+    "model": "muse-spark-1.1",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ]
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness; use this or Top P, but not both.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "top_p": {
+              "not": 1
+            }
+          }
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling; use this or Temperature, but not both.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "temperature": {
+              "not": 1
+            }
+          }
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have appeared, reducing repetition.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared, encouraging new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Random seed",
+        "description": "Requests best-effort deterministic sampling for repeated requests.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns text, JSON, or schema-constrained JSON.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "prompt_cache_retention",
+        "label": "Prompt cache retention",
+        "description": "Controls whether the prompt cache stays in memory or persists for up to 24 hours.",
+        "group": "provider_metadata",
+        "type": "enum",
+        "values": [
+          "in_memory",
+          "24h"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "meta",
+    "authType": "api_key",
     "model": "muse-spark-1.2-contributor",
     "params": [
       {

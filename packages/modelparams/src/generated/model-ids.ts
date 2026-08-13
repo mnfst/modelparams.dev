@@ -97,6 +97,7 @@ export const MODEL_IDS = [
   "meta/Llama-3.3-8B-Instruct",
   "meta/Llama-4-Maverick-17B-128E-Instruct-FP8",
   "meta/Llama-4-Scout-17B-16E-Instruct-FP8",
+  "meta/muse-spark-1.1",
   "meta/muse-spark-1.2-contributor",
   "minimax/minimax-m2",
   "minimax/MiniMax-M2-subscription",
