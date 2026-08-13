@@ -120,6 +120,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "meta/Llama-3.3-8B-Instruct": meta.Llama_3_3_8b_InstructParams,
     "meta/Llama-4-Maverick-17B-128E-Instruct-FP8": meta.Llama_4_Maverick_17b_128e_Instruct_Fp8Params,
     "meta/Llama-4-Scout-17B-16E-Instruct-FP8": meta.Llama_4_Scout_17b_16e_Instruct_Fp8Params,
+    "meta/muse-spark-1.1": meta.Muse_Spark_1_1Params,
     "meta/muse-spark-1.2-contributor": meta.Muse_Spark_1_2_ContributorParams,
     "minimax/minimax-m2": minimax.Minimax_M2Params,
     "minimax/MiniMax-M2-subscription": minimax.Minimax_M2_SubscriptionParams,
