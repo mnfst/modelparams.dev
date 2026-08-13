@@ -664,6 +664,13 @@ export const DEFAULTS = {
   "meta/Llama-4-Scout-17B-16E-Instruct-FP8": {
     "response_format.type": "text",
   },
+  "meta/muse-spark-1.2-contributor": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    "response_format.type": "text",
+  },
   "minimax/minimax-m2": {
     temperature: 1,
     top_p: 0.95,
