@@ -1610,6 +1610,14 @@ export type ParamsById = {
     reasoning_effort: "none" | "low" | "medium" | "high";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
+  "xai/grok-4.6": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    stop: string;
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
   "xai/grok-build-0.1": {
     max_completion_tokens: number;
     temperature: number;

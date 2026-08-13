@@ -242,6 +242,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "xai/grok-4.3-subscription": xai.Grok_4_3_SubscriptionParams,
     "xai/grok-4.5": xai.Grok_4_5Params,
     "xai/grok-4.5-subscription": xai.Grok_4_5_SubscriptionParams,
+    "xai/grok-4.6": xai.Grok_4_6Params,
     "xai/grok-build-0.1": xai.Grok_Build_0_1Params,
     "xai/grok-build-0.1-subscription": xai.Grok_Build_0_1_SubscriptionParams,
     "xiaomi/mimo-v2.5": xiaomi.Mimo_V2_5Params,

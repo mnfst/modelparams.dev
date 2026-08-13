@@ -1297,6 +1297,11 @@ export const DEFAULTS = {
     reasoning_effort: "low",
     "response_format.type": "text",
   },
+  "xai/grok-4.6": {
+    temperature: 1,
+    top_p: 1,
+    "response_format.type": "text",
+  },
   "xai/grok-build-0.1": {
     temperature: 1,
     top_p: 1,
