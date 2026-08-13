@@ -1,5 +1,12 @@
 name: Release modelparams Python
 
+# Publishes the `modelparams` PyPI package when the catalog or the Python
+# package changes on main. Like the npm release, the workflow regenerates the
+# catalog and types in CI and publishes from that fresh output, so a merge that
+# forgot `npm run codegen:python` still releases correctly — the committed
+# files only get a warning here. The hard in-sync check lives in ci.yml, where
+# it flags the PR for the contributor to fix.
+
 on:
   push:
     branches: [main]
@@ -50,12 +57,11 @@ jobs:
       - name: Generate Python catalog and types
         run: npm run codegen:python
 
-      - name: Verify generated files are in sync
+      - name: Warn if committed generated files are stale
         run: |
           if [[ -n "$(git status --porcelain -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types)" ]]; then
-            echo "::error::Generated Python package files are out of date."
+            echo "::warning::Committed Python generated files are stale; publishing from freshly generated output. Run \`npm run codegen:python\` and commit the result to resync the repo."
             git status --short -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types
-            exit 1
           fi
 
       - name: Compute next version

@@ -136,6 +136,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "minimax/MiniMax-M2.7-subscription": minimax.Minimax_M2_7_SubscriptionParams,
     "minimax/minimax-m3": minimax.Minimax_M3Params,
     "minimax/MiniMax-M3-subscription": minimax.Minimax_M3_SubscriptionParams,
+    "mistral/codestral-2508": mistral.Codestral_2508Params,
     "mistral/codestral-latest": mistral.Codestral_LatestParams,
     "mistral/devstral-2512": mistral.Devstral_2512Params,
     "mistral/devstral-latest": mistral.Devstral_LatestParams,
