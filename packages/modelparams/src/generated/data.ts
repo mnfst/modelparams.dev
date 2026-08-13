@@ -16225,6 +16225,76 @@ export const CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "model": "grok-4.6",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max completion tokens",
+        "description": "Upper bound for visible output tokens generated in the chat completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. xAI accepts up to four stop sequences.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns text, JSON mode output, or structured JSON schema output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "xai",
+    "authType": "api_key",
     "model": "grok-build-0.1",
     "params": [
       {
