@@ -10,6 +10,23 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Codestral_2508Params = TypedDict(
+    "Codestral_2508Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Codestral_2508Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Codestral_LatestParams = TypedDict(
     "Codestral_LatestParams",
     {
@@ -234,6 +251,7 @@ Open_Mistral_NemoParams = TypedDict(
 setattr(Open_Mistral_NemoParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
+    "Codestral_2508Params",
     "Codestral_LatestParams",
     "Devstral_2512Params",
     "Devstral_LatestParams",
