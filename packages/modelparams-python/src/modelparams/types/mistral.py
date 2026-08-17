@@ -131,6 +131,23 @@ Ministral_14b_LatestParams = TypedDict(
 )
 setattr(Ministral_14b_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Ministral_3b_2512Params = TypedDict(
+    "Ministral_3b_2512Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Ministral_3b_2512Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Ministral_3b_LatestParams = TypedDict(
     "Ministral_3b_LatestParams",
     {
@@ -258,6 +275,7 @@ __all__ = [
     "Magistral_Medium_LatestParams",
     "Magistral_Small_LatestParams",
     "Ministral_14b_LatestParams",
+    "Ministral_3b_2512Params",
     "Ministral_3b_LatestParams",
     "Ministral_8b_LatestParams",
     "Mistral_Large_LatestParams",
