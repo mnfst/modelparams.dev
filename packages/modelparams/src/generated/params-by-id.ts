@@ -35,7 +35,34 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3-235b-a22b-thinking-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-30b-a3b-instruct-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-30b-a3b-thinking-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3-coder-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+  };
+  "alibaba/qwen3-coder-next": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -54,7 +81,63 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3-next-80b-a3b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-next-80b-a3b-thinking": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-235b-a22b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-235b-a22b-thinking": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3.5": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-122b-a10b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-27b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-35b-a3b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-397b-a17b": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -68,7 +151,39 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3.6-27b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.6-35b-a3b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwen3.6-flash": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.6-plus": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.7-flash": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
