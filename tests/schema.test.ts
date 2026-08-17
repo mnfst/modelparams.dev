@@ -33,6 +33,31 @@ describe("Model schema", () => {
     expect(result.success).toBe(true);
   });
 
+  it("accepts a param with a deprecation flag", () => {
+    const params = [
+      {
+        ...VALID_MODEL.params[0],
+        deprecated: {
+          behavior: "default-only",
+          since: "2026-08-17",
+          note: "Non-default values are rejected.",
+        },
+      },
+      VALID_MODEL.params[1],
+    ];
+    const result = Model.safeParse({ ...VALID_MODEL, params });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects unknown deprecation behaviors", () => {
+    const params = [
+      { ...VALID_MODEL.params[0], deprecated: { behavior: "gone" } },
+      VALID_MODEL.params[1],
+    ];
+    const result = Model.safeParse({ ...VALID_MODEL, params });
+    expect(result.success).toBe(false);
+  });
+
   it("rejects unknown authType", () => {
     const result = Model.safeParse({ ...VALID_MODEL, authType: "free" });
     expect(result.success).toBe(false);
