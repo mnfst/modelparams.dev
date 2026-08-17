@@ -10730,6 +10730,111 @@
   {
     "provider": "mistral",
     "authType": "api_key",
+    "model": "ministral-14b-2512",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this string is detected.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or JSON mode output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
     "model": "ministral-14b-latest",
     "params": [
       {

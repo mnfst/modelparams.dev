@@ -994,6 +994,17 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
     safe_prompt: boolean;
   };
+  "mistral/ministral-14b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+    safe_prompt: boolean;
+  };
   "mistral/ministral-14b-latest": {
     max_tokens: number;
     stop: string;
