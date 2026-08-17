@@ -26,7 +26,9 @@ from .model_ids import ModelId
 
 PARAM_TYPES: dict[ModelId, Any] = {
     "alibaba/qwen-flash": alibaba.Qwen_FlashParams,
+    "alibaba/qwen-max": alibaba.Qwen_MaxParams,
     "alibaba/qwen-plus": alibaba.Qwen_PlusParams,
+    "alibaba/qwen-turbo": alibaba.Qwen_TurboParams,
     "alibaba/qwen3-coder-flash": alibaba.Qwen3_Coder_FlashParams,
     "alibaba/qwen3-coder-plus": alibaba.Qwen3_Coder_PlusParams,
     "alibaba/qwen3-max": alibaba.Qwen3_MaxParams,
