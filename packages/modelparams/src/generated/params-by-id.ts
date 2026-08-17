@@ -934,7 +934,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/codestral-latest": {
@@ -945,7 +945,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/devstral-2512": {
@@ -956,7 +956,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/devstral-latest": {
@@ -967,7 +967,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/magistral-medium-latest": {
@@ -979,7 +979,7 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     prompt_mode: "reasoning";
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/magistral-small-latest": {
@@ -991,7 +991,7 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     prompt_mode: "reasoning";
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-14b-latest": {
@@ -1002,7 +1002,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-3b-latest": {
@@ -1013,7 +1013,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-8b-latest": {
@@ -1024,7 +1024,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-large-latest": {
@@ -1046,7 +1046,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-medium-latest": {
@@ -1057,7 +1057,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-small-latest": {
@@ -1068,7 +1068,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/open-mistral-nemo": {
@@ -1079,7 +1079,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "moonshot/kimi-k2.5": {
