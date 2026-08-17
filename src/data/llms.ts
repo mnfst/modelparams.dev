@@ -128,6 +128,11 @@ function fmtValue(value: unknown): string {
 
 function paramConstraints(param: Parameter): string {
   const bits: string[] = [];
+  if (param.deprecated) {
+    const dep = param.deprecated;
+    const since = dep.since ? ` since ${dep.since}` : "";
+    bits.push(`DEPRECATED (${dep.behavior}${since})${dep.note ? `: ${dep.note}` : ""}`);
+  }
   if (param.default !== undefined) bits.push(`default: ${fmtValue(param.default)}`);
   if (param.type === "enum") bits.push(`values: ${param.values.map(fmtValue).join(", ")}`);
   if ((param.type === "integer" || param.type === "number") && param.range) {
