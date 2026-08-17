@@ -417,7 +417,7 @@ export type ParamsById = {
     top_k: number;
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
-    "output_config.effort": "low" | "medium" | "high" | "max";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
   };
   "cerebras/zai-glm-4.7": {
     max_completion_tokens: number;
@@ -1043,7 +1043,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-medium-3.5": {
@@ -1275,6 +1275,16 @@ export type ParamsById = {
     top_p: number;
   };
   "openai/gpt-3.5-turbo": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
+  "openai/gpt-3.5-turbo-16k": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
+  "openai/gpt-4-0613": {
     max_tokens: number;
     temperature: number;
     top_p: number;
