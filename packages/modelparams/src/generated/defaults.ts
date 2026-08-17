@@ -9,7 +9,15 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen-max": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
   "alibaba/qwen-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen-turbo": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
@@ -40,6 +48,10 @@ export const DEFAULTS = {
     "extra_body.enable_thinking": true,
   },
   "alibaba/qwen3.7-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen3.8-2.4t-a95b": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
@@ -250,6 +262,9 @@ export const DEFAULTS = {
   },
   "anthropic/claude-opus-4-8": {
     max_tokens: 4096,
+    temperature: 1,
+    top_p: 1,
+    top_k: 0,
     "thinking.type": "disabled",
     "thinking.display": "omitted",
     "output_config.effort": "high",
@@ -363,6 +378,12 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 1,
     top_k: 0,
+    "thinking.type": "disabled",
+    "thinking.display": "summarized",
+    "output_config.effort": "high",
+  },
+  "anthropic/claude-sonnet-5-subscription": {
+    max_tokens: 4096,
     "thinking.type": "disabled",
     "thinking.display": "summarized",
     "output_config.effort": "high",
@@ -575,6 +596,14 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemini-3.7-flash": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
   "google/gemini-flash-latest": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
@@ -662,6 +691,20 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "meta/Llama-4-Scout-17B-16E-Instruct-FP8": {
+    "response_format.type": "text",
+  },
+  "meta/muse-spark-1.1": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    "response_format.type": "text",
+  },
+  "meta/muse-spark-1.2-contributor": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
     "response_format.type": "text",
   },
   "minimax/minimax-m2": {
@@ -778,7 +821,21 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/ministral-14b-2512": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/ministral-14b-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/ministral-3b-2512": {
     top_p: 1,
     presence_penalty: 0,
     frequency_penalty: 0,
@@ -792,6 +849,13 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/ministral-8b-2512": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/ministral-8b-latest": {
     top_p: 1,
     presence_penalty: 0,
@@ -799,7 +863,21 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/mistral-large-2512": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/mistral-large-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/mistral-medium-3": {
     top_p: 1,
     presence_penalty: 0,
     frequency_penalty: 0,
@@ -814,6 +892,13 @@ export const DEFAULTS = {
     safe_prompt: false,
   },
   "mistral/mistral-medium-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/mistral-small-2603": {
     top_p: 1,
     presence_penalty: 0,
     frequency_penalty: 0,
@@ -992,6 +1077,16 @@ export const DEFAULTS = {
     top_p: 1,
   },
   "openai/gpt-3.5-turbo": {
+    max_tokens: 4096,
+    temperature: 1,
+    top_p: 1,
+  },
+  "openai/gpt-3.5-turbo-16k": {
+    max_tokens: 4096,
+    temperature: 1,
+    top_p: 1,
+  },
+  "openai/gpt-4-0613": {
     max_tokens: 4096,
     temperature: 1,
     top_p: 1,
@@ -1299,6 +1394,11 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 1,
     reasoning_effort: "low",
+    "response_format.type": "text",
+  },
+  "xai/grok-4.6": {
+    temperature: 1,
+    top_p: 1,
     "response_format.type": "text",
   },
   "xai/grok-build-0.1": {

@@ -46,6 +46,11 @@
         <tr<% if (detailMode) { %> id="<%= helpers.parameterAnchorId(param.path) %>" class="scroll-mt-24"<% } %>>
           <td class="py-2 pr-3 align-top">
             <div class="font-medium text-slate-900 dark:text-slate-100"><%= helpers.paramLabel(param.path, param.label) %></div>
+            <% if (param.deprecated) { %>
+            <span class="mt-0.5 inline-flex items-center rounded border border-amber-300 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-400"
+              title="<%= param.deprecated.note || param.deprecated.behavior %><%= param.deprecated.since ? ` (since ${param.deprecated.since})` : "" %>"
+              >Deprecated<% if (param.deprecated.behavior === "default-only") { %> &middot; default only<% } else if (param.deprecated.behavior === "ignored") { %> &middot; ignored<% } %></span>
+            <% } %>
             <% if (detailMode) { %>
             <a href="<%= helpers.parameterPagePath(param.path) %>" class="mt-0.5 inline-block rounded bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-accent hover:text-accent-hover dark:bg-slate-800"
               ><%= param.path %></a>

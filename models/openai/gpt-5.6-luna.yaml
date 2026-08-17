@@ -9,7 +9,7 @@ params:
     description: Maximum number of output tokens the model may generate.
     default: 4096
     range:
-      min: 16
+      min: 1
     group: generation_length
   - path: reasoning_effort
     type: enum
@@ -21,4 +21,5 @@ params:
       - low
       - medium
       - high
+      - xhigh
     group: reasoning

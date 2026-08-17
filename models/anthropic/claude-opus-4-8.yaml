@@ -11,6 +11,43 @@ params:
     range:
       min: 1
     group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    deprecated:
+      behavior: default-only
+      note: The API rejects non-default values ("`temperature` is deprecated for this model") in every thinking mode; only the default value 1 is accepted. Probed 2026-08-17.
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 1
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+    deprecated:
+      behavior: rejected
+      note: The API rejects every value including the default ("`top_p` is deprecated for this model"); the parameter must be unset. Probed 2026-08-17.
+  - path: top_k
+    type: integer
+    label: Top K
+    description: Limits sampling to the K most likely tokens.
+    default: 0
+    range:
+      min: 0
+    group: sampling
+    deprecated:
+      behavior: rejected
+      note: The API rejects every value including the default ("`top_k` is deprecated for this model"); the parameter must be unset. Probed 2026-08-17.
   - path: thinking.type
     type: enum
     label: Thinking mode

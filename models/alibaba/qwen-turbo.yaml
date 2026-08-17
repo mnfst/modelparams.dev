@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: alibaba
 authType: api_key
-model: qwen3.6-flash
+model: qwen-turbo
 params:
-  - path: max_completion_tokens
+  - path: max_tokens
     type: integer
     label: Max tokens
-    description: Maximum number of tokens to generate, including both reasoning and the final answer.
+    description: Maximum number of output tokens the model may generate.
     range:
       min: 1
     group: generation_length
@@ -31,24 +31,14 @@ params:
   - path: extra_body.top_k
     type: integer
     label: Top K
-    description: Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.
+    description: Limits generation to the selected number of highest-probability tokens.
     default: 20
     range:
-      min: 0
+      min: 1
     group: sampling
-  - path: extra_body.enable_thinking
+  - path: extra_body.chat_template_kwargs.enable_thinking
     type: boolean
     label: Enable thinking
-    description: Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.
+    description: Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.
     default: true
     group: reasoning
-  - path: extra_body.thinking_budget
-    type: integer
-    label: Thinking budget
-    description: Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.
-    range:
-      min: 1
-    group: reasoning
-    applicability:
-      only:
-        extra_body.enable_thinking: true
