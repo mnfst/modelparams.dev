@@ -160,6 +160,7 @@ export const MODEL_IDS = [
   "openai/chatgpt-4o-latest",
   "openai/gpt-3.5-turbo",
   "openai/gpt-3.5-turbo-16k",
+  "openai/gpt-4-0613",
   "openai/gpt-4-turbo",
   "openai/gpt-4-turbo-2024-04-09",
   "openai/gpt-4.1",
