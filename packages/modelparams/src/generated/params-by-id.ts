@@ -994,6 +994,17 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
     safe_prompt: boolean;
   };
+  "mistral/ministral-14b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
   "mistral/ministral-14b-latest": {
     max_tokens: number;
     stop: string;
@@ -1003,6 +1014,17 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    safe_prompt: boolean;
+  };
+  "mistral/ministral-3b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-3b-latest": {
@@ -1016,6 +1038,17 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
     safe_prompt: boolean;
   };
+  "mistral/ministral-8b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
   "mistral/ministral-8b-latest": {
     max_tokens: number;
     stop: string;
@@ -1027,7 +1060,29 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
     safe_prompt: boolean;
   };
+  "mistral/mistral-large-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
   "mistral/mistral-large-latest": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-medium-3": {
     max_tokens: number;
     stop: string;
     temperature: number;
@@ -1058,6 +1113,17 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-small-2603": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-small-latest": {
