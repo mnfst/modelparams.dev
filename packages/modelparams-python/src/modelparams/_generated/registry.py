@@ -33,6 +33,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "alibaba/qwen3.5": alibaba.Qwen3_5Params,
     "alibaba/qwen3.5-flash": alibaba.Qwen3_5_FlashParams,
     "alibaba/qwen3.6-flash": alibaba.Qwen3_6_FlashParams,
+    "alibaba/qwen3.7-flash": alibaba.Qwen3_7_FlashParams,
     "alibaba/qwen3.7-max": alibaba.Qwen3_7_MaxParams,
     "alibaba/qwen3.7-plus": alibaba.Qwen3_7_PlusParams,
     "alibaba/qwen3.8-max": alibaba.Qwen3_8_MaxParams,
