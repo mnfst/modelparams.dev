@@ -27,7 +27,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -87,7 +87,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -147,7 +147,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -199,7 +199,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -251,7 +251,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -311,7 +311,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -371,7 +371,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -431,7 +431,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -506,7 +506,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -581,7 +581,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -656,7 +656,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -731,7 +731,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
