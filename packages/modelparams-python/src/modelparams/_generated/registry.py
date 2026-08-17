@@ -147,6 +147,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "mistral/ministral-14b-latest": mistral.Ministral_14b_LatestParams,
     "mistral/ministral-3b-latest": mistral.Ministral_3b_LatestParams,
     "mistral/ministral-8b-latest": mistral.Ministral_8b_LatestParams,
+    "mistral/mistral-large-2512": mistral.Mistral_Large_2512Params,
     "mistral/mistral-large-latest": mistral.Mistral_Large_LatestParams,
     "mistral/mistral-medium-3.5": mistral.Mistral_Medium_3_5Params,
     "mistral/mistral-medium-latest": mistral.Mistral_Medium_LatestParams,

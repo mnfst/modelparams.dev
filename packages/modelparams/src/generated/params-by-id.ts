@@ -1027,6 +1027,17 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
     safe_prompt: boolean;
   };
+  "mistral/mistral-large-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
   "mistral/mistral-large-latest": {
     max_tokens: number;
     stop: string;

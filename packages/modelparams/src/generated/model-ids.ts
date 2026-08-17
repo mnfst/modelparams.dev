@@ -124,6 +124,7 @@ export const MODEL_IDS = [
   "mistral/ministral-14b-latest",
   "mistral/ministral-3b-latest",
   "mistral/ministral-8b-latest",
+  "mistral/mistral-large-2512",
   "mistral/mistral-large-latest",
   "mistral/mistral-medium-3.5",
   "mistral/mistral-medium-latest",
