@@ -1035,7 +1035,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-medium-3.5": {
