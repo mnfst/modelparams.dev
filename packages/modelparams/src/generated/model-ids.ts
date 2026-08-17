@@ -84,6 +84,8 @@ export const MODEL_IDS = [
   "google/gemini-3.1-flash-lite-subscription",
   "google/gemini-3.1-pro-preview-subscription",
   "google/gemini-3.5-flash",
+  "google/gemini-3.5-flash-lite",
+  "google/gemini-3.6-flash",
   "google/gemini-3.7-flash",
   "google/gemini-flash-latest",
   "google/gemma-3-12b-it",
