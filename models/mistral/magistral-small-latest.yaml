@@ -76,6 +76,7 @@ params:
     values:
       - text
       - json_object
+      - json_schema
     group: output_format
   - path: safe_prompt
     type: boolean
