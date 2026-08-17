@@ -10169,7 +10169,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10274,7 +10275,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10379,7 +10381,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10484,7 +10487,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10599,7 +10603,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10714,7 +10719,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10819,7 +10825,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10924,7 +10931,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11029,7 +11037,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11240,7 +11249,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11345,7 +11355,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11450,7 +11461,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11555,7 +11567,8 @@
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
