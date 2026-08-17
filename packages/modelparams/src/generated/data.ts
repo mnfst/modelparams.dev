@@ -10108,7 +10108,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10213,7 +10213,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10318,7 +10318,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10423,7 +10423,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10528,7 +10528,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10643,7 +10643,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10758,7 +10758,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10863,7 +10863,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10968,7 +10968,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11073,7 +11073,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11123,7 +11123,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11178,7 +11179,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11283,7 +11284,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11388,7 +11389,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11493,7 +11494,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
