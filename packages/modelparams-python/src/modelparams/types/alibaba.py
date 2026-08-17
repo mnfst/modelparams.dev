@@ -23,6 +23,19 @@ Qwen_FlashParams = TypedDict(
 )
 setattr(Qwen_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Qwen_MaxParams = TypedDict(
+    "Qwen_MaxParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen_MaxParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen_PlusParams = TypedDict(
     "Qwen_PlusParams",
     {
@@ -35,6 +48,19 @@ Qwen_PlusParams = TypedDict(
     total=False,
 )
 setattr(Qwen_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen_TurboParams = TypedDict(
+    "Qwen_TurboParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen_TurboParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Qwen3_Coder_FlashParams = TypedDict(
     "Qwen3_Coder_FlashParams",
@@ -183,7 +209,9 @@ setattr(Qwq_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
     "Qwen_FlashParams",
+    "Qwen_MaxParams",
     "Qwen_PlusParams",
+    "Qwen_TurboParams",
     "Qwen3_Coder_FlashParams",
     "Qwen3_Coder_PlusParams",
     "Qwen3_MaxParams",
