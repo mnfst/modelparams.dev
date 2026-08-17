@@ -27,7 +27,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -87,7 +87,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -147,7 +147,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -199,7 +199,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -251,7 +251,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -311,7 +311,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -371,7 +371,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -431,7 +431,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -506,7 +506,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -581,7 +581,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -656,7 +656,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -731,7 +731,7 @@ export const CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
-          "max": 2,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -5157,6 +5157,11 @@ export const CATALOG = [
             }
           ]
         },
+        "deprecated": {
+          "behavior": "default-only",
+          "since": "2026-08-17",
+          "note": "The API now rejects non-default values (\"`temperature` is deprecated for this model\"); only the default value 1 is accepted. Verified working 2026-07-11."
+        },
         "type": "number",
         "default": 1,
         "range": {
@@ -5184,6 +5189,11 @@ export const CATALOG = [
             }
           ]
         },
+        "deprecated": {
+          "behavior": "default-only",
+          "since": "2026-08-17",
+          "note": "The API now rejects non-default values (\"`top_p` is deprecated for this model\"); only the default value 1 is accepted. Verified working 2026-07-11."
+        },
         "type": "number",
         "default": 1,
         "range": {
@@ -5203,6 +5213,11 @@ export const CATALOG = [
               "adaptive"
             ]
           }
+        },
+        "deprecated": {
+          "behavior": "default-only",
+          "since": "2026-08-17",
+          "note": "The API now rejects non-default values (\"`top_k` is deprecated for this model\"); only the default value 0 is accepted. Verified working 2026-07-11."
         },
         "type": "integer",
         "default": 0,
@@ -5252,6 +5267,7 @@ export const CATALOG = [
           "low",
           "medium",
           "high",
+          "xhigh",
           "max"
         ]
       }
@@ -10204,7 +10220,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10309,7 +10325,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10414,7 +10430,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10519,7 +10535,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10624,7 +10640,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10739,7 +10755,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10854,7 +10870,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -10959,7 +10975,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11064,7 +11080,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11169,7 +11185,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11219,7 +11235,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11274,7 +11291,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11379,7 +11396,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11484,7 +11501,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -11589,7 +11606,7 @@ export const CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -13311,6 +13328,94 @@ export const CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-3.5-turbo",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
+    "model": "gpt-3.5-turbo-16k",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
+    "model": "gpt-4-0613",
     "params": [
       {
         "path": "max_tokens",

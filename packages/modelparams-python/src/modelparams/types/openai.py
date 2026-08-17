@@ -32,6 +32,28 @@ Gpt_3_5_TurboParams = TypedDict(
 )
 setattr(Gpt_3_5_TurboParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_3_5_Turbo_16kParams = TypedDict(
+    "Gpt_3_5_Turbo_16kParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+    },
+    total=False,
+)
+setattr(Gpt_3_5_Turbo_16kParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_4_0613Params = TypedDict(
+    "Gpt_4_0613Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+    },
+    total=False,
+)
+setattr(Gpt_4_0613Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_4_TurboParams = TypedDict(
     "Gpt_4_TurboParams",
     {
@@ -558,6 +580,8 @@ setattr(O4_MiniParams, "__pydantic_config__", _PARAMS_CONFIG)
 __all__ = [
     "Chatgpt_4o_LatestParams",
     "Gpt_3_5_TurboParams",
+    "Gpt_3_5_Turbo_16kParams",
+    "Gpt_4_0613Params",
     "Gpt_4_TurboParams",
     "Gpt_4_Turbo_2024_04_09Params",
     "Gpt_4_1Params",
