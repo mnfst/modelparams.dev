@@ -395,8 +395,8 @@ setattr(Gpt_5_5_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Gpt_5_6_LunaParams = TypedDict(
     "Gpt_5_6_LunaParams",
     {
-        "max_completion_tokens": Annotated[int, Field(ge=16)],
-        "reasoning_effort": Literal["none", "low", "medium", "high"],
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["none", "low", "medium", "high", "xhigh"],
     },
     total=False,
 )
@@ -416,8 +416,8 @@ setattr(Gpt_5_6_Luna_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Gpt_5_6_SolParams = TypedDict(
     "Gpt_5_6_SolParams",
     {
-        "max_completion_tokens": Annotated[int, Field(ge=16)],
-        "reasoning_effort": Literal["none", "low", "medium", "high"],
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["none", "low", "medium", "high", "xhigh"],
     },
     total=False,
 )
@@ -437,8 +437,8 @@ setattr(Gpt_5_6_Sol_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Gpt_5_6_TerraParams = TypedDict(
     "Gpt_5_6_TerraParams",
     {
-        "max_completion_tokens": Annotated[int, Field(ge=16)],
-        "reasoning_effort": Literal["none", "low", "medium", "high"],
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["none", "low", "medium", "high", "xhigh"],
     },
     total=False,
 )
