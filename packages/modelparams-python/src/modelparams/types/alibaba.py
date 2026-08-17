@@ -113,6 +113,20 @@ Qwen3_6_FlashParams = TypedDict(
 )
 setattr(Qwen3_6_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Qwen3_6_PlusParams = TypedDict(
+    "Qwen3_6_PlusParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Qwen3_6_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3_7_MaxParams = TypedDict(
     "Qwen3_7_MaxParams",
     {
@@ -176,6 +190,7 @@ __all__ = [
     "Qwen3_5Params",
     "Qwen3_5_FlashParams",
     "Qwen3_6_FlashParams",
+    "Qwen3_6_PlusParams",
     "Qwen3_7_MaxParams",
     "Qwen3_7_PlusParams",
     "Qwen3_8_MaxParams",
