@@ -8038,7 +8038,7 @@ export const CATALOG = [
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls DeepSeek thinking effort when thinking mode is enabled.",
+        "description": "Controls DeepSeek thinking effort when thinking mode is enabled. For compatibility, low, medium, and xhigh are also accepted, but low and medium are mapped to high, and xhigh is mapped to max.",
         "group": "reasoning",
         "applicability": {
           "only": {
