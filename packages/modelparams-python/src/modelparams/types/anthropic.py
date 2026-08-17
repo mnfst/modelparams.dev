@@ -370,6 +370,9 @@ Claude_Opus_4_8Params = TypedDict(
     "Claude_Opus_4_8Params",
     {
         "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=0)],
         "thinking.type": Literal["disabled", "adaptive"],
         "thinking.display": Literal["summarized", "omitted"],
         "output_config.effort": Literal["low", "medium", "high", "xhigh", "max"],

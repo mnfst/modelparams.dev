@@ -316,6 +316,9 @@ export type ParamsById = {
   };
   "anthropic/claude-opus-4-8": {
     max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
