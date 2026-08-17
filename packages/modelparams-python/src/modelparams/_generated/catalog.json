@@ -3795,6 +3795,55 @@
         }
       },
       {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "deprecated": {
+          "behavior": "default-only",
+          "note": "The API rejects non-default values (\"`temperature` is deprecated for this model\") in every thinking mode; only the default value 1 is accepted. Probed 2026-08-17."
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "deprecated": {
+          "behavior": "rejected",
+          "note": "The API rejects every value including the default (\"`top_p` is deprecated for this model\"); the parameter must be unset. Probed 2026-08-17."
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits sampling to the K most likely tokens.",
+        "group": "sampling",
+        "deprecated": {
+          "behavior": "rejected",
+          "note": "The API rejects every value including the default (\"`top_k` is deprecated for this model\"); the parameter must be unset. Probed 2026-08-17."
+        },
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0
+        }
+      },
+      {
         "path": "thinking.type",
         "label": "Thinking mode",
         "description": "Controls the Anthropic thinking mode values supported by this model.",
