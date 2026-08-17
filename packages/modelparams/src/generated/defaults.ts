@@ -379,6 +379,12 @@ export const DEFAULTS = {
     "thinking.display": "summarized",
     "output_config.effort": "high",
   },
+  "anthropic/claude-sonnet-5-subscription": {
+    max_tokens: 4096,
+    "thinking.type": "disabled",
+    "thinking.display": "summarized",
+    "output_config.effort": "high",
+  },
   "cerebras/zai-glm-4.7": {
     frequency_penalty: 0,
     presence_penalty: 0,
