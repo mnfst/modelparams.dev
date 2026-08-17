@@ -1,0 +1,65 @@
+models/alibaba/qwen3.7-flash.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-54
+models/alibaba/qwen3-next-80b-a3b-instruct.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+models/alibaba/qwen3.6-27b.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-54
+packages/modelparams/src/generated/model-ids.ts
+  s_036e57b72f5518::t_e213cfd9c57011 9-11,13,16-19,21-24,26-27,29-30
+models/alibaba/qwen3.6-plus.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-54
+models/alibaba/qwen3-vl-235b-a22b-instruct.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_e213cfd9c57011 242-421,474-525,641,694,701,754,761-1541
+packages/modelparams-python/src/modelparams/types/alibaba.py
+  s_036e57b72f5518::t_e213cfd9c57011 65-103,116-127,153-204,218-269,283-310,325-352,426-428,430,433-436,438-441,443-444,446-447
+models/alibaba/qwen3-235b-a22b-thinking-2507.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+models/alibaba/qwen3.5-397b-a17b.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+models/alibaba/qwen3-30b-a3b-instruct-2507.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+packages/modelparams/src/generated/defaults.ts
+  s_036e57b72f5518::t_e213cfd9c57011 24-35,39-41,49-64,69-84,89-96,101-108
+models/alibaba/qwen3.5-27b.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_036e57b72f5518::t_e213cfd9c57011 32-34,36,39-42,44-47,49-50,52-53
+models/alibaba/qwen3-vl-235b-a22b-thinking.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+models/alibaba/qwen3-next-80b-a3b-thinking.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+models/alibaba/qwen3-coder-next.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-38
+models/alibaba/qwen3.5-122b-a10b.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+models/alibaba/qwen3.6-35b-a3b.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-54
+packages/modelparams/src/generated/data.ts
+  s_036e57b72f5518::t_e213cfd9c57011 247-426,479-530,646,699,706,759,766-1546
+packages/modelparams/src/generated/params-by-id.ts
+  s_036e57b72f5518::t_e213cfd9c57011 38-58,65-70,84-111,119-146,154-169,178-193
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_036e57b72f5518::t_e213cfd9c57011 11-13,15,18-21,23-26,28-29,31-32,289-291,293,296-299,301-304,306-307,309-310
+models/alibaba/qwen3.5-35b-a3b.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+models/alibaba/qwen3-30b-a3b-thinking-2507.yaml
+  s_036e57b72f5518::t_46a63e7d1268bb 1-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1422bff3bda5a3e8ed54f890aa17a050ae7ecb8f",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
