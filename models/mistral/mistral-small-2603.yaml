@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: mistral
 authType: api_key
-model: magistral-small-latest
+model: mistral-small-2603
 params:
   - path: max_tokens
     type: integer
@@ -61,13 +61,6 @@ params:
       max: 2
       step: 0.1
     group: sampling
-  - path: prompt_mode
-    type: enum
-    label: Prompt mode
-    description: Enables Mistral's reasoning system prompt; leave unset to disable the default reasoning behavior.
-    values:
-      - reasoning
-    group: reasoning
   - path: response_format.type
     type: enum
     label: Response format

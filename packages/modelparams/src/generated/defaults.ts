@@ -800,7 +800,21 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/ministral-14b-2512": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/ministral-14b-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/ministral-3b-2512": {
     top_p: 1,
     presence_penalty: 0,
     frequency_penalty: 0,
@@ -814,6 +828,13 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/ministral-8b-2512": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/ministral-8b-latest": {
     top_p: 1,
     presence_penalty: 0,
@@ -821,7 +842,21 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/mistral-large-2512": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/mistral-large-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/mistral-medium-3": {
     top_p: 1,
     presence_penalty: 0,
     frequency_penalty: 0,
@@ -836,6 +871,13 @@ export const DEFAULTS = {
     safe_prompt: false,
   },
   "mistral/mistral-medium-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/mistral-small-2603": {
     top_p: 1,
     presence_penalty: 0,
     frequency_penalty: 0,
