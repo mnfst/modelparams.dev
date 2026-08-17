@@ -433,6 +433,12 @@ export type ParamsById = {
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
   };
+  "anthropic/claude-sonnet-5-subscription": {
+    max_tokens: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
   "cerebras/zai-glm-4.7": {
     max_completion_tokens: number;
     temperature: number;

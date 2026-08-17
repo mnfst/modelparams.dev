@@ -81,6 +81,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "anthropic/claude-sonnet-4-6-subscription": anthropic.Claude_Sonnet_4_6_SubscriptionParams,
     "anthropic/claude-sonnet-4-subscription": anthropic.Claude_Sonnet_4_SubscriptionParams,
     "anthropic/claude-sonnet-5": anthropic.Claude_Sonnet_5Params,
+    "anthropic/claude-sonnet-5-subscription": anthropic.Claude_Sonnet_5_SubscriptionParams,
     "cerebras/zai-glm-4.7": cerebras.Zai_Glm_4_7Params,
     "cohere/command-a-03-2025": cohere.Command_A_03_2025Params,
     "cohere/command-a-plus-05-2026": cohere.Command_A_Plus_05_2026Params,
