@@ -182,6 +182,23 @@ Mistral_Large_LatestParams = TypedDict(
 )
 setattr(Mistral_Large_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Mistral_Medium_3Params = TypedDict(
+    "Mistral_Medium_3Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Medium_3Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Mistral_Medium_3_5Params = TypedDict(
     "Mistral_Medium_3_5Params",
     {
@@ -261,6 +278,7 @@ __all__ = [
     "Ministral_3b_LatestParams",
     "Ministral_8b_LatestParams",
     "Mistral_Large_LatestParams",
+    "Mistral_Medium_3Params",
     "Mistral_Medium_3_5Params",
     "Mistral_Medium_LatestParams",
     "Mistral_Small_LatestParams",
