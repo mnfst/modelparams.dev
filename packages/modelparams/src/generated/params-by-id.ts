@@ -409,7 +409,7 @@ export type ParamsById = {
     top_k: number;
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
-    "output_config.effort": "low" | "medium" | "high" | "max";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
   };
   "cerebras/zai-glm-4.7": {
     max_completion_tokens: number;

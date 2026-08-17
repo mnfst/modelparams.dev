@@ -5157,6 +5157,11 @@ export const CATALOG = [
             }
           ]
         },
+        "deprecated": {
+          "behavior": "default-only",
+          "since": "2026-08-17",
+          "note": "The API now rejects non-default values (\"`temperature` is deprecated for this model\"); only the default value 1 is accepted. Verified working 2026-07-11."
+        },
         "type": "number",
         "default": 1,
         "range": {
@@ -5184,6 +5189,11 @@ export const CATALOG = [
             }
           ]
         },
+        "deprecated": {
+          "behavior": "default-only",
+          "since": "2026-08-17",
+          "note": "The API now rejects non-default values (\"`top_p` is deprecated for this model\"); only the default value 1 is accepted. Verified working 2026-07-11."
+        },
         "type": "number",
         "default": 1,
         "range": {
@@ -5203,6 +5213,11 @@ export const CATALOG = [
               "adaptive"
             ]
           }
+        },
+        "deprecated": {
+          "behavior": "default-only",
+          "since": "2026-08-17",
+          "note": "The API now rejects non-default values (\"`top_k` is deprecated for this model\"); only the default value 0 is accepted. Verified working 2026-07-11."
         },
         "type": "integer",
         "default": 0,
@@ -5252,6 +5267,7 @@ export const CATALOG = [
           "low",
           "medium",
           "high",
+          "xhigh",
           "max"
         ]
       }
