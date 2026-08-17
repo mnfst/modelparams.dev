@@ -150,6 +150,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "mistral/mistral-large-latest": mistral.Mistral_Large_LatestParams,
     "mistral/mistral-medium-3.5": mistral.Mistral_Medium_3_5Params,
     "mistral/mistral-medium-latest": mistral.Mistral_Medium_LatestParams,
+    "mistral/mistral-small-2603": mistral.Mistral_Small_2603Params,
     "mistral/mistral-small-latest": mistral.Mistral_Small_LatestParams,
     "mistral/open-mistral-nemo": mistral.Open_Mistral_NemoParams,
     "moonshot/kimi-k2.5": moonshot.Kimi_K2_5Params,
