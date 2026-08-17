@@ -569,7 +569,7 @@ Claude_Sonnet_5Params = TypedDict(
         "top_k": Annotated[int, Field(ge=0)],
         "thinking.type": Literal["disabled", "adaptive"],
         "thinking.display": Literal["summarized", "omitted"],
-        "output_config.effort": Literal["low", "medium", "high", "max"],
+        "output_config.effort": Literal["low", "medium", "high", "xhigh", "max"],
     },
     total=False,
 )
