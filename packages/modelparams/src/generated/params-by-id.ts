@@ -1527,7 +1527,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6-luna": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-luna-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -1536,7 +1536,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6-sol": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-sol-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -1545,7 +1545,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6-terra": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-terra-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";

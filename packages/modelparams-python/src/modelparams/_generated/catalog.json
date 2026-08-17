@@ -15599,7 +15599,7 @@
         "type": "integer",
         "default": 4096,
         "range": {
-          "min": 16
+          "min": 1
         }
       },
       {
@@ -15613,7 +15613,8 @@
           "none",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
         ]
       }
     ]
@@ -15680,7 +15681,7 @@
         "type": "integer",
         "default": 4096,
         "range": {
-          "min": 16
+          "min": 1
         }
       },
       {
@@ -15694,7 +15695,8 @@
           "none",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
         ]
       }
     ]
@@ -15761,7 +15763,7 @@
         "type": "integer",
         "default": 4096,
         "range": {
-          "min": 16
+          "min": 1
         }
       },
       {
@@ -15775,7 +15777,8 @@
           "none",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
         ]
       }
     ]
