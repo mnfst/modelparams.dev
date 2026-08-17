@@ -99,6 +99,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "google/gemini-2.5-pro-subscription": google.Gemini_2_5_Pro_SubscriptionParams,
     "google/gemini-3-flash-preview-subscription": google.Gemini_3_Flash_Preview_SubscriptionParams,
     "google/gemini-3.1-flash-lite": google.Gemini_3_1_Flash_LiteParams,
+    "google/gemini-3.1-flash-lite-preview": google.Gemini_3_1_Flash_Lite_PreviewParams,
     "google/gemini-3.1-flash-lite-preview-subscription": google.Gemini_3_1_Flash_Lite_Preview_SubscriptionParams,
     "google/gemini-3.1-flash-lite-subscription": google.Gemini_3_1_Flash_Lite_SubscriptionParams,
     "google/gemini-3.1-pro-preview-subscription": google.Gemini_3_1_Pro_Preview_SubscriptionParams,
