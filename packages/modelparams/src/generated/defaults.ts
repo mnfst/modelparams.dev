@@ -21,7 +21,22 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen3-235b-a22b-thinking-2507": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-30b-a3b-instruct-2507": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-30b-a3b-thinking-2507": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
   "alibaba/qwen3-coder-flash": {
+    "extra_body.top_k": 20,
+  },
+  "alibaba/qwen3-coder-next": {
     "extra_body.top_k": 20,
   },
   "alibaba/qwen3-coder-plus": {
@@ -31,7 +46,39 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
   },
+  "alibaba/qwen3-next-80b-a3b-instruct": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-next-80b-a3b-thinking": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-vl-235b-a22b-instruct": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-vl-235b-a22b-thinking": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
   "alibaba/qwen3.5": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-122b-a10b": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-27b": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-35b-a3b": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-397b-a17b": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
@@ -39,7 +86,23 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen3.6-27b": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen3.6-35b-a3b": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwen3.6-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen3.6-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen3.7-flash": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
