@@ -15717,7 +15717,7 @@ export const CATALOG = [
         "type": "integer",
         "default": 4096,
         "range": {
-          "min": 16
+          "min": 1
         }
       },
       {
@@ -15731,7 +15731,8 @@ export const CATALOG = [
           "none",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
         ]
       }
     ]

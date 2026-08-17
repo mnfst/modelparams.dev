@@ -1536,7 +1536,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-luna": {
     max_completion_tokens: number;
