@@ -1125,6 +1125,18 @@ export type ParamsById = {
     reasoning_format: "hidden" | "raw" | "parsed";
     "response_format.type": "text" | "json_object";
   };
+  "groq/qwen3.6-27b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
+  };
   "meta/Llama-3.3-70B-Instruct": {
     max_completion_tokens: number;
     temperature: number;

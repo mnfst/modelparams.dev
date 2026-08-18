@@ -159,6 +159,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "groq/gpt-oss-120b": groq.Gpt_Oss_120bParams,
     "groq/gpt-oss-20b": groq.Gpt_Oss_20bParams,
     "groq/qwen3-32b": groq.Qwen3_32bParams,
+    "groq/qwen3.6-27b": groq.Qwen3_6_27bParams,
     "meta/Llama-3.3-70B-Instruct": meta.Llama_3_3_70b_InstructParams,
     "meta/Llama-3.3-8B-Instruct": meta.Llama_3_3_8b_InstructParams,
     "meta/Llama-4-Maverick-17B-128E-Instruct-FP8": meta.Llama_4_Maverick_17b_128e_Instruct_Fp8Params,
