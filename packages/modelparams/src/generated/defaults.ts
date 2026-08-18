@@ -605,6 +605,7 @@ export const DEFAULTS = {
   "fireworks/kimi-k3": {},
   "fireworks/minimax-m2p7": {},
   "fireworks/muse-glimmer-30b": {},
+  "fireworks/qwen3p8-2p4t-a95b": {},
   "google/gemini-2.5-flash": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
