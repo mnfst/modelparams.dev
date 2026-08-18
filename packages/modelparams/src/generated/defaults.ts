@@ -816,6 +816,14 @@ export const DEFAULTS = {
     reasoning_effort: "default",
     "response_format.type": "text",
   },
+  "groq/gpt-oss-safeguard-20b": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    reasoning_effort: "default",
+    "response_format.type": "text",
+  },
   "groq/qwen3-32b": {
     temperature: 1,
     top_p: 1,

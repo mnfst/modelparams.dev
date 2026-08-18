@@ -165,6 +165,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "google/gemma-4-E4B-it": google.Gemma_4_E4b_ItParams,
     "groq/gpt-oss-120b": groq.Gpt_Oss_120bParams,
     "groq/gpt-oss-20b": groq.Gpt_Oss_20bParams,
+    "groq/gpt-oss-safeguard-20b": groq.Gpt_Oss_Safeguard_20bParams,
     "groq/qwen3-32b": groq.Qwen3_32bParams,
     "groq/qwen3.6-27b": groq.Qwen3_6_27bParams,
     "meta/Llama-3.3-70B-Instruct": meta.Llama_3_3_70b_InstructParams,
