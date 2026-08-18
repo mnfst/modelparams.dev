@@ -194,6 +194,7 @@ Everything the catalog ships beyond the static site:
   so run `npm run codegen --workspace=modelparams` after changing the catalog.
 - `packages/modelparams-mcp/` — the MCP server. Ships in lockstep with `modelparams`
   and pins it exactly.
+- `skills/` — agent skills, installable with `npx skills add mnfst/modelparams.dev`.
 
 Conventions:
 
