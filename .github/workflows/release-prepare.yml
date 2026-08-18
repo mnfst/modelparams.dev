@@ -144,15 +144,23 @@ jobs:
           TITLE: ${{ steps.prepare.outputs.title }}
           BODY_FILE: ${{ runner.temp }}/release-pr-body.md
         run: |
-          existing=$(gh pr list --head "$RELEASE_BRANCH" --base main --state open --json number --jq '.[0].number')
+          # REST only — no gh pr subcommands. Those go through GraphQL, which
+          # rejects classic tokens without read:org on org repos ("the 'login'
+          # field requires ['read:org']"); the REST pulls API needs just repo,
+          # so this works with RELEASE_PAT and App tokens alike.
+          existing=$(gh api "repos/${GITHUB_REPOSITORY}/pulls?state=open&base=main&head=${GITHUB_REPOSITORY_OWNER}:${RELEASE_BRANCH}" \
+            --jq '.[0].number')
           if [ -n "$existing" ]; then
-            gh pr edit "$existing" --title "$TITLE" --body-file "$BODY_FILE"
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/pulls/${existing}" \
+              -f title="$TITLE" -f body="$(cat "$BODY_FILE")" --silent
             echo "::notice::Updated release PR #${existing}: ${TITLE}"
           else
-            gh pr create --head "$RELEASE_BRANCH" --base main \
-              --title "$TITLE" --body-file "$BODY_FILE"
+            number=$(gh api -X POST "repos/${GITHUB_REPOSITORY}/pulls" \
+              -f title="$TITLE" -f head="$RELEASE_BRANCH" -f base=main \
+              -f body="$(cat "$BODY_FILE")" --jq '.number')
             # Best-effort: the label is created by label-sync.yml, which may not
             # have run yet the very first time this workflow fires.
-            gh pr edit "$RELEASE_BRANCH" --add-label release || true
-            echo "::notice::Opened release PR: ${TITLE}"
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/issues/${number}/labels" \
+              -f "labels[]=release" --silent || true
+            echo "::notice::Opened release PR #${number}: ${TITLE}"
           fi
