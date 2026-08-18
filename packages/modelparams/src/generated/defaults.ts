@@ -598,6 +598,7 @@ export const DEFAULTS = {
     reasoning_effort: "high",
   },
   "fireworks/deepseek-v4-flash-0731": {},
+  "fireworks/deepseek-v4-pro-0813": {},
   "fireworks/kimi-k3": {},
   "google/gemini-2.5-flash": {
     "generationConfig.temperature": 1,
