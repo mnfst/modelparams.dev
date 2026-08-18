@@ -10,18 +10,20 @@ import { DESCRIPTION_MAX, fitDescription, sampleList } from "./meta.js";
 import { hubLinks, renderShell, viewHelpers } from "./render.js";
 
 export function providerPageTitle(provider: string): string {
-  return `${providerLabel(provider)} model parameters · ${SITE_NAME}`;
+  return `${providerLabel(provider)} API parameters · ${SITE_NAME}`;
 }
 
 const PARAM_TAIL = ". Type, default, range, and gating conditions for each.";
 
 export function providerPageDescription(provider: string, models: Model[]): string {
   const count = `${models.length} ${providerLabel(provider)} model${models.length === 1 ? "" : "s"}`;
-  const head = `Parameters for ${count}`;
+  const head = `API parameters for ${count}`;
   const sample = sampleList(
     sampleParams(models),
     DESCRIPTION_MAX - head.length - PARAM_TAIL.length - 2,
   );
+  // Every candidate keeps "API parameters" via `head`; none may fall back to a
+  // bare "Parameters for …", which reads as weight count.
   return fitDescription([
     `${head}: ${sample}${PARAM_TAIL}`,
     `${head}${PARAM_TAIL}`,
@@ -39,7 +41,7 @@ function sampleParams(models: Model[]): string[] {
 
 export function providerIntro(provider: string, models: Model[]): string {
   const count = `${models.length} ${providerLabel(provider)} model${models.length === 1 ? "" : "s"}`;
-  return `${SITE_NAME} tracks parameters for ${count}. Open a model to see its full set: the type, default, valid range or values, and the conditions that gate each parameter.`;
+  return `${SITE_NAME} tracks API parameters for ${count}. Open a model to see its full set: the type, default, valid range or values, and the conditions that gate each parameter.`;
 }
 
 export async function renderProviderPage(

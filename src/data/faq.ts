@@ -2,6 +2,12 @@
 // back both the visible Q&A section and the FAQPage JSON-LD without duplicating
 // logic. The questions mirror real long-tail queries ("what is the default
 // temperature for <model>") and every answer is derived from the tracked data.
+//
+// No question here asks "how many parameters does <model> have". That phrasing
+// belongs to the other sense of the word — weight count — and search engines
+// read an FAQPage question as a strong claim about what the page answers. The
+// disambiguation lives on /model-parameters-vs-api-parameters instead, so one
+// page absorbs that intent rather than all 200+ model pages competing for it.
 
 import { modelFullLabel } from "./display.js";
 import type { Model, Parameter } from "../schema/model.js";
@@ -39,10 +45,12 @@ export function modelFaq(model: Model): ModelFaq[] {
   const paths = model.params.map((param) => param.path);
   const faqs: ModelFaq[] = [
     {
-      question: `How many parameters does ${subject} accept?`,
+      question: `Which API parameters does ${subject} support?`,
       answer: `${subject} accepts ${model.params.length} API parameter${
         model.params.length === 1 ? "" : "s"
-      }: ${paths.slice(0, 6).join(", ")}${paths.length > 6 ? ", and more" : ""}.`,
+      } in the request body: ${paths.slice(0, 6).join(", ")}${
+        paths.length > 6 ? ", and more" : ""
+      }.`,
     },
   ];
   const byPath = new Map(model.params.map((param) => [param.path, param]));

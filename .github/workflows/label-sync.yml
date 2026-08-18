@@ -35,3 +35,4 @@ jobs:
           sync "site"               "c5def5" "Website code or tooling"
           sync "meta"               "ededed" "Repo docs, CI, and config"
           sync "allow-param-removal" "fbca04" "Maintainer override: allow a parameter removal"
+          sync "release"            "0052cc" "Batched release PR — merging it publishes"

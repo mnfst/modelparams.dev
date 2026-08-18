@@ -76,6 +76,7 @@ export function validateModelParams(input: {
     model: resolved.id,
     provider: entry.provider,
     authType: entry.authType,
+    ...("requestModel" in entry ? { requestModel: entry.requestModel } : {}),
     valid: dropped.length === 0,
     summary:
       dropped.length === 0
@@ -103,6 +104,7 @@ export function getModelParams(input: { model: string }): ToolPayload {
     model: resolved.id,
     provider: entry.provider,
     authType: entry.authType,
+    ...("requestModel" in entry ? { requestModel: entry.requestModel } : {}),
     parameterCount: params.length,
     params: params.map(describeParam),
     defaults: getDefaults(resolved.id),

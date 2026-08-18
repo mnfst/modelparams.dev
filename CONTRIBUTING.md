@@ -65,9 +65,13 @@ You don't need to know the schema to file one. A link to the official docs is th
    npm install
    npm run validate
    npm test
+   npm run codegen --workspace=modelparams
+   npm run codegen:python
    ```
 
-   CI will run the same checks.
+   The two codegen commands regenerate the npm and Python package catalogs
+   from the model YAML — commit those changes along with yours. CI fails the
+   PR if the committed generated files are out of sync.
 
 ## Example
 
@@ -152,8 +156,9 @@ that setting and breaks their setup.
 
 CI enforces this. The `Param guard` workflow (`npm run guard:params`) compares your
 PR against `main` and **fails if any parameter `path` that exists on a model is gone**
-— this includes renaming a `path` (the old name counts as removed). You can run the
-same check locally before opening a PR:
+— this includes renaming a `path` (the old name counts as removed). The comparison
+runs against the merge base, so parameters `main` gained after you branched are not
+counted against you. You can run the same check locally before opening a PR:
 
 ```bash
 npm run guard:params            # compares against origin/main
@@ -207,3 +212,30 @@ The PR description starts from a template with a short "type of change" checklis
 - Make sure CI is green before requesting review.
 - A bot labels your PR by the files it touches (`model`, `provider`, `site`, `meta`). Nothing for you to do.
 - For a new provider, link the official docs and add a logo at `src/client/logos/<slug>.svg`. Without one, the site shows a generic mark.
+
+## Releases
+
+Merging your PR does **not** publish a package. Releases are batched: every merge
+to `main` runs `Prepare release`, which recomputes what the next version would be
+given everything unreleased, and force-pushes a single open PR titled
+`chore: release modelparams@x.y.z`. A day of merged model PRs collects into that
+one PR instead of a version per merge.
+
+Merging the release PR is what publishes — it lands the version bump in
+`packages/modelparams/package.json` and `packages/modelparams-python/pyproject.toml`,
+and the two release workflows publish the version they find committed there.
+
+The bump level is derived from the catalog, not declared by hand:
+
+- a parameter removed from a model that still exists → **major**
+- any other catalog change → **patch**
+- nothing semantic changed → no release PR
+
+Each release PR carries a generated changelog of the models added, models removed,
+and parameters added, removed, or edited since the last release, which is also
+written to each package's `CHANGELOG.md` and used as the GitHub release body.
+
+Maintainers can run `Prepare release` manually from the Actions tab (with an
+optional forced bump level), and can re-run a release workflow via
+`workflow_dispatch` to republish the version `main` already declares — useful
+when a publish step fails partway.

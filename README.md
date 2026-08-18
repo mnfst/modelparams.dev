@@ -5,13 +5,13 @@
 
 # modelparams.dev
 
-> An open, community-maintained catalog of model parameters.
+> An open, community-maintained catalog of LLM API parameters.
 
 [![npm version](https://img.shields.io/npm/v/modelparams.svg)](https://www.npmjs.com/package/modelparams)
 [![npm downloads](https://img.shields.io/npm/dm/modelparams.svg)](https://www.npmjs.com/package/modelparams)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Every parameter each AI model accepts, in one place. Inspired by [models.dev](https://github.com/anomalyco/models.dev); we use it at [Manifest](https://manifest.build/).
+Every API parameter each AI model accepts, in one place: `temperature`, `top_p`, `max_tokens` and the rest of the request body, with defaults, ranges and gating conditions. Not weight counts — see [model parameters vs. API parameters](https://modelparams.dev/model-parameters-vs-api-parameters). Inspired by [models.dev](https://github.com/anomalyco/models.dev); we use it at [Manifest](https://manifest.build/).
 
 ## TypeScript
 
@@ -35,6 +35,26 @@ await new OpenAI().chat.completions.create({ model: "gpt-4.1", messages, ...para
 ```
 
 Defaults, runtime validation, and the helper APIs are in the [package README](packages/modelparams/README.md).
+
+## Python
+
+```bash
+pip install modelparams
+```
+
+Generated `TypedDict` definitions provide model-specific autocomplete and static checking, while
+Pydantic validates untrusted values at runtime:
+
+```python
+from modelparams import validate_params
+from modelparams.types.openai import Gpt_4_1Params
+
+params: Gpt_4_1Params = {"max_tokens": 1024, "temperature": 0.7}
+validated = validate_params("openai/gpt-4.1", params)
+```
+
+Defaults, catalog helpers, and validation details are in the
+[Python package README](packages/modelparams-python/README.md).
 
 ## API
 
@@ -92,7 +112,8 @@ npm run dev          # http://localhost:3000
 npm run build        # → dist/
 npm run validate     # check every YAML
 npm test             # site tests, including the /api/v1/validate function
-npm test --workspaces # + both published packages
+npm test --workspaces # + every published package
+npm run codegen:python # regenerate the Python package catalog and types
 ```
 
 ## License
