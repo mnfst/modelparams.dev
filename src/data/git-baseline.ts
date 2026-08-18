@@ -26,6 +26,25 @@ export function refExists(ref: string): boolean {
 }
 
 /**
+ * Return the commit `ref` and `HEAD` share, or null when git cannot find one
+ * (unrelated histories, or a clone shallow enough to hide it).
+ *
+ * On a pull request the checkout is GitHub's `refs/pull/N/merge` commit, which
+ * is only recomputed when the PR or its base is pushed to. A re-run — or a
+ * `labeled` event — therefore compares a merge built against an older base with
+ * a freshly fetched base tip, and every parameter the base gained in between
+ * reads as a removal. The merge base is the commit the tree in hand was
+ * actually built on, so both sides of the diff come from the same snapshot.
+ */
+export function mergeBase(ref: string): string | null {
+  try {
+    return git(["merge-base", ref, "HEAD"]).trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Materialize the `models/` tree at `ref` into a temp dir and load it. Returns
  * an empty array when `ref` has no catalog (e.g. before the catalog existed).
  */

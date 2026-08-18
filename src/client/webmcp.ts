@@ -212,7 +212,8 @@ function buildTools(): ToolDefinition[] {
       description:
         "Fetch the full parameter set for one model by id (e.g. anthropic/claude-opus-4-7, " +
         "or append -subscription for the subscription variant). Returns every parameter with " +
-        "type, default, range, allowed values, and applicability conditions.",
+        "type, default, range, allowed values, applicability conditions, and deprecation " +
+        "status (a `deprecated` entry means the provider no longer honors the param).",
       inputSchema: {
         type: "object",
         properties: {

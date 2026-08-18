@@ -1,5 +1,5 @@
 import { loadAllModels } from "./load.js";
-import { loadModelsAtRef, refExists } from "./git-baseline.js";
+import { loadModelsAtRef, mergeBase, refExists } from "./git-baseline.js";
 import { findRemovedParams, type ParamRemoval } from "./removals.js";
 
 const OVERRIDE_LABEL = "allow-param-removal";
@@ -12,14 +12,30 @@ function argBase(): string | undefined {
   return undefined;
 }
 
-/** Resolve the base ref to diff against, trying the most specific source first. */
-function resolveBaseRef(): string | null {
+interface Baseline {
+  /** Commit the current catalog is compared against. */
+  commit: string;
+  /** How to name that commit in output. */
+  label: string;
+}
+
+/**
+ * Resolve the baseline to diff against, trying the most specific source first.
+ *
+ * The catalog is compared against the merge base rather than the tip of the
+ * base branch: the tip may have moved on since this checkout was built, and
+ * anything it gained in the meantime is not something this change removed.
+ */
+function resolveBaseline(): Baseline | null {
   const githubBase = process.env.GITHUB_BASE_REF
     ? `origin/${process.env.GITHUB_BASE_REF}`
     : undefined;
   const candidates = [argBase(), process.env.BASE_REF, githubBase, "origin/main", "main"];
   for (const ref of candidates) {
-    if (ref && refExists(ref)) return ref;
+    if (!ref || !refExists(ref)) continue;
+    const base = mergeBase(ref);
+    if (!base) return { commit: ref, label: ref };
+    return { commit: base, label: `${ref} (merge base ${base.slice(0, 7)})` };
   }
   return null;
 }
@@ -46,24 +62,24 @@ function reportRemovals(removals: ParamRemoval[], baseRef: string): void {
 }
 
 async function main(): Promise<void> {
-  const baseRef = resolveBaseRef();
-  if (!baseRef) {
+  const baseline = resolveBaseline();
+  if (!baseline) {
     console.log("No base ref available to compare against — skipping removal guard.");
     return;
   }
 
   const [{ models: current }, base] = await Promise.all([
     loadAllModels(),
-    loadModelsAtRef(baseRef),
+    loadModelsAtRef(baseline.commit),
   ]);
 
   const removals = findRemovedParams(base, current);
   if (removals.length === 0) {
-    console.log(`OK — no parameters removed vs ${baseRef}.`);
+    console.log(`OK — no parameters removed vs ${baseline.label}.`);
     return;
   }
 
-  reportRemovals(removals, baseRef);
+  reportRemovals(removals, baseline.label);
   process.exit(1);
 }
 

@@ -23,6 +23,14 @@ export const GLOSSARY_PATH = "/glossary";
 export const API_PATH = "/api";
 
 /**
+ * The page that separates the two meanings of "model parameters": weight count
+ * versus the request settings this catalog documents. Every other page links
+ * here rather than restating the distinction, so search engines have one target
+ * for weight-count queries instead of matching them against every model page.
+ */
+export const DISAMBIGUATION_PATH = "/model-parameters-vs-api-parameters";
+
+/**
  * URL-safe slug for a parameter path: lowercased, with nested-path dots turned into
  * hyphens, e.g. `thinking.type` → `thinking-type`. Underscores are kept so that
  * `top_p` stays `top_p` and a dotted path never collides with its snake_case twin
