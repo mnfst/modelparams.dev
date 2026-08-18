@@ -10,6 +10,34 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Deepseek_V3_2Params = TypedDict(
+    "Deepseek_V3_2Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Deepseek_V3_2Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Deepseek_V4_FlashParams = TypedDict(
+    "Deepseek_V4_FlashParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Deepseek_V4_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Deepseek_V4_Flash_0731Params = TypedDict(
     "Deepseek_V4_Flash_0731Params",
     {
@@ -51,6 +79,34 @@ Deepseek_V4_Pro_0813Params = TypedDict(
     total=False,
 )
 setattr(Deepseek_V4_Pro_0813Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Glm_5_1Params = TypedDict(
+    "Glm_5_1Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Glm_5_1Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Kimi_K2_7_CodeParams = TypedDict(
+    "Kimi_K2_7_CodeParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Kimi_K2_7_CodeParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Qwen_FlashParams = TypedDict(
     "Qwen_FlashParams",
@@ -461,9 +517,13 @@ Qwq_PlusParams = TypedDict(
 setattr(Qwq_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
+    "Deepseek_V3_2Params",
+    "Deepseek_V4_FlashParams",
     "Deepseek_V4_Flash_0731Params",
     "Deepseek_V4_ProParams",
     "Deepseek_V4_Pro_0813Params",
+    "Glm_5_1Params",
+    "Kimi_K2_7_CodeParams",
     "Qwen_FlashParams",
     "Qwen_MaxParams",
     "Qwen_PlusParams",

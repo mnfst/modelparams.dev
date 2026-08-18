@@ -4,9 +4,13 @@
 from typing import Literal
 
 ModelId = Literal[
+    "alibaba/deepseek-v3.2",
+    "alibaba/deepseek-v4-flash",
     "alibaba/deepseek-v4-flash-0731",
     "alibaba/deepseek-v4-pro",
     "alibaba/deepseek-v4-pro-0813",
+    "alibaba/glm-5.1",
+    "alibaba/kimi-k2.7-code",
     "alibaba/qwen-flash",
     "alibaba/qwen-max",
     "alibaba/qwen-plus",
@@ -291,9 +295,13 @@ ModelId = Literal[
 ]
 
 MODEL_IDS: tuple[ModelId, ...] = (
+    "alibaba/deepseek-v3.2",
+    "alibaba/deepseek-v4-flash",
     "alibaba/deepseek-v4-flash-0731",
     "alibaba/deepseek-v4-pro",
     "alibaba/deepseek-v4-pro-0813",
+    "alibaba/glm-5.1",
+    "alibaba/kimi-k2.7-code",
     "alibaba/qwen-flash",
     "alibaba/qwen-max",
     "alibaba/qwen-plus",

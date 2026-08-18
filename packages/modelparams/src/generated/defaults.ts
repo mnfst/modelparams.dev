@@ -5,6 +5,14 @@ import type { ModelId } from "./model-ids.js";
 import type { ParamsById } from "./params-by-id.js";
 
 export const DEFAULTS = {
+  "alibaba/deepseek-v3.2": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/deepseek-v4-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/deepseek-v4-flash-0731": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
@@ -14,6 +22,14 @@ export const DEFAULTS = {
     "extra_body.enable_thinking": true,
   },
   "alibaba/deepseek-v4-pro-0813": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/glm-5.1": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/kimi-k2.7-code": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
