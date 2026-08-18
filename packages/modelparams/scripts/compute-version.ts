@@ -15,6 +15,12 @@ function resolveBaseRef(): string | null {
   const candidates = [
     process.env.BASE_REF,
     process.env.GITHUB_BASE_REF ? `origin/${process.env.GITHUB_BASE_REF}` : undefined,
+    // The last published release, not the previous commit: releases are
+    // batched, so a single run has to classify every catalog change that
+    // accumulated on main since the version consumers currently install.
+    // Diffing `HEAD~1` would only ever see the newest merge and would miss a
+    // param removal that landed earlier in the same batch.
+    readLatestTag(),
     "HEAD~1",
     "origin/main",
     "main",
@@ -53,6 +59,12 @@ function readLatestTagVersion(): string | null {
     .filter((v) => /^\d+\.\d+\.\d+$/.test(v))
     .sort((a, b) => versionKey(b) - versionKey(a));
   return versions[0] ?? null;
+}
+
+/** The `modelparams@x.y.z` tag of the latest release. null if none. */
+function readLatestTag(): string | null {
+  const version = readLatestTagVersion();
+  return version === null ? null : `${TAG_PREFIX}${version}`;
 }
 
 function readForcedLevel(): BumpLevel | null {
