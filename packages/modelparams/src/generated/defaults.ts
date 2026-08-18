@@ -598,6 +598,7 @@ export const DEFAULTS = {
     reasoning_effort: "high",
   },
   "fireworks/deepseek-v4-flash-0731": {},
+  "fireworks/deepseek-v4-pro": {},
   "fireworks/deepseek-v4-pro-0813": {},
   "fireworks/gpt-oss-120b": {},
   "fireworks/inkling": {},

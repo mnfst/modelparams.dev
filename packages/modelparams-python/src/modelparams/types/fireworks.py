@@ -25,6 +25,21 @@ Deepseek_V4_Flash_0731Params = TypedDict(
 )
 setattr(Deepseek_V4_Flash_0731Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Deepseek_V4_ProParams = TypedDict(
+    "Deepseek_V4_ProParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Deepseek_V4_ProParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Deepseek_V4_Pro_0813Params = TypedDict(
     "Deepseek_V4_Pro_0813Params",
     {
@@ -147,6 +162,7 @@ setattr(Qwen3p8_2p4t_A95bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
     "Deepseek_V4_Flash_0731Params",
+    "Deepseek_V4_ProParams",
     "Deepseek_V4_Pro_0813Params",
     "Gpt_Oss_120bParams",
     "InklingParams",
