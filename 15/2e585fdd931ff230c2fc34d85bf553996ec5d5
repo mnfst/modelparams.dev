@@ -1,0 +1,37 @@
+packages/modelparams/src/generated/data.ts
+  s_036e57b72f5518::t_f5551fc52311e5 5439,5447,5449,5452-5454,5458-5459,5461,5467,5472-5500
+  s_036e57b72f5518::t_72d16ec1595549 5437-5438,5440-5446,5448,5450-5451,5455-5457,5460,5462-5466,5468-5471
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_036e57b72f5518::t_f5551fc52311e5 63,325
+packages/modelparams/src/generated/params-by-id.ts
+  s_036e57b72f5518::t_f5551fc52311e5 436-441
+packages/modelparams/src/generated/defaults.ts
+  s_036e57b72f5518::t_f5551fc52311e5 382-387
+models/anthropic/claude-sonnet-5-subscription.yaml
+  s_036e57b72f5518::t_f5551fc52311e5 1-47
+packages/modelparams/src/generated/model-ids.ts
+  s_036e57b72f5518::t_f5551fc52311e5 61
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_f5551fc52311e5 5453-5454,5456,5462,5467-5516
+  s_036e57b72f5518::t_153fd36813260b 5455,5457-5461,5463-5466
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_036e57b72f5518::t_f5551fc52311e5 84
+packages/modelparams-python/src/modelparams/types/anthropic.py
+  s_036e57b72f5518::t_f5551fc52311e5 578-589,632
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "152e585fdd931ff230c2fc34d85bf553996ec5d5",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  h_4314c622e2d856 7937-8032
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  h_4314c622e2d856 85,337
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  h_4314c622e2d856 106
+packages/modelparams-python/src/modelparams/types/google.py
+  h_4314c622e2d856 205-220,392
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0b07047b6ccf92f2cdd7e632b45b7251cb27e54a",
+  "prompts": {},
+  "humans": {
+    "h_4314c622e2d856": {
+      "author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
