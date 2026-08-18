@@ -601,6 +601,7 @@ export const DEFAULTS = {
   "fireworks/deepseek-v4-pro-0813": {},
   "fireworks/gpt-oss-120b": {},
   "fireworks/inkling": {},
+  "fireworks/kimi-k2p7-code": {},
   "fireworks/kimi-k3": {},
   "google/gemini-2.5-flash": {
     "generationConfig.temperature": 1,
