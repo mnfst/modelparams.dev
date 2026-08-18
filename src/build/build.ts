@@ -21,6 +21,7 @@ import { SITE_URL } from "../data/site.js";
 import { buildRobotsTxt } from "../data/robots.js";
 import {
   API_PATH,
+  DISAMBIGUATION_PATH,
   GLOSSARY_PATH,
   modelPagePath,
   parameterPagePath,
@@ -32,6 +33,7 @@ import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js
 import { gitLastmodMap, modelLastmod, newestLastmod } from "./lastmod.js";
 import { renderIndex } from "./render.js";
 import { renderApiPage } from "./render-api.js";
+import { renderDisambiguationPage } from "./render-disambiguation.js";
 import { renderGlossaryPage } from "./render-glossary.js";
 import { renderModelPage } from "./render-model.js";
 import { defaultSummary,renderParameterPage, rangeSummary } from "./render-parameter.js";
@@ -75,6 +77,7 @@ async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
   const entries: { path: string; priority: string; lastmod: string }[] = [
     { path: "/", priority: "1.0", lastmod: freshest(models) },
     { path: GLOSSARY_PATH, priority: "0.7", lastmod: freshest(models) },
+    { path: DISAMBIGUATION_PATH, priority: "0.6", lastmod: freshest(models) },
     { path: API_PATH, priority: "0.5", lastmod: freshest(models) },
     ...uniqueProviders(models).map((provider) => ({
       path: providerPagePath(provider),
@@ -123,6 +126,11 @@ async function writeHtmlPages(models: Model[]): Promise<void> {
   }
 
   await fs.writeFile(path.join(DIST_DIR, "glossary.html"), await renderGlossaryPage(models), "utf8");
+  await fs.writeFile(
+    path.join(DIST_DIR, `${DISAMBIGUATION_PATH.replace(/^\//, "")}.html`),
+    await renderDisambiguationPage(models),
+    "utf8",
+  );
   await fs.writeFile(path.join(DIST_DIR, "api.html"), await renderApiPage(models), "utf8");
   await fs.writeFile(path.join(DIST_DIR, "404.html"), await renderNotFoundPage(models), "utf8");
 }

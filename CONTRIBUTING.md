@@ -58,9 +58,13 @@ You don't need to know the schema to file one. A link to the official docs is th
    npm install
    npm run validate
    npm test
+   npm run codegen --workspace=modelparams
+   npm run codegen:python
    ```
 
-   CI will run the same checks.
+   The two codegen commands regenerate the npm and Python package catalogs
+   from the model YAML — commit those changes along with yours. CI fails the
+   PR if the committed generated files are out of sync.
 
 ## Example
 

@@ -10,8 +10,10 @@ import { renderModelPage } from "../build/render-model.js";
 import { renderParameterPage } from "../build/render-parameter.js";
 import { renderProviderPage } from "../build/render-provider.js";
 import { renderGlossaryPage } from "../build/render-glossary.js";
+import { renderDisambiguationPage } from "../build/render-disambiguation.js";
 import { renderApiPage } from "../build/render-api.js";
 import { SITE_URL } from "../data/site.js";
+import { DISAMBIGUATION_PATH } from "../data/urls.js";
 import { modelId, type Model } from "../schema/model.js";
 
 /**
@@ -66,6 +68,16 @@ export function makeApp(loadModels: LoadModels): express.Express {
       const models = await loadModels();
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(await renderGlossaryPage(models));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get(DISAMBIGUATION_PATH, async (_req, res, next) => {
+    try {
+      const models = await loadModels();
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderDisambiguationPage(models));
     } catch (err) {
       next(err);
     }

@@ -1,10 +1,11 @@
 <section class="hero-cover -mt-[1px]">
   <div class="mx-auto max-w-6xl px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20 lg:px-8 lg:pb-32 lg:pt-24">
     <h1 class="text-balance font-bold tracking-tight" style="font-size:4.5rem;line-height:1.05">
-      Every parameter,<br />for every model.
+      Every API parameter,<br />for every model.
     </h1>
     <p class="mt-4 max-w-2xl text-pretty text-base text-slate-600 dark:text-slate-400 sm:text-lg">
-      An open, community-maintained catalog of model parameters.
+      An open, community-maintained catalog of LLM API parameters — temperature, top_p,
+      max_tokens and the rest of the request body.
       Browse the UI below, query the API, or install the npm package.
     </p>
 
@@ -269,13 +270,14 @@
 </section>
 
 <% if (capabilities.length > 0) { %>
-<section class="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800" aria-label="Browse by parameter">
+<section class="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800" aria-label="Browse by API parameter">
   <div class="flex items-baseline justify-between gap-3">
-    <h2 class="text-slate-900 dark:text-slate-100">Browse by parameter</h2>
-    <a href="/glossary" class="shrink-0 text-sm font-medium text-accent hover:text-accent-hover">All parameters →</a>
+    <h2 class="text-slate-900 dark:text-slate-100">Browse by API parameter</h2>
+    <a href="/glossary" class="shrink-0 text-sm font-medium text-accent hover:text-accent-hover">All API parameters →</a>
   </div>
   <p class="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300">
     Open any parameter to see its default, range, and every model that accepts it.
+    Counting weights instead? <a href="/model-parameters-vs-api-parameters" class="text-accent hover:text-accent-hover">That's a different thing</a>.
   </p>
   <div class="mt-4 flex flex-wrap gap-2">
     <% for (const cap of capabilities) { %>

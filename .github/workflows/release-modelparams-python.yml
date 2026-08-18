@@ -1,0 +1,146 @@
+name: Release modelparams Python
+
+# Publishes the `modelparams` PyPI package when the catalog or the Python
+# package changes on main. Like the npm release, the workflow regenerates the
+# catalog and types in CI and publishes from that fresh output, so a merge that
+# forgot `npm run codegen:python` still releases correctly — the committed
+# files only get a warning here. The hard in-sync check lives in ci.yml, where
+# it flags the PR for the contributor to fix.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "models/**"
+      - "packages/modelparams-python/**"
+      - "src/schema/model.ts"
+      - "src/data/load.ts"
+      - ".github/workflows/release-modelparams-python.yml"
+  workflow_dispatch:
+    inputs:
+      force_level:
+        description: "Force bump level (overrides auto-detect)"
+        required: false
+        type: choice
+        options: ["auto", "patch", "major"]
+        default: "auto"
+
+concurrency:
+  group: release-modelparams-python
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build distributions
+    runs-on: ubuntu-latest
+    outputs:
+      next: ${{ steps.bump.outputs.next }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Validate catalog
+        run: npm run validate
+
+      - name: Generate Python catalog and types
+        run: npm run codegen:python
+
+      - name: Warn if committed generated files are stale
+        run: |
+          if [[ -n "$(git status --porcelain -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types)" ]]; then
+            echo "::warning::Committed Python generated files are stale; publishing from freshly generated output. Run \`npm run codegen:python\` and commit the result to resync the repo."
+            git status --short -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types
+          fi
+
+      - name: Compute next version
+        id: bump
+        run: npx tsx packages/modelparams-python/scripts/compute-version.ts
+        env:
+          FORCE_LEVEL: ${{ inputs.force_level }}
+
+      - name: Set up Python
+        if: steps.bump.outputs.next != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        if: steps.bump.outputs.next != ''
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install, test, and build
+        if: steps.bump.outputs.next != ''
+        env:
+          NEXT: ${{ steps.bump.outputs.next }}
+        run: |
+          uv sync --project packages/modelparams-python --extra dev --locked
+          uv version --project packages/modelparams-python "$NEXT"
+          uv run --project packages/modelparams-python ruff check packages/modelparams-python
+          uv run --project packages/modelparams-python ruff format --check packages/modelparams-python/src packages/modelparams-python/tests
+          uv run --project packages/modelparams-python pytest packages/modelparams-python/tests
+          uv run --project packages/modelparams-python mypy --config-file packages/modelparams-python/pyproject.toml packages/modelparams-python/src/modelparams packages/modelparams-python/tests/typecheck
+          uv build --project packages/modelparams-python
+          uv run --project packages/modelparams-python twine check packages/modelparams-python/dist/*
+
+      - name: Smoke-test installed wheel
+        if: steps.bump.outputs.next != ''
+        run: |
+          smoke_dir="$(mktemp -d)"
+          python -m venv "$smoke_dir/venv"
+          "$smoke_dir/venv/bin/pip" install packages/modelparams-python/dist/*.whl
+          cd "$smoke_dir"
+          "$smoke_dir/venv/bin/python" -c 'import modelparams; assert len(modelparams.MODEL_IDS) > 0; assert modelparams.validate_params("openai/gpt-4.1", {"temperature": 0.5}) == {"temperature": 0.5}'
+
+      - name: Upload distributions
+        if: steps.bump.outputs.next != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: modelparams-python-distributions
+          path: packages/modelparams-python/dist/
+          if-no-files-found: error
+
+      - name: Skip publish
+        if: steps.bump.outputs.next == ''
+        run: echo "::notice::No Python package or catalog change since the latest release."
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    if: needs.build.outputs.next != ''
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      actions: read
+      contents: write
+      id-token: write
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: modelparams-python-distributions
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true
+
+      - name: Create GitHub release and tag
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "modelparams-py@${{ needs.build.outputs.next }}"
+          name: "modelparams-py@${{ needs.build.outputs.next }}"
+          target_commitish: ${{ github.sha }}
+          generate_release_notes: true

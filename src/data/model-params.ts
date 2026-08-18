@@ -19,6 +19,7 @@ export function modelParamsResponse(model: Model): ModelParamsResponse {
 export function listModelParamsResponses(models: Model[]): ModelParamsResponse[] {
   const bySlug = new Map<string, ModelParamsResponse>();
   const signatures = new Map<string, string>();
+  const ambiguous = new Set<string>();
 
   for (const model of models) {
     const response = modelParamsResponse(model);
@@ -27,12 +28,16 @@ export function listModelParamsResponses(models: Model[]): ModelParamsResponse[]
     );
     const existing = signatures.get(response.model);
     if (existing !== undefined && existing !== signature) {
-      throw new Error(`Conflicting params for providerless model slug "${response.model}"`);
+      // Several providers serve this model id with different param surfaces, so
+      // a bare slug has no single truthful answer — use provider/model instead.
+      ambiguous.add(response.model);
+      continue;
     }
     signatures.set(response.model, signature);
     bySlug.set(response.model, response);
   }
 
+  for (const slug of ambiguous) bySlug.delete(slug);
   return [...bySlug.values()].sort((a, b) => a.model.localeCompare(b.model));
 }
 
