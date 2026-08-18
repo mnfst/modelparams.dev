@@ -28,6 +28,7 @@ import {
 } from "../data/urls.js";
 import { modelId, type Model } from "../schema/model.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
+import { loadProviderEndpoints } from "../data/provider-endpoints.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
 import { gitLastmodMap, modelLastmod, newestLastmod } from "./lastmod.js";
 import { renderIndex } from "./render.js";
@@ -195,6 +196,7 @@ export async function build(): Promise<{ models: number }> {
   console.log("Writing JSON API...");
   await writeJson(path.join(DIST_API_DIR, "models.json"), catalog);
   await writeJson(path.join(DIST_API_DIR, "schema.json"), buildModelJsonSchema());
+  await writeJson(path.join(DIST_API_DIR, "providers.json"), loadProviderEndpoints());
   await writeApiIndex(catalog.count);
   for (const model of models) {
     const [provider, slug] = modelId(model).split("/");

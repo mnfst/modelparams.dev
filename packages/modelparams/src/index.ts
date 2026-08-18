@@ -29,5 +29,5 @@ export { CATALOG, BY_ID } from "./generated/data.js";
 export { getModel, getDefaults, listModels, getParam, listAllModels } from "./helpers.js";
 export { parseParams, paramsSchema } from "./parse.js";
 export { checkApplicability, dropUnsupported, isApplicable } from "./applicability.js";
-export { resolveModelId } from "./resolve.js";
+export { resolveModelId, resolveByBaseUrl } from "./resolve.js";
 export type { ResolveResult } from "./resolve.js";

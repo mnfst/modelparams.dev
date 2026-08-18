@@ -55,7 +55,15 @@ export function createServer(): McpServer {
       inputSchema: {
         model: z
           .string()
-          .describe('Catalog id, always provider-qualified: "anthropic/claude-opus-4-7".'),
+          .describe(
+            'Catalog id ("anthropic/claude-opus-4-7") — or, with baseUrl, the exact wire string your SDK sends.',
+          ),
+        baseUrl: z
+          .string()
+          .optional()
+          .describe(
+            'The base URL your SDK is configured with, e.g. "https://api.fireworks.ai/inference/v1".',
+          ),
         params: z
           .record(z.unknown())
           .optional()
@@ -77,7 +85,12 @@ export function createServer(): McpServer {
         "default, and any conditional rules governing when it applies. Use before writing " +
         "code that calls a model, or when building a model settings UI.",
       inputSchema: {
-        model: z.string().describe('Catalog id, always provider-qualified: "openai/gpt-5.5".'),
+        model: z
+          .string()
+          .describe(
+            'Catalog id ("openai/gpt-5.5") — or, with baseUrl, the exact wire string your SDK sends.',
+          ),
+        baseUrl: z.string().optional().describe("The base URL your SDK is configured with."),
       },
       annotations: READ_ONLY,
     },

@@ -74,7 +74,15 @@ POST the parameters you're about to send. You get back what's wrong — includin
 ```bash
 curl -s https://modelparams.dev/api/v1/validate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
+  -d '{"model":"anthropic/claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
+```
+
+Or pass what your SDK is actually configured with — the base URL and the wire model string:
+
+```bash
+curl -s https://modelparams.dev/api/v1/validate \
+  -H 'Content-Type: application/json' \
+  -d '{"baseUrl":"https://api.fireworks.ai/inference/v1","model":"accounts/fireworks/models/kimi-k3","params":{"top_k":40}}'
 ```
 
 ```json

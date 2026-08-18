@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { MODEL_IDS, resolveModelId } from "../src/index.js";
+import { MODEL_IDS, resolveByBaseUrl, resolveModelId } from "../src/index.js";
 
 describe("resolveModelId", () => {
   it("passes through a full catalog id", () => {
@@ -61,5 +61,32 @@ describe("resolveModelId", () => {
     for (const id of MODEL_IDS) {
       expect(resolveModelId(id), id).toEqual({ ok: true, id });
     }
+  });
+});
+
+describe("resolveByBaseUrl", () => {
+  it("resolves a pathed wire id at its host", () => {
+    const r = resolveByBaseUrl(
+      "https://api.fireworks.ai/inference/v1",
+      "accounts/fireworks/models/kimi-k3",
+    );
+    expect(r).toEqual({ ok: true, id: "fireworks/kimi-k3", provider: "fireworks" });
+  });
+
+  it("matches the origin alone", () => {
+    const r = resolveByBaseUrl("https://api.groq.com", "openai/gpt-oss-20b");
+    expect(r.ok).toBe(true);
+  });
+
+  it("reports an unknown base URL with the known ones", () => {
+    const r = resolveByBaseUrl("https://api.nope.dev/v1", "whatever");
+    expect(r.ok).toBe(false);
+    if (!r.ok && r.reason === "unknown_base_url") expect(r.knownBaseUrls.length).toBeGreaterThan(0);
+  });
+
+  it("scopes an unknown model to the matched provider", () => {
+    const r = resolveByBaseUrl("https://api.moonshot.ai/v1", "kimi-k99");
+    expect(r.ok).toBe(false);
+    if (!r.ok && r.reason === "unknown_model") expect(r.provider).toBe("moonshot");
   });
 });

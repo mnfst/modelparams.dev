@@ -80,7 +80,8 @@ curl https://modelparams.dev/api/v1/index.json                    # endpoint map
 ```
 
 Ids are always `provider/model`; subscription contracts append `-subscription`.
-A bare slug is refused with the qualified ids to retry with.
+A bare slug is refused with the qualified ids to retry with. Alternatively pass
+`baseUrl` (what the SDK is configured with) and the exact wire model string.
 
 ### npm package
 
