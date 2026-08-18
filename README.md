@@ -140,15 +140,15 @@ Embeddings, audio, image generation, and batch APIs are out of scope by design: 
 
 Providers change gateway validation **in place, on live model ids, without a version bump**. The catalog records this with a per-parameter `deprecated` flag instead of deleting the parameter — deleting would erase the answer to "why did my working code break?".
 
-The proving case: `anthropic/claude-sonnet-5` accepted `temperature` on 2026-07-11 (verified live by this catalog's prober). By 2026-08-17 the same request had become a hard error:
+The example: `anthropic/claude-sonnet-5` rejects any non-default `temperature` — while the default sails through, which is exactly what makes this failure mode sneaky:
 
 ```bash
-# temperature 0.5 — worked in July, now:
+# temperature 0.5:
 # 400 {"error": {"message": "`temperature` is deprecated for this model."}}
-# temperature 1 (the default) — still 200 OK
+# temperature 1 (the default) — 200 OK
 ```
 
-This isn't just our probes saying so. Anthropic's own docs state that ["setting sampling parameters (`temperature`, `top_p`, `top_k`) to non-default values returns a 400 error"](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted), and the breakage hit real projects — [paperless-gpt #1003](https://github.com/icereed/paperless-gpt/issues/1003) is a production OCR pipeline failing on exactly this 400. What the docs don't tell you is _when enforcement reached the gateway_ — our dated probes do (worked 2026-07-11, rejected by 2026-08-17), which is precisely the gap between documentation and live behavior this catalog exists to close.
+The evidence, in order: Anthropic [documents the constraint](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted) ("setting sampling parameters to non-default values returns a 400 error"), it was [noted at launch](https://simonwillison.net/2026/Jun/30/claude-sonnet-5/) on 2026-06-30, and it broke real projects — [paperless-gpt #1003](https://github.com/icereed/paperless-gpt/issues/1003) is a production OCR pipeline failing on exactly this 400 on July 12. This catalog initially got it wrong: the entry shipped on 2026-07-11 declaring `temperature` usable, because probing a param at its **default** value can't detect default-only enforcement — the request succeeds. The drift sweep's non-default probes caught and flagged it on 2026-08-17. We keep that correction visible rather than pretending the entry was always right: a catalog you can trust is one that shows you when it fixed itself.
 
 That's `behavior: default-only` — only the default survives. The other behaviors are `rejected` (any use fails) and `ignored` (accepted, no effect — the worst one, because nothing tells you). A nightly drift sweep re-probes the catalog so these flips get caught and dated:
 
