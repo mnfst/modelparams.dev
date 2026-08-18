@@ -43,14 +43,6 @@ class Applicability(FrozenModel):
     except_: ApplicabilityRuleSet | None = Field(default=None, alias="except")
 
 
-class ParamDeprecation(FrozenModel):
-    """The provider stopped honoring the param for this model id (see the site schema)."""
-
-    behavior: Literal["rejected", "ignored", "default-only"]
-    since: str | None = None
-    note: str | None = None
-
-
 class Parameter(FrozenModel):
     path: str
     label: str
@@ -61,7 +53,6 @@ class Parameter(FrozenModel):
     range: ParamRange | None = None
     values: tuple[JsonPrimitive, ...] | None = None
     applicability: Applicability | None = None
-    deprecated: ParamDeprecation | None = None
 
 
 class CatalogEntry(FrozenModel):
