@@ -1,6 +1,7 @@
 name: Release modelparams
 
-# Publishes the `modelparams` npm package when a release lands on main.
+# Publishes the `modelparams` and `modelparams-mcp` npm packages when a release
+# lands on main (lockstep — see the MCP steps below).
 #
 # Releases are batched: `release-prepare.yml` accumulates every catalog change
 # since the last tag into one `chore: release …` PR that bumps
@@ -135,6 +136,34 @@ jobs:
       - name: Publish to npm
         run: npm publish --workspace=modelparams --provenance --access public
 
+      # modelparams-mcp ships in LOCKSTEP: release-prepare bumps it to the same
+      # version and rewrites its exact `modelparams` dependency pin, so "which
+      # catalog does modelparams-mcp@x.y.z carry?" has one answer. It needs its
+      # OWN npm trusted publisher bound to THIS workflow file (npmjs.com →
+      # Settings → Trusted Publishers → GitHub Actions → org=mnfst,
+      # repo=modelparams.dev, workflow=release-modelparams.yml).
+      - name: Build MCP server
+        run: npm run build --workspace=modelparams-mcp
+
+      - name: MCP server tests
+        run: npm test --workspace=modelparams-mcp
+
+      - name: Wait for modelparams on the registry
+        env:
+          VERSION: ${{ needs.detect.outputs.version }}
+        run: |
+          # The MCP package's exact pin must resolve for consumers the moment
+          # it publishes; registry propagation can lag the publish call.
+          for i in $(seq 1 30); do
+            npm view "modelparams@${VERSION}" version >/dev/null 2>&1 && exit 0
+            sleep 10
+          done
+          echo "::error::modelparams@${VERSION} never appeared on the registry"
+          exit 1
+
+      - name: Publish MCP server to npm
+        run: npm publish --workspace=modelparams-mcp --provenance --access public
+
       - name: Create GitHub release + tag
         uses: softprops/action-gh-release@v2
         with:
@@ -143,3 +172,11 @@ jobs:
           target_commitish: ${{ github.sha }}
           body: ${{ steps.notes.outputs.body }}
           generate_release_notes: true
+
+      - name: Tag modelparams-mcp release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "modelparams-mcp@${{ needs.detect.outputs.version }}"
+          name: "modelparams-mcp@${{ needs.detect.outputs.version }}"
+          target_commitish: ${{ github.sha }}
+          body: "Ships the modelparams@${{ needs.detect.outputs.version }} catalog over MCP (stdio). `npx -y modelparams-mcp`"

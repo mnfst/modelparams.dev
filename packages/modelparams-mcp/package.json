@@ -1,0 +1,59 @@
+{
+  "name": "modelparams-mcp",
+  "version": "0.0.1",
+  "description": "MCP server for the modelparams.dev catalog — let an agent check which parameters a model accepts before it calls one.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "llm",
+    "agent",
+    "openai",
+    "anthropic",
+    "model-parameters",
+    "validation",
+    "tools"
+  ],
+  "license": "MIT",
+  "author": "modelparams.dev contributors",
+  "homepage": "https://modelparams.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnfst/modelparams.dev.git",
+    "directory": "packages/modelparams-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/mnfst/modelparams.dev/issues"
+  },
+  "type": "module",
+  "bin": {
+    "modelparams-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && chmod +x dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.25.0",
+    "modelparams": "0.0.1"
+  }
+}

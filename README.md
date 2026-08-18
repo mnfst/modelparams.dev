@@ -92,6 +92,14 @@ curl -s https://modelparams.dev/api/v1/validate \
 }
 ```
 
+## Agents
+
+```bash
+npx -y modelparams-mcp   # MCP server: 4 tools, stdio, no network needed
+```
+
+The server exposes `validate_model_params`, `get_model_params`, `list_models`, and `find_models_supporting`. Details in the [package README](packages/modelparams-mcp/README.md). There's also [llms.txt](https://modelparams.dev/llms.txt) if you'd rather just point an agent at a URL.
+
 ## Adding a model
 
 Drop a YAML file in `models/<provider>/`, open a PR, and CI validates it against the schema. Details in [CONTRIBUTING.md](CONTRIBUTING.md). Can't open a PR? [File an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) with a link to the docs.
@@ -103,8 +111,9 @@ npm install
 npm run dev          # http://localhost:3000
 npm run build        # → dist/
 npm run validate     # check every YAML
+npm test             # site tests, including the /api/v1/validate function
+npm test --workspaces # + every published package
 npm run codegen:python # regenerate the Python package catalog and types
-npm test
 ```
 
 ## License

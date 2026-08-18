@@ -198,3 +198,41 @@ jobs:
         run: |
           packages/modelparams-python/.venv/bin/python -c 'import pydantic; assert pydantic.__version__.startswith("2.10.")'
           packages/modelparams-python/.venv/bin/pytest packages/modelparams-python/tests
+
+  modelparams-mcp-pkg:
+    name: modelparams-mcp package (build + tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The MCP server imports the built catalog from the sibling package.
+      - name: Build modelparams
+        run: npm run build --workspace=modelparams
+
+      - name: Typecheck package
+        run: npm run typecheck --workspace=modelparams-mcp
+
+      - name: Build package
+        run: npm run build --workspace=modelparams-mcp
+
+      - name: Tests
+        run: npm test --workspace=modelparams-mcp
+
+      - name: Server starts and answers over stdio
+        run: |
+          printf '%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"1"}}}' \
+            '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/list"}' \
+            | node packages/modelparams-mcp/dist/index.js 2>/dev/null \
+            | grep -q 'validate_model_params' \
+            || { echo "::error::MCP server did not advertise its tools over stdio"; exit 1; }

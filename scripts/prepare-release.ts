@@ -25,7 +25,7 @@ import { bumpUvLockVersion } from "./lib/uv-lock.js";
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 interface PackageSpec {
-  key: "npm" | "python";
+  key: "npm" | "python" | "mcp";
   name: string;
   tagPrefix: string;
   /** Version-classifier CLI; emits `next=<version>` (empty when nothing to release). */
@@ -36,6 +36,13 @@ interface PackageSpec {
   writeVersion(source: string, next: string): string;
   /** Extra files that also record the version and must move with it. */
   syncFiles?: { file: string; write(source: string, next: string): string }[];
+  /**
+   * Ship at the same version as another package instead of running an own
+   * classifier. modelparams-mcp answers from the catalog compiled into its
+   * exact-pinned `modelparams` dependency, so "which catalog does version
+   * x.y.z carry?" must have one answer.
+   */
+  lockstepWith?: "npm";
 }
 
 const PACKAGES: PackageSpec[] = [
@@ -51,6 +58,21 @@ const PACKAGES: PackageSpec[] = [
       // Rewrite the single line rather than re-serializing, so the release
       // commit carries no incidental key-order or formatting churn.
       source.replace(/("version"\s*:\s*")\d+\.\d+\.\d+(")/, `$1${next}$2`),
+  },
+  {
+    key: "mcp",
+    name: "modelparams-mcp (npm)",
+    tagPrefix: "modelparams-mcp@",
+    computeScript: "", // lockstepWith drives the version
+    manifestFile: "packages/modelparams-mcp/package.json",
+    changelogFile: "packages/modelparams-mcp/CHANGELOG.md",
+    lockstepWith: "npm",
+    readVersion: (source) => (JSON.parse(source) as { version: string }).version,
+    writeVersion: (source, next) =>
+      source
+        .replace(/("version"\s*:\s*")\d+\.\d+\.\d+(")/, `$1${next}$2`)
+        // The exact dependency pin moves with the version (see lockstepWith).
+        .replace(/("modelparams"\s*:\s*")[^"]+(")/, `$1${next}$2`),
   },
   {
     key: "python",
@@ -98,12 +120,21 @@ function latestTag(prefix: string): string | null {
   return versions[0] === undefined ? null : `${prefix}${versions[0]}`;
 }
 
+/** Has the MCP server's own source moved since its last published tag? */
+function mcpSourceChanged(): boolean {
+  const tag = latestTag("modelparams-mcp@");
+  if (!tag || !refExists(tag)) return true; // never published -> needs a first release
+  return (
+    git(["diff", "--name-only", `${tag}..HEAD`, "--", "packages/modelparams-mcp"]).trim() !== ""
+  );
+}
+
 /** Run a version classifier and read the `next=` line it emits. */
-function computeNext(spec: PackageSpec): string {
+function computeNext(spec: PackageSpec, forceLevel?: string): string {
   const stdout = execFileSync("npx", ["tsx", spec.computeScript], {
     cwd: REPO_ROOT,
     encoding: "utf8",
-    env: { ...process.env, FORCE_LEVEL: process.env.FORCE_LEVEL ?? "" },
+    env: { ...process.env, FORCE_LEVEL: forceLevel ?? process.env.FORCE_LEVEL ?? "" },
     stdio: ["ignore", "pipe", "inherit"],
   });
   const line = stdout
@@ -139,8 +170,15 @@ async function main(): Promise<void> {
 
   const prepared: Prepared[] = [];
 
+  // The catalog classifier only sees model changes. An MCP-only change is
+  // still real work that needs shipping, so it forces at least a patch on the
+  // npm pair (never on the Python package).
+  const mcpForce = mcpSourceChanged() ? "patch" : undefined;
+
   for (const spec of PACKAGES) {
-    const next = computeNext(spec);
+    const next = spec.lockstepWith
+      ? (prepared.find((p) => p.spec.key === spec.lockstepWith)?.next ?? "")
+      : computeNext(spec, spec.key === "npm" ? mcpForce : undefined);
     if (next === "") {
       console.error(`${spec.name}: nothing to release.`);
       continue;
