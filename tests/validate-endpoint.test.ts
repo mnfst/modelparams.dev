@@ -5,6 +5,7 @@ interface ValidateBody {
   model: string;
   provider: string;
   authType: string;
+  requestModel?: string;
   valid: boolean;
   issues: { path: string; code: string; message: string; conflictsWith?: string[] }[];
   safeParams: Record<string, unknown>;
@@ -25,6 +26,17 @@ async function post(body: unknown): Promise<{ status: number; body: ValidateBody
 }
 
 describe("POST /api/v1/validate", () => {
+  it("returns the wire id for hosts whose native ids are pathed", async () => {
+    const { status, body } = await post({ model: "fireworks/kimi-k3", params: {} });
+    expect(status).toBe(200);
+    expect(body.requestModel).toBe("accounts/fireworks/models/kimi-k3");
+  });
+
+  it("omits requestModel when the catalog slug is the wire id", async () => {
+    const { body } = await post({ model: "anthropic/claude-3-opus-20240229", params: {} });
+    expect(body.requestModel).toBeUndefined();
+  });
+
   it("accepts a valid params object", async () => {
     const { status, body } = await post({
       model: "anthropic/claude-3-opus-20240229",
