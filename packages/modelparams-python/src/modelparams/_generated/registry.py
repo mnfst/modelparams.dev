@@ -131,6 +131,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "fireworks/kimi-k2p7-code": fireworks.Kimi_K2p7_CodeParams,
     "fireworks/kimi-k3": fireworks.Kimi_K3Params,
     "fireworks/minimax-m2p7": fireworks.Minimax_M2p7Params,
+    "fireworks/minimax-m3": fireworks.Minimax_M3Params,
     "fireworks/muse-glimmer-30b": fireworks.Muse_Glimmer_30bParams,
     "fireworks/qwen3p8-2p4t-a95b": fireworks.Qwen3p8_2p4t_A95bParams,
     "google/gemini-2.5-flash": google.Gemini_2_5_FlashParams,
