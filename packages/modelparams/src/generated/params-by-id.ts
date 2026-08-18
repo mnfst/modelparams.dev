@@ -772,7 +772,79 @@ export type ParamsById = {
     "thinking.type": "enabled" | "disabled";
     reasoning_effort: "high" | "max";
   };
+  "fireworks/deepseek-v4-flash-0731": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/deepseek-v4-pro-0813": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/gpt-oss-120b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/inkling": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/kimi-k2p7-code": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "fireworks/kimi-k3": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/minimax-m2p7": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/muse-glimmer-30b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/qwen3p8-2p4t-a95b": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -1016,6 +1088,30 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
     top_k: number;
+  };
+  "groq/gpt-oss-120b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
+  };
+  "groq/gpt-oss-20b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
   };
   "groq/qwen3-32b": {
     max_completion_tokens: number;
