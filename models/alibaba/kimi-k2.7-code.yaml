@@ -2,7 +2,6 @@
 provider: alibaba
 authType: api_key
 model: kimi-k2.7-code
-developer: moonshot
 params:
   - path: max_completion_tokens
     type: integer

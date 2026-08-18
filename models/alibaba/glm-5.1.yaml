@@ -2,7 +2,6 @@
 provider: alibaba
 authType: api_key
 model: glm-5.1
-developer: z-ai
 params:
   - path: max_completion_tokens
     type: integer

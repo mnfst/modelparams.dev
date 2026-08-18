@@ -2,7 +2,6 @@
 provider: alibaba
 authType: api_key
 model: deepseek-v4-flash
-developer: deepseek
 params:
   - path: max_completion_tokens
     type: integer

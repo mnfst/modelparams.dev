@@ -8,7 +8,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "deepseek-v3.2",
-    "developer": "deepseek",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -84,7 +83,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "deepseek-v4-flash",
-    "developer": "deepseek",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -160,7 +158,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "deepseek-v4-flash-0731",
-    "developer": "deepseek",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -236,7 +233,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "deepseek-v4-pro",
-    "developer": "deepseek",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -312,7 +308,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "deepseek-v4-pro-0813",
-    "developer": "deepseek",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -388,7 +383,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "glm-5.1",
-    "developer": "z-ai",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -464,7 +458,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "glm-5.2",
-    "developer": "z-ai",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -540,7 +533,6 @@ export const CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "kimi-k2.7-code",
-    "developer": "moonshot",
     "params": [
       {
         "path": "max_completion_tokens",
