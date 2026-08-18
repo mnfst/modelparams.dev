@@ -7,7 +7,142 @@ export const CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "model": "deepseek-v4-pro-0813",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
     "model": "qwen-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen-max",
     "params": [
       {
         "path": "max_tokens",
@@ -127,7 +262,299 @@ export const CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "model": "qwen-turbo",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3-235b-a22b-thinking-2507",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3-30b-a3b-instruct-2507",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3-30b-a3b-thinking-2507",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
     "model": "qwen3-coder-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3-coder-next",
     "params": [
       {
         "path": "max_tokens",
@@ -291,7 +718,487 @@ export const CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "model": "qwen3-next-80b-a3b-instruct",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3-next-80b-a3b-thinking",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3-vl-235b-a22b-instruct",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3-vl-235b-a22b-thinking",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
     "model": "qwen3.5",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.5-122b-a10b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.5-27b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.5-35b-a3b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.5-397b-a17b",
     "params": [
       {
         "path": "max_tokens",
@@ -411,7 +1318,307 @@ export const CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "model": "qwen3.6-27b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.6-35b-a3b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
     "model": "qwen3.6-flash",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.6-plus",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.7-flash",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -582,6 +1789,81 @@ export const CATALOG = [
         "range": {
           "min": 0,
           "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "qwen3.8-2.4t-a95b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
           "step": 0.1
         }
       },
@@ -3605,6 +4887,55 @@ export const CATALOG = [
         }
       },
       {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "deprecated": {
+          "behavior": "default-only",
+          "note": "The API rejects non-default values (\"`temperature` is deprecated for this model\") in every thinking mode; only the default value 1 is accepted. Probed 2026-08-17."
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "deprecated": {
+          "behavior": "rejected",
+          "note": "The API rejects every value including the default (\"`top_p` is deprecated for this model\"); the parameter must be unset. Probed 2026-08-17."
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits sampling to the K most likely tokens.",
+        "group": "sampling",
+        "deprecated": {
+          "behavior": "rejected",
+          "note": "The API rejects every value including the default (\"`top_k` is deprecated for this model\"); the parameter must be unset. Probed 2026-08-17."
+        },
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0
+        }
+      },
+      {
         "path": "thinking.type",
         "label": "Thinking mode",
         "description": "Controls the Anthropic thinking mode values supported by this model.",
@@ -5274,6 +6605,70 @@ export const CATALOG = [
     ]
   },
   {
+    "provider": "anthropic",
+    "authType": "subscription",
+    "model": "claude-sonnet-5",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls the Anthropic thinking mode values supported by this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "adaptive"
+        ]
+      },
+      {
+        "path": "thinking.display",
+        "label": "Thinking display",
+        "description": "Controls whether Anthropic returns summarized or omitted thinking content.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "thinking.type": [
+              "adaptive"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "summarized",
+        "values": [
+          "summarized",
+          "omitted"
+        ]
+      },
+      {
+        "path": "output_config.effort",
+        "label": "Effort",
+        "description": "Controls Anthropic response thoroughness and token spend.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
     "provider": "cerebras",
     "authType": "api_key",
     "model": "zai-glm-4.7",
@@ -6718,7 +8113,7 @@ export const CATALOG = [
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls DeepSeek thinking effort when thinking mode is enabled.",
+        "description": "Controls DeepSeek thinking effort when thinking mode is enabled. For compatibility, low, medium, and xhigh are also accepted, but low and medium are mapped to high, and xhigh is mapped to max.",
         "group": "reasoning",
         "applicability": {
           "only": {
@@ -8013,6 +9408,294 @@ export const CATALOG = [
         "group": "reasoning",
         "type": "enum",
         "default": "medium",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "google",
+    "authType": "api_key",
+    "model": "gemini-3.5-flash-lite",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.5 Flash reasoning effort.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "google",
+    "authType": "api_key",
+    "model": "gemini-3.6-flash",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "google",
+    "authType": "api_key",
+    "model": "gemini-3.7-flash",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "minimal",
         "values": [
           "minimal",
           "low",
@@ -10267,7 +11950,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10372,7 +12056,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10477,7 +12162,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10582,7 +12268,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10697,7 +12384,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10812,7 +12500,114 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "model": "ministral-14b-2512",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this string is detected.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or JSON mode output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -10917,7 +12712,114 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "model": "ministral-3b-2512",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this string is detected.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or JSON mode output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11022,7 +12924,114 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "model": "ministral-8b-2512",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this string is detected.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or JSON mode output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11127,7 +13136,114 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "model": "mistral-large-2512",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this string is detected.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or JSON mode output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11144,6 +13260,112 @@ export const CATALOG = [
     "provider": "mistral",
     "authType": "api_key",
     "model": "mistral-large-latest",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this string is detected.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or JSON mode output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "model": "mistral-medium-3",
     "params": [
       {
         "path": "max_tokens",
@@ -11338,7 +13560,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11443,7 +13666,114 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "model": "mistral-small-2603",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this string is detected.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns normal text or JSON mode output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11548,7 +13878,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -11653,7 +13984,8 @@ export const CATALOG = [
         "default": "text",
         "values": [
           "text",
-          "json_object"
+          "json_object",
+          "json_schema"
         ]
       },
       {
@@ -14747,7 +17079,7 @@ export const CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
-    "model": "gpt-5.6-luna",
+    "model": "gpt-5.6",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -14757,7 +17089,7 @@ export const CATALOG = [
         "type": "integer",
         "default": 4096,
         "range": {
-          "min": 16
+          "min": 1
         }
       },
       {
@@ -14771,7 +17103,41 @@ export const CATALOG = [
           "none",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
+    "model": "gpt-5.6-luna",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "none",
+        "values": [
+          "none",
+          "low",
+          "medium",
+          "high",
+          "xhigh"
         ]
       }
     ]
@@ -14838,7 +17204,7 @@ export const CATALOG = [
         "type": "integer",
         "default": 4096,
         "range": {
-          "min": 16
+          "min": 1
         }
       },
       {
@@ -14852,7 +17218,8 @@ export const CATALOG = [
           "none",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
         ]
       }
     ]
@@ -14919,7 +17286,7 @@ export const CATALOG = [
         "type": "integer",
         "default": 4096,
         "range": {
-          "min": 16
+          "min": 1
         }
       },
       {
@@ -14933,7 +17300,8 @@ export const CATALOG = [
           "none",
           "low",
           "medium",
-          "high"
+          "high",
+          "xhigh"
         ]
       }
     ]

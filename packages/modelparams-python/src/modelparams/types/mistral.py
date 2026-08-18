@@ -20,7 +20,7 @@ Codestral_2508Params = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -37,7 +37,7 @@ Codestral_LatestParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -54,7 +54,7 @@ Devstral_2512Params = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -71,7 +71,7 @@ Devstral_LatestParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -89,7 +89,7 @@ Magistral_Medium_LatestParams = TypedDict(
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
         "prompt_mode": Literal["reasoning"],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -107,12 +107,29 @@ Magistral_Small_LatestParams = TypedDict(
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
         "prompt_mode": Literal["reasoning"],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
 )
 setattr(Magistral_Small_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Ministral_14b_2512Params = TypedDict(
+    "Ministral_14b_2512Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Ministral_14b_2512Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Ministral_14b_LatestParams = TypedDict(
     "Ministral_14b_LatestParams",
@@ -124,12 +141,29 @@ Ministral_14b_LatestParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
 )
 setattr(Ministral_14b_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Ministral_3b_2512Params = TypedDict(
+    "Ministral_3b_2512Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Ministral_3b_2512Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Ministral_3b_LatestParams = TypedDict(
     "Ministral_3b_LatestParams",
@@ -141,12 +175,29 @@ Ministral_3b_LatestParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
 )
 setattr(Ministral_3b_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Ministral_8b_2512Params = TypedDict(
+    "Ministral_8b_2512Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Ministral_8b_2512Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Ministral_8b_LatestParams = TypedDict(
     "Ministral_8b_LatestParams",
@@ -158,12 +209,29 @@ Ministral_8b_LatestParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
 )
 setattr(Ministral_8b_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Mistral_Large_2512Params = TypedDict(
+    "Mistral_Large_2512Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Large_2512Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Mistral_Large_LatestParams = TypedDict(
     "Mistral_Large_LatestParams",
@@ -182,6 +250,23 @@ Mistral_Large_LatestParams = TypedDict(
 )
 setattr(Mistral_Large_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Mistral_Medium_3Params = TypedDict(
+    "Mistral_Medium_3Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Medium_3Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Mistral_Medium_3_5Params = TypedDict(
     "Mistral_Medium_3_5Params",
     {
@@ -192,7 +277,7 @@ Mistral_Medium_3_5Params = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -209,12 +294,29 @@ Mistral_Medium_LatestParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
 )
 setattr(Mistral_Medium_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Mistral_Small_2603Params = TypedDict(
+    "Mistral_Small_2603Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Small_2603Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Mistral_Small_LatestParams = TypedDict(
     "Mistral_Small_LatestParams",
@@ -226,7 +328,7 @@ Mistral_Small_LatestParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -243,7 +345,7 @@ Open_Mistral_NemoParams = TypedDict(
         "random_seed": Annotated[int, Field(ge=0)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
-        "response_format.type": Literal["text", "json_object"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
         "safe_prompt": bool,
     },
     total=False,
@@ -257,12 +359,18 @@ __all__ = [
     "Devstral_LatestParams",
     "Magistral_Medium_LatestParams",
     "Magistral_Small_LatestParams",
+    "Ministral_14b_2512Params",
     "Ministral_14b_LatestParams",
+    "Ministral_3b_2512Params",
     "Ministral_3b_LatestParams",
+    "Ministral_8b_2512Params",
     "Ministral_8b_LatestParams",
+    "Mistral_Large_2512Params",
     "Mistral_Large_LatestParams",
+    "Mistral_Medium_3Params",
     "Mistral_Medium_3_5Params",
     "Mistral_Medium_LatestParams",
+    "Mistral_Small_2603Params",
     "Mistral_Small_LatestParams",
     "Open_Mistral_NemoParams",
 ]

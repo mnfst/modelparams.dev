@@ -10,6 +10,20 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Deepseek_V4_Pro_0813Params = TypedDict(
+    "Deepseek_V4_Pro_0813Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Deepseek_V4_Pro_0813Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen_FlashParams = TypedDict(
     "Qwen_FlashParams",
     {
@@ -22,6 +36,19 @@ Qwen_FlashParams = TypedDict(
     total=False,
 )
 setattr(Qwen_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen_MaxParams = TypedDict(
+    "Qwen_MaxParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen_MaxParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Qwen_PlusParams = TypedDict(
     "Qwen_PlusParams",
@@ -36,6 +63,58 @@ Qwen_PlusParams = TypedDict(
 )
 setattr(Qwen_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Qwen_TurboParams = TypedDict(
+    "Qwen_TurboParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen_TurboParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_235b_A22b_Thinking_2507Params = TypedDict(
+    "Qwen3_235b_A22b_Thinking_2507Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_235b_A22b_Thinking_2507Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_30b_A3b_Instruct_2507Params = TypedDict(
+    "Qwen3_30b_A3b_Instruct_2507Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_30b_A3b_Instruct_2507Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_30b_A3b_Thinking_2507Params = TypedDict(
+    "Qwen3_30b_A3b_Thinking_2507Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_30b_A3b_Thinking_2507Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3_Coder_FlashParams = TypedDict(
     "Qwen3_Coder_FlashParams",
     {
@@ -47,6 +126,18 @@ Qwen3_Coder_FlashParams = TypedDict(
     total=False,
 )
 setattr(Qwen3_Coder_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_Coder_NextParams = TypedDict(
+    "Qwen3_Coder_NextParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Qwen3_Coder_NextParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Qwen3_Coder_PlusParams = TypedDict(
     "Qwen3_Coder_PlusParams",
@@ -73,6 +164,58 @@ Qwen3_MaxParams = TypedDict(
 )
 setattr(Qwen3_MaxParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Qwen3_Next_80b_A3b_InstructParams = TypedDict(
+    "Qwen3_Next_80b_A3b_InstructParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_Next_80b_A3b_InstructParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_Next_80b_A3b_ThinkingParams = TypedDict(
+    "Qwen3_Next_80b_A3b_ThinkingParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_Next_80b_A3b_ThinkingParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_Vl_235b_A22b_InstructParams = TypedDict(
+    "Qwen3_Vl_235b_A22b_InstructParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_Vl_235b_A22b_InstructParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_Vl_235b_A22b_ThinkingParams = TypedDict(
+    "Qwen3_Vl_235b_A22b_ThinkingParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_Vl_235b_A22b_ThinkingParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3_5Params = TypedDict(
     "Qwen3_5Params",
     {
@@ -85,6 +228,58 @@ Qwen3_5Params = TypedDict(
     total=False,
 )
 setattr(Qwen3_5Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_5_122b_A10bParams = TypedDict(
+    "Qwen3_5_122b_A10bParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_5_122b_A10bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_5_27bParams = TypedDict(
+    "Qwen3_5_27bParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_5_27bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_5_35b_A3bParams = TypedDict(
+    "Qwen3_5_35b_A3bParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_5_35b_A3bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_5_397b_A17bParams = TypedDict(
+    "Qwen3_5_397b_A17bParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=1)],
+        "extra_body.chat_template_kwargs.enable_thinking": bool,
+    },
+    total=False,
+)
+setattr(Qwen3_5_397b_A17bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Qwen3_5_FlashParams = TypedDict(
     "Qwen3_5_FlashParams",
@@ -99,6 +294,34 @@ Qwen3_5_FlashParams = TypedDict(
 )
 setattr(Qwen3_5_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Qwen3_6_27bParams = TypedDict(
+    "Qwen3_6_27bParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Qwen3_6_27bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_6_35b_A3bParams = TypedDict(
+    "Qwen3_6_35b_A3bParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Qwen3_6_35b_A3bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3_6_FlashParams = TypedDict(
     "Qwen3_6_FlashParams",
     {
@@ -112,6 +335,34 @@ Qwen3_6_FlashParams = TypedDict(
     total=False,
 )
 setattr(Qwen3_6_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_6_PlusParams = TypedDict(
+    "Qwen3_6_PlusParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Qwen3_6_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Qwen3_7_FlashParams = TypedDict(
+    "Qwen3_7_FlashParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Qwen3_7_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Qwen3_7_MaxParams = TypedDict(
     "Qwen3_7_MaxParams",
@@ -141,6 +392,20 @@ Qwen3_7_PlusParams = TypedDict(
 )
 setattr(Qwen3_7_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Qwen3_8_2_4t_A95bParams = TypedDict(
+    "Qwen3_8_2_4t_A95bParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Qwen3_8_2_4t_A95bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3_8_MaxParams = TypedDict(
     "Qwen3_8_MaxParams",
     {
@@ -168,16 +433,36 @@ Qwq_PlusParams = TypedDict(
 setattr(Qwq_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
+    "Deepseek_V4_Pro_0813Params",
     "Qwen_FlashParams",
+    "Qwen_MaxParams",
     "Qwen_PlusParams",
+    "Qwen_TurboParams",
+    "Qwen3_235b_A22b_Thinking_2507Params",
+    "Qwen3_30b_A3b_Instruct_2507Params",
+    "Qwen3_30b_A3b_Thinking_2507Params",
     "Qwen3_Coder_FlashParams",
+    "Qwen3_Coder_NextParams",
     "Qwen3_Coder_PlusParams",
     "Qwen3_MaxParams",
+    "Qwen3_Next_80b_A3b_InstructParams",
+    "Qwen3_Next_80b_A3b_ThinkingParams",
+    "Qwen3_Vl_235b_A22b_InstructParams",
+    "Qwen3_Vl_235b_A22b_ThinkingParams",
     "Qwen3_5Params",
+    "Qwen3_5_122b_A10bParams",
+    "Qwen3_5_27bParams",
+    "Qwen3_5_35b_A3bParams",
+    "Qwen3_5_397b_A17bParams",
     "Qwen3_5_FlashParams",
+    "Qwen3_6_27bParams",
+    "Qwen3_6_35b_A3bParams",
     "Qwen3_6_FlashParams",
+    "Qwen3_6_PlusParams",
+    "Qwen3_7_FlashParams",
     "Qwen3_7_MaxParams",
     "Qwen3_7_PlusParams",
+    "Qwen3_8_2_4t_A95bParams",
     "Qwen3_8_MaxParams",
     "Qwq_PlusParams",
 ]
