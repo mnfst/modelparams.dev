@@ -149,6 +149,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "google/gemma-4-E2B-it": google.Gemma_4_E2b_ItParams,
     "google/gemma-4-E4B-it": google.Gemma_4_E4b_ItParams,
     "groq/qwen3-32b": groq.Qwen3_32bParams,
+    "groq/qwen3.6-27b": groq.Qwen3_6_27bParams,
     "meta/Llama-3.3-70B-Instruct": meta.Llama_3_3_70b_InstructParams,
     "meta/Llama-3.3-8B-Instruct": meta.Llama_3_3_8b_InstructParams,
     "meta/Llama-4-Maverick-17B-128E-Instruct-FP8": meta.Llama_4_Maverick_17b_128e_Instruct_Fp8Params,
