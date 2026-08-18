@@ -1,0 +1,56 @@
+scripts/prepare-release.ts
+  s_a9160b01f69610::t_4f33e8a5329c5d 204-211
+  s_a9160b01f69610::t_b053aab2865f7e 22,168-176
+  s_a9160b01f69610::t_f571493961c484 1-21,23-144,156-167,177-203,212-221
+  s_a9160b01f69610::t_d1b23eb271429f 145-155
+src/data/catalog-diff.ts
+  s_a9160b01f69610::t_721b9d986ae998 1-125
+tests/catalog-diff.test.ts
+  s_a9160b01f69610::t_f36a04bb236cae 1-113
+.github/workflows/release-modelparams-python.yml
+  s_a9160b01f69610::t_2714265b108a90 3-18,24,32-33,36,42-81
+  s_a9160b01f69610::t_bf2c407187b2d1 83-87,137-150,185
+  s_a9160b01f69610::t_0a73c40456bd82 160,182-183
+  s_a9160b01f69610::t_cbaad7bd9e7ad3 82
+.github/workflows/label-sync.yml
+  s_a9160b01f69610::t_6750cf21a3780c 38
+.github/workflows/release-modelparams.yml
+  s_a9160b01f69610::t_07152d2dc47676 3-11,14,16-17,22-24,30,38-80,83-84,121-122,124-133,141-144
+scripts/lib/changelog.ts
+  s_a9160b01f69610::t_b053aab2865f7e 1-15
+packages/modelparams/scripts/compute-version.ts
+  s_a9160b01f69610::t_77039d49da65c5 18-23,64-67
+  s_a9160b01f69610::t_315d5714fd8625 68-69
+packages/modelparams/package.json
+  s_a9160b01f69610::t_22c0b341b5bf81 55
+CONTRIBUTING.md
+  s_a9160b01f69610::t_e7293f0ddff96c 196-222
+.github/workflows/release-prepare.yml
+  s_a9160b01f69610::t_9d065e5fa77dfa 1-56,66-133,138-139
+  s_a9160b01f69610::t_d1b23eb271429f 57-65
+  s_a9160b01f69610::t_6750cf21a3780c 134-137
+packages/modelparams-python/CHANGELOG.md
+  s_a9160b01f69610::t_382eae09e073cc 3-6
+  s_a9160b01f69610::t_f36a04bb236cae 1-2
+packages/modelparams/CHANGELOG.md
+  s_a9160b01f69610::t_382eae09e073cc 3-6
+  s_a9160b01f69610::t_f36a04bb236cae 1-2
+tests/changelog.test.ts
+  s_a9160b01f69610::t_b053aab2865f7e 1-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ab8e739ac037497a85e017b937be931464c943b6",
+  "prompts": {},
+  "sessions": {
+    "s_a9160b01f69610": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "92c816f7-571a-4dbe-b698-13df3becf2dd",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

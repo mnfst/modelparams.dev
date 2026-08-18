@@ -1,0 +1,25 @@
+packages/modelparams/src/generated/data.ts
+  s_01bd2528a03879::t_ba8d5ad0500435 13350-13459
+packages/modelparams/src/generated/defaults.ts
+  s_01bd2528a03879::t_65604752d270b1 1059-1066
+packages/modelparams/src/generated/model-ids.ts
+  s_01bd2528a03879::t_69ca4f0bc00c8a 177,215
+packages/modelparams/src/generated/params-by-id.ts
+  s_01bd2528a03879::t_53f921cda01d1b 1301-1310
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "93bd618603cad9bef79bd37e26c2550d6003f226",
+  "prompts": {},
+  "sessions": {
+    "s_01bd2528a03879": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "78fab2f2-2bbd-40c1-bac5-23b7bf0cfa60",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

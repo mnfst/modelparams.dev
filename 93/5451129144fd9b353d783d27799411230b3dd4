@@ -1,0 +1,23 @@
+src/data/display.ts
+  s_c6ff1ce4b8daf1::t_78914f557e1e2b 4
+  s_c6ff1ce4b8daf1::t_8dee407b775c6e 52
+models/alibaba/qwen3.5.yaml
+  s_c6ff1ce4b8daf1::t_6cf367fcec0c77 2
+  s_c6ff1ce4b8daf1::t_b41ef24dcd3eaf 31-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "935451129144fd9b353d783d27799411230b3dd4",
+  "prompts": {},
+  "sessions": {
+    "s_c6ff1ce4b8daf1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e053214a-f806-4643-9c14-ac5adf53d232",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

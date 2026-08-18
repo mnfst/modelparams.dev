@@ -1,0 +1,132 @@
+packages/modelparams-python/src/modelparams/types/z_ai.py
+  s_c46550d7824595::t_950e8446a09240 1-299
+packages/modelparams-python/src/modelparams/types/xai.py
+  s_c46550d7824595::t_950e8446a09240 1-86
+packages/modelparams-python/src/modelparams/types/perplexity.py
+  s_c46550d7824595::t_950e8446a09240 1-98
+package.json
+  s_c46550d7824595::t_24381f705890b5 24
+packages/modelparams-python/README.md
+  s_c46550d7824595::t_591e04d2393e3f 62-74
+  s_c46550d7824595::t_24381f705890b5 1-61
+packages/modelparams-python/src/modelparams/types/cohere.py
+  s_c46550d7824595::t_950e8446a09240 1-182
+packages/modelparams-python/src/modelparams/validation.py
+  s_c46550d7824595::t_24381f705890b5 1-19
+packages/modelparams-python/src/modelparams/_generated/__init__.py
+  s_c46550d7824595::t_950e8446a09240 1-2
+packages/modelparams-python/tests/test_validation.py
+  s_c46550d7824595::t_a077c80af45067 40,55
+  s_c46550d7824595::t_81fed52ca0d111 1-5,7-39,41-54,56-72,74-79,86-91
+  s_c46550d7824595::t_9fb670c6de06c6 73
+  s_c46550d7824595::t_d7dd9e147217ab 6,80-85
+packages/modelparams-python/src/modelparams/types/meta.py
+  s_c46550d7824595::t_950e8446a09240 1-78
+packages/modelparams-python/src/modelparams/types/google.py
+  s_c46550d7824595::t_950e8446a09240 1-201
+packages/modelparams-python/LICENSE
+  s_c46550d7824595::t_50ef6e9d73f50c 1-21
+packages/modelparams-python/src/modelparams/catalog.py
+  s_c46550d7824595::t_9fb670c6de06c6 3,6,10
+  s_c46550d7824595::t_81fed52ca0d111 28-32
+  s_c46550d7824595::t_24381f705890b5 1-2,4-5,7-9,11-27,33-59
+packages/modelparams-python/src/modelparams/types/mistral.py
+  s_c46550d7824595::t_950e8446a09240 1-250
+packages/modelparams-python/src/modelparams/types/openai.py
+  s_c46550d7824595::t_950e8446a09240 1-507
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_c46550d7824595::t_950e8446a09240 1-14288
+.github/workflows/ci.yml
+  s_c46550d7824595::t_7bb4ae0bff9e4e 192-194
+  s_c46550d7824595::t_762bda37dd66a9 132,135,172
+  s_c46550d7824595::t_23d3756783a43b 106,109
+  s_c46550d7824595::t_71c622b4d2d039 85-105,107-108,110-131,133-134,136-171,173-191
+.gitignore
+  s_c46550d7824595::t_81fed52ca0d111 7
+  s_c46550d7824595::t_3c40b86a2e5430 8-12
+packages/modelparams-python/src/modelparams/types/deepseek.py
+  s_c46550d7824595::t_950e8446a09240 1-69
+packages/modelparams-python/src/modelparams/__init__.py
+  s_c46550d7824595::t_24381f705890b5 2-25,35-60
+  s_c46550d7824595::t_b11eb136dffb69 1,26-34
+packages/modelparams-python/pyproject.toml
+  s_c46550d7824595::t_24381f705890b5 1-11,13-42,46-63
+  s_c46550d7824595::t_50ef6e9d73f50c 12,43-45
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_c46550d7824595::t_950e8446a09240 1-226
+packages/modelparams-python/src/modelparams/types/alibaba.py
+  s_c46550d7824595::t_950e8446a09240 1-123
+packages/modelparams-python/scripts/codegen.ts
+  s_c46550d7824595::t_b11eb136dffb69 25-29,37,40-43,224-232,235
+  s_c46550d7824595::t_24381f705890b5 1-24,30-36,38-39,44-212,214-223,233-234
+  s_c46550d7824595::t_8d6c412729bc11 213
+packages/modelparams-python/src/modelparams/py.typed
+  s_c46550d7824595::t_24381f705890b5 1
+packages/modelparams-python/src/modelparams/types/moonshot.py
+  s_c46550d7824595::t_950e8446a09240 1-120
+packages/modelparams-python/src/modelparams/types/nvidia.py
+  s_c46550d7824595::t_950e8446a09240 1-244
+packages/modelparams-python/tests/typecheck/params.py
+  s_c46550d7824595::t_81fed52ca0d111 1-19
+packages/modelparams-python/src/modelparams/models.py
+  s_c46550d7824595::t_24381f705890b5 1-7,9-26,30-35,37-62
+  s_c46550d7824595::t_a077c80af45067 36
+  s_c46550d7824595::t_804f8fd49e1169 8,27-29
+packages/modelparams-python/src/modelparams/types/anthropic.py
+  s_c46550d7824595::t_950e8446a09240 1-594
+packages/modelparams-python/scripts/lib/version.ts
+  s_c46550d7824595::t_50ef6e9d73f50c 1-16,29-45
+  s_c46550d7824595::t_b11eb136dffb69 17-28
+packages/modelparams-python/scripts/compute-version.ts
+  s_c46550d7824595::t_447ad2b19d6da0 8
+  s_c46550d7824595::t_b11eb136dffb69 9,25
+  s_c46550d7824595::t_50ef6e9d73f50c 1-7,10-24,26-101
+tests/python-codegen.test.ts
+  s_c46550d7824595::t_fa8173f59393eb 5
+  s_c46550d7824595::t_b11eb136dffb69 1-4,6-28
+packages/modelparams-python/tests/test_catalog.py
+  s_c46550d7824595::t_151999588c90fb 7
+  s_c46550d7824595::t_81fed52ca0d111 2-6,8-19,21-22,33-38,40-59,64-83
+  s_c46550d7824595::t_02b0a2a076e987 60-63
+  s_c46550d7824595::t_b11eb136dffb69 1,23-32
+  s_c46550d7824595::t_23d3756783a43b 20,39
+packages/modelparams-python/src/modelparams/types/xiaomi.py
+  s_c46550d7824595::t_950e8446a09240 1-59
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_c46550d7824595::t_950e8446a09240 1-448
+packages/modelparams-python/src/modelparams/types/minimax.py
+  s_c46550d7824595::t_950e8446a09240 1-214
+tests/python-package-version.test.ts
+  s_c46550d7824595::t_b11eb136dffb69 2-5,49-56
+  s_c46550d7824595::t_50ef6e9d73f50c 1,6-48,57-58
+.github/workflows/release-modelparams-python.yml
+  s_c46550d7824595::t_23d3756783a43b 55,57
+  s_c46550d7824595::t_b11eb136dffb69 131-132,139
+  s_c46550d7824595::t_8cc7046aabb796 18-19
+  s_c46550d7824595::t_71c622b4d2d039 1-17,20-54,56,58-83,88-89,99-118,120-130,133-138,140
+  s_c46550d7824595::t_762bda37dd66a9 86-87
+  s_c46550d7824595::t_591e04d2393e3f 84-85,90-98
+  s_c46550d7824595::t_861148a07606ee 119
+packages/modelparams-python/src/modelparams/types/__init__.py
+  s_c46550d7824595::t_950e8446a09240 1-4
+README.md
+  s_c46550d7824595::t_71c622b4d2d039 39-58,81
+packages/modelparams-python/uv.lock
+  s_c46550d7824595::t_ca144fe7fd21bc 1-1087
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "7b6178d2dcd8cbc4d69243cc50e9b857c9cc5f9e",
+  "prompts": {},
+  "sessions": {
+    "s_c46550d7824595": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fcbaa-5ac4-7ec2-adfe-015c713820ac",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

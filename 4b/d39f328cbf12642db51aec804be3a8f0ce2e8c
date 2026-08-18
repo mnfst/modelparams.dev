@@ -1,0 +1,37 @@
+models/alibaba/qwen-max.yaml
+  s_036e57b72f5518::t_ada92e5789fd55 1-44
+models/alibaba/qwen-turbo.yaml
+  s_036e57b72f5518::t_59287d2b047247 1-44
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_797df0c79eb911 62-121,140-199
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_036e57b72f5518::t_e692873aa6a795 8,10,269,271
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_036e57b72f5518::t_6f7c57dd210b0e 29,31
+packages/modelparams-python/src/modelparams/types/alibaba.py
+  s_036e57b72f5518::t_7f27aa1e4b96b7 26-38,52-64,212,214
+packages/modelparams/src/generated/data.ts
+  s_036e57b72f5518::t_ddb92d82c5aee2 67-126,158-217
+packages/modelparams/src/generated/defaults.ts
+  s_036e57b72f5518::t_9efe506fff8b43 12-15,20-23
+packages/modelparams/src/generated/model-ids.ts
+  s_036e57b72f5518::t_4a31f839bf86f1 6,8
+packages/modelparams/src/generated/params-by-id.ts
+  s_036e57b72f5518::t_c218e76c492f34 17-23,31-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4bd39f328cbf12642db51aec804be3a8f0ce2e8c",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

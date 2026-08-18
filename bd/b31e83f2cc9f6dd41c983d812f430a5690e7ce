@@ -1,0 +1,20 @@
+.github/workflows/release-prepare.yml
+  s_a9160b01f69610::t_6f3df04e386d5e 60-63,77
+  s_a9160b01f69610::t_ec5577ba091c9b 43-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "bdb31e83f2cc9f6dd41c983d812f430a5690e7ce",
+  "prompts": {},
+  "sessions": {
+    "s_a9160b01f69610": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "92c816f7-571a-4dbe-b698-13df3becf2dd",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

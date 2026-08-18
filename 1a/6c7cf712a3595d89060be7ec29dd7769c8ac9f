@@ -1,0 +1,19 @@
+models/meta/muse-spark-1.2.yaml
+  s_713c729ddd07a3::t_b5352d597b8d63 1-94
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1a6c7cf712a3595d89060be7ec29dd7769c8ac9f",
+  "prompts": {},
+  "sessions": {
+    "s_713c729ddd07a3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ffcf3-e66c-7042-9b88-467f69d73c97",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

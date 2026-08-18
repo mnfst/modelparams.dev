@@ -1,0 +1,25 @@
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_174cc0f6f624a1::t_9012f94a48d954 16220-16289
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_174cc0f6f624a1::t_8591de1b133330 224,471
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_174cc0f6f624a1::t_d4b9c3749480be 245
+packages/modelparams-python/src/modelparams/types/xai.py
+  s_174cc0f6f624a1::t_4a5cd4c6aa6217 136-149,186
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7013fc027719ca53406e27369a0509e2e32742e4",
+  "prompts": {},
+  "sessions": {
+    "s_174cc0f6f624a1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ffcee-7142-7940-9a57-093df25fe2da",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

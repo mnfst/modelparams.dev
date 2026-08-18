@@ -1,0 +1,25 @@
+.github/workflows/release-prepare.yml
+  s_a9160b01f69610::t_df79fc42f5153f 132
+tests/uv-lock.test.ts
+  s_a9160b01f69610::t_547de9bb390ad0 1-24
+scripts/prepare-release.ts
+  s_a9160b01f69610::t_df79fc42f5153f 23,37-38,69-73,176-179
+scripts/lib/uv-lock.ts
+  s_a9160b01f69610::t_df79fc42f5153f 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "82d66c958df5943c0b8e9edc3707c11859c8486a",
+  "prompts": {},
+  "sessions": {
+    "s_a9160b01f69610": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "92c816f7-571a-4dbe-b698-13df3becf2dd",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+models/mistral/codestral-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+models/mistral/devstral-2512.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+packages/modelparams/src/generated/data.ts
+  s_036e57b72f5518::t_967e8b25adf29f 10177-10178,10283-10284,10389-10390,10495-10496,10611-10612,10727-10728,10833-10834,10939-10940,11045-11046,11257-11258,11363-11364,11469-11470,11575-11576
+models/mistral/codestral-2508.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+models/mistral/magistral-small-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 79
+models/mistral/magistral-medium-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 79
+models/mistral/mistral-medium-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+packages/modelparams/src/generated/params-by-id.ts
+  s_036e57b72f5518::t_967e8b25adf29f 937,948,959,970,982,994,1005,1016,1027,1049,1060,1071,1082
+models/mistral/mistral-medium-3.5.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+packages/modelparams-python/src/modelparams/types/mistral.py
+  s_036e57b72f5518::t_967e8b25adf29f 23,40,57,74,92,110,127,144,161,195,212,229,246
+models/mistral/devstral-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+models/mistral/ministral-8b-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_967e8b25adf29f 10172-10173,10278-10279,10384-10385,10490-10491,10606-10607,10722-10723,10828-10829,10934-10935,11040-11041,11252-11253,11358-11359,11464-11465,11570-11571
+models/mistral/ministral-3b-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+models/mistral/mistral-small-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+models/mistral/open-mistral-nemo.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+models/mistral/ministral-14b-latest.yaml
+  s_036e57b72f5518::t_6f19a482c213fd 72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0e271f61866aed73aa6c51de351f13962f8b3d2c",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

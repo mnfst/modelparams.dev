@@ -1,0 +1,28 @@
+models/xai/grok-4.3.yaml
+  s_576e1fed5899c6::t_2e8af71a3d39b6 86
+  s_576e1fed5899c6::t_97f618810e6342 1-85,87-98
+models/xai/grok-4.20-0309-reasoning.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-61
+models/xai/grok-4.20-0309-non-reasoning.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-78
+models/xai/grok-4.20-multi-agent-0309.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-61
+models/xai/grok-build-0.1.yaml
+  s_576e1fed5899c6::t_97f618810e6342 1-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "1a6cc97b0abb8ba5c7692d20307930dc26f819c2",
+  "prompts": {},
+  "sessions": {
+    "s_576e1fed5899c6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e4fbe-d392-70c1-9812-f4e265698ed7",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

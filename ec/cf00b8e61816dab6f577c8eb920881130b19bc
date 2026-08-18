@@ -1,0 +1,31 @@
+packages/modelparams/src/generated/data.ts
+  s_036e57b72f5518::t_d89b633dc10738 15607,15621-15622,15689,15703-15704,15771,15785-15786
+models/openai/gpt-5.6-sol.yaml
+  s_036e57b72f5518::t_d89b633dc10738 12,24
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_d89b633dc10738 15602,15616-15617,15684,15698-15699,15766,15780-15781
+packages/modelparams-python/src/modelparams/types/openai.py
+  s_036e57b72f5518::t_d89b633dc10738 398-399,419-420,440-441
+packages/modelparams/src/generated/params-by-id.ts
+  s_036e57b72f5518::t_d89b633dc10738 1530,1539,1548
+models/openai/gpt-5.6-luna.yaml
+  s_036e57b72f5518::t_d89b633dc10738 12,24
+models/openai/gpt-5.6-terra.yaml
+  s_036e57b72f5518::t_d89b633dc10738 12,24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "eccf00b8e61816dab6f577c8eb920881130b19bc",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

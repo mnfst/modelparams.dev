@@ -1,0 +1,19 @@
+README.md
+  s_bb998f4f19d120::t_309db557d45515 5-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "2399224ff202376c7ec18fd8eb02efa6fc2ed1b7",
+  "prompts": {},
+  "sessions": {
+    "s_bb998f4f19d120": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "976b2bd3-b83d-4d78-af0e-74905bb76a25",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
