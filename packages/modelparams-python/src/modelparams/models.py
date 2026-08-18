@@ -68,4 +68,7 @@ class CatalogEntry(FrozenModel):
     provider: str
     auth_type: AuthType = Field(alias="authType")
     model: str
+    # Exact wire string when the host's native id differs from the catalog
+    # slug (pathed ids: accounts/fireworks/models/kimi-k3, openai/gpt-oss-20b).
+    request_model: str | None = Field(alias="requestModel", default=None)
     params: tuple[Parameter, ...]
