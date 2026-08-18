@@ -52,6 +52,20 @@ Deepseek_V4_Pro_0813Params = TypedDict(
 )
 setattr(Deepseek_V4_Pro_0813Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Kimi_K2_7_CodeParams = TypedDict(
+    "Kimi_K2_7_CodeParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Kimi_K2_7_CodeParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen_FlashParams = TypedDict(
     "Qwen_FlashParams",
     {
@@ -464,6 +478,7 @@ __all__ = [
     "Deepseek_V3_2Params",
     "Deepseek_V4_Flash_0731Params",
     "Deepseek_V4_Pro_0813Params",
+    "Kimi_K2_7_CodeParams",
     "Qwen_FlashParams",
     "Qwen_MaxParams",
     "Qwen_PlusParams",
