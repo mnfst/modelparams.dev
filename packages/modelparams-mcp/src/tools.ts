@@ -20,19 +20,7 @@ function modelIdOf(entry: (typeof CATALOG)[number]): ModelId {
   return `${entry.provider}/${entry.model}${suffix}` as ModelId;
 }
 
-/** Provider is mandatory: a bare slug gets the qualified ids, never a guess. */
-function providerRequired(input: string): ToolPayload | null {
-  if (input.includes("/")) return null;
-  const slug = input.trim();
-  const matches = CATALOG.filter((e) => e.model === slug).map(modelIdOf);
-  return {
-    error: "provider_required",
-    message: `Model ids are \`provider/model\`.${matches.length ? " Retry with one of the ids below." : " Call list_models to find the id."}`,
-    ...(matches.length ? { matches } : {}),
-  };
-}
-
-/** Resolve via base URL when given, else require provider/model. */
+/** Resolve via base URL when given, else pass through for catalog resolution. */
 function resolveInput(input: { model: string; baseUrl?: string }): {
   id?: string;
   error?: ToolPayload;
@@ -56,8 +44,8 @@ function resolveInput(input: { model: string; baseUrl?: string }): {
             },
     };
   }
-  const needsProvider = providerRequired(input.model);
-  if (needsProvider) return { error: needsProvider };
+  // A bare slug is resolved by the catalog: unique → that model, shared by
+  // several providers → an ambiguous_model payload with the qualified ids.
   return { id: input.model };
 }
 

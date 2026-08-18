@@ -123,12 +123,21 @@ describe("validate_model_params", () => {
     expect(out.valid).toBe(true);
   });
 
-  it("requires a provider prefix and lists the qualified ids", async () => {
+  it("resolves a bare model slug when it is unambiguous", async () => {
+    const out = await call<ValidateResult>("validate_model_params", {
+      model: "gpt-5.5",
+      params: {},
+    });
+    expect(out.model).toBe("openai/gpt-5.5");
+    expect(out.valid).toBe(true);
+  });
+
+  it("reports an ambiguous bare slug with the qualified ids", async () => {
     const out = await call<ValidateResult>("validate_model_params", {
       model: "kimi-k3",
       params: {},
     });
-    expect(out.error).toBe("provider_required");
+    expect(out.error).toBe("ambiguous_model");
     expect(out.matches).toContain("fireworks/kimi-k3");
     expect(out.matches).toContain("moonshot/kimi-k3");
   });

@@ -100,6 +100,32 @@ describe("GET /api/v1/schema.json", () => {
   });
 });
 
+describe("GET /api/v1/params/:model.json", () => {
+  it("returns params for an api-key model slug without provider metadata", async () => {
+    const res = await get("/api/v1/params/claude-opus-4-7.json");
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body).toEqual({
+      model: "claude-opus-4-7",
+      params: MODELS[0]!.params,
+    });
+  });
+
+  it("returns params for the -subscription model variant", async () => {
+    const res = await get("/api/v1/params/claude-opus-4-7-subscription.json");
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.model).toBe("claude-opus-4-7-subscription");
+    expect(body.params).toEqual(MODELS[1]!.params);
+  });
+
+  it("404s with a model-scoped JSON error for an unknown slug", async () => {
+    const res = await get("/api/v1/params/does-not-exist.json");
+    expect(res.status).toBe(404);
+    expect(await res.json()).toEqual({ error: "not_found", model: "does-not-exist" });
+  });
+});
+
 describe("GET /api/v1/models/:provider/:slug.json", () => {
   it("returns the full model for a known id", async () => {
     const res = await get("/api/v1/models/anthropic/claude-opus-4-7.json");
