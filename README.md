@@ -118,17 +118,37 @@ Three consequences of this convention:
 - **Bare slugs can be ambiguous.** Ask for `kimi-k3` without a provider and the API answers `ambiguous_model` with the qualified ids instead of guessing — any single answer would be wrong for callers on the other host. Providerless `/api/v1/params/<slug>.json` files exist only for unambiguous slugs.
 - **Each entry is probed against its own host.** `fireworks/kimi-k3` was verified against Fireworks' endpoint, not Moonshot's docs.
 
+## API surfaces
+
+An entry documents one **wire format** — the exact request body a specific endpoint accepts. Where a vendor ships several API surfaces for the same model, each is its own parameter set, and the catalog is explicit about which one an entry describes:
+
+| Surface                                      | Wire shape                                              | Status                                                                                              |
+| -------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| OpenAI Chat Completions (+ compatible hosts) | `messages`, `max_completion_tokens`, `reasoning_effort` | ✅ Covered — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, and more     |
+| Anthropic Messages                           | `max_tokens`, `thinking.*`                              | ✅ Covered, probed natively                                                                         |
+| Google `generateContent`                     | `generationConfig.*`                                    | ✅ Covered, probed natively                                                                         |
+| Subscription plan endpoints                  | per-plan variants                                       | ✅ Covered as separate `-subscription` entries — same model can expose different knobs per contract |
+| OpenAI Responses API                         | `input`, `max_output_tokens`, `reasoning.effort`        | ❌ Missing — entries document Chat Completions only                                                 |
+| Google Interactions API                      | successor to `generateContent` (GA 2026-06)             | 🚧 Planned — needs its own adapter and parallel entries                                             |
+| xAI Grok native SDK                          | beyond the OpenAI-compatible endpoint                   | ❌ Missing                                                                                          |
+| MiniMax native endpoint                      | non-standard chat path                                  | ⚠️ Partial — entries exist, verified at liveness level only                                         |
+| Bedrock / Vertex hosted invocations          | per-cloud request envelopes                             | ❌ Missing                                                                                          |
+
+Embeddings, audio, image generation, and batch APIs are out of scope by design: the catalog covers chat/completion request parameters. Missing a surface you need? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) — or a PR; each surface is just YAML entries plus a probe adapter.
+
 ## Parameters that stop working
 
 Providers change gateway validation **in place, on live model ids, without a version bump**. The catalog records this with a per-parameter `deprecated` flag instead of deleting the parameter — deleting would erase the answer to "why did my working code break?".
 
-The proving case: `anthropic/claude-sonnet-5` accepted `temperature` on 2026-07-11 (verified live). By 2026-08-17 the same request had become a hard error:
+The proving case: `anthropic/claude-sonnet-5` accepted `temperature` on 2026-07-11 (verified live by this catalog's prober). By 2026-08-17 the same request had become a hard error:
 
 ```bash
 # temperature 0.5 — worked in July, now:
 # 400 {"error": {"message": "`temperature` is deprecated for this model."}}
 # temperature 1 (the default) — still 200 OK
 ```
+
+This isn't just our probes saying so. Anthropic's own docs state that ["setting sampling parameters (`temperature`, `top_p`, `top_k`) to non-default values returns a 400 error"](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted), and the breakage hit real projects — [paperless-gpt #1003](https://github.com/icereed/paperless-gpt/issues/1003) is a production OCR pipeline failing on exactly this 400. What the docs don't tell you is _when enforcement reached the gateway_ — our dated probes do (worked 2026-07-11, rejected by 2026-08-17), which is precisely the gap between documentation and live behavior this catalog exists to close.
 
 That's `behavior: default-only` — only the default survives. The other behaviors are `rejected` (any use fails) and `ignored` (accepted, no effect — the worst one, because nothing tells you). A nightly drift sweep re-probes the catalog so these flips get caught and dated:
 
