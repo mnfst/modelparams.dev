@@ -20,6 +20,7 @@ import { loadAllModels } from "../src/data/load.js";
 import { loadModelsAtRef, refExists } from "../src/data/git-baseline.js";
 import { diffCatalogs, renderCatalogChangelog } from "../src/data/catalog-diff.js";
 import { insertChangelogEntry } from "./lib/changelog.js";
+import { bumpUvLockVersion } from "./lib/uv-lock.js";
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -33,6 +34,8 @@ interface PackageSpec {
   changelogFile: string;
   readVersion(source: string): string;
   writeVersion(source: string, next: string): string;
+  /** Extra files that also record the version and must move with it. */
+  syncFiles?: { file: string; write(source: string, next: string): string }[];
 }
 
 const PACKAGES: PackageSpec[] = [
@@ -63,6 +66,11 @@ const PACKAGES: PackageSpec[] = [
     },
     writeVersion: (source, next) =>
       source.replace(/^(version\s*=\s*")\d+\.\d+\.\d+(")\s*$/m, `$1${next}$2`),
+    syncFiles: [
+      // uv.lock pins the project's own version; without this, every
+      // `uv sync --locked` in CI fails on the release PR.
+      { file: "packages/modelparams-python/uv.lock", write: bumpUvLockVersion },
+    ],
   },
 ];
 
@@ -165,6 +173,10 @@ async function main(): Promise<void> {
       throw new Error(`failed to write version ${next} into ${spec.manifestFile}`);
     }
     fs.writeFileSync(manifestPath, updated, "utf8");
+    for (const sync of spec.syncFiles ?? []) {
+      const syncPath = path.join(REPO_ROOT, sync.file);
+      fs.writeFileSync(syncPath, sync.write(fs.readFileSync(syncPath, "utf8"), next), "utf8");
+    }
     const changelogPath = path.join(REPO_ROOT, spec.changelogFile);
     const existingChangelog = fs.existsSync(changelogPath)
       ? fs.readFileSync(changelogPath, "utf8")

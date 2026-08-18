@@ -129,6 +129,7 @@ jobs:
           git add packages/modelparams/package.json \
                   packages/modelparams/CHANGELOG.md \
                   packages/modelparams-python/pyproject.toml \
+                  packages/modelparams-python/uv.lock \
                   packages/modelparams-python/CHANGELOG.md
           git commit -m "$TITLE"
           # The branch is a rolling proposal rebuilt from main on every merge,
