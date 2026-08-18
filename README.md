@@ -136,27 +136,22 @@ An entry documents one **wire format** — the exact request body a specific end
 
 Embeddings, audio, image generation, and batch APIs are out of scope by design: the catalog covers chat/completion request parameters. Missing a surface you need? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) — or a PR; each surface is just YAML entries plus a probe adapter.
 
-## Parameters that stop working
+## Dead parameters
 
-Providers change gateway validation **in place, on live model ids, without a version bump**. The catalog records this with a per-parameter `deprecated` flag instead of deleting the parameter — deleting would erase the answer to "why did my working code break?".
-
-The example: `anthropic/claude-sonnet-5` rejects any non-default `temperature` — while the default sails through, which is exactly what makes this failure mode sneaky:
+A parameter can be dead while requests still succeed. `anthropic/claude-sonnet-5`:
 
 ```bash
-# temperature 0.5:
-# 400 {"error": {"message": "`temperature` is deprecated for this model."}}
-# temperature 1 (the default) — 200 OK
+# temperature 0.5 → 400 {"error": {"message": "`temperature` is deprecated for this model."}}
+# temperature 1 (the default) → 200 OK
 ```
 
-The evidence, in order: Anthropic [documents the constraint](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted) ("setting sampling parameters to non-default values returns a 400 error"), it was [noted at launch](https://simonwillison.net/2026/Jun/30/claude-sonnet-5/) on 2026-06-30, and it broke real projects — [paperless-gpt #1003](https://github.com/icereed/paperless-gpt/issues/1003) is a production OCR pipeline failing on exactly this 400 on July 12. This catalog initially got it wrong: the entry shipped on 2026-07-11 declaring `temperature` usable, because probing a param at its **default** value can't detect default-only enforcement — the request succeeds. The drift sweep's non-default probes caught and flagged it on 2026-08-17. We keep that correction visible rather than pretending the entry was always right: a catalog you can trust is one that shows you when it fixed itself.
-
-That's `behavior: default-only` — only the default survives. The other behaviors are `rejected` (any use fails) and `ignored` (accepted, no effect — the worst one, because nothing tells you). A nightly drift sweep re-probes the catalog so these flips get caught and dated:
+The catalog marks these with a `deprecated` flag instead of deleting them — `rejected` (any use fails), `ignored` (accepted, no effect), or `default-only` (only the default survives, as above). Evidence: [Anthropic's docs](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted), [noted at launch](https://simonwillison.net/2026/Jun/30/claude-sonnet-5/), [breakage in the wild](https://github.com/icereed/paperless-gpt/issues/1003). Our own entry was wrong for five weeks — the original probe only tested the default value — until the nightly drift sweep's non-default probes caught it on 2026-08-17.
 
 ```yaml
 deprecated:
   behavior: default-only
   since: "2026-08-17"
-  note: The API now rejects non-default values; only the default value 1 is accepted.
+  note: The API rejects non-default values; only the default value 1 is accepted.
 ```
 
 ## Adding a model
