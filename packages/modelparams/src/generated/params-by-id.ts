@@ -55,6 +55,14 @@ export type ParamsById = {
     "extra_body.enable_thinking": boolean;
     "extra_body.thinking_budget": number;
   };
+  "alibaba/glm-5.2": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/kimi-k2.7-code": {
     max_completion_tokens: number;
     temperature: number;
