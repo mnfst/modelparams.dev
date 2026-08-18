@@ -1,4 +1,6 @@
+import { createRequire } from "node:module";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { CATALOG } from "modelparams";
 import { z } from "zod";
 import {
   findModelsSupporting,
@@ -7,6 +9,12 @@ import {
   validateModelParams,
   type ToolPayload,
 } from "./tools.js";
+
+// The release workflow rewrites package.json's version; read it there so the
+// MCP handshake always reports the shipped version.
+const PKG_VERSION: string = (
+  createRequire(import.meta.url)("../package.json") as { version: string }
+).version;
 
 /** Every tool here is a pure read over data compiled into the package. */
 const READ_ONLY = { readOnlyHint: true, idempotentHint: true, openWorldHint: false } as const;
@@ -21,11 +29,12 @@ function reply(payload: ToolPayload) {
  */
 export function createServer(): McpServer {
   const server = new McpServer(
-    { name: "modelparams", version: "0.0.1" },
+    { name: "modelparams", version: PKG_VERSION },
     {
       instructions:
         "Answers what parameters an LLM accepts, using the modelparams.dev catalog of " +
-        "239 models. Call validate_model_params before issuing any LLM request that sets " +
+        `${CATALOG.length} models. ` +
+        "Call validate_model_params before issuing any LLM request that sets " +
         "non-default parameters, and when diagnosing a 400 from a provider — it catches " +
         "unsupported parameters and invalid combinations that a provider would reject or " +
         "silently ignore.",

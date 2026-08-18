@@ -113,7 +113,7 @@ npm run dev          # http://localhost:3000
 npm run build        # → dist/
 npm run validate     # check every YAML
 npm test             # site tests, including the /api/v1/validate function
-npm test --workspaces # + both published packages
+npm test --workspaces # + every published package
 npm run codegen:python # regenerate the Python package catalog and types
 ```
 
