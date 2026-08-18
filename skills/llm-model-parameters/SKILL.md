@@ -51,7 +51,7 @@ CORS-enabled, no key, no rate limit.
 # Validate a request before you send it — the highest-value call
 curl -s https://modelparams.dev/api/v1/validate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
+  -d '{"model":"anthropic/claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
 ```
 
 ```jsonc
