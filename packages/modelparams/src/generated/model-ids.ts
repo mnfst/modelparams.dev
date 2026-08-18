@@ -132,6 +132,7 @@ export const MODEL_IDS = [
   "google/gemma-4-31b-it",
   "google/gemma-4-E2B-it",
   "google/gemma-4-E4B-it",
+  "groq/gpt-oss-20b",
   "groq/qwen3-32b",
   "meta/Llama-3.3-70B-Instruct",
   "meta/Llama-3.3-8B-Instruct",
