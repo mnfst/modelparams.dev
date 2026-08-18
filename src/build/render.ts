@@ -115,15 +115,16 @@ export interface RenderOptions {
 /**
  * Brand-first homepage title. Interior pages read "<page> · modelparams.dev";
  * the homepage inverts that so the brand leads, which is what a branded search
- * ("modelparams") and a link in a feed both want to see first. "LLM parameters"
- * is the head term people actually type — "model parameters" reads as weights
- * to an ML audience, so the descriptive half says LLM. The live count carries
- * the scale that makes the result worth clicking.
+ * ("modelparams") and a link in a feed both want to see first. The descriptive
+ * half says "LLM API parameters" in full: "model parameters" and even "LLM
+ * parameters" both read as weight count to a general audience, and API is the
+ * one word that weight-count queries never contain. The live count carries the
+ * scale that makes the result worth clicking.
  */
 export function homeTitle(modelCount: number): string {
   return fitTitle([
-    `${SITE_NAME} — LLM Parameters for ${modelCount} Models`,
-    `${SITE_NAME} — LLM Parameters`,
+    `${SITE_NAME} · LLM API Parameters for ${modelCount} Models`,
+    `${SITE_NAME} · LLM API Parameters`,
   ]);
 }
 

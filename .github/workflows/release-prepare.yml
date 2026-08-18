@@ -1,0 +1,166 @@
+name: Prepare release
+
+# Batches releases instead of publishing on every merge.
+#
+# Before this workflow, `release-modelparams*.yml` fired on every push to main,
+# so a normal day of merged model PRs shipped a dozen npm versions (0.0.25 →
+# 0.0.41 in a single day) and forced a dependency bump downstream for each one.
+#
+# Now every merge only *prepares*: this workflow asks the existing version
+# classifiers what the next version would be given everything on main since the
+# last release tag, writes it into the package manifests, prepends a catalog
+# changelog, and force-pushes the result to `chore/release` as a single open PR.
+# Merging that PR is what publishes — `release-modelparams.yml` and
+# `release-modelparams-python.yml` watch for the committed version to change.
+#
+# Setup requirement: the PR must be created with a token that is NOT the
+# default `GITHUB_TOKEN`. Events raised by `GITHUB_TOKEN` do not trigger further
+# workflow runs, so `param-guard.yml` would never report the "No parameter
+# removals" check that branch protection requires — leaving the release PR
+# permanently unmergeable. Two options, checked in this order:
+#   1. `APP_ID` + `APP_PRIVATE_KEY` — a GitHub App (the same app mnfst/manifest
+#      uses for its version PRs). Preferred: not tied to a person, no expiry.
+#   2. `RELEASE_PAT` — a personal access token with Contents + Pull requests
+#      read/write on this repo. Simpler to set up, but the release PRs are
+#      authored by that person and the token expires.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "models/**"
+      - "packages/**"
+      - "src/schema/model.ts"
+      - "src/data/**"
+      - "scripts/prepare-release.ts"
+      - ".github/workflows/release-prepare.yml"
+  workflow_dispatch:
+    inputs:
+      force_level:
+        description: "Force bump level (overrides auto-detect)"
+        required: false
+        type: choice
+        options: ["auto", "patch", "major"]
+        default: "auto"
+
+concurrency:
+  group: release-prepare
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  RELEASE_BRANCH: chore/release
+
+jobs:
+  prepare:
+    name: Prepare release PR
+    runs-on: ubuntu-latest
+    env:
+      # The `secrets` context is not allowed in a step-level `if`, so the
+      # App-vs-PAT choice is materialized here where it is allowed.
+      HAS_APP: ${{ secrets.APP_ID != '' }}
+    steps:
+      - name: Require release credentials
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          RELEASE_PAT: ${{ secrets.RELEASE_PAT }}
+        run: |
+          if [ -z "$APP_ID" ] && [ -z "$RELEASE_PAT" ]; then
+            echo "::error::Neither APP_ID/APP_PRIVATE_KEY nor RELEASE_PAT is configured on this repo. The release PR must be opened by a real token: a PR from the default GITHUB_TOKEN does not trigger param-guard.yml, so the 'No parameter removals' check required by branch protection would never report and the PR could never be merged."
+            exit 1
+          fi
+
+      - name: Generate GitHub App token
+        id: app-token
+        if: env.HAS_APP == 'true'
+        uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Select token
+        id: token
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+          RELEASE_PAT: ${{ secrets.RELEASE_PAT }}
+        run: |
+          echo "token=${APP_TOKEN:-$RELEASE_PAT}" >> "$GITHUB_OUTPUT"
+
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history for the catalog diff
+          fetch-tags: true # release tags are the "last published" baseline
+          token: ${{ steps.token.outputs.token }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate catalog
+        run: npm run validate
+
+      - name: Compute versions and write changelogs
+        id: prepare
+        env:
+          FORCE_LEVEL: ${{ inputs.force_level }}
+          RELEASE_BODY_PATH: ${{ runner.temp }}/release-pr-body.md
+        run: npx tsx scripts/prepare-release.ts
+
+      - name: Nothing to release
+        if: steps.prepare.outputs.has_changes != 'true'
+        run: echo "::notice::No unreleased catalog or package change — release PR not updated."
+
+      - name: Push release branch
+        if: steps.prepare.outputs.has_changes == 'true'
+        env:
+          TITLE: ${{ steps.prepare.outputs.title }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$RELEASE_BRANCH"
+          git add packages/modelparams/package.json \
+                  packages/modelparams/CHANGELOG.md \
+                  packages/modelparams-python/pyproject.toml \
+                  packages/modelparams-python/uv.lock \
+                  packages/modelparams-python/CHANGELOG.md
+          git commit -m "$TITLE"
+          # The branch is a rolling proposal rebuilt from main on every merge,
+          # never a shared branch anyone commits to, so replacing it wholesale
+          # is the intended behaviour.
+          git push --force origin "$RELEASE_BRANCH"
+
+      - name: Open or update the release PR
+        if: steps.prepare.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ steps.token.outputs.token }}
+          TITLE: ${{ steps.prepare.outputs.title }}
+          BODY_FILE: ${{ runner.temp }}/release-pr-body.md
+        run: |
+          # REST only — no gh pr subcommands. Those go through GraphQL, which
+          # rejects classic tokens without read:org on org repos ("the 'login'
+          # field requires ['read:org']"); the REST pulls API needs just repo,
+          # so this works with RELEASE_PAT and App tokens alike.
+          existing=$(gh api "repos/${GITHUB_REPOSITORY}/pulls?state=open&base=main&head=${GITHUB_REPOSITORY_OWNER}:${RELEASE_BRANCH}" \
+            --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/pulls/${existing}" \
+              -f title="$TITLE" -f body="$(cat "$BODY_FILE")" --silent
+            echo "::notice::Updated release PR #${existing}: ${TITLE}"
+          else
+            number=$(gh api -X POST "repos/${GITHUB_REPOSITORY}/pulls" \
+              -f title="$TITLE" -f head="$RELEASE_BRANCH" -f base=main \
+              -f body="$(cat "$BODY_FILE")" --jq '.number')
+            # Best-effort: the label is created by label-sync.yml, which may not
+            # have run yet the very first time this workflow fires.
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/issues/${number}/labels" \
+              -f "labels[]=release" --silent || true
+            echo "::notice::Opened release PR #${number}: ${TITLE}"
+          fi

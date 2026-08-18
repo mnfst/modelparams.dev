@@ -126,7 +126,7 @@ describe("providerless model params", () => {
     expect(listModelParamsResponses([one, two])).toEqual([modelParamsResponse(one)]);
   });
 
-  it("rejects conflicting providerless model param sets", () => {
+  it("omits providerless slugs whose serving providers disagree on params", () => {
     const one = makeModel({ provider: "anthropic" });
     const two = makeModel({
       provider: "openrouter",
@@ -141,9 +141,7 @@ describe("providerless model params", () => {
       ],
     });
 
-    expect(() => listModelParamsResponses([one, two])).toThrow(
-      'Conflicting params for providerless model slug "claude-opus-4-7"',
-    );
+    expect(listModelParamsResponses([one, two])).toEqual([]);
   });
 });
 
@@ -242,6 +240,7 @@ describe("provider catalog rows", () => {
     const byId = new Map(models.map((model) => [modelId(model), model]));
     const sharedModels = [
       "glm-5.1",
+      "glm-5.2",
       "glm-5-turbo",
       "glm-5",
       "glm-4.7",

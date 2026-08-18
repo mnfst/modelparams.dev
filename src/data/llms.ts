@@ -3,7 +3,7 @@ import { buildProviderFacets } from "./catalog.js";
 import { authLabel, modelFullLabel, paramGroupLabel, providerLabel } from "./display.js";
 import { groupParams } from "./group.js";
 import { buildParameterIndex } from "./parameters.js";
-import { parameterPagePath } from "./urls.js";
+import { DISAMBIGUATION_PATH, parameterPagePath } from "./urls.js";
 import { modelId, type Model, type Parameter } from "../schema/model.js";
 
 const REPO_URL = "https://github.com/mnfst/modelparams.dev";
@@ -25,9 +25,14 @@ function guideIntro(siteUrl: string): string[] {
   return [
     "# How to use modelparams.dev",
     "",
-    `[modelparams.dev](${siteUrl}) is an open, community-maintained catalog of model`,
-    "parameters. Each entry shows the knobs you can turn — type, default, range, and the",
-    "conditions that gate it.",
+    `[modelparams.dev](${siteUrl}) is an open, community-maintained catalog of LLM API`,
+    "parameters: the settings you send in a request, like `temperature` and `max_tokens`.",
+    "Each entry shows the knobs you can turn — type, default, range, and the conditions",
+    "that gate it.",
+    "",
+    'It does not track parameter counts. "Parameters" here never means trained weights,',
+    "so nothing on this site answers how many parameters a model has. See",
+    `${siteUrl}${DISAMBIGUATION_PATH} for the difference.`,
     "",
     "The same model accessed via an **API key** and via a **subscription** usually exposes a",
     "different set of parameters. We list both as separate entries so the data stays honest.",
@@ -140,6 +145,11 @@ function fmtValue(value: unknown): string {
 
 function paramConstraints(param: Parameter): string {
   const bits: string[] = [];
+  if (param.deprecated) {
+    const dep = param.deprecated;
+    const since = dep.since ? ` since ${dep.since}` : "";
+    bits.push(`DEPRECATED (${dep.behavior}${since})${dep.note ? `: ${dep.note}` : ""}`);
+  }
   if (param.default !== undefined) bits.push(`default: ${fmtValue(param.default)}`);
   if (param.type === "enum") bits.push(`values: ${param.values.map(fmtValue).join(", ")}`);
   if ((param.type === "integer" || param.type === "number") && param.range) {
@@ -171,8 +181,9 @@ export function buildLlmsTxt(siteUrl: string, models: Model[]): string {
   const lines: string[] = [
     "# modelparams.dev",
     "",
-    "> An open, community-maintained catalog of model parameters — every knob you can",
-    "> turn, for every model, with API-key and subscription variants tracked separately.",
+    "> An open, community-maintained catalog of LLM API parameters — every request-body knob",
+    "> you can turn, for every model, with API-key and subscription variants tracked",
+    "> separately. Not parameter counts: nothing here describes model weights.",
     "",
     "All data is machine-readable: CORS-enabled static JSON validated against a published JSON",
     "Schema, served from the edge under `/api/v1/`. IDs are `provider/model` for API-key",
@@ -186,6 +197,7 @@ export function buildLlmsTxt(siteUrl: string, models: Model[]): string {
     "",
     "## Guides",
     `- [Usage guide + full parameter dump](${siteUrl}/llms-full.txt): How to call the API plus every model's parameters inline.`,
+    `- [Model parameters vs. API parameters](${siteUrl}${DISAMBIGUATION_PATH}): Why "parameters" here means request settings and never weight counts.`,
     "",
     "## Parameters",
   ];

@@ -1,0 +1,186 @@
+name: Release modelparams Python
+
+# Publishes the `modelparams` PyPI package when a release lands on main.
+#
+# Releases are batched: `release-prepare.yml` accumulates every catalog and
+# package change since the last tag into one `chore: release …` PR that bumps
+# packages/modelparams-python/pyproject.toml. That committed version is the
+# trigger and the source of truth here — this workflow publishes it verbatim
+# rather than recomputing a number.
+#
+# Like the npm release, the workflow regenerates the catalog and types in CI and
+# publishes from that fresh output, so a merge that forgot
+# `npm run codegen:python` still releases correctly — the committed files only
+# get a warning here. The hard in-sync check lives in ci.yml, where it flags the
+# PR for the contributor to fix.
+#
+# `workflow_dispatch` republishes whatever version main currently declares — use
+# it to recover from a failed publish, not to cut a new version.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/modelparams-python/pyproject.toml"
+  workflow_dispatch:
+
+concurrency:
+  group: release-modelparams-python
+  cancel-in-progress: false
+
+jobs:
+  detect:
+    name: Detect version bump
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.detect.outputs.version }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compare committed version against the push base
+        id: detect
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+          MANUAL: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          # Read both versions from the immutable remote SHAs of the push event,
+          # not from HEAD, so a multi-commit push is compared against what main
+          # actually had before it. Publishing only on a *change* keeps an
+          # unrelated pyproject.toml edit (a dependency pin, a classifier) from
+          # re-publishing a version that already exists on PyPI.
+          read_version() {
+            git show "$1:packages/modelparams-python/pyproject.toml" 2>/dev/null \
+              | sed -n 's/^version = "\([0-9][0-9.]*\)"$/\1/p' | head -1
+          }
+          CURR=$(read_version "$AFTER_SHA")
+          if [ "$MANUAL" = "true" ]; then
+            echo "version=$CURR" >> "$GITHUB_OUTPUT"
+            echo "Manual dispatch: republishing $CURR"
+            exit 0
+          fi
+          if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            PREV=$(read_version "$BEFORE_SHA")
+          else
+            PREV=""
+          fi
+          if [ -n "$PREV" ] && [ "$PREV" != "$CURR" ]; then
+            echo "version=$CURR" >> "$GITHUB_OUTPUT"
+            echo "Version bumped: $PREV -> $CURR"
+          else
+            echo "version=" >> "$GITHUB_OUTPUT"
+            echo "::notice::No version change (PREV=${PREV:-<none>} CURR=${CURR:-<none>}) — nothing to publish."
+          fi
+
+  build:
+    name: Build distributions
+    needs: detect
+    if: needs.detect.outputs.version != ''
+    runs-on: ubuntu-latest
+    outputs:
+      notes: ${{ steps.notes.outputs.body }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Validate catalog
+        run: npm run validate
+
+      - name: Generate Python catalog and types
+        run: npm run codegen:python
+
+      - name: Warn if committed generated files are stale
+        run: |
+          if [[ -n "$(git status --porcelain -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types)" ]]; then
+            echo "::warning::Committed Python generated files are stale; publishing from freshly generated output. Run \`npm run codegen:python\` and commit the result to resync the repo."
+            git status --short -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install, test, and build
+        run: |
+          uv sync --project packages/modelparams-python --extra dev --locked
+          uv run --project packages/modelparams-python ruff check packages/modelparams-python
+          uv run --project packages/modelparams-python ruff format --check packages/modelparams-python/src packages/modelparams-python/tests
+          uv run --project packages/modelparams-python pytest packages/modelparams-python/tests
+          uv run --project packages/modelparams-python mypy --config-file packages/modelparams-python/pyproject.toml packages/modelparams-python/src/modelparams packages/modelparams-python/tests/typecheck
+          uv build --project packages/modelparams-python
+          uv run --project packages/modelparams-python twine check packages/modelparams-python/dist/*
+
+      - name: Smoke-test installed wheel
+        run: |
+          smoke_dir="$(mktemp -d)"
+          python -m venv "$smoke_dir/venv"
+          "$smoke_dir/venv/bin/pip" install packages/modelparams-python/dist/*.whl
+          cd "$smoke_dir"
+          "$smoke_dir/venv/bin/python" -c 'import modelparams; assert len(modelparams.MODEL_IDS) > 0; assert modelparams.validate_params("openai/gpt-4.1", {"temperature": 0.5}) == {"temperature": 0.5}'
+
+      - name: Extract changelog entry
+        id: notes
+        env:
+          VERSION: ${{ needs.detect.outputs.version }}
+        run: |
+          BODY=$(awk -v ver="## ${VERSION}" \
+            '$0 == ver { found=1; next } found && /^## / { exit } found { print }' \
+            packages/modelparams-python/CHANGELOG.md)
+          {
+            echo "body<<EOF_NOTES"
+            echo "${BODY:-See the generated notes below.}"
+            echo "EOF_NOTES"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: modelparams-python-distributions
+          path: packages/modelparams-python/dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish to PyPI
+    needs: [detect, build]
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      actions: read
+      contents: write
+      id-token: write
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: modelparams-python-distributions
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true
+
+      - name: Create GitHub release and tag
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "modelparams-py@${{ needs.detect.outputs.version }}"
+          name: "modelparams-py@${{ needs.detect.outputs.version }}"
+          target_commitish: ${{ github.sha }}
+          body: ${{ needs.build.outputs.notes }}
+          generate_release_notes: true

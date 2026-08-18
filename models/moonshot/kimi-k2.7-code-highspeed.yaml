@@ -11,6 +11,23 @@ params:
     range:
       min: 1
     group: generation_length
+  - path: stop
+    type: string
+    label: Stop sequence
+    description: >-
+      Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most
+      32 bytes each.
+    group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Thinking is always on for this model. Enabled is the only accepted value; disabled returns an
+      error.
+    default: enabled
+    values:
+      - enabled
+    group: reasoning
   - path: response_format.type
     type: enum
     label: Response format
@@ -21,3 +38,31 @@ params:
       - json_object
       - json_schema
     group: output_format
+  - path: tool_choice
+    type: enum
+    label: Tool choice
+    description: >-
+      Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects
+      required while thinking is enabled, which is the default on this model.
+    default: auto
+    values:
+      - auto
+      - none
+    group: tooling
+  - path: logprobs
+    type: boolean
+    label: Log probabilities
+    description: Controls whether the response includes log probabilities for the generated tokens.
+    default: false
+    group: observability
+  - path: top_logprobs
+    type: integer
+    label: Top log probabilities
+    description: Number of most likely tokens to return a log probability for at each position.
+    range:
+      min: 0
+      max: 20
+    group: observability
+    applicability:
+      only:
+        logprobs: true

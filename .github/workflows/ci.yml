@@ -88,3 +88,113 @@ jobs:
 
       - name: Type-level tests (tsd)
         run: npm run test:types --workspace=modelparams
+
+  modelparams-python:
+    name: modelparams Python package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Generate Python catalog and types
+        run: npm run codegen:python
+
+      - name: Verify Python generated files are in sync
+        run: |
+          if [[ -n "$(git status --porcelain -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types)" ]]; then
+            echo "::error::Generated Python package files are out of date."
+            echo "Run \`npm run codegen:python\` locally and commit the result."
+            git status --short -- packages/modelparams-python/src/modelparams/_generated packages/modelparams-python/src/modelparams/types
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install Python dependencies
+        run: uv sync --project packages/modelparams-python --extra dev --locked
+
+      - name: Lint and format check
+        run: |
+          uv run --project packages/modelparams-python ruff check packages/modelparams-python
+          uv run --project packages/modelparams-python ruff format --check packages/modelparams-python/src packages/modelparams-python/tests
+
+      - name: Typecheck
+        run: uv run --project packages/modelparams-python mypy --config-file packages/modelparams-python/pyproject.toml packages/modelparams-python/src/modelparams packages/modelparams-python/tests/typecheck
+
+      - name: Test
+        run: uv run --project packages/modelparams-python pytest packages/modelparams-python/tests
+
+      - name: Build and verify distributions
+        run: |
+          uv build --project packages/modelparams-python
+          uv run --project packages/modelparams-python twine check packages/modelparams-python/dist/*
+
+      - name: Smoke-test installed wheel
+        run: |
+          smoke_dir="$(mktemp -d)"
+          python -m venv "$smoke_dir/venv"
+          "$smoke_dir/venv/bin/pip" install packages/modelparams-python/dist/*.whl
+          cd "$smoke_dir"
+          "$smoke_dir/venv/bin/python" -c 'import modelparams; assert len(modelparams.MODEL_IDS) > 0; assert modelparams.validate_params("openai/gpt-4.1", {"temperature": 0.5}) == {"temperature": 0.5}'
+
+  modelparams-python-compat:
+    name: Python ${{ matrix.python-version }} compatibility
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --project packages/modelparams-python --extra dev --locked --python "${{ matrix.python-version }}"
+
+      - name: Test
+        run: uv run --project packages/modelparams-python --python "${{ matrix.python-version }}" pytest packages/modelparams-python/tests
+
+  modelparams-python-min-pydantic:
+    name: Python 3.10 + Pydantic 2.10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install minimum Pydantic
+        run: |
+          uv sync --project packages/modelparams-python --extra dev --locked --python "3.10"
+          uv pip install --python packages/modelparams-python/.venv/bin/python "pydantic==2.10.*"
+
+      - name: Test
+        run: |
+          packages/modelparams-python/.venv/bin/python -c 'import pydantic; assert pydantic.__version__.startswith("2.10.")'
+          packages/modelparams-python/.venv/bin/pytest packages/modelparams-python/tests
