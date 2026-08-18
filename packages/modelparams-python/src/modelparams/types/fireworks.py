@@ -205,6 +205,21 @@ Muse_Glimmer_30bParams = TypedDict(
 )
 setattr(Muse_Glimmer_30bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Qwen3p7_PlusParams = TypedDict(
+    "Qwen3p7_PlusParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Qwen3p7_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3p8_2p4t_A95bParams = TypedDict(
     "Qwen3p8_2p4t_A95bParams",
     {
@@ -234,5 +249,6 @@ __all__ = [
     "Minimax_M2p7Params",
     "Minimax_M3Params",
     "Muse_Glimmer_30bParams",
+    "Qwen3p7_PlusParams",
     "Qwen3p8_2p4t_A95bParams",
 ]
