@@ -7,6 +7,70 @@
  * parameters they want to override.
  */
 export type ParamsById = {
+  "alibaba/deepseek-v3.2": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-flash": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-flash-0731": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-pro": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-pro-0813": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/glm-5.1": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/glm-5.2": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/kimi-k2.7-code": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwen-flash": {
     max_tokens: number;
     temperature: number;
@@ -1326,66 +1390,103 @@ export type ParamsById = {
   };
   "moonshot/kimi-k2.5": {
     max_completion_tokens: number;
+    stop: string;
     "thinking.type": "enabled" | "disabled";
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.6": {
     max_completion_tokens: number;
+    stop: string;
     "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.6-subscription": {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k2.7-code": {
     max_completion_tokens: number;
+    stop: string;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.7-code-highspeed": {
     max_completion_tokens: number;
+    stop: string;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k2.7-code-subscription": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k3": {
     max_completion_tokens: number;
+    stop: string;
     "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "low" | "high" | "max";
     "response_format.type": "text" | "json_object" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
   };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;
+    stop: string;
     temperature: number;
     top_p: number;
     n: number;
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none" | "required";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/moonshot-v1-32k": {
     max_completion_tokens: number;
+    stop: string;
     temperature: number;
     top_p: number;
     n: number;
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none" | "required";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/moonshot-v1-8k": {
     max_completion_tokens: number;
+    stop: string;
     temperature: number;
     top_p: number;
     n: number;
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none" | "required";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "nvidia/gliner-pii": {
     threshold: number;

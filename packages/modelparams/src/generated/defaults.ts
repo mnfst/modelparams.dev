@@ -5,6 +5,38 @@ import type { ModelId } from "./model-ids.js";
 import type { ParamsById } from "./params-by-id.js";
 
 export const DEFAULTS = {
+  "alibaba/deepseek-v3.2": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/deepseek-v4-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/deepseek-v4-flash-0731": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/deepseek-v4-pro": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/deepseek-v4-pro-0813": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/glm-5.1": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/glm-5.2": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/kimi-k2.7-code": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwen-flash": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
@@ -999,32 +1031,49 @@ export const DEFAULTS = {
     safe_prompt: false,
   },
   "moonshot/kimi-k2.5": {
+    "thinking.type": "enabled",
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.6": {
     "thinking.type": "enabled",
+    "thinking.keep": null,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.6-subscription": {
     "thinking.type": "enabled",
+    "thinking.keep": null,
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.7-code": {
     max_completion_tokens: 32768,
+    "thinking.type": "enabled",
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.7-code-highspeed": {
     max_completion_tokens: 32768,
+    "thinking.type": "enabled",
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
+    "thinking.type": "enabled",
     "response_format.type": "text",
   },
   "moonshot/kimi-k2.7-code-subscription": {
+    "thinking.type": "enabled",
     "response_format.type": "text",
   },
   "moonshot/kimi-k3": {
+    reasoning_effort: "max",
     "response_format.type": "text",
+    tool_choice: "auto",
   },
   "moonshot/moonshot-v1-128k": {
     temperature: 0.3,
@@ -1033,6 +1082,8 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/moonshot-v1-32k": {
     temperature: 0.3,
@@ -1041,6 +1092,8 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/moonshot-v1-8k": {
     temperature: 0.3,
@@ -1049,6 +1102,8 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "nvidia/gliner-pii": {
     threshold: 0.5,
