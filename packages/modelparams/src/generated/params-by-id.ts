@@ -842,26 +842,6 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
-  "google/gemini-3-pro-image": {
-    "generationConfig.maxOutputTokens": number;
-    "generationConfig.temperature": number;
-    "generationConfig.topP": number;
-    "generationConfig.topK": number;
-    "generationConfig.seed": number;
-    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
-    "generationConfig.thinkingConfig.includeThoughts": boolean;
-    "generationConfig.responseMimeType": "text/plain" | "application/json";
-  };
-  "google/gemini-3.1-flash-image": {
-    "generationConfig.maxOutputTokens": number;
-    "generationConfig.temperature": number;
-    "generationConfig.topP": number;
-    "generationConfig.topK": number;
-    "generationConfig.seed": number;
-    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
-    "generationConfig.thinkingConfig.includeThoughts": boolean;
-    "generationConfig.responseMimeType": "text/plain" | "application/json";
-  };
   "google/gemini-3.1-flash-lite": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -871,16 +851,6 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
-  };
-  "google/gemini-3.1-flash-lite-image": {
-    "generationConfig.maxOutputTokens": number;
-    "generationConfig.temperature": number;
-    "generationConfig.topP": number;
-    "generationConfig.topK": number;
-    "generationConfig.seed": number;
-    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
-    "generationConfig.thinkingConfig.includeThoughts": boolean;
-    "generationConfig.responseMimeType": "text/plain";
   };
   "google/gemini-3.1-flash-lite-preview-subscription": {
     "generationConfig.maxOutputTokens": number;
