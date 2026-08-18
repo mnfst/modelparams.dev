@@ -115,6 +115,21 @@ Minimax_M2p7Params = TypedDict(
 )
 setattr(Minimax_M2p7Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Muse_Glimmer_30bParams = TypedDict(
+    "Muse_Glimmer_30bParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Muse_Glimmer_30bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Deepseek_V4_Flash_0731Params",
     "Deepseek_V4_Pro_0813Params",
@@ -123,4 +138,5 @@ __all__ = [
     "Kimi_K2p7_CodeParams",
     "Kimi_K3Params",
     "Minimax_M2p7Params",
+    "Muse_Glimmer_30bParams",
 ]
