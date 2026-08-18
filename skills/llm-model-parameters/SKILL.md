@@ -73,14 +73,14 @@ curl -s https://modelparams.dev/api/v1/validate \
 Other endpoints:
 
 ```bash
-curl https://modelparams.dev/api/v1/params/gpt-5.5.json           # one model's params
+curl https://modelparams.dev/api/v1/models/openai/gpt-5.5.json    # one model's params
 curl https://modelparams.dev/api/v1/models/anthropic/claude-opus-4-7.json
 curl https://modelparams.dev/api/v1/models.json                   # full catalog
 curl https://modelparams.dev/api/v1/index.json                    # endpoint map + live count
 ```
 
-Ids are `provider/model`; subscription contracts append `-subscription`. The
-validate endpoint also accepts a bare slug when only one provider publishes it.
+Ids are always `provider/model`; subscription contracts append `-subscription`.
+A bare slug is refused with the qualified ids to retry with.
 
 ### npm package
 

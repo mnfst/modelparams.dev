@@ -55,7 +55,7 @@ export function createServer(): McpServer {
       inputSchema: {
         model: z
           .string()
-          .describe('Catalog id ("anthropic/claude-opus-4-7") or bare model slug ("gpt-5.5").'),
+          .describe('Catalog id, always provider-qualified: "anthropic/claude-opus-4-7".'),
         params: z
           .record(z.unknown())
           .optional()
@@ -77,7 +77,7 @@ export function createServer(): McpServer {
         "default, and any conditional rules governing when it applies. Use before writing " +
         "code that calls a model, or when building a model settings UI.",
       inputSchema: {
-        model: z.string().describe('Catalog id ("openai/gpt-5.5") or bare model slug ("gpt-5.5").'),
+        model: z.string().describe('Catalog id, always provider-qualified: "openai/gpt-5.5".'),
       },
       annotations: READ_ONLY,
     },

@@ -19,6 +19,18 @@ function modelIdOf(entry: (typeof CATALOG)[number]): ModelId {
   return `${entry.provider}/${entry.model}${suffix}` as ModelId;
 }
 
+/** Provider is mandatory: a bare slug gets the qualified ids, never a guess. */
+function providerRequired(input: string): ToolPayload | null {
+  if (input.includes("/")) return null;
+  const slug = input.trim();
+  const matches = CATALOG.filter((e) => e.model === slug).map(modelIdOf);
+  return {
+    error: "provider_required",
+    message: `Model ids are \`provider/model\`.${matches.length ? " Retry with one of the ids below." : " Call list_models to find the id."}`,
+    ...(matches.length ? { matches } : {}),
+  };
+}
+
 /**
  * Turn an unresolvable model reference into a payload that tells the agent how
  * to recover, rather than a bare error it will retry verbatim.
@@ -65,6 +77,8 @@ export function validateModelParams(input: {
   model: string;
   params?: Record<string, unknown>;
 }): ToolPayload {
+  const needsProvider = providerRequired(input.model);
+  if (needsProvider) return needsProvider;
   const resolved = resolveModelId(input.model);
   if (!resolved.ok) return unresolved(input.model, resolved);
 
@@ -95,6 +109,8 @@ export function validateModelParams(input: {
 
 /** Full parameter surface for one model, including conditional rules. */
 export function getModelParams(input: { model: string }): ToolPayload {
+  const needsProvider = providerRequired(input.model);
+  if (needsProvider) return needsProvider;
   const resolved = resolveModelId(input.model);
   if (!resolved.ok) return unresolved(input.model, resolved);
 
