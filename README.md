@@ -103,38 +103,34 @@ The MCP server exposes `validate_model_params`, `get_model_params`, `list_models
 
 ## One model, many providers
 
-A model appears in the catalog under **every provider that serves it**, not just the vendor that made it — because each host accepts a different set of parameters for the same weights. That difference is exactly what this catalog exists to record, and it is real. Probed live on 2026-08-18:
+The same model accepts different parameters on each host that serves it. The catalog has one entry per host, each probed against that host's own endpoint.
 
-|                    | `moonshot/kimi-k3`                                                | `fireworks/kimi-k3`                 |
-| ------------------ | ----------------------------------------------------------------- | ----------------------------------- |
-| Wire id to send    | `kimi-k3`                                                         | `accounts/fireworks/models/kimi-k3` |
-| `temperature: 1.8` | ✗ 400 — `invalid temperature: only 0.6 is allowed for this model` | ✓ accepted (range 0–2)              |
-| `top_k: 40`        | not declared                                                      | ✓ accepted                          |
-| Thinking control   | `thinking.type`, `reasoning_effort`                               | not exposed                         |
+|                    | `moonshot/kimi-k3` | `fireworks/kimi-k3`                 |
+| ------------------ | ------------------ | ----------------------------------- |
+| Wire id            | `kimi-k3`          | `accounts/fireworks/models/kimi-k3` |
+| `temperature: 1.8` | ✗ 400              | ✓                                   |
+| `top_k`            | ✗                  | ✓                                   |
+| Thinking control   | ✓                  | ✗                                   |
 
-Three consequences of this convention:
-
-- **`requestModel`** — when a host's native id can't serve as the catalog slug (Fireworks' pathed ids, Groq's `openai/gpt-oss-20b`), the entry keeps a clean slug and carries the exact wire string in `requestModel`. Every API response and MCP tool returns it; send that string, not the slug.
-- **Bare slugs can be ambiguous.** Ask for `kimi-k3` without a provider and the API answers `ambiguous_model` with the qualified ids instead of guessing — any single answer would be wrong for callers on the other host. Providerless `/api/v1/params/<slug>.json` files exist only for unambiguous slugs.
-- **Each entry is probed against its own host.** `fireworks/kimi-k3` was verified against Fireworks' endpoint, not Moonshot's docs.
+- **`requestModel`** — the exact string to send when it differs from the catalog slug. Every API response and MCP tool returns it.
+- **Ambiguous slugs are refused** — `kimi-k3` alone returns `ambiguous_model` with the qualified ids, instead of a guess.
 
 ## API surfaces
 
-An entry documents one **wire format** — the exact request body a specific endpoint accepts. Where a vendor ships several API surfaces for the same model, each is its own parameter set, and the catalog is explicit about which one an entry describes:
+One entry documents one wire format.
 
-| Surface                                      | Wire shape                                              | Status                                                                                              |
-| -------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| OpenAI Chat Completions (+ compatible hosts) | `messages`, `max_completion_tokens`, `reasoning_effort` | ✅ Covered — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, and more     |
-| Anthropic Messages                           | `max_tokens`, `thinking.*`                              | ✅ Covered, probed natively                                                                         |
-| Google `generateContent`                     | `generationConfig.*`                                    | ✅ Covered, probed natively                                                                         |
-| Subscription plan endpoints                  | per-plan variants                                       | ✅ Covered as separate `-subscription` entries — same model can expose different knobs per contract |
-| OpenAI Responses API                         | `input`, `max_output_tokens`, `reasoning.effort`        | ❌ Missing — entries document Chat Completions only                                                 |
-| Google Interactions API                      | successor to `generateContent` (GA 2026-06)             | 🚧 Planned — needs its own adapter and parallel entries                                             |
-| xAI Grok native SDK                          | beyond the OpenAI-compatible endpoint                   | ❌ Missing                                                                                          |
-| MiniMax native endpoint                      | non-standard chat path                                  | ⚠️ Partial — entries exist, verified at liveness level only                                         |
-| Bedrock / Vertex hosted invocations          | per-cloud request envelopes                             | ❌ Missing                                                                                          |
+| Surface                                                                                               | Status           |
+| ----------------------------------------------------------------------------------------------------- | ---------------- |
+| OpenAI Chat Completions — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, … | ✅               |
+| Anthropic Messages                                                                                    | ✅               |
+| Google `generateContent`                                                                              | ✅               |
+| Subscription plans (`-subscription` entries)                                                          | ✅               |
+| MiniMax native endpoint                                                                               | ⚠️ liveness only |
+| OpenAI Responses API                                                                                  | ❌               |
+| Google Interactions API                                                                               | ❌               |
+| xAI native SDK                                                                                        | ❌               |
 
-Embeddings, audio, image generation, and batch APIs are out of scope by design: the catalog covers chat/completion request parameters. Missing a surface you need? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) — or a PR; each surface is just YAML entries plus a probe adapter.
+Embeddings, audio, image, and batch APIs are out of scope. Missing a surface? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) or a PR.
 
 ## Adding a model
 
