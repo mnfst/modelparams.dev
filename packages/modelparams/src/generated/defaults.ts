@@ -785,6 +785,14 @@ export const DEFAULTS = {
     top_p: 0.95,
     top_k: 64,
   },
+  "groq/gpt-oss-20b": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    reasoning_effort: "default",
+    "response_format.type": "text",
+  },
   "groq/qwen3-32b": {
     temperature: 1,
     top_p: 1,
