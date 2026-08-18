@@ -200,6 +200,17 @@ export const Model = z
       .min(1)
       .regex(/^\S+$/, "requestModel must not contain whitespace")
       .optional(),
+    /**
+     * Who develops the model, when that is not the serving provider — a
+     * kebab-case vendor slug (the developer's catalog provider slug where one
+     * exists). Hosted entries (fireworks/kimi-k3, alibaba/deepseek-v3.2)
+     * declare it; first-party entries omit it.
+     */
+    developer: z
+      .string()
+      .min(1)
+      .regex(PROVIDER_SLUG, "developer must be a kebab-case vendor slug (e.g. `moonshot`)")
+      .optional(),
     params: z.array(Parameter),
   })
   .strict();

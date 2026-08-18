@@ -97,6 +97,21 @@ describe("Model schema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("accepts a developer slug on a hosted entry", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      provider: "fireworks",
+      model: "kimi-k3",
+      developer: "moonshot",
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a non-slug developer", () => {
+    const result = Model.safeParse({ ...VALID_MODEL, developer: "Moonshot AI" });
+    expect(result.success).toBe(false);
+  });
+
   it("rejects unknown top-level fields", () => {
     const result = Model.safeParse({ ...VALID_MODEL, metadata: { source: "docs" } });
     expect(result.success).toBe(false);
