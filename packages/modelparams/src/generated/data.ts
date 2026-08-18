@@ -14729,44 +14729,11 @@ export const CATALOG = [
         }
       },
       {
-        "path": "thinking.type",
-        "label": "Thinking mode",
-        "description": "Controls whether Kimi reasons step by step before answering, or responds directly when set to disabled.",
-        "group": "reasoning",
-        "type": "enum",
-        "values": [
-          "enabled",
-          "disabled"
-        ]
-      },
-      {
-        "path": "response_format.type",
-        "label": "Response format",
-        "description": "Forces the response into plain text or a JSON object.",
-        "group": "output_format",
-        "type": "enum",
-        "default": "text",
-        "values": [
-          "text",
-          "json_object"
-        ]
-      }
-    ]
-  },
-  {
-    "provider": "moonshot",
-    "authType": "api_key",
-    "model": "kimi-k2.6",
-    "params": [
-      {
-        "path": "max_completion_tokens",
-        "label": "Max tokens",
-        "description": "Maximum number of tokens to generate in the chat completion.",
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
         "group": "generation_length",
-        "type": "integer",
-        "range": {
-          "min": 1
-        }
+        "type": "string"
       },
       {
         "path": "thinking.type",
@@ -14791,6 +14758,138 @@ export const CATALOG = [
           "text",
           "json_object"
         ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ]
+  },
+  {
+    "provider": "moonshot",
+    "authType": "api_key",
+    "model": "kimi-k2.6",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the chat completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls whether Kimi reasons step by step before answering. Thinking is enabled by default; set disabled to respond directly.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      {
+        "path": "thinking.keep",
+        "label": "Keep prior reasoning",
+        "description": "Set to all to carry reasoning content from earlier assistant turns into the request; leave null to send only the final answers.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": null,
+        "values": [
+          "all",
+          null
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
       }
     ]
   },
@@ -14819,6 +14918,18 @@ export const CATALOG = [
         "values": [
           "enabled",
           "disabled"
+        ]
+      },
+      {
+        "path": "thinking.keep",
+        "label": "Keep prior reasoning",
+        "description": "Set to all to carry reasoning content from earlier assistant turns into the request; leave null to send only the final answers.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": null,
+        "values": [
+          "all",
+          null
         ]
       },
       {
@@ -14852,6 +14963,24 @@ export const CATALOG = [
         }
       },
       {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
+      },
+      {
         "path": "response_format.type",
         "label": "Response format",
         "description": "Forces the response into plain text, a JSON object, or JSON matching a provided schema.",
@@ -14863,6 +14992,42 @@ export const CATALOG = [
           "json_object",
           "json_schema"
         ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
       }
     ]
   },
@@ -14883,6 +15048,24 @@ export const CATALOG = [
         }
       },
       {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
+      },
+      {
         "path": "response_format.type",
         "label": "Response format",
         "description": "Forces the response into plain text, a JSON object, or JSON matching a provided schema.",
@@ -14894,6 +15077,42 @@ export const CATALOG = [
           "json_object",
           "json_schema"
         ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
       }
     ]
   },
@@ -14911,6 +15130,17 @@ export const CATALOG = [
         "range": {
           "min": 1
         }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
       },
       {
         "path": "response_format.type",
@@ -14940,6 +15170,17 @@ export const CATALOG = [
         "range": {
           "min": 1
         }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Thinking is always on for this model. Enabled is the only accepted value; disabled returns an error.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
       },
       {
         "path": "response_format.type",
@@ -14971,6 +15212,13 @@ export const CATALOG = [
         }
       },
       {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
         "path": "thinking.type",
         "label": "Thinking mode",
         "description": "Controls whether Kimi reasons step by step before answering, or responds directly when set to disabled.",
@@ -14979,6 +15227,19 @@ export const CATALOG = [
         "values": [
           "enabled",
           "disabled"
+        ]
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning Kimi performs before answering. Thinking is always on for this model, so it cannot be turned off.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "max",
+        "values": [
+          "low",
+          "high",
+          "max"
         ]
       },
       {
@@ -14992,6 +15253,19 @@ export const CATALOG = [
           "text",
           "json_object",
           "json_schema"
+        ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none",
+          "required"
         ]
       }
     ]
@@ -15012,6 +15286,13 @@ export const CATALOG = [
         }
       },
       {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
         "path": "temperature",
         "label": "Temperature",
         "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
@@ -15086,6 +15367,43 @@ export const CATALOG = [
           "text",
           "json_object"
         ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none",
+          "required"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
       }
     ]
   },
@@ -15105,6 +15423,13 @@ export const CATALOG = [
         }
       },
       {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
         "path": "temperature",
         "label": "Temperature",
         "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
@@ -15179,6 +15504,43 @@ export const CATALOG = [
           "text",
           "json_object"
         ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none",
+          "required"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
       }
     ]
   },
@@ -15198,6 +15560,13 @@ export const CATALOG = [
         }
       },
       {
+        "path": "stop",
+        "label": "Stop sequence",
+        "description": "Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most 32 bytes each.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
         "path": "temperature",
         "label": "Temperature",
         "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
@@ -15272,6 +15641,43 @@ export const CATALOG = [
           "text",
           "json_object"
         ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none",
+          "required"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
       }
     ]
   },
