@@ -597,6 +597,7 @@ export const DEFAULTS = {
     "thinking.type": "enabled",
     reasoning_effort: "high",
   },
+  "fireworks/kimi-k3": {},
   "google/gemini-2.5-flash": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,

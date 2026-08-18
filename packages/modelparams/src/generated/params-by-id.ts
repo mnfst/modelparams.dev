@@ -772,6 +772,15 @@ export type ParamsById = {
     "thinking.type": "enabled" | "disabled";
     reasoning_effort: "high" | "max";
   };
+  "fireworks/kimi-k3": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "google/gemini-2.5-flash": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
