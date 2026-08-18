@@ -13,12 +13,16 @@ name: Prepare release
 # Merging that PR is what publishes — `release-modelparams.yml` and
 # `release-modelparams-python.yml` watch for the committed version to change.
 #
-# Setup requirement: the PR must be created with a GitHub App token, NOT the
+# Setup requirement: the PR must be created with a token that is NOT the
 # default `GITHUB_TOKEN`. Events raised by `GITHUB_TOKEN` do not trigger further
 # workflow runs, so `param-guard.yml` would never report the "No parameter
 # removals" check that branch protection requires — leaving the release PR
-# permanently unmergeable. Add `APP_ID` and `APP_PRIVATE_KEY` (the same app
-# mnfst/manifest uses) to this repo's Actions secrets.
+# permanently unmergeable. Two options, checked in this order:
+#   1. `APP_ID` + `APP_PRIVATE_KEY` — a GitHub App (the same app mnfst/manifest
+#      uses for its version PRs). Preferred: not tied to a person, no expiry.
+#   2. `RELEASE_PAT` — a personal access token with Contents + Pull requests
+#      read/write on this repo. Simpler to set up, but the release PRs are
+#      authored by that person and the token expires.
 
 on:
   push:
@@ -54,28 +58,38 @@ jobs:
     name: Prepare release PR
     runs-on: ubuntu-latest
     steps:
-      - name: Require release app credentials
+      - name: Require release credentials
         env:
           APP_ID: ${{ secrets.APP_ID }}
+          RELEASE_PAT: ${{ secrets.RELEASE_PAT }}
         run: |
-          if [ -z "$APP_ID" ]; then
-            echo "::error::APP_ID/APP_PRIVATE_KEY are not configured on this repo. The release PR must be opened by a GitHub App: a PR from the default GITHUB_TOKEN does not trigger param-guard.yml, so the 'No parameter removals' check required by branch protection would never report and the PR could never be merged."
+          if [ -z "$APP_ID" ] && [ -z "$RELEASE_PAT" ]; then
+            echo "::error::Neither APP_ID/APP_PRIVATE_KEY nor RELEASE_PAT is configured on this repo. The release PR must be opened by a real token: a PR from the default GITHUB_TOKEN does not trigger param-guard.yml, so the 'No parameter removals' check required by branch protection would never report and the PR could never be merged."
             exit 1
           fi
 
       - name: Generate GitHub App token
         id: app-token
+        if: ${{ secrets.APP_ID != '' }}
         uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Select token
+        id: token
+        env:
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+          RELEASE_PAT: ${{ secrets.RELEASE_PAT }}
+        run: |
+          echo "token=${APP_TOKEN:-$RELEASE_PAT}" >> "$GITHUB_OUTPUT"
 
       - name: Check out repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # full history for the catalog diff
           fetch-tags: true # release tags are the "last published" baseline
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.token.outputs.token }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -121,7 +135,7 @@ jobs:
       - name: Open or update the release PR
         if: steps.prepare.outputs.has_changes == 'true'
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.token.outputs.token }}
           TITLE: ${{ steps.prepare.outputs.title }}
           BODY_FILE: ${{ runner.temp }}/release-pr-body.md
         run: |
