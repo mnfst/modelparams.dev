@@ -28,6 +28,24 @@ Gpt_Oss_20bParams = TypedDict(
 )
 setattr(Gpt_Oss_20bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_Oss_Safeguard_20bParams = TypedDict(
+    "Gpt_Oss_Safeguard_20bParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "seed": int,
+        "stop": str,
+        "reasoning_effort": Literal["none", "default"],
+        "reasoning_format": Literal["hidden", "raw", "parsed"],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Gpt_Oss_Safeguard_20bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3_32bParams = TypedDict(
     "Qwen3_32bParams",
     {
@@ -48,5 +66,6 @@ setattr(Qwen3_32bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
     "Gpt_Oss_20bParams",
+    "Gpt_Oss_Safeguard_20bParams",
     "Qwen3_32bParams",
 ]
