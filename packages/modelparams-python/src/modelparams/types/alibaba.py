@@ -10,6 +10,20 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Deepseek_V3_2Params = TypedDict(
+    "Deepseek_V3_2Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Deepseek_V3_2Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Deepseek_V4_Flash_0731Params = TypedDict(
     "Deepseek_V4_Flash_0731Params",
     {
@@ -447,6 +461,7 @@ Qwq_PlusParams = TypedDict(
 setattr(Qwq_PlusParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
+    "Deepseek_V3_2Params",
     "Deepseek_V4_Flash_0731Params",
     "Deepseek_V4_Pro_0813Params",
     "Qwen_FlashParams",
