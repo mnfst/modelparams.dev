@@ -1270,6 +1270,12 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 1,
   },
+  "openai/gpt-4": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "medium",
+    "response_format.type": "text",
+  },
   "openai/gpt-4-0613": {
     max_tokens: 4096,
     temperature: 1,
