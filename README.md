@@ -119,16 +119,16 @@ The same model accepts different parameters on each host that serves it. The cat
 
 One entry documents one wire format.
 
-| Surface                                                                                               | Status                            |
-| ----------------------------------------------------------------------------------------------------- | --------------------------------- |
-| OpenAI Chat Completions — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, … | ✅                                |
-| Anthropic Messages                                                                                    | ✅                                |
-| Google `generateContent`                                                                              | ✅                                |
-| Subscription plans (`-subscription` entries)                                                          | ✅                                |
-| MiniMax native endpoint                                                                               | ⚠️ params not individually tested |
-| OpenAI Responses API                                                                                  | ❌                                |
-| Google Interactions API                                                                               | ❌                                |
-| xAI native SDK                                                                                        | ❌                                |
+| Surface                                                                                               | Status |
+| ----------------------------------------------------------------------------------------------------- | ------ |
+| OpenAI Chat Completions — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, … | ✅     |
+| Anthropic Messages                                                                                    | ✅     |
+| Google `generateContent`                                                                              | ✅     |
+| Subscription plans (`-subscription` entries)                                                          | ✅     |
+| MiniMax native endpoint                                                                               | ❌     |
+| OpenAI Responses API                                                                                  | ❌     |
+| Google Interactions API                                                                               | ❌     |
+| xAI native SDK                                                                                        | ❌     |
 
 Embeddings, audio, image, and batch APIs are out of scope. Missing a surface? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) or a PR.
 
