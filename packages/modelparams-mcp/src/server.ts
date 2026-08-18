@@ -56,7 +56,7 @@ export function createServer(): McpServer {
         model: z
           .string()
           .describe(
-            'Catalog id ("anthropic/claude-opus-4-7") — or, with baseUrl, the exact wire string your SDK sends.',
+            'Catalog id ("anthropic/claude-opus-4-7") or bare model slug when unambiguous — or, with baseUrl, the exact wire string your SDK sends.',
           ),
         baseUrl: z
           .string()
@@ -88,7 +88,7 @@ export function createServer(): McpServer {
         model: z
           .string()
           .describe(
-            'Catalog id ("openai/gpt-5.5") — or, with baseUrl, the exact wire string your SDK sends.',
+            'Catalog id ("openai/gpt-5.5") or bare model slug when unambiguous — or, with baseUrl, the exact wire string your SDK sends.',
           ),
         baseUrl: z.string().optional().describe("The base URL your SDK is configured with."),
       },

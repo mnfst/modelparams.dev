@@ -102,10 +102,17 @@ describe("POST /api/v1/validate", () => {
     expect(body.error).toBe("unknown_base_url");
   });
 
-  it("requires a provider prefix and lists the qualified ids", async () => {
+  it("resolves a bare model slug", async () => {
+    const { status, body } = await post({ model: "gpt-5.5", params: {} });
+    expect(status).toBe(200);
+    expect(body.model).toBe("openai/gpt-5.5");
+    expect(body.provider).toBe("openai");
+  });
+
+  it("400s an ambiguous bare slug with the qualified ids", async () => {
     const { status, body } = await post({ model: "kimi-k3", params: {} });
     expect(status).toBe(400);
-    expect(body.error).toBe("provider_required");
+    expect(body.error).toBe("ambiguous_model");
     expect(body.matches).toContain("fireworks/kimi-k3");
     expect(body.matches).toContain("moonshot/kimi-k3");
   });
