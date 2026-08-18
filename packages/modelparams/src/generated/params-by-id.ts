@@ -7,7 +7,22 @@
  * parameters they want to override.
  */
 export type ParamsById = {
+  "alibaba/deepseek-v4-pro-0813": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwen-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen-max": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -21,7 +36,41 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen-turbo": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-235b-a22b-thinking-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-30b-a3b-instruct-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-30b-a3b-thinking-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3-coder-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+  };
+  "alibaba/qwen3-coder-next": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -40,7 +89,63 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3-next-80b-a3b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-next-80b-a3b-thinking": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-235b-a22b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-235b-a22b-thinking": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3.5": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-122b-a10b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-27b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-35b-a3b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-397b-a17b": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -54,7 +159,39 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3.6-27b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.6-35b-a3b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwen3.6-flash": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.6-plus": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.7-flash": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -71,6 +208,14 @@ export type ParamsById = {
     "extra_body.thinking_budget": number;
   };
   "alibaba/qwen3.7-plus": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.8-2.4t-a95b": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -294,6 +439,9 @@ export type ParamsById = {
   };
   "anthropic/claude-opus-4-8": {
     max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
@@ -407,6 +555,12 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
     top_k: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "anthropic/claude-sonnet-5-subscription": {
+    max_tokens: number;
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
@@ -692,6 +846,36 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-3.5-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.6-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.7-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-flash-latest": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -944,7 +1128,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/codestral-latest": {
@@ -955,7 +1139,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/devstral-2512": {
@@ -966,7 +1150,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/devstral-latest": {
@@ -977,7 +1161,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/magistral-medium-latest": {
@@ -989,7 +1173,7 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     prompt_mode: "reasoning";
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/magistral-small-latest": {
@@ -1001,7 +1185,18 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     prompt_mode: "reasoning";
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/ministral-14b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-14b-latest": {
@@ -1012,7 +1207,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/ministral-3b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-3b-latest": {
@@ -1023,7 +1229,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/ministral-8b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-8b-latest": {
@@ -1034,10 +1251,32 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-large-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-large-latest": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-medium-3": {
     max_tokens: number;
     stop: string;
     temperature: number;
@@ -1056,7 +1295,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-medium-latest": {
@@ -1067,7 +1306,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-small-2603": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-small-latest": {
@@ -1078,7 +1328,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/open-mistral-nemo": {
@@ -1089,7 +1339,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "moonshot/kimi-k2.5": {
@@ -1286,6 +1536,11 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
+  "openai/gpt-4-0613": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
   "openai/gpt-4-turbo": {
     max_tokens: number;
     temperature: number;
@@ -1432,9 +1687,13 @@ export type ParamsById = {
     "reasoning.summary": "auto" | "concise" | "detailed" | "none";
     "text.verbosity": "low" | "medium" | "high";
   };
+  "openai/gpt-5.6": {
+    max_completion_tokens: number;
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
+  };
   "openai/gpt-5.6-luna": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-luna-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -1443,7 +1702,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6-sol": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-sol-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -1452,7 +1711,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6-terra": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-terra-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";

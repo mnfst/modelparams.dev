@@ -370,6 +370,9 @@ Claude_Opus_4_8Params = TypedDict(
     "Claude_Opus_4_8Params",
     {
         "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=0)],
         "thinking.type": Literal["disabled", "adaptive"],
         "thinking.display": Literal["summarized", "omitted"],
         "output_config.effort": Literal["low", "medium", "high", "xhigh", "max"],
@@ -575,6 +578,18 @@ Claude_Sonnet_5Params = TypedDict(
 )
 setattr(Claude_Sonnet_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Claude_Sonnet_5_SubscriptionParams = TypedDict(
+    "Claude_Sonnet_5_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["disabled", "adaptive"],
+        "thinking.display": Literal["summarized", "omitted"],
+        "output_config.effort": Literal["low", "medium", "high", "xhigh", "max"],
+    },
+    total=False,
+)
+setattr(Claude_Sonnet_5_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Claude_3_5_Haiku_20241022Params",
     "Claude_3_5_Haiku_LatestParams",
@@ -617,4 +632,5 @@ __all__ = [
     "Claude_Sonnet_4_6_SubscriptionParams",
     "Claude_Sonnet_4_SubscriptionParams",
     "Claude_Sonnet_5Params",
+    "Claude_Sonnet_5_SubscriptionParams",
 ]
