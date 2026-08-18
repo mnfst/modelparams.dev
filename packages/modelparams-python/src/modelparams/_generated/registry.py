@@ -123,6 +123,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "fireworks/deepseek-v4-flash-0731": fireworks.Deepseek_V4_Flash_0731Params,
     "fireworks/deepseek-v4-pro": fireworks.Deepseek_V4_ProParams,
     "fireworks/deepseek-v4-pro-0813": fireworks.Deepseek_V4_Pro_0813Params,
+    "fireworks/glm-5p2": fireworks.Glm_5p2Params,
     "fireworks/gpt-oss-120b": fireworks.Gpt_Oss_120bParams,
     "fireworks/inkling": fireworks.InklingParams,
     "fireworks/kimi-k2p7-code": fireworks.Kimi_K2p7_CodeParams,

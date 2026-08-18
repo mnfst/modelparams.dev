@@ -99,6 +99,7 @@ export const MODEL_IDS = [
   "fireworks/deepseek-v4-flash-0731",
   "fireworks/deepseek-v4-pro",
   "fireworks/deepseek-v4-pro-0813",
+  "fireworks/glm-5p2",
   "fireworks/gpt-oss-120b",
   "fireworks/inkling",
   "fireworks/kimi-k2p7-code",
