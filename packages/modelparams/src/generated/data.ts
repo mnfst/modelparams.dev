@@ -7016,7 +7016,7 @@ export const CATALOG = [
         "deprecated": {
           "behavior": "default-only",
           "since": "2026-08-17",
-          "note": "The API now rejects non-default values (\"`temperature` is deprecated for this model\"); only the default value 1 is accepted. Verified working 2026-07-11."
+          "note": "The API rejects non-default values (\"`temperature` is deprecated for this model\"); only the default value 1 is accepted. Documented at the model's 2026-06-30 launch; this entry wrongly declared it usable until 2026-08-17 because the original probe tested only the default value."
         },
         "type": "number",
         "default": 1,
@@ -7048,7 +7048,7 @@ export const CATALOG = [
         "deprecated": {
           "behavior": "default-only",
           "since": "2026-08-17",
-          "note": "The API now rejects non-default values (\"`top_p` is deprecated for this model\"); only the default value 1 is accepted. Verified working 2026-07-11."
+          "note": "The API rejects non-default values (\"`top_p` is deprecated for this model\"); only the default value 1 is accepted. Documented at the model's 2026-06-30 launch; this entry wrongly declared it usable until 2026-08-17 because the original probe tested only the default value."
         },
         "type": "number",
         "default": 1,
@@ -7073,7 +7073,7 @@ export const CATALOG = [
         "deprecated": {
           "behavior": "default-only",
           "since": "2026-08-17",
-          "note": "The API now rejects non-default values (\"`top_k` is deprecated for this model\"); only the default value 0 is accepted. Verified working 2026-07-11."
+          "note": "The API rejects non-default values (\"`top_k` is deprecated for this model\"); only the default value 0 is accepted. Documented at the model's 2026-06-30 launch; this entry wrongly declared it usable until 2026-08-17 because the original probe tested only the default value."
         },
         "type": "integer",
         "default": 0,
