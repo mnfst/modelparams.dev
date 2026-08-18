@@ -186,6 +186,22 @@ Gemini_3_1_Flash_Lite_SubscriptionParams = TypedDict(
 )
 setattr(Gemini_3_1_Flash_Lite_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gemini_3_1_Pro_PreviewParams = TypedDict(
+    "Gemini_3_1_Pro_PreviewParams",
+    {
+        "generationConfig.maxOutputTokens": Annotated[int, Field(ge=1, le=65536)],
+        "generationConfig.temperature": Annotated[float, Field(ge=0, le=2)],
+        "generationConfig.topP": Annotated[float, Field(ge=0, le=1)],
+        "generationConfig.topK": Annotated[int, Field(ge=0)],
+        "generationConfig.seed": int,
+        "generationConfig.thinkingConfig.thinkingLevel": Literal["minimal", "low", "medium", "high"],
+        "generationConfig.thinkingConfig.includeThoughts": bool,
+        "generationConfig.responseMimeType": Literal["text/plain", "application/json"],
+    },
+    total=False,
+)
+setattr(Gemini_3_1_Pro_PreviewParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gemini_3_1_Pro_Preview_SubscriptionParams = TypedDict(
     "Gemini_3_1_Pro_Preview_SubscriptionParams",
     {
@@ -436,6 +452,7 @@ __all__ = [
     "Gemini_3_1_Flash_LiteParams",
     "Gemini_3_1_Flash_Lite_Preview_SubscriptionParams",
     "Gemini_3_1_Flash_Lite_SubscriptionParams",
+    "Gemini_3_1_Pro_PreviewParams",
     "Gemini_3_1_Pro_Preview_SubscriptionParams",
     "Gemini_3_5_FlashParams",
     "Gemini_3_5_Flash_LiteParams",
