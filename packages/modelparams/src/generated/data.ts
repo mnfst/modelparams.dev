@@ -14687,14 +14687,13 @@ export const CATALOG = [
       {
         "path": "tool_choice",
         "label": "Tool choice",
-        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
         "group": "tooling",
         "type": "enum",
         "default": "auto",
         "values": [
           "auto",
-          "none",
-          "required"
+          "none"
         ]
       },
       {
@@ -14784,14 +14783,13 @@ export const CATALOG = [
       {
         "path": "tool_choice",
         "label": "Tool choice",
-        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
         "group": "tooling",
         "type": "enum",
         "default": "auto",
         "values": [
           "auto",
-          "none",
-          "required"
+          "none"
         ]
       },
       {
@@ -14923,14 +14921,13 @@ export const CATALOG = [
       {
         "path": "tool_choice",
         "label": "Tool choice",
-        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
         "group": "tooling",
         "type": "enum",
         "default": "auto",
         "values": [
           "auto",
-          "none",
-          "required"
+          "none"
         ]
       },
       {
@@ -15009,14 +15006,13 @@ export const CATALOG = [
       {
         "path": "tool_choice",
         "label": "Tool choice",
-        "description": "Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces one.",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
         "group": "tooling",
         "type": "enum",
         "default": "auto",
         "values": [
           "auto",
-          "none",
-          "required"
+          "none"
         ]
       },
       {
@@ -15148,6 +15144,17 @@ export const CATALOG = [
         "type": "string"
       },
       {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls whether Kimi reasons step by step before answering, or responds directly when set to disabled.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
         "description": "Controls how much reasoning Kimi performs before answering. Thinking is always on for this model, so it cannot be turned off.",
@@ -15185,30 +15192,6 @@ export const CATALOG = [
           "none",
           "required"
         ]
-      },
-      {
-        "path": "logprobs",
-        "label": "Log probabilities",
-        "description": "Controls whether the response includes log probabilities for the generated tokens.",
-        "group": "observability",
-        "type": "boolean",
-        "default": false
-      },
-      {
-        "path": "top_logprobs",
-        "label": "Top log probabilities",
-        "description": "Number of most likely tokens to return a log probability for at each position.",
-        "group": "observability",
-        "applicability": {
-          "only": {
-            "logprobs": true
-          }
-        },
-        "type": "integer",
-        "range": {
-          "min": 0,
-          "max": 20
-        }
       }
     ]
   },

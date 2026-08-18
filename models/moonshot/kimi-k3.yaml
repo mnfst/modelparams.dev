@@ -17,6 +17,16 @@ params:
       Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most
       32 bytes each.
     group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Controls whether Kimi reasons step by step before answering, or responds directly when set to
+      disabled.
+    values:
+      - enabled
+      - disabled
+    group: reasoning
   - path: reasoning_effort
     type: enum
     label: Reasoning effort
@@ -51,20 +61,3 @@ params:
       - none
       - required
     group: tooling
-  - path: logprobs
-    type: boolean
-    label: Log probabilities
-    description: Controls whether the response includes log probabilities for the generated tokens.
-    default: false
-    group: observability
-  - path: top_logprobs
-    type: integer
-    label: Top log probabilities
-    description: Number of most likely tokens to return a log probability for at each position.
-    range:
-      min: 0
-      max: 20
-    group: observability
-    applicability:
-      only:
-        logprobs: true

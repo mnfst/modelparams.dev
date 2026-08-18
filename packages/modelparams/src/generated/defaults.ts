@@ -1094,7 +1094,6 @@ export const DEFAULTS = {
     reasoning_effort: "max",
     "response_format.type": "text",
     tool_choice: "auto",
-    logprobs: false,
   },
   "moonshot/moonshot-v1-128k": {
     temperature: 0.3,

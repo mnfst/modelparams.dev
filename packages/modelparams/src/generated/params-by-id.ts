@@ -1415,7 +1415,7 @@ export type ParamsById = {
     stop: string;
     "thinking.type": "enabled" | "disabled";
     "response_format.type": "text" | "json_object";
-    tool_choice: "auto" | "none" | "required";
+    tool_choice: "auto" | "none";
     logprobs: boolean;
     top_logprobs: number;
   };
@@ -1425,7 +1425,7 @@ export type ParamsById = {
     "thinking.type": "enabled" | "disabled";
     "thinking.keep": "all" | null;
     "response_format.type": "text" | "json_object";
-    tool_choice: "auto" | "none" | "required";
+    tool_choice: "auto" | "none";
     logprobs: boolean;
     top_logprobs: number;
   };
@@ -1440,7 +1440,7 @@ export type ParamsById = {
     stop: string;
     "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
-    tool_choice: "auto" | "none" | "required";
+    tool_choice: "auto" | "none";
     logprobs: boolean;
     top_logprobs: number;
   };
@@ -1449,7 +1449,7 @@ export type ParamsById = {
     stop: string;
     "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
-    tool_choice: "auto" | "none" | "required";
+    tool_choice: "auto" | "none";
     logprobs: boolean;
     top_logprobs: number;
   };
@@ -1466,11 +1466,10 @@ export type ParamsById = {
   "moonshot/kimi-k3": {
     max_completion_tokens: number;
     stop: string;
+    "thinking.type": "enabled" | "disabled";
     reasoning_effort: "low" | "high" | "max";
     "response_format.type": "text" | "json_object" | "json_schema";
     tool_choice: "auto" | "none" | "required";
-    logprobs: boolean;
-    top_logprobs: number;
   };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;

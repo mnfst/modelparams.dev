@@ -14,8 +14,12 @@ Kimi_K2_5Params = TypedDict(
     "Kimi_K2_5Params",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
         "thinking.type": Literal["enabled", "disabled"],
         "response_format.type": Literal["text", "json_object"],
+        "tool_choice": Literal["auto", "none"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
     },
     total=False,
 )
@@ -25,8 +29,13 @@ Kimi_K2_6Params = TypedDict(
     "Kimi_K2_6Params",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
         "thinking.type": Literal["enabled", "disabled"],
+        "thinking.keep": Literal["all", None],
         "response_format.type": Literal["text", "json_object"],
+        "tool_choice": Literal["auto", "none"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
     },
     total=False,
 )
@@ -37,6 +46,7 @@ Kimi_K2_6_SubscriptionParams = TypedDict(
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
         "thinking.type": Literal["enabled", "disabled"],
+        "thinking.keep": Literal["all", None],
         "response_format.type": Literal["text", "json_object"],
     },
     total=False,
@@ -47,7 +57,12 @@ Kimi_K2_7_CodeParams = TypedDict(
     "Kimi_K2_7_CodeParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "thinking.type": Literal["enabled"],
         "response_format.type": Literal["text", "json_object", "json_schema"],
+        "tool_choice": Literal["auto", "none"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
     },
     total=False,
 )
@@ -57,7 +72,12 @@ Kimi_K2_7_Code_HighspeedParams = TypedDict(
     "Kimi_K2_7_Code_HighspeedParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "thinking.type": Literal["enabled"],
         "response_format.type": Literal["text", "json_object", "json_schema"],
+        "tool_choice": Literal["auto", "none"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
     },
     total=False,
 )
@@ -67,6 +87,7 @@ Kimi_K2_7_Code_Highspeed_SubscriptionParams = TypedDict(
     "Kimi_K2_7_Code_Highspeed_SubscriptionParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["enabled"],
         "response_format.type": Literal["text", "json_object"],
     },
     total=False,
@@ -77,6 +98,7 @@ Kimi_K2_7_Code_SubscriptionParams = TypedDict(
     "Kimi_K2_7_Code_SubscriptionParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["enabled"],
         "response_format.type": Literal["text", "json_object"],
     },
     total=False,
@@ -87,8 +109,11 @@ Kimi_K3Params = TypedDict(
     "Kimi_K3Params",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
         "thinking.type": Literal["enabled", "disabled"],
+        "reasoning_effort": Literal["low", "high", "max"],
         "response_format.type": Literal["text", "json_object", "json_schema"],
+        "tool_choice": Literal["auto", "none", "required"],
     },
     total=False,
 )
@@ -98,12 +123,16 @@ Moonshot_V1_128kParams = TypedDict(
     "Moonshot_V1_128kParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "n": Annotated[int, Field(ge=1, le=5)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
         "response_format.type": Literal["text", "json_object"],
+        "tool_choice": Literal["auto", "none", "required"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
     },
     total=False,
 )
@@ -113,12 +142,16 @@ Moonshot_V1_32kParams = TypedDict(
     "Moonshot_V1_32kParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "n": Annotated[int, Field(ge=1, le=5)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
         "response_format.type": Literal["text", "json_object"],
+        "tool_choice": Literal["auto", "none", "required"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
     },
     total=False,
 )
@@ -128,12 +161,16 @@ Moonshot_V1_8kParams = TypedDict(
     "Moonshot_V1_8kParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "n": Annotated[int, Field(ge=1, le=5)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
         "response_format.type": Literal["text", "json_object"],
+        "tool_choice": Literal["auto", "none", "required"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
     },
     total=False,
 )

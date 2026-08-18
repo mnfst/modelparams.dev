@@ -42,13 +42,12 @@ params:
     type: enum
     label: Tool choice
     description: >-
-      Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces
-      one.
+      Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects
+      required while thinking is enabled, which is the default on this model.
     default: auto
     values:
       - auto
       - none
-      - required
     group: tooling
   - path: logprobs
     type: boolean
