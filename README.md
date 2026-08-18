@@ -67,6 +67,8 @@ curl https://modelparams.dev/api/v1/params/gpt-5.5.json
 
 Schema at `https://modelparams.dev/api/v1/schema.json`, per the [Model Parameters convention](docs/model-parameters-schema.md).
 
+API requests are counted at the edge and reported to Vercel Web Analytics as `api_request` custom events (endpoint, model, client type), so API usage lands in the same dashboard as page views. Off Vercel it's a no-op; see [`src/tracking/api-usage.ts`](src/tracking/api-usage.ts).
+
 ## Adding a model
 
 Drop a YAML file in `models/<provider>/`, open a PR, and CI validates it against the schema. Details in [CONTRIBUTING.md](CONTRIBUTING.md). Can't open a PR? [File an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) with a link to the docs.

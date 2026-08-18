@@ -177,6 +177,7 @@ The website code lives under `src/`:
 - `src/client/` — browser-side TypeScript (search, filter, dark mode), Tailwind entry, and the vendored Outfit fonts under `fonts/` that social cards are rendered with.
 - `src/build/` — SSG pipeline (renders pages, compiles assets, emits JSON API, generates a social card per page).
 - `src/server/` — Express dev server.
+- `src/tracking/` — API usage tracking; the root `middleware.ts` posts one Web Analytics custom event per JSON API request at the edge.
 
 Conventions:
 
