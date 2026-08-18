@@ -826,6 +826,15 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "fireworks/minimax-m2p7": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "google/gemini-2.5-flash": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;

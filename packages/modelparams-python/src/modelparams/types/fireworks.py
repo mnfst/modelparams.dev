@@ -100,6 +100,21 @@ Kimi_K3Params = TypedDict(
 )
 setattr(Kimi_K3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Minimax_M2p7Params = TypedDict(
+    "Minimax_M2p7Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Minimax_M2p7Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Deepseek_V4_Flash_0731Params",
     "Deepseek_V4_Pro_0813Params",
@@ -107,4 +122,5 @@ __all__ = [
     "InklingParams",
     "Kimi_K2p7_CodeParams",
     "Kimi_K3Params",
+    "Minimax_M2p7Params",
 ]

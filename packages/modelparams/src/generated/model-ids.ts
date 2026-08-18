@@ -102,6 +102,7 @@ export const MODEL_IDS = [
   "fireworks/inkling",
   "fireworks/kimi-k2p7-code",
   "fireworks/kimi-k3",
+  "fireworks/minimax-m2p7",
   "google/gemini-2.5-flash",
   "google/gemini-2.5-flash-lite",
   "google/gemini-2.5-flash-lite-subscription",

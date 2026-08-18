@@ -603,6 +603,7 @@ export const DEFAULTS = {
   "fireworks/inkling": {},
   "fireworks/kimi-k2p7-code": {},
   "fireworks/kimi-k3": {},
+  "fireworks/minimax-m2p7": {},
   "google/gemini-2.5-flash": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
