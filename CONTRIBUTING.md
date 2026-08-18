@@ -185,12 +185,18 @@ The website code lives under `src/`:
 - `src/build/` — SSG pipeline (renders pages, compiles assets, emits JSON API, generates a social card per page).
 - `src/server/` — Express dev server.
 
+Everything the catalog ships beyond the static site:
+
+- `api/` — Vercel Functions, currently `POST /api/v1/validate`. These serve paths the
+  static build doesn't emit; the rest of `/api/v1/*` stays static JSON from `dist/`.
+
 Conventions:
 
 - TypeScript, ES modules, strict mode.
 - No file over 300 lines, no function over 50 lines.
 - Format with Prettier, lint with ESLint. `npm run format` and `npm run lint` will set you straight.
 - Tests live under `tests/` and run with Vitest.
+- `npm run typecheck` covers the site and `api/` (via `tsconfig.api.json`).
 
 ## Pull requests
 
