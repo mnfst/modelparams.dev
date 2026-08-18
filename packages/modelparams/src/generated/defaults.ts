@@ -5,6 +5,14 @@ import type { ModelId } from "./model-ids.js";
 import type { ParamsById } from "./params-by-id.js";
 
 export const DEFAULTS = {
+  "alibaba/deepseek-v3.2": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/deepseek-v4-flash-0731": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/deepseek-v4-pro-0813": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
@@ -635,7 +643,23 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemini-3.1-flash-image": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
   "google/gemini-3.1-flash-lite": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
+  "google/gemini-3.1-flash-lite-image": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
     "generationConfig.topK": 64,

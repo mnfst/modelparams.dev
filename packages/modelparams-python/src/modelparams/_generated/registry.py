@@ -25,6 +25,8 @@ from modelparams.types import z_ai
 from .model_ids import ModelId
 
 PARAM_TYPES: dict[ModelId, Any] = {
+    "alibaba/deepseek-v3.2": alibaba.Deepseek_V3_2Params,
+    "alibaba/deepseek-v4-flash-0731": alibaba.Deepseek_V4_Flash_0731Params,
     "alibaba/deepseek-v4-pro-0813": alibaba.Deepseek_V4_Pro_0813Params,
     "alibaba/kimi-k2.7-code": alibaba.Kimi_K2_7_CodeParams,
     "alibaba/qwen-flash": alibaba.Qwen_FlashParams,
@@ -121,7 +123,9 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "google/gemini-2.5-pro-subscription": google.Gemini_2_5_Pro_SubscriptionParams,
     "google/gemini-3-flash-preview-subscription": google.Gemini_3_Flash_Preview_SubscriptionParams,
     "google/gemini-3-pro-image": google.Gemini_3_Pro_ImageParams,
+    "google/gemini-3.1-flash-image": google.Gemini_3_1_Flash_ImageParams,
     "google/gemini-3.1-flash-lite": google.Gemini_3_1_Flash_LiteParams,
+    "google/gemini-3.1-flash-lite-image": google.Gemini_3_1_Flash_Lite_ImageParams,
     "google/gemini-3.1-flash-lite-preview-subscription": google.Gemini_3_1_Flash_Lite_Preview_SubscriptionParams,
     "google/gemini-3.1-flash-lite-subscription": google.Gemini_3_1_Flash_Lite_SubscriptionParams,
     "google/gemini-3.1-pro-preview-subscription": google.Gemini_3_1_Pro_Preview_SubscriptionParams,

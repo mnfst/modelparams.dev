@@ -2,6 +2,8 @@
 // Source of truth: the YAML catalog under /models in modelparams.dev.
 
 export const MODEL_IDS = [
+  "alibaba/deepseek-v3.2",
+  "alibaba/deepseek-v4-flash-0731",
   "alibaba/deepseek-v4-pro-0813",
   "alibaba/kimi-k2.7-code",
   "alibaba/qwen-flash",
@@ -98,7 +100,9 @@ export const MODEL_IDS = [
   "google/gemini-2.5-pro-subscription",
   "google/gemini-3-flash-preview-subscription",
   "google/gemini-3-pro-image",
+  "google/gemini-3.1-flash-image",
   "google/gemini-3.1-flash-lite",
+  "google/gemini-3.1-flash-lite-image",
   "google/gemini-3.1-flash-lite-preview-subscription",
   "google/gemini-3.1-flash-lite-subscription",
   "google/gemini-3.1-pro-preview-subscription",

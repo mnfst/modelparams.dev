@@ -7,6 +7,22 @@
  * parameters they want to override.
  */
 export type ParamsById = {
+  "alibaba/deepseek-v3.2": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-flash-0731": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/deepseek-v4-pro-0813": {
     max_completion_tokens: number;
     temperature: number;
@@ -804,6 +820,16 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-3.1-flash-image": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-3.1-flash-lite": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -813,6 +839,16 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.1-flash-lite-image": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain";
   };
   "google/gemini-3.1-flash-lite-preview-subscription": {
     "generationConfig.maxOutputTokens": number;

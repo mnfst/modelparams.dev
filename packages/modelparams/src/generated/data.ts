@@ -7,6 +7,156 @@ export const CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "model": "deepseek-v3.2",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "model": "deepseek-v4-flash-0731",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
     "model": "deepseek-v4-pro-0813",
     "params": [
       {
@@ -9040,6 +9190,100 @@ export const CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "model": "gemini-3.1-flash-image",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "high"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "google",
+    "authType": "api_key",
     "model": "gemini-3.1-flash-lite",
     "params": [
       {
@@ -9129,6 +9373,99 @@ export const CATALOG = [
         "values": [
           "text/plain",
           "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "google",
+    "authType": "api_key",
+    "model": "gemini-3.1-flash-lite-image",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "high"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain"
         ]
       }
     ]
