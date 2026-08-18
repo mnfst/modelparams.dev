@@ -7,6 +7,7 @@ import {
   dropUnsupported,
   getModel,
   MODEL_IDS,
+  resolveByBaseUrl,
   resolveModelId,
   type DroppedParam,
 } from "../../packages/modelparams/src/index.js";
@@ -45,6 +46,8 @@ const USAGE = {
     "and combinations the provider rejects, and returns a corrected payload.",
   request: {
     model: "provider/model id, e.g. anthropic/claude-opus-5",
+    baseUrl:
+      "optional — the base URL your SDK is configured with; with it, `model` is the exact wire string you send",
     params: "object of provider-native parameter paths to values",
   },
   example: {
@@ -102,7 +105,7 @@ export default {
       );
     }
 
-    const { model, params } = body;
+    const { model, params, baseUrl } = body;
     if (typeof model !== "string" || model.trim() === "") {
       return fail(
         "invalid_request_body",
@@ -110,8 +113,43 @@ export default {
         400,
       );
     }
+    if (baseUrl !== undefined && (typeof baseUrl !== "string" || baseUrl.trim() === "")) {
+      return fail(
+        "invalid_request_body",
+        { message: "`baseUrl` must be a non-empty string when present", usage: USAGE },
+        400,
+      );
+    }
 
-    if (!model.includes("/")) {
+    // With a base URL, `model` is the exact wire string the SDK sends — the
+    // two things a caller actually knows.
+    let resolvedId: string | null = null;
+    if (baseUrl !== undefined) {
+      const byUrl = resolveByBaseUrl(baseUrl, model);
+      if (!byUrl.ok) {
+        return byUrl.reason === "unknown_base_url"
+          ? fail(
+              "unknown_base_url",
+              {
+                message: `"${baseUrl}" is not a catalog provider endpoint`,
+                knownBaseUrls: byUrl.knownBaseUrls,
+              },
+              404,
+            )
+          : fail(
+              "unknown_model",
+              {
+                message: `"${model}" is not served at that endpoint per the catalog`,
+                provider: byUrl.provider,
+                models: byUrl.models.slice(0, 50),
+              },
+              404,
+            );
+      }
+      resolvedId = byUrl.id;
+    }
+
+    if (resolvedId === null && !model.includes("/")) {
       const matches = MODEL_IDS.filter((id) => id.slice(id.indexOf("/") + 1) === model.trim());
       return fail(
         "provider_required",
@@ -123,7 +161,7 @@ export default {
       );
     }
 
-    const resolved = resolveModelId(model);
+    const resolved = resolveModelId(resolvedId ?? model);
     if (!resolved.ok) {
       // With a provider prefix required above, resolution can only miss.
       const suggestions = resolved.reason === "not_found" ? resolved.suggestions : resolved.matches;

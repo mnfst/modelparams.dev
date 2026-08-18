@@ -51,7 +51,7 @@ CORS-enabled, no key, no rate limit.
 # Validate a request before you send it — the highest-value call
 curl -s https://modelparams.dev/api/v1/validate \
   -H 'Content-Type: application/json' \
-  -d '{"model":"claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
+  -d '{"model":"anthropic/claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
 ```
 
 ```jsonc
@@ -80,7 +80,8 @@ curl https://modelparams.dev/api/v1/index.json                    # endpoint map
 ```
 
 Ids are always `provider/model`; subscription contracts append `-subscription`.
-A bare slug is refused with the qualified ids to retry with.
+A bare slug is refused with the qualified ids to retry with. Alternatively pass
+`baseUrl` (what the SDK is configured with) and the exact wire model string.
 
 ### npm package
 

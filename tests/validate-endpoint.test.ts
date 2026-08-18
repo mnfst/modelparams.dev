@@ -12,6 +12,7 @@ interface ValidateBody {
   error?: string;
   suggestions?: string[];
   matches?: string[];
+  knownBaseUrls?: string[];
 }
 
 async function post(body: unknown): Promise<{ status: number; body: ValidateBody }> {
@@ -79,6 +80,26 @@ describe("POST /api/v1/validate", () => {
     });
     expect(body.valid).toBe(false);
     expect(body.issues[0]!).toMatchObject({ path: "temperature", code: "invalid_value" });
+  });
+
+  it("resolves from the SDK's base URL and wire model string", async () => {
+    const { status, body } = await post({
+      baseUrl: "https://api.fireworks.ai/inference/v1",
+      model: "accounts/fireworks/models/kimi-k3",
+      params: {},
+    });
+    expect(status).toBe(200);
+    expect(body.model).toBe("fireworks/kimi-k3");
+  });
+
+  it("404s an unknown base URL with the known endpoints", async () => {
+    const { status, body } = await post({
+      baseUrl: "https://api.nope.dev/v1",
+      model: "x",
+      params: {},
+    });
+    expect(status).toBe(404);
+    expect(body.error).toBe("unknown_base_url");
   });
 
   it("requires a provider prefix and lists the qualified ids", async () => {

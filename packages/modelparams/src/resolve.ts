@@ -1,4 +1,6 @@
+import { CATALOG } from "./generated/data.js";
 import { MODEL_IDS, type ModelId } from "./generated/model-ids.js";
+import { PROVIDER_ENDPOINTS } from "./generated/provider-endpoints.js";
 
 /** The outcome of {@link resolveModelId}. */
 export type ResolveResult =
@@ -74,4 +76,68 @@ export function resolveModelId(input: string): ResolveResult {
     .map((c) => c.id);
 
   return { ok: false, reason: "not_found", suggestions };
+}
+
+/** The outcome of {@link resolveByBaseUrl}. */
+export type BaseUrlResolveResult =
+  | { readonly ok: true; readonly id: ModelId; readonly provider: string }
+  | {
+      readonly ok: false;
+      readonly reason: "unknown_base_url";
+      readonly knownBaseUrls: readonly string[];
+    }
+  | {
+      readonly ok: false;
+      readonly reason: "unknown_model";
+      readonly provider: string;
+      readonly models: readonly ModelId[];
+    };
+
+function normalizeUrl(url: string): string {
+  return url.trim().toLowerCase().replace(/\/+$/, "");
+}
+
+/** Does the configured URL and a known base refer to the same endpoint? */
+function urlMatches(given: string, base: string): boolean {
+  if (given === base) return true;
+  return given.startsWith(`${base}/`) || base.startsWith(`${given}/`);
+}
+
+/**
+ * Resolve a model from what an SDK actually configures: the base URL and the
+ * model string it sends on the wire. The wire string is matched against each
+ * entry's `requestModel` (the pathed id, when one exists) or its catalog slug.
+ *
+ * @example
+ * resolveByBaseUrl("https://api.fireworks.ai/inference/v1", "accounts/fireworks/models/kimi-k3");
+ * // → { ok: true, id: "fireworks/kimi-k3", provider: "fireworks" }
+ */
+export function resolveByBaseUrl(baseUrl: string, model: string): BaseUrlResolveResult {
+  const given = normalizeUrl(baseUrl);
+  const provider = Object.entries(PROVIDER_ENDPOINTS).find(([, bases]) =>
+    bases.some((base) => urlMatches(given, normalizeUrl(base))),
+  )?.[0];
+  if (!provider) {
+    return {
+      ok: false,
+      reason: "unknown_base_url",
+      knownBaseUrls: Object.values(PROVIDER_ENDPOINTS).flat(),
+    };
+  }
+
+  const wire = model.trim().toLowerCase();
+  const entry = CATALOG.find(
+    (e) =>
+      e.provider === provider &&
+      e.authType === "api_key" &&
+      (("requestModel" in e && e.requestModel.toLowerCase() === wire) ||
+        e.model.toLowerCase() === wire),
+  );
+  if (!entry) {
+    const models = CATALOG.filter((e) => e.provider === provider && e.authType === "api_key").map(
+      (e) => `${e.provider}/${e.model}` as ModelId,
+    );
+    return { ok: false, reason: "unknown_model", provider, models };
+  }
+  return { ok: true, id: `${entry.provider}/${entry.model}` as ModelId, provider };
 }

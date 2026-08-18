@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAllModels } from "../../../src/data/load.js";
+import { loadProviderEndpoints } from "../../../src/data/provider-endpoints.js";
 import { authSuffix, modelId, type Model, type Parameter } from "../../../src/schema/model.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -114,21 +115,29 @@ async function main(): Promise<void> {
       `) as Readonly<Record<ModelId, CatalogEntry>>;\n`,
   );
 
-  // 5. index.ts — barrel for the generated dir
+  // 5. provider-endpoints.ts — base URLs an SDK configures per provider
+  const endpoints = loadProviderEndpoints();
+  await fs.writeFile(
+    path.join(OUT_DIR, "provider-endpoints.ts"),
+    HEADER + `export const PROVIDER_ENDPOINTS = ${JSON.stringify(endpoints, null, 2)} as const;\n`,
+  );
+
+  // 6. index.ts — barrel for the generated dir
   await fs.writeFile(
     path.join(OUT_DIR, "index.ts"),
     HEADER +
       `export * from "./model-ids.js";\n` +
       `export * from "./params-by-id.js";\n` +
       `export * from "./defaults.js";\n` +
-      `export * from "./data.js";\n`,
+      `export * from "./data.js";\n` +
+      `export * from "./provider-endpoints.js";\n`,
   );
 
   // Reference authSuffix so its `import` isn't tree-shaken from the type-checker's view.
   void authSuffix;
 
   console.log(
-    `codegen: wrote 5 files for ${models.length} models across ${providers.length} providers → ${path.relative(process.cwd(), OUT_DIR)}/`,
+    `codegen: wrote 6 files for ${models.length} models across ${providers.length} providers → ${path.relative(process.cwd(), OUT_DIR)}/`,
   );
 }
 

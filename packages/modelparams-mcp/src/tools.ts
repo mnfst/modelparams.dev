@@ -5,6 +5,7 @@ import {
   getModel,
   listModels,
   PROVIDERS,
+  resolveByBaseUrl,
   resolveModelId,
   type ModelId,
   type Param,
@@ -29,6 +30,35 @@ function providerRequired(input: string): ToolPayload | null {
     message: `Model ids are \`provider/model\`.${matches.length ? " Retry with one of the ids below." : " Call list_models to find the id."}`,
     ...(matches.length ? { matches } : {}),
   };
+}
+
+/** Resolve via base URL when given, else require provider/model. */
+function resolveInput(input: { model: string; baseUrl?: string }): {
+  id?: string;
+  error?: ToolPayload;
+} {
+  if (input.baseUrl) {
+    const byUrl = resolveByBaseUrl(input.baseUrl, input.model);
+    if (byUrl.ok) return { id: byUrl.id };
+    return {
+      error:
+        byUrl.reason === "unknown_base_url"
+          ? {
+              error: "unknown_base_url",
+              message: `"${input.baseUrl}" is not a catalog provider endpoint.`,
+              knownBaseUrls: byUrl.knownBaseUrls,
+            }
+          : {
+              error: "unknown_model",
+              message: `"${input.model}" is not served at that endpoint per the catalog.`,
+              provider: byUrl.provider,
+              models: byUrl.models.slice(0, 50),
+            },
+    };
+  }
+  const needsProvider = providerRequired(input.model);
+  if (needsProvider) return { error: needsProvider };
+  return { id: input.model };
 }
 
 /**
@@ -75,11 +105,12 @@ function describeParam(param: Param): ToolPayload {
  */
 export function validateModelParams(input: {
   model: string;
+  baseUrl?: string;
   params?: Record<string, unknown>;
 }): ToolPayload {
-  const needsProvider = providerRequired(input.model);
-  if (needsProvider) return needsProvider;
-  const resolved = resolveModelId(input.model);
+  const pre = resolveInput(input);
+  if (pre.error) return pre.error;
+  const resolved = resolveModelId(pre.id!);
   if (!resolved.ok) return unresolved(input.model, resolved);
 
   const supplied = input.params ?? {};
@@ -108,10 +139,10 @@ export function validateModelParams(input: {
 }
 
 /** Full parameter surface for one model, including conditional rules. */
-export function getModelParams(input: { model: string }): ToolPayload {
-  const needsProvider = providerRequired(input.model);
-  if (needsProvider) return needsProvider;
-  const resolved = resolveModelId(input.model);
+export function getModelParams(input: { model: string; baseUrl?: string }): ToolPayload {
+  const pre = resolveInput(input);
+  if (pre.error) return pre.error;
+  const resolved = resolveModelId(pre.id!);
   if (!resolved.ok) return unresolved(input.model, resolved);
 
   const entry = getModel(resolved.id);
