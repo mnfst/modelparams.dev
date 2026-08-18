@@ -1,0 +1,87 @@
+<%- include("partials/breadcrumbs", { items: [
+  { name: "Home", href: "/" },
+  { name: "Model parameters vs. API parameters" }
+] }) %>
+
+<section class="pt-6">
+  <h1 class="text-balance font-bold tracking-tight">Model parameters vs. API parameters</h1>
+  <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-600 dark:text-slate-300 sm:text-base">
+    Two unrelated things go by the name "parameters", and people looking for one
+    routinely land on the other. The short version: a parameter <em>count</em> tells you
+    how big a model is, and this site doesn't track it. API parameters are what you put
+    in the request body, and that's the entire catalog.
+  </p>
+</section>
+
+<section class="mt-10" aria-label="Parameter count">
+  <h2 class="text-slate-900 dark:text-slate-100">Parameter count: the weights</h2>
+  <p class="mt-3 max-w-2xl text-sm text-slate-700 dark:text-slate-300">
+    A model's parameter count is how many trained weights it has. GPT-3 shipped with 175
+    billion of them. Llama 3.1 405B puts the number in its name. It's a rough proxy for
+    how expensive a model is to run, and not much else — a good 70B model from this year
+    will beat a 175B model from 2020 on almost any task you care about.
+  </p>
+  <p class="mt-3 max-w-2xl text-sm text-slate-700 dark:text-slate-300">
+    For most of the models people ask about, the number isn't public. OpenAI has never
+    published a count for GPT-3.5 or anything since. Neither has Anthropic for Claude, or
+    Google for Gemini. Figures that circulate for those models are estimates and leaks.
+    Open-weight models are the exception: if you can download the weights you can count
+    them, which is why Llama, Qwen, DeepSeek and Mistral all state exact numbers in their
+    model cards.
+  </p>
+</section>
+
+<section class="mt-10" aria-label="API parameters">
+  <h2 class="text-slate-900 dark:text-slate-100">API parameters: the request settings</h2>
+  <p class="mt-3 max-w-2xl text-sm text-slate-700 dark:text-slate-300">
+    These are the fields you send when you call a model: <code class="font-mono text-slate-600 dark:text-slate-300">temperature</code>,
+    <code class="font-mono text-slate-600 dark:text-slate-300">top_p</code>,
+    <code class="font-mono text-slate-600 dark:text-slate-300">max_tokens</code>,
+    <code class="font-mono text-slate-600 dark:text-slate-300">stop</code>, reasoning effort,
+    and whatever else a given endpoint accepts. They change what comes back for a given
+    prompt. They don't change the model.
+  </p>
+  <p class="mt-3 max-w-2xl text-sm text-slate-700 dark:text-slate-300">
+    Every provider names and gates them differently. OpenAI's temperature range isn't
+    Google's. Some parameters only apply once another one is set, and some quietly stop
+    working on reasoning models. That's the mess this catalog documents: <%= modelCount %>
+    models under one schema, with the type, default, valid range, and gating conditions
+    for each field.
+  </p>
+</section>
+
+<section class="mt-10" aria-label="Where to go next">
+  <h2 class="text-slate-900 dark:text-slate-100">Which one are you after?</h2>
+  <div class="mt-4 grid grid-cols-1 gap-px sm:grid-cols-2">
+    <div class="border border-slate-200 p-5 dark:border-slate-800">
+      <h3 class="font-medium text-slate-900 dark:text-slate-100">The request settings</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+        Defaults, ranges and gating conditions for every tracked model.
+      </p>
+      <p class="mt-3 flex flex-col gap-1 text-sm">
+        <a href="/" class="font-medium text-accent hover:text-accent-hover">Browse the catalog →</a>
+        <a href="<%= glossaryPath %>" class="font-medium text-accent hover:text-accent-hover">Read the parameter glossary →</a>
+      </p>
+    </div>
+    <div class="border border-slate-200 p-5 dark:border-slate-800 sm:-ml-px">
+      <h3 class="font-medium text-slate-900 dark:text-slate-100">The weight count</h3>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+        We don't have it. Check the model card on Hugging Face for open-weight models, or
+        the provider's own announcement post. For closed models, expect to find nothing
+        official.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="mt-10" aria-label="Frequently asked questions">
+  <h2 class="text-slate-900 dark:text-slate-100">Frequently asked questions</h2>
+  <dl class="mt-3 max-w-2xl space-y-4">
+    <% for (const faq of faqs) { %>
+    <div>
+      <dt class="font-medium text-slate-900 dark:text-slate-100"><%= faq.question %></dt>
+      <dd class="mt-1 text-sm text-slate-600 dark:text-slate-300"><%= faq.answer %></dd>
+    </div>
+    <% } %>
+  </dl>
+</section>

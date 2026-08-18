@@ -10,6 +10,13 @@ params:
     range:
       min: 1
     group: generation_length
+  - path: stop
+    type: string
+    label: Stop sequence
+    description: >-
+      Stops generation when this sequence is produced. Moonshot accepts up to 5 sequences of at most
+      32 bytes each.
+    group: generation_length
   - path: thinking.type
     type: enum
     label: Thinking mode
@@ -19,6 +26,18 @@ params:
     values:
       - enabled
       - disabled
+    group: reasoning
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: >-
+      Controls how much reasoning Kimi performs before answering. Thinking is always on for this
+      model, so it cannot be turned off.
+    default: max
+    values:
+      - low
+      - high
+      - max
     group: reasoning
   - path: response_format.type
     type: enum
@@ -30,3 +49,15 @@ params:
       - json_object
       - json_schema
     group: output_format
+  - path: tool_choice
+    type: enum
+    label: Tool choice
+    description: >-
+      Controls tool calling: auto lets the model decide, none blocks tool calls, and required forces
+      one.
+    default: auto
+    values:
+      - auto
+      - none
+      - required
+    group: tooling

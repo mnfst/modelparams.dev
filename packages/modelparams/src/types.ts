@@ -76,6 +76,13 @@ export interface Applicability {
   readonly except?: ApplicabilityRule | readonly ApplicabilityRule[];
 }
 
+/** Present when the provider stopped honoring the param for this model id. */
+export interface ParamDeprecation {
+  readonly behavior: "rejected" | "ignored" | "default-only";
+  readonly since?: string;
+  readonly note?: string;
+}
+
 /**
  * A single parameter definition in a loose, easy-to-iterate shape — the runtime
  * counterpart to the precise per-model `ParamsOf<Id>` types.
@@ -102,4 +109,6 @@ export interface Param {
   readonly values?: readonly JsonPrimitive[];
   /** When set, the parameter is only accepted for some values of its siblings. */
   readonly applicability?: Applicability;
+  /** Present when the provider deprecated the param for this model. */
+  readonly deprecated?: ParamDeprecation;
 }

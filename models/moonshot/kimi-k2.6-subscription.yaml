@@ -21,6 +21,17 @@ params:
       - enabled
       - disabled
     group: reasoning
+  - path: thinking.keep
+    type: enum
+    label: Keep prior reasoning
+    description: >-
+      Set to all to carry reasoning content from earlier assistant turns into the request; leave
+      null to send only the final answers.
+    default: null
+    values:
+      - all
+      - null
+    group: reasoning
   - path: response_format.type
     type: enum
     label: Response format
