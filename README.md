@@ -145,14 +145,7 @@ A parameter can be dead while requests still succeed. `anthropic/claude-sonnet-5
 # temperature 1 (the default) → 200 OK
 ```
 
-The catalog marks these with a `deprecated` flag instead of deleting them — `rejected` (any use fails), `ignored` (accepted, no effect), or `default-only` (only the default survives, as above). Evidence: [Anthropic's docs](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted), [noted at launch](https://simonwillison.net/2026/Jun/30/claude-sonnet-5/), [breakage in the wild](https://github.com/icereed/paperless-gpt/issues/1003). Our own entry was wrong for five weeks — the original probe only tested the default value — until the nightly drift sweep's non-default probes caught it on 2026-08-17.
-
-```yaml
-deprecated:
-  behavior: default-only
-  since: "2026-08-17"
-  note: The API rejects non-default values; only the default value 1 is accepted.
-```
+The catalog lists only parameters you can actually use — `temperature` is absent from `claude-sonnet-5`, so the validator rejects it up front. Evidence for this one: [Anthropic's docs](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted), [noted at launch](https://simonwillison.net/2026/Jun/30/claude-sonnet-5/), [breakage in the wild](https://github.com/icereed/paperless-gpt/issues/1003). Our own entry listed it wrongly for five weeks — the original probe only tested the default value — until the nightly drift sweep's non-default probes caught it on 2026-08-17.
 
 ## Adding a model
 

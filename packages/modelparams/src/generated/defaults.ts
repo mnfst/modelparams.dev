@@ -357,9 +357,6 @@ export const DEFAULTS = {
   },
   "anthropic/claude-opus-4-8": {
     max_tokens: 4096,
-    temperature: 1,
-    top_p: 1,
-    top_k: 0,
     "thinking.type": "disabled",
     "thinking.display": "omitted",
     "output_config.effort": "high",
@@ -470,9 +467,6 @@ export const DEFAULTS = {
   },
   "anthropic/claude-sonnet-5": {
     max_tokens: 4096,
-    temperature: 1,
-    top_p: 1,
-    top_k: 0,
     "thinking.type": "disabled",
     "thinking.display": "summarized",
     "output_config.effort": "high",
