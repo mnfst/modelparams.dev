@@ -48,6 +48,13 @@ You don't need to know the schema to file one. A link to the official docs is th
    - You can also use `{ not: <value> }` to say "any value except this one".
    - See the [schema doc](docs/model-parameters-schema.md#applicability) for the exact rule syntax and evaluation semantics.
 
+   These rules are **enforced at runtime**, not just rendered on the site. The
+   `modelparams` package rejects parameter combinations your rules forbid, so a rule
+   that's too strict makes someone's valid request fail validation. Check it against
+   the provider's docs. When a rule references a parameter the request didn't set,
+   evaluation falls back to that parameter's `default`, because that is what the
+   provider applies in its place.
+
 6. **Auth-type rules of thumb:**
    - **`api_key`:** list parameters from the official API reference. Don't invent ones the API doesn't accept.
    - **`subscription`:** list user-facing toggles and presets the consumer can actually set. Skip implementation details.
