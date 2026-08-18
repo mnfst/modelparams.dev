@@ -25,6 +25,7 @@ from modelparams.types import z_ai
 from .model_ids import ModelId
 
 PARAM_TYPES: dict[ModelId, Any] = {
+    "alibaba/deepseek-v3.2": alibaba.Deepseek_V3_2Params,
     "alibaba/deepseek-v4-flash-0731": alibaba.Deepseek_V4_Flash_0731Params,
     "alibaba/deepseek-v4-pro-0813": alibaba.Deepseek_V4_Pro_0813Params,
     "alibaba/qwen-flash": alibaba.Qwen_FlashParams,
