@@ -8,6 +8,7 @@ export const MODEL_IDS = [
   "alibaba/deepseek-v4-pro",
   "alibaba/deepseek-v4-pro-0813",
   "alibaba/glm-5.1",
+  "alibaba/glm-5.2",
   "alibaba/kimi-k2.7-code",
   "alibaba/qwen-flash",
   "alibaba/qwen-max",
