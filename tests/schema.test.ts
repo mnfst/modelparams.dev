@@ -82,6 +82,21 @@ describe("Model schema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("accepts a pathed requestModel alongside the catalog slug", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      provider: "fireworks",
+      model: "kimi-k3",
+      requestModel: "accounts/fireworks/models/kimi-k3",
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a requestModel containing whitespace", () => {
+    const result = Model.safeParse({ ...VALID_MODEL, requestModel: "kimi k3" });
+    expect(result.success).toBe(false);
+  });
+
   it("rejects unknown top-level fields", () => {
     const result = Model.safeParse({ ...VALID_MODEL, metadata: { source: "docs" } });
     expect(result.success).toBe(false);
