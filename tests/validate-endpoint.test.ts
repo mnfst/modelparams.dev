@@ -81,11 +81,12 @@ describe("POST /api/v1/validate", () => {
     expect(body.issues[0]!).toMatchObject({ path: "temperature", code: "invalid_value" });
   });
 
-  it("resolves a bare model slug", async () => {
-    const { status, body } = await post({ model: "gpt-5.5", params: {} });
-    expect(status).toBe(200);
-    expect(body.model).toBe("openai/gpt-5.5");
-    expect(body.provider).toBe("openai");
+  it("requires a provider prefix and lists the qualified ids", async () => {
+    const { status, body } = await post({ model: "kimi-k3", params: {} });
+    expect(status).toBe(400);
+    expect(body.error).toBe("provider_required");
+    expect(body.matches).toContain("fireworks/kimi-k3");
+    expect(body.matches).toContain("moonshot/kimi-k3");
   });
 
   it("treats a missing params object as an empty request", async () => {
@@ -96,7 +97,7 @@ describe("POST /api/v1/validate", () => {
   });
 
   it("404s an unknown model with usable suggestions", async () => {
-    const { status, body } = await post({ model: "gpt-5.5-turbo-ultra", params: {} });
+    const { status, body } = await post({ model: "openai/gpt-5.5-turbo-ultra", params: {} });
     expect(status).toBe(404);
     expect(body.error).toBe("unknown_model");
     // Near-misses, not an empty array: the caller needs something to retry with.

@@ -62,7 +62,7 @@ Prefer raw JSON?
 
 ```
 curl https://modelparams.dev/api/v1/models.json
-curl https://modelparams.dev/api/v1/params/gpt-5.5.json
+curl https://modelparams.dev/api/v1/models/openai/gpt-5.5.json
 ```
 
 Schema at `https://modelparams.dev/api/v1/schema.json`, per the [Model Parameters convention](docs/model-parameters-schema.md).
@@ -113,7 +113,7 @@ The same model accepts different parameters on each host that serves it. The cat
 | Thinking control   | ✓                  | ✗                                   |
 
 - **`requestModel`** — the exact string to send when it differs from the catalog slug. Every API response and MCP tool returns it.
-- **Ambiguous slugs are refused** — `kimi-k3` is served by two providers, so validating it without one returns both qualified ids instead of a guess.
+- **Provider is mandatory** — `kimi-k3` alone is refused with both qualified ids to retry with; the catalog never guesses a host.
 
 ## API surfaces
 

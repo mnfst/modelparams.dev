@@ -6,6 +6,7 @@
 import {
   dropUnsupported,
   getModel,
+  MODEL_IDS,
   resolveModelId,
   type DroppedParam,
 } from "../../packages/modelparams/src/index.js";
@@ -43,7 +44,7 @@ const USAGE = {
     "Validate a params object against a model. Reports unknown parameters, out-of-range values, " +
     "and combinations the provider rejects, and returns a corrected payload.",
   request: {
-    model: "provider/model id, or a bare model slug when it is unambiguous",
+    model: "provider/model id, e.g. anthropic/claude-opus-5",
     params: "object of provider-native parameter paths to values",
   },
   example: {
@@ -110,26 +111,31 @@ export default {
       );
     }
 
+    if (!model.includes("/")) {
+      const matches = MODEL_IDS.filter((id) => id.slice(id.indexOf("/") + 1) === model.trim());
+      return fail(
+        "provider_required",
+        {
+          message: `\`model\` must be \`provider/model\`${matches.length ? "; did you mean one of the ids below?" : ""}`,
+          ...(matches.length ? { matches } : {}),
+        },
+        400,
+      );
+    }
+
     const resolved = resolveModelId(model);
     if (!resolved.ok) {
-      return resolved.reason === "ambiguous"
-        ? fail(
-            "ambiguous_model",
-            {
-              message: `"${model}" is published by more than one provider; qualify it with a provider prefix`,
-              matches: resolved.matches,
-            },
-            400,
-          )
-        : fail(
-            "unknown_model",
-            {
-              message: `"${model}" is not in the catalog`,
-              suggestions: resolved.suggestions,
-              catalog: "https://modelparams.dev/api/v1/models.json",
-            },
-            404,
-          );
+      // With a provider prefix required above, resolution can only miss.
+      const suggestions = resolved.reason === "not_found" ? resolved.suggestions : resolved.matches;
+      return fail(
+        "unknown_model",
+        {
+          message: `"${model}" is not in the catalog`,
+          suggestions,
+          catalog: "https://modelparams.dev/api/v1/models.json",
+        },
+        404,
+      );
     }
 
     if (

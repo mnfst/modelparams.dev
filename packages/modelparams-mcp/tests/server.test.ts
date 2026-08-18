@@ -123,9 +123,19 @@ describe("validate_model_params", () => {
     expect(out.valid).toBe(true);
   });
 
+  it("requires a provider prefix and lists the qualified ids", async () => {
+    const out = await call<ValidateResult>("validate_model_params", {
+      model: "kimi-k3",
+      params: {},
+    });
+    expect(out.error).toBe("provider_required");
+    expect(out.matches).toContain("fireworks/kimi-k3");
+    expect(out.matches).toContain("moonshot/kimi-k3");
+  });
+
   it("guides recovery from an unknown model", async () => {
     const out = await call<ValidateResult>("validate_model_params", {
-      model: "claude-opus-9",
+      model: "anthropic/claude-opus-9",
       params: {},
     });
     expect(out.error).toBe("unknown_model");
@@ -135,7 +145,7 @@ describe("validate_model_params", () => {
 
 describe("get_model_params", () => {
   it("returns typed parameters and defaults", async () => {
-    const out = await call<ModelParamsResult>("get_model_params", { model: "gpt-5.5" });
+    const out = await call<ModelParamsResult>("get_model_params", { model: "openai/gpt-5.5" });
     expect(out.model).toBe("openai/gpt-5.5");
     expect(out.parameterCount).toBeGreaterThan(0);
     const effort = out.params.find((p) => p.path === "reasoning_effort");
