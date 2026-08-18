@@ -9,6 +9,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/deepseek-v4-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/deepseek-v4-flash-0731": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
