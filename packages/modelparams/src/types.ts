@@ -47,6 +47,35 @@ export interface ParamRange {
   readonly step?: number;
 }
 
+/** Negated match: the referenced parameter must not equal (or be among) `not`. */
+export interface ApplicabilityCondition {
+  readonly not: JsonPrimitive | readonly JsonPrimitive[];
+}
+
+/**
+ * What another parameter must be for a rule to match: an exact value, one of a
+ * set of values, or anything but a value (`{ not: ... }`).
+ */
+export type ApplicabilityValue = JsonPrimitive | readonly JsonPrimitive[] | ApplicabilityCondition;
+
+/**
+ * One condition set, keyed by the dot path of the parameter it constrains.
+ * Every entry must hold for the rule to match (AND).
+ */
+export type ApplicabilityRule = { readonly [path: string]: ApplicabilityValue };
+
+/**
+ * When a parameter is accepted, expressed in terms of the other parameters in
+ * the same request. A list of rules matches if any one of them matches (OR).
+ *
+ * `only` — the parameter applies *only* while a rule matches.
+ * `except` — the parameter does *not* apply while a rule matches.
+ */
+export interface Applicability {
+  readonly only?: ApplicabilityRule | readonly ApplicabilityRule[];
+  readonly except?: ApplicabilityRule | readonly ApplicabilityRule[];
+}
+
 /** Present when the provider stopped honoring the param for this model id. */
 export interface ParamDeprecation {
   readonly behavior: "rejected" | "ignored" | "default-only";
@@ -78,6 +107,8 @@ export interface Param {
   readonly range?: ParamRange;
   /** Present on `enum` params. */
   readonly values?: readonly JsonPrimitive[];
+  /** When set, the parameter is only accepted for some values of its siblings. */
+  readonly applicability?: Applicability;
   /** Present when the provider deprecated the param for this model. */
   readonly deprecated?: ParamDeprecation;
 }
