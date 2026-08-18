@@ -127,6 +127,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "fireworks/gpt-oss-120b": fireworks.Gpt_Oss_120bParams,
     "fireworks/gpt-oss-20b": fireworks.Gpt_Oss_20bParams,
     "fireworks/inkling": fireworks.InklingParams,
+    "fireworks/kimi-k2p6": fireworks.Kimi_K2p6Params,
     "fireworks/kimi-k2p7-code": fireworks.Kimi_K2p7_CodeParams,
     "fireworks/kimi-k3": fireworks.Kimi_K3Params,
     "fireworks/minimax-m2p7": fireworks.Minimax_M2p7Params,
