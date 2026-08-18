@@ -136,17 +136,6 @@ An entry documents one **wire format** — the exact request body a specific end
 
 Embeddings, audio, image generation, and batch APIs are out of scope by design: the catalog covers chat/completion request parameters. Missing a surface you need? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) — or a PR; each surface is just YAML entries plus a probe adapter.
 
-## Dead parameters
-
-A parameter can be dead while requests still succeed. `anthropic/claude-sonnet-5`:
-
-```bash
-# temperature 0.5 → 400 {"error": {"message": "`temperature` is deprecated for this model."}}
-# temperature 1 (the default) → 200 OK
-```
-
-The catalog lists only parameters you can actually use — `temperature` is absent from `claude-sonnet-5`, so the validator rejects it up front. Evidence for this one: [Anthropic's docs](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5#sampling-parameters-not-accepted), [noted at launch](https://simonwillison.net/2026/Jun/30/claude-sonnet-5/), [breakage in the wild](https://github.com/icereed/paperless-gpt/issues/1003). Our own entry listed it wrongly for five weeks — the original probe only tested the default value — until the nightly drift sweep's non-default probes caught it on 2026-08-17.
-
 ## Adding a model
 
 Drop a YAML file in `models/<provider>/`, open a PR, and CI validates it against the schema. Details in [CONTRIBUTING.md](CONTRIBUTING.md). Can't open a PR? [File an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) with a link to the docs.
