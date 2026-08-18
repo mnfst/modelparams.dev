@@ -2,6 +2,7 @@
 // Source of truth: the YAML catalog under /models in modelparams.dev.
 
 export const MODEL_IDS = [
+  "alibaba/deepseek-v4-flash-0731",
   "alibaba/deepseek-v4-pro-0813",
   "alibaba/qwen-flash",
   "alibaba/qwen-max",
