@@ -631,6 +631,14 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemini-3.1-flash-image": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
   "google/gemini-3.1-flash-lite": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
