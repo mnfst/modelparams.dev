@@ -113,7 +113,7 @@ The same model accepts different parameters on each host that serves it. The cat
 | Thinking control   | ✓                  | ✗                                   |
 
 - **`requestModel`** — the exact string to send when it differs from the catalog slug. Every API response and MCP tool returns it.
-- **Ambiguous slugs are refused** — `kimi-k3` alone returns `ambiguous_model` with the qualified ids, instead of a guess.
+- **Ambiguous slugs are refused** — `kimi-k3` is served by two providers, so validating it without one returns both qualified ids instead of a guess.
 
 ## API surfaces
 
