@@ -5,6 +5,10 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.57
+
+- No catalog changes (package-only release).
+
 ## 0.0.56
 
 ### Models added
