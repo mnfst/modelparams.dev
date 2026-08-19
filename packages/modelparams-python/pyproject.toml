@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "modelparams"
-version = "0.0.36"
+version = "0.0.37"
 description = "Typed model parameters for Python, generated from the modelparams.dev catalog."
 readme = "README.md"
 requires-python = ">=3.10"
