@@ -7203,6 +7203,405 @@
     ]
   },
   {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "claude-haiku-4-5",
+    "requestModel": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1, and the model requires 1 when thinking is enabled.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value. Must be at least 0.95 or unset when thinking is enabled.",
+        "group": "sampling",
+        "applicability": {
+          "except": [
+            {
+              "additionalModelRequestFields.thinking.type": "enabled"
+            },
+            {
+              "inferenceConfig.temperature": {
+                "not": 1
+              }
+            }
+          ]
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "claude-sonnet-4-5",
+    "requestModel": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1, and the model requires 1 when thinking is enabled.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value. Must be at least 0.95 or unset when thinking is enabled.",
+        "group": "sampling",
+        "applicability": {
+          "except": [
+            {
+              "additionalModelRequestFields.thinking.type": "enabled"
+            },
+            {
+              "inferenceConfig.temperature": {
+                "not": 1
+              }
+            }
+          ]
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock. Unlike the first-party Anthropic API, the adaptive mode is rejected on Bedrock for this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nova-lite",
+    "requestModel": "amazon.nova-lite-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.inferenceConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens. Nova takes this through additionalModelRequestFields, not the Converse inferenceConfig block, and silently ignores unknown keys placed in inferenceConfig.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nova-micro",
+    "requestModel": "amazon.nova-micro-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.inferenceConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens. Nova takes this through additionalModelRequestFields, not the Converse inferenceConfig block, and silently ignores unknown keys placed in inferenceConfig.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nova-pro",
+    "requestModel": "amazon.nova-pro-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.inferenceConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens. Nova takes this through additionalModelRequestFields, not the Converse inferenceConfig block, and silently ignores unknown keys placed in inferenceConfig.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
     "provider": "cerebras",
     "authType": "api_key",
     "model": "zai-glm-4.7",
