@@ -20,6 +20,7 @@ from modelparams.types import nvidia
 from modelparams.types import openai
 from modelparams.types import perplexity
 from modelparams.types import thinking_machines
+from modelparams.types import vertex
 from modelparams.types import xai
 from modelparams.types import xiaomi
 from modelparams.types import z_ai
@@ -361,6 +362,17 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "perplexity/sonar-pro": perplexity.Sonar_ProParams,
     "perplexity/sonar-reasoning-pro": perplexity.Sonar_Reasoning_ProParams,
     "thinking-machines/Inkling": thinking_machines.InklingParams,
+    "vertex/gemini-2.5-flash": vertex.Gemini_2_5_FlashParams,
+    "vertex/gemini-2.5-flash-lite": vertex.Gemini_2_5_Flash_LiteParams,
+    "vertex/gemini-2.5-pro": vertex.Gemini_2_5_ProParams,
+    "vertex/gemini-3-flash-preview": vertex.Gemini_3_Flash_PreviewParams,
+    "vertex/gemini-3.1-flash-lite": vertex.Gemini_3_1_Flash_LiteParams,
+    "vertex/gemini-3.1-pro-preview": vertex.Gemini_3_1_Pro_PreviewParams,
+    "vertex/gemini-3.1-pro-preview-customtools": vertex.Gemini_3_1_Pro_Preview_CustomtoolsParams,
+    "vertex/gemini-3.5-flash": vertex.Gemini_3_5_FlashParams,
+    "vertex/gemini-3.5-flash-lite": vertex.Gemini_3_5_Flash_LiteParams,
+    "vertex/gemini-3.6-flash": vertex.Gemini_3_6_FlashParams,
+    "vertex/gemini-3.7-flash": vertex.Gemini_3_7_FlashParams,
     "xai/grok-4.20-0309-non-reasoning": xai.Grok_4_20_0309_Non_ReasoningParams,
     "xai/grok-4.20-0309-non-reasoning-subscription": xai.Grok_4_20_0309_Non_Reasoning_SubscriptionParams,
     "xai/grok-4.20-0309-reasoning": xai.Grok_4_20_0309_ReasoningParams,

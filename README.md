@@ -140,14 +140,18 @@ One entry documents one wire format.
 | Anthropic Messages                                                                                    | ✅     |
 | Google `generateContent`                                                                              | ✅     |
 | Amazon Bedrock `Converse` — every `bedrock/*` entry                                                   | ✅     |
+| Vertex AI `generateContent` — every `vertex/*` entry                                                  | ✅     |
 | Subscription plans (`-subscription` entries)                                                          | ✅     |
 | Amazon Bedrock `InvokeModel` (native per-vendor bodies)                                               | ❌     |
+| Vertex AI `rawPredict` (Anthropic, Meta, Mistral on Vertex)                                           | ❌     |
 | MiniMax native endpoint                                                                               | ❌     |
 | OpenAI Responses API                                                                                  | ❌     |
 | Google Interactions API                                                                               | ❌     |
 | xAI native SDK                                                                                        | ❌     |
 
 Embeddings, audio, image, and batch APIs are out of scope. Missing a surface? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) or a PR.
+
+`vertex/*` covers the Gemini models Vertex serves through `generateContent`, which shares the `generationConfig` vocabulary with the first-party Gemini API but not its model list or its bounds. Third-party models on Vertex (Claude, Llama, Mistral) go through `rawPredict` with each vendor's native body, which is a different surface and is not covered.
 
 Bedrock is the sharpest case, because one host serves both surfaces and the SDK you pick decides which. `ConverseCommand` (`@aws-sdk/client-bedrock-runtime`) takes `inferenceConfig.maxTokens` and puts vendor extras in `additionalModelRequestFields` — that is what `bedrock/*` documents. `AnthropicBedrock` (`@anthropic-ai/bedrock-sdk`) calls `InvokeModel` with the native Anthropic body (`max_tokens`, top-level `thinking`) instead, so these entries do not describe it. Same model, same key, two vocabularies.
 
