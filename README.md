@@ -113,14 +113,6 @@ codex mcp add modelparams --url https://modelparams.dev/mcp
 
 Four tools: `validate_model_params` to check a params object before you send it, `get_model_params` for one model's full surface, `list_models` and `find_models_supporting` to search the catalog.
 
-**Offline, or a client that speaks stdio only** — same four tools, catalog bundled:
-
-```bash
-npx -y modelparams-mcp
-```
-
-This copy is pinned to the catalog as of its release; the hosted endpoint rebuilds on every catalog change. Details in the [package README](packages/modelparams-mcp/README.md).
-
 **Without MCP** — `npx skills add mnfst/modelparams.dev` installs the companion agent skill, and [llms.txt](https://modelparams.dev/llms.txt) points an agent at a URL.
 
 ## One model, many providers

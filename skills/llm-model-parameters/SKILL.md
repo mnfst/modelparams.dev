@@ -40,7 +40,8 @@ If the `modelparams` MCP server is connected, prefer these — they need no netw
 Not connected? Install it:
 
 ```bash
-npx -y modelparams-mcp   # stdio server; add to your MCP client config
+claude mcp add --transport http modelparams https://modelparams.dev/mcp
+codex mcp add modelparams --url https://modelparams.dev/mcp
 ```
 
 ### HTTP API
