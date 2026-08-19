@@ -640,15 +640,6 @@ export type ParamsById = {
     "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
     "additionalModelRequestFields.thinking.budget_tokens": number;
   };
-  "bedrock/claude-haiku-4-5-20251001": {
-    "inferenceConfig.maxTokens": number;
-    "inferenceConfig.temperature": number;
-    "inferenceConfig.topP": number;
-    "inferenceConfig.stopSequences": string;
-    "additionalModelRequestFields.top_k": number;
-    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
-    "additionalModelRequestFields.thinking.budget_tokens": number;
-  };
   "bedrock/claude-opus-4-5-20251101": {
     "inferenceConfig.maxTokens": number;
     "inferenceConfig.temperature": number;
@@ -676,15 +667,6 @@ export type ParamsById = {
     "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
     "additionalModelRequestFields.thinking.budget_tokens": number;
   };
-  "bedrock/claude-sonnet-4-5-20250929": {
-    "inferenceConfig.maxTokens": number;
-    "inferenceConfig.temperature": number;
-    "inferenceConfig.topP": number;
-    "inferenceConfig.stopSequences": string;
-    "additionalModelRequestFields.top_k": number;
-    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
-    "additionalModelRequestFields.thinking.budget_tokens": number;
-  };
   "bedrock/claude-sonnet-4-6": {
     "inferenceConfig.maxTokens": number;
     "inferenceConfig.temperature": number;
@@ -693,6 +675,18 @@ export type ParamsById = {
     "additionalModelRequestFields.top_k": number;
     "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
     "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/deepseek-r1": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/deepseek-v3.2": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
   };
   "bedrock/devstral-2-123b": {
     "inferenceConfig.maxTokens": number;
@@ -736,7 +730,13 @@ export type ParamsById = {
     "inferenceConfig.topP": number;
     "inferenceConfig.stopSequences": string;
   };
-  "bedrock/gpt-oss-120b-1": {
+  "bedrock/gpt-oss-120b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-20b": {
     "inferenceConfig.maxTokens": number;
     "inferenceConfig.temperature": number;
     "inferenceConfig.topP": number;
@@ -807,6 +807,9 @@ export type ParamsById = {
     "inferenceConfig.temperature": number;
     "inferenceConfig.topP": number;
     "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
   };
   "bedrock/minimax-m2.1": {
     "inferenceConfig.maxTokens": number;
@@ -825,6 +828,9 @@ export type ParamsById = {
     "inferenceConfig.temperature": number;
     "inferenceConfig.topP": number;
     "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
   };
   "bedrock/ministral-3-3b-instruct": {
     "inferenceConfig.maxTokens": number;
@@ -901,6 +907,7 @@ export type ParamsById = {
     "inferenceConfig.temperature": number;
     "inferenceConfig.topP": number;
     "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
   };
   "bedrock/nova-lite": {
     "inferenceConfig.maxTokens": number;
@@ -972,18 +979,6 @@ export type ParamsById = {
     "inferenceConfig.stopSequences": string;
   };
   "bedrock/qwen3-vl-235b-a22b": {
-    "inferenceConfig.maxTokens": number;
-    "inferenceConfig.temperature": number;
-    "inferenceConfig.topP": number;
-    "inferenceConfig.stopSequences": string;
-  };
-  "bedrock/r1": {
-    "inferenceConfig.maxTokens": number;
-    "inferenceConfig.temperature": number;
-    "inferenceConfig.topP": number;
-    "inferenceConfig.stopSequences": string;
-  };
-  "bedrock/v3.2": {
     "inferenceConfig.maxTokens": number;
     "inferenceConfig.temperature": number;
     "inferenceConfig.topP": number;

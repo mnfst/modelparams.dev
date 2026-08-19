@@ -25,21 +25,6 @@ Claude_Haiku_4_5Params = TypedDict(
 )
 setattr(Claude_Haiku_4_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 
-Claude_Haiku_4_5_20251001Params = TypedDict(
-    "Claude_Haiku_4_5_20251001Params",
-    {
-        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
-        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.stopSequences": str,
-        "additionalModelRequestFields.top_k": Annotated[int, Field(ge=0)],
-        "additionalModelRequestFields.thinking.type": Literal["disabled", "enabled"],
-        "additionalModelRequestFields.thinking.budget_tokens": Annotated[int, Field(ge=1024)],
-    },
-    total=False,
-)
-setattr(Claude_Haiku_4_5_20251001Params, "__pydantic_config__", _PARAMS_CONFIG)
-
 Claude_Opus_4_5_20251101Params = TypedDict(
     "Claude_Opus_4_5_20251101Params",
     {
@@ -85,21 +70,6 @@ Claude_Sonnet_4_5Params = TypedDict(
 )
 setattr(Claude_Sonnet_4_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 
-Claude_Sonnet_4_5_20250929Params = TypedDict(
-    "Claude_Sonnet_4_5_20250929Params",
-    {
-        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
-        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.stopSequences": str,
-        "additionalModelRequestFields.top_k": Annotated[int, Field(ge=0)],
-        "additionalModelRequestFields.thinking.type": Literal["disabled", "enabled"],
-        "additionalModelRequestFields.thinking.budget_tokens": Annotated[int, Field(ge=1024)],
-    },
-    total=False,
-)
-setattr(Claude_Sonnet_4_5_20250929Params, "__pydantic_config__", _PARAMS_CONFIG)
-
 Claude_Sonnet_4_6Params = TypedDict(
     "Claude_Sonnet_4_6Params",
     {
@@ -114,6 +84,30 @@ Claude_Sonnet_4_6Params = TypedDict(
     total=False,
 )
 setattr(Claude_Sonnet_4_6Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Deepseek_R1Params = TypedDict(
+    "Deepseek_R1Params",
+    {
+        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
+        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.stopSequences": str,
+    },
+    total=False,
+)
+setattr(Deepseek_R1Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Deepseek_V3_2Params = TypedDict(
+    "Deepseek_V3_2Params",
+    {
+        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
+        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.stopSequences": str,
+    },
+    total=False,
+)
+setattr(Deepseek_V3_2Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Devstral_2_123bParams = TypedDict(
     "Devstral_2_123bParams",
@@ -199,8 +193,8 @@ Glm_5Params = TypedDict(
 )
 setattr(Glm_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 
-Gpt_Oss_120b_1Params = TypedDict(
-    "Gpt_Oss_120b_1Params",
+Gpt_Oss_120bParams = TypedDict(
+    "Gpt_Oss_120bParams",
     {
         "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
         "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
@@ -209,7 +203,19 @@ Gpt_Oss_120b_1Params = TypedDict(
     },
     total=False,
 )
-setattr(Gpt_Oss_120b_1Params, "__pydantic_config__", _PARAMS_CONFIG)
+setattr(Gpt_Oss_120bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_Oss_20bParams = TypedDict(
+    "Gpt_Oss_20bParams",
+    {
+        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
+        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.stopSequences": str,
+    },
+    total=False,
+)
+setattr(Gpt_Oss_20bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Gpt_Oss_Safeguard_120bParams = TypedDict(
     "Gpt_Oss_Safeguard_120bParams",
@@ -338,6 +344,9 @@ Minimax_M2Params = TypedDict(
         "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
         "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
         "inferenceConfig.stopSequences": str,
+        "additionalModelRequestFields.top_k": Annotated[int, Field(ge=0)],
+        "additionalModelRequestFields.thinking.type": Literal["disabled", "enabled"],
+        "additionalModelRequestFields.thinking.budget_tokens": Annotated[int, Field(ge=1024)],
     },
     total=False,
 )
@@ -374,6 +383,9 @@ Ministral_3_14b_InstructParams = TypedDict(
         "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
         "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
         "inferenceConfig.stopSequences": str,
+        "additionalModelRequestFields.top_k": Annotated[int, Field(ge=0)],
+        "additionalModelRequestFields.thinking.type": Literal["disabled", "enabled"],
+        "additionalModelRequestFields.thinking.budget_tokens": Annotated[int, Field(ge=1024)],
     },
     total=False,
 )
@@ -522,6 +534,7 @@ Nova_2_LiteParams = TypedDict(
         "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
         "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
         "inferenceConfig.stopSequences": str,
+        "additionalModelRequestFields.inferenceConfig.topK": Annotated[int, Field(ge=1)],
     },
     total=False,
 )
@@ -674,30 +687,6 @@ Qwen3_Vl_235b_A22bParams = TypedDict(
 )
 setattr(Qwen3_Vl_235b_A22bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
-R1Params = TypedDict(
-    "R1Params",
-    {
-        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
-        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.stopSequences": str,
-    },
-    total=False,
-)
-setattr(R1Params, "__pydantic_config__", _PARAMS_CONFIG)
-
-V3_2Params = TypedDict(
-    "V3_2Params",
-    {
-        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
-        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
-        "inferenceConfig.stopSequences": str,
-    },
-    total=False,
-)
-setattr(V3_2Params, "__pydantic_config__", _PARAMS_CONFIG)
-
 Voxtral_Mini_3b_2507Params = TypedDict(
     "Voxtral_Mini_3b_2507Params",
     {
@@ -724,12 +713,12 @@ setattr(Voxtral_Small_24b_2507Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
     "Claude_Haiku_4_5Params",
-    "Claude_Haiku_4_5_20251001Params",
     "Claude_Opus_4_5_20251101Params",
     "Claude_Opus_4_6Params",
     "Claude_Sonnet_4_5Params",
-    "Claude_Sonnet_4_5_20250929Params",
     "Claude_Sonnet_4_6Params",
+    "Deepseek_R1Params",
+    "Deepseek_V3_2Params",
     "Devstral_2_123bParams",
     "Gemma_3_12b_ItParams",
     "Gemma_3_27b_ItParams",
@@ -737,7 +726,8 @@ __all__ = [
     "Glm_4_7Params",
     "Glm_4_7_FlashParams",
     "Glm_5Params",
-    "Gpt_Oss_120b_1Params",
+    "Gpt_Oss_120bParams",
+    "Gpt_Oss_20bParams",
     "Gpt_Oss_Safeguard_120bParams",
     "Gpt_Oss_Safeguard_20bParams",
     "Kimi_K2_ThinkingParams",
@@ -776,8 +766,6 @@ __all__ = [
     "Qwen3_Coder_NextParams",
     "Qwen3_Next_80b_A3bParams",
     "Qwen3_Vl_235b_A22bParams",
-    "R1Params",
-    "V3_2Params",
     "Voxtral_Mini_3b_2507Params",
     "Voxtral_Small_24b_2507Params",
 ]

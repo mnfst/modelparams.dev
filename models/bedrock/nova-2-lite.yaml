@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: nova-2-lite
-requestModel: us.amazon.nova-2-lite-v1:0
+requestModel: "{scope}.amazon.nova-2-lite-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer
@@ -38,3 +38,12 @@ params:
     label: Stop sequences
     description: A list of strings where the model stops generating further tokens.
     group: generation_length
+  - path: additionalModelRequestFields.inferenceConfig.topK
+    type: integer
+    label: Top K
+    description: >-
+      Limits token sampling to the top K most likely next tokens. Nova nests it under an
+      inferenceConfig object inside additionalModelRequestFields.
+    range:
+      min: 1
+    group: sampling

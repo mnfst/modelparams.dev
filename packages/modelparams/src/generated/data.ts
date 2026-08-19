@@ -7211,118 +7211,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-haiku-4-5",
-    "requestModel": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
-    "params": [
-      {
-        "path": "inferenceConfig.maxTokens",
-        "label": "Max tokens",
-        "description": "Maximum number of output tokens the model may generate.",
-        "group": "generation_length",
-        "type": "integer",
-        "range": {
-          "min": 1
-        }
-      },
-      {
-        "path": "inferenceConfig.temperature",
-        "label": "Temperature",
-        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1, and the model requires 1 when thinking is enabled.",
-        "group": "sampling",
-        "applicability": {
-          "except": {
-            "additionalModelRequestFields.thinking.type": "enabled"
-          }
-        },
-        "type": "number",
-        "default": 1,
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.1
-        }
-      },
-      {
-        "path": "inferenceConfig.topP",
-        "label": "Top P",
-        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value. Must be at least 0.95 or unset when thinking is enabled.",
-        "group": "sampling",
-        "applicability": {
-          "except": [
-            {
-              "additionalModelRequestFields.thinking.type": "enabled"
-            },
-            {
-              "inferenceConfig.temperature": {
-                "not": 1
-              }
-            }
-          ]
-        },
-        "type": "number",
-        "default": 1,
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.01
-        }
-      },
-      {
-        "path": "inferenceConfig.stopSequences",
-        "label": "Stop sequences",
-        "description": "A list of strings where the model stops generating further tokens.",
-        "group": "generation_length",
-        "type": "string"
-      },
-      {
-        "path": "additionalModelRequestFields.top_k",
-        "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
-        "group": "sampling",
-        "applicability": {
-          "except": {
-            "additionalModelRequestFields.thinking.type": "enabled"
-          }
-        },
-        "type": "integer",
-        "default": 0,
-        "range": {
-          "min": 0
-        }
-      },
-      {
-        "path": "additionalModelRequestFields.thinking.type",
-        "label": "Thinking mode",
-        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
-        "group": "reasoning",
-        "type": "enum",
-        "default": "disabled",
-        "values": [
-          "disabled",
-          "enabled"
-        ]
-      },
-      {
-        "path": "additionalModelRequestFields.thinking.budget_tokens",
-        "label": "Budget tokens",
-        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
-        "group": "reasoning",
-        "applicability": {
-          "only": {
-            "additionalModelRequestFields.thinking.type": "enabled"
-          }
-        },
-        "type": "integer",
-        "range": {
-          "min": 1024
-        }
-      }
-    ]
-  },
-  {
-    "provider": "bedrock",
-    "authType": "api_key",
-    "model": "claude-haiku-4-5-20251001",
-    "requestModel": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "requestModel": "{scope}.anthropic.claude-haiku-4-5-20251001-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7368,7 +7257,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -7378,7 +7267,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.thinking.type",
         "label": "Thinking mode",
-        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
         "group": "reasoning",
         "type": "enum",
         "default": "disabled",
@@ -7408,7 +7297,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-opus-4-5-20251101",
-    "requestModel": "us.anthropic.claude-opus-4-5-20251101-v1:0",
+    "requestModel": "{scope}.anthropic.claude-opus-4-5-20251101-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7454,7 +7343,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -7464,7 +7353,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.thinking.type",
         "label": "Thinking mode",
-        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
         "group": "reasoning",
         "type": "enum",
         "default": "disabled",
@@ -7494,7 +7383,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-opus-4-6",
-    "requestModel": "us.anthropic.claude-opus-4-6-v1",
+    "requestModel": "{scope}.anthropic.claude-opus-4-6-v1",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7540,7 +7429,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -7550,7 +7439,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.thinking.type",
         "label": "Thinking mode",
-        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
         "group": "reasoning",
         "type": "enum",
         "default": "disabled",
@@ -7580,118 +7469,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-sonnet-4-5",
-    "requestModel": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
-    "params": [
-      {
-        "path": "inferenceConfig.maxTokens",
-        "label": "Max tokens",
-        "description": "Maximum number of output tokens the model may generate.",
-        "group": "generation_length",
-        "type": "integer",
-        "range": {
-          "min": 1
-        }
-      },
-      {
-        "path": "inferenceConfig.temperature",
-        "label": "Temperature",
-        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1, and the model requires 1 when thinking is enabled.",
-        "group": "sampling",
-        "applicability": {
-          "except": {
-            "additionalModelRequestFields.thinking.type": "enabled"
-          }
-        },
-        "type": "number",
-        "default": 1,
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.1
-        }
-      },
-      {
-        "path": "inferenceConfig.topP",
-        "label": "Top P",
-        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value. Must be at least 0.95 or unset when thinking is enabled.",
-        "group": "sampling",
-        "applicability": {
-          "except": [
-            {
-              "additionalModelRequestFields.thinking.type": "enabled"
-            },
-            {
-              "inferenceConfig.temperature": {
-                "not": 1
-              }
-            }
-          ]
-        },
-        "type": "number",
-        "default": 1,
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.01
-        }
-      },
-      {
-        "path": "inferenceConfig.stopSequences",
-        "label": "Stop sequences",
-        "description": "A list of strings where the model stops generating further tokens.",
-        "group": "generation_length",
-        "type": "string"
-      },
-      {
-        "path": "additionalModelRequestFields.top_k",
-        "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
-        "group": "sampling",
-        "applicability": {
-          "except": {
-            "additionalModelRequestFields.thinking.type": "enabled"
-          }
-        },
-        "type": "integer",
-        "default": 0,
-        "range": {
-          "min": 0
-        }
-      },
-      {
-        "path": "additionalModelRequestFields.thinking.type",
-        "label": "Thinking mode",
-        "description": "Controls Anthropic extended thinking on Bedrock. Unlike the first-party Anthropic API, the adaptive mode is rejected on Bedrock for this model.",
-        "group": "reasoning",
-        "type": "enum",
-        "default": "disabled",
-        "values": [
-          "disabled",
-          "enabled"
-        ]
-      },
-      {
-        "path": "additionalModelRequestFields.thinking.budget_tokens",
-        "label": "Budget tokens",
-        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
-        "group": "reasoning",
-        "applicability": {
-          "only": {
-            "additionalModelRequestFields.thinking.type": "enabled"
-          }
-        },
-        "type": "integer",
-        "range": {
-          "min": 1024
-        }
-      }
-    ]
-  },
-  {
-    "provider": "bedrock",
-    "authType": "api_key",
-    "model": "claude-sonnet-4-5-20250929",
-    "requestModel": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "requestModel": "{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7737,7 +7515,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -7747,7 +7525,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.thinking.type",
         "label": "Thinking mode",
-        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
         "group": "reasoning",
         "type": "enum",
         "default": "disabled",
@@ -7777,7 +7555,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-sonnet-4-6",
-    "requestModel": "us.anthropic.claude-sonnet-4-6",
+    "requestModel": "{scope}.anthropic.claude-sonnet-4-6",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7823,7 +7601,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -7833,7 +7611,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.thinking.type",
         "label": "Thinking mode",
-        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
         "group": "reasoning",
         "type": "enum",
         "default": "disabled",
@@ -7856,6 +7634,104 @@ export const CATALOG = [
         "range": {
           "min": 1024
         }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "deepseek-r1",
+    "requestModel": "{scope}.deepseek.r1-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "deepseek-v3.2",
+    "requestModel": "deepseek.v3.2",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
       }
     ]
   },
@@ -8205,8 +8081,57 @@ export const CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
-    "model": "gpt-oss-120b-1",
+    "model": "gpt-oss-120b",
     "requestModel": "openai.gpt-oss-120b-1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "gpt-oss-20b",
+    "requestModel": "openai.gpt-oss-20b-1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8451,7 +8376,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-1-70b-instruct",
-    "requestModel": "us.meta.llama3-1-70b-instruct-v1:0",
+    "requestModel": "{scope}.meta.llama3-1-70b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8500,7 +8425,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-1-8b-instruct",
-    "requestModel": "us.meta.llama3-1-8b-instruct-v1:0",
+    "requestModel": "{scope}.meta.llama3-1-8b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8549,7 +8474,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-3-70b-instruct",
-    "requestModel": "us.meta.llama3-3-70b-instruct-v1:0",
+    "requestModel": "{scope}.meta.llama3-3-70b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8787,6 +8712,43 @@ export const CATALOG = [
         "description": "A list of strings where the model stops generating further tokens.",
         "group": "generation_length",
         "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
       }
     ]
   },
@@ -8934,6 +8896,43 @@ export const CATALOG = [
         "description": "A list of strings where the model stops generating further tokens.",
         "group": "generation_length",
         "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
       }
     ]
   },
@@ -9085,7 +9084,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -9144,7 +9143,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -9252,7 +9251,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -9311,7 +9310,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.top_k",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens.",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -9520,7 +9519,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nova-2-lite",
-    "requestModel": "us.amazon.nova-2-lite-v1:0",
+    "requestModel": "{scope}.amazon.nova-2-lite-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9562,6 +9561,16 @@ export const CATALOG = [
         "description": "A list of strings where the model stops generating further tokens.",
         "group": "generation_length",
         "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.inferenceConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens. Nova nests it under an inferenceConfig object inside additionalModelRequestFields.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
       }
     ]
   },
@@ -9615,7 +9624,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.inferenceConfig.topK",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens. Nova takes this through additionalModelRequestFields, not the Converse inferenceConfig block, and silently ignores unknown keys placed in inferenceConfig.",
+        "description": "Limits token sampling to the top K most likely next tokens. Nova nests it under an inferenceConfig object inside additionalModelRequestFields.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -9674,7 +9683,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.inferenceConfig.topK",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens. Nova takes this through additionalModelRequestFields, not the Converse inferenceConfig block, and silently ignores unknown keys placed in inferenceConfig.",
+        "description": "Limits token sampling to the top K most likely next tokens. Nova nests it under an inferenceConfig object inside additionalModelRequestFields.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -9733,7 +9742,7 @@ export const CATALOG = [
       {
         "path": "additionalModelRequestFields.inferenceConfig.topK",
         "label": "Top K",
-        "description": "Limits token sampling to the top K most likely next tokens. Nova takes this through additionalModelRequestFields, not the Converse inferenceConfig block, and silently ignores unknown keys placed in inferenceConfig.",
+        "description": "Limits token sampling to the top K most likely next tokens. Nova nests it under an inferenceConfig object inside additionalModelRequestFields.",
         "group": "sampling",
         "type": "integer",
         "range": {
@@ -9795,7 +9804,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "palmyra-x4",
-    "requestModel": "us.writer.palmyra-x4-v1:0",
+    "requestModel": "{scope}.writer.palmyra-x4-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9844,7 +9853,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "palmyra-x5",
-    "requestModel": "us.writer.palmyra-x5-v1:0",
+    "requestModel": "{scope}.writer.palmyra-x5-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9893,7 +9902,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "pixtral-large-2502",
-    "requestModel": "us.mistral.pixtral-large-2502-v1:0",
+    "requestModel": "{scope}.mistral.pixtral-large-2502-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -10139,104 +10148,6 @@ export const CATALOG = [
     "authType": "api_key",
     "model": "qwen3-vl-235b-a22b",
     "requestModel": "qwen.qwen3-vl-235b-a22b",
-    "params": [
-      {
-        "path": "inferenceConfig.maxTokens",
-        "label": "Max tokens",
-        "description": "Maximum number of output tokens the model may generate.",
-        "group": "generation_length",
-        "type": "integer",
-        "range": {
-          "min": 1
-        }
-      },
-      {
-        "path": "inferenceConfig.temperature",
-        "label": "Temperature",
-        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
-        "group": "sampling",
-        "type": "number",
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.1
-        }
-      },
-      {
-        "path": "inferenceConfig.topP",
-        "label": "Top P",
-        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
-        "group": "sampling",
-        "type": "number",
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.01
-        }
-      },
-      {
-        "path": "inferenceConfig.stopSequences",
-        "label": "Stop sequences",
-        "description": "A list of strings where the model stops generating further tokens.",
-        "group": "generation_length",
-        "type": "string"
-      }
-    ]
-  },
-  {
-    "provider": "bedrock",
-    "authType": "api_key",
-    "model": "r1",
-    "requestModel": "us.deepseek.r1-v1:0",
-    "params": [
-      {
-        "path": "inferenceConfig.maxTokens",
-        "label": "Max tokens",
-        "description": "Maximum number of output tokens the model may generate.",
-        "group": "generation_length",
-        "type": "integer",
-        "range": {
-          "min": 1
-        }
-      },
-      {
-        "path": "inferenceConfig.temperature",
-        "label": "Temperature",
-        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
-        "group": "sampling",
-        "type": "number",
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.1
-        }
-      },
-      {
-        "path": "inferenceConfig.topP",
-        "label": "Top P",
-        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
-        "group": "sampling",
-        "type": "number",
-        "range": {
-          "min": 0,
-          "max": 1,
-          "step": 0.01
-        }
-      },
-      {
-        "path": "inferenceConfig.stopSequences",
-        "label": "Stop sequences",
-        "description": "A list of strings where the model stops generating further tokens.",
-        "group": "generation_length",
-        "type": "string"
-      }
-    ]
-  },
-  {
-    "provider": "bedrock",
-    "authType": "api_key",
-    "model": "v3.2",
-    "requestModel": "deepseek.v3.2",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",

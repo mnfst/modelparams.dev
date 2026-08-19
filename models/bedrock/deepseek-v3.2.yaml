@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: bedrock
 authType: api_key
-model: v3.2
+model: deepseek-v3.2
 requestModel: deepseek.v3.2
 params:
   - path: inferenceConfig.maxTokens

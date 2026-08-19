@@ -45,6 +45,15 @@ parameters.
 Conventions:
 
 - `provider`, `authType`, and `model` identify exactly one model route.
+- `model` reuses the slug the catalog already uses for that model elsewhere,
+  when the vendor publishes it first-party. `bedrock/claude-sonnet-4-5` matches
+  `anthropic/claude-sonnet-4-5` on purpose: the provider axis only means
+  something if the same model carries the same slug on every host.
+- `requestModel` may contain the placeholder `{scope}`, which the caller
+  substitutes with a routing geography (`us`, `eu`, `apac`, `jp`, `au`, `ca`,
+  `sa`, `global`). One placeholder replaces a per-region id map that would go
+  stale the next time the host adds a region. Availability per region is
+  account state and is deliberately not recorded here.
 - `provider` is a kebab-case slug. It also fixes the wire format the entry
   documents: every `params` path must belong to that one surface. Where a host
   serves two (Bedrock's `Converse` and `InvokeModel`), the catalog documents the

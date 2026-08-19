@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: bedrock
 authType: api_key
-model: gpt-oss-120b-1
-requestModel: openai.gpt-oss-120b-1:0
+model: gpt-oss-20b
+requestModel: openai.gpt-oss-20b-1:0
 params:
   - path: inferenceConfig.maxTokens
     type: integer

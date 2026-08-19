@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: claude-opus-4-6
-requestModel: us.anthropic.claude-opus-4-6-v1
+requestModel: "{scope}.anthropic.claude-opus-4-6-v1"
 params:
   - path: inferenceConfig.maxTokens
     type: integer
@@ -41,14 +41,18 @@ params:
   - path: additionalModelRequestFields.top_k
     type: integer
     label: Top K
-    description: Limits token sampling to the top K most likely next tokens.
+    description: >-
+      Limits token sampling to the top K most likely next tokens. Converse carries it through
+      additionalModelRequestFields; it is not part of inferenceConfig.
     range:
       min: 0
     group: sampling
   - path: additionalModelRequestFields.thinking.type
     type: enum
     label: Thinking mode
-    description: Controls Anthropic extended thinking on Bedrock for this model.
+    description: >-
+      Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the
+      first-party Anthropic API accepts, so only disabled and enabled are listed here.
     default: disabled
     values:
       - disabled

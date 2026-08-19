@@ -41,7 +41,9 @@ params:
   - path: additionalModelRequestFields.top_k
     type: integer
     label: Top K
-    description: Limits token sampling to the top K most likely next tokens.
+    description: >-
+      Limits token sampling to the top K most likely next tokens. Converse carries it through
+      additionalModelRequestFields; it is not part of inferenceConfig.
     range:
       min: 0
     group: sampling

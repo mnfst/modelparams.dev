@@ -486,12 +486,6 @@ export const DEFAULTS = {
     "output_config.effort": "high",
   },
   "bedrock/claude-haiku-4-5": {
-    "inferenceConfig.temperature": 1,
-    "inferenceConfig.topP": 1,
-    "additionalModelRequestFields.top_k": 0,
-    "additionalModelRequestFields.thinking.type": "disabled",
-  },
-  "bedrock/claude-haiku-4-5-20251001": {
     "additionalModelRequestFields.thinking.type": "disabled",
   },
   "bedrock/claude-opus-4-5-20251101": {
@@ -501,17 +495,13 @@ export const DEFAULTS = {
     "additionalModelRequestFields.thinking.type": "disabled",
   },
   "bedrock/claude-sonnet-4-5": {
-    "inferenceConfig.temperature": 1,
-    "inferenceConfig.topP": 1,
-    "additionalModelRequestFields.top_k": 0,
-    "additionalModelRequestFields.thinking.type": "disabled",
-  },
-  "bedrock/claude-sonnet-4-5-20250929": {
     "additionalModelRequestFields.thinking.type": "disabled",
   },
   "bedrock/claude-sonnet-4-6": {
     "additionalModelRequestFields.thinking.type": "disabled",
   },
+  "bedrock/deepseek-r1": {},
+  "bedrock/deepseek-v3.2": {},
   "bedrock/devstral-2-123b": {},
   "bedrock/gemma-3-12b-it": {},
   "bedrock/gemma-3-27b-it": {},
@@ -519,7 +509,8 @@ export const DEFAULTS = {
   "bedrock/glm-4.7": {},
   "bedrock/glm-4.7-flash": {},
   "bedrock/glm-5": {},
-  "bedrock/gpt-oss-120b-1": {},
+  "bedrock/gpt-oss-120b": {},
+  "bedrock/gpt-oss-20b": {},
   "bedrock/gpt-oss-safeguard-120b": {},
   "bedrock/gpt-oss-safeguard-20b": {},
   "bedrock/kimi-k2-thinking": {},
@@ -530,10 +521,14 @@ export const DEFAULTS = {
   "bedrock/llama3-70b-instruct": {},
   "bedrock/llama3-8b-instruct": {},
   "bedrock/magistral-small-2509": {},
-  "bedrock/minimax-m2": {},
+  "bedrock/minimax-m2": {
+    "additionalModelRequestFields.thinking.type": "disabled",
+  },
   "bedrock/minimax-m2.1": {},
   "bedrock/minimax-m2.5": {},
-  "bedrock/ministral-3-14b-instruct": {},
+  "bedrock/ministral-3-14b-instruct": {
+    "additionalModelRequestFields.thinking.type": "disabled",
+  },
   "bedrock/ministral-3-3b-instruct": {},
   "bedrock/ministral-3-8b-instruct": {},
   "bedrock/mistral-7b-instruct": {},
@@ -558,8 +553,6 @@ export const DEFAULTS = {
   "bedrock/qwen3-coder-next": {},
   "bedrock/qwen3-next-80b-a3b": {},
   "bedrock/qwen3-vl-235b-a22b": {},
-  "bedrock/r1": {},
-  "bedrock/v3.2": {},
   "bedrock/voxtral-mini-3b-2507": {},
   "bedrock/voxtral-small-24b-2507": {},
   "cerebras/zai-glm-4.7": {

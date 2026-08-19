@@ -38,3 +38,35 @@ params:
     label: Stop sequences
     description: A list of strings where the model stops generating further tokens.
     group: generation_length
+  - path: additionalModelRequestFields.top_k
+    type: integer
+    label: Top K
+    description: >-
+      Limits token sampling to the top K most likely next tokens. Converse carries it through
+      additionalModelRequestFields; it is not part of inferenceConfig.
+    range:
+      min: 0
+    group: sampling
+  - path: additionalModelRequestFields.thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the
+      first-party Anthropic API accepts, so only disabled and enabled are listed here.
+    default: disabled
+    values:
+      - disabled
+      - enabled
+    group: reasoning
+  - path: additionalModelRequestFields.thinking.budget_tokens
+    type: integer
+    label: Budget tokens
+    description: >-
+      Maximum token budget the model may use for extended thinking before producing the final
+      answer. Must be less than inferenceConfig.maxTokens.
+    range:
+      min: 1024
+    group: reasoning
+    applicability:
+      only:
+        additionalModelRequestFields.thinking.type: enabled

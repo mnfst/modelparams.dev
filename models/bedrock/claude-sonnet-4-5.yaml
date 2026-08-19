@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: claude-sonnet-4-5
-requestModel: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+requestModel: "{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer
@@ -16,33 +16,23 @@ params:
     label: Temperature
     description: >-
       Controls randomness. Lower values make outputs more focused; higher values make them more
-      varied. Bedrock rejects values above 1, and the model requires 1 when thinking is enabled.
-    default: 1
+      varied. Bedrock rejects values above 1 for this model.
     range:
       min: 0
       max: 1
       step: 0.1
     group: sampling
-    applicability:
-      except:
-        additionalModelRequestFields.thinking.type: enabled
   - path: inferenceConfig.topP
     type: number
     label: Top P
     description: >-
       Controls nucleus sampling by limiting generation to tokens whose cumulative probability
-      reaches this value. Must be at least 0.95 or unset when thinking is enabled.
-    default: 1
+      reaches this value.
     range:
       min: 0
       max: 1
       step: 0.01
     group: sampling
-    applicability:
-      except:
-        - additionalModelRequestFields.thinking.type: enabled
-        - inferenceConfig.temperature:
-            not: 1
   - path: inferenceConfig.stopSequences
     type: string
     label: Stop sequences
@@ -51,20 +41,18 @@ params:
   - path: additionalModelRequestFields.top_k
     type: integer
     label: Top K
-    description: Limits token sampling to the top K most likely next tokens.
-    default: 0
+    description: >-
+      Limits token sampling to the top K most likely next tokens. Converse carries it through
+      additionalModelRequestFields; it is not part of inferenceConfig.
     range:
       min: 0
     group: sampling
-    applicability:
-      except:
-        additionalModelRequestFields.thinking.type: enabled
   - path: additionalModelRequestFields.thinking.type
     type: enum
     label: Thinking mode
     description: >-
-      Controls Anthropic extended thinking on Bedrock. Unlike the first-party Anthropic API, the
-      adaptive mode is rejected on Bedrock for this model.
+      Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the
+      first-party Anthropic API accepts, so only disabled and enabled are listed here.
     default: disabled
     values:
       - disabled
