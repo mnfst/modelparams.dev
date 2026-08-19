@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: minimax-m2
-requestModel: minimax.minimax-m2
+wireId: minimax.minimax-m2
 params:
   - path: inferenceConfig.maxTokens
     type: integer

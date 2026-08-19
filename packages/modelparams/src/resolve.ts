@@ -118,14 +118,14 @@ function urlMatches(given: string, base: string): boolean {
 }
 
 /**
- * Does a wire model string match a catalog `requestModel`?
+ * Does a wire model string match a catalog `wireId`?
  *
  * A `{scope}` placeholder stands for the routing geography the caller picks
  * (`us`, `eu`, `global`, …), so the stored id matches every scoped form of
  * itself without the catalog listing them all.
  */
-function wireMatches(requestModel: string, wire: string): boolean {
-  const base = requestModel.toLowerCase();
+function wireMatches(wireId: string, wire: string): boolean {
+  const base = wireId.toLowerCase();
   if (!base.includes("{scope}")) return base === wire;
   const pattern = base.split("{scope}").map(escapeRegex).join("[a-z0-9-]+");
   return new RegExp(`^${pattern}$`).test(wire);
@@ -134,7 +134,7 @@ function wireMatches(requestModel: string, wire: string): boolean {
 /**
  * Resolve a model from what an SDK actually configures: the base URL and the
  * model string it sends on the wire. The wire string is matched against each
- * entry's `requestModel` (the pathed id, when one exists) or its catalog slug.
+ * entry's `wireId` (the pathed id, when one exists) or its catalog slug.
  *
  * @example
  * resolveByBaseUrl("https://api.fireworks.ai/inference/v1", "accounts/fireworks/models/kimi-k3");
@@ -158,7 +158,7 @@ export function resolveByBaseUrl(baseUrl: string, model: string): BaseUrlResolve
     (e) =>
       e.provider === provider &&
       e.authType === "api_key" &&
-      (("requestModel" in e && wireMatches(e.requestModel, wire)) ||
+      (("wireId" in e && wireMatches(e.wireId, wire)) ||
         e.model.toLowerCase() === wire),
   );
   if (!entry) {

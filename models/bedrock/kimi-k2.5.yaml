@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: kimi-k2.5
-requestModel: moonshotai.kimi-k2.5
+wireId: moonshotai.kimi-k2.5
 params:
   - path: inferenceConfig.maxTokens
     type: integer

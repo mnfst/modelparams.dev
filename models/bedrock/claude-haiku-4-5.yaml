@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: claude-haiku-4-5
-requestModel: "{scope}.anthropic.claude-haiku-4-5-20251001-v1:0"
+wireId: "{scope}.anthropic.claude-haiku-4-5-20251001-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer

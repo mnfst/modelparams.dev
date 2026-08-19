@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: devstral-2-123b
-requestModel: mistral.devstral-2-123b
+wireId: mistral.devstral-2-123b
 params:
   - path: inferenceConfig.maxTokens
     type: integer

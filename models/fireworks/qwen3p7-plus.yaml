@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: qwen3p7-plus
-requestModel: accounts/fireworks/models/qwen3p7-plus
+wireId: accounts/fireworks/models/qwen3p7-plus
 params:
   - path: max_tokens
     type: integer

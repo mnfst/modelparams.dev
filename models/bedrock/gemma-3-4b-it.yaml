@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: gemma-3-4b-it
-requestModel: google.gemma-3-4b-it
+wireId: google.gemma-3-4b-it
 params:
   - path: inferenceConfig.maxTokens
     type: integer

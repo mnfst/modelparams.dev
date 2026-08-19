@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: gpt-oss-safeguard-120b
-requestModel: openai.gpt-oss-safeguard-120b
+wireId: openai.gpt-oss-safeguard-120b
 params:
   - path: inferenceConfig.maxTokens
     type: integer

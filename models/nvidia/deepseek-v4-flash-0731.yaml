@@ -2,7 +2,7 @@
 provider: nvidia
 authType: api_key
 model: deepseek-v4-flash-0731
-requestModel: deepseek-ai/deepseek-v4-flash-0731
+wireId: deepseek-ai/deepseek-v4-flash-0731
 params:
   - path: temperature
     type: number

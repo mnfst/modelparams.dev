@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: muse-glimmer-30b
-requestModel: accounts/fireworks/models/muse-glimmer-30b
+wireId: accounts/fireworks/models/muse-glimmer-30b
 params:
   - path: max_tokens
     type: integer

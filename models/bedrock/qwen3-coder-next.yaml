@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: qwen3-coder-next
-requestModel: qwen.qwen3-coder-next
+wireId: qwen.qwen3-coder-next
 params:
   - path: inferenceConfig.maxTokens
     type: integer

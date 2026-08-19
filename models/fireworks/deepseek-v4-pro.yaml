@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: deepseek-v4-pro
-requestModel: accounts/fireworks/models/deepseek-v4-pro
+wireId: accounts/fireworks/models/deepseek-v4-pro
 params:
   - path: max_tokens
     type: integer

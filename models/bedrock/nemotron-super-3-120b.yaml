@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: nemotron-super-3-120b
-requestModel: nvidia.nemotron-super-3-120b
+wireId: nvidia.nemotron-super-3-120b
 params:
   - path: inferenceConfig.maxTokens
     type: integer

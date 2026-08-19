@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: magistral-small-2509
-requestModel: mistral.magistral-small-2509
+wireId: mistral.magistral-small-2509
 params:
   - path: inferenceConfig.maxTokens
     type: integer

@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: nova-lite
-requestModel: amazon.nova-lite-v1:0
+wireId: amazon.nova-lite-v1:0
 params:
   - path: inferenceConfig.maxTokens
     type: integer

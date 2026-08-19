@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: gpt-oss-120b
-requestModel: accounts/fireworks/models/gpt-oss-120b
+wireId: accounts/fireworks/models/gpt-oss-120b
 params:
   - path: max_tokens
     type: integer

@@ -166,14 +166,21 @@ export const Model = z
       .min(1)
       .regex(MODEL_ID, "model must be a provider-native model id without path separators"),
     /**
-     * The exact model string to send in API requests, when it differs from
-     * `model` — some hosts use pathed ids (`accounts/fireworks/models/kimi-k3`,
-     * `openai/gpt-oss-20b`) that can't serve as the catalog slug.
+     * The exact string to put in the request's own `model` field, for hosts
+     * whose wire id cannot double as the catalog slug: pathed ids
+     * (`accounts/fireworks/models/kimi-k3`, `openai/gpt-oss-20b`) or ids
+     * wrapped in vendor and version segments
+     * (`anthropic.claude-sonnet-4-5-20250929-v1:0`).
+     *
+     * Absent means the slug is already the wire id — send `model` as-is.
+     *
+     * May contain `{scope}`, a placeholder the caller replaces with a routing
+     * geography (`us`, `eu`, `global`, …) before sending.
      */
-    requestModel: z
+    wireId: z
       .string()
       .min(1)
-      .regex(/^\S+$/, "requestModel must not contain whitespace")
+      .regex(/^\S+$/, "wireId must not contain whitespace")
       .optional(),
     params: z.array(Parameter),
   })

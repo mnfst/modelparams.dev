@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: kimi-k2-thinking
-requestModel: moonshot.kimi-k2-thinking
+wireId: moonshot.kimi-k2-thinking
 params:
   - path: inferenceConfig.maxTokens
     type: integer

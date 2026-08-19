@@ -100,7 +100,7 @@ describe("resolveByBaseUrl", () => {
     }
   });
 
-  it("matches every routing scope of a {scope} requestModel", () => {
+  it("matches every routing scope of a {scope} wireId", () => {
     for (const scope of ["us", "eu", "apac", "global"]) {
       const r = resolveByBaseUrl(
         "https://bedrock-runtime.eu-west-1.amazonaws.com",

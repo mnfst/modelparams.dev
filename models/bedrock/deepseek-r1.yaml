@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: deepseek-r1
-requestModel: "{scope}.deepseek.r1-v1:0"
+wireId: "{scope}.deepseek.r1-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer
