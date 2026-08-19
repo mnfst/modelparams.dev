@@ -1730,6 +1730,15 @@ export type ParamsById = {
     logprobs: boolean;
     top_logprobs: number;
   };
+  "nvidia/deepseek-v4-flash-0731": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
   "nvidia/gliner-pii": {
     threshold: number;
     chunk_length: number;
