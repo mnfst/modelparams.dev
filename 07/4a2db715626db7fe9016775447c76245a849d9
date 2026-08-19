@@ -1,0 +1,21 @@
+scripts/prepare-release.ts
+  s_5ae9b0795813ec::t_41540102bdde7d 29,111,115,152
+.github/workflows/release-modelparams.yml
+  s_5ae9b0795813ec::t_8d16a1e28c8cc4 3,138-148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "074a2db715626db7fe9016775447c76245a849d9",
+  "prompts": {},
+  "sessions": {
+    "s_5ae9b0795813ec": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "978de38f-86ce-4938-aaad-48dcd2a50b29",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
