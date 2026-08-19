@@ -339,4 +339,5 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "z-ai/glm-5.1-subscription": z_ai.Glm_5_1_SubscriptionParams,
     "z-ai/glm-5.2": z_ai.Glm_5_2Params,
     "z-ai/glm-5.2-subscription": z_ai.Glm_5_2_SubscriptionParams,
+    "z-ai/glm-5.3": z_ai.Glm_5_3Params,
 }
