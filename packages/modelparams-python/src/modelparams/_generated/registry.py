@@ -5,6 +5,7 @@ from typing import Any
 
 from modelparams.types import alibaba
 from modelparams.types import anthropic
+from modelparams.types import bedrock
 from modelparams.types import cerebras
 from modelparams.types import cohere
 from modelparams.types import deepseek
@@ -109,6 +110,11 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "anthropic/claude-sonnet-4-subscription": anthropic.Claude_Sonnet_4_SubscriptionParams,
     "anthropic/claude-sonnet-5": anthropic.Claude_Sonnet_5Params,
     "anthropic/claude-sonnet-5-subscription": anthropic.Claude_Sonnet_5_SubscriptionParams,
+    "bedrock/claude-haiku-4-5": bedrock.Claude_Haiku_4_5Params,
+    "bedrock/claude-sonnet-4-5": bedrock.Claude_Sonnet_4_5Params,
+    "bedrock/nova-lite": bedrock.Nova_LiteParams,
+    "bedrock/nova-micro": bedrock.Nova_MicroParams,
+    "bedrock/nova-pro": bedrock.Nova_ProParams,
     "cerebras/zai-glm-4.7": cerebras.Zai_Glm_4_7Params,
     "cohere/command-a-03-2025": cohere.Command_A_03_2025Params,
     "cohere/command-a-plus-05-2026": cohere.Command_A_Plus_05_2026Params,

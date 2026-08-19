@@ -485,6 +485,21 @@ export const DEFAULTS = {
     "thinking.display": "summarized",
     "output_config.effort": "high",
   },
+  "bedrock/claude-haiku-4-5": {
+    "inferenceConfig.temperature": 1,
+    "inferenceConfig.topP": 1,
+    "additionalModelRequestFields.top_k": 0,
+    "additionalModelRequestFields.thinking.type": "disabled",
+  },
+  "bedrock/claude-sonnet-4-5": {
+    "inferenceConfig.temperature": 1,
+    "inferenceConfig.topP": 1,
+    "additionalModelRequestFields.top_k": 0,
+    "additionalModelRequestFields.thinking.type": "disabled",
+  },
+  "bedrock/nova-lite": {},
+  "bedrock/nova-micro": {},
+  "bedrock/nova-pro": {},
   "cerebras/zai-glm-4.7": {
     frequency_penalty: 0,
     presence_penalty: 0,

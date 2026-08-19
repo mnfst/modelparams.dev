@@ -631,6 +631,45 @@ export type ParamsById = {
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
   };
+  "bedrock/claude-haiku-4-5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/claude-sonnet-4-5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/nova-lite": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
+  "bedrock/nova-micro": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
+  "bedrock/nova-pro": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
   "cerebras/zai-glm-4.7": {
     max_completion_tokens: number;
     temperature: number;
