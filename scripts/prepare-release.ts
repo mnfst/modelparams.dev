@@ -20,6 +20,7 @@ import { loadAllModels } from "../src/data/load.js";
 import { loadModelsAtRef, refExists } from "../src/data/git-baseline.js";
 import { diffCatalogs, renderCatalogChangelog } from "../src/data/catalog-diff.js";
 import { insertChangelogEntry } from "./lib/changelog.js";
+import { bumpPackageLockVersion } from "./lib/package-lock.js";
 import { bumpUvLockVersion } from "./lib/uv-lock.js";
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -58,6 +59,14 @@ const PACKAGES: PackageSpec[] = [
       // Rewrite the single line rather than re-serializing, so the release
       // commit carries no incidental key-order or formatting churn.
       source.replace(/("version"\s*:\s*")\d+\.\d+\.\d+(")/, `$1${next}$2`),
+    syncFiles: [
+      // package-lock.json records each workspace's own version; without this,
+      // every `npm ci` in CI fails on the release PR.
+      {
+        file: "package-lock.json",
+        write: (source, next) => bumpPackageLockVersion(source, next, "modelparams"),
+      },
+    ],
   },
   {
     key: "mcp",
@@ -73,6 +82,15 @@ const PACKAGES: PackageSpec[] = [
         .replace(/("version"\s*:\s*")\d+\.\d+\.\d+(")/, `$1${next}$2`)
         // The exact dependency pin moves with the version (see lockstepWith).
         .replace(/("modelparams"\s*:\s*")[^"]+(")/, `$1${next}$2`),
+    syncFiles: [
+      // Both the workspace version and the exact `modelparams` pin are
+      // mirrored in the lockfile, and `npm ci` checks both.
+      {
+        file: "package-lock.json",
+        write: (source, next) =>
+          bumpPackageLockVersion(source, next, "modelparams-mcp", ["modelparams"]),
+      },
+    ],
   },
   {
     key: "python",

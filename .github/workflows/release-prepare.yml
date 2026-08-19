@@ -126,8 +126,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$RELEASE_BRANCH"
-          git add packages/modelparams/package.json \
+          # Every file prepare-release.ts writes has to be listed here: an
+          # unstaged version bump is silently dropped, and a lockfile left
+          # behind its manifest fails `npm ci` on this very PR.
+          git add package-lock.json \
+                  packages/modelparams/package.json \
                   packages/modelparams/CHANGELOG.md \
+                  packages/modelparams-mcp/package.json \
+                  packages/modelparams-mcp/CHANGELOG.md \
                   packages/modelparams-python/pyproject.toml \
                   packages/modelparams-python/uv.lock \
                   packages/modelparams-python/CHANGELOG.md
