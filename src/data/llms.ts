@@ -37,6 +37,13 @@ function guideIntro(siteUrl: string): string[] {
     "The same model accessed via an **API key** and via a **subscription** usually exposes a",
     "different set of parameters. We list both as separate entries so the data stays honest.",
     "",
+    "For the same reason, **one entry documents one wire format**. Where a host serves two,",
+    "the entry follows the one named here and says nothing about the other: `bedrock/*`",
+    "documents Amazon Bedrock's `Converse` API (`inferenceConfig.maxTokens`, vendor extras",
+    "under `additionalModelRequestFields`), not `InvokeModel` with native per-vendor bodies",
+    "(`max_tokens`, top-level `thinking`) as the `AnthropicBedrock` client sends. If your",
+    "code calls the surface an entry does not cover, its parameter names will not match.",
+    "",
   ];
 }
 

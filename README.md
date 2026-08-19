@@ -132,13 +132,17 @@ One entry documents one wire format.
 | OpenAI Chat Completions — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, … | ✅     |
 | Anthropic Messages                                                                                    | ✅     |
 | Google `generateContent`                                                                              | ✅     |
+| Amazon Bedrock `Converse` — every `bedrock/*` entry                                                   | ✅     |
 | Subscription plans (`-subscription` entries)                                                          | ✅     |
+| Amazon Bedrock `InvokeModel` (native per-vendor bodies)                                               | ❌     |
 | MiniMax native endpoint                                                                               | ❌     |
 | OpenAI Responses API                                                                                  | ❌     |
 | Google Interactions API                                                                               | ❌     |
 | xAI native SDK                                                                                        | ❌     |
 
 Embeddings, audio, image, and batch APIs are out of scope. Missing a surface? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) or a PR.
+
+Bedrock is the sharpest case, because one host serves both surfaces and the SDK you pick decides which. `ConverseCommand` (`@aws-sdk/client-bedrock-runtime`) takes `inferenceConfig.maxTokens` and puts vendor extras in `additionalModelRequestFields` — that is what `bedrock/*` documents. `AnthropicBedrock` (`@anthropic-ai/bedrock-sdk`) calls `InvokeModel` with the native Anthropic body (`max_tokens`, top-level `thinking`) instead, so these entries do not describe it. Same model, same key, two vocabularies.
 
 ## Adding a model
 

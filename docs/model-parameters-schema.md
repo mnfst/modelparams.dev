@@ -45,7 +45,11 @@ parameters.
 Conventions:
 
 - `provider`, `authType`, and `model` identify exactly one model route.
-- `provider` is a kebab-case slug.
+- `provider` is a kebab-case slug. It also fixes the wire format the entry
+  documents: every `params` path must belong to that one surface. Where a host
+  serves two (Bedrock's `Converse` and `InvokeModel`), the catalog documents the
+  one listed in the README's API surfaces table and omits the other rather than
+  mixing both vocabularies in one entry.
 - `model` is the provider-native model id without path separators. Preserve
   upstream casing; it may contain dots or colons when the upstream model id does.
 - `authType` is `api_key` or `subscription`.

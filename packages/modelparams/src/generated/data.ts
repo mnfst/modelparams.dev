@@ -7321,6 +7321,264 @@ export const CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "model": "claude-haiku-4-5-20251001",
+    "requestModel": "global.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "claude-opus-4-5-20251101",
+    "requestModel": "us.anthropic.claude-opus-4-5-20251101-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "claude-opus-4-6",
+    "requestModel": "us.anthropic.claude-opus-4-6-v1",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
     "model": "claude-sonnet-4-5",
     "requestModel": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
     "params": [
@@ -7426,6 +7684,1884 @@ export const CATALOG = [
         "range": {
           "min": 1024
         }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "claude-sonnet-4-5-20250929",
+    "requestModel": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "claude-sonnet-4-6",
+    "requestModel": "us.anthropic.claude-sonnet-4-6",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock for this model.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "devstral-2-123b",
+    "requestModel": "mistral.devstral-2-123b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "gemma-3-12b-it",
+    "requestModel": "google.gemma-3-12b-it",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "gemma-3-27b-it",
+    "requestModel": "google.gemma-3-27b-it",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "gemma-3-4b-it",
+    "requestModel": "google.gemma-3-4b-it",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "glm-4.7",
+    "requestModel": "zai.glm-4.7",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "glm-4.7-flash",
+    "requestModel": "zai.glm-4.7-flash",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "glm-5",
+    "requestModel": "zai.glm-5",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "gpt-oss-120b-1",
+    "requestModel": "openai.gpt-oss-120b-1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "gpt-oss-safeguard-120b",
+    "requestModel": "openai.gpt-oss-safeguard-120b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "gpt-oss-safeguard-20b",
+    "requestModel": "openai.gpt-oss-safeguard-20b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "kimi-k2-thinking",
+    "requestModel": "moonshot.kimi-k2-thinking",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "kimi-k2.5",
+    "requestModel": "moonshotai.kimi-k2.5",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "llama3-1-70b-instruct",
+    "requestModel": "us.meta.llama3-1-70b-instruct-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "llama3-1-8b-instruct",
+    "requestModel": "us.meta.llama3-1-8b-instruct-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "llama3-3-70b-instruct",
+    "requestModel": "us.meta.llama3-3-70b-instruct-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "llama3-70b-instruct",
+    "requestModel": "meta.llama3-70b-instruct-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "llama3-8b-instruct",
+    "requestModel": "meta.llama3-8b-instruct-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "magistral-small-2509",
+    "requestModel": "mistral.magistral-small-2509",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "minimax-m2",
+    "requestModel": "minimax.minimax-m2",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "minimax-m2.1",
+    "requestModel": "minimax.minimax-m2.1",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "minimax-m2.5",
+    "requestModel": "minimax.minimax-m2.5",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "ministral-3-14b-instruct",
+    "requestModel": "mistral.ministral-3-14b-instruct",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "ministral-3-3b-instruct",
+    "requestModel": "mistral.ministral-3-3b-instruct",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "ministral-3-8b-instruct",
+    "requestModel": "mistral.ministral-3-8b-instruct",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "mistral-7b-instruct",
+    "requestModel": "mistral.mistral-7b-instruct-v0:2",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "mistral-large-2402",
+    "requestModel": "mistral.mistral-large-2402-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "mistral-large-3-675b-instruct",
+    "requestModel": "mistral.mistral-large-3-675b-instruct",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "mistral-small-2402",
+    "requestModel": "mistral.mistral-small-2402-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "mixtral-8x7b-instruct",
+    "requestModel": "mistral.mixtral-8x7b-instruct-v0:1",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nemotron-nano-12b",
+    "requestModel": "nvidia.nemotron-nano-12b-v2",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nemotron-nano-3-30b",
+    "requestModel": "nvidia.nemotron-nano-3-30b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nemotron-nano-9b",
+    "requestModel": "nvidia.nemotron-nano-9b-v2",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nemotron-super-3-120b",
+    "requestModel": "nvidia.nemotron-super-3-120b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "nova-2-lite",
+    "requestModel": "us.amazon.nova-2-lite-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
       }
     ]
   },
@@ -7603,6 +9739,643 @@ export const CATALOG = [
         "range": {
           "min": 1
         }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "palmyra-vision-7b",
+    "requestModel": "writer.palmyra-vision-7b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "palmyra-x4",
+    "requestModel": "us.writer.palmyra-x4-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "palmyra-x5",
+    "requestModel": "us.writer.palmyra-x5-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "pixtral-large-2502",
+    "requestModel": "us.mistral.pixtral-large-2502-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "qwen3-32b",
+    "requestModel": "qwen.qwen3-32b-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "qwen3-coder-30b-a3b",
+    "requestModel": "qwen.qwen3-coder-30b-a3b-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "qwen3-coder-next",
+    "requestModel": "qwen.qwen3-coder-next",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "qwen3-next-80b-a3b",
+    "requestModel": "qwen.qwen3-next-80b-a3b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "qwen3-vl-235b-a22b",
+    "requestModel": "qwen.qwen3-vl-235b-a22b",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "r1",
+    "requestModel": "us.deepseek.r1-v1:0",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "v3.2",
+    "requestModel": "deepseek.v3.2",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "voxtral-mini-3b-2507",
+    "requestModel": "mistral.voxtral-mini-3b-2507",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "model": "voxtral-small-24b-2507",
+    "requestModel": "mistral.voxtral-small-24b-2507",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
       }
     ]
   },
