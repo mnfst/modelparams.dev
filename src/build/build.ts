@@ -170,7 +170,7 @@ async function writeApiIndex(modelCount: number): Promise<void> {
       validate: "POST /api/v1/validate",
     },
     modelCount,
-    mcp: "npx -y modelparams-mcp",
+    mcp: "https://modelparams.dev/mcp",
     docs: "https://github.com/mnfst/modelparams.dev#api",
   };
   await writeJson(path.join(DIST_API_DIR, "index.json"), body);
