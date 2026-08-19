@@ -24770,6 +24770,1598 @@ export const CATALOG = [
     ]
   },
   {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-2.5-flash",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-2.5-flash-lite",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-2.5-pro",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3-flash-preview",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3.1-flash-lite",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3.1-pro-preview",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3.1-pro-preview-customtools",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3.5-flash",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.presencePenalty",
+        "label": "Presence penalty",
+        "description": "Penalises tokens that already appeared, pushing the model toward new topics.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.frequencyPenalty",
+        "label": "Frequency penalty",
+        "description": "Penalises tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 1
+        }
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.5 Flash reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3.5-flash-lite",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.5 Flash reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3.6-flash",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "vertex",
+    "authType": "api_key",
+    "model": "gemini-3.7-flash",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "generationConfig.seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "generationConfig.candidateCount",
+        "label": "Candidate count",
+        "description": "How many independent completions to generate for one request.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "path": "generationConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Token budget the model may spend on internal reasoning before answering. 0 disables thinking. Cannot be combined with thinkingLevel.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingLevel": {
+              "not": null
+            }
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingLevel",
+        "label": "Thinking level",
+        "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
+        "group": "reasoning",
+        "applicability": {
+          "except": {
+            "generationConfig.thinkingConfig.thinkingBudget": {
+              "not": null
+            }
+          }
+        },
+        "type": "enum",
+        "default": "minimal",
+        "values": [
+          "minimal",
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
     "provider": "xai",
     "authType": "api_key",
     "model": "grok-4.20-0309-non-reasoning",

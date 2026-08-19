@@ -40,5 +40,9 @@ export const PROVIDER_ENDPOINTS = {
   ],
   "bedrock": [
     "https://bedrock-runtime.*.amazonaws.com"
+  ],
+  "vertex": [
+    "https://aiplatform.googleapis.com",
+    "https://*-aiplatform.googleapis.com"
   ]
 } as const;
