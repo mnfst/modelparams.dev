@@ -107,7 +107,7 @@ npx -y modelparams-mcp              # MCP server: 4 tools, stdio, no network nee
 npx skills add mnfst/modelparams.dev # the companion agent skill
 ```
 
-The MCP server exposes `validate_model_params`, `get_model_params`, `list_models`, and `find_models_supporting`. Details in the [package README](packages/modelparams-mcp/README.md). There's also [llms.txt](https://modelparams.dev/llms.txt) if you'd rather just point an agent at a URL.
+The MCP server is also hosted at `https://modelparams.dev/mcp` over Streamable HTTP, which needs no install and always answers from the catalog the site is serving — `claude mcp add --transport http modelparams https://modelparams.dev/mcp`, or `codex mcp add modelparams --url https://modelparams.dev/mcp`. Either way it exposes `validate_model_params`, `get_model_params`, `list_models`, and `find_models_supporting`. Details in the [package README](packages/modelparams-mcp/README.md). There's also [llms.txt](https://modelparams.dev/llms.txt) if you'd rather just point an agent at a URL.
 
 ## One model, many providers
 

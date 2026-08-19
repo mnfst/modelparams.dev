@@ -12,6 +12,19 @@ This server gives the agent a way to look it up instead.
 
 ## Install
 
+**Hosted (no install)** — the same four tools over Streamable HTTP, always serving the current catalog:
+
+```bash
+claude mcp add --transport http modelparams https://modelparams.dev/mcp
+codex mcp add modelparams --url https://modelparams.dev/mcp
+```
+
+Use the hosted endpoint unless you need to work offline, or your client speaks stdio only. This package pins an exact
+catalog version at publish time, so it answers from the catalog as of its release; the hosted endpoint rebuilds with the
+site on every catalog change.
+
+## Install locally (stdio)
+
 The server speaks MCP over stdio and bundles the catalog, so it needs no network access and no API key.
 
 **Claude Code**
