@@ -42,9 +42,8 @@ params:
     type: integer
     label: Top K
     description: >-
-      Limits token sampling to the top K most likely next tokens. Nova takes this through
-      additionalModelRequestFields, not the Converse inferenceConfig block, and silently ignores
-      unknown keys placed in inferenceConfig.
+      Limits token sampling to the top K most likely next tokens. Nova nests it under an
+      inferenceConfig object inside additionalModelRequestFields.
     range:
       min: 1
     group: sampling

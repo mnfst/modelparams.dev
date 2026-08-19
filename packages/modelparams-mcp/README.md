@@ -91,6 +91,14 @@ Which models expose a given parameter — `reasoning_effort`, `thinking.budget_t
 
 Ids are `provider/model`. Subscription contracts append `-subscription`, because the same model often exposes different parameters via an API key than via a subscription. Every tool also accepts a bare model slug when only one provider publishes it.
 
+## Placeholders in `requestModel`
+
+A `requestModel` containing `{scope}` needs one substitution before you send it. Bedrock reaches most newer models only through a cross-region inference profile, and the profile id is the model id behind a geography prefix, so `"{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"` is `us.anthropic.…` in Virginia, `eu.anthropic.…` in Frankfurt, and `global.anthropic.…` when you want AWS to pick. Valid scopes today: `us`, `eu`, `apac`, `jp`, `au`, `ca`, `sa`, `global`. A `requestModel` with no placeholder is already complete.
+
+## Wire formats
+
+One entry documents one wire format, so `validate_model_params` answers for the surface that entry describes and no other. This matters when a host serves two: `bedrock/*` documents Amazon Bedrock's `Converse` API — `inferenceConfig.maxTokens`, vendor extras under `additionalModelRequestFields` — which is what `ConverseCommand` in `@aws-sdk/client-bedrock-runtime` sends. It does **not** describe `InvokeModel` with native per-vendor bodies (`max_tokens`, top-level `thinking`), which is what `AnthropicBedrock` from `@anthropic-ai/bedrock-sdk` sends. Validate against the surface your code actually calls; the full support table is in the [catalog README](https://github.com/mnfst/modelparams.dev#api-surfaces).
+
 ## Related
 
 - **[modelparams](https://www.npmjs.com/package/modelparams)** — the TypeScript package: `ParamsOf<Id>` for compile-time safety, `parseParams` and `dropUnsupported` at runtime.

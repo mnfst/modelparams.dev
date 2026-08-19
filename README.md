@@ -128,6 +128,7 @@ The same model accepts different parameters on each host that serves it. The cat
 
 - **`requestModel`** — the exact string to send when it differs from the catalog slug. Every API response and MCP tool returns it.
 - **Provider is mandatory** — `kimi-k3` alone is refused with both qualified ids to retry with; the catalog never guesses a host.
+- **`{scope}` in a `requestModel`** — substitute your routing geography before sending. Bedrock serves most newer models only through a cross-region inference profile, whose id is the model id behind a geography prefix: `us`, `eu`, `apac`, `jp`, `au`, `ca`, `sa`, or `global`. So `"{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"` becomes `eu.anthropic.…` in Frankfurt and `global.anthropic.…` if you want AWS to route it for you. A `requestModel` with no placeholder is already complete and works in every region that serves it. The catalog deliberately does not enumerate which model exists in which region — that is per-account, changes constantly, and your own `ListInferenceProfiles` is the accurate source.
 
 ## API surfaces
 
@@ -138,13 +139,17 @@ One entry documents one wire format.
 | OpenAI Chat Completions — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, … | ✅     |
 | Anthropic Messages                                                                                    | ✅     |
 | Google `generateContent`                                                                              | ✅     |
+| Amazon Bedrock `Converse` — every `bedrock/*` entry                                                   | ✅     |
 | Subscription plans (`-subscription` entries)                                                          | ✅     |
+| Amazon Bedrock `InvokeModel` (native per-vendor bodies)                                               | ❌     |
 | MiniMax native endpoint                                                                               | ❌     |
 | OpenAI Responses API                                                                                  | ❌     |
 | Google Interactions API                                                                               | ❌     |
 | xAI native SDK                                                                                        | ❌     |
 
 Embeddings, audio, image, and batch APIs are out of scope. Missing a surface? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) or a PR.
+
+Bedrock is the sharpest case, because one host serves both surfaces and the SDK you pick decides which. `ConverseCommand` (`@aws-sdk/client-bedrock-runtime`) takes `inferenceConfig.maxTokens` and puts vendor extras in `additionalModelRequestFields` — that is what `bedrock/*` documents. `AnthropicBedrock` (`@anthropic-ai/bedrock-sdk`) calls `InvokeModel` with the native Anthropic body (`max_tokens`, top-level `thinking`) instead, so these entries do not describe it. Same model, same key, two vocabularies.
 
 ## Adding a model
 

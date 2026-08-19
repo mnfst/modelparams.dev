@@ -89,4 +89,29 @@ describe("resolveByBaseUrl", () => {
     expect(r.ok).toBe(false);
     if (!r.ok && r.reason === "unknown_model") expect(r.provider).toBe("moonshot");
   });
+
+  it("matches a regional host family through the wildcard base", () => {
+    for (const region of ["us-east-1", "eu-west-1", "ap-northeast-1"]) {
+      const r = resolveByBaseUrl(
+        `https://bedrock-runtime.${region}.amazonaws.com`,
+        "amazon.nova-micro-v1:0",
+      );
+      expect(r).toEqual({ ok: true, id: "bedrock/nova-micro", provider: "bedrock" });
+    }
+  });
+
+  it("matches every routing scope of a {scope} requestModel", () => {
+    for (const scope of ["us", "eu", "apac", "global"]) {
+      const r = resolveByBaseUrl(
+        "https://bedrock-runtime.eu-west-1.amazonaws.com",
+        `${scope}.anthropic.claude-sonnet-4-5-20250929-v1:0`,
+      );
+      expect(r).toEqual({ ok: true, id: "bedrock/claude-sonnet-4-5", provider: "bedrock" });
+    }
+  });
+
+  it("does not match a wildcard host outside the family", () => {
+    const r = resolveByBaseUrl("https://bedrock-runtime.us-east-1.evil.com", "amazon.nova-micro-v1:0");
+    expect(r.ok).toBe(false);
+  });
 });

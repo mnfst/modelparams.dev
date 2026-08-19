@@ -37,6 +37,19 @@ function guideIntro(siteUrl: string): string[] {
     "The same model accessed via an **API key** and via a **subscription** usually exposes a",
     "different set of parameters. We list both as separate entries so the data stays honest.",
     "",
+    "A `requestModel` containing `{scope}` needs one substitution before you send it: Bedrock",
+    "reaches most newer models through a cross-region inference profile whose id is the model id",
+    "behind a geography prefix, so `{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0` becomes",
+    "`eu.anthropic....` in Frankfurt, or `global.anthropic....` to let AWS route it. Valid scopes:",
+    "us, eu, apac, jp, au, ca, sa, global. A requestModel with no placeholder is already complete.",
+    "",
+    "For the same reason, **one entry documents one wire format**. Where a host serves two,",
+    "the entry follows the one named here and says nothing about the other: `bedrock/*`",
+    "documents Amazon Bedrock's `Converse` API (`inferenceConfig.maxTokens`, vendor extras",
+    "under `additionalModelRequestFields`), not `InvokeModel` with native per-vendor bodies",
+    "(`max_tokens`, top-level `thinking`) as the `AnthropicBedrock` client sends. If your",
+    "code calls the surface an entry does not cover, its parameter names will not match.",
+    "",
   ];
 }
 

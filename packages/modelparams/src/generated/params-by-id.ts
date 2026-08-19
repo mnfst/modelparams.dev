@@ -640,6 +640,24 @@ export type ParamsById = {
     "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
     "additionalModelRequestFields.thinking.budget_tokens": number;
   };
+  "bedrock/claude-opus-4-5-20251101": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/claude-opus-4-6": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
   "bedrock/claude-sonnet-4-5": {
     "inferenceConfig.maxTokens": number;
     "inferenceConfig.temperature": number;
@@ -648,6 +666,248 @@ export type ParamsById = {
     "additionalModelRequestFields.top_k": number;
     "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
     "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/claude-sonnet-4-6": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/deepseek-r1": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/deepseek-v3.2": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/devstral-2-123b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gemma-3-12b-it": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gemma-3-27b-it": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gemma-3-4b-it": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/glm-4.7": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/glm-4.7-flash": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/glm-5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-120b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-20b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-safeguard-120b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-safeguard-20b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/kimi-k2-thinking": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/kimi-k2.5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-1-70b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-1-8b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-3-70b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-70b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-8b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/magistral-small-2509": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/minimax-m2": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/minimax-m2.1": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/minimax-m2.5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/ministral-3-14b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/ministral-3-3b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/ministral-3-8b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/mistral-7b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/mistral-large-2402": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/mistral-large-3-675b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/mistral-small-2402": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/mixtral-8x7b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/nemotron-nano-12b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nemotron-nano-3-30b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nemotron-nano-9b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nemotron-super-3-120b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nova-2-lite": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
   };
   "bedrock/nova-lite": {
     "inferenceConfig.maxTokens": number;
@@ -669,6 +929,72 @@ export type ParamsById = {
     "inferenceConfig.topP": number;
     "inferenceConfig.stopSequences": string;
     "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
+  "bedrock/palmyra-vision-7b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/palmyra-x4": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/palmyra-x5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/pixtral-large-2502": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-32b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-coder-30b-a3b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-coder-next": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-next-80b-a3b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-vl-235b-a22b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/voxtral-mini-3b-2507": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/voxtral-small-24b-2507": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
   };
   "cerebras/zai-glm-4.7": {
     max_completion_tokens: number;

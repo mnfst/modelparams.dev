@@ -97,10 +97,38 @@ function normalizeUrl(url: string): string {
   return url.trim().toLowerCase().replace(/\/+$/, "");
 }
 
-/** Does the configured URL and a known base refer to the same endpoint? */
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * Does the configured URL and a known base refer to the same endpoint?
+ *
+ * A `*` in the known base matches one host label, so a regional host family
+ * ("https://bedrock-runtime.*.amazonaws.com") is one entry instead of an
+ * enumeration that goes stale the next time the host adds a region.
+ */
 function urlMatches(given: string, base: string): boolean {
+  if (base.includes("*")) {
+    const pattern = base.split("*").map(escapeRegex).join("[^./]+");
+    return new RegExp(`^${pattern}(/.*)?$`).test(given);
+  }
   if (given === base) return true;
   return given.startsWith(`${base}/`) || base.startsWith(`${given}/`);
+}
+
+/**
+ * Does a wire model string match a catalog `requestModel`?
+ *
+ * A `{scope}` placeholder stands for the routing geography the caller picks
+ * (`us`, `eu`, `global`, …), so the stored id matches every scoped form of
+ * itself without the catalog listing them all.
+ */
+function wireMatches(requestModel: string, wire: string): boolean {
+  const base = requestModel.toLowerCase();
+  if (!base.includes("{scope}")) return base === wire;
+  const pattern = base.split("{scope}").map(escapeRegex).join("[a-z0-9-]+");
+  return new RegExp(`^${pattern}$`).test(wire);
 }
 
 /**
@@ -130,7 +158,7 @@ export function resolveByBaseUrl(baseUrl: string, model: string): BaseUrlResolve
     (e) =>
       e.provider === provider &&
       e.authType === "api_key" &&
-      (("requestModel" in e && e.requestModel.toLowerCase() === wire) ||
+      (("requestModel" in e && wireMatches(e.requestModel, wire)) ||
         e.model.toLowerCase() === wire),
   );
   if (!entry) {

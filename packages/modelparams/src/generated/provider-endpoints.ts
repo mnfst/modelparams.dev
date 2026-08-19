@@ -39,6 +39,6 @@ export const PROVIDER_ENDPOINTS = {
     "https://api.fireworks.ai/inference/v1"
   ],
   "bedrock": [
-    "https://bedrock-runtime.us-east-1.amazonaws.com"
+    "https://bedrock-runtime.*.amazonaws.com"
   ]
 } as const;
