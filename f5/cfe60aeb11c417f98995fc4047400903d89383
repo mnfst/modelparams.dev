@@ -1,0 +1,39 @@
+packages/modelparams/src/generated/provider-endpoints.ts
+  s_42e0fc047eb6c5::t_003c3ef6867460 40-42
+providers.yaml
+  s_42e0fc047eb6c5::t_9d8ee1ef79b00c 29-30
+packages/modelparams/src/generated/defaults.ts
+  s_42e0fc047eb6c5::t_003c3ef6867460 488-502
+models/bedrock/nova-pro.yaml
+  s_42e0fc047eb6c5::t_c124ebf867e776 1-50
+packages/modelparams/src/generated/params-by-id.ts
+  s_42e0fc047eb6c5::t_003c3ef6867460 634-672
+models/bedrock/claude-sonnet-4-5.yaml
+  s_42e0fc047eb6c5::t_a9c8ff6d1bc7d8 1-84
+models/bedrock/claude-haiku-4-5.yaml
+  s_42e0fc047eb6c5::t_25e47dc8a52cfc 1-82
+models/bedrock/nova-micro.yaml
+  s_42e0fc047eb6c5::t_c124ebf867e776 1-50
+packages/modelparams/src/generated/data.ts
+  s_42e0fc047eb6c5::t_003c3ef6867460 7210-7608
+models/bedrock/nova-lite.yaml
+  s_42e0fc047eb6c5::t_c124ebf867e776 1-50
+packages/modelparams/src/generated/model-ids.ts
+  s_42e0fc047eb6c5::t_003c3ef6867460 88-92,332
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f5cfe60aeb11c417f98995fc4047400903d89383",
+  "prompts": {},
+  "sessions": {
+    "s_42e0fc047eb6c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8459669-8327-4fa0-b7f8-f5aeea60800a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
