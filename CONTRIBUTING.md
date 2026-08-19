@@ -192,8 +192,8 @@ Everything the catalog ships beyond the static site:
 - `packages/modelparams/` — the npm package: generated types plus the runtime
   validation helpers. `src/generated/` is committed and CI checks it against the YAML,
   so run `npm run codegen --workspace=modelparams` after changing the catalog.
-- `packages/modelparams-mcp/` — the MCP server. Ships in lockstep with `modelparams`
-  and pins it exactly.
+- `packages/modelparams-mcp/` — the MCP server. Not published to npm; its
+  `createServer()` is what `api/mcp.ts` serves over HTTP at `/mcp`.
 - `skills/` — agent skills, installable with `npx skills add mnfst/modelparams.dev`.
 
 Conventions:
