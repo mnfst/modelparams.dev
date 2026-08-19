@@ -2455,4 +2455,13 @@ export type ParamsById = {
     reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
     "response_format.type": "text" | "json_object";
   };
+  "z-ai/glm-5.3": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    do_sample: boolean;
+    "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
+    "response_format.type": "text" | "json_object";
+  };
 };
