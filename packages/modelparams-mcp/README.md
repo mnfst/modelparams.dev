@@ -109,7 +109,7 @@ One entry documents one wire format, so `validate_model_params` answers for the 
 
 The catalog is compiled in at publish time from the YAML source of truth at [github.com/mnfst/modelparams.dev](https://github.com/mnfst/modelparams.dev/tree/main/models). No runtime fetch, no cache to invalidate — update the package to get new models.
 
-The hosted endpoint is rebuilt with the site on every catalog change, so it always answers from the current catalog. A local build of this package pins an exact [`modelparams`](https://www.npmjs.com/package/modelparams) dependency instead, and answers from whichever catalog version that pin resolves.
+The hosted endpoint is rebuilt with the site on every catalog change, so it always answers from the current catalog. A local build of this package takes [`modelparams`](https://www.npmjs.com/package/modelparams) straight from this workspace — the dependency is deliberately unpinned, because the package is not published and an exact pin only froze it at a version the workspace had already moved past.
 
 ## License
 
