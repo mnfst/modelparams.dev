@@ -3,7 +3,7 @@
 > **MCP server for the [modelparams.dev](https://modelparams.dev) catalog.** Let an agent check which parameters a model accepts — before it calls one.
 
 ```bash
-npx -y modelparams-mcp
+claude mcp add --transport http modelparams https://modelparams.dev/mcp
 ```
 
 Model parameters aren't uniform and don't hold still. `gpt-5.5` has no `temperature`. Claude Opus 4.7 dropped it. Anthropic rejects `top_p` unless `temperature` is 1. Reasoning models reject sampling knobs outright. An agent writing LLM code from training data gets this wrong constantly, and the failure is either a 400 or — worse — a silently ignored parameter and drifting evals.
@@ -12,25 +12,19 @@ This server gives the agent a way to look it up instead.
 
 ## Install
 
-**Hosted (no install)** — the same four tools over Streamable HTTP, always serving the current catalog:
-
-```bash
-claude mcp add --transport http modelparams https://modelparams.dev/mcp
-codex mcp add modelparams --url https://modelparams.dev/mcp
-```
-
-Use the hosted endpoint unless you need to work offline, or your client speaks stdio only. This package pins an exact
-catalog version at publish time, so it answers from the catalog as of its release; the hosted endpoint rebuilds with the
-site on every catalog change.
-
-## Install locally (stdio)
-
-The server speaks MCP over stdio and bundles the catalog, so it needs no network access and no API key.
+The server is hosted at `https://modelparams.dev/mcp`, over Streamable HTTP. Nothing to install, and it answers from the
+catalog the site is serving.
 
 **Claude Code**
 
 ```bash
-claude mcp add modelparams -- npx -y modelparams-mcp
+claude mcp add --transport http modelparams https://modelparams.dev/mcp
+```
+
+**Codex**
+
+```bash
+codex mcp add modelparams --url https://modelparams.dev/mcp
 ```
 
 **Any client with a JSON config** (Claude Desktop, Cursor, Windsurf, Zed, …)
@@ -39,12 +33,16 @@ claude mcp add modelparams -- npx -y modelparams-mcp
 {
   "mcpServers": {
     "modelparams": {
-      "command": "npx",
-      "args": ["-y", "modelparams-mcp"]
+      "type": "http",
+      "url": "https://modelparams.dev/mcp"
     }
   }
 }
 ```
+
+> **This package is not published to npm.** The code here runs the same four tools over stdio, for offline use and for
+> clients that cannot take a URL, and `npm run build --workspace=modelparams-mcp` builds it from a checkout. Until it is
+> published, the hosted endpoint is the only way to install it.
 
 ## Tools
 
@@ -103,7 +101,7 @@ Ids are `provider/model`. Subscription contracts append `-subscription`, because
 
 The catalog is compiled in at publish time from the YAML source of truth at [github.com/mnfst/modelparams.dev](https://github.com/mnfst/modelparams.dev/tree/main/models). No runtime fetch, no cache to invalidate — update the package to get new models.
 
-This package and [`modelparams`](https://www.npmjs.com/package/modelparams) ship in lockstep at the same version, and this one pins an exact `modelparams` dependency. So `modelparams-mcp@x.y.z` always carries exactly one known catalog — run `npm update modelparams-mcp` (or `npx -y modelparams-mcp@latest`) to pick up newly added models and corrected parameters.
+The hosted endpoint is rebuilt with the site on every catalog change, so it always answers from the current catalog. A local build of this package pins an exact [`modelparams`](https://www.npmjs.com/package/modelparams) dependency instead, and answers from whichever catalog version that pin resolves.
 
 ## License
 
