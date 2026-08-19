@@ -126,9 +126,9 @@ The same model accepts different parameters on each host that serves it. The cat
 | `top_k`            | ✗                  | ✓                                   |
 | Thinking control   | ✓                  | ✗                                   |
 
-- **`requestModel`** — the exact string to send when it differs from the catalog slug. Every API response and MCP tool returns it.
+- **`wireId`** — the exact string to send when it differs from the catalog slug. Every API response and MCP tool returns it.
 - **Provider is mandatory** — `kimi-k3` alone is refused with both qualified ids to retry with; the catalog never guesses a host.
-- **`{scope}` in a `requestModel`** — substitute your routing geography before sending. Bedrock serves most newer models only through a cross-region inference profile, whose id is the model id behind a geography prefix: `us`, `eu`, `apac`, `jp`, `au`, `ca`, `sa`, or `global`. So `"{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"` becomes `eu.anthropic.…` in Frankfurt and `global.anthropic.…` if you want AWS to route it for you. A `requestModel` with no placeholder is already complete and works in every region that serves it. The catalog deliberately does not enumerate which model exists in which region — that is per-account, changes constantly, and your own `ListInferenceProfiles` is the accurate source.
+- **`{scope}` in a `wireId`** — substitute your routing geography before sending. Bedrock serves most newer models only through a cross-region inference profile, whose id is the model id behind a geography prefix: `us`, `eu`, `apac`, `jp`, `au`, `ca`, `sa`, or `global`. So `"{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"` becomes `eu.anthropic.…` in Frankfurt and `global.anthropic.…` if you want AWS to route it for you. A `wireId` with no placeholder is already complete and works in every region that serves it. The catalog deliberately does not enumerate which model exists in which region — that is per-account, changes constantly, and your own `ListInferenceProfiles` is the accurate source.
 
 ## API surfaces
 

@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: palmyra-x4
-requestModel: "{scope}.writer.palmyra-x4-v1:0"
+wireId: "{scope}.writer.palmyra-x4-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer

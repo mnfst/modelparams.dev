@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: inkling
-requestModel: accounts/fireworks/models/inkling
+wireId: accounts/fireworks/models/inkling
 params:
   - path: max_tokens
     type: integer

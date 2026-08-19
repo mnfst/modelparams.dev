@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: deepseek-v3.2
-requestModel: deepseek.v3.2
+wireId: deepseek.v3.2
 params:
   - path: inferenceConfig.maxTokens
     type: integer

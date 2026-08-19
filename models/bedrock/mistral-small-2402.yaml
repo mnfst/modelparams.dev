@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: mistral-small-2402
-requestModel: mistral.mistral-small-2402-v1:0
+wireId: mistral.mistral-small-2402-v1:0
 params:
   - path: inferenceConfig.maxTokens
     type: integer

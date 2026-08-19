@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: claude-sonnet-4-5
-requestModel: "{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"
+wireId: "{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer

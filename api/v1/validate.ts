@@ -192,7 +192,7 @@ export default {
       authType: entry.authType,
       // The exact string to put in the API request when the host's wire id
       // differs from the catalog slug (fireworks, groq).
-      ...("requestModel" in entry ? { requestModel: entry.requestModel } : {}),
+      ...("wireId" in entry ? { wireId: entry.wireId } : {}),
       valid: dropped.length === 0,
       issues: dropped.map(toIssue),
       // Always a payload that would pass validation — callers that just want to

@@ -109,7 +109,7 @@ export function validateModelParams(input: {
     model: resolved.id,
     provider: entry.provider,
     authType: entry.authType,
-    ...("requestModel" in entry ? { requestModel: entry.requestModel } : {}),
+    ...("wireId" in entry ? { wireId: entry.wireId } : {}),
     valid: dropped.length === 0,
     summary:
       dropped.length === 0
@@ -139,7 +139,7 @@ export function getModelParams(input: { model: string; baseUrl?: string }): Tool
     model: resolved.id,
     provider: entry.provider,
     authType: entry.authType,
-    ...("requestModel" in entry ? { requestModel: entry.requestModel } : {}),
+    ...("wireId" in entry ? { wireId: entry.wireId } : {}),
     parameterCount: params.length,
     params: params.map(describeParam),
     defaults: getDefaults(resolved.id),

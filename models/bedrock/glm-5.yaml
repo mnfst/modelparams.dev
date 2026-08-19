@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: glm-5
-requestModel: zai.glm-5
+wireId: zai.glm-5
 params:
   - path: inferenceConfig.maxTokens
     type: integer

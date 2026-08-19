@@ -2,7 +2,7 @@
 provider: groq
 authType: api_key
 model: gpt-oss-20b
-requestModel: openai/gpt-oss-20b
+wireId: openai/gpt-oss-20b
 params:
   - path: max_completion_tokens
     type: integer

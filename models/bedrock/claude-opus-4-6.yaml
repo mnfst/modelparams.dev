@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: claude-opus-4-6
-requestModel: "{scope}.anthropic.claude-opus-4-6-v1"
+wireId: "{scope}.anthropic.claude-opus-4-6-v1"
 params:
   - path: inferenceConfig.maxTokens
     type: integer

@@ -57,18 +57,18 @@ describe("Model schema", () => {
     expect(result.success).toBe(false);
   });
 
-  it("accepts a pathed requestModel alongside the catalog slug", () => {
+  it("accepts a pathed wireId alongside the catalog slug", () => {
     const result = Model.safeParse({
       ...VALID_MODEL,
       provider: "fireworks",
       model: "kimi-k3",
-      requestModel: "accounts/fireworks/models/kimi-k3",
+      wireId: "accounts/fireworks/models/kimi-k3",
     });
     expect(result.success).toBe(true);
   });
 
-  it("rejects a requestModel containing whitespace", () => {
-    const result = Model.safeParse({ ...VALID_MODEL, requestModel: "kimi k3" });
+  it("rejects a wireId containing whitespace", () => {
+    const result = Model.safeParse({ ...VALID_MODEL, wireId: "kimi k3" });
     expect(result.success).toBe(false);
   });
 

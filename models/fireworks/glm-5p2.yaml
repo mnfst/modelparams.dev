@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: glm-5p2
-requestModel: accounts/fireworks/models/glm-5p2
+wireId: accounts/fireworks/models/glm-5p2
 params:
   - path: max_tokens
     type: integer

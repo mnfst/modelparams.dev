@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: pixtral-large-2502
-requestModel: "{scope}.mistral.pixtral-large-2502-v1:0"
+wireId: "{scope}.mistral.pixtral-large-2502-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer

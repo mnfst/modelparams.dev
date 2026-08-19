@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: minimax-m3
-requestModel: accounts/fireworks/models/minimax-m3
+wireId: accounts/fireworks/models/minimax-m3
 params:
   - path: max_tokens
     type: integer

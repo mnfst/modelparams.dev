@@ -2,7 +2,7 @@
 provider: fireworks
 authType: api_key
 model: kimi-k2p7-code
-requestModel: accounts/fireworks/models/kimi-k2p7-code
+wireId: accounts/fireworks/models/kimi-k2p7-code
 params:
   - path: max_tokens
     type: integer

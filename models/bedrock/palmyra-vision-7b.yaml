@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: palmyra-vision-7b
-requestModel: writer.palmyra-vision-7b
+wireId: writer.palmyra-vision-7b
 params:
   - path: inferenceConfig.maxTokens
     type: integer

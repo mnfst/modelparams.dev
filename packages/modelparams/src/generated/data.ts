@@ -7211,7 +7211,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-haiku-4-5",
-    "requestModel": "{scope}.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "wireId": "{scope}.anthropic.claude-haiku-4-5-20251001-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7297,7 +7297,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-opus-4-5-20251101",
-    "requestModel": "{scope}.anthropic.claude-opus-4-5-20251101-v1:0",
+    "wireId": "{scope}.anthropic.claude-opus-4-5-20251101-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7383,7 +7383,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-opus-4-6",
-    "requestModel": "{scope}.anthropic.claude-opus-4-6-v1",
+    "wireId": "{scope}.anthropic.claude-opus-4-6-v1",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7469,7 +7469,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-sonnet-4-5",
-    "requestModel": "{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "wireId": "{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7555,7 +7555,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "claude-sonnet-4-6",
-    "requestModel": "{scope}.anthropic.claude-sonnet-4-6",
+    "wireId": "{scope}.anthropic.claude-sonnet-4-6",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7641,7 +7641,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "deepseek-r1",
-    "requestModel": "{scope}.deepseek.r1-v1:0",
+    "wireId": "{scope}.deepseek.r1-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7690,7 +7690,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "deepseek-v3.2",
-    "requestModel": "deepseek.v3.2",
+    "wireId": "deepseek.v3.2",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7739,7 +7739,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "devstral-2-123b",
-    "requestModel": "mistral.devstral-2-123b",
+    "wireId": "mistral.devstral-2-123b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7788,7 +7788,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "gemma-3-12b-it",
-    "requestModel": "google.gemma-3-12b-it",
+    "wireId": "google.gemma-3-12b-it",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7837,7 +7837,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "gemma-3-27b-it",
-    "requestModel": "google.gemma-3-27b-it",
+    "wireId": "google.gemma-3-27b-it",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7886,7 +7886,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "gemma-3-4b-it",
-    "requestModel": "google.gemma-3-4b-it",
+    "wireId": "google.gemma-3-4b-it",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7935,7 +7935,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "glm-4.7",
-    "requestModel": "zai.glm-4.7",
+    "wireId": "zai.glm-4.7",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -7984,7 +7984,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "glm-4.7-flash",
-    "requestModel": "zai.glm-4.7-flash",
+    "wireId": "zai.glm-4.7-flash",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8033,7 +8033,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "glm-5",
-    "requestModel": "zai.glm-5",
+    "wireId": "zai.glm-5",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8082,7 +8082,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "gpt-oss-120b",
-    "requestModel": "openai.gpt-oss-120b-1:0",
+    "wireId": "openai.gpt-oss-120b-1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8131,7 +8131,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "gpt-oss-20b",
-    "requestModel": "openai.gpt-oss-20b-1:0",
+    "wireId": "openai.gpt-oss-20b-1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8180,7 +8180,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "gpt-oss-safeguard-120b",
-    "requestModel": "openai.gpt-oss-safeguard-120b",
+    "wireId": "openai.gpt-oss-safeguard-120b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8229,7 +8229,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "gpt-oss-safeguard-20b",
-    "requestModel": "openai.gpt-oss-safeguard-20b",
+    "wireId": "openai.gpt-oss-safeguard-20b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8278,7 +8278,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "kimi-k2-thinking",
-    "requestModel": "moonshot.kimi-k2-thinking",
+    "wireId": "moonshot.kimi-k2-thinking",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8327,7 +8327,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "kimi-k2.5",
-    "requestModel": "moonshotai.kimi-k2.5",
+    "wireId": "moonshotai.kimi-k2.5",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8376,7 +8376,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-1-70b-instruct",
-    "requestModel": "{scope}.meta.llama3-1-70b-instruct-v1:0",
+    "wireId": "{scope}.meta.llama3-1-70b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8425,7 +8425,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-1-8b-instruct",
-    "requestModel": "{scope}.meta.llama3-1-8b-instruct-v1:0",
+    "wireId": "{scope}.meta.llama3-1-8b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8474,7 +8474,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-3-70b-instruct",
-    "requestModel": "{scope}.meta.llama3-3-70b-instruct-v1:0",
+    "wireId": "{scope}.meta.llama3-3-70b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8523,7 +8523,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-70b-instruct",
-    "requestModel": "meta.llama3-70b-instruct-v1:0",
+    "wireId": "meta.llama3-70b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8572,7 +8572,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "llama3-8b-instruct",
-    "requestModel": "meta.llama3-8b-instruct-v1:0",
+    "wireId": "meta.llama3-8b-instruct-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8621,7 +8621,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "magistral-small-2509",
-    "requestModel": "mistral.magistral-small-2509",
+    "wireId": "mistral.magistral-small-2509",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8670,7 +8670,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "minimax-m2",
-    "requestModel": "minimax.minimax-m2",
+    "wireId": "minimax.minimax-m2",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8756,7 +8756,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "minimax-m2.1",
-    "requestModel": "minimax.minimax-m2.1",
+    "wireId": "minimax.minimax-m2.1",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8805,7 +8805,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "minimax-m2.5",
-    "requestModel": "minimax.minimax-m2.5",
+    "wireId": "minimax.minimax-m2.5",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8854,7 +8854,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "ministral-3-14b-instruct",
-    "requestModel": "mistral.ministral-3-14b-instruct",
+    "wireId": "mistral.ministral-3-14b-instruct",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8940,7 +8940,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "ministral-3-3b-instruct",
-    "requestModel": "mistral.ministral-3-3b-instruct",
+    "wireId": "mistral.ministral-3-3b-instruct",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -8989,7 +8989,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "ministral-3-8b-instruct",
-    "requestModel": "mistral.ministral-3-8b-instruct",
+    "wireId": "mistral.ministral-3-8b-instruct",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9038,7 +9038,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "mistral-7b-instruct",
-    "requestModel": "mistral.mistral-7b-instruct-v0:2",
+    "wireId": "mistral.mistral-7b-instruct-v0:2",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9097,7 +9097,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "mistral-large-2402",
-    "requestModel": "mistral.mistral-large-2402-v1:0",
+    "wireId": "mistral.mistral-large-2402-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9156,7 +9156,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "mistral-large-3-675b-instruct",
-    "requestModel": "mistral.mistral-large-3-675b-instruct",
+    "wireId": "mistral.mistral-large-3-675b-instruct",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9205,7 +9205,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "mistral-small-2402",
-    "requestModel": "mistral.mistral-small-2402-v1:0",
+    "wireId": "mistral.mistral-small-2402-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9264,7 +9264,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "mixtral-8x7b-instruct",
-    "requestModel": "mistral.mixtral-8x7b-instruct-v0:1",
+    "wireId": "mistral.mixtral-8x7b-instruct-v0:1",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9323,7 +9323,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nemotron-nano-12b",
-    "requestModel": "nvidia.nemotron-nano-12b-v2",
+    "wireId": "nvidia.nemotron-nano-12b-v2",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9372,7 +9372,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nemotron-nano-3-30b",
-    "requestModel": "nvidia.nemotron-nano-3-30b",
+    "wireId": "nvidia.nemotron-nano-3-30b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9421,7 +9421,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nemotron-nano-9b",
-    "requestModel": "nvidia.nemotron-nano-9b-v2",
+    "wireId": "nvidia.nemotron-nano-9b-v2",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9470,7 +9470,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nemotron-super-3-120b",
-    "requestModel": "nvidia.nemotron-super-3-120b",
+    "wireId": "nvidia.nemotron-super-3-120b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9519,7 +9519,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nova-2-lite",
-    "requestModel": "{scope}.amazon.nova-2-lite-v1:0",
+    "wireId": "{scope}.amazon.nova-2-lite-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9578,7 +9578,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nova-lite",
-    "requestModel": "amazon.nova-lite-v1:0",
+    "wireId": "amazon.nova-lite-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9637,7 +9637,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nova-micro",
-    "requestModel": "amazon.nova-micro-v1:0",
+    "wireId": "amazon.nova-micro-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9696,7 +9696,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "nova-pro",
-    "requestModel": "amazon.nova-pro-v1:0",
+    "wireId": "amazon.nova-pro-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9755,7 +9755,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "palmyra-vision-7b",
-    "requestModel": "writer.palmyra-vision-7b",
+    "wireId": "writer.palmyra-vision-7b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9804,7 +9804,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "palmyra-x4",
-    "requestModel": "{scope}.writer.palmyra-x4-v1:0",
+    "wireId": "{scope}.writer.palmyra-x4-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9853,7 +9853,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "palmyra-x5",
-    "requestModel": "{scope}.writer.palmyra-x5-v1:0",
+    "wireId": "{scope}.writer.palmyra-x5-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9902,7 +9902,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "pixtral-large-2502",
-    "requestModel": "{scope}.mistral.pixtral-large-2502-v1:0",
+    "wireId": "{scope}.mistral.pixtral-large-2502-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9951,7 +9951,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "qwen3-32b",
-    "requestModel": "qwen.qwen3-32b-v1:0",
+    "wireId": "qwen.qwen3-32b-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -10000,7 +10000,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "qwen3-coder-30b-a3b",
-    "requestModel": "qwen.qwen3-coder-30b-a3b-v1:0",
+    "wireId": "qwen.qwen3-coder-30b-a3b-v1:0",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -10049,7 +10049,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "qwen3-coder-next",
-    "requestModel": "qwen.qwen3-coder-next",
+    "wireId": "qwen.qwen3-coder-next",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -10098,7 +10098,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "qwen3-next-80b-a3b",
-    "requestModel": "qwen.qwen3-next-80b-a3b",
+    "wireId": "qwen.qwen3-next-80b-a3b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -10147,7 +10147,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "qwen3-vl-235b-a22b",
-    "requestModel": "qwen.qwen3-vl-235b-a22b",
+    "wireId": "qwen.qwen3-vl-235b-a22b",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -10196,7 +10196,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "voxtral-mini-3b-2507",
-    "requestModel": "mistral.voxtral-mini-3b-2507",
+    "wireId": "mistral.voxtral-mini-3b-2507",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -10245,7 +10245,7 @@ export const CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "model": "voxtral-small-24b-2507",
-    "requestModel": "mistral.voxtral-small-24b-2507",
+    "wireId": "mistral.voxtral-small-24b-2507",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -11842,7 +11842,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "deepseek-v4-flash-0731",
-    "requestModel": "accounts/fireworks/models/deepseek-v4-flash-0731",
+    "wireId": "accounts/fireworks/models/deepseek-v4-flash-0731",
     "params": [
       {
         "path": "max_tokens",
@@ -11930,7 +11930,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "deepseek-v4-pro",
-    "requestModel": "accounts/fireworks/models/deepseek-v4-pro",
+    "wireId": "accounts/fireworks/models/deepseek-v4-pro",
     "params": [
       {
         "path": "max_tokens",
@@ -12018,7 +12018,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "deepseek-v4-pro-0813",
-    "requestModel": "accounts/fireworks/models/deepseek-v4-pro-0813",
+    "wireId": "accounts/fireworks/models/deepseek-v4-pro-0813",
     "params": [
       {
         "path": "max_tokens",
@@ -12106,7 +12106,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "glm-5p2",
-    "requestModel": "accounts/fireworks/models/glm-5p2",
+    "wireId": "accounts/fireworks/models/glm-5p2",
     "params": [
       {
         "path": "max_tokens",
@@ -12194,7 +12194,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "gpt-oss-120b",
-    "requestModel": "accounts/fireworks/models/gpt-oss-120b",
+    "wireId": "accounts/fireworks/models/gpt-oss-120b",
     "params": [
       {
         "path": "max_tokens",
@@ -12282,7 +12282,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "gpt-oss-20b",
-    "requestModel": "accounts/fireworks/models/gpt-oss-20b",
+    "wireId": "accounts/fireworks/models/gpt-oss-20b",
     "params": [
       {
         "path": "max_tokens",
@@ -12370,7 +12370,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "inkling",
-    "requestModel": "accounts/fireworks/models/inkling",
+    "wireId": "accounts/fireworks/models/inkling",
     "params": [
       {
         "path": "max_tokens",
@@ -12458,7 +12458,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "kimi-k2p6",
-    "requestModel": "accounts/fireworks/models/kimi-k2p6",
+    "wireId": "accounts/fireworks/models/kimi-k2p6",
     "params": [
       {
         "path": "max_tokens",
@@ -12546,7 +12546,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "kimi-k2p7-code",
-    "requestModel": "accounts/fireworks/models/kimi-k2p7-code",
+    "wireId": "accounts/fireworks/models/kimi-k2p7-code",
     "params": [
       {
         "path": "max_tokens",
@@ -12634,7 +12634,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "kimi-k3",
-    "requestModel": "accounts/fireworks/models/kimi-k3",
+    "wireId": "accounts/fireworks/models/kimi-k3",
     "params": [
       {
         "path": "max_tokens",
@@ -12722,7 +12722,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "minimax-m2p7",
-    "requestModel": "accounts/fireworks/models/minimax-m2p7",
+    "wireId": "accounts/fireworks/models/minimax-m2p7",
     "params": [
       {
         "path": "max_tokens",
@@ -12810,7 +12810,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "minimax-m3",
-    "requestModel": "accounts/fireworks/models/minimax-m3",
+    "wireId": "accounts/fireworks/models/minimax-m3",
     "params": [
       {
         "path": "max_tokens",
@@ -12898,7 +12898,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "muse-glimmer-30b",
-    "requestModel": "accounts/fireworks/models/muse-glimmer-30b",
+    "wireId": "accounts/fireworks/models/muse-glimmer-30b",
     "params": [
       {
         "path": "max_tokens",
@@ -12986,7 +12986,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "qwen3p7-plus",
-    "requestModel": "accounts/fireworks/models/qwen3p7-plus",
+    "wireId": "accounts/fireworks/models/qwen3p7-plus",
     "params": [
       {
         "path": "max_tokens",
@@ -13074,7 +13074,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "qwen3p8-2p4t-a95b",
-    "requestModel": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
+    "wireId": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
     "params": [
       {
         "path": "max_tokens",
@@ -13162,7 +13162,7 @@ export const CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "model": "qwen3p8-max",
-    "requestModel": "accounts/fireworks/models/qwen3p8-max",
+    "wireId": "accounts/fireworks/models/qwen3p8-max",
     "params": [
       {
         "path": "max_tokens",
@@ -15780,7 +15780,7 @@ export const CATALOG = [
     "provider": "groq",
     "authType": "api_key",
     "model": "gpt-oss-120b",
-    "requestModel": "openai/gpt-oss-120b",
+    "wireId": "openai/gpt-oss-120b",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -15900,7 +15900,7 @@ export const CATALOG = [
     "provider": "groq",
     "authType": "api_key",
     "model": "gpt-oss-20b",
-    "requestModel": "openai/gpt-oss-20b",
+    "wireId": "openai/gpt-oss-20b",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -16020,7 +16020,7 @@ export const CATALOG = [
     "provider": "groq",
     "authType": "api_key",
     "model": "gpt-oss-safeguard-20b",
-    "requestModel": "openai/gpt-oss-safeguard-20b",
+    "wireId": "openai/gpt-oss-safeguard-20b",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -16259,7 +16259,7 @@ export const CATALOG = [
     "provider": "groq",
     "authType": "api_key",
     "model": "qwen3.6-27b",
-    "requestModel": "qwen/qwen3.6-27b",
+    "wireId": "qwen/qwen3.6-27b",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20771,7 +20771,7 @@ export const CATALOG = [
     "provider": "nvidia",
     "authType": "api_key",
     "model": "deepseek-v4-flash-0731",
-    "requestModel": "deepseek-ai/deepseek-v4-flash-0731",
+    "wireId": "deepseek-ai/deepseek-v4-flash-0731",
     "params": [
       {
         "path": "temperature",

@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: llama3-3-70b-instruct
-requestModel: "{scope}.meta.llama3-3-70b-instruct-v1:0"
+wireId: "{scope}.meta.llama3-3-70b-instruct-v1:0"
 params:
   - path: inferenceConfig.maxTokens
     type: integer

@@ -2,7 +2,7 @@
 provider: groq
 authType: api_key
 model: qwen3.6-27b
-requestModel: qwen/qwen3.6-27b
+wireId: qwen/qwen3.6-27b
 params:
   - path: max_completion_tokens
     type: integer

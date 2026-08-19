@@ -61,5 +61,5 @@ class CatalogEntry(FrozenModel):
     model: str
     # Exact wire string when the host's native id differs from the catalog
     # slug (pathed ids: accounts/fireworks/models/kimi-k3, openai/gpt-oss-20b).
-    request_model: str | None = Field(alias="requestModel", default=None)
+    wire_id: str | None = Field(alias="wireId", default=None)
     params: tuple[Parameter, ...]

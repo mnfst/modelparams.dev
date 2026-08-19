@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: mistral-large-3-675b-instruct
-requestModel: mistral.mistral-large-3-675b-instruct
+wireId: mistral.mistral-large-3-675b-instruct
 params:
   - path: inferenceConfig.maxTokens
     type: integer

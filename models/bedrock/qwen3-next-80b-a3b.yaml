@@ -2,7 +2,7 @@
 provider: bedrock
 authType: api_key
 model: qwen3-next-80b-a3b
-requestModel: qwen.qwen3-next-80b-a3b
+wireId: qwen.qwen3-next-80b-a3b
 params:
   - path: inferenceConfig.maxTokens
     type: integer
