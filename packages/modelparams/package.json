@@ -60,6 +60,7 @@
   },
   "scripts": {
     "codegen": "tsx scripts/codegen.ts",
+    "prepare": "npm run build",
     "prebuild": "npm run codegen",
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",

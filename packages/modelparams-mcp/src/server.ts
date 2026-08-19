@@ -1,4 +1,3 @@
-import { createRequire } from "node:module";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { CATALOG } from "modelparams";
 import { z } from "zod";
@@ -10,12 +9,6 @@ import {
   type ToolPayload,
 } from "./tools.js";
 
-// The release workflow rewrites package.json's version; read it there so the
-// MCP handshake always reports the shipped version.
-const PKG_VERSION: string = (
-  createRequire(import.meta.url)("../package.json") as { version: string }
-).version;
-
 /** Every tool here is a pure read over data compiled into the package. */
 const READ_ONLY = { readOnlyHint: true, idempotentHint: true, openWorldHint: false } as const;
 
@@ -24,12 +17,16 @@ function reply(payload: ToolPayload) {
 }
 
 /**
- * Build the server. Kept separate from the stdio entry point so tests can drive
- * it over an in-memory transport.
+ * Build the server. Kept separate from any transport so the stdio entry point,
+ * the site's HTTP endpoint, and the tests can each drive the same tools.
+ *
+ * `version` is passed in rather than read from package.json: the HTTP endpoint
+ * is bundled by Vercel, where a relative read of the package manifest does not
+ * survive bundling, and the two transports report different versions anyway.
  */
-export function createServer(): McpServer {
+export function createServer(version = "0.0.0"): McpServer {
   const server = new McpServer(
-    { name: "modelparams", version: PKG_VERSION },
+    { name: "modelparams", version },
     {
       instructions:
         "Answers what parameters an LLM accepts, using the modelparams.dev catalog of " +
