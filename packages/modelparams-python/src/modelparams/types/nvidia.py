@@ -10,6 +10,21 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Deepseek_V4_Flash_0731Params = TypedDict(
+    "Deepseek_V4_Flash_0731Params",
+    {
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=16384)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "seed": Annotated[int, Field(ge=0, le=18446744073709552000)],
+        "stop": str,
+    },
+    total=False,
+)
+setattr(Deepseek_V4_Flash_0731Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gliner_PiiParams = TypedDict(
     "Gliner_PiiParams",
     {
@@ -225,6 +240,7 @@ Usdcode_Llama_3_1_70b_InstructParams = TypedDict(
 setattr(Usdcode_Llama_3_1_70b_InstructParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
+    "Deepseek_V4_Flash_0731Params",
     "Gliner_PiiParams",
     "Llama_3_1_Nemoguard_8b_Topic_ControlParams",
     "Llama_3_1_Nemotron_Nano_8b_V1Params",
