@@ -1821,6 +1821,14 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
+  "openai/gpt-4": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
   "openai/gpt-4-0613": {
     max_tokens: number;
     temperature: number;
