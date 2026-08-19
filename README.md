@@ -102,12 +102,26 @@ curl -s https://modelparams.dev/api/v1/validate \
 
 ## Agents
 
+Give a coding agent the catalog, so it looks parameters up instead of recalling them.
+
+**MCP server** — hosted at `https://modelparams.dev/mcp`, nothing to install, always the catalog this site is serving:
+
 ```bash
-npx -y modelparams-mcp              # MCP server: 4 tools, stdio, no network needed
-npx skills add mnfst/modelparams.dev # the companion agent skill
+claude mcp add --transport http modelparams https://modelparams.dev/mcp
+codex mcp add modelparams --url https://modelparams.dev/mcp
 ```
 
-The MCP server is also hosted at `https://modelparams.dev/mcp` over Streamable HTTP, which needs no install and always answers from the catalog the site is serving — `claude mcp add --transport http modelparams https://modelparams.dev/mcp`, or `codex mcp add modelparams --url https://modelparams.dev/mcp`. Either way it exposes `validate_model_params`, `get_model_params`, `list_models`, and `find_models_supporting`. Details in the [package README](packages/modelparams-mcp/README.md). There's also [llms.txt](https://modelparams.dev/llms.txt) if you'd rather just point an agent at a URL.
+Four tools: `validate_model_params` to check a params object before you send it, `get_model_params` for one model's full surface, `list_models` and `find_models_supporting` to search the catalog.
+
+**Offline, or a client that speaks stdio only** — same four tools, catalog bundled:
+
+```bash
+npx -y modelparams-mcp
+```
+
+This copy is pinned to the catalog as of its release; the hosted endpoint rebuilds on every catalog change. Details in the [package README](packages/modelparams-mcp/README.md).
+
+**Without MCP** — `npx skills add mnfst/modelparams.dev` installs the companion agent skill, and [llms.txt](https://modelparams.dev/llms.txt) points an agent at a URL.
 
 ## One model, many providers
 
