@@ -5,6 +5,99 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.38
+
+### Models added
+
+- `bedrock/claude-haiku-4-5`
+- `bedrock/claude-opus-4-5-20251101`
+- `bedrock/claude-opus-4-6`
+- `bedrock/claude-sonnet-4-5`
+- `bedrock/claude-sonnet-4-6`
+- `bedrock/deepseek-r1`
+- `bedrock/deepseek-v3.2`
+- `bedrock/devstral-2-123b`
+- `bedrock/gemma-3-12b-it`
+- `bedrock/gemma-3-27b-it`
+- `bedrock/gemma-3-4b-it`
+- `bedrock/glm-4.7`
+- `bedrock/glm-4.7-flash`
+- `bedrock/glm-5`
+- `bedrock/gpt-oss-120b`
+- `bedrock/gpt-oss-20b`
+- `bedrock/gpt-oss-safeguard-120b`
+- `bedrock/gpt-oss-safeguard-20b`
+- `bedrock/kimi-k2-thinking`
+- `bedrock/kimi-k2.5`
+- `bedrock/llama3-1-70b-instruct`
+- `bedrock/llama3-1-8b-instruct`
+- `bedrock/llama3-3-70b-instruct`
+- `bedrock/llama3-70b-instruct`
+- `bedrock/llama3-8b-instruct`
+- `bedrock/magistral-small-2509`
+- `bedrock/minimax-m2`
+- `bedrock/minimax-m2.1`
+- `bedrock/minimax-m2.5`
+- `bedrock/ministral-3-14b-instruct`
+- `bedrock/ministral-3-3b-instruct`
+- `bedrock/ministral-3-8b-instruct`
+- `bedrock/mistral-7b-instruct`
+- `bedrock/mistral-large-2402`
+- `bedrock/mistral-large-3-675b-instruct`
+- `bedrock/mistral-small-2402`
+- `bedrock/mixtral-8x7b-instruct`
+- `bedrock/nemotron-nano-12b`
+- `bedrock/nemotron-nano-3-30b`
+- `bedrock/nemotron-nano-9b`
+- `bedrock/nemotron-super-3-120b`
+- `bedrock/nova-2-lite`
+- `bedrock/nova-lite`
+- `bedrock/nova-micro`
+- `bedrock/nova-pro`
+- `bedrock/palmyra-vision-7b`
+- `bedrock/palmyra-x4`
+- `bedrock/palmyra-x5`
+- `bedrock/pixtral-large-2502`
+- `bedrock/qwen3-32b`
+- `bedrock/qwen3-coder-30b-a3b`
+- `bedrock/qwen3-coder-next`
+- `bedrock/qwen3-next-80b-a3b`
+- `bedrock/qwen3-vl-235b-a22b`
+- `bedrock/voxtral-mini-3b-2507`
+- `bedrock/voxtral-small-24b-2507`
+- `fireworks/deepseek-v4-flash-0731`
+- `fireworks/deepseek-v4-pro`
+- `fireworks/deepseek-v4-pro-0813`
+- `fireworks/glm-5p2`
+- `fireworks/gpt-oss-120b`
+- `fireworks/gpt-oss-20b`
+- `fireworks/inkling`
+- `fireworks/kimi-k2p6`
+- `fireworks/kimi-k2p7-code`
+- `fireworks/kimi-k3`
+- `fireworks/minimax-m2p7`
+- `fireworks/minimax-m3`
+- `fireworks/muse-glimmer-30b`
+- `fireworks/qwen3p7-plus`
+- `fireworks/qwen3p8-2p4t-a95b`
+- `fireworks/qwen3p8-max`
+- `groq/gpt-oss-120b`
+- `groq/gpt-oss-20b`
+- `groq/gpt-oss-safeguard-20b`
+- `groq/qwen3.6-27b`
+- `nvidia/deepseek-v4-flash-0731`
+- `vertex/gemini-2.5-flash`
+- `vertex/gemini-2.5-flash-lite`
+- `vertex/gemini-2.5-pro`
+- `vertex/gemini-3-flash-preview`
+- `vertex/gemini-3.1-flash-lite`
+- `vertex/gemini-3.1-pro-preview`
+- `vertex/gemini-3.1-pro-preview-customtools`
+- `vertex/gemini-3.5-flash`
+- `vertex/gemini-3.5-flash-lite`
+- `vertex/gemini-3.6-flash`
+- `vertex/gemini-3.7-flash`
+
 ## 0.0.37
 
 ### Models added
