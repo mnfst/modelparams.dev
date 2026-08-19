@@ -1,6 +1,6 @@
 {
   "name": "modelparams-mcp",
-  "version": "0.0.55",
+  "version": "0.0.56",
   "description": "MCP server for the modelparams.dev catalog — let an agent check which parameters a model accepts before it calls one.",
   "keywords": [
     "mcp",
@@ -54,6 +54,6 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "zod": "^3.25.0",
-    "modelparams": "0.0.55"
+    "modelparams": "0.0.56"
   }
 }

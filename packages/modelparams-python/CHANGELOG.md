@@ -5,6 +5,16 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.37
+
+### Models added
+
+- `bedrock/claude-haiku-4-5`
+- `bedrock/claude-sonnet-4-5`
+- `bedrock/nova-lite`
+- `bedrock/nova-micro`
+- `bedrock/nova-pro`
+
 ## 0.0.36
 
 ### Models added
