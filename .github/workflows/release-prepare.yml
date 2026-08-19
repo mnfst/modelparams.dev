@@ -132,8 +132,6 @@ jobs:
           git add package-lock.json \
                   packages/modelparams/package.json \
                   packages/modelparams/CHANGELOG.md \
-                  packages/modelparams-mcp/package.json \
-                  packages/modelparams-mcp/CHANGELOG.md \
                   packages/modelparams-python/pyproject.toml \
                   packages/modelparams-python/uv.lock \
                   packages/modelparams-python/CHANGELOG.md
