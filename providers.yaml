@@ -27,4 +27,6 @@ groq:
 fireworks:
   - https://api.fireworks.ai/inference/v1
 bedrock:
-  - https://bedrock-runtime.us-east-1.amazonaws.com
+  # One host family: * matches a single label, so every AWS region resolves
+  # without enumerating regions that change.
+  - https://bedrock-runtime.*.amazonaws.com
