@@ -50,9 +50,9 @@ describe("the MCP endpoint over real HTTP", () => {
   it("advertises the four tools", async () => {
     const { tools } = await client.listTools();
     expect(tools.map((tool) => tool.name).sort()).toEqual([
-      "find_models_supporting",
       "get_model_params",
       "list_models",
+      "list_provider_models",
       "validate_model_params",
     ]);
   });

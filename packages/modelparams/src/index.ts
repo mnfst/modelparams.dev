@@ -23,6 +23,7 @@ export type {
 } from "./standard-schema.js";
 
 export { MODEL_IDS, PROVIDERS } from "./generated/model-ids.js";
+export { PROVIDER_ENDPOINTS } from "./generated/provider-endpoints.js";
 export { DEFAULTS } from "./generated/defaults.js";
 export { CATALOG, BY_ID } from "./generated/data.js";
 

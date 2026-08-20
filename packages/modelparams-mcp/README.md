@@ -83,9 +83,45 @@ Every parameter for one model — type, range, enum values, default, and the con
 
 Model ids, filtered by provider or substring. Use it to resolve the exact catalog id.
 
-### `find_models_supporting`
+### `list_provider_models`
 
-Which models expose a given parameter — `reasoning_effort`, `thinking.budget_tokens`, `top_k`. Answers "which models let me set X". Returns near-miss suggestions when nothing matches, since callers usually have the provider's spelling rather than the catalog's.
+Everything one provider serves, in one call: its models, the `wireId` each one needs, their lifecycle status, and the parameter surfaces they expose. For picking a model *and* configuring it in the same step — the question you have when a provider is fixed and the model isn't, which is the normal state of affairs on Bedrock and Vertex.
+
+Models are grouped by parameter surface rather than listed one by one, because a provider's models are far less varied than their count suggests — Bedrock's 56 models are four distinct surfaces, since Converse normalises most of them:
+
+```json
+{ "provider": "bedrock" }
+```
+
+```json
+{
+  "provider": "bedrock",
+  "baseUrls": ["https://bedrock-runtime.*.amazonaws.com"],
+  "total": 56,
+  "returned": 56,
+  "truncated": false,
+  "paramProfiles": [
+    {
+      "id": "p1",
+      "modelCount": 41,
+      "parameterCount": 4,
+      "params": [{ "path": "inferenceConfig.maxTokens", "type": "integer", "range": { "min": 1 } }],
+      "defaults": {}
+    }
+  ],
+  "models": [
+    {
+      "model": "bedrock/claude-opus-4-6",
+      "authType": "api_key",
+      "wireId": "{scope}.anthropic.claude-opus-4-6-v1",
+      "profile": "p2"
+    }
+  ],
+  "wireIdNote": "A wireId containing {scope} needs one substitution before you send it…"
+}
+```
+
+That grouping is what makes the whole provider fit in a tool result: flat, Bedrock's parameters are roughly an order of magnitude larger than the profile form.
 
 ## Model ids
 

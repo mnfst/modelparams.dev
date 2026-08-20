@@ -41,11 +41,31 @@ interface ListResult {
   error?: string;
 }
 
-interface FindResult {
-  parameter: string;
+interface ProviderModelsResult {
+  provider: string;
+  baseUrls: string[];
   total: number;
-  models: { model: string; type: string }[];
-  similarParameters?: string[];
+  returned: number;
+  truncated: boolean;
+  paramProfiles: {
+    id: string;
+    modelCount: number;
+    parameterCount: number;
+    params: ParamInfo[];
+    defaults: Record<string, unknown>;
+  }[];
+  models: {
+    model: string;
+    authType: string;
+    wireId?: string;
+    profile: string;
+    status?: string;
+    replacement?: string;
+    shutdownOn?: string;
+  }[];
+  wireIdNote?: string;
+  error?: string;
+  providers?: string[];
 }
 
 /** Parse the JSON payload a tool replies with. */
@@ -70,9 +90,9 @@ describe("tool discovery", () => {
   it("advertises the four catalog tools", async () => {
     const { tools } = await client.listTools();
     expect(tools.map((t) => t.name).sort()).toEqual([
-      "find_models_supporting",
       "get_model_params",
       "list_models",
+      "list_provider_models",
       "validate_model_params",
     ]);
   });
@@ -236,24 +256,111 @@ describe("list_models", () => {
   });
 });
 
-describe("find_models_supporting", () => {
-  it("finds models exposing a parameter", async () => {
-    const out = await call<FindResult>("find_models_supporting", { parameter: "top_k" });
-    expect(out.total).toBeGreaterThan(0);
-    expect(out.models[0]!.model).toBeTruthy();
+describe("list_provider_models", () => {
+  it("returns a provider's whole surface in one call", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", { provider: "bedrock" });
+    expect(out.provider).toBe("bedrock");
+    expect(out.total).toBeGreaterThan(10);
+    expect(out.truncated).toBe(false);
+    expect(out.models).toHaveLength(out.total);
+    expect(out.baseUrls.length).toBeGreaterThan(0);
   });
 
-  it("scopes to a provider", async () => {
-    const out = await call<FindResult>("find_models_supporting", {
-      parameter: "top_k",
-      provider: "anthropic",
+  it("collapses shared parameter surfaces into far fewer profiles than models", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", { provider: "bedrock" });
+    expect(out.paramProfiles.length).toBeLessThan(out.models.length / 4);
+    // Commonest surface first, so p1 is the provider's house style.
+    expect(out.paramProfiles[0]!.id).toBe("p1");
+    expect(out.paramProfiles[0]!.modelCount).toBeGreaterThanOrEqual(
+      out.paramProfiles[out.paramProfiles.length - 1]!.modelCount,
+    );
+  });
+
+  it("points every model at a profile that exists", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", { provider: "vertex" });
+    const ids = new Set(out.paramProfiles.map((p) => p.id));
+    expect(out.models.every((m) => ids.has(m.profile))).toBe(true);
+  });
+
+  it("groups models by surface rather than by name", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", { provider: "bedrock" });
+    const byProfile = new Map<string, ParamInfo[]>();
+    for (const profile of out.paramProfiles) byProfile.set(profile.id, profile.params);
+    // Two models on the same profile must agree parameter-for-parameter.
+    const grouped = out.models.filter((m) => m.profile === "p1");
+    expect(grouped.length).toBeGreaterThan(1);
+    const paths = byProfile.get("p1")!.map((p) => p.path);
+    expect(paths).toContain("inferenceConfig.maxTokens");
+  });
+
+  it("hands over the wire id, and flags the ones needing substitution", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", { provider: "bedrock" });
+    const templated = out.models.find((m) => m.wireId?.includes("{scope}"));
+    expect(templated).toBeDefined();
+    expect(out.wireIdNote).toContain("{scope}");
+  });
+
+  it("omits the wire id note for a provider that has no placeholders", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", { provider: "openai" });
+    expect(out.wireIdNote).toBeUndefined();
+  });
+
+  it("filters by substring", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", {
+      provider: "bedrock",
+      query: "claude",
     });
-    expect(out.models.every((m) => m.model.startsWith("anthropic/"))).toBe(true);
+    expect(out.models.length).toBeGreaterThan(0);
+    expect(out.models.every((m) => m.model.includes("claude"))).toBe(true);
   });
 
-  it("suggests near misses when nothing matches", async () => {
-    const out = await call<FindResult>("find_models_supporting", { parameter: "temperatur" });
-    expect(out.total).toBe(0);
-    expect(out.similarParameters).toContain("temperature");
+  it("flags truncation rather than silently cutting off", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", {
+      provider: "bedrock",
+      limit: 3,
+    });
+    expect(out.models).toHaveLength(3);
+    expect(out.truncated).toBe(true);
+    expect(out.total).toBeGreaterThan(3);
+  });
+
+  it("marks a model whose lifecycle is tracked", async () => {
+    const entry = getModel("openai/gpt-5.5") as unknown as Record<string, unknown>;
+    const previous = {
+      status: entry.status,
+      replacement: entry.replacement,
+      shutdownOn: entry.shutdownOn,
+    };
+
+    Object.assign(entry, {
+      status: "deprecated",
+      replacement: "openai/gpt-5.6-sol",
+      shutdownOn: "2026-10-23",
+    });
+
+    try {
+      const out = await call<ProviderModelsResult>("list_provider_models", {
+        provider: "openai",
+        query: "gpt-5.5",
+      });
+      // An agent choosing from this list must see the retirement on the row it
+      // is choosing from, not only if it looks the model up separately.
+      expect(out.models.find((m) => m.model === "openai/gpt-5.5")).toMatchObject({
+        status: "deprecated",
+        replacement: "openai/gpt-5.6-sol",
+        shutdownOn: "2026-10-23",
+      });
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete entry[key];
+        else entry[key] = value;
+      }
+    }
+  });
+
+  it("reports an unknown provider with the valid set", async () => {
+    const out = await call<ProviderModelsResult>("list_provider_models", { provider: "aws" });
+    expect(out.error).toBe("unknown_provider");
+    expect(out.providers).toContain("bedrock");
   });
 });

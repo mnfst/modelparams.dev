@@ -2,9 +2,9 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { CATALOG } from "modelparams";
 import { z } from "zod";
 import {
-  findModelsSupporting,
   getModelParams,
   listCatalogModels,
+  listProviderModels,
   validateModelParams,
   type ToolPayload,
 } from "./tools.js";
@@ -116,21 +116,28 @@ export function createServer(version = "0.0.0"): McpServer {
   );
 
   server.registerTool(
-    "find_models_supporting",
+    "list_provider_models",
     {
-      title: "Find models supporting a parameter",
+      title: "List a provider's models and their parameters",
       description:
-        'Find which models accept a given parameter, e.g. "reasoning_effort", ' +
-        '"thinking.budget_tokens", or "top_k". Use to answer "which models support X" or to ' +
-        "pick a model that exposes a knob you need.",
+        "Everything one provider serves: its models, the wire id each one needs, their " +
+        "lifecycle status, and the parameter surfaces they expose — types, ranges, enum values, " +
+        "defaults, and conditional rules — in a single call. Models that share a parameter " +
+        "surface share a profile, so a provider with dozens of models stays small enough to " +
+        "read. Use this to pick a model and configure it in one step, especially on Bedrock and " +
+        "Vertex where the parameter paths differ from the underlying model's native API.",
       inputSchema: {
-        parameter: z.string().describe('Exact parameter path, e.g. "top_k" or "thinking.type".'),
-        provider: z.string().optional().describe("Restrict to one provider slug."),
-        limit: z.number().int().positive().max(1000).optional().describe("Default 100."),
+        provider: z
+          .string()
+          .describe(
+            'Provider slug, e.g. "bedrock", "vertex", "anthropic". Call list_models with no arguments to see them all.',
+          ),
+        query: z.string().optional().describe("Case-insensitive substring match on the model id."),
+        limit: z.number().int().positive().max(1000).optional().describe("Default 200."),
       },
       annotations: READ_ONLY,
     },
-    async (args) => reply(findModelsSupporting(args)),
+    async (args) => reply(listProviderModels(args)),
   );
 
   return server;

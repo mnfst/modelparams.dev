@@ -4,6 +4,7 @@ import {
   getDefaults,
   getModel,
   listModels,
+  PROVIDER_ENDPOINTS,
   PROVIDERS,
   resolveByBaseUrl,
   resolveModelId,
@@ -181,54 +182,104 @@ export function listCatalogModels(input: {
   };
 }
 
-/** Which models expose a given knob — the "can I use X anywhere?" question. */
-export function findModelsSupporting(input: {
-  parameter: string;
-  provider?: string;
+/**
+ * Every parameter surface a provider serves, and which models share each one.
+ *
+ * A provider's models are far less varied than their count suggests: Bedrock's
+ * 56 models are four distinct parameter surfaces, because Converse normalises
+ * most of them. Returning one profile per surface, with the models pointing at
+ * it, is what makes "give me everything you have on this provider" fit in a
+ * tool result at all — flat, Bedrock is an order of magnitude larger.
+ */
+export function listProviderModels(input: {
+  provider: string;
+  query?: string;
   limit?: number;
 }): ToolPayload {
-  const { parameter, provider, limit = 100 } = input;
-  const needle = parameter.toLowerCase();
+  const { provider, query, limit = 200 } = input;
 
-  const matches: { model: ModelId; param: Param }[] = [];
-  for (const entry of CATALOG) {
-    if (provider && entry.provider !== provider) continue;
-    const param = (entry.params as readonly Param[]).find((p) => p.path.toLowerCase() === needle);
-    if (param) matches.push({ model: modelIdOf(entry), param });
-  }
-
-  if (matches.length === 0) {
-    // A near-miss list beats an empty result — the caller usually has the
-    // provider's spelling of the parameter, not the catalog's.
-    const known = new Set<string>();
-    for (const entry of CATALOG) {
-      for (const p of entry.params as readonly Param[]) {
-        if (p.path.toLowerCase().includes(needle) || needle.includes(p.path.toLowerCase())) {
-          known.add(p.path);
-        }
-      }
-    }
+  if (!PROVIDERS.includes(provider as Provider)) {
     return {
-      parameter,
-      total: 0,
-      message: `No model in the catalog accepts "${parameter}".`,
-      similarParameters: [...known].sort().slice(0, 10),
+      error: "unknown_provider",
+      message: `"${provider}" is not a provider in the catalog.`,
+      providers: PROVIDERS,
     };
   }
 
+  let entries = CATALOG.filter((e) => e.provider === provider);
+  if (query) {
+    const needle = query.toLowerCase();
+    entries = entries.filter((e) => modelIdOf(e).toLowerCase().includes(needle));
+  }
+
+  const total = entries.length;
+  const shown = entries.slice(0, limit);
+
+  // Group by parameter surface. Codegen emits params in a stable order, so the
+  // serialised array is a sound identity for "same surface".
+  const byShape = new Map<string, { params: readonly Param[]; entries: typeof shown }>();
+  for (const entry of shown) {
+    const params = entry.params as readonly Param[];
+    const shape = JSON.stringify(params);
+    const bucket = byShape.get(shape);
+    if (bucket) bucket.entries.push(entry);
+    else byShape.set(shape, { params, entries: [entry] });
+  }
+
+  // Commonest surface first, then alphabetically — so `p1` is the provider's
+  // house style and the ids stay stable across identical calls.
+  const profiles = [...byShape.values()].sort(
+    (a, b) =>
+      b.entries.length - a.entries.length ||
+      modelIdOf(a.entries[0]!).localeCompare(modelIdOf(b.entries[0]!)),
+  );
+  const profileOf = new Map<string, string>();
+  profiles.forEach((profile, i) => {
+    for (const entry of profile.entries) profileOf.set(modelIdOf(entry), `p${i + 1}`);
+  });
+
+  const models = shown.map((entry) => {
+    const id = modelIdOf(entry);
+    return {
+      model: id,
+      authType: entry.authType,
+      ...("wireId" in entry ? { wireId: entry.wireId } : {}),
+      // Lifecycle travels with the row: a tool whose whole job is helping an
+      // agent choose a model must not hand back a retired one unmarked.
+      ...(entry.status !== undefined ? { status: entry.status } : {}),
+      ...(entry.replacement !== undefined ? { replacement: entry.replacement } : {}),
+      ...(entry.shutdownOn !== undefined ? { shutdownOn: entry.shutdownOn } : {}),
+      profile: profileOf.get(id),
+    };
+  });
+
+  // Bedrock reaches most models through a cross-region inference profile, so the
+  // wire id carries a placeholder the caller has to fill in. Say so, in the
+  // response that hands over those ids, rather than leaving it to the docs.
+  const templated = shown.some((e) => "wireId" in e && e.wireId.includes("{scope}"));
+
   return {
-    parameter,
-    total: matches.length,
-    returned: Math.min(matches.length, limit),
-    truncated: matches.length > limit,
-    models: matches.slice(0, limit).map(({ model, param }) => ({
-      model,
-      type: param.type,
-      ...(param.default !== undefined ? { default: param.default } : {}),
-      ...(param.range ? { range: param.range } : {}),
-      ...(param.values ? { values: param.values } : {}),
-      ...(param.applicability ? { appliesOnlyWhen: param.applicability } : {}),
+    provider,
+    baseUrls: PROVIDER_ENDPOINTS[provider as keyof typeof PROVIDER_ENDPOINTS],
+    total,
+    returned: shown.length,
+    truncated: total > shown.length,
+    paramProfiles: profiles.map((profile, i) => ({
+      id: `p${i + 1}`,
+      modelCount: profile.entries.length,
+      parameterCount: profile.params.length,
+      params: profile.params.map(describeParam),
+      defaults: getDefaults(modelIdOf(profile.entries[0]!) as ModelId),
     })),
-    docs: `https://modelparams.dev/parameters/${parameter.replace(/\./g, "-")}`,
+    models,
+    ...(templated
+      ? {
+          wireIdNote:
+            "A wireId containing {scope} needs one substitution before you send it: the " +
+            "routing geography of the inference profile — us, eu, apac, jp, au, ca, sa, or " +
+            "global. A wireId without the placeholder is already complete.",
+        }
+      : {}),
+    docs: `https://modelparams.dev/providers/${provider}`,
   };
 }
