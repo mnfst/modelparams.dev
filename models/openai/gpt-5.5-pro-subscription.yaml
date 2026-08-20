@@ -2,6 +2,7 @@
 provider: openai
 authType: subscription
 model: gpt-5.5-pro
+status: active
 params:
   - path: reasoning.effort
     type: enum

@@ -2,6 +2,7 @@
 provider: moonshot
 authType: subscription
 model: kimi-k2.7-code
+status: active
 params:
   - path: max_completion_tokens
     type: integer

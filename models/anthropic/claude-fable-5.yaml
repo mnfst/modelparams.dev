@@ -2,6 +2,7 @@
 provider: anthropic
 authType: api_key
 model: claude-fable-5
+status: active
 params:
   - path: max_tokens
     type: integer

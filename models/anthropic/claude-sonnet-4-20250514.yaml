@@ -2,6 +2,9 @@
 provider: anthropic
 authType: api_key
 model: claude-sonnet-4-20250514
+status: retired
+replacement: anthropic/claude-sonnet-4-6
+shutdownOn: 2026-06-15
 params:
   - path: max_tokens
     type: integer

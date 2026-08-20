@@ -2,6 +2,7 @@
 provider: deepseek
 authType: api_key
 model: deepseek-v4-flash
+status: active
 params:
   - path: max_tokens
     type: integer

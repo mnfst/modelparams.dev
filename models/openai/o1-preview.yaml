@@ -2,6 +2,9 @@
 provider: openai
 authType: api_key
 model: o1-preview
+status: retired
+replacement: openai/o3
+shutdownOn: 2025-07-28
 params:
   - path: max_tokens
     type: integer
