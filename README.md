@@ -125,7 +125,7 @@ claude mcp add --transport http modelparams https://modelparams.dev/mcp
 codex mcp add modelparams --url https://modelparams.dev/mcp
 ```
 
-Four tools: `validate_model_params` to check a params object before you send it, `get_model_params` for one model's full surface, `list_models` and `find_models_supporting` to search the catalog.
+Four tools: `validate_model_params` to check a params object before you send it, `get_model_params` for one model's parameter surface and lifecycle metadata, `list_models` and `find_models_supporting` to search the catalog.
 
 **Without MCP** — `npx skills add mnfst/modelparams.dev` installs the companion agent skill, and [llms.txt](https://modelparams.dev/llms.txt) points an agent at a URL.
 

@@ -77,7 +77,7 @@ Issue codes: `unknown_parameter` (no such knob on this model), `invalid_value` (
 
 ### `get_model_params`
 
-Every parameter for one model — type, range, enum values, default, and the conditional rules that gate it.
+Every parameter for one model — type, range, enum values, default, and the conditional rules that gate it. The top-level response also includes `status`, `replacement`, and `shutdownOn` when that lifecycle metadata is tracked; these fields are not request parameters.
 
 ### `list_models`
 
