@@ -2,8 +2,7 @@
 provider: mistral
 authType: api_key
 model: devstral-2512
-status: retired
-shutdownOn: 2026-07-31
+status: deprecated
 params:
   - path: max_tokens
     type: integer
