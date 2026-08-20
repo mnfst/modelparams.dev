@@ -19918,7 +19918,6 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "kimi-k2.5",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20485,7 +20484,6 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-128k",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20625,7 +20623,6 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-32k",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20765,7 +20762,6 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-8k",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
