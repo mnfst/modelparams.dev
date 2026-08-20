@@ -79,8 +79,9 @@ export function createServer(version = "0.0.0"): McpServer {
       title: "Get model parameters",
       description:
         "List every parameter a model accepts, with its type, allowed range or enum values, " +
-        "default, and any conditional rules governing when it applies. Use before writing " +
-        "code that calls a model, or when building a model settings UI.",
+        "default, and any conditional rules governing when it applies. Also returns lifecycle " +
+        "status and migration guidance when tracked. Use before writing code that calls a " +
+        "model, or when building a model settings UI.",
       inputSchema: {
         model: z
           .string()

@@ -31,6 +31,10 @@ You don't need to know the schema to file one. A link to the official docs is th
 
 3. **Required top-level fields:** `provider`, `authType` (`api_key` or `subscription`), `model`, `params`.
 
+   Optional lifecycle fields are `status` (`active`, `deprecated`, or
+   `retired`), `replacement` (a provider-qualified model id), and `shutdownOn`
+   (ISO `YYYY-MM-DD`). Omit `status` when lifecycle status has not been tracked.
+
 4. **Parameter shape:** each item in `params` has:
    - `path` (required): exact provider API request parameter path; supports dot notation for nested fields (`thinking.type`, `generationConfig.topK`).
    - `type` (required): one of `boolean`, `enum`, `integer`, `number`, `string`.

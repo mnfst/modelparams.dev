@@ -1,9 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { homeDescription, homeTitle } from "../src/build/render.js";
 import {
+  modelLifecycleSummary,
   modelPageDescription,
   modelPageTitle,
   modelParamProse,
+  renderModelPage,
 } from "../src/build/render-model.js";
 import { providerPageDescription, providerPageTitle } from "../src/build/render-provider.js";
 import { parameterPageDescription, parameterPageTitle } from "../src/build/render-parameter.js";
@@ -111,6 +113,33 @@ describe("model page meta", () => {
     const desc = modelPageDescription(model());
     expect(desc).toContain("Anthropic Claude Opus 4.7");
     expect(desc).toContain("temperature");
+  });
+
+  it("summarizes lifecycle metadata when present", () => {
+    expect(
+      modelLifecycleSummary(
+        model({
+          status: "deprecated",
+          replacement: "anthropic/claude-opus-4-8",
+          shutdownOn: "2026-10-01",
+        }),
+      ),
+    ).toBe(
+      "This model is deprecated. Shutdown date: 2026-10-01. Suggested replacement: anthropic/claude-opus-4-8.",
+    );
+    expect(modelLifecycleSummary(model())).toBeNull();
+  });
+
+  it("renders lifecycle status and migration guidance", async () => {
+    const entry = model({
+      status: "deprecated",
+      replacement: "anthropic/claude-opus-4-8",
+      shutdownOn: "2026-10-01",
+    });
+    const html = await renderModelPage(entry, [entry]);
+    expect(html).toContain(">Deprecated</span>");
+    expect(html).toContain("Shutdown date: 2026-10-01.");
+    expect(html).toContain("Suggested replacement: anthropic/claude-opus-4-8.");
   });
 });
 

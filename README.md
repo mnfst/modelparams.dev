@@ -100,6 +100,20 @@ curl -s https://modelparams.dev/api/v1/validate \
 }
 ```
 
+### Model lifecycle
+
+Full model records also expose lifecycle metadata:
+
+```yaml
+status: deprecated
+replacement: openai/gpt-5.6-sol
+shutdownOn: 2026-10-23
+```
+
+`status` is `active`, `deprecated`, or `retired`. When lifecycle status has not
+been tracked, the field stays absent from YAML, the API, and package data.
+`replacement` and `shutdownOn` stay absent until the provider publishes them.
+
 ## Agents
 
 Give a coding agent the catalog, so it looks parameters up instead of recalling them.
@@ -111,7 +125,7 @@ claude mcp add --transport http modelparams https://modelparams.dev/mcp
 codex mcp add modelparams --url https://modelparams.dev/mcp
 ```
 
-Four tools: `validate_model_params` to check a params object before you send it, `get_model_params` for one model's full surface, `list_models` and `find_models_supporting` to search the catalog.
+Four tools: `validate_model_params` to check a params object before you send it, `get_model_params` for one model's parameter surface and lifecycle metadata, `list_models` and `find_models_supporting` to search the catalog.
 
 **Without MCP** — `npx skills add mnfst/modelparams.dev` installs the companion agent skill, and [llms.txt](https://modelparams.dev/llms.txt) points an agent at a URL.
 

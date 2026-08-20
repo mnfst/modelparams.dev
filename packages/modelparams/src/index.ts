@@ -14,7 +14,7 @@ export type {
 export type { ApplicabilityIssue, DropCode, DroppedParam, DropResult } from "./applicability.js";
 export type { ModelId, Provider } from "./generated/model-ids.js";
 export type { ParamsById } from "./generated/params-by-id.js";
-export type { CatalogEntry } from "./generated/data.js";
+export type { CatalogEntry, LifecycleStatus } from "./generated/data.js";
 export type { ParamIssue, ParseParamsResult } from "./parse.js";
 export type {
   StandardSchemaV1,

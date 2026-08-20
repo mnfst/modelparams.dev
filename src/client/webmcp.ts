@@ -4,6 +4,7 @@
 // server-side modules (and no zod) into the client bundle.
 
 type AuthType = "api_key" | "subscription";
+type LifecycleStatus = "active" | "deprecated" | "retired";
 
 interface CatalogParam {
   path: string;
@@ -18,6 +19,9 @@ interface CatalogModel {
   provider: string;
   authType: AuthType;
   model: string;
+  status?: LifecycleStatus;
+  replacement?: string;
+  shutdownOn?: string;
   params: CatalogParam[];
 }
 
@@ -144,6 +148,9 @@ export function searchCatalog(catalog: Catalog, params: Record<string, unknown>)
       provider: model.provider,
       model: model.model,
       authType: model.authType,
+      status: model.status,
+      replacement: model.replacement,
+      shutdownOn: model.shutdownOn,
       parameterCount: model.params.length,
       parameters: model.params.map((p) => p.path),
     })),

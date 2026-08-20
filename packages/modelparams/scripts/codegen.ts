@@ -66,7 +66,6 @@ async function main(): Promise<void> {
 
   const ids = models.map(modelId);
   const providers = [...new Set(models.map((m) => m.provider))].sort();
-
   // 1. model-ids.ts — ModelId union + Provider union
   await fs.writeFile(
     path.join(OUT_DIR, "model-ids.ts"),
@@ -103,8 +102,18 @@ async function main(): Promise<void> {
     path.join(OUT_DIR, "data.ts"),
     HEADER +
       `import type { ModelId } from "./model-ids.js";\n\n` +
-      `export const CATALOG = ${JSON.stringify(models, null, 2)} as const;\n\n` +
-      `export type CatalogEntry = (typeof CATALOG)[number];\n\n` +
+      `const GENERATED_CATALOG = ${JSON.stringify(models, null, 2)} as const;\n\n` +
+      `type GeneratedCatalogEntry = (typeof GENERATED_CATALOG)[number];\n` +
+      `export type LifecycleStatus = "active" | "deprecated" | "retired";\n` +
+      `type WithLifecycle<T> = T extends unknown\n` +
+      `  ? Omit<T, "status" | "replacement" | "shutdownOn"> & {\n` +
+      `      readonly status?: LifecycleStatus;\n` +
+      `      readonly replacement?: string;\n` +
+      `      readonly shutdownOn?: string;\n` +
+      `    }\n` +
+      `  : never;\n` +
+      `export type CatalogEntry = WithLifecycle<GeneratedCatalogEntry>;\n\n` +
+      `export const CATALOG: readonly CatalogEntry[] = GENERATED_CATALOG;\n\n` +
       `function authSuffix(authType: CatalogEntry["authType"]): "" | "-subscription" {\n` +
       `  return authType === "api_key" ? "" : "-subscription";\n` +
       `}\n\n` +

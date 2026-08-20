@@ -18,6 +18,11 @@
     <% if (isSubscription) { %>
     <span class="inline-flex shrink-0 items-center bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200"><%= helpers.authLabel(model.authType) %></span>
     <% } %>
+    <% if (model.status === "deprecated") { %>
+    <span class="inline-flex shrink-0 items-center bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/50 dark:text-amber-200">Deprecated</span>
+    <% } else if (model.status === "retired") { %>
+    <span class="inline-flex shrink-0 items-center bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900/50 dark:text-red-200">Retired</span>
+    <% } %>
     <span class="text-xs tabular-nums text-slate-500 dark:text-slate-400"><%= model.params.length %> param<%= model.params.length === 1 ? "" : "s" %></span>
   </div>
   <h1 class="mt-3 text-balance font-bold tracking-tight">
@@ -26,6 +31,11 @@
   <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-600 dark:text-slate-300 sm:text-base">
     <%= intro %>
   </p>
+  <% if (lifecycleSummary) { %>
+  <p class="mt-3 max-w-2xl border-l-2 border-amber-400 pl-3 text-sm text-slate-700 dark:text-slate-300">
+    <%= lifecycleSummary %>
+  </p>
+  <% } %>
   <p class="mt-3 max-w-2xl text-pretty text-sm text-slate-500 dark:text-slate-400">
     After the parameter <em>count</em> instead — how many weights <%= modelName %> has?
     That's a different number, and we don't track it.

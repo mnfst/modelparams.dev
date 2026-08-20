@@ -61,6 +61,25 @@ describe("loadAllModels", () => {
       "anthropic/claude-opus-4-7",
       "anthropic/claude-opus-4-7-subscription",
     ]);
+    expect(result.models.every((model) => model.status === undefined)).toBe(true);
+  });
+
+  it("preserves explicit lifecycle metadata", async () => {
+    await writeModel(
+      "anthropic/claude-opus-4-7.yaml",
+      VALID_OPUS.replace(
+        "params:",
+        "status: deprecated\nreplacement: anthropic/claude-opus-4-8\nshutdownOn: 2026-10-01\nparams:",
+      ),
+    );
+
+    const result = await loadAllModels(tmpRoot);
+    expect(result.issues).toEqual([]);
+    expect(result.models[0]).toMatchObject({
+      status: "deprecated",
+      replacement: "anthropic/claude-opus-4-8",
+      shutdownOn: "2026-10-01",
+    });
   });
 
   it("flags provider/path mismatch", async () => {

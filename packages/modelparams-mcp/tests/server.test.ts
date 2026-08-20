@@ -1,5 +1,6 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
+import { getModel } from "modelparams";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { createServer } from "../src/server.js";
 
@@ -25,6 +26,9 @@ interface ValidateResult {
 
 interface ModelParamsResult {
   model: string;
+  status?: "active" | "deprecated" | "retired";
+  replacement?: string;
+  shutdownOn?: string;
   parameterCount: number;
   params: ParamInfo[];
 }
@@ -168,6 +172,37 @@ describe("get_model_params", () => {
     });
     const display = out.params.find((p) => p.path === "thinking.display");
     expect(display!.appliesOnlyWhen).toBeDefined();
+  });
+
+  it("returns tracked lifecycle metadata at the top level", async () => {
+    const entry = getModel("openai/gpt-5.5") as unknown as Record<string, unknown>;
+    const previous = {
+      status: entry.status,
+      replacement: entry.replacement,
+      shutdownOn: entry.shutdownOn,
+    };
+
+    Object.assign(entry, {
+      status: "deprecated",
+      replacement: "openai/gpt-5.6-sol",
+      shutdownOn: "2026-10-23",
+    });
+
+    try {
+      const out = await call<ModelParamsResult>("get_model_params", {
+        model: "openai/gpt-5.5",
+      });
+      expect(out).toMatchObject({
+        status: "deprecated",
+        replacement: "openai/gpt-5.6-sol",
+        shutdownOn: "2026-10-23",
+      });
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete entry[key];
+        else entry[key] = value;
+      }
+    }
   });
 });
 

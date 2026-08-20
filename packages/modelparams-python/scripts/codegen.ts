@@ -188,7 +188,6 @@ async function main(): Promise<void> {
     providerModels.push(model);
     byProvider.set(model.provider, providerModels);
   }
-
   const typeFiles = new Set<string>(["__init__.py"]);
   for (const [provider, providerModels] of byProvider) {
     const filename = `${moduleName(provider)}.py`;
