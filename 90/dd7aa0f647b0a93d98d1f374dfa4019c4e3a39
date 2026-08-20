@@ -1,0 +1,323 @@
+models/cohere/command-a-plus-05-2026.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/deepseek/deepseek-reasoner.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/moonshot/kimi-k2.7-code.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/minimax/MiniMax-M2.1-highspeed-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/minimax/MiniMax-M2.1-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-3.1-flash-lite-preview.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/minimax/MiniMax-M2.5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.5-pro.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.4-pro-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/kimi-k2.6-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/minimax/MiniMax-M3-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/deepseek/deepseek-chat.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/google/gemini-3-flash-preview-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/openai/gpt-5-nano.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/google/gemini-2.5-pro.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/anthropic/claude-sonnet-4-5-20250929-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-4-turbo-2024-04-09.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/google/gemini-3.5-flash.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xai/grok-4.20-multi-agent-0309.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/kimi-k2.7-code-highspeed-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/kimi-k2.5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/google/gemini-3.5-flash-lite.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-4.1-nano.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-sonnet-4-20250514-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/cohere/command-a-03-2025.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+packages/modelparams/tests/runtime.test.ts
+  s_8ef413782f6350::t_f7ef640ccd76e8 60
+models/google/gemini-3.1-flash-lite-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/anthropic/claude-3-5-haiku-20241022.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.4-nano.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-3-opus-20240229.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/kimi-k2.7-code-highspeed.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.1-codex-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.3-codex-spark-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/o1-preview.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-sonnet-4-20250514.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/mistral/open-mistral-nemo.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/openai/gpt-4.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-4.1-mini.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-3-5-haiku-latest.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-sonnet-4-5-20250929.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/moonshot-v1-128k.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.1-codex-max-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/cohere/command-a-reasoning-08-2025.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/cohere/command-a-translate-08-2025.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-3.5-turbo.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-opus-4-20250514-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.4-mini-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-sonnet-4-5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-haiku-4-5-20251001.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-3-5-sonnet-latest.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/o3-mini.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/xai/grok-4.3.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-7.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.2-codex-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/xai/grok-4.5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-sonnet-4-6-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/mistral/devstral-2512.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/google/gemini-2.5-flash-lite.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/anthropic/claude-opus-4-8.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/kimi-k3.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.6-sol.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/o1-mini.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/cohere/command-r7b-12-2024.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5-chat-latest.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/xai/grok-4.20-0309-reasoning.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-haiku-4-5-20251001-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-6-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-4.1.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/minimax/MiniMax-M2.7-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-1-20250805.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/minimax/MiniMax-M2.7-highspeed-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/o1.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/xiaomi/mimo-v2.5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-oss-120b.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/o4-mini.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.3-codex.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xai/grok-build-0.1.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-4o-mini.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-20250514.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-3-flash-preview.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/deepseek/deepseek-v4-flash.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.6-terra-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xai/grok-4.20-0309-non-reasoning-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/cohere/command-r-plus-08-2024.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/o3-pro.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/google/gemini-3.1-flash-lite-preview-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-fable-5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-3.1-flash-lite.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/openai/gpt-4o.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/xai/grok-4.5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xiaomi/mimo-v2.5-pro.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+packages/modelparams-python/tests/test_catalog.py
+  s_8ef413782f6350::t_f7ef640ccd76e8 48
+models/anthropic/claude-sonnet-4-6.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/chatgpt-4o-latest.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/openai/gpt-4-turbo.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/xai/grok-4.20-0309-non-reasoning.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-3.1-pro-preview-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-sonnet-4-5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5-mini.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.4-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-3.1-pro-preview.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-2.5-flash.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/google/gemini-2.5-flash-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/minimax/MiniMax-M2-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-3.6-flash.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/deepseek/deepseek-v4-pro.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/moonshot-v1-32k.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.6-sol-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-3-7-sonnet-20250219.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/cohere/command-r-08-2024.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-5-20251101.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-8-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/cohere/command-a-vision-07-2025.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-oss-20b.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-haiku-4-5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-6.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xai/grok-build-0.1-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-fable-5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/minimax/MiniMax-M2.5-highspeed-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.3-codex-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.6-luna.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xai/grok-4.3-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/o3.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.6-terra.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-4-0613.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-opus-4-5-20251101-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.4.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xiaomi/mimo-v2.5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-sonnet-5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/kimi-k2.7-code-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+packages/modelparams-mcp/tests/server.test.ts
+  s_8ef413782f6350::t_99784199c2bf78 163
+models/anthropic/claude-3-5-sonnet-20241022.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-3-7-sonnet-latest.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-haiku-4-5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/moonshot-v1-8k.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/anthropic/claude-opus-4-1-20250805-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-7
+models/openai/gpt-5.4-mini.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.5-pro-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/xai/grok-4.20-0309-reasoning-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-5-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-sonnet-5.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/anthropic/claude-opus-4-7-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/moonshot/kimi-k2.6.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/openai/gpt-5.4-pro.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+models/google/gemini-2.5-flash-lite-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/google/gemini-2.5-pro-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5-6
+models/openai/gpt-5.6-luna-subscription.yaml
+  s_8ef413782f6350::t_712cb686a67836 5
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_8ef413782f6350::t_fb7fc10ba703da 2719-2721,2808-2810,2897-2899,2986-2988,3075-3077,3192-3194,3309-3311,3484,3547,3724,3839,3958,4077,4306-4308,4446-4448,4586-4588,4716-4718,4846,4997,5148,5305,5462,5527,5592,5657,5837,5910,5983-5985,6113-6115,6243,6359,6478,6597,6713,6870,7142,7207,10469,10607,10745,10910,11048,11186,11314,11442,11580-11582,11653-11655,11743,11831,13327-13328,13423-13424,13515-13516,13607-13608,13703-13704,13798-13799,13893-13894,13991-13992,14089-14090,14187-14189,14286-14288,14385-14386,14483,14676,14771,14868,14965,17070,17216,17260,17406,17450,17596,17640,17735,17991-17992,19815-19816,19923-19925,20010,20107,20161,20247,20333,20374,20415,20490-20492,20630-20632,20770-20772,22045-22046,22091-22093,22182-22184,22260-22262,22307-22309,22354-22356,22401,22446,22491-22493,22538,22627,22672-22674,22707-22709,22728-22730,22763-22765,22830-22832,22882-22884,22966-22968,23067,23100,23150,23200,23234,23268,23318,23352,23384,23432,23482,23516,23548,23596,23679,23713,23763,23797,23847,23881,23931,24007,24185-24187,24220-24222,24255-24257,24290-24292,24325-24327,24360-24362,24395-24397,26592,26663,26734,26798,26862,26932,27010,27088,27166,27314,27378,27442,27520,27631
+packages/modelparams/src/generated/data.ts
+  s_8ef413782f6350::t_4e23d1a933f3bd 2724-2726,2813-2815,2902-2904,2991-2993,3080-3082,3197-3199,3314-3316,3489,3552,3729,3844,3963,4082,4311-4313,4451-4453,4591-4593,4721-4723,4851,5002,5153,5310,5467,5532,5597,5662,5842,5915,5988-5990,6118-6120,6248,6364,6483,6602,6718,6875,7147,7212,10474,10612,10750,10915,11053,11191,11319,11447,11585-11587,11658-11660,11748,11836,13332-13333,13428-13429,13520-13521,13612-13613,13708-13709,13803-13804,13898-13899,13996-13997,14094-14095,14192-14194,14291-14293,14390-14391,14488,14681,14776,14873,14970,17075,17221,17265,17411,17455,17601,17645,17740,17996-17997,19820-19821,19928-19930,20015,20112,20166,20252,20338,20379,20420,20495-20497,20635-20637,20775-20777,22050-22051,22096-22098,22187-22189,22265-22267,22312-22314,22359-22361,22406,22451,22496-22498,22543,22632,22677-22679,22712-22714,22733-22735,22768-22770,22835-22837,22887-22889,22971-22973,23072,23105,23155,23205,23239,23273,23323,23357,23389,23437,23487,23521,23553,23601,23684,23718,23768,23802,23852,23886,23936,24012,24190-24192,24225-24227,24260-24262,24295-24297,24330-24332,24365-24367,24400-24402,26597,26668,26739,26803,26867,26937,27015,27093,27171,27319,27383,27447,27525,27636
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "90dd7aa0f647b0a93d98d1f374dfa4019c4e3a39",
+  "prompts": {},
+  "sessions": {
+    "s_8ef413782f6350": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01fb5-0d1d-7710-b513-57889f15dfa1",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
