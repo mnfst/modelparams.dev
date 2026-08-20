@@ -1,0 +1,200 @@
+src/schema/model.ts
+  s_42e0fc047eb6c5::t_9dde3d0cca564e 169-178
+  s_42e0fc047eb6c5::t_45f0b669c7a971 180,183
+docs/model-parameters-schema.md
+  s_42e0fc047eb6c5::t_a9ea381280459d 59-67
+README.md
+  s_42e0fc047eb6c5::t_225296a3d427dc 129,131
+api/v1/validate.ts
+  s_42e0fc047eb6c5::t_8f601be64b9d88 195
+models/bedrock/claude-haiku-4-5.yaml
+  s_42e0fc047eb6c5::t_7ac0f3e44390e8 5
+models/bedrock/claude-opus-4-5-20251101.yaml
+  s_42e0fc047eb6c5::t_2b036d109c36a9 5
+models/bedrock/claude-opus-4-6.yaml
+  s_42e0fc047eb6c5::t_28ab77047e5465 5
+models/bedrock/claude-sonnet-4-5.yaml
+  s_42e0fc047eb6c5::t_416da6e2006b4e 5
+models/bedrock/claude-sonnet-4-6.yaml
+  s_42e0fc047eb6c5::t_02ac016187408e 5
+models/bedrock/deepseek-r1.yaml
+  s_42e0fc047eb6c5::t_30b607b7744363 5
+models/bedrock/deepseek-v3.2.yaml
+  s_42e0fc047eb6c5::t_73b32936f04957 5
+models/bedrock/devstral-2-123b.yaml
+  s_42e0fc047eb6c5::t_53d089e957272e 5
+models/bedrock/gemma-3-12b-it.yaml
+  s_42e0fc047eb6c5::t_e59a889f059adb 5
+models/bedrock/gemma-3-27b-it.yaml
+  s_42e0fc047eb6c5::t_1ba1192f50d4e3 5
+models/bedrock/gemma-3-4b-it.yaml
+  s_42e0fc047eb6c5::t_49e941f2b9853d 5
+models/bedrock/glm-4.7-flash.yaml
+  s_42e0fc047eb6c5::t_da3f65a23a6b0f 5
+models/bedrock/glm-4.7.yaml
+  s_42e0fc047eb6c5::t_ce1fa7910b5356 5
+models/bedrock/glm-5.yaml
+  s_42e0fc047eb6c5::t_0b0819d3aaa3e4 5
+models/bedrock/gpt-oss-120b.yaml
+  s_42e0fc047eb6c5::t_6820769f8768e5 5
+models/bedrock/gpt-oss-20b.yaml
+  s_42e0fc047eb6c5::t_55d244a47244a4 5
+models/bedrock/gpt-oss-safeguard-120b.yaml
+  s_42e0fc047eb6c5::t_895e320286d754 5
+models/bedrock/gpt-oss-safeguard-20b.yaml
+  s_42e0fc047eb6c5::t_c9f389d57d0fa3 5
+models/bedrock/kimi-k2-thinking.yaml
+  s_42e0fc047eb6c5::t_9905984eed59e9 5
+models/bedrock/kimi-k2.5.yaml
+  s_42e0fc047eb6c5::t_d7d09a4a4e38fb 5
+models/bedrock/llama3-1-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_4bfeb1a22aeb14 5
+models/bedrock/llama3-1-8b-instruct.yaml
+  s_42e0fc047eb6c5::t_5ffd1722514b47 5
+models/bedrock/llama3-3-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_367e633da7b388 5
+models/bedrock/llama3-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_b673a70cece5c1 5
+models/bedrock/llama3-8b-instruct.yaml
+  s_42e0fc047eb6c5::t_7c6eb744446975 5
+models/bedrock/magistral-small-2509.yaml
+  s_42e0fc047eb6c5::t_68d1ae4ef1c356 5
+models/bedrock/minimax-m2.1.yaml
+  s_42e0fc047eb6c5::t_69a8668cce5ed9 5
+models/bedrock/minimax-m2.5.yaml
+  s_42e0fc047eb6c5::t_a4d241f635f0b0 5
+models/bedrock/minimax-m2.yaml
+  s_42e0fc047eb6c5::t_25327abce21904 5
+models/bedrock/ministral-3-14b-instruct.yaml
+  s_42e0fc047eb6c5::t_4b57a4429b7d1f 5
+models/bedrock/ministral-3-3b-instruct.yaml
+  s_42e0fc047eb6c5::t_8a6efedd7e0b6e 5
+models/bedrock/ministral-3-8b-instruct.yaml
+  s_42e0fc047eb6c5::t_0163376e2123c3 5
+models/bedrock/mistral-7b-instruct.yaml
+  s_42e0fc047eb6c5::t_2685c062efecff 5
+models/bedrock/mistral-large-2402.yaml
+  s_42e0fc047eb6c5::t_27a3c7d56c3b57 5
+models/bedrock/mistral-large-3-675b-instruct.yaml
+  s_42e0fc047eb6c5::t_e2d454b0fc00f9 5
+models/bedrock/mistral-small-2402.yaml
+  s_42e0fc047eb6c5::t_b4987d67f78842 5
+models/bedrock/mixtral-8x7b-instruct.yaml
+  s_42e0fc047eb6c5::t_618951fa73d32f 5
+models/bedrock/nemotron-nano-12b.yaml
+  s_42e0fc047eb6c5::t_2e71e9d2857072 5
+models/bedrock/nemotron-nano-3-30b.yaml
+  s_42e0fc047eb6c5::t_4d94a9892c9a81 5
+models/bedrock/nemotron-nano-9b.yaml
+  s_42e0fc047eb6c5::t_fbac0005837a31 5
+models/bedrock/nemotron-super-3-120b.yaml
+  s_42e0fc047eb6c5::t_427a734cb6e085 5
+models/bedrock/nova-2-lite.yaml
+  s_42e0fc047eb6c5::t_45d052791fff1b 5
+models/bedrock/nova-lite.yaml
+  s_42e0fc047eb6c5::t_eb3248593d9df1 5
+models/bedrock/nova-micro.yaml
+  s_42e0fc047eb6c5::t_5829a2298d3ab9 5
+models/bedrock/nova-pro.yaml
+  s_42e0fc047eb6c5::t_c08e744622c0b8 5
+models/bedrock/palmyra-vision-7b.yaml
+  s_42e0fc047eb6c5::t_ccb8d4ec3216f7 5
+models/bedrock/palmyra-x4.yaml
+  s_42e0fc047eb6c5::t_28b15e26ea180c 5
+models/bedrock/palmyra-x5.yaml
+  s_42e0fc047eb6c5::t_778f03ca11ec2a 5
+models/bedrock/pixtral-large-2502.yaml
+  s_42e0fc047eb6c5::t_cba2871cad3ea2 5
+models/bedrock/qwen3-32b.yaml
+  s_42e0fc047eb6c5::t_b19621651e0fe5 5
+models/bedrock/qwen3-coder-30b-a3b.yaml
+  s_42e0fc047eb6c5::t_cce51afb508226 5
+models/bedrock/qwen3-coder-next.yaml
+  s_42e0fc047eb6c5::t_9b0937abca156f 5
+models/bedrock/qwen3-next-80b-a3b.yaml
+  s_42e0fc047eb6c5::t_c272d476387505 5
+models/bedrock/qwen3-vl-235b-a22b.yaml
+  s_42e0fc047eb6c5::t_d83fe52f845be2 5
+models/bedrock/voxtral-mini-3b-2507.yaml
+  s_42e0fc047eb6c5::t_8aaf2f6e03f047 5
+models/bedrock/voxtral-small-24b-2507.yaml
+  s_42e0fc047eb6c5::t_e1cfc415cd3964 5
+models/fireworks/deepseek-v4-flash-0731.yaml
+  s_42e0fc047eb6c5::t_5eca2a90c72312 5
+models/fireworks/deepseek-v4-pro-0813.yaml
+  s_42e0fc047eb6c5::t_11830b93ade8b2 5
+models/fireworks/deepseek-v4-pro.yaml
+  s_42e0fc047eb6c5::t_cb08d0929c18c8 5
+models/fireworks/glm-5p2.yaml
+  s_42e0fc047eb6c5::t_8a7d529044197e 5
+models/fireworks/gpt-oss-120b.yaml
+  s_42e0fc047eb6c5::t_03d76232d14f0b 5
+models/fireworks/gpt-oss-20b.yaml
+  s_42e0fc047eb6c5::t_62492e5c77aea4 5
+models/fireworks/inkling.yaml
+  s_42e0fc047eb6c5::t_6bdf6887cc5f29 5
+models/fireworks/kimi-k2p6.yaml
+  s_42e0fc047eb6c5::t_f4336e99f33d99 5
+models/fireworks/kimi-k2p7-code.yaml
+  s_42e0fc047eb6c5::t_e76952ad397452 5
+models/fireworks/kimi-k3.yaml
+  s_42e0fc047eb6c5::t_85e07e40d0c36c 5
+models/fireworks/minimax-m2p7.yaml
+  s_42e0fc047eb6c5::t_c112440ece3e63 5
+models/fireworks/minimax-m3.yaml
+  s_42e0fc047eb6c5::t_dc6c04a6ed35be 5
+models/fireworks/muse-glimmer-30b.yaml
+  s_42e0fc047eb6c5::t_9339ad04735221 5
+models/fireworks/qwen3p7-plus.yaml
+  s_42e0fc047eb6c5::t_bb51facc0ae908 5
+models/fireworks/qwen3p8-2p4t-a95b.yaml
+  s_42e0fc047eb6c5::t_a337f583bc0846 5
+models/fireworks/qwen3p8-max.yaml
+  s_42e0fc047eb6c5::t_2f45cb291bfcba 5
+models/groq/gpt-oss-120b.yaml
+  s_42e0fc047eb6c5::t_84871141d8c0cd 5
+models/groq/gpt-oss-20b.yaml
+  s_42e0fc047eb6c5::t_7e5e390290ea50 5
+models/groq/gpt-oss-safeguard-20b.yaml
+  s_42e0fc047eb6c5::t_826efe56d7fa03 5
+models/groq/qwen3.6-27b.yaml
+  s_42e0fc047eb6c5::t_94ac823dbe746b 5
+models/nvidia/deepseek-v4-flash-0731.yaml
+  s_42e0fc047eb6c5::t_bd754793393909 5
+packages/modelparams-mcp/README.md
+  s_42e0fc047eb6c5::t_1380a7a4c97ec6 94,96
+packages/modelparams-mcp/src/tools.ts
+  s_42e0fc047eb6c5::t_a4cee71fc7e18f 112,142
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_42e0fc047eb6c5::t_55854844372339 7209,7295,7381,7467,7553,7639,7688,7737,7786,7835,7884,7933,7982,8031,8080,8129,8178,8227,8276,8325,8374,8423,8472,8521,8570,8619,8668,8754,8803,8852,8938,8987,9036,9095,9154,9203,9262,9321,9370,9419,9468,9517,9576,9635,9694,9753,9802,9851,9900,9949,9998,10047,10096,10145,10194,10243,11840,11928,12016,12104,12192,12280,12368,12456,12544,12632,12720,12808,12896,12984,13072,13160,15778,15898,16018,16257,20769
+packages/modelparams-python/src/modelparams/models.py
+  s_42e0fc047eb6c5::t_5b2a0d6aa39a0d 64
+packages/modelparams/src/generated/data.ts
+  s_42e0fc047eb6c5::t_15a53a38a7451e 7214,7300,7386,7472,7558,7644,7693,7742,7791,7840,7889,7938,7987,8036,8085,8134,8183,8232,8281,8330,8379,8428,8477,8526,8575,8624,8673,8759,8808,8857,8943,8992,9041,9100,9159,9208,9267,9326,9375,9424,9473,9522,9581,9640,9699,9758,9807,9856,9905,9954,10003,10052,10101,10150,10199,10248,11845,11933,12021,12109,12197,12285,12373,12461,12549,12637,12725,12813,12901,12989,13077,13165,15783,15903,16023,16262,20774
+packages/modelparams/src/resolve.ts
+  s_42e0fc047eb6c5::t_afb0ea3bec54ed 121,127-128,137,161
+packages/modelparams/tests/resolve.test.ts
+  s_42e0fc047eb6c5::t_2dcd6a8c538cf6 103
+src/data/llms.ts
+  s_42e0fc047eb6c5::t_f6f8c693b9d558 40,44
+tests/schema.test.ts
+  s_42e0fc047eb6c5::t_41479334b15e86 60,65,70-71
+tests/validate-endpoint.test.ts
+  s_42e0fc047eb6c5::t_95235feaa2e000 8,33,36,38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c65afe1503d0b483b1e79664d85158b3493aa297",
+  "prompts": {},
+  "sessions": {
+    "s_42e0fc047eb6c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8459669-8327-4fa0-b7f8-f5aeea60800a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

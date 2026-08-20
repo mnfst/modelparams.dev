@@ -1,0 +1,91 @@
+docs/model-parameters-schema.md
+  s_42e0fc047eb6c5::t_c75e77091ec42a 48-56
+packages/modelparams-mcp/README.md
+  s_42e0fc047eb6c5::t_3a3d6d5dac85a9 83-86
+src/data/llms.ts
+  s_42e0fc047eb6c5::t_b699e11029c624 40-45
+README.md
+  s_42e0fc047eb6c5::t_1cf5ded1e9f415 125
+models/bedrock/claude-haiku-4-5.yaml
+  s_42e0fc047eb6c5::t_2e9b5572ac6a9a 5,19,30,44-46,53-55
+models/bedrock/claude-opus-4-5-20251101.yaml
+  s_42e0fc047eb6c5::t_b86e92951a29e9 5,44-46,53-55
+models/bedrock/claude-opus-4-6.yaml
+  s_42e0fc047eb6c5::t_a20c11498b90c5 5,44-46,53-55
+models/bedrock/claude-sonnet-4-5.yaml
+  s_42e0fc047eb6c5::t_74e2f355b09ec6 5,19,30,44-46,54-55
+models/bedrock/claude-sonnet-4-6.yaml
+  s_42e0fc047eb6c5::t_bf2a1bec316697 5,44-46,53-55
+models/bedrock/deepseek-r1.yaml
+  s_42e0fc047eb6c5::t_0db13c066b625b 4-5
+models/bedrock/deepseek-v3.2.yaml
+  s_42e0fc047eb6c5::t_e0d67a24a5f3d3 4
+models/bedrock/gpt-oss-120b.yaml
+  s_42e0fc047eb6c5::t_7ced5bdab69044 4
+models/bedrock/gpt-oss-20b.yaml
+  s_42e0fc047eb6c5::t_1e7db150de8ebc 4-5
+models/bedrock/llama3-1-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_e859c68b9f0298 5
+models/bedrock/llama3-1-8b-instruct.yaml
+  s_42e0fc047eb6c5::t_1213db90d4c2f9 5
+models/bedrock/llama3-3-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_cd883841386050 5
+models/bedrock/minimax-m2.yaml
+  s_42e0fc047eb6c5::t_803d6f2fea841b 41-72
+models/bedrock/ministral-3-14b-instruct.yaml
+  s_42e0fc047eb6c5::t_22fd1db9f24224 41-72
+models/bedrock/mistral-7b-instruct.yaml
+  s_42e0fc047eb6c5::t_15c4fa541e26c8 44-46
+models/bedrock/mistral-large-2402.yaml
+  s_42e0fc047eb6c5::t_07b2b3ff125336 44-46
+models/bedrock/mistral-small-2402.yaml
+  s_42e0fc047eb6c5::t_bd3bea65f1281b 44-46
+models/bedrock/mixtral-8x7b-instruct.yaml
+  s_42e0fc047eb6c5::t_20cbf124ec00fa 44-46
+models/bedrock/nova-2-lite.yaml
+  s_42e0fc047eb6c5::t_13727b2c925d7f 5,41-49
+models/bedrock/nova-lite.yaml
+  s_42e0fc047eb6c5::t_1213929db08770 45-46
+models/bedrock/nova-micro.yaml
+  s_42e0fc047eb6c5::t_9f2df91b7b6dd0 45-46
+models/bedrock/nova-pro.yaml
+  s_42e0fc047eb6c5::t_24db32d9d432fe 45-46
+models/bedrock/palmyra-x4.yaml
+  s_42e0fc047eb6c5::t_aadf90b632b52f 5
+models/bedrock/palmyra-x5.yaml
+  s_42e0fc047eb6c5::t_377eaab847861d 5
+models/bedrock/pixtral-large-2502.yaml
+  s_42e0fc047eb6c5::t_848b0cd17d1def 5
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_42e0fc047eb6c5::t_5badb4a1d880e3 7209,7224,7236,7255,7265,7294-7295,7341,7351,7380-7381,7427,7437,7466-7467,7513,7523,7552-7553,7568,7580,7599,7609,7638-7639,7687-7688,8079,8125-8173,8374,8423,8472,8710-8746,8894-8930,9082,9141,9249,9308,9517,9559-9568,9622,9681,9740,9802,9851,9900
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_42e0fc047eb6c5::t_0128fe4b4cc6f5 95-96,104-105,469-470,478-479
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_42e0fc047eb6c5::t_a27c2d493d9c0c 118-119,127-128
+packages/modelparams-python/src/modelparams/types/bedrock.py
+  s_42e0fc047eb6c5::t_73fd06e1e8010f 73-74,86,88-89,98-110,196-209,218,347-349,386-388,537,720-721,729-730
+packages/modelparams/src/generated/data.ts
+  s_42e0fc047eb6c5::t_d6274d59edae15 7214,7229,7241,7260,7270,7299-7300,7346,7356,7385-7386,7432,7442,7471-7472,7518,7528,7557-7558,7573,7585,7604,7614,7643-7644,7692-7693,8084,8130-8178,8379,8428,8477,8715-8751,8899-8935,9087,9146,9254,9313,9522,9564-9573,9627,9686,9745,9807,9856,9905
+packages/modelparams/src/generated/defaults.ts
+  s_42e0fc047eb6c5::t_50159f1446fa31 503-504,512-513,524-526,529-531
+packages/modelparams/src/generated/model-ids.ts
+  s_42e0fc047eb6c5::t_2e5addccd92d02 93-94,102-103
+packages/modelparams/src/generated/params-by-id.ts
+  s_42e0fc047eb6c5::t_cfa3300fa652ee 643,652,661,670,679,685,733-739,810-812,831-833,910
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3f2972530361600c494fff4358706cee8292ac3b",
+  "prompts": {},
+  "sessions": {
+    "s_42e0fc047eb6c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8459669-8327-4fa0-b7f8-f5aeea60800a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

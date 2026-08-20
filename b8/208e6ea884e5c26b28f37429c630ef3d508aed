@@ -1,0 +1,148 @@
+README.md
+  s_42e0fc047eb6c5::t_a0565337fbe10d 135,137,145
+  s_42e0fc047eb6c5::t_f895962d7c8221 146
+src/data/llms.ts
+  s_42e0fc047eb6c5::t_debd2f9f5a88d7 40-46
+packages/modelparams-mcp/README.md
+  s_42e0fc047eb6c5::t_ada9122ee317b4 83-86
+docs/model-parameters-schema.md
+  s_42e0fc047eb6c5::t_d3ac07fd62d669 48-52
+models/bedrock/claude-haiku-4-5-20251001.yaml
+  s_42e0fc047eb6c5::t_89611fb6c3e369 1-68
+models/bedrock/claude-opus-4-5-20251101.yaml
+  s_42e0fc047eb6c5::t_144d7c174ceb15 1-68
+models/bedrock/claude-opus-4-6.yaml
+  s_42e0fc047eb6c5::t_36f1fe11c51177 1-68
+models/bedrock/claude-sonnet-4-5-20250929.yaml
+  s_42e0fc047eb6c5::t_9e32844b6cae43 1-68
+models/bedrock/claude-sonnet-4-6.yaml
+  s_42e0fc047eb6c5::t_2040fa63cbe857 1-68
+models/bedrock/devstral-2-123b.yaml
+  s_42e0fc047eb6c5::t_903e4c3800c44d 1-40
+models/bedrock/gemma-3-12b-it.yaml
+  s_42e0fc047eb6c5::t_92bfdc222ec97e 1-40
+models/bedrock/gemma-3-27b-it.yaml
+  s_42e0fc047eb6c5::t_80b5df82872ac0 1-40
+models/bedrock/gemma-3-4b-it.yaml
+  s_42e0fc047eb6c5::t_75ccd8a755cfd7 1-40
+models/bedrock/glm-4.7-flash.yaml
+  s_42e0fc047eb6c5::t_d439f5cefd078e 1-40
+models/bedrock/glm-4.7.yaml
+  s_42e0fc047eb6c5::t_44aa330da95da4 1-40
+models/bedrock/glm-5.yaml
+  s_42e0fc047eb6c5::t_b107d58730c8b6 1-40
+models/bedrock/gpt-oss-120b-1.yaml
+  s_42e0fc047eb6c5::t_c2531f50b52fea 1-40
+models/bedrock/gpt-oss-safeguard-120b.yaml
+  s_42e0fc047eb6c5::t_9d7289c383b69c 1-40
+models/bedrock/gpt-oss-safeguard-20b.yaml
+  s_42e0fc047eb6c5::t_dce48e47a37641 1-40
+models/bedrock/kimi-k2-thinking.yaml
+  s_42e0fc047eb6c5::t_e59cccd87e37e3 1-40
+models/bedrock/kimi-k2.5.yaml
+  s_42e0fc047eb6c5::t_68096b680fbc27 1-40
+models/bedrock/llama3-1-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_62d7fe56c902c6 1-40
+models/bedrock/llama3-1-8b-instruct.yaml
+  s_42e0fc047eb6c5::t_ab159360378daa 1-40
+models/bedrock/llama3-3-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_2aaa330bf3b72b 1-40
+models/bedrock/llama3-70b-instruct.yaml
+  s_42e0fc047eb6c5::t_278bb622217221 1-40
+models/bedrock/llama3-8b-instruct.yaml
+  s_42e0fc047eb6c5::t_24ac7448005eca 1-40
+models/bedrock/magistral-small-2509.yaml
+  s_42e0fc047eb6c5::t_5c50d5d95551b0 1-40
+models/bedrock/minimax-m2.1.yaml
+  s_42e0fc047eb6c5::t_b2c91553a8e783 1-40
+models/bedrock/minimax-m2.5.yaml
+  s_42e0fc047eb6c5::t_bbad4055438bb4 1-40
+models/bedrock/minimax-m2.yaml
+  s_42e0fc047eb6c5::t_08ff274bb52008 1-40
+models/bedrock/ministral-3-14b-instruct.yaml
+  s_42e0fc047eb6c5::t_d8444a391bc07b 1-40
+models/bedrock/ministral-3-3b-instruct.yaml
+  s_42e0fc047eb6c5::t_d1e320e1f52368 1-40
+models/bedrock/ministral-3-8b-instruct.yaml
+  s_42e0fc047eb6c5::t_96e6231e64f38d 1-40
+models/bedrock/mistral-7b-instruct.yaml
+  s_42e0fc047eb6c5::t_be03eaed742223 1-47
+models/bedrock/mistral-large-2402.yaml
+  s_42e0fc047eb6c5::t_dc464d65764739 1-47
+models/bedrock/mistral-large-3-675b-instruct.yaml
+  s_42e0fc047eb6c5::t_31538c01b39e73 1-40
+models/bedrock/mistral-small-2402.yaml
+  s_42e0fc047eb6c5::t_e392e47dd3e063 1-47
+models/bedrock/mixtral-8x7b-instruct.yaml
+  s_42e0fc047eb6c5::t_ca222f5d86d950 1-47
+models/bedrock/nemotron-nano-12b.yaml
+  s_42e0fc047eb6c5::t_6d0a5825f3ec3b 1-40
+models/bedrock/nemotron-nano-3-30b.yaml
+  s_42e0fc047eb6c5::t_9736e277716242 1-40
+models/bedrock/nemotron-nano-9b.yaml
+  s_42e0fc047eb6c5::t_219f8d22dc71e3 1-40
+models/bedrock/nemotron-super-3-120b.yaml
+  s_42e0fc047eb6c5::t_2872921991269a 1-40
+models/bedrock/nova-2-lite.yaml
+  s_42e0fc047eb6c5::t_b6889859fb7016 1-40
+models/bedrock/palmyra-vision-7b.yaml
+  s_42e0fc047eb6c5::t_dc280c7a1b7076 1-40
+models/bedrock/palmyra-x4.yaml
+  s_42e0fc047eb6c5::t_6a989875c48430 1-40
+models/bedrock/palmyra-x5.yaml
+  s_42e0fc047eb6c5::t_80169e370f6a43 1-40
+models/bedrock/pixtral-large-2502.yaml
+  s_42e0fc047eb6c5::t_67de95da99c6ca 1-40
+models/bedrock/qwen3-32b.yaml
+  s_42e0fc047eb6c5::t_189d505e86b9f3 1-40
+models/bedrock/qwen3-coder-30b-a3b.yaml
+  s_42e0fc047eb6c5::t_489c5962683b29 1-40
+models/bedrock/qwen3-coder-next.yaml
+  s_42e0fc047eb6c5::t_19c5e2a3c1c7c0 1-40
+models/bedrock/qwen3-next-80b-a3b.yaml
+  s_42e0fc047eb6c5::t_e941d01ca029cd 1-40
+models/bedrock/qwen3-vl-235b-a22b.yaml
+  s_42e0fc047eb6c5::t_aff9248509be19 1-40
+models/bedrock/r1.yaml
+  s_42e0fc047eb6c5::t_dbe0a521ce2be7 1-40
+models/bedrock/v3.2.yaml
+  s_42e0fc047eb6c5::t_35f49c4c585d32 1-40
+models/bedrock/voxtral-mini-3b-2507.yaml
+  s_42e0fc047eb6c5::t_8456b39de6727b 1-40
+models/bedrock/voxtral-small-24b-2507.yaml
+  s_42e0fc047eb6c5::t_ba70b4ec2dc749 1-40
+node_modules
+  s_42e0fc047eb6c5::t_629f958af48e95 1
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_42e0fc047eb6c5::t_8da9054c189dfd 7319-7320,7335,7347,7368-7389,7391,7396-7454,7462,7491-7492,7536,7538,7542-7569,7577-7578,7593,7595-7599,7601,7611,7613-7624,7626,7641,7643,7645-7649,7651,7653-7680,7688-7689,7733,7735,7739-7766,7771-10376
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_42e0fc047eb6c5::t_cbbfd57e172c8f 91-93,95-130,134-146,466-468,470-505,509-521
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_42e0fc047eb6c5::t_5d81e3a2e8d9c6 114-116,118-153,157-169
+packages/modelparams-python/src/modelparams/types/bedrock.py
+  s_42e0fc047eb6c5::t_1c61b8365080bc 28-72,88-529,569-724,727-729,731-766,770-782
+packages/modelparams/src/generated/data.ts
+  s_42e0fc047eb6c5::t_15329dfcb8c274 7324-7325,7340,7352,7373-7394,7396,7401-7459,7467,7496-7497,7541,7543,7547-7574,7582-7583,7598,7600-7604,7606,7616,7618-7629,7631,7646,7648,7650-7654,7656,7658-7685,7693-7694,7738,7740,7744-7771,7776-10381
+packages/modelparams/src/generated/defaults.ts
+  s_42e0fc047eb6c5::t_472789e2765eb7 494-502,509-548,552-564
+packages/modelparams/src/generated/model-ids.ts
+  s_42e0fc047eb6c5::t_5f6461ca237e61 89-91,93-128,132-144
+packages/modelparams/src/generated/params-by-id.ts
+  s_42e0fc047eb6c5::t_cdd7a1967fa5f7 643-669,679-904,926-1003
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b8208e6ea884e5c26b28f37429c630ef3d508aed",
+  "prompts": {},
+  "sessions": {
+    "s_42e0fc047eb6c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8459669-8327-4fa0-b7f8-f5aeea60800a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
