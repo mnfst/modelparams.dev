@@ -51,13 +51,6 @@ function emitDefaultsEntry(m: Model): string {
     : `  ${JSON.stringify(id)}: {},`;
 }
 
-function compactLifecycle(model: Model): Model {
-  if (model.status !== "active") return model;
-  const compact = { ...model };
-  delete compact.status;
-  return compact;
-}
-
 async function main(): Promise<void> {
   const { models, issues } = await loadAllModels();
 
@@ -73,8 +66,6 @@ async function main(): Promise<void> {
 
   const ids = models.map(modelId);
   const providers = [...new Set(models.map((m) => m.provider))].sort();
-  const compactModels = models.map(compactLifecycle);
-
   // 1. model-ids.ts — ModelId union + Provider union
   await fs.writeFile(
     path.join(OUT_DIR, "model-ids.ts"),
@@ -111,21 +102,18 @@ async function main(): Promise<void> {
     path.join(OUT_DIR, "data.ts"),
     HEADER +
       `import type { ModelId } from "./model-ids.js";\n\n` +
-      `const GENERATED_CATALOG = ${JSON.stringify(compactModels, null, 2)} as const;\n\n` +
+      `const GENERATED_CATALOG = ${JSON.stringify(models, null, 2)} as const;\n\n` +
       `type GeneratedCatalogEntry = (typeof GENERATED_CATALOG)[number];\n` +
       `export type LifecycleStatus = "active" | "deprecated" | "retired";\n` +
       `type WithLifecycle<T> = T extends unknown\n` +
       `  ? Omit<T, "status" | "replacement" | "shutdownOn"> & {\n` +
-      `      readonly status: LifecycleStatus;\n` +
+      `      readonly status?: LifecycleStatus;\n` +
       `      readonly replacement?: string;\n` +
       `      readonly shutdownOn?: string;\n` +
       `    }\n` +
       `  : never;\n` +
       `export type CatalogEntry = WithLifecycle<GeneratedCatalogEntry>;\n\n` +
-      `export const CATALOG: readonly CatalogEntry[] = GENERATED_CATALOG.map((model) => ({\n` +
-      `  status: "active",\n` +
-      `  ...model,\n` +
-      `}));\n\n` +
+      `export const CATALOG: readonly CatalogEntry[] = GENERATED_CATALOG;\n\n` +
       `function authSuffix(authType: CatalogEntry["authType"]): "" | "-subscription" {\n` +
       `  return authType === "api_key" ? "" : "-subscription";\n` +
       `}\n\n` +

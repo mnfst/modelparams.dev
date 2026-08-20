@@ -106,7 +106,7 @@ export function modelIntro(model: Model): string {
 }
 
 export function modelLifecycleSummary(model: Model): string | null {
-  const status = model.status ?? "active";
+  const status = model.status;
   const parts: string[] = [];
   if (status === "deprecated") parts.push("This model is deprecated.");
   if (status === "retired") parts.push("This model is retired.");

@@ -19,7 +19,7 @@ interface CatalogModel {
   provider: string;
   authType: AuthType;
   model: string;
-  status: LifecycleStatus;
+  status?: LifecycleStatus;
   replacement?: string;
   shutdownOn?: string;
   params: CatalogParam[];

@@ -29412,17 +29412,14 @@ type GeneratedCatalogEntry = (typeof GENERATED_CATALOG)[number];
 export type LifecycleStatus = "active" | "deprecated" | "retired";
 type WithLifecycle<T> = T extends unknown
   ? Omit<T, "status" | "replacement" | "shutdownOn"> & {
-      readonly status: LifecycleStatus;
+      readonly status?: LifecycleStatus;
       readonly replacement?: string;
       readonly shutdownOn?: string;
     }
   : never;
 export type CatalogEntry = WithLifecycle<GeneratedCatalogEntry>;
 
-export const CATALOG: readonly CatalogEntry[] = GENERATED_CATALOG.map((model) => ({
-  status: "active",
-  ...model,
-}));
+export const CATALOG: readonly CatalogEntry[] = GENERATED_CATALOG;
 
 function authSuffix(authType: CatalogEntry["authType"]): "" | "-subscription" {
   return authType === "api_key" ? "" : "-subscription";

@@ -194,7 +194,7 @@ export const Model = z
      * geography (`us`, `eu`, `global`, …) before sending.
      */
     wireId: z.string().min(1).regex(/^\S+$/, "wireId must not contain whitespace").optional(),
-    /** Omitted source values are emitted as `active` by the catalog loader. */
+    /** Omitted when lifecycle status has not been tracked for this model. */
     status: LifecycleStatus.optional(),
     /** Provider-qualified model id suggested as the migration target. */
     replacement: z

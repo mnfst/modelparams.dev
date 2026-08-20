@@ -61,7 +61,7 @@ describe("loadAllModels", () => {
       "anthropic/claude-opus-4-7",
       "anthropic/claude-opus-4-7-subscription",
     ]);
-    expect(result.models.every((model) => model.status === "active")).toBe(true);
+    expect(result.models.every((model) => model.status === undefined)).toBe(true);
   });
 
   it("preserves explicit lifecycle metadata", async () => {

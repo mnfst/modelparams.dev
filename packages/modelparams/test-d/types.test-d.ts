@@ -35,7 +35,7 @@ expectType<Haiku>(empty);
 
 // The precise catalog params assign to the loose `Param` type with no cast.
 expectAssignable<readonly Param[]>(getModel("openai/gpt-4.1").params);
-expectType<LifecycleStatus>(getModel("openai/gpt-4.1").status);
+expectType<LifecycleStatus | undefined>(getModel("openai/gpt-4.1").status);
 
 // parseParams returns the discriminated result and rejects unknown model ids.
 expectType<ParseParamsResult>(parseParams("openai/gpt-4.1", {}));

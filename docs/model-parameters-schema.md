@@ -67,8 +67,8 @@ Conventions:
   go stale the next time the host adds a region. Availability per region is
   account state and is deliberately not recorded here.
 - `authType` is `api_key` or `subscription`.
-- `status` is `active`, `deprecated`, or `retired`. It is optional in source
-  YAML and defaults to `active` in generated catalog data.
+- `status` is `active`, `deprecated`, or `retired`. Omit it when lifecycle
+  status has not been tracked; generated catalog data preserves the omission.
 - `replacement` is an optional provider-qualified model id, such as
   `anthropic/claude-opus-4-8`.
 - `shutdownOn` is an optional provider-published shutdown date in ISO

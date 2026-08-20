@@ -110,9 +110,9 @@ replacement: openai/gpt-5.6-sol
 shutdownOn: 2026-10-23
 ```
 
-`status` is `active`, `deprecated`, or `retired`. Existing YAML entries may
-omit it; generated API and package data emit `active`. `replacement` and
-`shutdownOn` stay absent until the provider publishes them.
+`status` is `active`, `deprecated`, or `retired`. When lifecycle status has not
+been tracked, the field stays absent from YAML, the API, and package data.
+`replacement` and `shutdownOn` stay absent until the provider publishes them.
 
 ## Agents
 

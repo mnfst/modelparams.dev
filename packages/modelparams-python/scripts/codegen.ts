@@ -156,13 +156,6 @@ function assertUniqueNames(models: Model[]): void {
   }
 }
 
-function compactLifecycle(model: Model): Model {
-  if (model.status !== "active") return model;
-  const compact = { ...model };
-  delete compact.status;
-  return compact;
-}
-
 async function removeStaleTypeModules(expected: Set<string>): Promise<void> {
   let entries: string[] = [];
   try {
@@ -195,8 +188,6 @@ async function main(): Promise<void> {
     providerModels.push(model);
     byProvider.set(model.provider, providerModels);
   }
-  const compactModels = models.map(compactLifecycle);
-
   const typeFiles = new Set<string>(["__init__.py"]);
   for (const [provider, providerModels] of byProvider) {
     const filename = `${moduleName(provider)}.py`;
@@ -213,7 +204,7 @@ async function main(): Promise<void> {
   await Promise.all([
     fs.writeFile(
       path.join(GENERATED_DIR, "catalog.json"),
-      `${JSON.stringify(compactModels, null, 2)}\n`,
+      `${JSON.stringify(models, null, 2)}\n`,
       "utf8",
     ),
     fs.writeFile(path.join(GENERATED_DIR, "model_ids.py"), emitModelIds(models), "utf8"),

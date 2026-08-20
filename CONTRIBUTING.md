@@ -33,7 +33,7 @@ You don't need to know the schema to file one. A link to the official docs is th
 
    Optional lifecycle fields are `status` (`active`, `deprecated`, or
    `retired`), `replacement` (a provider-qualified model id), and `shutdownOn`
-   (ISO `YYYY-MM-DD`). Omitted `status` values are emitted as `active`.
+   (ISO `YYYY-MM-DD`). Omit `status` when lifecycle status has not been tracked.
 
 4. **Parameter shape:** each item in `params` has:
    - `path` (required): exact provider API request parameter path; supports dot notation for nested fields (`thinking.type`, `generationConfig.topK`).
