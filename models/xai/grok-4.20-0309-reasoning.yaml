@@ -2,6 +2,7 @@
 provider: xai
 authType: api_key
 model: grok-4.20-0309-reasoning
+status: active
 params:
   - path: max_completion_tokens
     type: integer

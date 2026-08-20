@@ -2,6 +2,9 @@
 provider: openai
 authType: api_key
 model: o3-pro
+status: deprecated
+replacement: openai/gpt-5.6-sol
+shutdownOn: 2026-12-11
 params:
   - path: max_completion_tokens
     type: integer

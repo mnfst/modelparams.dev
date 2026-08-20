@@ -2,6 +2,8 @@
 provider: openai
 authType: api_key
 model: chatgpt-4o-latest
+status: retired
+shutdownOn: 2026-02-17
 params:
   - path: max_tokens
     type: integer
