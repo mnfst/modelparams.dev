@@ -2,6 +2,7 @@
 provider: openai
 authType: api_key
 model: gpt-4o
+status: active
 params:
   - path: max_tokens
     type: integer

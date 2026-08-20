@@ -2,6 +2,7 @@
 provider: moonshot
 authType: api_key
 model: kimi-k2.7-code-highspeed
+status: active
 params:
   - path: max_completion_tokens
     type: integer

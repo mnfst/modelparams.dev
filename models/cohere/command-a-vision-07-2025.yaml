@@ -2,6 +2,7 @@
 provider: cohere
 authType: api_key
 model: command-a-vision-07-2025
+status: active
 params:
   - path: max_tokens
     type: integer

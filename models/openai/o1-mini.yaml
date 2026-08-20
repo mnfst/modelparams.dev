@@ -2,6 +2,9 @@
 provider: openai
 authType: api_key
 model: o1-mini
+status: retired
+replacement: openai/o4-mini
+shutdownOn: 2025-10-27
 params:
   - path: max_tokens
     type: integer
