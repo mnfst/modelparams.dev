@@ -100,6 +100,20 @@ curl -s https://modelparams.dev/api/v1/validate \
 }
 ```
 
+### Model lifecycle
+
+Full model records also expose lifecycle metadata:
+
+```yaml
+status: deprecated
+replacement: openai/gpt-5.6-sol
+shutdownOn: 2026-10-23
+```
+
+`status` is `active`, `deprecated`, or `retired`. Existing YAML entries may
+omit it; generated API and package data emit `active`. `replacement` and
+`shutdownOn` stay absent until the provider publishes them.
+
 ## Agents
 
 Give a coding agent the catalog, so it looks parameters up instead of recalling them.

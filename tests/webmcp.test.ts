@@ -8,6 +8,7 @@ function model(provider: string, name: string, authType: AuthType, paths: string
     provider,
     model: name,
     authType,
+    status: "active" as const,
     params: paths.map((path) => ({
       path,
       type: "number",
@@ -97,6 +98,7 @@ describe("searchCatalog", () => {
       id: "anthropic/claude-opus-4-7-subscription",
       provider: "anthropic",
       authType: "subscription",
+      status: "active",
       parameterCount: 2,
     });
     expect(sub?.parameters).toEqual(["temperature", "thinking.type"]);

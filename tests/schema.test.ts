@@ -72,6 +72,22 @@ describe("Model schema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("accepts lifecycle metadata", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      status: "deprecated",
+      replacement: "anthropic/claude-opus-4-8",
+      shutdownOn: "2026-10-01",
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects invalid lifecycle metadata", () => {
+    expect(Model.safeParse({ ...VALID_MODEL, status: "legacy" }).success).toBe(false);
+    expect(Model.safeParse({ ...VALID_MODEL, replacement: "claude-opus-4-8" }).success).toBe(false);
+    expect(Model.safeParse({ ...VALID_MODEL, shutdownOn: "2026-02-30" }).success).toBe(false);
+  });
+
   it("rejects unknown top-level fields", () => {
     const result = Model.safeParse({ ...VALID_MODEL, metadata: { source: "docs" } });
     expect(result.success).toBe(false);
@@ -348,5 +364,12 @@ describe("JSON Schema generator", () => {
     expect(schema.$schema).toBe("http://json-schema.org/draft-07/schema#");
     expect(schema.$id).toBe("https://modelparams.dev/api/v1/schema.json");
     expect(typeof schema.title).toBe("string");
+  });
+
+  it("includes lifecycle metadata", () => {
+    const schema = JSON.stringify(buildModelJsonSchema());
+    expect(schema).toContain('"status"');
+    expect(schema).toContain('"replacement"');
+    expect(schema).toContain('"shutdownOn"');
   });
 });

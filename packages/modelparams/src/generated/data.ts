@@ -3,7 +3,7 @@
 
 import type { ModelId } from "./model-ids.js";
 
-export const CATALOG = [
+const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
@@ -29408,7 +29408,21 @@ export const CATALOG = [
   }
 ] as const;
 
-export type CatalogEntry = (typeof CATALOG)[number];
+type GeneratedCatalogEntry = (typeof GENERATED_CATALOG)[number];
+export type LifecycleStatus = "active" | "deprecated" | "retired";
+type WithLifecycle<T> = T extends unknown
+  ? Omit<T, "status" | "replacement" | "shutdownOn"> & {
+      readonly status: LifecycleStatus;
+      readonly replacement?: string;
+      readonly shutdownOn?: string;
+    }
+  : never;
+export type CatalogEntry = WithLifecycle<GeneratedCatalogEntry>;
+
+export const CATALOG: readonly CatalogEntry[] = GENERATED_CATALOG.map((model) => ({
+  status: "active",
+  ...model,
+}));
 
 function authSuffix(authType: CatalogEntry["authType"]): "" | "-subscription" {
   return authType === "api_key" ? "" : "-subscription";

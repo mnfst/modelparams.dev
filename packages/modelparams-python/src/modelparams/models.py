@@ -7,6 +7,7 @@ from pydantic import BaseModel, ConfigDict, Field
 JsonPrimitive: TypeAlias = str | int | float | bool | None
 JsonNumber: TypeAlias = int | float
 AuthType: TypeAlias = Literal["api_key", "subscription"]
+LifecycleStatus: TypeAlias = Literal["active", "deprecated", "retired"]
 ParamType: TypeAlias = Literal["boolean", "enum", "integer", "number", "string"]
 ParamGroup: TypeAlias = Literal[
     "generation_length",
@@ -62,4 +63,7 @@ class CatalogEntry(FrozenModel):
     # Exact wire string when the host's native id differs from the catalog
     # slug (pathed ids: accounts/fireworks/models/kimi-k3, openai/gpt-oss-20b).
     wire_id: str | None = Field(alias="wireId", default=None)
+    status: LifecycleStatus = "active"
+    replacement: str | None = None
+    shutdown_on: str | None = Field(alias="shutdownOn", default=None)
     params: tuple[Parameter, ...]

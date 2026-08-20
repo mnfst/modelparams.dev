@@ -105,6 +105,16 @@ export function modelIntro(model: Model): string {
   return `These are the API parameters ${SITE_NAME} tracks for ${who}${access} — the settings you send in a request. Each row gives the type, default, valid range or values, and the conditions that gate it. It's the same data the JSON API serves.`;
 }
 
+export function modelLifecycleSummary(model: Model): string | null {
+  const status = model.status ?? "active";
+  const parts: string[] = [];
+  if (status === "deprecated") parts.push("This model is deprecated.");
+  if (status === "retired") parts.push("This model is retired.");
+  if (model.shutdownOn) parts.push(`Shutdown date: ${model.shutdownOn}.`);
+  if (model.replacement) parts.push(`Suggested replacement: ${model.replacement}.`);
+  return parts.length > 0 ? parts.join(" ") : null;
+}
+
 export async function renderModelPage(model: Model, allModels: Model[]): Promise<string> {
   const siblings = allModels
     .filter((other) => other.provider === model.provider && modelId(other) !== modelId(model))
@@ -117,6 +127,7 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
     siblings,
     faqs,
     intro: modelIntro(model),
+    lifecycleSummary: modelLifecycleSummary(model),
     providerName: providerLabel(model.provider),
     modelName: modelLabel(model),
     fullName: modelFullLabel(model),

@@ -63,7 +63,12 @@ function validateOne(
   if (!parsed.success) {
     return { issue: { file, message: formatZodIssue(parsed.error) } };
   }
-  const model = parsed.data;
+  const { params, ...metadata } = parsed.data;
+  const model: ModelType = {
+    ...metadata,
+    status: metadata.status ?? "active",
+    params,
+  };
   const expectedId = expectedIdFromPath(file, modelsDir);
   const derivedId = modelId(model);
 

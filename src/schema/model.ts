@@ -3,6 +3,9 @@ import { z } from "zod";
 export const AuthType = z.enum(["api_key", "subscription"]);
 export type AuthType = z.infer<typeof AuthType>;
 
+export const LifecycleStatus = z.enum(["active", "deprecated", "retired"]);
+export type LifecycleStatus = z.infer<typeof LifecycleStatus>;
+
 export const ParameterType = z.enum(["boolean", "enum", "integer", "number", "string"]);
 export type ParameterType = z.infer<typeof ParameterType>;
 
@@ -19,8 +22,21 @@ export type ParameterGroup = z.infer<typeof ParameterGroup>;
 
 const PROVIDER_SLUG = /^[a-z0-9][a-z0-9-]*$/;
 const MODEL_ID = /^[A-Za-z0-9][A-Za-z0-9._:-]*$/;
+const MODEL_REFERENCE = /^[a-z0-9][a-z0-9-]*\/[A-Za-z0-9][A-Za-z0-9._:-]*$/;
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const PARAM_PATH = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*$/;
 const BLOCKED_PARAM_PATHS = new Set(["stream"]);
+
+const IsoDate = z
+  .string()
+  .regex(ISO_DATE, "date must use ISO YYYY-MM-DD")
+  .refine(
+    (value) => {
+      const parsed = new Date(`${value}T00:00:00Z`);
+      return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+    },
+    { message: "date must be a real calendar date" },
+  );
 
 export const Range = z
   .object({
@@ -177,11 +193,16 @@ export const Model = z
      * May contain `{scope}`, a placeholder the caller replaces with a routing
      * geography (`us`, `eu`, `global`, …) before sending.
      */
-    wireId: z
+    wireId: z.string().min(1).regex(/^\S+$/, "wireId must not contain whitespace").optional(),
+    /** Omitted source values are emitted as `active` by the catalog loader. */
+    status: LifecycleStatus.optional(),
+    /** Provider-qualified model id suggested as the migration target. */
+    replacement: z
       .string()
-      .min(1)
-      .regex(/^\S+$/, "wireId must not contain whitespace")
+      .regex(MODEL_REFERENCE, "replacement must be a provider-qualified model id")
       .optional(),
+    /** Provider-published shutdown date. */
+    shutdownOn: IsoDate.optional(),
     params: z.array(Parameter),
   })
   .strict();

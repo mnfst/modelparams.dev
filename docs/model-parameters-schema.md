@@ -25,6 +25,7 @@ parameters.
   "provider": "anthropic",
   "authType": "api_key",
   "model": "claude-haiku-4-5",
+  "status": "active",
   "params": [
     {
       "path": "top_p",
@@ -66,6 +67,12 @@ Conventions:
   go stale the next time the host adds a region. Availability per region is
   account state and is deliberately not recorded here.
 - `authType` is `api_key` or `subscription`.
+- `status` is `active`, `deprecated`, or `retired`. It is optional in source
+  YAML and defaults to `active` in generated catalog data.
+- `replacement` is an optional provider-qualified model id, such as
+  `anthropic/claude-opus-4-8`.
+- `shutdownOn` is an optional provider-published shutdown date in ISO
+  `YYYY-MM-DD` format.
 - `params` is the non-empty list of parameters for that exact route.
 - `path` is the exact provider API request parameter path in dot notation. Use
   the provider's documented field casing, such as `top_p`,
@@ -80,6 +87,20 @@ Conventions:
 - `range` describes numeric bounds and optional step.
 - `group` is a semantic grouping for ordering and display.
 - `applicability` is optional. Omitted means always available.
+
+## Lifecycle Metadata
+
+Lifecycle fields sit beside `params`; they are not request parameters.
+
+```yaml
+status: deprecated
+replacement: anthropic/claude-opus-4-8
+shutdownOn: 2026-10-01
+```
+
+Omit `replacement` or `shutdownOn` when the provider has not published one.
+Use the provider-qualified catalog id for `replacement` so consumers can look
+up the target directly.
 
 ## Parameter Scope
 
