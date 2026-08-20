@@ -2721,6 +2721,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-3-5-haiku-20241022",
+    "status": "retired",
+    "replacement": "anthropic/claude-haiku-4-5-20251001",
+    "shutdownOn": "2026-02-19",
     "params": [
       {
         "path": "max_tokens",
@@ -2807,6 +2810,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-3-5-haiku-latest",
+    "status": "retired",
+    "replacement": "anthropic/claude-haiku-4-5-20251001",
+    "shutdownOn": "2026-02-19",
     "params": [
       {
         "path": "max_tokens",
@@ -2893,6 +2899,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-3-5-sonnet-20241022",
+    "status": "retired",
+    "replacement": "anthropic/claude-sonnet-4-6",
+    "shutdownOn": "2025-10-28",
     "params": [
       {
         "path": "max_tokens",
@@ -2979,6 +2988,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-3-5-sonnet-latest",
+    "status": "retired",
+    "replacement": "anthropic/claude-sonnet-4-6",
+    "shutdownOn": "2025-10-28",
     "params": [
       {
         "path": "max_tokens",
@@ -3065,6 +3077,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-3-7-sonnet-20250219",
+    "status": "retired",
+    "replacement": "anthropic/claude-sonnet-4-6",
+    "shutdownOn": "2026-02-19",
     "params": [
       {
         "path": "max_tokens",
@@ -3179,6 +3194,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-3-7-sonnet-latest",
+    "status": "retired",
+    "replacement": "anthropic/claude-sonnet-4-6",
+    "shutdownOn": "2026-02-19",
     "params": [
       {
         "path": "max_tokens",
@@ -3293,6 +3311,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-3-opus-20240229",
+    "status": "retired",
+    "replacement": "anthropic/claude-opus-4-8",
+    "shutdownOn": "2026-01-05",
     "params": [
       {
         "path": "max_tokens",
@@ -3465,6 +3486,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-fable-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -3527,6 +3549,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-fable-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -3703,6 +3726,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-haiku-4-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -3817,6 +3841,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-haiku-4-5-20251001",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -3935,6 +3960,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-haiku-4-5-20251001",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -4053,6 +4079,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-haiku-4-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -4281,6 +4308,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-4-1-20250805",
+    "status": "retired",
+    "replacement": "anthropic/claude-opus-4-8",
+    "shutdownOn": "2026-08-05",
     "params": [
       {
         "path": "max_tokens",
@@ -4418,6 +4448,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-4-1-20250805",
+    "status": "retired",
+    "replacement": "anthropic/claude-opus-4-8",
+    "shutdownOn": "2026-08-05",
     "params": [
       {
         "path": "max_tokens",
@@ -4555,6 +4588,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-4-20250514",
+    "status": "retired",
+    "replacement": "anthropic/claude-opus-4-8",
+    "shutdownOn": "2026-06-15",
     "params": [
       {
         "path": "max_tokens",
@@ -4682,6 +4718,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-4-20250514",
+    "status": "retired",
+    "replacement": "anthropic/claude-opus-4-8",
+    "shutdownOn": "2026-06-15",
     "params": [
       {
         "path": "max_tokens",
@@ -4809,6 +4848,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-4-5-20251101",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -4959,6 +4999,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-4-5-20251101",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5109,6 +5150,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-4-6",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5265,6 +5307,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-4-6",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5421,6 +5464,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-4-7",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5485,6 +5529,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-4-7",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5549,6 +5594,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-4-8",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5613,6 +5659,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-4-8",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5792,6 +5839,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5864,6 +5912,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -5936,6 +5985,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-sonnet-4-20250514",
+    "status": "retired",
+    "replacement": "anthropic/claude-sonnet-4-6",
+    "shutdownOn": "2026-06-15",
     "params": [
       {
         "path": "max_tokens",
@@ -6063,6 +6115,9 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-sonnet-4-20250514",
+    "status": "retired",
+    "replacement": "anthropic/claude-sonnet-4-6",
+    "shutdownOn": "2026-06-15",
     "params": [
       {
         "path": "max_tokens",
@@ -6190,6 +6245,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-sonnet-4-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -6305,6 +6361,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-sonnet-4-5-20250929",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -6423,6 +6480,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-sonnet-4-5-20250929",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -6541,6 +6599,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-sonnet-4-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -6656,6 +6715,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-sonnet-4-6",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -6812,6 +6872,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-sonnet-4-6",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -7083,6 +7144,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-sonnet-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -7147,6 +7209,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-sonnet-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -10408,6 +10471,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-a-03-2025",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -10545,6 +10609,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-a-plus-05-2026",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -10682,6 +10747,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-a-reasoning-08-2025",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -10846,6 +10912,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-a-translate-08-2025",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -10983,6 +11050,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-a-vision-07-2025",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -11120,6 +11188,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-r-08-2024",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -11247,6 +11316,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-r-plus-08-2024",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -11374,6 +11444,7 @@ const GENERATED_CATALOG = [
     "provider": "cohere",
     "authType": "api_key",
     "model": "command-r7b-12-2024",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -11511,6 +11582,9 @@ const GENERATED_CATALOG = [
     "provider": "deepseek",
     "authType": "api_key",
     "model": "deepseek-chat",
+    "status": "retired",
+    "replacement": "deepseek/deepseek-v4-flash",
+    "shutdownOn": "2026-07-24",
     "params": [
       {
         "path": "max_tokens",
@@ -11581,6 +11655,9 @@ const GENERATED_CATALOG = [
     "provider": "deepseek",
     "authType": "api_key",
     "model": "deepseek-reasoner",
+    "status": "retired",
+    "replacement": "deepseek/deepseek-v4-flash",
+    "shutdownOn": "2026-07-24",
     "params": [
       {
         "path": "max_tokens",
@@ -11668,6 +11745,7 @@ const GENERATED_CATALOG = [
     "provider": "deepseek",
     "authType": "api_key",
     "model": "deepseek-v4-flash",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -11755,6 +11833,7 @@ const GENERATED_CATALOG = [
     "provider": "deepseek",
     "authType": "api_key",
     "model": "deepseek-v4-pro",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -13250,6 +13329,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-2.5-flash",
+    "status": "active",
+    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13344,6 +13425,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-2.5-flash-lite",
+    "status": "active",
+    "replacement": "google/gemini-3.1-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13434,6 +13517,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "subscription",
     "model": "gemini-2.5-flash-lite",
+    "status": "active",
+    "replacement": "google/gemini-3.1-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13524,6 +13609,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "subscription",
     "model": "gemini-2.5-flash",
+    "status": "active",
+    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13618,6 +13705,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-2.5-pro",
+    "status": "active",
+    "replacement": "google/gemini-3.1-pro-preview",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13711,6 +13800,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "subscription",
     "model": "gemini-2.5-pro",
+    "status": "active",
+    "replacement": "google/gemini-3.1-pro-preview",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13804,6 +13895,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-3-flash-preview",
+    "status": "active",
+    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13900,6 +13993,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "subscription",
     "model": "gemini-3-flash-preview",
+    "status": "active",
+    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13996,6 +14091,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-3.1-flash-lite",
+    "status": "active",
+    "replacement": "google/gemini-3.5-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14092,6 +14189,9 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-3.1-flash-lite-preview",
+    "status": "retired",
+    "replacement": "google/gemini-3.1-flash-lite",
+    "shutdownOn": "2026-05-25",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14188,6 +14288,9 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "subscription",
     "model": "gemini-3.1-flash-lite-preview",
+    "status": "retired",
+    "replacement": "google/gemini-3.1-flash-lite",
+    "shutdownOn": "2026-05-25",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14284,6 +14387,8 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "subscription",
     "model": "gemini-3.1-flash-lite",
+    "status": "active",
+    "replacement": "google/gemini-3.5-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14380,6 +14485,7 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-3.1-pro-preview",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14572,6 +14678,7 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "subscription",
     "model": "gemini-3.1-pro-preview",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14666,6 +14773,7 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-3.5-flash",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14762,6 +14870,7 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-3.5-flash-lite",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -14858,6 +14967,7 @@ const GENERATED_CATALOG = [
     "provider": "google",
     "authType": "api_key",
     "model": "gemini-3.6-flash",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -16962,6 +17072,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M2",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17107,6 +17218,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M2.1-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17150,6 +17262,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M2.1",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17295,6 +17408,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M2.5-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17338,6 +17452,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M2.5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17483,6 +17598,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M2.7-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17526,6 +17642,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M2.7",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17620,6 +17737,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "subscription",
     "model": "MiniMax-M3",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -17875,6 +17993,8 @@ const GENERATED_CATALOG = [
     "provider": "mistral",
     "authType": "api_key",
     "model": "devstral-2512",
+    "status": "retired",
+    "shutdownOn": "2026-07-31",
     "params": [
       {
         "path": "max_tokens",
@@ -19697,6 +19817,8 @@ const GENERATED_CATALOG = [
     "provider": "mistral",
     "authType": "api_key",
     "model": "open-mistral-nemo",
+    "status": "retired",
+    "shutdownOn": "2026-07-31",
     "params": [
       {
         "path": "max_tokens",
@@ -19803,6 +19925,9 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "kimi-k2.5",
+    "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
+    "shutdownOn": "2026-08-31",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -19887,6 +20012,7 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "kimi-k2.6",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -19983,6 +20109,7 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "subscription",
     "model": "kimi-k2.6",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20036,6 +20163,7 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "kimi-k2.7-code",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20121,6 +20249,7 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "kimi-k2.7-code-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20206,6 +20335,7 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "subscription",
     "model": "kimi-k2.7-code-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20246,6 +20376,7 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "subscription",
     "model": "kimi-k2.7-code",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20286,6 +20417,7 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "kimi-k3",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20360,6 +20492,9 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "moonshot-v1-128k",
+    "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
+    "shutdownOn": "2026-08-31",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20497,6 +20632,9 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "moonshot-v1-32k",
+    "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
+    "shutdownOn": "2026-08-31",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20634,6 +20772,9 @@ const GENERATED_CATALOG = [
     "provider": "moonshot",
     "authType": "api_key",
     "model": "moonshot-v1-8k",
+    "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
+    "shutdownOn": "2026-08-31",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21906,6 +22047,8 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "chatgpt-4o-latest",
+    "status": "retired",
+    "shutdownOn": "2026-02-17",
     "params": [
       {
         "path": "max_tokens",
@@ -21950,6 +22093,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-3.5-turbo",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-terra",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_tokens",
@@ -22038,6 +22184,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -22113,6 +22262,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4-0613",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_tokens",
@@ -22157,6 +22309,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4-turbo",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_tokens",
@@ -22201,6 +22356,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4-turbo-2024-04-09",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_tokens",
@@ -22245,6 +22403,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4.1",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -22289,6 +22448,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4.1-mini",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -22333,6 +22493,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4.1-nano",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-luna",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_tokens",
@@ -22377,6 +22540,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4o",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -22465,6 +22629,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-4o-mini",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -22509,6 +22674,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-12-11",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -22541,6 +22709,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5-chat-latest",
+    "status": "retired",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-07-23",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -22559,6 +22730,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5-mini",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-terra",
+    "shutdownOn": "2026-12-11",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -22591,6 +22765,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5-nano",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-luna",
+    "shutdownOn": "2026-12-11",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -22655,6 +22832,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.1-codex-max",
+    "status": "retired",
+    "replacement": "openai/gpt-5.3-codex",
+    "shutdownOn": "2026-07-23",
     "params": [
       {
         "path": "reasoning.effort",
@@ -22704,6 +22884,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.1-codex",
+    "status": "retired",
+    "replacement": "openai/gpt-5.3-codex",
+    "shutdownOn": "2026-07-23",
     "params": [
       {
         "path": "reasoning.effort",
@@ -22785,6 +22968,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.2-codex",
+    "status": "retired",
+    "replacement": "openai/gpt-5.3-codex",
+    "shutdownOn": "2026-07-23",
     "params": [
       {
         "path": "reasoning.effort",
@@ -22883,6 +23069,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.3-codex",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -22915,6 +23102,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.3-codex-spark",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -22964,6 +23152,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.3-codex",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23013,6 +23202,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.4",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23046,6 +23236,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.4-mini",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23079,6 +23270,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.4-mini",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23128,6 +23320,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.4-nano",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23161,6 +23354,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.4-pro",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23192,6 +23386,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.4-pro",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23239,6 +23434,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.4",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23288,6 +23484,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.5",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23321,6 +23518,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.5-pro",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23352,6 +23550,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.5-pro",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23399,6 +23598,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.5",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23481,6 +23681,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.6-luna",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23514,6 +23715,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.6-luna",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23563,6 +23765,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.6-sol",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23596,6 +23799,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.6-sol",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23645,6 +23849,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-5.6-terra",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23678,6 +23883,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "subscription",
     "model": "gpt-5.6-terra",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -23727,6 +23933,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-oss-120b",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23802,6 +24009,7 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "gpt-oss-20b",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -23979,6 +24187,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "o1",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -24011,6 +24222,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "o1-mini",
+    "status": "retired",
+    "replacement": "openai/o4-mini",
+    "shutdownOn": "2025-10-27",
     "params": [
       {
         "path": "max_tokens",
@@ -24043,6 +24257,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "o1-preview",
+    "status": "retired",
+    "replacement": "openai/o3",
+    "shutdownOn": "2025-07-28",
     "params": [
       {
         "path": "max_tokens",
@@ -24075,6 +24292,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "o3",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-12-11",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -24107,6 +24327,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "o3-mini",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -24139,6 +24362,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "o3-pro",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-12-11",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -24171,6 +24397,9 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "model": "o4-mini",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-terra",
+    "shutdownOn": "2026-10-23",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26365,6 +26594,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "api_key",
     "model": "grok-4.20-0309-non-reasoning",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26435,6 +26665,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "subscription",
     "model": "grok-4.20-0309-non-reasoning",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26505,6 +26736,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "api_key",
     "model": "grok-4.20-0309-reasoning",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26568,6 +26800,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "subscription",
     "model": "grok-4.20-0309-reasoning",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26631,6 +26864,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "api_key",
     "model": "grok-4.20-multi-agent-0309",
+    "status": "active",
     "params": [
       {
         "path": "max_output_tokens",
@@ -26700,6 +26934,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "api_key",
     "model": "grok-4.3",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26777,6 +27012,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "subscription",
     "model": "grok-4.3",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26854,6 +27090,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "api_key",
     "model": "grok-4.5",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -26931,6 +27168,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "subscription",
     "model": "grok-4.5",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -27078,6 +27316,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "api_key",
     "model": "grok-build-0.1",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -27141,6 +27380,7 @@ const GENERATED_CATALOG = [
     "provider": "xai",
     "authType": "subscription",
     "model": "grok-build-0.1",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -27204,6 +27444,7 @@ const GENERATED_CATALOG = [
     "provider": "xiaomi",
     "authType": "api_key",
     "model": "mimo-v2.5",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -27281,6 +27522,7 @@ const GENERATED_CATALOG = [
     "provider": "xiaomi",
     "authType": "api_key",
     "model": "mimo-v2.5-pro",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -27391,6 +27633,7 @@ const GENERATED_CATALOG = [
     "provider": "xiaomi",
     "authType": "subscription",
     "model": "mimo-v2.5",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",

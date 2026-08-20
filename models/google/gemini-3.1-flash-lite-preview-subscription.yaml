@@ -2,6 +2,9 @@
 provider: google
 authType: subscription
 model: gemini-3.1-flash-lite-preview
+status: retired
+replacement: google/gemini-3.1-flash-lite
+shutdownOn: 2026-05-25
 params:
   - path: generationConfig.maxOutputTokens
     type: integer

@@ -2,6 +2,7 @@
 provider: xai
 authType: subscription
 model: grok-4.20-0309-non-reasoning
+status: active
 params:
   - path: max_completion_tokens
     type: integer

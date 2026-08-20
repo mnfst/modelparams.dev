@@ -2,6 +2,8 @@
 provider: google
 authType: subscription
 model: gemini-2.5-flash
+status: active
+replacement: google/gemini-3.6-flash
 params:
   - path: generationConfig.maxOutputTokens
     type: integer
