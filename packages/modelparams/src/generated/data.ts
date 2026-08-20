@@ -13330,7 +13330,6 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "gemini-2.5-flash",
     "status": "active",
-    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13426,7 +13425,6 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "gemini-2.5-flash-lite",
     "status": "active",
-    "replacement": "google/gemini-3.1-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13518,7 +13516,6 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gemini-2.5-flash-lite",
     "status": "active",
-    "replacement": "google/gemini-3.1-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13610,7 +13607,6 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gemini-2.5-flash",
     "status": "active",
-    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13706,7 +13702,6 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "gemini-2.5-pro",
     "status": "active",
-    "replacement": "google/gemini-3.1-pro-preview",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13801,7 +13796,6 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gemini-2.5-pro",
     "status": "active",
-    "replacement": "google/gemini-3.1-pro-preview",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -17993,8 +17987,7 @@ const GENERATED_CATALOG = [
     "provider": "mistral",
     "authType": "api_key",
     "model": "devstral-2512",
-    "status": "retired",
-    "shutdownOn": "2026-07-31",
+    "status": "deprecated",
     "params": [
       {
         "path": "max_tokens",
@@ -19817,8 +19810,7 @@ const GENERATED_CATALOG = [
     "provider": "mistral",
     "authType": "api_key",
     "model": "open-mistral-nemo",
-    "status": "retired",
-    "shutdownOn": "2026-07-31",
+    "status": "deprecated",
     "params": [
       {
         "path": "max_tokens",
@@ -19926,7 +19918,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "kimi-k2.5",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k2.6",
+    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20493,7 +20485,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-128k",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k2.6",
+    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20633,7 +20625,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-32k",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k2.6",
+    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20773,7 +20765,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-8k",
     "status": "deprecated",
-    "replacement": "moonshot/kimi-k2.6",
+    "replacement": "moonshot/kimi-k3",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -22833,7 +22825,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gpt-5.1-codex-max",
     "status": "retired",
-    "replacement": "openai/gpt-5.3-codex",
+    "replacement": "openai/gpt-5.6-sol",
     "shutdownOn": "2026-07-23",
     "params": [
       {
@@ -22885,7 +22877,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gpt-5.1-codex",
     "status": "retired",
-    "replacement": "openai/gpt-5.3-codex",
+    "replacement": "openai/gpt-5.6-sol",
     "shutdownOn": "2026-07-23",
     "params": [
       {
@@ -22969,7 +22961,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gpt-5.2-codex",
     "status": "retired",
-    "replacement": "openai/gpt-5.3-codex",
+    "replacement": "openai/gpt-5.6-sol",
     "shutdownOn": "2026-07-23",
     "params": [
       {

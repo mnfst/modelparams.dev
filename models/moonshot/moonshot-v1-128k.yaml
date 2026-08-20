@@ -3,7 +3,7 @@ provider: moonshot
 authType: api_key
 model: moonshot-v1-128k
 status: deprecated
-replacement: moonshot/kimi-k2.6
+replacement: moonshot/kimi-k3
 shutdownOn: 2026-08-31
 params:
   - path: max_completion_tokens
