@@ -1,0 +1,21 @@
+src/build/render-mcp.ts
+  s_4537041956511c::t_0172b0d64ed15c 1,4-7,10-19,21-40,43,45-57,59-61,66-90,92-121,124-155,157-168,170-193,197-217,220,232,236-240,242-243,245-247
+tailwind.config.ts
+  s_4537041956511c::t_1326dad4279d0b 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "c65bcf578924bf7217e91e3effc4e8b7e44f53af",
+  "prompts": {},
+  "sessions": {
+    "s_4537041956511c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdcf726e9ffe5mqqa8chnIF0to",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
