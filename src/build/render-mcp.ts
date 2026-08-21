@@ -1,4 +1,5 @@
 import { MCP_CLIENTS, MCP_ENDPOINT, MCP_TOOLS } from "../data/mcp.js";
+import { highlightJson } from "./highlight.js";
 
 /**
  * The MCP docs page. Rendered as a self-contained HTML document that reuses the
@@ -51,11 +52,11 @@ export function renderMcpHtml(): string {
         <div class="mt-4 grid gap-4 lg:grid-cols-2">
           <div>
             <p class="mb-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Input</p>
-            <pre class="overflow-x-auto border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-700 dark:border-slate-800 dark:bg-[#0d0d0d] dark:text-slate-300"><code>${esc(JSON.stringify(tool.inputSchema, null, 2))}</code></pre>
+            <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-4 py-3 font-mono text-xs leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>${highlightJson(JSON.stringify(tool.inputSchema, null, 2))}</code></pre>
           </div>
           <div>
             <p class="mb-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Example output</p>
-            <pre class="overflow-x-auto border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-xs leading-relaxed text-slate-700 dark:border-slate-800 dark:bg-[#0d0d0d] dark:text-slate-300"><code>${esc(JSON.stringify(tool.example, null, 2))}</code></pre>
+            <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-4 py-3 font-mono text-xs leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>${highlightJson(JSON.stringify(tool.example, null, 2))}</code></pre>
           </div>
         </div>
       </div>`,
