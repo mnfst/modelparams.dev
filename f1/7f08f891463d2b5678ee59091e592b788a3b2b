@@ -1,0 +1,66 @@
+.github/workflows/ci.yml
+  s_901145e2c9983d::t_dc58394042a619 40-42
+packages/modelparams-python/src/modelparams/_generated/deprecations.py
+  s_901145e2c9983d::t_5fbde59af083c7 1-5,8-9,18,20
+  s_901145e2c9983d::t_a78109267b625f 6-7,10-17,19,21
+package.json
+  s_901145e2c9983d::t_e6e7db62ff9feb 27
+packages/modelparams/src/generated/index.ts
+  s_901145e2c9983d::t_0d189b8435c81c 9
+src/data/load-deprecations.ts
+  s_901145e2c9983d::t_38e40068539a39 1-72
+packages/modelparams-python/src/modelparams/__init__.py
+  s_901145e2c9983d::t_c17f657b3cc0fd 54
+  s_901145e2c9983d::t_0e21f7ae2b9e4f 6
+  s_901145e2c9983d::t_74d3be5c8887f5 47-48,55-56
+  s_901145e2c9983d::t_104dd908936077 3-5,7-9
+src/schema/model.ts
+  s_901145e2c9983d::t_a69f4548b456f1 20-21
+src/data/paths.ts
+  s_901145e2c9983d::t_ff9e7e7051f3b9 8
+packages/modelparams-python/scripts/codegen.ts
+  s_901145e2c9983d::t_4ebd502e9b4b46 175-188,193,198-201,204-207,209-210,218,220-223,225-228,234-248,297
+  s_901145e2c9983d::t_535b57f87e7366 5,7
+  s_901145e2c9983d::t_fd6e346c632fdd 189-192,194-197,202-203,208,211-217,219
+  s_901145e2c9983d::t_1386d940d31fa8 249,283-287
+packages/modelparams/src/index.ts
+  s_901145e2c9983d::t_3a4d832fcc4896 28-29
+  s_901145e2c9983d::t_bf186bc3a5daa3 30-33
+src/schema/deprecation.ts
+  s_901145e2c9983d::t_2e5469f441c5ca 1-53
+src/data/load.ts
+  s_901145e2c9983d::t_9a1944233a171f 39
+  s_901145e2c9983d::t_2d1055c18619dd 18
+  s_901145e2c9983d::t_ee6a531fb6bcd7 45
+packages/modelparams/src/generated/deprecations.ts
+  s_901145e2c9983d::t_3895c0d0bc45fd 1-16,18-21
+  s_901145e2c9983d::t_5e6174874c7bfe 17
+packages/modelparams/scripts/codegen.ts
+  s_901145e2c9983d::t_81005ed55886b2 164
+  s_901145e2c9983d::t_c433aabfca5daa 5
+  s_901145e2c9983d::t_61dbc7d2df7e5e 149-150,154-155
+  s_901145e2c9983d::t_4e9485994b8899 57-60,70-79,84-91
+  s_901145e2c9983d::t_15c67b2e635643 148,152-153,156-163,165-170,178-179,186
+  s_901145e2c9983d::t_bba479a0bf05f7 8
+  s_901145e2c9983d::t_4840eba9289bd1 151
+src/data/validate-deprecations.ts
+  s_901145e2c9983d::t_52c71204b15f9c 19-22
+  s_901145e2c9983d::t_57433f46e3715e 1-18,23-47
+  s_901145e2c9983d::t_3cb4213d29e9c8 48-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "f17f08f891463d2b5678ee59091e592b788a3b2b",
+  "prompts": {},
+  "sessions": {
+    "s_901145e2c9983d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdc754a4fffeGIfgV1w53UBA72",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
