@@ -12,6 +12,7 @@ import { renderProviderPage } from "../build/render-provider.js";
 import { renderGlossaryPage } from "../build/render-glossary.js";
 import { renderDisambiguationPage } from "../build/render-disambiguation.js";
 import { renderApiPage } from "../build/render-api.js";
+import { renderMcpHtml } from "../build/render-mcp.js";
 import { SITE_URL } from "../data/site.js";
 import { DISAMBIGUATION_PATH } from "../data/urls.js";
 import { modelId, type Model } from "../schema/model.js";
@@ -61,6 +62,11 @@ export function makeApp(loadModels: LoadModels): express.Express {
     } catch (err) {
       next(err);
     }
+  });
+
+  app.get("/mcp", (_req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    res.type("html").send(renderMcpHtml());
   });
 
   app.get("/glossary", async (_req, res, next) => {
