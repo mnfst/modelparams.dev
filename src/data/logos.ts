@@ -30,6 +30,11 @@ const SLUG_TO_LOBE: Record<string, string> = {
   "z-ai": "zai",
   groq: "groq",
   cerebras: "cerebras-color",
+  bedrock: "bedrock-color",
+  fireworks: "fireworks-color",
+  nvidia: "nvidia-color",
+  vertex: "vertexai-color",
+  xiaomi: "xiaomimimo",
 };
 
 const cache = new Map<string, string | null>();
