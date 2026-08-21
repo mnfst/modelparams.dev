@@ -66,14 +66,24 @@ describe("toLifecycleRecord", () => {
 });
 
 describe("indexDeprecations", () => {
-  it("keys records by provider/model", () => {
-    const index = indexDeprecations([
+  it("keys records by provider/model and reports malformed entries", () => {
+    const { index, rejected } = indexDeprecations([
       { provider: "anthropic", model: "claude-opus-4-1-20250805", status: "retired" },
       { provider: "xai", model: "grok-4.5", status: "active" },
       { junk: true },
     ]);
     expect(index.size).toBe(2);
     expect(index.get("anthropic/claude-opus-4-1-20250805")?.status).toBe("retired");
+    expect(rejected).toHaveLength(1);
+    expect(rejected[0]?.reason).toContain("provider");
+  });
+
+  it("rejects entries whose status is not a known lifecycle status", () => {
+    const { rejected } = indexDeprecations([
+      { provider: "openai", model: "gpt-4", status: "sunset" },
+    ]);
+    expect(rejected).toHaveLength(1);
+    expect(rejected[0]?.reason).toContain("status");
   });
 
   it("rejects a non-array payload", () => {
