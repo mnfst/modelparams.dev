@@ -12,8 +12,9 @@ export function renderMcpHtml(): string {
         <button
           type="button"
           data-mcp-client="${client.id}"
-          class="rounded-full border px-4 py-2 text-sm font-medium transition-colors ${i === 0 ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900" : "border-slate-300 text-slate-700 hover:border-slate-500 dark:border-slate-700 dark:text-slate-300"}"
+          class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${i === 0 ? "border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900" : "border-slate-300 text-slate-700 hover:border-slate-500 dark:border-slate-700 dark:text-slate-300"}"
         >
+          <span class="provider-logo inline-flex h-4 w-4 shrink-0 items-center justify-center" aria-hidden="true">${client.logo}</span>
           ${esc(client.name)}
         </button>`,
   ).join("");
