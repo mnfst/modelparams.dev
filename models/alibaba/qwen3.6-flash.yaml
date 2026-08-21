@@ -2,6 +2,7 @@
 provider: alibaba
 authType: api_key
 model: qwen3.6-flash
+status: active
 params:
   - path: max_completion_tokens
     type: integer

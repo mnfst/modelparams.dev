@@ -2,6 +2,7 @@
 provider: z-ai
 authType: api_key
 model: glm-4.5-air
+status: active
 params:
   - path: max_tokens
     type: integer
