@@ -69,6 +69,9 @@ jobs:
           branch: automation/sync-lifecycle-status
           delete-branch: true
           draft: true
+          add-paths: |
+            models/**
+            packages/**
           commit-message: "chore: sync model lifecycle status from modeldeprecations.dev"
           title: "chore: sync model lifecycle status"
           body: |
