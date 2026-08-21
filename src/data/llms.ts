@@ -109,7 +109,7 @@ function guideApi(siteUrl: string): string[] {
     "```",
     "",
     "Tools: `validate_model_params`, `get_model_params`, `list_models`,",
-    "`find_models_supporting`.",
+    "`list_provider_models`.",
     "",
     "## JSON Schema",
     "",

@@ -35,7 +35,8 @@ If the `modelparams` MCP server is connected, prefer these — they need no netw
 - `get_model_params` — every parameter for one model, with types, ranges,
   defaults, and conditional rules.
 - `list_models` — find the exact catalog id, filtered by provider or substring.
-- `find_models_supporting` — which models expose a given parameter.
+- `list_provider_models` — every model one provider serves, with its wire id and
+  parameter surface. Reach for it when the provider is fixed and the model is not.
 
 Not connected? Install it:
 

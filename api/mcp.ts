@@ -34,7 +34,7 @@ const USAGE = {
     "parameters a model accepts, and validates a params object before you send it.",
   transport: "streamable-http",
   stateless: true,
-  tools: ["validate_model_params", "get_model_params", "list_models", "find_models_supporting"],
+  tools: ["validate_model_params", "get_model_params", "list_models", "list_provider_models"],
   install: {
     "claude-code": "claude mcp add --transport http modelparams https://modelparams.dev/mcp",
     codex: "codex mcp add modelparams --url https://modelparams.dev/mcp",

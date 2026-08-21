@@ -60,9 +60,9 @@ describe("POST /mcp", () => {
     const body = (await res.json()) as RpcReply;
     const names = (body.result as { tools: { name: string }[] }).tools.map((t) => t.name).sort();
     expect(names).toEqual([
-      "find_models_supporting",
       "get_model_params",
       "list_models",
+      "list_provider_models",
       "validate_model_params",
     ]);
   });
