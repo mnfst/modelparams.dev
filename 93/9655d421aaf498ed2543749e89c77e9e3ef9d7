@@ -1,0 +1,39 @@
+api/mcp.ts
+  s_189200e4f8341f::t_a390ea1ff94820 37
+packages/modelparams-mcp/README.md
+  s_189200e4f8341f::t_c69e6d3e7f41ef 86,88-125
+packages/modelparams-mcp/src/server.ts
+  s_189200e4f8341f::t_78a147f5c8de11 7,119,121,123-128,130-144,148
+packages/modelparams-mcp/src/tools.ts
+  s_189200e4f8341f::t_0b1d7e142cc7c6 7,185-197,200,202,204-206,210-263,265-291
+packages/modelparams-mcp/tests/server.test.ts
+  s_189200e4f8341f::t_d9684a4e00775a 44-46,48-68,95,259-305,308-311,313-315,318-350
+packages/modelparams/src/index.ts
+  s_189200e4f8341f::t_fa2b16767a22e7 26
+skills/llm-model-parameters/SKILL.md
+  s_189200e4f8341f::t_beec9430231ef4 38-39
+src/data/llms.ts
+  s_189200e4f8341f::t_3acf99914ae055 112
+src/views/api.ejs
+  s_189200e4f8341f::t_294e58ef5d2b69 129
+tests/mcp-endpoint-protocol.test.ts
+  s_189200e4f8341f::t_5012e47f14ce81 55
+tests/mcp-endpoint.test.ts
+  s_189200e4f8341f::t_2ad8cbe8759fea 65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "939655d421aaf498ed2543749e89c77e9e3ef9d7",
+  "prompts": {},
+  "sessions": {
+    "s_189200e4f8341f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7600c9df-b526-42e1-8049-825647a31d76",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

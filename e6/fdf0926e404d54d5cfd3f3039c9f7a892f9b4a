@@ -1,0 +1,25 @@
+packages/modelparams-mcp/README.md
+  s_189200e4f8341f::t_b8a18f04a41fcc 88
+packages/modelparams-mcp/src/server.ts
+  s_189200e4f8341f::t_3cf4ae4e51d50c 123-126
+packages/modelparams-mcp/src/tools.ts
+  s_189200e4f8341f::t_fdcb2ce8fbceb3 248-252
+packages/modelparams-mcp/tests/server.test.ts
+  s_189200e4f8341f::t_472cd89cfadd18 65-67,350-383
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "e6fdf0926e404d54d5cfd3f3039c9f7a892f9b4a",
+  "prompts": {},
+  "sessions": {
+    "s_189200e4f8341f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7600c9df-b526-42e1-8049-825647a31d76",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+src/data/llms.ts
+  s_189200e4f8341f::t_3acf99914ae055 112
+tests/mcp-endpoint.test.ts
+  s_189200e4f8341f::t_2ad8cbe8759fea 65
+packages/modelparams/src/index.ts
+  s_189200e4f8341f::t_fa2b16767a22e7 26
+packages/modelparams-mcp/README.md
+  s_189200e4f8341f::t_c69e6d3e7f41ef 86,89-123
+  s_189200e4f8341f::t_b8a18f04a41fcc 88
+  s_189200e4f8341f::t_17e3bc442e7f8e 124
+packages/modelparams-mcp/tests/server.test.ts
+  s_189200e4f8341f::t_472cd89cfadd18 65-67,330-363
+  s_189200e4f8341f::t_d9684a4e00775a 44-46,48-64,68,95,259-266,269-320,322-324,327-329,364
+api/mcp.ts
+  s_189200e4f8341f::t_a390ea1ff94820 37
+src/views/api.ejs
+  s_189200e4f8341f::t_294e58ef5d2b69 129
+tests/mcp-endpoint-protocol.test.ts
+  s_189200e4f8341f::t_5012e47f14ce81 55
+packages/modelparams-mcp/src/server.ts
+  s_189200e4f8341f::t_78a147f5c8de11 7,119,121,127-128,130-136,140
+  s_189200e4f8341f::t_3cf4ae4e51d50c 123-126
+packages/modelparams-mcp/src/tools.ts
+  s_189200e4f8341f::t_0b1d7e142cc7c6 7,185-196,199,201,203-205,209-245,262-272,274-275
+  s_189200e4f8341f::t_fdcb2ce8fbceb3 246-250
+  s_189200e4f8341f::t_2f5852b7d6e1bb 251-260,276-283
+skills/llm-model-parameters/SKILL.md
+  s_189200e4f8341f::t_beec9430231ef4 38-39
+README.md
+  s_189200e4f8341f::t_17c09a7422597f 128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "d20cc3063effa4e701a93493154a31b92bd0fca1",
+  "prompts": {},
+  "sessions": {
+    "s_189200e4f8341f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7600c9df-b526-42e1-8049-825647a31d76",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

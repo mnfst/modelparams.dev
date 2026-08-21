@@ -1,0 +1,74 @@
+packages/modelparams-python/scripts/codegen.ts
+  s_8ef413782f6350::t_4af7ba3b83dc7e 161-163
+  s_8ef413782f6350::t_df9d1b66220716 159-160,164-165,198,216
+src/client/webmcp.ts
+  s_8ef413782f6350::t_34f6cc77605496 7,22-24,151-153
+tests/load.test.ts
+  s_8ef413782f6350::t_990fb672be4153 64-82
+src/schema/model.ts
+  s_8ef413782f6350::t_990fb672be4153 6-8,25-26,30-40,196-200,202,204-205
+src/views/model.ejs
+  s_8ef413782f6350::t_34f6cc77605496 21-25,34-38
+CONTRIBUTING.md
+  s_8ef413782f6350::t_34f6cc77605496 34-37
+packages/modelparams/tests/runtime.test.ts
+  s_8ef413782f6350::t_3eba3386bd15ad 60
+packages/modelparams-python/tests/test_catalog.py
+  s_8ef413782f6350::t_3eba3386bd15ad 48
+docs/model-parameters-schema.md
+  s_8ef413782f6350::t_34f6cc77605496 28,70-75,91-103
+  s_4ebd0d44a41034::t_9cedaf4e5568d1 104
+src/build/render-model.ts
+  s_8ef413782f6350::t_34f6cc77605496 108-117,130
+tests/render-meta.test.ts
+  s_8ef413782f6350::t_34f6cc77605496 4,117-130
+  s_8ef413782f6350::t_2f9b589975ea23 8,131-143
+src/views/partials/model_row.ejs
+  s_8ef413782f6350::t_34f6cc77605496 42-46
+packages/modelparams-python/src/modelparams/models.py
+  s_8ef413782f6350::t_3eba3386bd15ad 10,66-68
+packages/modelparams/src/index.ts
+  s_8ef413782f6350::t_e04881808191be 17
+tests/webmcp.test.ts
+  s_8ef413782f6350::t_34f6cc77605496 11,101
+tests/schema.test.ts
+  s_8ef413782f6350::t_990fb672be4153 75-90,368-374
+packages/modelparams/scripts/codegen.ts
+  s_8ef413782f6350::t_4af7ba3b83dc7e 56-58
+  s_8ef413782f6350::t_3eba3386bd15ad 115-124
+  s_8ef413782f6350::t_df9d1b66220716 54-55,59-60,76,114,125-128
+README.md
+  s_8ef413782f6350::t_34f6cc77605496 103-116
+src/data/load.ts
+  s_8ef413782f6350::t_990fb672be4153 66-71
+packages/modelparams/test-d/types.test-d.ts
+  s_8ef413782f6350::t_e04881808191be 5,38
+packages/modelparams-python/src/modelparams/__init__.py
+  s_8ef413782f6350::t_3eba3386bd15ad 19,47
+packages/modelparams/src/generated/data.ts
+  s_8ef413782f6350::t_4f61f3cbbc2dbc 6,29411-29425
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3c58c723c0c0d9a09d3c0794d0eab4a8b5a416b2",
+  "prompts": {},
+  "sessions": {
+    "s_4ebd0d44a41034": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01fd3-2b09-7bf2-a080-7cd399f4fac8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    },
+    "s_8ef413782f6350": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01fb5-0d1d-7710-b513-57889f15dfa1",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

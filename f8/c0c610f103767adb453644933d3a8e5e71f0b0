@@ -1,0 +1,28 @@
+packages/modelparams-mcp/src/tools.ts
+  s_8ef413782f6350::t_9a7c08a7b1ebae 143-145
+packages/modelparams-mcp/src/server.ts
+  s_8ef413782f6350::t_9a7c08a7b1ebae 82-84
+packages/modelparams-mcp/README.md
+  s_8ef413782f6350::t_9a7c08a7b1ebae 80
+packages/modelparams-mcp/tests/server.test.ts
+  s_8ef413782f6350::t_9a7c08a7b1ebae 3,29-31,176-205
+  s_8ef413782f6350::t_de7004a7421442 206
+README.md
+  s_8ef413782f6350::t_9a7c08a7b1ebae 128
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "f8c0c610f103767adb453644933d3a8e5e71f0b0",
+  "prompts": {},
+  "sessions": {
+    "s_8ef413782f6350": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01fb5-0d1d-7710-b513-57889f15dfa1",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

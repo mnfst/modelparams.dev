@@ -1,0 +1,65 @@
+tests/sync-status.test.ts
+  s_4537041956511c::t_ce90c557d36783 1-129
+models/moonshot/moonshot-v1-128k.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+package.json
+  s_4537041956511c::t_2fb46d233aca97 27
+models/google/gemini-2.5-flash-lite-subscription.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/google/gemini-2.5-flash-lite.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/openai/gpt-5.1-codex-max-subscription.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+src/sync/run.ts
+  s_4537041956511c::t_b1185ce8b29bf7 1-80
+models/google/gemini-2.5-pro.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+packages/modelparams/src/generated/data.ts
+  s_4537041956511c::t_1b0feb15ed1339 4311,4451,13333,13429,13521,13613,13709,13804,17996-17998,19929,20496,20636,20776,22051,22837,22889,22973
+models/moonshot/kimi-k2.5.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/openai/gpt-5.1-codex-subscription.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/moonshot/moonshot-v1-8k.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/google/gemini-2.5-flash.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+.github/workflows/sync-lifecycle.yml
+  s_4537041956511c::t_51f2a40f3b6e75 1-82
+models/anthropic/claude-opus-4-1-20250805.yaml
+  s_4537041956511c::t_decc150eccd79c 5
+models/google/gemini-2.5-flash-subscription.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/mistral/devstral-2512.yaml
+  s_4537041956511c::t_decc150eccd79c 5-7
+models/moonshot/moonshot-v1-32k.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/openai/chatgpt-4o-latest.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+models/anthropic/claude-opus-4-1-20250805-subscription.yaml
+  s_4537041956511c::t_decc150eccd79c 5
+models/openai/gpt-5.2-codex-subscription.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+src/sync/status.ts
+  s_4537041956511c::t_5e3c00afb6c12e 1-94
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_4537041956511c::t_1b0feb15ed1339 4306,4446,13328,13424,13516,13608,13704,13799,17991-17993,19924,20491,20631,20771,22046,22832,22884,22968
+models/google/gemini-2.5-pro-subscription.yaml
+  s_4537041956511c::t_decc150eccd79c 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "be3039f41350529cab12bf72a3ed43553a67bcdc",
+  "prompts": {},
+  "sessions": {
+    "s_4537041956511c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdcf726e9ffe5mqqa8chnIF0to",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

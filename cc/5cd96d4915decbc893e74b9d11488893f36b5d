@@ -1,0 +1,101 @@
+src/sync/status.ts
+  s_4537041956511c::t_7f27a777cc67e9 84,86-91,93
+tests/sync-status.test.ts
+  s_4537041956511c::t_b28dd545a84a8c 129-146
+models/alibaba/qwen3-coder-plus.yaml
+  s_4537041956511c::t_04ffacf5f2bd8a 5-7
+models/alibaba/qwen3-max.yaml
+  s_4537041956511c::t_e40d7b3ec85409 5
+models/alibaba/qwen3.6-flash.yaml
+  s_4537041956511c::t_5a9f98c90b32e4 5
+models/alibaba/qwen3.6-max-preview.yaml
+  s_4537041956511c::t_d544d748519640 5-7
+models/alibaba/qwen3.7-max.yaml
+  s_4537041956511c::t_769bfe0c5e0bca 5
+models/alibaba/qwen3.7-plus.yaml
+  s_4537041956511c::t_dab1a1cecab10c 5
+models/bedrock/nova-lite.yaml
+  s_4537041956511c::t_3d6c54fa2533e8 6
+models/bedrock/nova-micro.yaml
+  s_4537041956511c::t_2937d0598e36e7 6
+models/bedrock/nova-pro.yaml
+  s_4537041956511c::t_a0478c500a5a90 6
+models/vertex/gemini-2.5-flash-lite.yaml
+  s_4537041956511c::t_68da860befcb09 5-7
+models/vertex/gemini-2.5-flash.yaml
+  s_4537041956511c::t_8a6f2fac852db9 5-7
+models/vertex/gemini-2.5-pro.yaml
+  s_4537041956511c::t_5f9cf679cb9c53 5-7
+models/vertex/gemini-3.1-flash-lite.yaml
+  s_4537041956511c::t_4c34c2a955bab2 5
+models/vertex/gemini-3.5-flash-lite.yaml
+  s_4537041956511c::t_e51dbddfcc9ea7 5
+models/vertex/gemini-3.5-flash.yaml
+  s_4537041956511c::t_e3ac41e4c14555 5
+models/vertex/gemini-3.6-flash.yaml
+  s_4537041956511c::t_e0b3cd3dca9f27 5
+models/vertex/gemini-3.7-flash.yaml
+  s_4537041956511c::t_0f774ace9ac001 5
+models/z-ai/glm-4.5-air-subscription.yaml
+  s_4537041956511c::t_537863cfec8314 5
+models/z-ai/glm-4.5-air.yaml
+  s_4537041956511c::t_d020a3751f9eb0 5
+models/z-ai/glm-4.5-airx.yaml
+  s_4537041956511c::t_ff4b103d29e6b1 5
+models/z-ai/glm-4.5-flash.yaml
+  s_4537041956511c::t_f1ace810f9b2f4 5
+models/z-ai/glm-4.5-subscription.yaml
+  s_4537041956511c::t_4cd3acacf131ad 5
+models/z-ai/glm-4.5-x.yaml
+  s_4537041956511c::t_03eccac1180dad 5
+models/z-ai/glm-4.5.yaml
+  s_4537041956511c::t_2be01ad81bed8e 5
+models/z-ai/glm-4.6-subscription.yaml
+  s_4537041956511c::t_8f8912ebfdd983 5
+models/z-ai/glm-4.6.yaml
+  s_4537041956511c::t_e4450c09c502c6 5
+models/z-ai/glm-4.7-flash.yaml
+  s_4537041956511c::t_b9af806b2c01d5 5
+models/z-ai/glm-4.7-flashx.yaml
+  s_4537041956511c::t_9e0f457030798c 5
+models/z-ai/glm-4.7-subscription.yaml
+  s_4537041956511c::t_695ca46e72f37a 5
+models/z-ai/glm-4.7.yaml
+  s_4537041956511c::t_ca5c65e4bb3f93 5
+models/z-ai/glm-5-subscription.yaml
+  s_4537041956511c::t_e6b600550f4c7d 5
+models/z-ai/glm-5-turbo-subscription.yaml
+  s_4537041956511c::t_8bf656b7cffe20 5
+models/z-ai/glm-5-turbo.yaml
+  s_4537041956511c::t_f15d4a7457db72 5
+models/z-ai/glm-5.1-subscription.yaml
+  s_4537041956511c::t_7388d6e9fde726 5
+models/z-ai/glm-5.1.yaml
+  s_4537041956511c::t_122bc7d5cf5bcc 5
+models/z-ai/glm-5.2-subscription.yaml
+  s_4537041956511c::t_f125acf8920ef8 5
+models/z-ai/glm-5.2.yaml
+  s_4537041956511c::t_57ad379f16ebe4 5
+models/z-ai/glm-5.yaml
+  s_4537041956511c::t_de7596b252ca84 5
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_4537041956511c::t_c707cf4e5b9167 1130-1132,1185,1996,2072-2074,2300,2376,9650,9710,9770,25014-25016,25149-25151,25266-25268,25561,26042,26203,26342,26481,27737,27823,27909,27995,28081,28167,28253,28339,28425,28511,28597,28683,28769,28855,28941,29027,29113,29199,29285,29371,29481
+packages/modelparams/src/generated/data.ts
+  s_4537041956511c::t_e6288f026336e8 1135-1137,1190,2001,2077-2079,2305,2381,9655,9715,9775,25019-25021,25154-25156,25271-25273,25566,26047,26208,26347,26486,27742,27828,27914,28000,28086,28172,28258,28344,28430,28516,28602,28688,28774,28860,28946,29032,29118,29204,29290,29376,29486
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "cc5cd96d4915decbc893e74b9d11488893f36b5d",
+  "prompts": {},
+  "sessions": {
+    "s_4537041956511c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdcf726e9ffe5mqqa8chnIF0to",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

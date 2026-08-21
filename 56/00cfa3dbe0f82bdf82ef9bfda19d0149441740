@@ -1,0 +1,47 @@
+src/schema/model.ts
+  s_8ef413782f6350::t_4d097324afd0ce 197
+tests/load.test.ts
+  s_8ef413782f6350::t_4d097324afd0ce 64
+packages/modelparams/test-d/types.test-d.ts
+  s_8ef413782f6350::t_4d097324afd0ce 38
+packages/modelparams-python/src/modelparams/models.py
+  s_8ef413782f6350::t_4d097324afd0ce 66
+packages/modelparams-python/tests/test_catalog.py
+  s_8ef413782f6350::t_4d097324afd0ce 48
+packages/modelparams/scripts/codegen.ts
+  s_8ef413782f6350::t_4d097324afd0ce 105,110,116
+CONTRIBUTING.md
+  s_8ef413782f6350::t_4d097324afd0ce 36
+src/data/load.ts
+  s_8ef413782f6350::t_4d097324afd0ce 66
+src/build/render-model.ts
+  s_8ef413782f6350::t_4d097324afd0ce 109
+packages/modelparams-python/scripts/codegen.ts
+  s_8ef413782f6350::t_4d097324afd0ce 207
+README.md
+  s_8ef413782f6350::t_4d097324afd0ce 113-115
+packages/modelparams/tests/runtime.test.ts
+  s_8ef413782f6350::t_4d097324afd0ce 60
+docs/model-parameters-schema.md
+  s_8ef413782f6350::t_4d097324afd0ce 70-71
+src/client/webmcp.ts
+  s_8ef413782f6350::t_4d097324afd0ce 22
+packages/modelparams/src/generated/data.ts
+  s_8ef413782f6350::t_019fc68daed519 29415,29422
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "5600cfa3dbe0f82bdf82ef9bfda19d0149441740",
+  "prompts": {},
+  "sessions": {
+    "s_8ef413782f6350": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01fb5-0d1d-7710-b513-57889f15dfa1",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
