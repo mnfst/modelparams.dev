@@ -13,7 +13,6 @@
 import type { JSONRPCMessage } from "@modelcontextprotocol/sdk/types.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 import { createServer } from "../packages/modelparams-mcp/src/server.js";
-import { renderMcpHtml } from "../src/build/render-mcp.js";
 
 const MAX_BODY_BYTES = 256 * 1024;
 
@@ -124,20 +123,11 @@ export default {
 
     // A GET is either an MCP client opening the optional server-to-client
     // stream, which a stateless server has nothing to put on, or a person
-    // opening the URL. Answer each in its own terms: browsers get the docs
-    // page, event-stream clients get a 405, and plain API clients get JSON.
+    // opening the URL. Answer each in its own terms: event-stream clients get
+    // a 405, everyone else gets the JSON usage object.
     if (request.method === "GET") {
       if ((request.headers.get("accept") ?? "").includes("text/event-stream")) {
         return json({ error: "streaming_not_supported", usage: USAGE }, 405, { Allow: "POST" });
-      }
-      if ((request.headers.get("accept") ?? "").includes("text/html")) {
-        return new Response(renderMcpHtml(), {
-          status: 200,
-          headers: {
-            "Content-Type": "text/html; charset=utf-8",
-            "Cache-Control": "no-store",
-          },
-        });
       }
       return json(USAGE);
     }

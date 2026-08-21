@@ -117,6 +117,76 @@ function setupCopyNpm(): void {
   });
 }
 
+function setupMcpClients(): void {
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-mcp-client]");
+  const panels = document.querySelectorAll<HTMLElement>("[data-mcp-panel]");
+  if (buttons.length === 0) return;
+
+  const activeClass = [
+    "border-slate-900",
+    "bg-slate-900",
+    "text-white",
+    "dark:border-white",
+    "dark:bg-white",
+    "dark:text-slate-900",
+  ];
+  const idleClass = [
+    "border-slate-300",
+    "text-slate-700",
+    "hover:border-slate-500",
+    "dark:border-slate-700",
+    "dark:text-slate-300",
+  ];
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const id = button.dataset.mcpClient;
+      buttons.forEach((b) => {
+        const on = b === button;
+        b.classList.remove(...(on ? idleClass : activeClass));
+        b.classList.add(...(on ? activeClass : idleClass));
+      });
+      panels.forEach((panel) => panel.classList.toggle("hidden", panel.dataset.mcpPanel !== id));
+    });
+  });
+
+  const copyButtons = document.querySelectorAll<HTMLButtonElement>("[data-copy-mcp]");
+  copyButtons.forEach((button) => {
+    const idle = button.querySelector<HTMLElement>("[data-copy-mcp-idle]");
+    const done = button.querySelector<HTMLElement>("[data-copy-mcp-done]");
+    let timer = 0;
+    button.addEventListener("click", async () => {
+      const code = document.querySelector<HTMLElement>(
+        `[data-mcp-command="${button.dataset.copyMcp}"]`,
+      );
+      if (!code) return;
+      await copyText(code.textContent?.trim() ?? "");
+      idle?.classList.add("hidden");
+      done?.classList.remove("hidden");
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        idle?.classList.remove("hidden");
+        done?.classList.add("hidden");
+      }, 2000);
+    });
+  });
+}
+
+function setupJsonCopy(): void {
+  document.querySelectorAll<HTMLButtonElement>("[data-json-copy]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const code = button.closest("figure")?.querySelector("code");
+      if (!code) return;
+      await copyText(code.textContent?.trim() ?? "");
+      const original = button.textContent;
+      button.textContent = "Copied";
+      window.setTimeout(() => {
+        button.textContent = original;
+      }, 2000);
+    });
+  });
+}
+
 function setupThemeToggle(): void {
   const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
   if (!toggle) return;
@@ -534,6 +604,8 @@ function setupMobileMenu(): void {
 document.addEventListener("DOMContentLoaded", () => {
   setupThemeToggle();
   setupCopyNpm();
+  setupMcpClients();
+  setupJsonCopy();
   setupHowToUseModal();
   setupCopyHowToUse();
   setupProvidersMenu();

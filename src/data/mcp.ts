@@ -89,7 +89,7 @@ export const MCP_CLIENTS: McpClient[] = [
   },
   {
     id: "other",
-    name: "Claude Desktop, Zed, …",
+    name: "Other",
     logo: GENERIC_LOGO,
     kind: "json",
     command: MCP_SERVERS_JSON,
