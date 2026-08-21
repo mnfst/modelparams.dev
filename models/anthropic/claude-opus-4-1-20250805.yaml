@@ -2,7 +2,7 @@
 provider: anthropic
 authType: api_key
 model: claude-opus-4-1-20250805
-status: retired
+status: deprecated
 replacement: anthropic/claude-opus-4-8
 shutdownOn: 2026-08-05
 params:

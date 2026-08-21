@@ -4308,7 +4308,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "api_key",
     "model": "claude-opus-4-1-20250805",
-    "status": "retired",
+    "status": "deprecated",
     "replacement": "anthropic/claude-opus-4-8",
     "shutdownOn": "2026-08-05",
     "params": [
@@ -4448,7 +4448,7 @@ const GENERATED_CATALOG = [
     "provider": "anthropic",
     "authType": "subscription",
     "model": "claude-opus-4-1-20250805",
-    "status": "retired",
+    "status": "deprecated",
     "replacement": "anthropic/claude-opus-4-8",
     "shutdownOn": "2026-08-05",
     "params": [
@@ -13330,6 +13330,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "gemini-2.5-flash",
     "status": "active",
+    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13425,6 +13426,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "gemini-2.5-flash-lite",
     "status": "active",
+    "replacement": "google/gemini-3.1-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13516,6 +13518,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gemini-2.5-flash-lite",
     "status": "active",
+    "replacement": "google/gemini-3.1-flash-lite",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13607,6 +13610,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gemini-2.5-flash",
     "status": "active",
+    "replacement": "google/gemini-3.6-flash",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13702,6 +13706,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "gemini-2.5-pro",
     "status": "active",
+    "replacement": "google/gemini-3.1-pro-preview",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -13796,6 +13801,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gemini-2.5-pro",
     "status": "active",
+    "replacement": "google/gemini-3.1-pro-preview",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -17987,7 +17993,9 @@ const GENERATED_CATALOG = [
     "provider": "mistral",
     "authType": "api_key",
     "model": "devstral-2512",
-    "status": "deprecated",
+    "status": "retired",
+    "replacement": "mistral/mistral-medium-3-5-26-04",
+    "shutdownOn": "2026-07-31",
     "params": [
       {
         "path": "max_tokens",
@@ -19918,6 +19926,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "kimi-k2.5",
     "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20484,6 +20493,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-128k",
     "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20623,6 +20633,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-32k",
     "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -20762,6 +20773,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "moonshot-v1-8k",
     "status": "deprecated",
+    "replacement": "moonshot/kimi-k2.6",
     "shutdownOn": "2026-08-31",
     "params": [
       {
@@ -22036,6 +22048,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "chatgpt-4o-latest",
     "status": "retired",
+    "replacement": "openai/gpt-5.1-chat-latest",
     "shutdownOn": "2026-02-17",
     "params": [
       {
@@ -22821,7 +22834,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gpt-5.1-codex-max",
     "status": "retired",
-    "replacement": "openai/gpt-5.6-sol",
+    "replacement": "openai/gpt-5.3-codex",
     "shutdownOn": "2026-07-23",
     "params": [
       {
@@ -22873,7 +22886,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gpt-5.1-codex",
     "status": "retired",
-    "replacement": "openai/gpt-5.6-sol",
+    "replacement": "openai/gpt-5.3-codex",
     "shutdownOn": "2026-07-23",
     "params": [
       {
@@ -22957,7 +22970,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "model": "gpt-5.2-codex",
     "status": "retired",
-    "replacement": "openai/gpt-5.6-sol",
+    "replacement": "openai/gpt-5.3-codex",
     "shutdownOn": "2026-07-23",
     "params": [
       {
