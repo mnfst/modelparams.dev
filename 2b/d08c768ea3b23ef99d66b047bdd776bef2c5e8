@@ -1,0 +1,23 @@
+tests/sync-status.test.ts
+  s_901145e2c9983d::t_0084c3d8aebe55 69-70,77-86
+src/sync/run.ts
+  s_901145e2c9983d::t_b4f5411b593e81 48-57
+src/sync/status.ts
+  s_901145e2c9983d::t_9c9e486e3ff4ec 34-44,46-48,55-62,66-70,75-85,90,92-97,99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "2bd08c768ea3b23ef99d66b047bdd776bef2c5e8",
+  "prompts": {},
+  "sessions": {
+    "s_901145e2c9983d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdc754a4fffeGIfgV1w53UBA72",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
