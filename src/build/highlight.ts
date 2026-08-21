@@ -26,3 +26,18 @@ export function highlightJson(json: string): string {
     return `<span class="${cls}">${escapeHtml(match)}</span>`;
   });
 }
+
+/**
+ * A self-contained code block for JSON: a header bar with a label and a Copy
+ * button, and a body that wraps long lines instead of overflowing. The copy
+ * button is wired by `[data-json-copy]`; it copies the sibling `<code>` text.
+ */
+export function jsonBlock(json: string, label = "JSON"): string {
+  return `<figure>
+  <div class="flex items-center justify-between rounded-t-md border border-slate-200 border-b-0 bg-slate-800 px-4 py-1.5 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#161616]">
+    <span class="font-mono text-xs font-medium text-slate-400">${escapeHtml(label)}</span>
+    <button type="button" data-json-copy class="font-mono text-xs font-medium text-slate-400 hover:text-white">Copy</button>
+  </div>
+  <pre class="rounded-b-md border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 whitespace-pre-wrap break-words dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>${highlightJson(json)}</code></pre>
+</figure>`;
+}

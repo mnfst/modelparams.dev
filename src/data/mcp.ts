@@ -123,17 +123,16 @@ export const MCP_TOOLS: McpTool[] = [
       properties: {
         model: {
           ...STRING,
-          description:
-            "Catalog id or bare model slug, or with baseUrl the wire string your SDK sends.",
+          description: "Catalog id, bare slug, or wire string with baseUrl.",
         },
         baseUrl: {
           ...OPTIONAL_STRING,
-          description: 'The base URL your SDK uses, e.g. "https://api.fireworks.ai/inference/v1".',
+          description: "The base URL your SDK uses.",
         },
         params: {
           type: "object",
           additionalProperties: true,
-          description: 'Provider-native parameter paths to values, e.g. {"temperature": 0.7}.',
+          description: "Provider-native parameter paths to values.",
         },
       },
       required: ["model"],
@@ -166,8 +165,7 @@ export const MCP_TOOLS: McpTool[] = [
       properties: {
         model: {
           ...STRING,
-          description:
-            "Catalog id or bare model slug, or with baseUrl the wire string your SDK sends.",
+          description: "Catalog id, bare slug, or wire string with baseUrl.",
         },
         baseUrl: { ...OPTIONAL_STRING, description: "The base URL your SDK uses." },
       },

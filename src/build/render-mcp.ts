@@ -1,5 +1,5 @@
 import { MCP_CLIENTS, MCP_ENDPOINT, MCP_TOOLS } from "../data/mcp.js";
-import { highlightJson } from "./highlight.js";
+import { jsonBlock } from "./highlight.js";
 
 /**
  * The MCP docs page. Rendered as a self-contained HTML document that reuses the
@@ -49,15 +49,9 @@ export function renderMcpHtml(): string {
       <div id="${esc(tool.name)}" class="border-l-2 border-slate-200 pl-5 dark:border-slate-800">
         <h3 class="font-mono text-base font-semibold text-slate-900 dark:text-slate-100">${esc(tool.name)}</h3>
         <p class="mt-1.5 text-sm text-slate-600 dark:text-slate-300">${esc(tool.description)}</p>
-        <div class="mt-4 grid gap-4 lg:grid-cols-2">
-          <div>
-            <p class="mb-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Input</p>
-            <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-4 py-3 font-mono text-xs leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>${highlightJson(JSON.stringify(tool.inputSchema, null, 2))}</code></pre>
-          </div>
-          <div>
-            <p class="mb-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Example output</p>
-            <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-4 py-3 font-mono text-xs leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>${highlightJson(JSON.stringify(tool.example, null, 2))}</code></pre>
-          </div>
+        <div class="mt-4 space-y-4">
+          ${jsonBlock(JSON.stringify(tool.inputSchema, null, 2), "Input")}
+          ${jsonBlock(JSON.stringify(tool.example, null, 2), "Example output")}
         </div>
       </div>`,
   ).join("");
@@ -247,6 +241,19 @@ export function renderMcpHtml(): string {
           idle && idle.classList.add("hidden");
           done && done.classList.remove("hidden");
           setTimeout(function () { idle && idle.classList.remove("hidden"); done && done.classList.add("hidden"); }, 2000);
+        });
+      });
+    });
+
+    document.querySelectorAll("[data-json-copy]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var figure = button.closest("figure");
+        var code = figure && figure.querySelector("code");
+        if (!code) return;
+        copyText(code.textContent.trim()).then(function () {
+          var original = button.textContent;
+          button.textContent = "Copied";
+          setTimeout(function () { button.textContent = original; }, 2000);
         });
       });
     });
