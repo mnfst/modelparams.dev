@@ -27,6 +27,7 @@ import {
 } from "../data/urls.js";
 import { modelId, type Catalog, type Model } from "../schema/model.js";
 import { fitDescription, fitTitle } from "./meta.js";
+import { highlightJson } from "./highlight.js";
 import { buildHomeStructuredData } from "./structured-data.js";
 
 const LAYOUT_PATH = path.join(VIEWS_DIR, "layout.ejs");
@@ -49,6 +50,7 @@ export const viewHelpers = {
   parameterPagePath,
   parameterAnchorId,
   providerPagePath,
+  highlightJson,
 };
 
 export interface HubLink {

@@ -23,6 +23,7 @@ import {
   API_PATH,
   DISAMBIGUATION_PATH,
   GLOSSARY_PATH,
+  MCP_PATH,
   modelPagePath,
   parameterPagePath,
   providerPagePath,
@@ -36,6 +37,7 @@ import { renderIndex } from "./render.js";
 import { renderApiPage } from "./render-api.js";
 import { renderDisambiguationPage } from "./render-disambiguation.js";
 import { renderGlossaryPage } from "./render-glossary.js";
+import { renderMcpPage } from "./render-mcp.js";
 import { renderModelPage } from "./render-model.js";
 import { defaultSummary,renderParameterPage, rangeSummary } from "./render-parameter.js";
 import { renderNotFoundPage } from "./render-not-found.js";
@@ -80,6 +82,7 @@ async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
     { path: GLOSSARY_PATH, priority: "0.7", lastmod: freshest(models) },
     { path: DISAMBIGUATION_PATH, priority: "0.6", lastmod: freshest(models) },
     { path: API_PATH, priority: "0.5", lastmod: freshest(models) },
+    { path: MCP_PATH, priority: "0.5", lastmod: freshest(models) },
     ...uniqueProviders(models).map((provider) => ({
       path: providerPagePath(provider),
       priority: "0.8",
@@ -133,6 +136,7 @@ async function writeHtmlPages(models: Model[]): Promise<void> {
     "utf8",
   );
   await fs.writeFile(path.join(DIST_DIR, "api.html"), await renderApiPage(models), "utf8");
+  await fs.writeFile(path.join(DIST_DIR, "mcp-server.html"), await renderMcpPage(models), "utf8");
   await fs.writeFile(path.join(DIST_DIR, "404.html"), await renderNotFoundPage(models), "utf8");
 }
 

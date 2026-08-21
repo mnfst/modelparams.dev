@@ -22,6 +22,9 @@ export const GLOSSARY_PATH = "/glossary";
 /** API documentation page. The HTML docs, not the JSON endpoints under /api/v1. */
 export const API_PATH = "/api";
 
+/** MCP server documentation page. The protocol endpoint itself lives at /mcp. */
+export const MCP_PATH = "/mcp-server";
+
 /**
  * The page that separates the two meanings of "model parameters": weight count
  * versus the request settings this catalog documents. Every other page links

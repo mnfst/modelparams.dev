@@ -123,7 +123,8 @@ export default {
 
     // A GET is either an MCP client opening the optional server-to-client
     // stream, which a stateless server has nothing to put on, or a person
-    // opening the URL. Answer each in its own terms.
+    // opening the URL. Answer each in its own terms: event-stream clients get
+    // a 405, everyone else gets the JSON usage object.
     if (request.method === "GET") {
       if ((request.headers.get("accept") ?? "").includes("text/event-stream")) {
         return json({ error: "streaming_not_supported", usage: USAGE }, 405, { Allow: "POST" });

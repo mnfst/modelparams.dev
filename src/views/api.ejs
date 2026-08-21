@@ -86,7 +86,7 @@
   -d '{"model":"anthropic/claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'</code></pre>
       </div>
       <div class="mt-3">
-        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>{
+        <pre class="border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 whitespace-pre-wrap break-words dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code><%- helpers.highlightJson(`{
   "model": "anthropic/claude-3-opus-20240229",
   "valid": false,
   "issues": [
@@ -98,7 +98,7 @@
     }
   ],
   "safeParams": { "temperature": 0.5 }
-}</code></pre>
+}`) %></code></pre>
       </div>
       <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">
         Every issue carries a
@@ -113,24 +113,9 @@
     <section>
       <h2 class="text-slate-900 dark:text-slate-100">MCP server</h2>
       <p class="mt-2 text-slate-600 dark:text-slate-300">
-        Let a coding agent check the catalog itself. Hosted at
-        <code class="font-mono text-xs">https://modelparams.dev/mcp</code>, over Streamable HTTP — nothing to install,
-        and it always answers from the catalog this site is serving.
-      </p>
-      <div class="mt-4">
-        <pre class="overflow-x-auto border border-slate-200 bg-slate-900 px-5 py-4 font-mono text-sm leading-relaxed text-slate-200 dark:border-[hsla(60,2%,12%,0.17)] dark:bg-[#0d0d0d]"><code>claude mcp add --transport http modelparams https://modelparams.dev/mcp
-codex mcp add modelparams --url https://modelparams.dev/mcp</code></pre>
-      </div>
-      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">
-        Tools:
-        <code class="font-mono text-xs">validate_model_params</code>,
-        <code class="font-mono text-xs">get_model_params</code>,
-        <code class="font-mono text-xs">list_models</code>,
-        <code class="font-mono text-xs">list_provider_models</code>.
-      </p>
-      <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">
-        Using a coding agent that supports skills? Install the companion skill with
-        <code class="bg-warm-tag px-1.5 py-0.5 font-mono text-xs text-slate-700 dark:bg-[#262626] dark:text-slate-300">npx skills add mnfst/modelparams.dev</code>.
+        Want your coding agent to check the catalog itself? The MCP server has its own page:
+        <a href="/mcp-server" class="text-accent hover:text-accent-hover">/mcp-server</a> — install commands,
+        the four tools, and their schemas.
       </p>
     </section>
 
