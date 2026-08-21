@@ -45,7 +45,16 @@ async function main(): Promise<void> {
     throw new Error(`fetch ${url} returned HTTP ${response.status}`);
   }
   const payload = (await response.json()) as DeprecationsPayload;
-  const index = indexDeprecations(payload.models);
+  const { index, rejected } = indexDeprecations(payload.models);
+
+  if (rejected.length > 0) {
+    for (const { entry, reason } of rejected) {
+      console.error(`  ✖ ${JSON.stringify(entry)}\n    ${reason}`);
+    }
+    throw new Error(
+      `${rejected.length} deprecation entr${rejected.length === 1 ? "y" : "ies"} failed schema validation (see above)`,
+    );
+  }
 
   const files = await walkYamlFiles(MODELS_DIR);
   let matched = 0;
