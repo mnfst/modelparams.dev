@@ -31,37 +31,72 @@ const DeprecationEntrySchema = z.object({
   replacements: z.array(ReplacementSchema).optional(),
 });
 
-export function toLifecycleRecord(entry: unknown): LifecycleRecord | undefined {
+function describeZodError(error: z.ZodError): string {
+  return error.issues
+    .map((issue) => `${issue.path.join(".") || "<root>"}: ${issue.message}`)
+    .join("; ");
+}
+
+export type LifecycleParseResult =
+  | { ok: true; record: LifecycleRecord }
+  | { ok: false; reason: string };
+
+export function parseLifecycleRecord(entry: unknown): LifecycleParseResult {
   const parsed = DeprecationEntrySchema.safeParse(entry);
-  if (!parsed.success) return undefined;
+  if (!parsed.success) {
+    return { ok: false, reason: describeZodError(parsed.error) };
+  }
 
   const { provider, model, status, shutdown_on, replacements } = parsed.data;
   const recommended =
     replacements?.find((replacement) => replacement.recommended) ?? replacements?.[0];
 
   return {
-    provider,
-    model,
-    status,
-    replacement: recommended ? `${recommended.provider}/${recommended.model}` : undefined,
-    shutdownOn: shutdown_on ?? undefined,
+    ok: true,
+    record: {
+      provider,
+      model,
+      status,
+      replacement: recommended ? `${recommended.provider}/${recommended.model}` : undefined,
+      shutdownOn: shutdown_on ?? undefined,
+    },
   };
+}
+
+export function toLifecycleRecord(entry: unknown): LifecycleRecord | undefined {
+  const result = parseLifecycleRecord(entry);
+  return result.ok ? result.record : undefined;
 }
 
 export function keyOf(provider: string, model: string): string {
   return `${provider}/${model}`;
 }
 
-export function indexDeprecations(models: unknown): Map<string, LifecycleRecord> {
+export interface RejectedEntry {
+  entry: unknown;
+  reason: string;
+}
+
+export interface IndexResult {
+  index: Map<string, LifecycleRecord>;
+  rejected: RejectedEntry[];
+}
+
+export function indexDeprecations(models: unknown): IndexResult {
   if (!Array.isArray(models)) {
     throw new Error("deprecations payload `models` must be an array");
   }
   const index = new Map<string, LifecycleRecord>();
+  const rejected: RejectedEntry[] = [];
   for (const entry of models) {
-    const record = toLifecycleRecord(entry);
-    if (record) index.set(keyOf(record.provider, record.model), record);
+    const result = parseLifecycleRecord(entry);
+    if (result.ok) {
+      index.set(keyOf(result.record.provider, result.record.model), result.record);
+    } else {
+      rejected.push({ entry, reason: result.reason });
+    }
   }
-  return index;
+  return { index, rejected };
 }
 
 const LIFECYCLE_KEYS = /^(status|replacement|shutdownOn):/;
