@@ -81,14 +81,15 @@ function blockFor(record: LifecycleRecord): string[] {
  * ordering produced by the original lifecycle import.
  */
 export function applyLifecycle(text: string, record: LifecycleRecord): string {
-  const lines = text.split("\n");
-  const modelIndex = lines.findIndex((line) => /^model:\s+\S+/.test(line));
-  if (modelIndex === -1) return text;
+  const kept = text.split("\n").filter((line) => !LIFECYCLE_KEYS.test(line));
 
-  const kept = lines.filter((line) => !LIFECYCLE_KEYS.test(line));
-  const keptModelIndex = kept.findIndex((line) => /^model:\s+\S+/.test(line));
-  if (keptModelIndex === -1) return text;
+  // Anchor after the wireId when present, else after the model id, so the
+  // lifecycle block stays at the top of the file in canonical field order.
+  const anchorIndex = kept.findIndex((line) => /^wireId:\s+\S+/.test(line));
+  const modelIndex = kept.findIndex((line) => /^model:\s+\S+/.test(line));
+  const insertIndex = anchorIndex !== -1 ? anchorIndex : modelIndex;
+  if (insertIndex === -1) return text;
 
-  kept.splice(keptModelIndex + 1, 0, ...blockFor(record));
+  kept.splice(insertIndex + 1, 0, ...blockFor(record));
   return kept.join("\n");
 }

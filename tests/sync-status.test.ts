@@ -126,4 +126,22 @@ describe("applyLifecycle", () => {
     const noModel = "provider: anthropic\nparams: []\n";
     expect(applyLifecycle(noModel, retired)).toBe(noModel);
   });
+
+  it("places the lifecycle block after the wireId when one exists", () => {
+    const withWire = [
+      "provider: bedrock",
+      "authType: api_key",
+      "model: nova-pro",
+      "wireId: amazon.nova-pro-v1:0",
+      "params:",
+    ].join("\n");
+    const result = applyLifecycle(withWire, {
+      provider: "bedrock",
+      model: "nova-pro",
+      status: "active",
+    });
+    expect(result).toContain(
+      ["wireId: amazon.nova-pro-v1:0", "status: active", "params:"].join("\n"),
+    );
+  });
 });
