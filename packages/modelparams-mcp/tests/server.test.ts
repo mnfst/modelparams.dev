@@ -180,6 +180,7 @@ describe("get_model_params", () => {
   it("returns typed parameters and defaults", async () => {
     const out = await call<ModelParamsResult>("get_model_params", { model: "openai/gpt-5.5" });
     expect(out.model).toBe("openai/gpt-5.5");
+    expect(out.status).toBe("active");
     expect(out.parameterCount).toBeGreaterThan(0);
     const effort = out.params.find((p) => p.path === "reasoning_effort");
     expect(effort!.type).toBe("enum");

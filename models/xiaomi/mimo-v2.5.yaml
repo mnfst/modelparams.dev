@@ -2,6 +2,7 @@
 provider: xiaomi
 authType: api_key
 model: mimo-v2.5
+status: active
 params:
   - path: max_completion_tokens
     type: integer

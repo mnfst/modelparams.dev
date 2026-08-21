@@ -2,6 +2,7 @@
 provider: mistral
 authType: api_key
 model: open-mistral-nemo
+status: deprecated
 params:
   - path: max_tokens
     type: integer

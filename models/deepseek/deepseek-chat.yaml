@@ -2,6 +2,9 @@
 provider: deepseek
 authType: api_key
 model: deepseek-chat
+status: retired
+replacement: deepseek/deepseek-v4-flash
+shutdownOn: 2026-07-24
 params:
   - path: max_tokens
     type: integer

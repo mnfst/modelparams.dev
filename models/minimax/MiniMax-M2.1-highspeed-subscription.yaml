@@ -2,6 +2,7 @@
 provider: minimax
 authType: subscription
 model: MiniMax-M2.1-highspeed
+status: active
 params:
   - path: max_tokens
     type: integer

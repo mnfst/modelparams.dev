@@ -2,6 +2,9 @@
 provider: openai
 authType: subscription
 model: gpt-5.1-codex
+status: retired
+replacement: openai/gpt-5.6-sol
+shutdownOn: 2026-07-23
 params:
   - path: reasoning.effort
     type: enum

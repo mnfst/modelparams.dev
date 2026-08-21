@@ -2,6 +2,7 @@
 provider: google
 authType: api_key
 model: gemini-3.1-pro-preview
+status: active
 params:
   - path: generationConfig.maxOutputTokens
     type: integer
