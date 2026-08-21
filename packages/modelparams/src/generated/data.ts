@@ -1132,6 +1132,9 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "qwen3-coder-plus",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3.7-plus",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_tokens",
@@ -1184,6 +1187,7 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "qwen3-max",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -1994,6 +1998,7 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "qwen3.6-flash",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -2069,6 +2074,9 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "qwen3.6-max-preview",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3.7-max",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -2294,6 +2302,7 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "qwen3.7-max",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -2369,6 +2378,7 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "model": "qwen3.7-plus",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -9642,6 +9652,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "nova-lite",
     "wireId": "amazon.nova-lite-v1:0",
+    "status": "active",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9701,6 +9712,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "nova-micro",
     "wireId": "amazon.nova-micro-v1:0",
+    "status": "active",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -9760,6 +9772,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "model": "nova-pro",
     "wireId": "amazon.nova-pro-v1:0",
+    "status": "active",
     "params": [
       {
         "path": "inferenceConfig.maxTokens",
@@ -25003,6 +25016,9 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-2.5-flash",
+    "status": "deprecated",
+    "replacement": "vertex/gemini-3.5-flash-lite",
+    "shutdownOn": "2026-10-20",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -25135,6 +25151,9 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-2.5-flash-lite",
+    "status": "deprecated",
+    "replacement": "vertex/gemini-3.1-flash-lite",
+    "shutdownOn": "2026-10-20",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -25249,6 +25268,9 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-2.5-pro",
+    "status": "deprecated",
+    "replacement": "vertex/gemini-3.5-flash",
+    "shutdownOn": "2026-10-20",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -25541,6 +25563,7 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-3.1-flash-lite",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -26021,6 +26044,7 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-3.5-flash",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -26181,6 +26205,7 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-3.5-flash-lite",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -26319,6 +26344,7 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-3.6-flash",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -26457,6 +26483,7 @@ const GENERATED_CATALOG = [
     "provider": "vertex",
     "authType": "api_key",
     "model": "gemini-3.7-flash",
+    "status": "active",
     "params": [
       {
         "path": "generationConfig.maxOutputTokens",
@@ -27712,6 +27739,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -27797,6 +27825,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.5-air",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -27882,6 +27911,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-4.5-air",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -27967,6 +27997,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.5-airx",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28052,6 +28083,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.5-flash",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28137,6 +28169,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-4.5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28222,6 +28255,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.5-x",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28307,6 +28341,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.6",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28392,6 +28427,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-4.6",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28477,6 +28513,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.7",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28562,6 +28599,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.7-flash",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28647,6 +28685,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-4.7-flashx",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28732,6 +28771,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-4.7",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28817,6 +28857,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28902,6 +28943,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-5",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -28987,6 +29029,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-5-turbo",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -29072,6 +29115,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-5-turbo",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -29157,6 +29201,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-5.1",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -29242,6 +29287,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-5.1",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -29327,6 +29373,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "api_key",
     "model": "glm-5.2",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -29436,6 +29483,7 @@ const GENERATED_CATALOG = [
     "provider": "z-ai",
     "authType": "subscription",
     "model": "glm-5.2",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",

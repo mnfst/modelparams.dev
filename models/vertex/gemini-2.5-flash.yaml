@@ -2,6 +2,9 @@
 provider: vertex
 authType: api_key
 model: gemini-2.5-flash
+status: deprecated
+replacement: vertex/gemini-3.5-flash-lite
+shutdownOn: 2026-10-20
 params:
   - path: generationConfig.maxOutputTokens
     type: integer

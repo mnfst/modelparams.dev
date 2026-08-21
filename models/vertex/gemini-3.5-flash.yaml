@@ -2,6 +2,7 @@
 provider: vertex
 authType: api_key
 model: gemini-3.5-flash
+status: active
 params:
   - path: generationConfig.maxOutputTokens
     type: integer

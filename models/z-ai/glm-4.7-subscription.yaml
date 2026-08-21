@@ -2,6 +2,7 @@
 provider: z-ai
 authType: subscription
 model: glm-4.7
+status: active
 params:
   - path: max_tokens
     type: integer

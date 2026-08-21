@@ -2,6 +2,9 @@
 provider: alibaba
 authType: api_key
 model: qwen3-coder-plus
+status: deprecated
+replacement: alibaba/qwen3.7-plus
+shutdownOn: 2026-10-10
 params:
   - path: max_tokens
     type: integer
