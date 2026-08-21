@@ -2,8 +2,10 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAllModels } from "../../../src/data/load.js";
+import { loadAllDeprecations } from "../../../src/data/load-deprecations.js";
 import { loadProviderEndpoints } from "../../../src/data/provider-endpoints.js";
 import { authSuffix, modelId, type Model, type Parameter } from "../../../src/schema/model.js";
+import { DeprecationReason, DeprecationStatus } from "../../../src/schema/deprecation.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.resolve(here, "..", "src", "generated");
@@ -52,7 +54,10 @@ function emitDefaultsEntry(m: Model): string {
 }
 
 async function main(): Promise<void> {
-  const { models, issues } = await loadAllModels();
+  const [{ models, issues }, { deprecations, issues: deprecationIssues }] = await Promise.all([
+    loadAllModels(),
+    loadAllDeprecations(),
+  ]);
 
   if (issues.length > 0) {
     console.error(`Catalog has ${issues.length} validation issue(s); refusing to codegen:`);
@@ -62,10 +67,28 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
+  if (deprecationIssues.length > 0) {
+    console.error(
+      `Deprecations have ${deprecationIssues.length} validation issue(s); refusing to codegen:`,
+    );
+    for (const issue of deprecationIssues) {
+      console.error(`  ${issue.file}: ${issue.message}`);
+    }
+    process.exit(1);
+  }
+
   await fs.mkdir(OUT_DIR, { recursive: true });
 
   const ids = models.map(modelId);
   const providers = [...new Set(models.map((m) => m.provider))].sort();
+  const deprecationEntries = deprecations.map((d) => ({
+    modelId: modelId(d),
+    status: d.status,
+    deprecatedAt: d.deprecatedAt,
+    ...(d.sunsetAt !== undefined ? { sunsetAt: d.sunsetAt } : {}),
+    ...(d.replacement !== undefined ? { replacement: d.replacement } : {}),
+    reason: d.reason,
+  }));
 
   // 1. model-ids.ts — ModelId union + Provider union
   await fs.writeFile(
@@ -122,7 +145,29 @@ async function main(): Promise<void> {
     HEADER + `export const PROVIDER_ENDPOINTS = ${JSON.stringify(endpoints, null, 2)} as const;\n`,
   );
 
-  // 6. index.ts — barrel for the generated dir
+  // 6. deprecations.ts — deprecated/sunset/removed models and their replacements
+  const statusUnion = DeprecationStatus.options.map((o) => JSON.stringify(o)).join(" | ");
+  const reasonUnion = DeprecationReason.options.map((o) => JSON.stringify(o)).join(" | ");
+  await fs.writeFile(
+    path.join(OUT_DIR, "deprecations.ts"),
+    HEADER +
+      `export type DeprecationStatus = ${statusUnion};\n\n` +
+      `export type DeprecationReason = ${reasonUnion};\n\n` +
+      `export interface DeprecationEntry {\n` +
+      `  modelId: string;\n` +
+      `  status: DeprecationStatus;\n` +
+      `  deprecatedAt: string;\n` +
+      `  sunsetAt?: string;\n` +
+      `  replacement?: string;\n` +
+      `  reason: DeprecationReason;\n` +
+      `}\n\n` +
+      `export const DEPRECATIONS: readonly DeprecationEntry[] = ${JSON.stringify(deprecationEntries, null, 2)};\n\n` +
+      `export const DEPRECATIONS_BY_ID: Readonly<Record<string, DeprecationEntry>> = Object.freeze(\n` +
+      `  Object.fromEntries(DEPRECATIONS.map((d) => [d.modelId, d])),\n` +
+      `);\n`,
+  );
+
+  // 7. index.ts — barrel for the generated dir
   await fs.writeFile(
     path.join(OUT_DIR, "index.ts"),
     HEADER +
@@ -130,14 +175,15 @@ async function main(): Promise<void> {
       `export * from "./params-by-id.js";\n` +
       `export * from "./defaults.js";\n` +
       `export * from "./data.js";\n` +
-      `export * from "./provider-endpoints.js";\n`,
+      `export * from "./provider-endpoints.js";\n` +
+      `export * from "./deprecations.js";\n`,
   );
 
   // Reference authSuffix so its `import` isn't tree-shaken from the type-checker's view.
   void authSuffix;
 
   console.log(
-    `codegen: wrote 6 files for ${models.length} models across ${providers.length} providers → ${path.relative(process.cwd(), OUT_DIR)}/`,
+    `codegen: wrote 7 files for ${models.length} models across ${providers.length} providers (${deprecations.length} deprecations) → ${path.relative(process.cwd(), OUT_DIR)}/`,
   );
 }
 

@@ -37,6 +37,9 @@ jobs:
       - name: Validate model YAML
         run: npm run validate
 
+      - name: Validate deprecations against catalog
+        run: npm run validate:deprecations
+
       - name: Test
         run: npm test
 

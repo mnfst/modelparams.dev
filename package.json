@@ -24,6 +24,7 @@
     "codegen:python": "tsx packages/modelparams-python/scripts/codegen.ts",
     "dev": "tsx watch src/server/dev.ts",
     "validate": "tsx src/data/validate.ts",
+    "validate:deprecations": "tsx src/data/validate-deprecations.ts",
     "guard:params": "tsx src/data/check-removals.ts",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.api.json",
     "lint": "eslint . --ext .ts,.tsx",

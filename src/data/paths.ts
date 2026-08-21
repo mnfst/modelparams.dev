@@ -5,6 +5,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 
 export const REPO_ROOT = path.resolve(here, "..", "..");
 export const MODELS_DIR = path.join(REPO_ROOT, "models");
+export const DEPRECATIONS_DIR = path.join(REPO_ROOT, "deprecations");
 export const VIEWS_DIR = path.join(REPO_ROOT, "src", "views");
 export const CLIENT_DIR = path.join(REPO_ROOT, "src", "client");
 export const DIST_DIR = path.join(REPO_ROOT, "dist");

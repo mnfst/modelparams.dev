@@ -15,7 +15,7 @@ export interface LoadResult {
   issues: LoadIssue[];
 }
 
-async function walkYamlFiles(dir: string): Promise<string[]> {
+export async function walkYamlFiles(dir: string): Promise<string[]> {
   const found: string[] = [];
   let entries: import("node:fs").Dirent[];
   try {
@@ -36,13 +36,13 @@ async function walkYamlFiles(dir: string): Promise<string[]> {
   return found.sort();
 }
 
-function formatZodIssue(error: z.ZodError): string {
+export function formatZodIssue(error: z.ZodError): string {
   return error.issues
     .map((issue) => `${issue.path.join(".") || "<root>"}: ${issue.message}`)
     .join("; ");
 }
 
-function expectedIdFromPath(file: string, modelsDir: string): string {
+export function expectedIdFromPath(file: string, modelsDir: string): string {
   const rel = path.relative(modelsDir, file);
   const parts = rel.split(path.sep);
   if (parts.length < 2) return "";

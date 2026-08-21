@@ -17,8 +17,8 @@ export const ParameterGroup = z.enum([
 ]);
 export type ParameterGroup = z.infer<typeof ParameterGroup>;
 
-const PROVIDER_SLUG = /^[a-z0-9][a-z0-9-]*$/;
-const MODEL_ID = /^[A-Za-z0-9][A-Za-z0-9._:-]*$/;
+export const PROVIDER_SLUG = /^[a-z0-9][a-z0-9-]*$/;
+export const MODEL_ID = /^[A-Za-z0-9][A-Za-z0-9._:-]*$/;
 const PARAM_PATH = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*$/;
 const BLOCKED_PARAM_PATHS = new Set(["stream"]);
 
