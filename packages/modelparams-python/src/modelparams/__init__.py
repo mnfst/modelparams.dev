@@ -1,12 +1,5 @@
 from importlib import metadata
 
-from ._generated.deprecations import (
-    DEPRECATIONS,
-    DEPRECATIONS_BY_ID,
-    DeprecationEntry,
-    DeprecationReason,
-    DeprecationStatus,
-)
 from ._generated.model_ids import MODEL_IDS, PROVIDERS, ModelId, Provider
 from .catalog import (
     BY_ID,
@@ -44,16 +37,11 @@ __all__ = [
     "BY_ID",
     "CATALOG",
     "DEFAULTS",
-    "DEPRECATIONS",
-    "DEPRECATIONS_BY_ID",
     "MODEL_IDS",
     "PROVIDERS",
     "Applicability",
     "ApplicabilityCondition",
     "CatalogEntry",
-    "DeprecationEntry",
-    "DeprecationReason",
-    "DeprecationStatus",
     "JsonPrimitive",
     "ModelId",
     "Parameter",

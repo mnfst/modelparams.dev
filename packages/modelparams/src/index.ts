@@ -25,12 +25,6 @@ export type {
 export { MODEL_IDS, PROVIDERS } from "./generated/model-ids.js";
 export { DEFAULTS } from "./generated/defaults.js";
 export { CATALOG, BY_ID } from "./generated/data.js";
-export { DEPRECATIONS, DEPRECATIONS_BY_ID } from "./generated/deprecations.js";
-export type {
-  DeprecationEntry,
-  DeprecationStatus,
-  DeprecationReason,
-} from "./generated/deprecations.js";
 
 export { getModel, getDefaults, listModels, getParam, listAllModels } from "./helpers.js";
 export { parseParams, paramsSchema } from "./parse.js";

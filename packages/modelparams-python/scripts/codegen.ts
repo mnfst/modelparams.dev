@@ -2,9 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAllModels } from "../../../src/data/load.js";
-import { loadAllDeprecations } from "../../../src/data/load-deprecations.js";
 import { modelId, type Model, type Parameter } from "../../../src/schema/model.js";
-import { DeprecationReason, DeprecationStatus } from "../../../src/schema/deprecation.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const PACKAGE_DIR = path.resolve(here, "..");
@@ -172,81 +170,13 @@ async function removeStaleTypeModules(expected: Set<string>): Promise<void> {
   );
 }
 
-interface DeprecationEntryOut {
-  modelId: string;
-  status: string;
-  deprecatedAt: string;
-  sunsetAt?: string;
-  replacement?: string;
-  reason: string;
-}
-
-function emitDeprecations(deprecations: DeprecationEntryOut[]): string {
-  const statusLiteral = DeprecationStatus.options.map(pythonString).join(", ");
-  const reasonLiteral = DeprecationReason.options.map(pythonString).join(", ");
-
-  const entries = deprecations.map((entry) => {
-    const args = [
-      `modelId=${pythonString(entry.modelId)}`,
-      `status=${pythonString(entry.status)}`,
-      `deprecatedAt=${pythonString(entry.deprecatedAt)}`,
-    ];
-    if (entry.sunsetAt !== undefined) args.push(`sunsetAt=${pythonString(entry.sunsetAt)}`);
-    if (entry.replacement !== undefined)
-      args.push(`replacement=${pythonString(entry.replacement)}`);
-    args.push(`reason=${pythonString(entry.reason)}`);
-    return `    DeprecationEntry(${args.join(", ")}),`;
-  });
-
-  const tuple =
-    entries.length > 0
-      ? `DEPRECATIONS: tuple[DeprecationEntry, ...] = (\n${entries.join("\n")}\n)\n`
-      : `DEPRECATIONS: tuple[DeprecationEntry, ...] = ()\n`;
-
-  return (
-    HEADER +
-    `from typing import Literal\n\n` +
-    `from typing_extensions import NotRequired, TypedDict\n\n` +
-    `DeprecationStatus = Literal[${statusLiteral}]\n` +
-    `DeprecationReason = Literal[${reasonLiteral}]\n\n` +
-    `class DeprecationEntry(TypedDict):\n` +
-    `    modelId: str\n` +
-    `    status: DeprecationStatus\n` +
-    `    deprecatedAt: str\n` +
-    `    sunsetAt: NotRequired[str]\n` +
-    `    replacement: NotRequired[str]\n` +
-    `    reason: DeprecationReason\n\n` +
-    tuple +
-    `\nDEPRECATIONS_BY_ID: dict[str, DeprecationEntry] = {entry["modelId"]: entry for entry in DEPRECATIONS}\n`
-  );
-}
-
 async function main(): Promise<void> {
-  const [{ models, issues }, { deprecations, issues: deprecationIssues }] = await Promise.all([
-    loadAllModels(),
-    loadAllDeprecations(),
-  ]);
+  const { models, issues } = await loadAllModels();
   if (issues.length > 0) {
     console.error(`Catalog has ${issues.length} validation issue(s); refusing to codegen:`);
     for (const issue of issues) console.error(`  ${issue.file}: ${issue.message}`);
     process.exit(1);
   }
-  if (deprecationIssues.length > 0) {
-    console.error(
-      `Deprecations have ${deprecationIssues.length} validation issue(s); refusing to codegen:`,
-    );
-    for (const issue of deprecationIssues) console.error(`  ${issue.file}: ${issue.message}`);
-    process.exit(1);
-  }
-
-  const deprecationEntries: DeprecationEntryOut[] = deprecations.map((d) => ({
-    modelId: modelId(d),
-    status: d.status,
-    deprecatedAt: d.deprecatedAt,
-    ...(d.sunsetAt !== undefined ? { sunsetAt: d.sunsetAt } : {}),
-    ...(d.replacement !== undefined ? { replacement: d.replacement } : {}),
-    reason: d.reason,
-  }));
 
   assertUniqueNames(models);
   await fs.mkdir(GENERATED_DIR, { recursive: true });
@@ -280,11 +210,6 @@ async function main(): Promise<void> {
     ),
     fs.writeFile(path.join(GENERATED_DIR, "model_ids.py"), emitModelIds(models), "utf8"),
     fs.writeFile(path.join(GENERATED_DIR, "registry.py"), emitRegistry(models), "utf8"),
-    fs.writeFile(
-      path.join(GENERATED_DIR, "deprecations.py"),
-      emitDeprecations(deprecationEntries),
-      "utf8",
-    ),
     fs.writeFile(path.join(GENERATED_DIR, "__init__.py"), `${HEADER.trimEnd()}\n`, "utf8"),
     fs.writeFile(
       path.join(TYPES_DIR, "__init__.py"),
@@ -294,7 +219,7 @@ async function main(): Promise<void> {
   ]);
 
   console.log(
-    `python codegen: wrote catalog and request types for ${models.length} models across ${byProvider.size} providers (${deprecations.length} deprecations)`,
+    `python codegen: wrote catalog and request types for ${models.length} models across ${byProvider.size} providers`,
   );
 }
 

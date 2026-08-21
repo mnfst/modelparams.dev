@@ -6,4 +6,3 @@ export * from "./params-by-id.js";
 export * from "./defaults.js";
 export * from "./data.js";
 export * from "./provider-endpoints.js";
-export * from "./deprecations.js";
