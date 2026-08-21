@@ -1,0 +1,82 @@
+name: Sync lifecycle status
+
+# Pulls lifecycle metadata (status, replacement, shutdownOn) from
+# modeldeprecations.dev and opens a draft PR when anything changed, keeping this
+# catalog's status fields from going stale between manual imports.
+#
+# modeldeprecations.dev is the lifecycle source of truth; this workflow only
+# mirrors it and never invents dates or replacements.
+
+on:
+  schedule:
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: sync-lifecycle-status
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync status and open PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out the default branch without credentials
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync lifecycle status
+        run: npm run sync:status
+
+      - name: Regenerate modelparams package
+        run: npm run codegen --workspace=modelparams
+
+      - name: Regenerate modelparams Python package
+        run: npm run codegen:python
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create or update lifecycle sync pull request
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: ${{ github.event.repository.default_branch }}
+          branch: automation/sync-lifecycle-status
+          delete-branch: true
+          draft: true
+          commit-message: "chore: sync model lifecycle status from modeldeprecations.dev"
+          title: "chore: sync model lifecycle status"
+          body: |
+            ### What changed
+            - Mirrors `status`, `replacement`, and `shutdownOn` from modeldeprecations.dev.
+            - Regenerates the modelparams TypeScript and Python packages.
+
+            ### Why
+            This catalog's lifecycle fields otherwise go stale between manual imports.
+
+            Review the Files tab before merging. This PR never changes parameter data.
