@@ -5,6 +5,31 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.58
+
+### Parameters changed
+
+- `z-ai/glm-4.5`: updated `max_tokens`
+- `z-ai/glm-4.5-air`: updated `max_tokens`
+- `z-ai/glm-4.5-air-subscription`: updated `max_tokens`
+- `z-ai/glm-4.5-airx`: updated `max_tokens`
+- `z-ai/glm-4.5-flash`: updated `max_tokens`
+- `z-ai/glm-4.5-subscription`: updated `max_tokens`
+- `z-ai/glm-4.5-x`: updated `max_tokens`
+- `z-ai/glm-4.6`: updated `max_tokens`
+- `z-ai/glm-4.6-subscription`: updated `max_tokens`
+- `z-ai/glm-4.7`: updated `max_tokens`
+- `z-ai/glm-4.7-flash`: updated `max_tokens`
+- `z-ai/glm-4.7-flashx`: updated `max_tokens`
+- `z-ai/glm-4.7-subscription`: updated `max_tokens`
+- `z-ai/glm-5`: updated `max_tokens`
+- `z-ai/glm-5-subscription`: updated `max_tokens`
+- `z-ai/glm-5-turbo`: updated `max_tokens`
+- `z-ai/glm-5-turbo-subscription`: updated `max_tokens`
+- `z-ai/glm-5.1`: updated `max_tokens`
+- `z-ai/glm-5.1-subscription`: updated `max_tokens`
+- `z-ai/glm-5.3`: updated `reasoning_effort`, `thinking.type`
+
 ## 0.0.57
 
 ### Models added
