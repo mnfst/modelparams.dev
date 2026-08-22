@@ -47,29 +47,21 @@ params:
   - path: thinking.type
     type: enum
     label: Thinking mode
-    description: Toggles the model's extended reasoning before it produces the final answer.
+    description: GLM-5.3 always engages in extended reasoning; thinking cannot be disabled.
     default: enabled
     values:
       - enabled
-      - disabled
     group: reasoning
   - path: reasoning_effort
     type: enum
     label: Reasoning effort
-    description: Controls how much reasoning effort GLM-5.2 spends when thinking is enabled.
+    description: Controls how much reasoning effort GLM-5.3 spends on its always-on thinking.
     default: max
     values:
-      - none
-      - minimal
       - low
-      - medium
       - high
-      - xhigh
       - max
     group: reasoning
-    applicability:
-      only:
-        thinking.type: enabled
   - path: response_format.type
     type: enum
     label: Response format
