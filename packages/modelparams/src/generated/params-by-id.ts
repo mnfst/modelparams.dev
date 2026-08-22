@@ -2988,8 +2988,8 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
     do_sample: boolean;
-    "thinking.type": "enabled" | "disabled";
-    reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
+    "thinking.type": "enabled";
+    reasoning_effort: "low" | "high" | "max";
     "response_format.type": "text" | "json_object";
   };
 };

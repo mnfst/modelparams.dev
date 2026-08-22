@@ -27747,8 +27747,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 98304
         }
       },
       {
@@ -27833,8 +27835,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 98304
         }
       },
       {
@@ -27919,8 +27923,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 98304
         }
       },
       {
@@ -28005,8 +28011,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 98304
         }
       },
       {
@@ -28091,8 +28099,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 98304
         }
       },
       {
@@ -28177,8 +28187,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 98304
         }
       },
       {
@@ -28263,8 +28275,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 98304
         }
       },
       {
@@ -28349,8 +28363,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -28435,8 +28451,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -28521,8 +28539,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -28607,8 +28627,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -28693,8 +28715,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -28779,8 +28803,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -28865,8 +28891,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -28951,8 +28979,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -29037,8 +29067,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -29123,8 +29155,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -29209,8 +29243,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -29295,8 +29331,10 @@ const GENERATED_CATALOG = [
         "description": "Maximum number of tokens to generate in the response.",
         "group": "generation_length",
         "type": "integer",
+        "default": 65536,
         "range": {
-          "min": 1
+          "min": 1,
+          "max": 131072
         }
       },
       {
@@ -29653,34 +29691,24 @@ const GENERATED_CATALOG = [
       {
         "path": "thinking.type",
         "label": "Thinking mode",
-        "description": "Toggles the model's extended reasoning before it produces the final answer.",
+        "description": "GLM-5.3 always engages in extended reasoning; thinking cannot be disabled.",
         "group": "reasoning",
         "type": "enum",
         "default": "enabled",
         "values": [
-          "enabled",
-          "disabled"
+          "enabled"
         ]
       },
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls how much reasoning effort GLM-5.2 spends when thinking is enabled.",
+        "description": "Controls how much reasoning effort GLM-5.3 spends on its always-on thinking.",
         "group": "reasoning",
-        "applicability": {
-          "only": {
-            "thinking.type": "enabled"
-          }
-        },
         "type": "enum",
         "default": "max",
         "values": [
-          "none",
-          "minimal",
           "low",
-          "medium",
           "high",
-          "xhigh",
           "max"
         ]
       },

@@ -1816,6 +1816,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.5": {
+    max_tokens: 65536,
     temperature: 0.6,
     top_p: 0.95,
     do_sample: true,
@@ -1823,6 +1824,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.5-air": {
+    max_tokens: 65536,
     temperature: 0.6,
     top_p: 0.95,
     do_sample: true,
@@ -1830,6 +1832,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.5-air-subscription": {
+    max_tokens: 65536,
     temperature: 0.6,
     top_p: 0.95,
     do_sample: true,
@@ -1837,6 +1840,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.5-airx": {
+    max_tokens: 65536,
     temperature: 0.6,
     top_p: 0.95,
     do_sample: true,
@@ -1844,6 +1848,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.5-flash": {
+    max_tokens: 65536,
     temperature: 0.6,
     top_p: 0.95,
     do_sample: true,
@@ -1851,6 +1856,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.5-subscription": {
+    max_tokens: 65536,
     temperature: 0.6,
     top_p: 0.95,
     do_sample: true,
@@ -1858,6 +1864,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.5-x": {
+    max_tokens: 65536,
     temperature: 0.6,
     top_p: 0.95,
     do_sample: true,
@@ -1865,6 +1872,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.6": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1872,6 +1880,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.6-subscription": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1879,6 +1888,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.7": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1886,6 +1896,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.7-flash": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1893,6 +1904,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.7-flashx": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1900,6 +1912,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-4.7-subscription": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1907,6 +1920,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1914,6 +1928,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5-subscription": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1921,6 +1936,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5-turbo": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1928,6 +1944,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5-turbo-subscription": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1935,6 +1952,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5.1": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
@@ -1942,6 +1960,7 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5.1-subscription": {
+    max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
     do_sample: true,
