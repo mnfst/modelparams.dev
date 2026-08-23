@@ -166,11 +166,13 @@ describe("GET / (home)", () => {
 
   it("carries a concrete title and a crawlable browse-by-parameter section", async () => {
     const body = await get("/").then((r) => r.text());
-    expect(body).toContain("modelparams.dev · LLM API Parameters for 2 Models");
+    expect(body).toContain("modelparams.dev · LLM API Parameters for 3 Models");
     expect(body).toContain("API surface");
     expect(body).toContain("Chat Completions");
-    expect(body.match(/id="anthropic--claude-opus-4-7"/g)).toHaveLength(1);
-    expect(body).toContain('data-model-variant-trigger="1"');
+    expect(body.match(/data-model-name="claude opus 4\.7"/g)).toHaveLength(2);
+    expect(body.match(/data-model-api-surface="anthropic-messages"/g)).toHaveLength(2);
+    expect(body).not.toContain("data-model-variant-trigger");
+    expect(body).toContain("SDK method");
     expect(body).toContain("Browse by API parameter");
     expect(body).toContain('href="/parameters/temperature"');
     expect(body).toContain('href="/parameters/max_tokens"');

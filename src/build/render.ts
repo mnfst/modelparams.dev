@@ -1,8 +1,16 @@
 import path from "node:path";
 import ejs from "ejs";
 import { describeApplicability } from "../data/applicability.js";
-import { apiSurfaceLabel, apiSurfaceSdkMethod } from "../data/api-surfaces.js";
-import { buildProviderFacets, type CapabilityFacet } from "../data/catalog.js";
+import {
+  apiSurfaceLabel,
+  apiSurfaceSdkMethod,
+  buildApiSurfaceFacets,
+} from "../data/api-surfaces.js";
+import {
+  buildProviderFacets,
+  type CapabilityFacet,
+  type ProviderFacet,
+} from "../data/catalog.js";
 import {
   authLabel,
   conditionIcon,
@@ -14,11 +22,6 @@ import {
   providerLabel,
 } from "../data/display.js";
 import { groupParams } from "../data/group.js";
-import {
-  buildApiSurfaceFacets,
-  buildModelGroupProviderFacets,
-  groupModels,
-} from "../data/model-groups.js";
 import { usageGuideMarkdown } from "../data/llms.js";
 import { logoFor } from "../data/logos.js";
 import { VIEWS_DIR } from "../data/paths.js";
@@ -161,11 +164,10 @@ export function homeDescription(
 }
 
 export async function renderIndex(opts: RenderOptions): Promise<string> {
-  const modelGroups = groupModels(opts.catalog.models);
-  const providers = buildModelGroupProviderFacets(modelGroups);
+  const providers = buildProviderFacets(opts.catalog.models);
   const body = await ejs.renderFile(path.join(VIEWS_DIR, "index.ejs"), {
-    modelGroups,
-    apiSurfaces: buildApiSurfaceFacets(modelGroups),
+    models: opts.catalog.models,
+    apiSurfaces: buildApiSurfaceFacets(opts.catalog.models),
     capabilities: opts.capabilities,
     providers,
     helpers: viewHelpers,
@@ -174,8 +176,12 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
   const sampleParams = opts.capabilities.slice(0, 3).map((cap) => cap.path);
   return renderShell(
     {
-      title: homeTitle(modelGroups.length),
-      description: homeDescription(modelGroups.length, providers.length, sampleParams),
+      title: homeTitle(opts.catalog.models.length),
+      description: homeDescription(
+        opts.catalog.models.length,
+        providers.length,
+        sampleParams,
+      ),
       canonicalUrl: `${SITE_URL}/`,
       ogImage: ogImagePath("/"),
       structuredData: buildHomeStructuredData(
