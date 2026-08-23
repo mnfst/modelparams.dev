@@ -85,7 +85,7 @@ Model ids, filtered by provider or substring. Use it to resolve the exact catalo
 
 ### `list_provider_models`
 
-Everything one provider serves, in one call: its models, the `wireId` each one needs, their lifecycle status, and the parameter surfaces they expose. For picking a model *and* configuring it in the same step — the question you have when a provider is fixed and the model isn't, which is the normal state of affairs on Bedrock and Vertex.
+Everything one provider serves, in one call: its models, the `wireId` each one needs, their lifecycle status, and the parameter surfaces they expose. For picking a model _and_ configuring it in the same step — the question you have when a provider is fixed and the model isn't, which is the normal state of affairs on Bedrock and Vertex.
 
 Models are grouped by parameter surface rather than listed one by one, because a provider's models are far less varied than their count suggests — Bedrock's 56 models are four distinct surfaces, since Converse normalises most of them:
 
@@ -113,6 +113,7 @@ Models are grouped by parameter surface rather than listed one by one, because a
     {
       "model": "bedrock/claude-opus-4-6",
       "authType": "api_key",
+      "apiSurface": "amazon-bedrock-converse",
       "wireId": "{scope}.anthropic.claude-opus-4-6-v1",
       "profile": "p2"
     }
@@ -133,7 +134,7 @@ A `wireId` containing `{scope}` needs one substitution before you send it. Bedro
 
 ## Wire formats
 
-One entry documents one wire format, so `validate_model_params` answers for the surface that entry describes and no other. This matters when a host serves two: `bedrock/*` documents Amazon Bedrock's `Converse` API — `inferenceConfig.maxTokens`, vendor extras under `additionalModelRequestFields` — which is what `ConverseCommand` in `@aws-sdk/client-bedrock-runtime` sends. It does **not** describe `InvokeModel` with native per-vendor bodies (`max_tokens`, top-level `thinking`), which is what `AnthropicBedrock` from `@anthropic-ai/bedrock-sdk` sends. Validate against the surface your code actually calls; the full support table is in the [catalog README](https://github.com/mnfst/modelparams.dev#api-surfaces).
+One entry documents one wire format and returns its machine-readable `apiSurface`, so `validate_model_params` answers for that surface and no other. This matters when a host serves two: `bedrock/*` declares `amazon-bedrock-converse` and documents Amazon Bedrock's `Converse` API — `inferenceConfig.maxTokens`, vendor extras under `additionalModelRequestFields` — which is what `ConverseCommand` in `@aws-sdk/client-bedrock-runtime` sends. It does **not** describe `InvokeModel` with native per-vendor bodies (`max_tokens`, top-level `thinking`), which is what `AnthropicBedrock` from `@anthropic-ai/bedrock-sdk` sends. Validate against the surface your code actually calls; the full support table is in the [catalog README](https://github.com/mnfst/modelparams.dev#api-surfaces).
 
 ## Related
 

@@ -7,6 +7,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v3.2",
     "params": [
       {
@@ -82,6 +83,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash",
     "params": [
       {
@@ -157,6 +159,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash-0731",
     "params": [
       {
@@ -232,6 +235,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-pro",
     "params": [
       {
@@ -307,6 +311,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-pro-0813",
     "params": [
       {
@@ -382,6 +387,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5.1",
     "params": [
       {
@@ -457,6 +463,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5.2",
     "params": [
       {
@@ -532,6 +539,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.7-code",
     "params": [
       {
@@ -607,6 +615,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen-flash",
     "params": [
       {
@@ -667,6 +676,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen-max",
     "params": [
       {
@@ -727,6 +737,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen-plus",
     "params": [
       {
@@ -787,6 +798,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen-turbo",
     "params": [
       {
@@ -847,6 +859,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b-thinking-2507",
     "params": [
       {
@@ -907,6 +920,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b-instruct-2507",
     "params": [
       {
@@ -967,6 +981,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b-thinking-2507",
     "params": [
       {
@@ -1027,6 +1042,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-coder-flash",
     "params": [
       {
@@ -1079,6 +1095,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-coder-next",
     "params": [
       {
@@ -1131,6 +1148,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-coder-plus",
     "status": "deprecated",
     "replacement": "alibaba/qwen3.7-plus",
@@ -1186,6 +1204,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-max",
     "status": "active",
     "params": [
@@ -1247,6 +1266,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-next-80b-a3b-instruct",
     "params": [
       {
@@ -1307,6 +1327,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-next-80b-a3b-thinking",
     "params": [
       {
@@ -1367,6 +1388,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-instruct",
     "params": [
       {
@@ -1427,6 +1449,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-thinking",
     "params": [
       {
@@ -1487,6 +1510,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.5",
     "params": [
       {
@@ -1547,6 +1571,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.5-122b-a10b",
     "params": [
       {
@@ -1607,6 +1632,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.5-27b",
     "params": [
       {
@@ -1667,6 +1693,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.5-35b-a3b",
     "params": [
       {
@@ -1727,6 +1754,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.5-397b-a17b",
     "params": [
       {
@@ -1787,6 +1815,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.5-flash",
     "params": [
       {
@@ -1847,6 +1876,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.6-27b",
     "params": [
       {
@@ -1922,6 +1952,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.6-35b-a3b",
     "params": [
       {
@@ -1997,6 +2028,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.6-flash",
     "status": "active",
     "params": [
@@ -2073,6 +2105,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.6-max-preview",
     "status": "deprecated",
     "replacement": "alibaba/qwen3.7-max",
@@ -2151,6 +2184,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.6-plus",
     "params": [
       {
@@ -2226,6 +2260,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.7-flash",
     "params": [
       {
@@ -2301,6 +2336,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.7-max",
     "status": "active",
     "params": [
@@ -2377,6 +2413,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.7-plus",
     "status": "active",
     "params": [
@@ -2453,6 +2490,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.8-2.4t-a95b",
     "params": [
       {
@@ -2528,6 +2566,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.8-27b",
     "params": [
       {
@@ -2603,6 +2642,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.8-max",
     "params": [
       {
@@ -2678,6 +2718,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "alibaba",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwq-plus",
     "params": [
       {
@@ -2730,6 +2771,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-5-haiku-20241022",
     "status": "retired",
     "replacement": "anthropic/claude-haiku-4-5-20251001",
@@ -2819,6 +2861,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-5-haiku-latest",
     "status": "retired",
     "replacement": "anthropic/claude-haiku-4-5-20251001",
@@ -2908,6 +2951,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-5-sonnet-20241022",
     "status": "retired",
     "replacement": "anthropic/claude-sonnet-4-6",
@@ -2997,6 +3041,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-5-sonnet-latest",
     "status": "retired",
     "replacement": "anthropic/claude-sonnet-4-6",
@@ -3086,6 +3131,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-7-sonnet-20250219",
     "status": "retired",
     "replacement": "anthropic/claude-sonnet-4-6",
@@ -3203,6 +3249,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-7-sonnet-latest",
     "status": "retired",
     "replacement": "anthropic/claude-sonnet-4-6",
@@ -3320,6 +3367,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-opus-20240229",
     "status": "retired",
     "replacement": "anthropic/claude-opus-4-8",
@@ -3409,6 +3457,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-3-opus-latest",
     "params": [
       {
@@ -3495,6 +3544,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-fable-5",
     "status": "active",
     "params": [
@@ -3558,6 +3608,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-fable-5",
     "status": "active",
     "params": [
@@ -3621,6 +3672,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-haiku-4",
     "params": [
       {
@@ -3735,6 +3787,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-haiku-4-5",
     "status": "active",
     "params": [
@@ -3850,6 +3903,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-haiku-4-5-20251001",
     "status": "active",
     "params": [
@@ -3969,6 +4023,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-haiku-4-5-20251001",
     "status": "active",
     "params": [
@@ -4088,6 +4143,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-haiku-4-5",
     "status": "active",
     "params": [
@@ -4203,6 +4259,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-haiku-4",
     "params": [
       {
@@ -4317,6 +4374,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-1-20250805",
     "status": "deprecated",
     "replacement": "anthropic/claude-opus-4-8",
@@ -4457,6 +4515,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-1-20250805",
     "status": "deprecated",
     "replacement": "anthropic/claude-opus-4-8",
@@ -4597,6 +4656,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-20250514",
     "status": "retired",
     "replacement": "anthropic/claude-opus-4-8",
@@ -4727,6 +4787,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-20250514",
     "status": "retired",
     "replacement": "anthropic/claude-opus-4-8",
@@ -4857,6 +4918,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-5-20251101",
     "status": "active",
     "params": [
@@ -5008,6 +5070,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-5-20251101",
     "status": "active",
     "params": [
@@ -5159,6 +5222,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-6",
     "status": "active",
     "params": [
@@ -5316,6 +5380,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-6",
     "status": "active",
     "params": [
@@ -5473,6 +5538,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-7",
     "status": "active",
     "params": [
@@ -5538,6 +5604,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-7",
     "status": "active",
     "params": [
@@ -5603,6 +5670,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-8",
     "status": "active",
     "params": [
@@ -5668,6 +5736,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4-8",
     "status": "active",
     "params": [
@@ -5733,6 +5802,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-4",
     "params": [
       {
@@ -5848,6 +5918,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-5",
     "status": "active",
     "params": [
@@ -5921,6 +5992,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-opus-5",
     "status": "active",
     "params": [
@@ -5994,6 +6066,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-20250514",
     "status": "retired",
     "replacement": "anthropic/claude-sonnet-4-6",
@@ -6124,6 +6197,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-20250514",
     "status": "retired",
     "replacement": "anthropic/claude-sonnet-4-6",
@@ -6254,6 +6328,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-5",
     "status": "active",
     "params": [
@@ -6370,6 +6445,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-5-20250929",
     "status": "active",
     "params": [
@@ -6489,6 +6565,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-5-20250929",
     "status": "active",
     "params": [
@@ -6608,6 +6685,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-5",
     "status": "active",
     "params": [
@@ -6724,6 +6802,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-6",
     "status": "active",
     "params": [
@@ -6881,6 +6960,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4-6",
     "status": "active",
     "params": [
@@ -7038,6 +7118,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-4",
     "params": [
       {
@@ -7153,6 +7234,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "api_key",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-5",
     "status": "active",
     "params": [
@@ -7218,6 +7300,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "anthropic",
     "authType": "subscription",
+    "apiSurface": "anthropic-messages",
     "model": "claude-sonnet-5",
     "status": "active",
     "params": [
@@ -7283,6 +7366,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "claude-haiku-4-5",
     "wireId": "{scope}.anthropic.claude-haiku-4-5-20251001-v1:0",
     "params": [
@@ -7369,6 +7453,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "claude-opus-4-5-20251101",
     "wireId": "{scope}.anthropic.claude-opus-4-5-20251101-v1:0",
     "params": [
@@ -7455,6 +7540,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "claude-opus-4-6",
     "wireId": "{scope}.anthropic.claude-opus-4-6-v1",
     "params": [
@@ -7541,6 +7627,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "claude-sonnet-4-5",
     "wireId": "{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0",
     "params": [
@@ -7627,6 +7714,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "claude-sonnet-4-6",
     "wireId": "{scope}.anthropic.claude-sonnet-4-6",
     "params": [
@@ -7713,6 +7801,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "deepseek-r1",
     "wireId": "{scope}.deepseek.r1-v1:0",
     "params": [
@@ -7762,6 +7851,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "deepseek-v3.2",
     "wireId": "deepseek.v3.2",
     "params": [
@@ -7811,6 +7901,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "devstral-2-123b",
     "wireId": "mistral.devstral-2-123b",
     "params": [
@@ -7860,6 +7951,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "gemma-3-12b-it",
     "wireId": "google.gemma-3-12b-it",
     "params": [
@@ -7909,6 +8001,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "gemma-3-27b-it",
     "wireId": "google.gemma-3-27b-it",
     "params": [
@@ -7958,6 +8051,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "gemma-3-4b-it",
     "wireId": "google.gemma-3-4b-it",
     "params": [
@@ -8007,6 +8101,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "glm-4.7",
     "wireId": "zai.glm-4.7",
     "params": [
@@ -8056,6 +8151,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "glm-4.7-flash",
     "wireId": "zai.glm-4.7-flash",
     "params": [
@@ -8105,6 +8201,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "glm-5",
     "wireId": "zai.glm-5",
     "params": [
@@ -8154,6 +8251,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "gpt-oss-120b",
     "wireId": "openai.gpt-oss-120b-1:0",
     "params": [
@@ -8203,6 +8301,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "gpt-oss-20b",
     "wireId": "openai.gpt-oss-20b-1:0",
     "params": [
@@ -8252,6 +8351,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "gpt-oss-safeguard-120b",
     "wireId": "openai.gpt-oss-safeguard-120b",
     "params": [
@@ -8301,6 +8401,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "gpt-oss-safeguard-20b",
     "wireId": "openai.gpt-oss-safeguard-20b",
     "params": [
@@ -8350,6 +8451,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "kimi-k2-thinking",
     "wireId": "moonshot.kimi-k2-thinking",
     "params": [
@@ -8399,6 +8501,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "kimi-k2.5",
     "wireId": "moonshotai.kimi-k2.5",
     "params": [
@@ -8448,6 +8551,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "llama3-1-70b-instruct",
     "wireId": "{scope}.meta.llama3-1-70b-instruct-v1:0",
     "params": [
@@ -8497,6 +8601,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "llama3-1-8b-instruct",
     "wireId": "{scope}.meta.llama3-1-8b-instruct-v1:0",
     "params": [
@@ -8546,6 +8651,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "llama3-3-70b-instruct",
     "wireId": "{scope}.meta.llama3-3-70b-instruct-v1:0",
     "params": [
@@ -8595,6 +8701,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "llama3-70b-instruct",
     "wireId": "meta.llama3-70b-instruct-v1:0",
     "params": [
@@ -8644,6 +8751,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "llama3-8b-instruct",
     "wireId": "meta.llama3-8b-instruct-v1:0",
     "params": [
@@ -8693,6 +8801,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "magistral-small-2509",
     "wireId": "mistral.magistral-small-2509",
     "params": [
@@ -8742,6 +8851,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "minimax-m2",
     "wireId": "minimax.minimax-m2",
     "params": [
@@ -8828,6 +8938,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "minimax-m2.1",
     "wireId": "minimax.minimax-m2.1",
     "params": [
@@ -8877,6 +8988,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "minimax-m2.5",
     "wireId": "minimax.minimax-m2.5",
     "params": [
@@ -8926,6 +9038,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "ministral-3-14b-instruct",
     "wireId": "mistral.ministral-3-14b-instruct",
     "params": [
@@ -9012,6 +9125,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "ministral-3-3b-instruct",
     "wireId": "mistral.ministral-3-3b-instruct",
     "params": [
@@ -9061,6 +9175,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "ministral-3-8b-instruct",
     "wireId": "mistral.ministral-3-8b-instruct",
     "params": [
@@ -9110,6 +9225,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "mistral-7b-instruct",
     "wireId": "mistral.mistral-7b-instruct-v0:2",
     "params": [
@@ -9169,6 +9285,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "mistral-large-2402",
     "wireId": "mistral.mistral-large-2402-v1:0",
     "params": [
@@ -9228,6 +9345,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "mistral-large-3-675b-instruct",
     "wireId": "mistral.mistral-large-3-675b-instruct",
     "params": [
@@ -9277,6 +9395,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "mistral-small-2402",
     "wireId": "mistral.mistral-small-2402-v1:0",
     "params": [
@@ -9336,6 +9455,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "mixtral-8x7b-instruct",
     "wireId": "mistral.mixtral-8x7b-instruct-v0:1",
     "params": [
@@ -9395,6 +9515,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nemotron-nano-12b",
     "wireId": "nvidia.nemotron-nano-12b-v2",
     "params": [
@@ -9444,6 +9565,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nemotron-nano-3-30b",
     "wireId": "nvidia.nemotron-nano-3-30b",
     "params": [
@@ -9493,6 +9615,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nemotron-nano-9b",
     "wireId": "nvidia.nemotron-nano-9b-v2",
     "params": [
@@ -9542,6 +9665,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nemotron-super-3-120b",
     "wireId": "nvidia.nemotron-super-3-120b",
     "params": [
@@ -9591,6 +9715,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nova-2-lite",
     "wireId": "{scope}.amazon.nova-2-lite-v1:0",
     "params": [
@@ -9650,6 +9775,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nova-lite",
     "wireId": "amazon.nova-lite-v1:0",
     "status": "active",
@@ -9710,6 +9836,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nova-micro",
     "wireId": "amazon.nova-micro-v1:0",
     "status": "active",
@@ -9770,6 +9897,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "nova-pro",
     "wireId": "amazon.nova-pro-v1:0",
     "status": "active",
@@ -9830,6 +9958,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "palmyra-vision-7b",
     "wireId": "writer.palmyra-vision-7b",
     "params": [
@@ -9879,6 +10008,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "palmyra-x4",
     "wireId": "{scope}.writer.palmyra-x4-v1:0",
     "params": [
@@ -9928,6 +10058,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "palmyra-x5",
     "wireId": "{scope}.writer.palmyra-x5-v1:0",
     "params": [
@@ -9977,6 +10108,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "pixtral-large-2502",
     "wireId": "{scope}.mistral.pixtral-large-2502-v1:0",
     "params": [
@@ -10026,6 +10158,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "qwen3-32b",
     "wireId": "qwen.qwen3-32b-v1:0",
     "params": [
@@ -10075,6 +10208,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "qwen3-coder-30b-a3b",
     "wireId": "qwen.qwen3-coder-30b-a3b-v1:0",
     "params": [
@@ -10124,6 +10258,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "qwen3-coder-next",
     "wireId": "qwen.qwen3-coder-next",
     "params": [
@@ -10173,6 +10308,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "qwen3-next-80b-a3b",
     "wireId": "qwen.qwen3-next-80b-a3b",
     "params": [
@@ -10222,6 +10358,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "qwen3-vl-235b-a22b",
     "wireId": "qwen.qwen3-vl-235b-a22b",
     "params": [
@@ -10271,6 +10408,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "voxtral-mini-3b-2507",
     "wireId": "mistral.voxtral-mini-3b-2507",
     "params": [
@@ -10320,6 +10458,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "bedrock",
     "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "voxtral-small-24b-2507",
     "wireId": "mistral.voxtral-small-24b-2507",
     "params": [
@@ -10369,6 +10508,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cerebras",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "zai-glm-4.7",
     "params": [
       {
@@ -10483,6 +10623,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-a-03-2025",
     "status": "active",
     "params": [
@@ -10621,6 +10762,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-a-plus-05-2026",
     "status": "active",
     "params": [
@@ -10759,6 +10901,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-a-reasoning-08-2025",
     "status": "active",
     "params": [
@@ -10924,6 +11067,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-a-translate-08-2025",
     "status": "active",
     "params": [
@@ -11062,6 +11206,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-a-vision-07-2025",
     "status": "active",
     "params": [
@@ -11200,6 +11345,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-r-08-2024",
     "status": "active",
     "params": [
@@ -11328,6 +11474,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-r-plus-08-2024",
     "status": "active",
     "params": [
@@ -11456,6 +11603,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "cohere",
     "authType": "api_key",
+    "apiSurface": "cohere-chat",
     "model": "command-r7b-12-2024",
     "status": "active",
     "params": [
@@ -11594,6 +11742,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "deepseek",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-chat",
     "status": "retired",
     "replacement": "deepseek/deepseek-v4-flash",
@@ -11667,6 +11816,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "deepseek",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-reasoner",
     "status": "retired",
     "replacement": "deepseek/deepseek-v4-flash",
@@ -11757,6 +11907,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "deepseek",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash",
     "status": "active",
     "params": [
@@ -11845,6 +11996,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "deepseek",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-pro",
     "status": "active",
     "params": [
@@ -11933,6 +12085,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash-0731",
     "wireId": "accounts/fireworks/models/deepseek-v4-flash-0731",
     "params": [
@@ -12021,6 +12174,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-pro",
     "wireId": "accounts/fireworks/models/deepseek-v4-pro",
     "params": [
@@ -12109,6 +12263,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-pro-0813",
     "wireId": "accounts/fireworks/models/deepseek-v4-pro-0813",
     "params": [
@@ -12197,6 +12352,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5p2",
     "wireId": "accounts/fireworks/models/glm-5p2",
     "params": [
@@ -12285,6 +12441,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-120b",
     "wireId": "accounts/fireworks/models/gpt-oss-120b",
     "params": [
@@ -12373,6 +12530,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-20b",
     "wireId": "accounts/fireworks/models/gpt-oss-20b",
     "params": [
@@ -12461,6 +12619,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "inkling",
     "wireId": "accounts/fireworks/models/inkling",
     "params": [
@@ -12549,6 +12708,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2p6",
     "wireId": "accounts/fireworks/models/kimi-k2p6",
     "params": [
@@ -12637,6 +12797,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2p7-code",
     "wireId": "accounts/fireworks/models/kimi-k2p7-code",
     "params": [
@@ -12725,6 +12886,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k3",
     "wireId": "accounts/fireworks/models/kimi-k3",
     "params": [
@@ -12813,6 +12975,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2p7",
     "wireId": "accounts/fireworks/models/minimax-m2p7",
     "params": [
@@ -12901,6 +13064,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m3",
     "wireId": "accounts/fireworks/models/minimax-m3",
     "params": [
@@ -12989,6 +13153,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "muse-glimmer-30b",
     "wireId": "accounts/fireworks/models/muse-glimmer-30b",
     "params": [
@@ -13077,6 +13242,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3p7-plus",
     "wireId": "accounts/fireworks/models/qwen3p7-plus",
     "params": [
@@ -13165,6 +13331,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3p8-2p4t-a95b",
     "wireId": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
     "params": [
@@ -13253,6 +13420,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "fireworks",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3p8-max",
     "wireId": "accounts/fireworks/models/qwen3p8-max",
     "params": [
@@ -13341,6 +13509,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-2.5-flash",
     "status": "active",
     "replacement": "google/gemini-3.6-flash",
@@ -13437,6 +13606,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-2.5-flash-lite",
     "status": "active",
     "replacement": "google/gemini-3.1-flash-lite",
@@ -13529,6 +13699,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "subscription",
+    "apiSurface": "google-generate-content",
     "model": "gemini-2.5-flash-lite",
     "status": "active",
     "replacement": "google/gemini-3.1-flash-lite",
@@ -13621,6 +13792,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "subscription",
+    "apiSurface": "google-generate-content",
     "model": "gemini-2.5-flash",
     "status": "active",
     "replacement": "google/gemini-3.6-flash",
@@ -13717,6 +13889,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-2.5-pro",
     "status": "active",
     "replacement": "google/gemini-3.1-pro-preview",
@@ -13812,6 +13985,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "subscription",
+    "apiSurface": "google-generate-content",
     "model": "gemini-2.5-pro",
     "status": "active",
     "replacement": "google/gemini-3.1-pro-preview",
@@ -13907,6 +14081,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3-flash-preview",
     "status": "active",
     "replacement": "google/gemini-3.6-flash",
@@ -14005,6 +14180,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "subscription",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3-flash-preview",
     "status": "active",
     "replacement": "google/gemini-3.6-flash",
@@ -14103,6 +14279,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.1-flash-lite",
     "status": "active",
     "replacement": "google/gemini-3.5-flash-lite",
@@ -14201,6 +14378,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.1-flash-lite-preview",
     "status": "retired",
     "replacement": "google/gemini-3.1-flash-lite",
@@ -14300,6 +14478,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "subscription",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.1-flash-lite-preview",
     "status": "retired",
     "replacement": "google/gemini-3.1-flash-lite",
@@ -14399,6 +14578,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "subscription",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.1-flash-lite",
     "status": "active",
     "replacement": "google/gemini-3.5-flash-lite",
@@ -14497,6 +14677,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.1-pro-preview",
     "status": "active",
     "params": [
@@ -14594,6 +14775,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.1-pro-preview-customtools",
     "params": [
       {
@@ -14690,6 +14872,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "subscription",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.1-pro-preview",
     "status": "active",
     "params": [
@@ -14785,6 +14968,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.5-flash",
     "status": "active",
     "params": [
@@ -14882,6 +15066,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.5-flash-lite",
     "status": "active",
     "params": [
@@ -14979,6 +15164,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.6-flash",
     "status": "active",
     "params": [
@@ -15076,6 +15262,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-3.7-flash",
     "params": [
       {
@@ -15172,6 +15359,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-flash-latest",
     "params": [
       {
@@ -15262,6 +15450,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-3-12b-it",
     "params": [
       {
@@ -15311,6 +15500,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-3-1b-it",
     "params": [
       {
@@ -15360,6 +15550,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-3-27b-it",
     "params": [
       {
@@ -15409,6 +15600,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-3-4b-it",
     "params": [
       {
@@ -15458,6 +15650,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-3n-E2B-it",
     "params": [
       {
@@ -15507,6 +15700,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-3n-E4B-it",
     "params": [
       {
@@ -15556,6 +15750,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-4-12B-it",
     "params": [
       {
@@ -15604,6 +15799,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-4-26b-a4b-it",
     "params": [
       {
@@ -15705,6 +15901,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-4-31b-it",
     "params": [
       {
@@ -15806,6 +16003,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-4-E2B-it",
     "params": [
       {
@@ -15854,6 +16052,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "google",
     "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemma-4-E4B-it",
     "params": [
       {
@@ -15902,6 +16101,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "groq",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-120b",
     "wireId": "openai/gpt-oss-120b",
     "params": [
@@ -16022,6 +16222,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "groq",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-20b",
     "wireId": "openai/gpt-oss-20b",
     "params": [
@@ -16142,6 +16343,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "groq",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-safeguard-20b",
     "wireId": "openai/gpt-oss-safeguard-20b",
     "params": [
@@ -16262,6 +16464,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "groq",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-32b",
     "params": [
       {
@@ -16381,6 +16584,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "groq",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.6-27b",
     "wireId": "qwen/qwen3.6-27b",
     "params": [
@@ -16501,6 +16705,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "meta",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "Llama-3.3-70B-Instruct",
     "params": [
       {
@@ -16570,6 +16775,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "meta",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "Llama-3.3-8B-Instruct",
     "params": [
       {
@@ -16639,6 +16845,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "meta",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
     "params": [
       {
@@ -16708,6 +16915,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "meta",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "Llama-4-Scout-17B-16E-Instruct-FP8",
     "params": [
       {
@@ -16777,6 +16985,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "meta",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "muse-spark-1.1",
     "params": [
       {
@@ -16905,6 +17114,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "meta",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "muse-spark-1.2-contributor",
     "params": [
       {
@@ -17033,6 +17243,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2",
     "params": [
       {
@@ -17084,6 +17295,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2",
     "status": "active",
     "params": [
@@ -17128,6 +17340,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2.1",
     "params": [
       {
@@ -17179,6 +17392,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2.1-highspeed",
     "params": [
       {
@@ -17230,6 +17444,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.1-highspeed",
     "status": "active",
     "params": [
@@ -17274,6 +17489,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.1",
     "status": "active",
     "params": [
@@ -17318,6 +17534,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2.5",
     "params": [
       {
@@ -17369,6 +17586,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2.5-highspeed",
     "params": [
       {
@@ -17420,6 +17638,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.5-highspeed",
     "status": "active",
     "params": [
@@ -17464,6 +17683,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.5",
     "status": "active",
     "params": [
@@ -17508,6 +17728,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2.7",
     "params": [
       {
@@ -17559,6 +17780,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m2.7-highspeed",
     "params": [
       {
@@ -17610,6 +17832,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.7-highspeed",
     "status": "active",
     "params": [
@@ -17654,6 +17877,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.7",
     "status": "active",
     "params": [
@@ -17698,6 +17922,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "minimax-m3",
     "params": [
       {
@@ -17749,6 +17974,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "minimax",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M3",
     "status": "active",
     "params": [
@@ -17793,6 +18019,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "codestral-2508",
     "params": [
       {
@@ -17899,6 +18126,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "codestral-latest",
     "params": [
       {
@@ -18005,6 +18233,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "devstral-2512",
     "status": "retired",
     "replacement": "mistral/mistral-medium-3-5-26-04",
@@ -18114,6 +18343,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "devstral-latest",
     "params": [
       {
@@ -18220,6 +18450,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "magistral-medium-latest",
     "params": [
       {
@@ -18336,6 +18567,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "magistral-small-latest",
     "params": [
       {
@@ -18452,6 +18684,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "ministral-14b-2512",
     "params": [
       {
@@ -18558,6 +18791,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "ministral-14b-latest",
     "params": [
       {
@@ -18664,6 +18898,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "ministral-3b-2512",
     "params": [
       {
@@ -18770,6 +19005,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "ministral-3b-latest",
     "params": [
       {
@@ -18876,6 +19112,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "ministral-8b-2512",
     "params": [
       {
@@ -18982,6 +19219,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "ministral-8b-latest",
     "params": [
       {
@@ -19088,6 +19326,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-large-2512",
     "params": [
       {
@@ -19194,6 +19433,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-large-latest",
     "params": [
       {
@@ -19300,6 +19540,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-medium-3",
     "params": [
       {
@@ -19406,6 +19647,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-medium-3.5",
     "params": [
       {
@@ -19512,6 +19754,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-medium-latest",
     "params": [
       {
@@ -19618,6 +19861,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-small-2603",
     "params": [
       {
@@ -19724,6 +19968,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-small-latest",
     "params": [
       {
@@ -19830,6 +20075,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "mistral",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "open-mistral-nemo",
     "status": "deprecated",
     "params": [
@@ -19937,6 +20183,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.5",
     "status": "deprecated",
     "replacement": "moonshot/kimi-k2.6",
@@ -20024,6 +20271,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.6",
     "status": "active",
     "params": [
@@ -20121,6 +20369,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.6",
     "status": "active",
     "params": [
@@ -20175,6 +20424,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.7-code",
     "status": "active",
     "params": [
@@ -20261,6 +20511,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.7-code-highspeed",
     "status": "active",
     "params": [
@@ -20347,6 +20598,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.7-code-highspeed",
     "status": "active",
     "params": [
@@ -20388,6 +20640,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k2.7-code",
     "status": "active",
     "params": [
@@ -20429,6 +20682,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "kimi-k3",
     "status": "active",
     "params": [
@@ -20504,6 +20758,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "moonshot-v1-128k",
     "status": "deprecated",
     "replacement": "moonshot/kimi-k2.6",
@@ -20644,6 +20899,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "moonshot-v1-32k",
     "status": "deprecated",
     "replacement": "moonshot/kimi-k2.6",
@@ -20784,6 +21040,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "moonshot",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "moonshot-v1-8k",
     "status": "deprecated",
     "replacement": "moonshot/kimi-k2.6",
@@ -20924,6 +21181,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash-0731",
     "wireId": "deepseek-ai/deepseek-v4-flash-0731",
     "params": [
@@ -21010,6 +21268,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gliner-pii",
     "params": [
       {
@@ -21061,6 +21320,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "llama-3.1-nemoguard-8b-topic-control",
     "params": [
       {
@@ -21133,6 +21393,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "llama-3.1-nemotron-nano-8b-v1",
     "params": [
       {
@@ -21218,6 +21479,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "llama-3.1-nemotron-safety-guard-8b-v3",
     "params": [
       {
@@ -21237,6 +21499,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "llama-3.1-nemotron-ultra-253b-v1",
     "params": [
       {
@@ -21322,6 +21585,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "llama-3.3-nemotron-super-49b-v1",
     "params": [
       {
@@ -21407,6 +21671,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "llama-3.3-nemotron-super-49b-v1.5",
     "params": [
       {
@@ -21492,12 +21757,14 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemoguard-jailbreak-detect",
     "params": []
   },
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-3-nano-30b-a3b",
     "params": [
       {
@@ -21557,6 +21824,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-3-super-120b-a12b",
     "params": [
       {
@@ -21641,6 +21909,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-3-ultra-550b-a55b",
     "params": [
       {
@@ -21725,6 +21994,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-3-ultra",
     "params": [
       {
@@ -21798,6 +22068,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-content-safety-reasoning-4b",
     "params": [
       {
@@ -21857,6 +22128,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-mini-4b-instruct",
     "params": [
       {
@@ -21930,6 +22202,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "riva-translate-4b-instruct-v1.1",
     "params": [
       {
@@ -22003,6 +22276,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "nvidia",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "usdcode-llama-3.1-70b-instruct",
     "params": [
       {
@@ -22059,6 +22333,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "chatgpt-4o-latest",
     "status": "retired",
     "replacement": "openai/gpt-5.1-chat-latest",
@@ -22106,6 +22381,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-3.5-turbo",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-terra",
@@ -22153,6 +22429,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-3.5-turbo-16k",
     "params": [
       {
@@ -22197,6 +22474,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -22275,6 +22553,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4-0613",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -22322,6 +22601,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4-turbo",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -22369,6 +22649,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4-turbo-2024-04-09",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -22416,6 +22697,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4.1",
     "status": "active",
     "params": [
@@ -22461,6 +22743,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4.1-mini",
     "status": "active",
     "params": [
@@ -22506,6 +22789,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4.1-nano",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-luna",
@@ -22553,6 +22837,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4o",
     "status": "active",
     "params": [
@@ -22598,6 +22883,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4o-2024-11-20",
     "params": [
       {
@@ -22642,6 +22928,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-4o-mini",
     "status": "active",
     "params": [
@@ -22687,6 +22974,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -22722,6 +23010,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5-chat-latest",
     "status": "retired",
     "replacement": "openai/gpt-5.6-sol",
@@ -22743,6 +23032,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5-mini",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-terra",
@@ -22778,6 +23068,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5-nano",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-luna",
@@ -22813,6 +23104,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.1",
     "params": [
       {
@@ -22845,6 +23137,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.1-codex-max",
     "status": "retired",
     "replacement": "openai/gpt-5.3-codex",
@@ -22897,6 +23190,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.1-codex",
     "status": "retired",
     "replacement": "openai/gpt-5.3-codex",
@@ -22948,6 +23242,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.2",
     "params": [
       {
@@ -22981,6 +23276,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.2-codex",
     "status": "retired",
     "replacement": "openai/gpt-5.3-codex",
@@ -23033,6 +23329,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.2",
     "params": [
       {
@@ -23082,6 +23379,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.3-codex",
     "status": "active",
     "params": [
@@ -23115,6 +23413,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.3-codex-spark",
     "status": "active",
     "params": [
@@ -23165,6 +23464,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.3-codex",
     "status": "active",
     "params": [
@@ -23215,6 +23515,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.4",
     "status": "active",
     "params": [
@@ -23249,6 +23550,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.4-mini",
     "status": "active",
     "params": [
@@ -23283,6 +23585,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.4-mini",
     "status": "active",
     "params": [
@@ -23333,6 +23636,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.4-nano",
     "status": "active",
     "params": [
@@ -23367,6 +23671,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.4-pro",
     "status": "active",
     "params": [
@@ -23399,6 +23704,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.4-pro",
     "status": "active",
     "params": [
@@ -23447,6 +23753,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.4",
     "status": "active",
     "params": [
@@ -23497,6 +23804,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.5",
     "status": "active",
     "params": [
@@ -23531,6 +23839,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.5-pro",
     "status": "active",
     "params": [
@@ -23563,6 +23872,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.5-pro",
     "status": "active",
     "params": [
@@ -23611,6 +23921,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.5",
     "status": "active",
     "params": [
@@ -23661,6 +23972,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.6",
     "params": [
       {
@@ -23694,6 +24006,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.6-luna",
     "status": "active",
     "params": [
@@ -23728,6 +24041,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.6-luna",
     "status": "active",
     "params": [
@@ -23778,6 +24092,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.6-sol",
     "status": "active",
     "params": [
@@ -23812,6 +24127,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.6-sol",
     "status": "active",
     "params": [
@@ -23862,6 +24178,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-5.6-terra",
     "status": "active",
     "params": [
@@ -23896,6 +24213,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "subscription",
+    "apiSurface": "openai-responses",
     "model": "gpt-5.6-terra",
     "status": "active",
     "params": [
@@ -23946,6 +24264,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-120b",
     "status": "active",
     "params": [
@@ -24022,6 +24341,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-20b",
     "status": "active",
     "params": [
@@ -24098,6 +24418,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-safeguard-120b",
     "params": [
       {
@@ -24149,6 +24470,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-oss-safeguard-20b",
     "params": [
       {
@@ -24200,6 +24522,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "o1",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -24235,6 +24558,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "o1-mini",
     "status": "retired",
     "replacement": "openai/o4-mini",
@@ -24270,6 +24594,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "o1-preview",
     "status": "retired",
     "replacement": "openai/o3",
@@ -24305,6 +24630,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "o3",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -24340,6 +24666,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "o3-mini",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -24375,6 +24702,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "o3-pro",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -24410,6 +24738,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "openai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "o4-mini",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-terra",
@@ -24445,6 +24774,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "perplexity",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "sonar",
     "params": [
       {
@@ -24571,6 +24901,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "perplexity",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "sonar-deep-research",
     "params": [
       {
@@ -24702,6 +25033,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "perplexity",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "sonar-pro",
     "params": [
       {
@@ -24828,6 +25160,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "perplexity",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "sonar-reasoning-pro",
     "params": [
       {
@@ -24954,6 +25287,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "thinking-machines",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "Inkling",
     "params": [
       {
@@ -25015,6 +25349,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-2.5-flash",
     "status": "deprecated",
     "replacement": "vertex/gemini-3.5-flash-lite",
@@ -25150,6 +25485,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-2.5-flash-lite",
     "status": "deprecated",
     "replacement": "vertex/gemini-3.1-flash-lite",
@@ -25267,6 +25603,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-2.5-pro",
     "status": "deprecated",
     "replacement": "vertex/gemini-3.5-flash",
@@ -25402,6 +25739,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3-flash-preview",
     "params": [
       {
@@ -25562,6 +25900,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3.1-flash-lite",
     "status": "active",
     "params": [
@@ -25723,6 +26062,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3.1-pro-preview",
     "params": [
       {
@@ -25883,6 +26223,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3.1-pro-preview-customtools",
     "params": [
       {
@@ -26043,6 +26384,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3.5-flash",
     "status": "active",
     "params": [
@@ -26204,6 +26546,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3.5-flash-lite",
     "status": "active",
     "params": [
@@ -26343,6 +26686,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3.6-flash",
     "status": "active",
     "params": [
@@ -26482,6 +26826,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "vertex",
     "authType": "api_key",
+    "apiSurface": "google-vertex-generate-content",
     "model": "gemini-3.7-flash",
     "status": "active",
     "params": [
@@ -26621,6 +26966,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.20-0309-non-reasoning",
     "status": "active",
     "params": [
@@ -26692,6 +27038,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.20-0309-non-reasoning",
     "status": "active",
     "params": [
@@ -26763,6 +27110,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.20-0309-reasoning",
     "status": "active",
     "params": [
@@ -26827,6 +27175,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.20-0309-reasoning",
     "status": "active",
     "params": [
@@ -26891,6 +27240,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "apiSurface": "openai-responses",
     "model": "grok-4.20-multi-agent-0309",
     "status": "active",
     "params": [
@@ -26961,6 +27311,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.3",
     "status": "active",
     "params": [
@@ -27039,6 +27390,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.3",
     "status": "active",
     "params": [
@@ -27117,6 +27469,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.5",
     "status": "active",
     "params": [
@@ -27195,6 +27548,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.5",
     "status": "active",
     "params": [
@@ -27273,6 +27627,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-4.6",
     "params": [
       {
@@ -27343,6 +27698,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-build-0.1",
     "status": "active",
     "params": [
@@ -27407,6 +27763,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "grok-build-0.1",
     "status": "active",
     "params": [
@@ -27471,6 +27828,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xiaomi",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mimo-v2.5",
     "status": "active",
     "params": [
@@ -27549,6 +27907,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xiaomi",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mimo-v2.5-pro",
     "status": "active",
     "params": [
@@ -27660,6 +28019,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "xiaomi",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "mimo-v2.5",
     "status": "active",
     "params": [
@@ -27738,6 +28098,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.5",
     "status": "active",
     "params": [
@@ -27826,6 +28187,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.5-air",
     "status": "active",
     "params": [
@@ -27914,6 +28276,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.5-air",
     "status": "active",
     "params": [
@@ -28002,6 +28365,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.5-airx",
     "status": "active",
     "params": [
@@ -28090,6 +28454,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.5-flash",
     "status": "active",
     "params": [
@@ -28178,6 +28543,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.5",
     "status": "active",
     "params": [
@@ -28266,6 +28632,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.5-x",
     "status": "active",
     "params": [
@@ -28354,6 +28721,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.6",
     "status": "active",
     "params": [
@@ -28442,6 +28810,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.6",
     "status": "active",
     "params": [
@@ -28530,6 +28899,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.7",
     "status": "active",
     "params": [
@@ -28618,6 +28988,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.7-flash",
     "status": "active",
     "params": [
@@ -28706,6 +29077,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.7-flashx",
     "status": "active",
     "params": [
@@ -28794,6 +29166,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-4.7",
     "status": "active",
     "params": [
@@ -28882,6 +29255,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5",
     "status": "active",
     "params": [
@@ -28970,6 +29344,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5",
     "status": "active",
     "params": [
@@ -29058,6 +29433,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5-turbo",
     "status": "active",
     "params": [
@@ -29146,6 +29522,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5-turbo",
     "status": "active",
     "params": [
@@ -29234,6 +29611,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5.1",
     "status": "active",
     "params": [
@@ -29322,6 +29700,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5.1",
     "status": "active",
     "params": [
@@ -29410,6 +29789,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5.2",
     "status": "active",
     "params": [
@@ -29520,6 +29900,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5.2",
     "status": "active",
     "params": [
@@ -29630,6 +30011,7 @@ const GENERATED_CATALOG = [
   {
     "provider": "z-ai",
     "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "glm-5.3",
     "params": [
       {
@@ -29729,6 +30111,7 @@ const GENERATED_CATALOG = [
 ] as const;
 
 type GeneratedCatalogEntry = (typeof GENERATED_CATALOG)[number];
+export type ApiSurface = GeneratedCatalogEntry["apiSurface"];
 export type LifecycleStatus = "active" | "deprecated" | "retired";
 type WithLifecycle<T> = T extends unknown
   ? Omit<T, "status" | "replacement" | "shutdownOn"> & {

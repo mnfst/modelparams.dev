@@ -3,7 +3,13 @@ import { buildGlossary } from "../src/data/glossary.js";
 import type { Model } from "../src/schema/model.js";
 
 function model(provider: string, name: string, params: Model["params"]): Model {
-  return { provider, authType: "api_key", model: name, params } as Model;
+  return {
+    provider,
+    authType: "api_key",
+    apiSurface: "openai-chat-completions",
+    model: name,
+    params,
+  } as Model;
 }
 
 const temperature = {

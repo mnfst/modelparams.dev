@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: fireworks
 authType: api_key
+apiSurface: openai-chat-completions
 model: glm-5p2
 wireId: accounts/fireworks/models/glm-5p2
 params:

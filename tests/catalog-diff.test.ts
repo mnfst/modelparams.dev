@@ -5,6 +5,7 @@ import { diffCatalogs, isEmptyDiff, renderCatalogChangelog } from "../src/data/c
 const model = (overrides: Partial<Model> = {}): Model => ({
   provider: "anthropic",
   authType: "api_key",
+  apiSurface: "anthropic-messages",
   model: "claude-test",
   params: [
     {

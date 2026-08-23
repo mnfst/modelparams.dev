@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { buildCapabilityFacets, buildCatalog, uniqueProviders } from "../src/data/catalog.js";
 import { describeApplicability } from "../src/data/applicability.js";
+import { apiSurfaceLabel, apiSurfaceSdkMethod } from "../src/data/api-surfaces.js";
+import { buildApiSurfaceFacets, groupModels } from "../src/data/model-groups.js";
 import { modelFullLabel, modelLabel, paramLabel, providerLabel } from "../src/data/display.js";
 import {
   findModelParams,
@@ -16,6 +18,7 @@ function makeModel(overrides: Partial<Model> = {}): Model {
   return {
     provider: "anthropic",
     authType: "api_key",
+    apiSurface: "anthropic-messages",
     model: "claude-opus-4-7",
     params: [
       {
@@ -64,6 +67,31 @@ describe("buildCapabilityFacets", () => {
     expect(facets[0]).toEqual({ path: "temperature", count: 2 });
     expect(facets.map((f) => f.path)).toContain("logprobs");
     expect(facets.map((f) => f.path)).toContain("top_p");
+  });
+});
+
+describe("groupModels", () => {
+  it("keeps API surfaces as flat variants under one provider/model row", () => {
+    const chat = makeModel({
+      provider: "openai",
+      model: "gpt-5.5",
+      apiSurface: "openai-chat-completions",
+    });
+    const responses = makeModel({
+      provider: "openai",
+      model: "gpt-5.5",
+      authType: "subscription",
+      apiSurface: "openai-responses",
+    });
+    const groups = groupModels([responses, chat]);
+
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.variants).toEqual([chat, responses]);
+    expect(groups[0]?.apiSurfaces).toEqual(["openai-chat-completions", "openai-responses"]);
+    expect(buildApiSurfaceFacets(groups)).toEqual([
+      { apiSurface: "openai-chat-completions", count: 1 },
+      { apiSurface: "openai-responses", count: 1 },
+    ]);
   });
 });
 
@@ -146,6 +174,11 @@ describe("providerless model params", () => {
 });
 
 describe("display helpers", () => {
+  it("labels API surfaces with their representative SDK method", () => {
+    expect(apiSurfaceLabel("openai-responses")).toBe("Responses");
+    expect(apiSurfaceSdkMethod("openai-responses")).toBe("responses.create");
+  });
+
   it("knows the canonical provider names", () => {
     expect(providerLabel("anthropic")).toBe("Anthropic");
     expect(providerLabel("openai")).toBe("OpenAI");

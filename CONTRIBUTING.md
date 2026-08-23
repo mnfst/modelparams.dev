@@ -29,7 +29,13 @@ You don't need to know the schema to file one. A link to the official docs is th
    # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
    ```
 
-3. **Required top-level fields:** `provider`, `authType` (`api_key` or `subscription`), `model`, `params`.
+3. **Required top-level fields:** `provider`, `authType` (`api_key` or `subscription`),
+   `apiSurface`, `model`, `params`.
+
+   `apiSurface` names the API or SDK request family that accepts these paths.
+   Use one of the values in the [schema convention](docs/model-parameters-schema.md#catalog-entry).
+   Do not mix Chat Completions and Responses fields, or any other two surfaces,
+   in one entry.
 
    Optional lifecycle fields are `status` (`active`, `deprecated`, or
    `retired`), `replacement` (a provider-qualified model id), and `shutdownOn`
@@ -83,6 +89,7 @@ You don't need to know the schema to file one. A link to the official docs is th
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
+apiSurface: anthropic-messages
 model: claude-sonnet-4-6
 params:
   - path: max_tokens

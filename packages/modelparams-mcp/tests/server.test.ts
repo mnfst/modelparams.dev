@@ -16,6 +16,7 @@ interface ParamInfo {
 interface ValidateResult {
   model: string;
   provider: string;
+  apiSurface: string;
   valid: boolean;
   summary: string;
   issues: { path: string; code: string; message: string; conflictsWith?: string[] }[];
@@ -26,6 +27,7 @@ interface ValidateResult {
 
 interface ModelParamsResult {
   model: string;
+  apiSurface: string;
   status?: "active" | "deprecated" | "retired";
   replacement?: string;
   shutdownOn?: string;
@@ -57,6 +59,7 @@ interface ProviderModelsResult {
   models: {
     model: string;
     authType: string;
+    apiSurface: string;
     wireId?: string;
     profile: string;
     status?: string;
@@ -119,6 +122,7 @@ describe("validate_model_params", () => {
       params: { max_tokens: 1024, temperature: 1 },
     });
     expect(out.valid).toBe(true);
+    expect(out.apiSurface).toBe("anthropic-messages");
     expect(out.issues).toEqual([]);
   });
 
@@ -153,6 +157,7 @@ describe("validate_model_params", () => {
       params: {},
     });
     expect(out.model).toBe("openai/gpt-5.5");
+    expect(out.apiSurface).toBe("openai-chat-completions");
     expect(out.valid).toBe(true);
   });
 
@@ -264,6 +269,7 @@ describe("list_provider_models", () => {
     expect(out.total).toBeGreaterThan(10);
     expect(out.truncated).toBe(false);
     expect(out.models).toHaveLength(out.total);
+    expect(out.models.every((model) => model.apiSurface === "amazon-bedrock-converse")).toBe(true);
     expect(out.baseUrls.length).toBeGreaterThan(0);
   });
 

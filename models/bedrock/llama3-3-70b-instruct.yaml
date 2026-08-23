@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: bedrock
 authType: api_key
+apiSurface: amazon-bedrock-converse
 model: llama3-3-70b-instruct
 wireId: "{scope}.meta.llama3-3-70b-instruct-v1:0"
 params:

@@ -190,6 +190,7 @@ export default {
       model: resolved.id,
       provider: entry.provider,
       authType: entry.authType,
+      apiSurface: entry.apiSurface,
       // The exact string to put in the API request when the host's wire id
       // differs from the catalog slug (fireworks, groq).
       ...("wireId" in entry ? { wireId: entry.wireId } : {}),

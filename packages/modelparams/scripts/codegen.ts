@@ -104,6 +104,7 @@ async function main(): Promise<void> {
       `import type { ModelId } from "./model-ids.js";\n\n` +
       `const GENERATED_CATALOG = ${JSON.stringify(models, null, 2)} as const;\n\n` +
       `type GeneratedCatalogEntry = (typeof GENERATED_CATALOG)[number];\n` +
+      `export type ApiSurface = GeneratedCatalogEntry["apiSurface"];\n` +
       `export type LifecycleStatus = "active" | "deprecated" | "retired";\n` +
       `type WithLifecycle<T> = T extends unknown\n` +
       `  ? Omit<T, "status" | "replacement" | "shutdownOn"> & {\n` +

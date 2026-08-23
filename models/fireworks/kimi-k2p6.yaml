@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: fireworks
 authType: api_key
+apiSurface: openai-chat-completions
 model: kimi-k2p6
 wireId: accounts/fireworks/models/kimi-k2p6
 params:

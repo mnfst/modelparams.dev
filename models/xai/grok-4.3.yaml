@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: xai
 authType: api_key
+apiSurface: openai-chat-completions
 model: grok-4.3
 status: active
 params:

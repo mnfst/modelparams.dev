@@ -141,6 +141,7 @@ Each dropped entry carries a `code`: `unknown_parameter`, `invalid_value`, or `n
 | `StrictParamsOf<Id>` | Same shape, every field required.                                                                                     |
 | `ModelId`            | Union of all `"provider/model"` ids (including `-subscription` variants).                                             |
 | `Provider`           | Union of provider slugs (`"anthropic"`, `"openai"`, …).                                                               |
+| `ApiSurface`         | Union of request and SDK surfaces (`"openai-responses"`, `"anthropic-messages"`, …).                                  |
 | `ParamsById`         | Mapped type: `{ [Id in ModelId]: ParamsByIdMap[Id] }`.                                                                |
 | `CatalogEntry`       | The full catalog object for one model.                                                                                |
 | `Param`              | A parameter definition in a loose, iterable shape — `getModel(id).params` assigns to `readonly Param[]` with no cast. |

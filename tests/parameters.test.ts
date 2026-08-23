@@ -9,7 +9,13 @@ function model(
   params: Model["params"],
   authType: Model["authType"] = "api_key",
 ): Model {
-  return { provider, authType, model: name, params } as Model;
+  return {
+    provider,
+    authType,
+    apiSurface: "openai-chat-completions",
+    model: name,
+    params,
+  } as Model;
 }
 
 const topP = {

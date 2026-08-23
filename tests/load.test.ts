@@ -9,6 +9,7 @@ let tmpRoot: string;
 
 const VALID_OPUS = `provider: anthropic
 authType: api_key
+apiSurface: anthropic-messages
 model: claude-opus-4-7
 params:
   - path: temperature
@@ -24,6 +25,7 @@ params:
 
 const VALID_OPUS_SUB = `provider: anthropic
 authType: subscription
+apiSurface: anthropic-messages
 model: claude-opus-4-7
 params:
   - path: response_style

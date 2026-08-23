@@ -5,6 +5,7 @@ interface ValidateBody {
   model: string;
   provider: string;
   authType: string;
+  apiSurface: string;
   wireId?: string;
   valid: boolean;
   issues: { path: string; code: string; message: string; conflictsWith?: string[] }[];
@@ -45,6 +46,7 @@ describe("POST /api/v1/validate", () => {
     });
     expect(status).toBe(200);
     expect(body.valid).toBe(true);
+    expect(body.apiSurface).toBe("anthropic-messages");
     expect(body.issues).toEqual([]);
     expect(body.safeParams).toEqual({ max_tokens: 1024, temperature: 1 });
   });

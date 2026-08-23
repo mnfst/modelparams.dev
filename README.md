@@ -146,20 +146,21 @@ The same model accepts different parameters on each host that serves it. The cat
 
 ## API surfaces
 
-One entry documents one wire format.
+Every catalog entry declares an `apiSurface`. It scopes the parameter paths to
+one request and SDK family, independently of provider, model, and auth type.
 
 | Surface                                                                                               | Status |
 | ----------------------------------------------------------------------------------------------------- | ------ |
 | OpenAI Chat Completions — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, … | ✅     |
+| OpenAI Responses — OpenAI subscription entries and xAI multi-agent models                             | ✅     |
 | Anthropic Messages                                                                                    | ✅     |
 | Google `generateContent`                                                                              | ✅     |
 | Amazon Bedrock `Converse` — every `bedrock/*` entry                                                   | ✅     |
 | Vertex AI `generateContent` — every `vertex/*` entry                                                  | ✅     |
-| Subscription plans (`-subscription` entries)                                                          | ✅     |
+| Cohere Chat                                                                                           | ✅     |
 | Amazon Bedrock `InvokeModel` (native per-vendor bodies)                                               | ❌     |
 | Vertex AI `rawPredict` (Anthropic, Meta, Mistral on Vertex)                                           | ❌     |
 | MiniMax native endpoint                                                                               | ❌     |
-| OpenAI Responses API                                                                                  | ❌     |
 | Google Interactions API                                                                               | ❌     |
 | xAI native SDK                                                                                        | ❌     |
 

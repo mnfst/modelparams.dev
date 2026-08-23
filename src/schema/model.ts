@@ -3,6 +3,17 @@ import { z } from "zod";
 export const AuthType = z.enum(["api_key", "subscription"]);
 export type AuthType = z.infer<typeof AuthType>;
 
+export const ApiSurface = z.enum([
+  "openai-chat-completions",
+  "openai-responses",
+  "anthropic-messages",
+  "google-generate-content",
+  "amazon-bedrock-converse",
+  "google-vertex-generate-content",
+  "cohere-chat",
+]);
+export type ApiSurface = z.infer<typeof ApiSurface>;
+
 export const LifecycleStatus = z.enum(["active", "deprecated", "retired"]);
 export type LifecycleStatus = z.infer<typeof LifecycleStatus>;
 
@@ -177,6 +188,8 @@ export const Model = z
       .min(1)
       .regex(PROVIDER_SLUG, "provider must be a kebab-case slug (e.g. `anthropic`)"),
     authType: AuthType,
+    /** The request/SDK surface whose parameter paths this entry documents. */
+    apiSurface: ApiSurface,
     model: z
       .string()
       .min(1)

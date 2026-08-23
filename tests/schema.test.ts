@@ -5,6 +5,7 @@ import { buildModelJsonSchema } from "../src/schema/generate.js";
 const VALID_MODEL = {
   provider: "anthropic",
   authType: "api_key",
+  apiSurface: "anthropic-messages",
   model: "claude-opus-4-7",
   params: [
     {
@@ -36,6 +37,13 @@ describe("Model schema", () => {
   it("rejects unknown authType", () => {
     const result = Model.safeParse({ ...VALID_MODEL, authType: "free" });
     expect(result.success).toBe(false);
+  });
+
+  it("requires a known API surface", () => {
+    expect(Model.safeParse({ ...VALID_MODEL, apiSurface: "openai-completions" }).success).toBe(
+      false,
+    );
+    expect(Model.safeParse({ ...VALID_MODEL, apiSurface: undefined }).success).toBe(false);
   });
 
   it("accepts provider-native model ids with dots", () => {

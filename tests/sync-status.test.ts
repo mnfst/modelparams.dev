@@ -9,6 +9,7 @@ import {
 const SAMPLE = `# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
+apiSurface: anthropic-messages
 model: claude-opus-4-1-20250805
 params:
   - path: temperature
