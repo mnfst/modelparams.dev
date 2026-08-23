@@ -72,3 +72,6 @@ uv run --project packages/modelparams-python pytest packages/modelparams-python/
 
 Generated catalog and type files are committed and verified in CI. Python releases use independent
 `modelparams-py@x.y.z` tags and publish to PyPI through the repository's trusted-publisher workflow.
+
+Catalog entries expose `api_surface` as a typed value, so callers can distinguish request families
+such as `openai-chat-completions` and `openai-responses` before using a parameter set.

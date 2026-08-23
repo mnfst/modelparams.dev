@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: google
 authType: subscription
+apiSurface: google-generate-content
 model: gemini-3-flash-preview
 status: active
 replacement: google/gemini-3.6-flash

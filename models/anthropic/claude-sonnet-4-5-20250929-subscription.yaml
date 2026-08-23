@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: subscription
+apiSurface: anthropic-messages
 model: claude-sonnet-4-5-20250929
 status: active
 params:

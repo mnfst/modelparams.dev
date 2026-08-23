@@ -12,6 +12,7 @@ from .catalog import (
     list_models,
 )
 from .models import (
+    ApiSurface,
     Applicability,
     ApplicabilityCondition,
     CatalogEntry,
@@ -42,6 +43,7 @@ __all__ = [
     "PROVIDERS",
     "Applicability",
     "ApplicabilityCondition",
+    "ApiSurface",
     "CatalogEntry",
     "JsonPrimitive",
     "LifecycleStatus",

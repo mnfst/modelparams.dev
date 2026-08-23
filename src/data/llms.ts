@@ -1,4 +1,5 @@
 import { describeApplicability } from "./applicability.js";
+import { apiSurfaceLabel } from "./api-surfaces.js";
 import { buildProviderFacets } from "./catalog.js";
 import { authLabel, modelFullLabel, paramGroupLabel, providerLabel } from "./display.js";
 import { groupParams } from "./group.js";
@@ -14,7 +15,7 @@ function modelJsonUrl(siteUrl: string, model: Model): string {
 
 function modelTitle(model: Model): string {
   const variant = model.authType === "subscription" ? ` (${authLabel(model.authType)})` : "";
-  return `${modelFullLabel(model)}${variant}`;
+  return `${modelFullLabel(model)}${variant} on ${apiSurfaceLabel(model.apiSurface)}`;
 }
 
 function plural(n: number, word: string): string {
@@ -43,8 +44,9 @@ function guideIntro(siteUrl: string): string[] {
     "`eu.anthropic....` in Frankfurt, or `global.anthropic....` to let AWS route it. Valid scopes:",
     "us, eu, apac, jp, au, ca, sa, global. A wireId with no placeholder is already complete.",
     "",
-    "For the same reason, **one entry documents one wire format**. Where a host serves two,",
-    "the entry follows the one named here and says nothing about the other: `bedrock/*`",
+    "Every entry names its request and SDK family in `apiSurface`; **one entry documents one",
+    "wire format**. Where a host serves two, use the entry for the surface your code calls:",
+    "`bedrock/*` currently declares `amazon-bedrock-converse` and",
     "documents Amazon Bedrock's `Converse` API (`inferenceConfig.maxTokens`, vendor extras",
     "under `additionalModelRequestFields`), not `InvokeModel` with native per-vendor bodies",
     "(`max_tokens`, top-level `thinking`) as the `AnthropicBedrock` client sends. If your",

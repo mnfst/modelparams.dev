@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: meta
 authType: api_key
+apiSurface: openai-chat-completions
 model: Llama-3.3-70B-Instruct
 params:
   - path: max_completion_tokens

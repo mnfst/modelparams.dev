@@ -110,6 +110,7 @@ export function validateModelParams(input: {
     model: resolved.id,
     provider: entry.provider,
     authType: entry.authType,
+    apiSurface: entry.apiSurface,
     ...("wireId" in entry ? { wireId: entry.wireId } : {}),
     valid: dropped.length === 0,
     summary:
@@ -140,6 +141,7 @@ export function getModelParams(input: { model: string; baseUrl?: string }): Tool
     model: resolved.id,
     provider: entry.provider,
     authType: entry.authType,
+    apiSurface: entry.apiSurface,
     ...("wireId" in entry ? { wireId: entry.wireId } : {}),
     ...(entry.status !== undefined ? { status: entry.status } : {}),
     ...(entry.replacement !== undefined ? { replacement: entry.replacement } : {}),
@@ -243,6 +245,7 @@ export function listProviderModels(input: {
     return {
       model: id,
       authType: entry.authType,
+      apiSurface: entry.apiSurface,
       ...("wireId" in entry ? { wireId: entry.wireId } : {}),
       // Lifecycle travels with the row: a tool whose whole job is helping an
       // agent choose a model must not hand back a retired one unmarked.

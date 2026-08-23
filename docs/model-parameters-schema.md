@@ -2,7 +2,7 @@
 
 The Model Parameters Schema (MPS) convention is the JSON/YAML shape used by
 modelparams.dev to describe the request parameters available for a specific
-provider, auth type, and model.
+provider, model, auth type, and API/SDK surface.
 
 This catalog is metadata. It describes knobs a consumer can put into an outbound
 model request, such as `temperature`, `top_p`, `max_tokens`,
@@ -17,13 +17,14 @@ The public runtime sources are:
 
 ## Catalog Entry
 
-Each entry describes exactly one provider/auth/model tuple and its available
+Each entry describes exactly one provider/model/auth/API-surface tuple and its available
 parameters.
 
 ```json
 {
   "provider": "anthropic",
   "authType": "api_key",
+  "apiSurface": "anthropic-messages",
   "model": "claude-haiku-4-5",
   "status": "active",
   "params": [
@@ -45,16 +46,12 @@ parameters.
 
 Conventions:
 
-- `provider`, `authType`, and `model` identify exactly one model route.
+- `provider`, `model`, `authType`, and `apiSurface` scope one parameter set.
 - `model` reuses the slug the catalog already uses for that model elsewhere,
   when the vendor publishes it first-party. `bedrock/claude-sonnet-4-5` matches
   `anthropic/claude-sonnet-4-5` on purpose: the provider axis only means
   something if the same model carries the same slug on every host.
-- `provider` is a kebab-case slug. It also fixes the wire format the entry
-  documents: every `params` path must belong to that one surface. Where a host
-  serves two (Bedrock's `Converse` and `InvokeModel`), the catalog documents the
-  one listed in the README's API surfaces table and omits the other rather than
-  mixing both vocabularies in one entry.
+- `provider` is a kebab-case slug.
 - `model` is the provider-native model id without path separators. Preserve
   upstream casing; it may contain dots or colons when the upstream model id does.
 - `wireId` is optional: the exact string to put in the request's own `model`
@@ -67,6 +64,14 @@ Conventions:
   go stale the next time the host adds a region. Availability per region is
   account state and is deliberately not recorded here.
 - `authType` is `api_key` or `subscription`.
+- `apiSurface` identifies the request and SDK family whose field names appear in
+  `params`. For example, OpenAI Chat Completions uses
+  `max_completion_tokens`, while OpenAI Responses uses
+  `max_output_tokens`. Do not combine fields from two surfaces in one entry.
+  Supported values are `openai-chat-completions`, `openai-responses`,
+  `anthropic-messages`, `google-generate-content`,
+  `amazon-bedrock-converse`, `google-vertex-generate-content`, and
+  `cohere-chat`.
 - `status` is `active`, `deprecated`, or `retired`. Omit it when lifecycle
   status has not been tracked; generated catalog data preserves the omission.
 - `replacement` is an optional provider-qualified model id, such as
@@ -105,7 +110,7 @@ up the target directly.
 ## Parameter Scope
 
 MPS entries should describe only parameters the user or consumer can configure
-for the selected provider/auth/model tuple.
+for the selected provider/model/auth/API-surface tuple.
 
 For `authType: api_key`, list parameters from the official provider API
 reference. Do not invent request fields the upstream API does not accept.

@@ -7,6 +7,15 @@ from pydantic import BaseModel, ConfigDict, Field
 JsonPrimitive: TypeAlias = str | int | float | bool | None
 JsonNumber: TypeAlias = int | float
 AuthType: TypeAlias = Literal["api_key", "subscription"]
+ApiSurface: TypeAlias = Literal[
+    "openai-chat-completions",
+    "openai-responses",
+    "anthropic-messages",
+    "google-generate-content",
+    "amazon-bedrock-converse",
+    "google-vertex-generate-content",
+    "cohere-chat",
+]
 LifecycleStatus: TypeAlias = Literal["active", "deprecated", "retired"]
 ParamType: TypeAlias = Literal["boolean", "enum", "integer", "number", "string"]
 ParamGroup: TypeAlias = Literal[
@@ -59,6 +68,7 @@ class Parameter(FrozenModel):
 class CatalogEntry(FrozenModel):
     provider: str
     auth_type: AuthType = Field(alias="authType")
+    api_surface: ApiSurface = Field(alias="apiSurface")
     model: str
     # Exact wire string when the host's native id differs from the catalog
     # slug (pathed ids: accounts/fireworks/models/kimi-k3, openai/gpt-oss-20b).

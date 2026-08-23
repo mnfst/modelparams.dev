@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: fireworks
 authType: api_key
+apiSurface: openai-chat-completions
 model: deepseek-v4-flash-0731
 wireId: accounts/fireworks/models/deepseek-v4-flash-0731
 params:

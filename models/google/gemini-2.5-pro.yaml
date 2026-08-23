@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: google
 authType: api_key
+apiSurface: google-generate-content
 model: gemini-2.5-pro
 status: active
 replacement: google/gemini-3.1-pro-preview

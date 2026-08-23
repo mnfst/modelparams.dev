@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: vertex
 authType: api_key
+apiSurface: google-vertex-generate-content
 model: gemini-3.5-flash
 status: active
 params:

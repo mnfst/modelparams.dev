@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: bedrock
 authType: api_key
+apiSurface: amazon-bedrock-converse
 model: deepseek-r1
 wireId: "{scope}.deepseek.r1-v1:0"
 params:

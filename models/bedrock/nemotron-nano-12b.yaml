@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: bedrock
 authType: api_key
+apiSurface: amazon-bedrock-converse
 model: nemotron-nano-12b
 wireId: nvidia.nemotron-nano-12b-v2
 params:

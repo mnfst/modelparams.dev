@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: google
 authType: api_key
+apiSurface: google-generate-content
 model: gemma-3n-E4B-it
 params:
   - path: max_completion_tokens

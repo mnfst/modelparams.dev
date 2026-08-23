@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: mistral
 authType: api_key
+apiSurface: openai-chat-completions
 model: devstral-2512
 status: retired
 replacement: mistral/mistral-medium-3-5-26-04

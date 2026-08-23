@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: bedrock
 authType: api_key
+apiSurface: amazon-bedrock-converse
 model: palmyra-x4
 wireId: "{scope}.writer.palmyra-x4-v1:0"
 params:

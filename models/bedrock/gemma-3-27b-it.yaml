@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: bedrock
 authType: api_key
+apiSurface: amazon-bedrock-converse
 model: gemma-3-27b-it
 wireId: google.gemma-3-27b-it
 params:

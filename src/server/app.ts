@@ -1,5 +1,5 @@
 import express from "express";
-import { buildCapabilityFacets, buildCatalog, buildProviderFacets } from "../data/catalog.js";
+import { buildCapabilityFacets, buildCatalog } from "../data/catalog.js";
 import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
 import { findModelParams } from "../data/model-params.js";
 import { buildParameterIndex } from "../data/parameters.js";
@@ -45,8 +45,7 @@ export function makeApp(loadModels: LoadModels): express.Express {
       const models = await loadModels();
       const catalog = buildCatalog(models);
       const capabilities = buildCapabilityFacets(models);
-      const providers = buildProviderFacets(models);
-      const html = await renderIndex({ catalog, capabilities, providers });
+      const html = await renderIndex({ catalog, capabilities });
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(html);
     } catch (err) {

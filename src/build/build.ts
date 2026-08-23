@@ -3,7 +3,6 @@ import path from "node:path";
 import {
   buildCapabilityFacets,
   buildCatalog,
-  buildProviderFacets,
   uniqueProviders,
 } from "../data/catalog.js";
 import { loadAllModels } from "../data/load.js";
@@ -197,10 +196,8 @@ export async function build(): Promise<{ models: number }> {
 
   const catalog = buildCatalog(models);
   const capabilities = buildCapabilityFacets(models);
-  const providers = buildProviderFacets(models);
-
   console.log(`Rendering HTML for ${models.length} model(s)...`);
-  const html = await renderIndex({ catalog, capabilities, providers, analytics: true });
+  const html = await renderIndex({ catalog, capabilities, analytics: true });
   await fs.writeFile(path.join(DIST_DIR, "index.html"), html, "utf8");
 
   console.log("Writing JSON API...");

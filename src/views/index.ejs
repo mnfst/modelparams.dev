@@ -132,6 +132,35 @@
   </div>
 </div>
 
+<div class="mt-4" aria-label="Filter by API surface">
+  <p class="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
+    API surface
+  </p>
+  <div class="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
+    <button
+      type="button"
+      data-api-surface-filter="all"
+      data-active="true"
+      aria-pressed="true"
+      class="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
+    >
+      All surfaces
+      <span class="tabular-nums opacity-60"><%= modelGroups.length %></span>
+    </button>
+    <% for (const surface of apiSurfaces) { %>
+    <button
+      type="button"
+      data-api-surface-filter="<%= surface.apiSurface %>"
+      aria-pressed="false"
+      class="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
+    >
+      <%= helpers.apiSurfaceLabel(surface.apiSurface) %>
+      <span class="tabular-nums opacity-60"><%= surface.count %></span>
+    </button>
+    <% } %>
+  </div>
+</div>
+
 <div data-filter-panel class="filter-panel-closed border border-slate-200 bg-slate-50 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
   <div data-filter-scroll class="overflow-y-auto">
   <div class="mx-auto max-w-6xl p-4 sm:p-6">
@@ -238,16 +267,16 @@
 <section class="mt-4" aria-label="Models">
   <%
     const byProvider = new Map();
-    for (const m of models) {
-      const list = byProvider.get(m.provider) || [];
-      list.push(m);
-      byProvider.set(m.provider, list);
+    for (const group of modelGroups) {
+      const list = byProvider.get(group.provider) || [];
+      list.push(group);
+      byProvider.set(group.provider, list);
     }
   %>
   <div class="mb-3 flex items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
     <p>
-      <span data-visible-count><%= models.length %></span> of
-      <span class="tabular-nums"><%= models.length %></span> models
+      <span data-visible-count><%= modelGroups.length %></span> of
+      <span class="tabular-nums"><%= modelGroups.length %></span> models
     </p>
     <div class="flex items-center gap-2">
       <label class="flex items-center gap-1.5">
@@ -264,7 +293,7 @@
   </div>
   <div class="model-list flex flex-col" data-model-list>
     <% for (const pf of providers) { %>
-    <% const group = byProvider.get(pf.provider) || []; %>
+    <% const providerGroups = byProvider.get(pf.provider) || []; %>
     <h2
       data-group-header
       data-provider="<%= pf.provider %>"
@@ -272,7 +301,7 @@
     >
       <%= helpers.providerLabel(pf.provider) %>
     </h2>
-    <% for (const model of group) { %><%- include("partials/model_row", { model: model, helpers: helpers }) %><% } %>
+    <% for (const group of providerGroups) { %><%- include("partials/model_row", { group: group, helpers: helpers }) %><% } %>
     <% } %>
   </div>
   <p data-empty-state class="mt-6 hidden text-center text-sm italic text-slate-500 dark:text-slate-400">

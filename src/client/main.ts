@@ -1,4 +1,5 @@
 import { setupWebMCP } from "./webmcp.js";
+import { setupModelVariantTabs, syncModelVariants } from "./model-variants.js";
 
 type AuthFilter = "all" | "api_key" | "subscription";
 type SortMode = "provider" | "name" | "params";
@@ -6,6 +7,7 @@ type SortMode = "provider" | "name" | "params";
 interface FilterState {
   query: string;
   auth: AuthFilter;
+  apiSurface: string;
   providers: Set<string>;
   capabilities: Set<string>;
   sort: SortMode;
@@ -14,6 +16,7 @@ interface FilterState {
 const state: FilterState = {
   query: "",
   auth: "all",
+  apiSurface: "all",
   providers: new Set(),
   capabilities: new Set(),
   sort: "name",
@@ -201,24 +204,19 @@ function setupThemeToggle(): void {
 }
 
 function modelMatches(el: HTMLElement): boolean {
-  if (state.auth !== "all" && el.dataset.modelAuth !== state.auth) return false;
-
   if (state.providers.size > 0 && !state.providers.has(el.dataset.modelProvider ?? ""))
     return false;
-
-  if (state.capabilities.size > 0) {
-    const have = new Set((el.dataset.modelCapabilities ?? "").split(/\s+/).filter(Boolean));
-    for (const cap of state.capabilities) {
-      if (!have.has(cap)) return false;
-    }
-  }
 
   if (state.query) {
     const haystack = `${el.dataset.modelName ?? ""} ${el.dataset.modelProvider ?? ""} ${el.dataset.modelId ?? ""}`;
     if (!haystack.includes(state.query)) return false;
   }
 
-  return true;
+  return syncModelVariants(el, {
+    auth: state.auth,
+    apiSurface: state.apiSurface,
+    capabilities: state.capabilities,
+  });
 }
 
 function applyFilters(): void {
@@ -284,6 +282,19 @@ function setupAuthFilters(): void {
   });
 }
 
+function setupApiSurfaceFilters(): void {
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-api-surface-filter]");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const surface = button.dataset.apiSurfaceFilter;
+      if (!surface) return;
+      state.apiSurface = surface;
+      buttons.forEach((candidate) => setActive(candidate, candidate === button));
+      applyFilters();
+    });
+  });
+}
+
 function setupToggleChips(selector: string, datasetKey: string, bucket: Set<string>): void {
   const chips = document.querySelectorAll<HTMLButtonElement>(selector);
   chips.forEach((chip) => {
@@ -306,6 +317,7 @@ function hasActiveFilters(): boolean {
   return (
     state.query !== "" ||
     state.auth !== "all" ||
+    state.apiSurface !== "all" ||
     state.providers.size > 0 ||
     state.capabilities.size > 0
   );
@@ -329,6 +341,7 @@ function setupClearFilters(): void {
   button.addEventListener("click", () => {
     state.query = "";
     state.auth = "all";
+    state.apiSurface = "all";
     state.providers.clear();
     state.capabilities.clear();
 
@@ -338,6 +351,9 @@ function setupClearFilters(): void {
     document
       .querySelectorAll<HTMLButtonElement>("[data-auth-filter]")
       .forEach((b) => setActive(b, b.dataset.authFilter === "all"));
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-api-surface-filter]")
+      .forEach((b) => setActive(b, b.dataset.apiSurfaceFilter === "all"));
     document
       .querySelectorAll<HTMLButtonElement>("[data-provider], [data-capability]")
       .forEach((c) => setActive(c, false));
@@ -480,7 +496,11 @@ function setupFilterPanel(): void {
 function updateFilterCount(): void {
   const badge = document.querySelector<HTMLElement>("[data-active-filter-count]");
   if (!badge) return;
-  const count = state.providers.size + state.capabilities.size + (state.auth !== "all" ? 1 : 0);
+  const count =
+    state.providers.size +
+    state.capabilities.size +
+    (state.auth !== "all" ? 1 : 0) +
+    (state.apiSurface !== "all" ? 1 : 0);
   if (count > 0) {
     badge.textContent = String(count);
     badge.classList.remove("hidden");
@@ -614,12 +634,14 @@ document.addEventListener("DOMContentLoaded", () => {
   setupViewModeToggle();
   setupSearch();
   setupAuthFilters();
+  setupApiSurfaceFilters();
   setupToggleChips("[data-provider]", "provider", state.providers);
   setupToggleChips("[data-capability]", "capability", state.capabilities);
   setupFilterPanel();
   setupClearFilters();
   setupSort();
   reorderList();
+  setupModelVariantTabs();
   setupModelLinks();
   setupSearchShortcut();
   setupScrollTopButton();
