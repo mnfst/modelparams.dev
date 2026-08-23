@@ -1,0 +1,48 @@
+api/mcp.ts
+  s_4537041956511c::t_4ef94b2575f9d3 126-127
+src/build/build.ts
+  s_4537041956511c::t_0c579f6305a6e0 139
+  s_4537041956511c::t_75f473860e8bdc 26
+  s_4537041956511c::t_78521a28e33771 85
+  s_4537041956511c::t_bd683dddf75193 40
+src/views/api.ejs
+  s_4537041956511c::t_e815a69a6ac6c3 117
+src/data/urls.ts
+  s_4537041956511c::t_e357cd727f8bca 25-27
+src/data/mcp.ts
+  s_4537041956511c::t_61a57bcfb116e1 92
+src/views/mcp.ejs
+  s_4537041956511c::t_3b2cada184bc76 1-99
+src/client/main.ts
+  s_4537041956511c::t_038f1c252a8ca5 120-189
+  s_4537041956511c::t_1bbc4b31c1c42c 607-608
+src/server/app.ts
+  s_4537041956511c::t_d3db8d34ce34d5 67-74
+  s_4537041956511c::t_d33d7c51e32483 15
+src/build/render-mcp.ts
+  s_4537041956511c::t_b30eb3038ec7e1 1-7,9-33
+.fieldflow/inspect/fde3fce0530fad3c.json
+  s_4537041956511c::t_4853424e24e50a 1-75
+src/views/index.ejs
+  s_4537041956511c::t_0b0db7e3780903 58
+src/views/partials/footer.ejs
+  s_4537041956511c::t_64a31e33dad6c9 23
+src/views/partials/header.ejs
+  s_4537041956511c::t_66f393b698443a 42,105
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "01117f7c9898759017bd3e827eb4fcb72f8a74a2",
+  "prompts": {},
+  "sessions": {
+    "s_4537041956511c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdcf726e9ffe5mqqa8chnIF0to",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

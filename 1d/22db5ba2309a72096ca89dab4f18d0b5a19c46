@@ -1,0 +1,21 @@
+src/data/mcp.ts
+  s_4537041956511c::t_f7ec696f90b79c 7-8,15-42,47,54,61,75-77,79-95
+src/build/render-mcp.ts
+  s_4537041956511c::t_a0bf2a0b4de55f 15,17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "1d22db5ba2309a72096ca89dab4f18d0b5a19c46",
+  "prompts": {},
+  "sessions": {
+    "s_4537041956511c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdcf726e9ffe5mqqa8chnIF0to",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+src/build/highlight.ts
+  s_4537041956511c::t_76192fa698e0e7 29-43
+src/views/api.ejs
+  s_4537041956511c::t_7d142ee1403008 89
+src/data/mcp.ts
+  s_4537041956511c::t_67f7e4ac804669 126,130,135
+  s_4537041956511c::t_74c3d5219bc6f8 168
+src/build/render-mcp.ts
+  s_4537041956511c::t_5a1eac92233442 53-54
+  s_4537041956511c::t_f48d314938f2fa 247-259
+  s_4537041956511c::t_93f17507d303cb 52
+  s_4537041956511c::t_3259ab07e79fec 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "b666ddae310bd30541a4ca0e17d23e92a4723605",
+  "prompts": {},
+  "sessions": {
+    "s_4537041956511c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdcf726e9ffe5mqqa8chnIF0to",
+        "model": "auto"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
