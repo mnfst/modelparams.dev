@@ -1,5 +1,4 @@
 import { setupWebMCP } from "./webmcp.js";
-import { setupModelVariantTabs, syncModelVariants } from "./model-variants.js";
 
 type AuthFilter = "all" | "api_key" | "subscription";
 type SortMode = "provider" | "name" | "params";
@@ -204,19 +203,26 @@ function setupThemeToggle(): void {
 }
 
 function modelMatches(el: HTMLElement): boolean {
+  if (state.auth !== "all" && el.dataset.modelAuth !== state.auth) return false;
+
+  if (state.apiSurface !== "all" && el.dataset.modelApiSurface !== state.apiSurface) return false;
+
   if (state.providers.size > 0 && !state.providers.has(el.dataset.modelProvider ?? ""))
     return false;
+
+  if (state.capabilities.size > 0) {
+    const have = new Set((el.dataset.modelCapabilities ?? "").split(/\s+/).filter(Boolean));
+    for (const capability of state.capabilities) {
+      if (!have.has(capability)) return false;
+    }
+  }
 
   if (state.query) {
     const haystack = `${el.dataset.modelName ?? ""} ${el.dataset.modelProvider ?? ""} ${el.dataset.modelId ?? ""}`;
     if (!haystack.includes(state.query)) return false;
   }
 
-  return syncModelVariants(el, {
-    auth: state.auth,
-    apiSurface: state.apiSurface,
-    capabilities: state.capabilities,
-  });
+  return true;
 }
 
 function applyFilters(): void {
@@ -641,7 +647,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupClearFilters();
   setupSort();
   reorderList();
-  setupModelVariantTabs();
   setupModelLinks();
   setupSearchShortcut();
   setupScrollTopButton();

@@ -4,9 +4,9 @@
       Every API parameter,<br />for every model.
     </h1>
     <p class="mt-4 max-w-2xl text-pretty text-base text-slate-600 dark:text-slate-400 sm:text-lg">
-      An open, community-maintained catalog of LLM API parameters — temperature, top_p,
-      max_tokens and the rest of the request body.
-      Browse the UI below, query the API, install the npm package, or give your coding agent the MCP server.
+      An open, community-maintained catalog of LLM API parameters, scoped to the API
+      surface your SDK calls. Choose a surface, then browse the exact request fields each
+      model accepts.
     </p>
 
     <div class="mt-8 flex flex-wrap items-center gap-4">
@@ -72,8 +72,40 @@
   aria-label="Search and filter models"
   class="search-bar -mx-4 px-4 py-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
 >
-  <div class="search-card rounded-xl border border-slate-200 bg-white p-4 shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-slate-950/50">
-  <div class="flex items-center gap-3">
+  <div class="search-card overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-slate-950/50">
+    <div class="border-b border-slate-200 p-4 dark:border-slate-800">
+      <div class="mb-3 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.08em] text-slate-800 dark:text-slate-200">
+          API surface
+        </p>
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          Parameters change with the API surface your SDK calls.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap" aria-label="Filter by API surface">
+        <button
+          type="button"
+          data-api-surface-filter="all"
+          data-active="true"
+          aria-pressed="true"
+          class="inline-flex min-h-9 items-center justify-center border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white sm:justify-start dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
+        >
+          All surfaces
+        </button>
+        <% for (const surface of apiSurfaces) { %>
+        <button
+          type="button"
+          data-api-surface-filter="<%= surface.apiSurface %>"
+          aria-pressed="false"
+          class="inline-flex min-h-9 items-center justify-center gap-2 border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white sm:justify-start dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-600 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
+        >
+          <%= helpers.apiSurfaceLabel(surface.apiSurface) %>
+          <code class="hidden font-mono text-[10px] opacity-70 md:inline"><%= helpers.apiSurfaceSdkMethod(surface.apiSurface) %></code>
+        </button>
+        <% } %>
+      </div>
+    </div>
+    <div class="flex flex-col items-stretch gap-3 p-4 sm:flex-row sm:items-center">
       <label class="relative flex-1">
         <span class="sr-only">Search models</span>
         <svg
@@ -92,7 +124,7 @@
           type="search"
           id="search"
           data-search
-          placeholder="Search models (e.g. opus, gpt-4o, haiku)"
+          placeholder="Search models (e.g. gpt-5.5, opus, gemini)"
           autocomplete="off"
           class="w-full rounded-lg border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-9 text-sm placeholder:text-slate-400 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/30 dark:border-slate-700 dark:bg-slate-800 dark:placeholder:text-slate-500 dark:focus:bg-slate-900"
         />
@@ -117,7 +149,7 @@
         type="button"
         data-toggle-filters
         aria-expanded="false"
-        class="inline-flex shrink-0 items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:bg-warm-hover dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800"
+        class="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2.5 text-xs font-medium text-slate-600 hover:border-slate-300 hover:bg-warm-hover dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800"
       >
         <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
           <path d="M1.5 3.5h13M3.5 8h9M5.5 12.5h5" />
@@ -129,35 +161,6 @@
         </svg>
       </button>
     </div>
-  </div>
-</div>
-
-<div class="mt-4" aria-label="Filter by API surface">
-  <p class="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500 dark:text-slate-400">
-    API surface
-  </p>
-  <div class="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
-    <button
-      type="button"
-      data-api-surface-filter="all"
-      data-active="true"
-      aria-pressed="true"
-      class="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
-    >
-      All surfaces
-      <span class="tabular-nums opacity-60"><%= modelGroups.length %></span>
-    </button>
-    <% for (const surface of apiSurfaces) { %>
-    <button
-      type="button"
-      data-api-surface-filter="<%= surface.apiSurface %>"
-      aria-pressed="false"
-      class="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-slate-300 data-[active=true]:border-accent data-[active=true]:bg-accent data-[active=true]:text-white dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:data-[active=true]:border-accent dark:data-[active=true]:bg-accent"
-    >
-      <%= helpers.apiSurfaceLabel(surface.apiSurface) %>
-      <span class="tabular-nums opacity-60"><%= surface.count %></span>
-    </button>
-    <% } %>
   </div>
 </div>
 
@@ -267,16 +270,16 @@
 <section class="mt-4" aria-label="Models">
   <%
     const byProvider = new Map();
-    for (const group of modelGroups) {
-      const list = byProvider.get(group.provider) || [];
-      list.push(group);
-      byProvider.set(group.provider, list);
+    for (const model of models) {
+      const list = byProvider.get(model.provider) || [];
+      list.push(model);
+      byProvider.set(model.provider, list);
     }
   %>
   <div class="mb-3 flex items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
     <p>
-      <span data-visible-count><%= modelGroups.length %></span> of
-      <span class="tabular-nums"><%= modelGroups.length %></span> models
+      <span data-visible-count><%= models.length %></span> of
+      <span class="tabular-nums"><%= models.length %></span> model surfaces
     </p>
     <div class="flex items-center gap-2">
       <label class="flex items-center gap-1.5">
@@ -293,7 +296,7 @@
   </div>
   <div class="model-list flex flex-col" data-model-list>
     <% for (const pf of providers) { %>
-    <% const providerGroups = byProvider.get(pf.provider) || []; %>
+    <% const providerModels = byProvider.get(pf.provider) || []; %>
     <h2
       data-group-header
       data-provider="<%= pf.provider %>"
@@ -301,7 +304,7 @@
     >
       <%= helpers.providerLabel(pf.provider) %>
     </h2>
-    <% for (const group of providerGroups) { %><%- include("partials/model_row", { group: group, helpers: helpers }) %><% } %>
+    <% for (const model of providerModels) { %><%- include("partials/model_row", { model: model, helpers: helpers }) %><% } %>
     <% } %>
   </div>
   <p data-empty-state class="mt-6 hidden text-center text-sm italic text-slate-500 dark:text-slate-400">
