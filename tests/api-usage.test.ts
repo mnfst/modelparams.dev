@@ -18,6 +18,11 @@ describe("classifyEndpoint", () => {
     expect(classifyEndpoint("/llms-full.txt").endpoint).toBe("llms");
   });
 
+  it("recognises the MCP server on both its public and rewritten paths", () => {
+    expect(classifyEndpoint("/mcp").endpoint).toBe("mcp");
+    expect(classifyEndpoint("/api/mcp").endpoint).toBe("mcp");
+  });
+
   it("extracts provider and model from model_by_id paths", () => {
     expect(classifyEndpoint("/api/v1/models/openai/gpt-4.1.json")).toEqual({
       endpoint: "model_by_id",

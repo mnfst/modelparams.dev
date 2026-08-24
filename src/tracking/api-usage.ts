@@ -36,6 +36,7 @@ export interface EndpointInfo {
     | "params_by_model"
     | "validate"
     | "llms"
+    | "mcp"
     | "other";
   authMode: "api_key" | "subscription" | null;
   provider: string | null;
@@ -48,6 +49,9 @@ export function classifyEndpoint(pathname: string): EndpointInfo {
   const path = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
 
   if (path === "/llms.txt" || path === "/llms-full.txt") return { ...none, endpoint: "llms" };
+  // vercel.json rewrites /mcp to /api/mcp; middleware sees the pre-rewrite
+  // path, but direct hits on /api/mcp are the same endpoint.
+  if (path === "/mcp" || path === "/api/mcp") return { ...none, endpoint: "mcp" };
   if (path === "/api/v1/index.json") return { ...none, endpoint: "index" };
   if (path === "/api/v1/models.json") return { ...none, endpoint: "catalog" };
   if (path === "/api/v1/schema.json") return { ...none, endpoint: "schema" };
