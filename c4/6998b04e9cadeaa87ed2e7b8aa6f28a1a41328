@@ -1,0 +1,35 @@
+models/meta/muse-spark-1.2.yaml
+  s_713c729ddd07a3::t_b5352d597b8d63 1-94
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_713c729ddd07a3::t_6b6786ff8072f2 9056-9183
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_713c729ddd07a3::t_f07306c60b9312 102,350
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_713c729ddd07a3::t_48527a720755b6 123
+packages/modelparams-python/src/modelparams/types/meta.py
+  s_713c729ddd07a3::t_58550a233cc3df 73-89,95
+packages/modelparams/src/generated/data.ts
+  s_713c729ddd07a3::t_b67112697518ae 9061-9188
+packages/modelparams/src/generated/defaults.ts
+  s_713c729ddd07a3::t_7c99fc9392f916 667-673
+packages/modelparams/src/generated/model-ids.ts
+  s_713c729ddd07a3::t_780985bd202125 100
+packages/modelparams/src/generated/params-by-id.ts
+  s_713c729ddd07a3::t_9847841e057962 819-829
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c46998b04e9cadeaa87ed2e7b8aa6f28a1a41328",
+  "prompts": {},
+  "sessions": {
+    "s_713c729ddd07a3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ffcf3-e66c-7042-9b88-467f69d73c97",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

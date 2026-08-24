@@ -1,0 +1,21 @@
+.github/ISSUE_TEMPLATE/parameter-request.yml
+  s_97efe38e9cd95b::t_bb6adc5f42c002 7
+  s_97efe38e9cd95b::t_def2c0d5762153 1-6,9-83
+  s_97efe38e9cd95b::t_055569ff31b535 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "03d44b72f014bb5bb13febfb31b8e82a3698bafd",
+  "prompts": {},
+  "sessions": {
+    "s_97efe38e9cd95b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e49ea-52b8-7773-829b-2378237fc586",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}

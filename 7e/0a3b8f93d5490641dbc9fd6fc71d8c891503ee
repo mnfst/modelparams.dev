@@ -1,0 +1,27 @@
+models/xiaomi/mimo-v2.5-pro.yaml
+  s_01bd2528a03879::t_49c049e5969489 1-86
+packages/modelparams/src/generated/data.ts
+  s_01bd2528a03879::t_4353ef9e4c76f7 13427-13536
+packages/modelparams/src/generated/defaults.ts
+  s_01bd2528a03879::t_7f98f8054a1532 1065-1072
+packages/modelparams/src/generated/model-ids.ts
+  s_01bd2528a03879::t_17a1d996b764cf 178
+packages/modelparams/src/generated/params-by-id.ts
+  s_01bd2528a03879::t_a134059c2ce9dd 1308-1317
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "7e0a3b8f93d5490641dbc9fd6fc71d8c891503ee",
+  "prompts": {},
+  "sessions": {
+    "s_01bd2528a03879": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "78fab2f2-2bbd-40c1-bac5-23b7bf0cfa60",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

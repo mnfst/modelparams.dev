@@ -1,0 +1,21 @@
+packages/modelparams-python/tests/test_validation.py
+  s_598a74c9a67e3c::t_1b93fb999c88d9 24-28
+packages/modelparams-python/src/modelparams/validation.py
+  s_598a74c9a67e3c::t_1b93fb999c88d9 3,20-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "84587c6b8305ac79f822148bd1a54ccb6c381acf",
+  "prompts": {},
+  "sessions": {
+    "s_598a74c9a67e3c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fcc12-41e1-7ac1-a453-1428f56e0d29",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

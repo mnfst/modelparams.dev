@@ -1,0 +1,31 @@
+models/moonshot/kimi-k2.6-subscription.yaml
+  s_01bd2528a03879::t_da4b38ab5f6229 1-32
+models/moonshot/kimi-k2.7-code-highspeed-subscription.yaml
+  s_01bd2528a03879::t_16d0d92689776c 1-21
+models/moonshot/kimi-k2.7-code-subscription.yaml
+  s_01bd2528a03879::t_28fa31a48b43b4 1-21
+packages/modelparams/src/generated/data.ts
+  s_01bd2528a03879::t_baa2fc72792bef 9641-9739
+packages/modelparams/src/generated/defaults.ts
+  s_01bd2528a03879::t_0edf9bbf992cae 709-718
+packages/modelparams/src/generated/model-ids.ts
+  s_01bd2528a03879::t_cdfd141336ae3b 109-111
+packages/modelparams/src/generated/params-by-id.ts
+  s_01bd2528a03879::t_27ad93452b59ca 889-901
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "6f6049f343b9c3e1a91ee3cb36e79aef6e45ce27",
+  "prompts": {},
+  "sessions": {
+    "s_01bd2528a03879": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "78fab2f2-2bbd-40c1-bac5-23b7bf0cfa60",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

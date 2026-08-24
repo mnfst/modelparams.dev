@@ -1,0 +1,27 @@
+packages/modelparams/tests/resolve.test.ts
+  s_42e0fc047eb6c5::t_acda47a6aa26bb 92-116
+packages/modelparams/src/resolve.ts
+  s_42e0fc047eb6c5::t_9a21ae6c02d2c1 161
+  s_42e0fc047eb6c5::t_5ec58bfa82a6df 100-110,112-115,120-132
+  s_42e0fc047eb6c5::t_2fc6242621e6f6 133
+packages/modelparams/src/generated/provider-endpoints.ts
+  s_42e0fc047eb6c5::t_148a9367069acd 42
+providers.yaml
+  s_42e0fc047eb6c5::t_4e4bca7cf68523 30-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "e71115b71bf10fc5507199c72778170ab3cc838f",
+  "prompts": {},
+  "sessions": {
+    "s_42e0fc047eb6c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8459669-8327-4fa0-b7f8-f5aeea60800a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

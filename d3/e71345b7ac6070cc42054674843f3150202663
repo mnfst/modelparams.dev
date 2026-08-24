@@ -1,0 +1,27 @@
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_42e0fc047eb6c5::t_b54473d8b7f662 7205-7603
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_42e0fc047eb6c5::t_417571d4598e59 90-94,413-417,655,678
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_42e0fc047eb6c5::t_4d796c9414f62e 8,113-117
+packages/modelparams-python/src/modelparams/types/__init__.py
+  s_42e0fc047eb6c5::t_6f015c97d09a40 4
+packages/modelparams-python/src/modelparams/types/bedrock.py
+  s_42e0fc047eb6c5::t_ced50e84519b43 1-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "d3e71345b7ac6070cc42054674843f3150202663",
+  "prompts": {},
+  "sessions": {
+    "s_42e0fc047eb6c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8459669-8327-4fa0-b7f8-f5aeea60800a",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+models/google/gemini-2.5-flash-lite.yaml
+  s_dea4686cd6becf::t_5d79f23b4cba6f 1-59,61-77
+  s_dea4686cd6becf::t_9ff7430aa89b9d 60
+docs/model-parameters-schema.md
+  s_dea4686cd6becf::t_e67389cc848393 8-11,53-55,121
+src/schema/model.ts
+  s_dea4686cd6becf::t_e67389cc848393 22,51,76
+models/google/gemini-3.5-flash.yaml
+  s_dea4686cd6becf::t_5d79f23b4cba6f 1-82
+CONTRIBUTING.md
+  s_dea4686cd6becf::t_28440e1c301db0 24
+models/google/gemini-2.5-pro.yaml
+  s_dea4686cd6becf::t_5d79f23b4cba6f 1-79
+tests/schema.test.ts
+  s_dea4686cd6becf::t_e67389cc848393 102-120,202-215
+models/google/gemini-2.5-flash.yaml
+  s_dea4686cd6becf::t_5d79f23b4cba6f 1-80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "de2a0d056196376f1e53b99c85b4b7ecbe0b5e1b",
+  "prompts": {},
+  "sessions": {
+    "s_dea4686cd6becf": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e49ef-09f4-7b02-a04b-9bfa54d19a8d",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

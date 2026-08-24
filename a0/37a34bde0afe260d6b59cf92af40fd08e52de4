@@ -1,0 +1,37 @@
+models/google/gemini-3.5-flash-lite.yaml
+  s_036e57b72f5518::t_b61084c9e11740 1-72
+models/google/gemini-3.6-flash.yaml
+  s_036e57b72f5518::t_49d58b77214d58 1-72
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_7986f9b8f58ddb 8255-8446
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_036e57b72f5518::t_32ef50560413f1 89-90,354-355
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_036e57b72f5518::t_f4733363ec5655 110-111
+packages/modelparams-python/src/modelparams/types/google.py
+  s_036e57b72f5518::t_3e9f8b900228bf 205-236,424-425
+packages/modelparams/src/generated/data.ts
+  s_036e57b72f5518::t_05a95b797a55b7 8244-8435
+packages/modelparams/src/generated/defaults.ts
+  s_036e57b72f5518::t_121b6dec90d988 599-614
+packages/modelparams/src/generated/model-ids.ts
+  s_036e57b72f5518::t_aaea1f4791980a 87-88
+packages/modelparams/src/generated/params-by-id.ts
+  s_036e57b72f5518::t_116fbf4d31be57 716-735
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a037a34bde0afe260d6b59cf92af40fd08e52de4",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

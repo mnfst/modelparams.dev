@@ -1,0 +1,53 @@
+packages/modelparams/src/generated/defaults.ts
+  s_f2d8f7f719df85::t_5f571496f0be40 1051-1052
+  s_f2d8f7f719df85::t_17f138bc4b4e35 536-559,1036-1040,1045-1050,1053-1058,1115-1119,1125-1129,1141-1158,1164-1168
+models/google/gemma-4-26b-a4b-it.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-67
+models/xai/grok-4.5.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-58
+models/openai/gpt-5.6-terra-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-38
+models/xai/grok-build-0.1-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-47
+models/openai/gpt-5.6-terra.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-24
+models/google/gemini-flash-latest.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-67
+models/xai/grok-4.3-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-58
+packages/modelparams/src/generated/params-by-id.ts
+  s_f2d8f7f719df85::t_17f138bc4b4e35 619-648,1244-1248,1253-1258,1261-1266,1359-1366,1374-1380,1396-1419,1427-1433
+  s_f2d8f7f719df85::t_5f571496f0be40 1259-1260
+models/google/gemma-4-31b-it.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-67
+models/openai/gpt-5.6-sol-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-38
+packages/modelparams/src/generated/data.ts
+  s_f2d8f7f719df85::t_17f138bc4b4e35 7283,7285,7288-7290,7294-7295,7299,7303-7309,7312,7316-7322,7325,7327,7329-7333,7336-7338,7340,7343-7348,7351-7362,7364,7366-7367,7373,7375,7378-7380,7384-7385,7389,7393-7399,7402,7406-7412,7415,7417,7419-7423,7426-7428,7430,7433-7438,7441-7452,7454,7456-7457,7463,7465,7468-7470,7474-7475,7479,7483-7489,7492,7496-7502,7505,7507,7509-7513,7516-7518,7520,7523-7541,7544,7546-7547,7549-7745,12886-12887,12890,12895,12898-12925,12936,12955,12957,12960,12967-12968,12971-13133,13693-14090,14095,14097,14100-14102,14106,14115,14128,14136-14139,14142-14145,14149-14152,14154,14156-14158,14160-14176,14179-14189,14192-14202,14205-14209,14212-14215,14219,14226-14236,14242-14243,14289-14300,14320,14365-14378,14396-14397,14400-14402,14415,14428,14436-14443,14445,14448,14450,14453,14457-14459,14474,14536
+models/xai/grok-4.5-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-58
+packages/modelparams/src/generated/model-ids.ts
+  s_f2d8f7f719df85::t_17f138bc4b4e35 75-77,170,172-174,187,189,192-194,196
+models/xai/grok-4.20-0309-non-reasoning-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-52
+models/openai/gpt-5.6-luna-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-38
+models/xai/grok-4.20-0309-reasoning-subscription.yaml
+  s_f2d8f7f719df85::t_17f138bc4b4e35 1-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "a41405e83e30b207d434521328891bfd82ae7a67",
+  "prompts": {},
+  "sessions": {
+    "s_f2d8f7f719df85": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "11af9cf6-903c-4d99-853e-ac9ace14c05e",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

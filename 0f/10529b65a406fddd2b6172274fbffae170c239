@@ -1,0 +1,46 @@
+tests/catalog.test.ts
+  s_e2ea42a6915938::t_48867f36518047 5-10
+  s_e2ea42a6915938::t_abd88ae634075c 81-147
+src/build/build.ts
+  s_e2ea42a6915938::t_c3e36747739f54 166-169
+  s_e2ea42a6915938::t_2a8e66d7d946ec 216-218
+  s_e2ea42a6915938::t_bd4fdb1ffcc77f 49
+  s_e2ea42a6915938::t_efe75de509b56b 11
+api/v1/validate.ts
+  s_e2ea42a6915938::t_3e0aeb635ed8f6 154-170
+  s_e2ea42a6915938::t_6a2825517d6978 47
+  s_e2ea42a6915938::t_99687e4cdec84b 48,171
+packages/modelparams-mcp/src/server.ts
+  s_e2ea42a6915938::t_86f8728d1f1a0f 59
+  s_e2ea42a6915938::t_7db51c2a7497a6 91
+packages/modelparams-mcp/tests/server.test.ts
+  s_e2ea42a6915938::t_14aecb82991a75 126-135,140
+src/server/app.ts
+  s_e2ea42a6915938::t_d9a56ad100ab27 4
+  s_e2ea42a6915938::t_7f178456c2ca28 145-159
+tests/server.test.ts
+  s_e2ea42a6915938::t_bd94e43de1d1bb 103-128
+tests/validate-endpoint.test.ts
+  s_e2ea42a6915938::t_d8d89003c4b557 105-112,115
+packages/modelparams-mcp/src/tools.ts
+  s_e2ea42a6915938::t_54237040fecdbe 23
+  s_e2ea42a6915938::t_f48dd55193122f 47-48
+src/data/model-params.ts
+  s_e2ea42a6915938::t_5063f0423ec896 1-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0f10529b65a406fddd2b6172274fbffae170c239",
+  "prompts": {},
+  "sessions": {
+    "s_e2ea42a6915938": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dd9e9a6d-547f-46fc-8a98-5a1dab496766",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

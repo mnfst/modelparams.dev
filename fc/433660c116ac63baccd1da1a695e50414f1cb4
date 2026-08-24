@@ -1,0 +1,25 @@
+packages/modelparams/src/generated/data.ts
+  s_c4bf65292376a4::t_b2c6f6d090d4a5 12447-12478
+packages/modelparams/src/generated/defaults.ts
+  s_c4bf65292376a4::t_fb49115d6f09af 999-1002
+packages/modelparams/src/generated/model-ids.ts
+  s_c4bf65292376a4::t_a6930dcedd48ab 165
+packages/modelparams/src/generated/params-by-id.ts
+  s_c4bf65292376a4::t_af6147f30f50a6 1201-1204
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "fc433660c116ac63baccd1da1a695e50414f1cb4",
+  "prompts": {},
+  "sessions": {
+    "s_c4bf65292376a4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "227d61a9-8822-43fb-b0ab-035f0238ae60",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

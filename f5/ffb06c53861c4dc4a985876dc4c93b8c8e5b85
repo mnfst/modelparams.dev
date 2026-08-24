@@ -1,0 +1,37 @@
+src/client/main.ts
+  s_d210f54e2d5713::t_fff3bae655e427 206-209,213
+  s_d210f54e2d5713::t_78d2d745a51cb0 214-219,225
+src/data/api-surfaces.ts
+  s_d210f54e2d5713::t_fff3bae655e427 1,14-15,17,20,22,40-50
+  s_d210f54e2d5713::t_1b5dad18c4ee7a 51
+src/views/partials/model_row.ejs
+  s_d210f54e2d5713::t_02c1b41e5503ce 27
+  s_d210f54e2d5713::t_e10d67cf0559fd 2-8,12,14-18,21-26,31,38-44,46-49,51-58,73-76,78-81,83-84
+src/build/render.ts
+  s_d210f54e2d5713::t_fff3bae655e427 4-13,169-170,179-181,183-184
+  s_d210f54e2d5713::t_e249087060d36c 167,182
+tests/server.test.ts
+  s_d210f54e2d5713::t_ae7844994a8dfd 169
+  s_d210f54e2d5713::t_cac4f8dff9ab88 172-175
+src/views/index.ejs
+  s_d210f54e2d5713::t_f845004d7d1439 108,152
+  s_d210f54e2d5713::t_4d66265e478b47 7-9,75-107,127,273-276,281-282,299,307
+tests/catalog.test.ts
+  s_d210f54e2d5713::t_fff3bae655e427 4-8,76-77,89,176
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "f5ffb06c53861c4dc4a985876dc4c93b8c8e5b85",
+  "prompts": {},
+  "sessions": {
+    "s_d210f54e2d5713": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03092-1eab-78d1-8249-ee806b666f51",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

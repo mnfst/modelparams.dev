@@ -1,0 +1,25 @@
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_52c7a0e7f06485 582-656
+packages/modelparams-python/src/modelparams/_generated/model_ids.py
+  s_036e57b72f5518::t_5408de209288da 17,269
+packages/modelparams-python/src/modelparams/_generated/registry.py
+  s_036e57b72f5518::t_166e205c3f9d1f 38
+packages/modelparams-python/src/modelparams/types/alibaba.py
+  s_036e57b72f5518::t_6153cf1631b335 144-157,195
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "24884c6b672c97f7a6e8459bb0a65ca9aaaabce0",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

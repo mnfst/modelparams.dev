@@ -1,0 +1,25 @@
+models/anthropic/claude-sonnet-4-20250514.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+models/anthropic/claude-opus-4-5-20251101.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+models/anthropic/claude-opus-4-1-20250805.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+models/anthropic/claude-opus-4-20250514.yaml
+  s_d55d26a37e6be3::t_eaf1c15f43788b 1-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "d77d01589e2e8ac4b0ba2b436e565630feae1bbc",
+  "prompts": {},
+  "sessions": {
+    "s_d55d26a37e6be3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e3cc4-24e3-74b0-a24b-ea4a41761278",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

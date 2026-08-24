@@ -1,0 +1,26 @@
+docs/model-parameters-schema.md
+  s_985266fe14bc90::t_e110bd238fa030 2,4-16,18-43,45-86,88-91,93-113,115-159,162-168
+  s_985266fe14bc90::t_2b22c3b04da8d7 1,3,17,44,87,92,114,160-161,169-170
+CONTRIBUTING.md
+  s_985266fe14bc90::t_fbfa27f1d79c53 5
+  s_985266fe14bc90::t_99e888967fc7ba 6,38
+README.md
+  s_985266fe14bc90::t_a2721493812f03 19-21
+  s_985266fe14bc90::t_b760c63881219e 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.10",
+  "base_commit_sha": "0af7f616f2e0469c39c21730cadadf37fe1477f6",
+  "prompts": {},
+  "sessions": {
+    "s_985266fe14bc90": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e45bc-e28d-73b2-a287-1bfb33cb0f6f",
+        "model": "gpt-5.5"
+      },
+      "human_author": null
+    }
+  }
+}

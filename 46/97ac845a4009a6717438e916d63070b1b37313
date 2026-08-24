@@ -1,0 +1,23 @@
+packages/modelparams-mcp/README.md
+  s_42e0fc047eb6c5::t_fbf2667785f572 112
+package-lock.json
+  s_42e0fc047eb6c5::t_2d1077622f4891 8016
+packages/modelparams-mcp/package.json
+  s_42e0fc047eb6c5::t_73865a89f9211c 57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4697ac845a4009a6717438e916d63070b1b37313",
+  "prompts": {},
+  "sessions": {
+    "s_42e0fc047eb6c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8459669-8327-4fa0-b7f8-f5aeea60800a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

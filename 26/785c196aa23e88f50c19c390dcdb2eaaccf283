@@ -1,0 +1,27 @@
+models/nvidia/nemotron-3-ultra-subscription.yaml
+  s_593505829f2976::t_6177a00eb16fda 1-54
+packages/modelparams/src/generated/data.ts
+  s_593505829f2976::t_fd8e4292dd84a1 10635-10707
+packages/modelparams/src/generated/defaults.ts
+  s_593505829f2976::t_8ea4effbf2deec 801-807
+packages/modelparams/src/generated/model-ids.ts
+  s_593505829f2976::t_53a24b7cfa0ed3 123
+packages/modelparams/src/generated/params-by-id.ts
+  s_593505829f2976::t_924eb7787e23cf 995-1002
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.3",
+  "base_commit_sha": "26785c196aa23e88f50c19c390dcdb2eaaccf283",
+  "prompts": {},
+  "sessions": {
+    "s_593505829f2976": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f122a-52d9-7130-b575-459b0cc72d21",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

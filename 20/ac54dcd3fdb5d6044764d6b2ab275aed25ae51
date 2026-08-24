@@ -1,0 +1,40 @@
+tests/mcp-endpoint-protocol.test.ts
+  s_5ae9b0795813ec::t_0e4d15a269a627 1-72
+api/mcp.ts
+  s_5ae9b0795813ec::t_65796d1808cdb2 1-164
+packages/modelparams-mcp/src/server.ts
+  s_5ae9b0795813ec::t_6147293b3ce678 20-25,27,29
+packages/modelparams/package.json
+  s_5ae9b0795813ec::t_09f6b386e0b8ff 63
+packages/modelparams-mcp/README.md
+  s_5ae9b0795813ec::t_f50997674f840f 15-27
+vercel.json
+  s_5ae9b0795813ec::t_824650a8912c97 9,22-31
+  s_5ae9b0795813ec::t_c151e80ee42afc 32
+tsconfig.api.json
+  s_5ae9b0795813ec::t_824650a8912c97 7-11
+tests/mcp-endpoint.test.ts
+  s_5ae9b0795813ec::t_fe5bbf455ea805 1-129
+README.md
+  s_5ae9b0795813ec::t_23b0d50e8dfe9e 110
+src/views/api.ejs
+  s_5ae9b0795813ec::t_23b0d50e8dfe9e 116-118,121-122,124-127
+packages/modelparams-mcp/src/index.ts
+  s_5ae9b0795813ec::t_6147293b3ce678 2,6-11,16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "20ac54dcd3fdb5d6044764d6b2ab275aed25ae51",
+  "prompts": {},
+  "sessions": {
+    "s_5ae9b0795813ec": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "978de38f-86ce-4938-aaad-48dcd2a50b29",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

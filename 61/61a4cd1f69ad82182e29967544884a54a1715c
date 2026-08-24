@@ -1,0 +1,43 @@
+models/mistral/ministral-3b-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/magistral-medium-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/codestral-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/devstral-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/devstral-2512.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/magistral-small-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/mistral-medium-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/ministral-8b-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/mistral-medium-3.5.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/ministral-14b-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/mistral-large-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/mistral-small-latest.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+models/mistral/open-mistral-nemo.yaml
+  s_dea4686cd6becf::t_c0e47fcda95ef5 1-78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "6161a4cd1f69ad82182e29967544884a54a1715c",
+  "prompts": {},
+  "sessions": {
+    "s_dea4686cd6becf": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e49ef-09f4-7b02-a04b-9bfa54d19a8d",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

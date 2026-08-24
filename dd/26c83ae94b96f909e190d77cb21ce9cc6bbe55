@@ -1,0 +1,29 @@
+packages/modelparams-python/src/modelparams/types/anthropic.py
+  s_036e57b72f5518::t_5c3b1fec14776d 373-375
+models/anthropic/claude-opus-4-8.yaml
+  s_036e57b72f5518::t_5c3b1fec14776d 14-50
+packages/modelparams/src/generated/defaults.ts
+  s_036e57b72f5518::t_5c3b1fec14776d 265-267
+packages/modelparams/src/generated/data.ts
+  s_036e57b72f5518::t_5c3b1fec14776d 3802-3850
+packages/modelparams/src/generated/params-by-id.ts
+  s_036e57b72f5518::t_5c3b1fec14776d 319-321
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_036e57b72f5518::t_5c3b1fec14776d 3797-3845
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "dd26c83ae94b96f909e190d77cb21ce9cc6bbe55",
+  "prompts": {},
+  "sessions": {
+    "s_036e57b72f5518": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d30aa6a4-9a49-4b36-909e-c83819298abb",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

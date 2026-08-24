@@ -1,0 +1,39 @@
+models/moonshot/moonshot-v1-32k.yaml
+  s_8ef413782f6350::t_22d2327f92139e 6
+models/moonshot/moonshot-v1-128k.yaml
+  s_8ef413782f6350::t_22d2327f92139e 6
+models/openai/gpt-5.2-codex-subscription.yaml
+  s_8ef413782f6350::t_22d2327f92139e 6
+models/openai/gpt-5.1-codex-subscription.yaml
+  s_8ef413782f6350::t_22d2327f92139e 6
+models/mistral/open-mistral-nemo.yaml
+  s_8ef413782f6350::t_22d2327f92139e 5
+models/mistral/devstral-2512.yaml
+  s_8ef413782f6350::t_22d2327f92139e 5
+models/moonshot/kimi-k2.5.yaml
+  s_8ef413782f6350::t_22d2327f92139e 6
+models/openai/gpt-5.1-codex-max-subscription.yaml
+  s_8ef413782f6350::t_22d2327f92139e 6
+models/moonshot/moonshot-v1-8k.yaml
+  s_8ef413782f6350::t_22d2327f92139e 6
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_8ef413782f6350::t_cb47f9da233d4e 17985,19808,19916,20483,20623,20763,22823,22875,22959
+packages/modelparams/src/generated/data.ts
+  s_8ef413782f6350::t_1f414a84828010 17990,19813,19921,20488,20628,20768,22828,22880,22964
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "f565fe82351fa37e31ee97dfec0b3dfd0800980e",
+  "prompts": {},
+  "sessions": {
+    "s_8ef413782f6350": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a01fb5-0d1d-7710-b513-57889f15dfa1",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

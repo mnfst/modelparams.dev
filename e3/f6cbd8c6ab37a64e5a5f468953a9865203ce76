@@ -1,0 +1,896 @@
+packages/modelparams-python/README.md
+  s_d210f54e2d5713::t_c9db9a5c56f925 75-77
+src/data/api-surfaces.ts
+  s_d210f54e2d5713::t_a6d24fc4345d32 1-39
+tests/schema.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 8,42-46
+  s_d210f54e2d5713::t_6602a915a5e5fe 47-48
+packages/modelparams/src/index.ts
+  s_d210f54e2d5713::t_7de990791e64d4 17
+src/build/render.ts
+  s_d210f54e2d5713::t_3080aaef980da0 4,17-21,47-48,164-165,167-168,170,177-178
+  s_d210f54e2d5713::t_37c4faebff56a8 5
+src/views/partials/model_row.ejs
+  s_d210f54e2d5713::t_3f843399bdb47f 2-4,8,12,14-16,18-20,22-23,30-34,36,38,40-42,44,57-91,97-106,108
+  s_d210f54e2d5713::t_b1928a75e78043 5-7,35,37,92-96
+packages/modelparams/scripts/codegen.ts
+  s_d210f54e2d5713::t_7de990791e64d4 107
+docs/model-parameters-schema.md
+  s_d210f54e2d5713::t_17abdaba2f64e3 5,20,27,49,54,67-74,113
+src/client/webmcp.ts
+  s_d210f54e2d5713::t_7406af5ee2a5e0 233-241
+  s_d210f54e2d5713::t_7de990791e64d4 7-14,29,104,116-120,141,148,168,183,211,231-232,242
+  s_d210f54e2d5713::t_9a802804c3d05e 243
+packages/modelparams/tests/runtime.test.ts
+  s_d210f54e2d5713::t_7975eb8f760578 59
+tests/render-meta.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 29
+packages/modelparams-python/tests/test_catalog.py
+  s_d210f54e2d5713::t_7975eb8f760578 47
+tests/server.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 11
+  s_d210f54e2d5713::t_f9fe843dc2b915 139,169-170,172-173,222-224,239-240
+  s_d210f54e2d5713::t_0f02006dbf0991 241
+  s_d210f54e2d5713::t_3607f3c1b44023 41,171
+tests/removals.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 10-16
+tests/validate-endpoint.test.ts
+  s_d210f54e2d5713::t_7406af5ee2a5e0 8,49
+src/build/build.ts
+  s_d210f54e2d5713::t_4f5e4a0d67f576 200
+packages/modelparams/tests/version.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 8
+src/views/index.ejs
+  s_d210f54e2d5713::t_6acceb00878a12 135-144,146-154,156-163,270-273,278-279,296,304
+  s_d210f54e2d5713::t_f700383a0dded4 145,155
+src/views/model.ejs
+  s_d210f54e2d5713::t_75e450c8e627ab 18,69,154
+packages/modelparams-python/src/modelparams/models.py
+  s_d210f54e2d5713::t_7de990791e64d4 10-18,71
+CONTRIBUTING.md
+  s_d210f54e2d5713::t_17abdaba2f64e3 32-38,92
+README.md
+  s_d210f54e2d5713::t_17abdaba2f64e3 149-150,155,160
+tests/glossary.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 6-12
+tests/load.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 12,28
+packages/modelparams/README.md
+  s_d210f54e2d5713::t_c9db9a5c56f925 144
+packages/modelparams/src/helpers.ts
+  s_d210f54e2d5713::t_7aea835c661389 7
+packages/modelparams-mcp/README.md
+  s_d210f54e2d5713::t_c9db9a5c56f925 116,137
+  s_d210f54e2d5713::t_d5ae6421367053 88
+packages/modelparams-mcp/src/tools.ts
+  s_d210f54e2d5713::t_7de990791e64d4 113,144,248
+tests/sync-status.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 12
+tests/faq.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 9
+src/schema/model.ts
+  s_d210f54e2d5713::t_a6d24fc4345d32 6-16,191-192
+tests/catalog.test.ts
+  s_d210f54e2d5713::t_345e98f3de78af 4-5,73-97,177
+  s_d210f54e2d5713::t_98effeb819e7b0 21
+  s_d210f54e2d5713::t_0fdd19bfebef77 178-181
+packages/modelparams-python/src/modelparams/__init__.py
+  s_d210f54e2d5713::t_5d04ecf2a013f3 15
+  s_d210f54e2d5713::t_7de990791e64d4 46
+src/server/app.ts
+  s_d210f54e2d5713::t_4f5e4a0d67f576 2,48
+src/views/provider.ejs
+  s_d210f54e2d5713::t_7de990791e64d4 42,60
+api/v1/validate.ts
+  s_d210f54e2d5713::t_7406af5ee2a5e0 193
+tests/webmcp.test.ts
+  s_d210f54e2d5713::t_dc0ec25c82d1f5 6-12,17,83-87,112
+src/client/main.ts
+  s_d210f54e2d5713::t_3211e0b62c25b7 2,10,19,215-219,285-297,320,344,354-356,499-503,637,644
+tests/structured-data.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 19
+tests/llms.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 11
+src/client/model-variants.ts
+  s_d210f54e2d5713::t_dcf3a332cbc107 27
+  s_d210f54e2d5713::t_3211e0b62c25b7 1-26,28-51
+packages/modelparams-mcp/tests/server.test.ts
+  s_d210f54e2d5713::t_7975eb8f760578 19,30,62,125,160,272
+src/build/render-model.ts
+  s_d210f54e2d5713::t_75e450c8e627ab 4,46,102-104,131
+tests/parameters.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 12
+  s_d210f54e2d5713::t_8d53da1e2e6aa7 13-18
+tests/catalog-diff.test.ts
+  s_d210f54e2d5713::t_98effeb819e7b0 8
+src/data/llms.ts
+  s_d210f54e2d5713::t_c9db9a5c56f925 47-49
+  s_d210f54e2d5713::t_a0d7794f7b5cf4 2,18
+src/data/model-groups.ts
+  s_d210f54e2d5713::t_3080aaef980da0 2,61-70
+  s_d210f54e2d5713::t_a6d24fc4345d32 1,3-60,71
+models/alibaba/deepseek-v3.2.yaml
+  s_d210f54e2d5713::t_c46d5ebf0bc733 4
+models/alibaba/deepseek-v4-flash-0731.yaml
+  s_d210f54e2d5713::t_a6d322e6c64140 4
+models/alibaba/deepseek-v4-flash.yaml
+  s_d210f54e2d5713::t_9f201d37d2b0a6 4
+models/alibaba/deepseek-v4-pro-0813.yaml
+  s_d210f54e2d5713::t_64e3b764692a4c 4
+models/alibaba/deepseek-v4-pro.yaml
+  s_d210f54e2d5713::t_b97bec53ec1048 4
+models/alibaba/glm-5.1.yaml
+  s_d210f54e2d5713::t_e58d94d92df087 4
+models/alibaba/glm-5.2.yaml
+  s_d210f54e2d5713::t_ab02b3072f41f6 4
+models/alibaba/kimi-k2.7-code.yaml
+  s_d210f54e2d5713::t_e34a87d1542f58 4
+models/alibaba/qwen-flash.yaml
+  s_d210f54e2d5713::t_2b357068faae00 4
+models/alibaba/qwen-max.yaml
+  s_d210f54e2d5713::t_a2fad29877df07 4
+models/alibaba/qwen-plus.yaml
+  s_d210f54e2d5713::t_f3f3bd78dcdedb 4
+models/alibaba/qwen-turbo.yaml
+  s_d210f54e2d5713::t_d9535c26a76671 4
+models/alibaba/qwen3-235b-a22b-thinking-2507.yaml
+  s_d210f54e2d5713::t_63f97c1ca13ad6 4
+models/alibaba/qwen3-30b-a3b-instruct-2507.yaml
+  s_d210f54e2d5713::t_475c6908466dc1 4
+models/alibaba/qwen3-30b-a3b-thinking-2507.yaml
+  s_d210f54e2d5713::t_b4acb5efb1cb1e 4
+models/alibaba/qwen3-coder-flash.yaml
+  s_d210f54e2d5713::t_9361b04c3000f1 4
+models/alibaba/qwen3-coder-next.yaml
+  s_d210f54e2d5713::t_7c6d00d51cc9b7 4
+models/alibaba/qwen3-coder-plus.yaml
+  s_d210f54e2d5713::t_2f5e590411aad2 4
+models/alibaba/qwen3-max.yaml
+  s_d210f54e2d5713::t_979301d2358fc8 4
+models/alibaba/qwen3-next-80b-a3b-instruct.yaml
+  s_d210f54e2d5713::t_96b4a71ed764d8 4
+models/alibaba/qwen3-next-80b-a3b-thinking.yaml
+  s_d210f54e2d5713::t_a89df80dac3d3c 4
+models/alibaba/qwen3-vl-235b-a22b-instruct.yaml
+  s_d210f54e2d5713::t_cb45923519746e 4
+models/alibaba/qwen3-vl-235b-a22b-thinking.yaml
+  s_d210f54e2d5713::t_f068d1d56bfe30 4
+models/alibaba/qwen3.5-122b-a10b.yaml
+  s_d210f54e2d5713::t_a5e8344484574b 4
+models/alibaba/qwen3.5-27b.yaml
+  s_d210f54e2d5713::t_810b3303eae57e 4
+models/alibaba/qwen3.5-35b-a3b.yaml
+  s_d210f54e2d5713::t_e4c2600c1413c8 4
+models/alibaba/qwen3.5-397b-a17b.yaml
+  s_d210f54e2d5713::t_156d5733bf4cac 4
+models/alibaba/qwen3.5-flash.yaml
+  s_d210f54e2d5713::t_72553b9a2dc614 4
+models/alibaba/qwen3.5.yaml
+  s_d210f54e2d5713::t_2d4de63299af53 4
+models/alibaba/qwen3.6-27b.yaml
+  s_d210f54e2d5713::t_f04464c37437f1 4
+models/alibaba/qwen3.6-35b-a3b.yaml
+  s_d210f54e2d5713::t_70a08ce032722d 4
+models/alibaba/qwen3.6-flash.yaml
+  s_d210f54e2d5713::t_93e1dbcbe3c977 4
+models/alibaba/qwen3.6-max-preview.yaml
+  s_d210f54e2d5713::t_7a732fd91f4128 4
+models/alibaba/qwen3.6-plus.yaml
+  s_d210f54e2d5713::t_252f72ff0f6396 4
+models/alibaba/qwen3.7-flash.yaml
+  s_d210f54e2d5713::t_6b900082c6c20e 4
+models/alibaba/qwen3.7-max.yaml
+  s_d210f54e2d5713::t_6ecb50538709be 4
+models/alibaba/qwen3.7-plus.yaml
+  s_d210f54e2d5713::t_503584639e7355 4
+models/alibaba/qwen3.8-2.4t-a95b.yaml
+  s_d210f54e2d5713::t_6ca58d5f317b15 4
+models/alibaba/qwen3.8-27b.yaml
+  s_d210f54e2d5713::t_11f7b3e8032940 4
+models/alibaba/qwen3.8-max.yaml
+  s_d210f54e2d5713::t_b687703a2a7cbe 4
+models/alibaba/qwq-plus.yaml
+  s_d210f54e2d5713::t_f6653a211b0e9f 4
+models/anthropic/claude-3-5-haiku-20241022.yaml
+  s_d210f54e2d5713::t_28aa98201bbee0 4
+models/anthropic/claude-3-5-haiku-latest.yaml
+  s_d210f54e2d5713::t_cf35625208d8ea 4
+models/anthropic/claude-3-5-sonnet-20241022.yaml
+  s_d210f54e2d5713::t_4b03e7df3e5d1a 4
+models/anthropic/claude-3-5-sonnet-latest.yaml
+  s_d210f54e2d5713::t_aadb014a8906fb 4
+models/anthropic/claude-3-7-sonnet-20250219.yaml
+  s_d210f54e2d5713::t_371988088e5428 4
+models/anthropic/claude-3-7-sonnet-latest.yaml
+  s_d210f54e2d5713::t_531959d11a1a08 4
+models/anthropic/claude-3-opus-20240229.yaml
+  s_d210f54e2d5713::t_b716127b053278 4
+models/anthropic/claude-3-opus-latest.yaml
+  s_d210f54e2d5713::t_184650b8cef9bb 4
+models/anthropic/claude-fable-5-subscription.yaml
+  s_d210f54e2d5713::t_98aa37d5556072 4
+models/anthropic/claude-fable-5.yaml
+  s_d210f54e2d5713::t_85f2396fc061e1 4
+models/anthropic/claude-haiku-4-5-20251001-subscription.yaml
+  s_d210f54e2d5713::t_cb88eb89b2202e 4
+models/anthropic/claude-haiku-4-5-20251001.yaml
+  s_d210f54e2d5713::t_060a2824cd45a2 4
+models/anthropic/claude-haiku-4-5-subscription.yaml
+  s_d210f54e2d5713::t_45f2dc4733ec7b 4
+models/anthropic/claude-haiku-4-5.yaml
+  s_d210f54e2d5713::t_e4925a28eb4188 4
+models/anthropic/claude-haiku-4-subscription.yaml
+  s_d210f54e2d5713::t_ce6d5abc88acca 4
+models/anthropic/claude-haiku-4.yaml
+  s_d210f54e2d5713::t_16749d96cb3897 4
+models/anthropic/claude-opus-4-1-20250805-subscription.yaml
+  s_d210f54e2d5713::t_e16a2c51449a65 4
+models/anthropic/claude-opus-4-1-20250805.yaml
+  s_d210f54e2d5713::t_439de5346ea3f3 4
+models/anthropic/claude-opus-4-20250514-subscription.yaml
+  s_d210f54e2d5713::t_4eac24f0b31dd7 4
+models/anthropic/claude-opus-4-20250514.yaml
+  s_d210f54e2d5713::t_4ea43699269b17 4
+models/anthropic/claude-opus-4-5-20251101-subscription.yaml
+  s_d210f54e2d5713::t_a84d4249b97d82 4
+models/anthropic/claude-opus-4-5-20251101.yaml
+  s_d210f54e2d5713::t_12f2414ac2f55d 4
+models/anthropic/claude-opus-4-6-subscription.yaml
+  s_d210f54e2d5713::t_c8a698ca2b94d9 4
+models/anthropic/claude-opus-4-6.yaml
+  s_d210f54e2d5713::t_19f338113a8031 4
+models/anthropic/claude-opus-4-7-subscription.yaml
+  s_d210f54e2d5713::t_e1cc7e23d41c3e 4
+models/anthropic/claude-opus-4-7.yaml
+  s_d210f54e2d5713::t_579ad241e10ece 4
+models/anthropic/claude-opus-4-8-subscription.yaml
+  s_d210f54e2d5713::t_005064b5da0294 4
+models/anthropic/claude-opus-4-8.yaml
+  s_d210f54e2d5713::t_16d2c42dacbccd 4
+models/anthropic/claude-opus-4-subscription.yaml
+  s_d210f54e2d5713::t_624477ce247b6e 4
+models/anthropic/claude-opus-5-subscription.yaml
+  s_d210f54e2d5713::t_2424d889f0e067 4
+models/anthropic/claude-opus-5.yaml
+  s_d210f54e2d5713::t_3895fa5af42fc5 4
+models/anthropic/claude-sonnet-4-20250514-subscription.yaml
+  s_d210f54e2d5713::t_7e255e8acc87c3 4
+models/anthropic/claude-sonnet-4-20250514.yaml
+  s_d210f54e2d5713::t_53f17ef38d0f1a 4
+models/anthropic/claude-sonnet-4-5-20250929-subscription.yaml
+  s_d210f54e2d5713::t_9a5e335a640ee8 4
+models/anthropic/claude-sonnet-4-5-20250929.yaml
+  s_d210f54e2d5713::t_940fa9d9e137a3 4
+models/anthropic/claude-sonnet-4-5-subscription.yaml
+  s_d210f54e2d5713::t_1e11bc5806535e 4
+models/anthropic/claude-sonnet-4-5.yaml
+  s_d210f54e2d5713::t_b13c1202db741e 4
+models/anthropic/claude-sonnet-4-6-subscription.yaml
+  s_d210f54e2d5713::t_98bf2f1667d60f 4
+models/anthropic/claude-sonnet-4-6.yaml
+  s_d210f54e2d5713::t_6d7e477a4b8986 4
+models/anthropic/claude-sonnet-4-subscription.yaml
+  s_d210f54e2d5713::t_ad868d70eef705 4
+models/anthropic/claude-sonnet-5-subscription.yaml
+  s_d210f54e2d5713::t_75a985b0b65736 4
+models/anthropic/claude-sonnet-5.yaml
+  s_d210f54e2d5713::t_9a25f048eee65b 4
+models/bedrock/claude-haiku-4-5.yaml
+  s_d210f54e2d5713::t_caf45473525dbf 4
+models/bedrock/claude-opus-4-5-20251101.yaml
+  s_d210f54e2d5713::t_b1d0cf2ba09a13 4
+models/bedrock/claude-opus-4-6.yaml
+  s_d210f54e2d5713::t_b94cb45d3204a0 4
+models/bedrock/claude-sonnet-4-5.yaml
+  s_d210f54e2d5713::t_7f0960a86f60f4 4
+models/bedrock/claude-sonnet-4-6.yaml
+  s_d210f54e2d5713::t_34a909b6596e96 4
+models/bedrock/deepseek-r1.yaml
+  s_d210f54e2d5713::t_dc0c51ac369999 4
+models/bedrock/deepseek-v3.2.yaml
+  s_d210f54e2d5713::t_0e5ba61bd75df8 4
+models/bedrock/devstral-2-123b.yaml
+  s_d210f54e2d5713::t_b95d0d800d6eb2 4
+models/bedrock/gemma-3-12b-it.yaml
+  s_d210f54e2d5713::t_a33f6d26b54b24 4
+models/bedrock/gemma-3-27b-it.yaml
+  s_d210f54e2d5713::t_a4ee32f41176dc 4
+models/bedrock/gemma-3-4b-it.yaml
+  s_d210f54e2d5713::t_247db53c7cccff 4
+models/bedrock/glm-4.7-flash.yaml
+  s_d210f54e2d5713::t_7f1c21f5ff9327 4
+models/bedrock/glm-4.7.yaml
+  s_d210f54e2d5713::t_1e3e653798e51e 4
+models/bedrock/glm-5.yaml
+  s_d210f54e2d5713::t_63b6fa614be00b 4
+models/bedrock/gpt-oss-120b.yaml
+  s_d210f54e2d5713::t_71cd6c29c956e0 4
+models/bedrock/gpt-oss-20b.yaml
+  s_d210f54e2d5713::t_201fbdfac92752 4
+models/bedrock/gpt-oss-safeguard-120b.yaml
+  s_d210f54e2d5713::t_492c96dc08b8d5 4
+models/bedrock/gpt-oss-safeguard-20b.yaml
+  s_d210f54e2d5713::t_9ff3072e4e5420 4
+models/bedrock/kimi-k2-thinking.yaml
+  s_d210f54e2d5713::t_5c2c3ba3d5b798 4
+models/bedrock/kimi-k2.5.yaml
+  s_d210f54e2d5713::t_daa9d280c97001 4
+models/bedrock/llama3-1-70b-instruct.yaml
+  s_d210f54e2d5713::t_6710e9aff145ec 4
+models/bedrock/llama3-1-8b-instruct.yaml
+  s_d210f54e2d5713::t_3d8032b961fbea 4
+models/bedrock/llama3-3-70b-instruct.yaml
+  s_d210f54e2d5713::t_b14761c173493f 4
+models/bedrock/llama3-70b-instruct.yaml
+  s_d210f54e2d5713::t_21d4f5ee8c5e30 4
+models/bedrock/llama3-8b-instruct.yaml
+  s_d210f54e2d5713::t_f714b0b6d3984c 4
+models/bedrock/magistral-small-2509.yaml
+  s_d210f54e2d5713::t_085ef0478acaaf 4
+models/bedrock/minimax-m2.1.yaml
+  s_d210f54e2d5713::t_072c53f6e74c4b 4
+models/bedrock/minimax-m2.5.yaml
+  s_d210f54e2d5713::t_8e49e5f4af7ac8 4
+models/bedrock/minimax-m2.yaml
+  s_d210f54e2d5713::t_51f60e7f3ce72f 4
+models/bedrock/ministral-3-14b-instruct.yaml
+  s_d210f54e2d5713::t_763d7c1bc677fd 4
+models/bedrock/ministral-3-3b-instruct.yaml
+  s_d210f54e2d5713::t_3fb011b30326b6 4
+models/bedrock/ministral-3-8b-instruct.yaml
+  s_d210f54e2d5713::t_bc25a9a3816128 4
+models/bedrock/mistral-7b-instruct.yaml
+  s_d210f54e2d5713::t_4b99253e21b62a 4
+models/bedrock/mistral-large-2402.yaml
+  s_d210f54e2d5713::t_4b3d32e83344b8 4
+models/bedrock/mistral-large-3-675b-instruct.yaml
+  s_d210f54e2d5713::t_82a476f8f8aec5 4
+models/bedrock/mistral-small-2402.yaml
+  s_d210f54e2d5713::t_8f884fef82dc52 4
+models/bedrock/mixtral-8x7b-instruct.yaml
+  s_d210f54e2d5713::t_d27194b200dd58 4
+models/bedrock/nemotron-nano-12b.yaml
+  s_d210f54e2d5713::t_25a08b3252e19f 4
+models/bedrock/nemotron-nano-3-30b.yaml
+  s_d210f54e2d5713::t_aa62ea8e8dfeee 4
+models/bedrock/nemotron-nano-9b.yaml
+  s_d210f54e2d5713::t_94a6d543720b55 4
+models/bedrock/nemotron-super-3-120b.yaml
+  s_d210f54e2d5713::t_9326e023dae3d7 4
+models/bedrock/nova-2-lite.yaml
+  s_d210f54e2d5713::t_2790ce598b57d8 4
+models/bedrock/nova-lite.yaml
+  s_d210f54e2d5713::t_9242c7af31621c 4
+models/bedrock/nova-micro.yaml
+  s_d210f54e2d5713::t_b53c71458d1bdc 4
+models/bedrock/nova-pro.yaml
+  s_d210f54e2d5713::t_be2d6d4e538e60 4
+models/bedrock/palmyra-vision-7b.yaml
+  s_d210f54e2d5713::t_41c223768354c5 4
+models/bedrock/palmyra-x4.yaml
+  s_d210f54e2d5713::t_dc9d2b536ae5e0 4
+models/bedrock/palmyra-x5.yaml
+  s_d210f54e2d5713::t_803bad78c4e7da 4
+models/bedrock/pixtral-large-2502.yaml
+  s_d210f54e2d5713::t_f5de4210beaab4 4
+models/bedrock/qwen3-32b.yaml
+  s_d210f54e2d5713::t_eafff4f1ab8dcd 4
+models/bedrock/qwen3-coder-30b-a3b.yaml
+  s_d210f54e2d5713::t_0b6c73a9cb4bee 4
+models/bedrock/qwen3-coder-next.yaml
+  s_d210f54e2d5713::t_7d997af4caddcf 4
+models/bedrock/qwen3-next-80b-a3b.yaml
+  s_d210f54e2d5713::t_1f7057200d55cf 4
+models/bedrock/qwen3-vl-235b-a22b.yaml
+  s_d210f54e2d5713::t_083a31b1f0a620 4
+models/bedrock/voxtral-mini-3b-2507.yaml
+  s_d210f54e2d5713::t_41dd54f5c0950e 4
+models/bedrock/voxtral-small-24b-2507.yaml
+  s_d210f54e2d5713::t_c733b7716560bc 4
+models/cerebras/zai-glm-4.7.yaml
+  s_d210f54e2d5713::t_5710efd3b0c437 4
+models/cohere/command-a-03-2025.yaml
+  s_d210f54e2d5713::t_65415acfa57bb0 4
+models/cohere/command-a-plus-05-2026.yaml
+  s_d210f54e2d5713::t_8c097cc1c2e03f 4
+models/cohere/command-a-reasoning-08-2025.yaml
+  s_d210f54e2d5713::t_a16ed718da39b7 4
+models/cohere/command-a-translate-08-2025.yaml
+  s_d210f54e2d5713::t_a5076487603101 4
+models/cohere/command-a-vision-07-2025.yaml
+  s_d210f54e2d5713::t_3c0b4814d2e7be 4
+models/cohere/command-r-08-2024.yaml
+  s_d210f54e2d5713::t_9220e41485e8fe 4
+models/cohere/command-r-plus-08-2024.yaml
+  s_d210f54e2d5713::t_a565a6e38268eb 4
+models/cohere/command-r7b-12-2024.yaml
+  s_d210f54e2d5713::t_826c6cd8590f18 4
+models/deepseek/deepseek-chat.yaml
+  s_d210f54e2d5713::t_2321d03a11c3a1 4
+models/deepseek/deepseek-reasoner.yaml
+  s_d210f54e2d5713::t_0adf9d300edcc2 4
+models/deepseek/deepseek-v4-flash.yaml
+  s_d210f54e2d5713::t_431ec9b20f6b3c 4
+models/deepseek/deepseek-v4-pro.yaml
+  s_d210f54e2d5713::t_8e4cb363d2b0ba 4
+models/fireworks/deepseek-v4-flash-0731.yaml
+  s_d210f54e2d5713::t_1f98fa5b622dc1 4
+models/fireworks/deepseek-v4-pro-0813.yaml
+  s_d210f54e2d5713::t_1796edc3bc2996 4
+models/fireworks/deepseek-v4-pro.yaml
+  s_d210f54e2d5713::t_b59fa298c0161c 4
+models/fireworks/glm-5p2.yaml
+  s_d210f54e2d5713::t_1e81ab15bd819e 4
+models/fireworks/gpt-oss-120b.yaml
+  s_d210f54e2d5713::t_900f1742a40119 4
+models/fireworks/gpt-oss-20b.yaml
+  s_d210f54e2d5713::t_04a99e5967290a 4
+models/fireworks/inkling.yaml
+  s_d210f54e2d5713::t_3d9b314987e45b 4
+models/fireworks/kimi-k2p6.yaml
+  s_d210f54e2d5713::t_04ba94248af731 4
+models/fireworks/kimi-k2p7-code.yaml
+  s_d210f54e2d5713::t_2bc0e4f8909d99 4
+models/fireworks/kimi-k3.yaml
+  s_d210f54e2d5713::t_32d1f1293e4b62 4
+models/fireworks/minimax-m2p7.yaml
+  s_d210f54e2d5713::t_f65ed6d1c6df31 4
+models/fireworks/minimax-m3.yaml
+  s_d210f54e2d5713::t_7d3994420e0e0b 4
+models/fireworks/muse-glimmer-30b.yaml
+  s_d210f54e2d5713::t_a0a5cb124bdb34 4
+models/fireworks/qwen3p7-plus.yaml
+  s_d210f54e2d5713::t_bc776ab6921b86 4
+models/fireworks/qwen3p8-2p4t-a95b.yaml
+  s_d210f54e2d5713::t_661ec88aefb770 4
+models/fireworks/qwen3p8-max.yaml
+  s_d210f54e2d5713::t_829a31a6623ebb 4
+models/google/gemini-2.5-flash-lite-subscription.yaml
+  s_d210f54e2d5713::t_8749e69676bdac 4
+models/google/gemini-2.5-flash-lite.yaml
+  s_d210f54e2d5713::t_d5e29e5da97eb6 4
+models/google/gemini-2.5-flash-subscription.yaml
+  s_d210f54e2d5713::t_6ae3f016336555 4
+models/google/gemini-2.5-flash.yaml
+  s_d210f54e2d5713::t_01828da6a5ae50 4
+models/google/gemini-2.5-pro-subscription.yaml
+  s_d210f54e2d5713::t_80c985210b42af 4
+models/google/gemini-2.5-pro.yaml
+  s_d210f54e2d5713::t_1b5909929b714a 4
+models/google/gemini-3-flash-preview-subscription.yaml
+  s_d210f54e2d5713::t_7cbe8fd816a38c 4
+models/google/gemini-3-flash-preview.yaml
+  s_d210f54e2d5713::t_b0a8ce8a57fc39 4
+models/google/gemini-3.1-flash-lite-preview-subscription.yaml
+  s_d210f54e2d5713::t_7ef01cd570c27f 4
+models/google/gemini-3.1-flash-lite-preview.yaml
+  s_d210f54e2d5713::t_7c1f3081fba2ad 4
+models/google/gemini-3.1-flash-lite-subscription.yaml
+  s_d210f54e2d5713::t_4c20caf4339a6a 4
+models/google/gemini-3.1-flash-lite.yaml
+  s_d210f54e2d5713::t_dbe9ec89bae9b5 4
+models/google/gemini-3.1-pro-preview-customtools.yaml
+  s_d210f54e2d5713::t_dc2d1fd89b31a0 4
+models/google/gemini-3.1-pro-preview-subscription.yaml
+  s_d210f54e2d5713::t_90197a0d3c7aa0 4
+models/google/gemini-3.1-pro-preview.yaml
+  s_d210f54e2d5713::t_7846390ef2221a 4
+models/google/gemini-3.5-flash-lite.yaml
+  s_d210f54e2d5713::t_8ee67e21099298 4
+models/google/gemini-3.5-flash.yaml
+  s_d210f54e2d5713::t_74c9fe6dd1a7e6 4
+models/google/gemini-3.6-flash.yaml
+  s_d210f54e2d5713::t_f94b744d696d76 4
+models/google/gemini-3.7-flash.yaml
+  s_d210f54e2d5713::t_b626a5cd6d54a1 4
+models/google/gemini-flash-latest.yaml
+  s_d210f54e2d5713::t_5972711e616cdb 4
+models/google/gemma-3-12b-it.yaml
+  s_d210f54e2d5713::t_38950eb3a61919 4
+models/google/gemma-3-1b-it.yaml
+  s_d210f54e2d5713::t_4cef5c258809a2 4
+models/google/gemma-3-27b-it.yaml
+  s_d210f54e2d5713::t_0067773aaefd9b 4
+models/google/gemma-3-4b-it.yaml
+  s_d210f54e2d5713::t_872003805b0728 4
+models/google/gemma-3n-E2B-it.yaml
+  s_d210f54e2d5713::t_9329e0b2bf71a9 4
+models/google/gemma-3n-E4B-it.yaml
+  s_d210f54e2d5713::t_176deea0d4caaf 4
+models/google/gemma-4-12B-it.yaml
+  s_d210f54e2d5713::t_90d5f0703da762 4
+models/google/gemma-4-26b-a4b-it.yaml
+  s_d210f54e2d5713::t_5447d3b217b7f2 4
+models/google/gemma-4-31b-it.yaml
+  s_d210f54e2d5713::t_f92550772809e1 4
+models/google/gemma-4-E2B-it.yaml
+  s_d210f54e2d5713::t_f5b57cd86cc12b 4
+models/google/gemma-4-E4B-it.yaml
+  s_d210f54e2d5713::t_56216327846301 4
+models/groq/gpt-oss-120b.yaml
+  s_d210f54e2d5713::t_9a1ae9bfa69004 4
+models/groq/gpt-oss-20b.yaml
+  s_d210f54e2d5713::t_7732bfb245bade 4
+models/groq/gpt-oss-safeguard-20b.yaml
+  s_d210f54e2d5713::t_e7ba5865eaece1 4
+models/groq/qwen3-32b.yaml
+  s_d210f54e2d5713::t_790b09a76b6dcc 4
+models/groq/qwen3.6-27b.yaml
+  s_d210f54e2d5713::t_f4221df7636d27 4
+models/meta/Llama-3.3-70B-Instruct.yaml
+  s_d210f54e2d5713::t_12c866ada5014e 4
+models/meta/Llama-3.3-8B-Instruct.yaml
+  s_d210f54e2d5713::t_a215d9651d3af6 4
+models/meta/Llama-4-Maverick-17B-128E-Instruct-FP8.yaml
+  s_d210f54e2d5713::t_3afa64cbc644ee 4
+models/meta/Llama-4-Scout-17B-16E-Instruct-FP8.yaml
+  s_d210f54e2d5713::t_8c0bbd7c309b41 4
+models/meta/muse-spark-1.1.yaml
+  s_d210f54e2d5713::t_b0351d74fb2022 4
+models/meta/muse-spark-1.2-contributor.yaml
+  s_d210f54e2d5713::t_5b1129e98869cb 4
+models/minimax/MiniMax-M2-subscription.yaml
+  s_d210f54e2d5713::t_528dddbf697f90 4
+models/minimax/MiniMax-M2.1-highspeed-subscription.yaml
+  s_d210f54e2d5713::t_a0882d490473ca 4
+models/minimax/MiniMax-M2.1-subscription.yaml
+  s_d210f54e2d5713::t_435e7280c450d6 4
+models/minimax/MiniMax-M2.5-highspeed-subscription.yaml
+  s_d210f54e2d5713::t_c1ce86f5274497 4
+models/minimax/MiniMax-M2.5-subscription.yaml
+  s_d210f54e2d5713::t_1410c1eff413a0 4
+models/minimax/MiniMax-M2.7-highspeed-subscription.yaml
+  s_d210f54e2d5713::t_5d3bc5f9bb48c5 4
+models/minimax/MiniMax-M2.7-subscription.yaml
+  s_d210f54e2d5713::t_6cda1d9ed87b85 4
+models/minimax/MiniMax-M3-subscription.yaml
+  s_d210f54e2d5713::t_7b7a1402a36530 4
+models/minimax/minimax-m2.1-highspeed.yaml
+  s_d210f54e2d5713::t_b45f2e64c7a92b 4
+models/minimax/minimax-m2.1.yaml
+  s_d210f54e2d5713::t_8cff953a5c0268 4
+models/minimax/minimax-m2.5-highspeed.yaml
+  s_d210f54e2d5713::t_ca7d8f7d6410b5 4
+models/minimax/minimax-m2.5.yaml
+  s_d210f54e2d5713::t_b5c4cf5be37c63 4
+models/minimax/minimax-m2.7-highspeed.yaml
+  s_d210f54e2d5713::t_94c1780876e8bd 4
+models/minimax/minimax-m2.7.yaml
+  s_d210f54e2d5713::t_e91825eb3bdbb4 4
+models/minimax/minimax-m2.yaml
+  s_d210f54e2d5713::t_1eba28883354e4 4
+models/minimax/minimax-m3.yaml
+  s_d210f54e2d5713::t_7f64f4ec8719b0 4
+models/mistral/codestral-2508.yaml
+  s_d210f54e2d5713::t_5a9563664424fb 4
+models/mistral/codestral-latest.yaml
+  s_d210f54e2d5713::t_e9ecdbb4530147 4
+models/mistral/devstral-2512.yaml
+  s_d210f54e2d5713::t_0a28747411cc78 4
+models/mistral/devstral-latest.yaml
+  s_d210f54e2d5713::t_fbbf76f79867a1 4
+models/mistral/magistral-medium-latest.yaml
+  s_d210f54e2d5713::t_7a62cd93cd2574 4
+models/mistral/magistral-small-latest.yaml
+  s_d210f54e2d5713::t_05d229ab83fcc6 4
+models/mistral/ministral-14b-2512.yaml
+  s_d210f54e2d5713::t_db1be29a09dd4e 4
+models/mistral/ministral-14b-latest.yaml
+  s_d210f54e2d5713::t_0e66d13e4e3069 4
+models/mistral/ministral-3b-2512.yaml
+  s_d210f54e2d5713::t_406a94f1439432 4
+models/mistral/ministral-3b-latest.yaml
+  s_d210f54e2d5713::t_1df54c00bb18ac 4
+models/mistral/ministral-8b-2512.yaml
+  s_d210f54e2d5713::t_115d507220c326 4
+models/mistral/ministral-8b-latest.yaml
+  s_d210f54e2d5713::t_6138ebd7b2f24d 4
+models/mistral/mistral-large-2512.yaml
+  s_d210f54e2d5713::t_c4ac7c15b2b727 4
+models/mistral/mistral-large-latest.yaml
+  s_d210f54e2d5713::t_46b73baf294cfc 4
+models/mistral/mistral-medium-3.5.yaml
+  s_d210f54e2d5713::t_b72359d949444f 4
+models/mistral/mistral-medium-3.yaml
+  s_d210f54e2d5713::t_83b9b652cafa7d 4
+models/mistral/mistral-medium-latest.yaml
+  s_d210f54e2d5713::t_97593985d51cdb 4
+models/mistral/mistral-small-2603.yaml
+  s_d210f54e2d5713::t_26ce67b7fd0bbb 4
+models/mistral/mistral-small-latest.yaml
+  s_d210f54e2d5713::t_b44cb67c253a42 4
+models/mistral/open-mistral-nemo.yaml
+  s_d210f54e2d5713::t_b086f02b986f5c 4
+models/moonshot/kimi-k2.5.yaml
+  s_d210f54e2d5713::t_5d6b92f1cde744 4
+models/moonshot/kimi-k2.6-subscription.yaml
+  s_d210f54e2d5713::t_985ca8c44c9e84 4
+models/moonshot/kimi-k2.6.yaml
+  s_d210f54e2d5713::t_dbed3b9eddcedc 4
+models/moonshot/kimi-k2.7-code-highspeed-subscription.yaml
+  s_d210f54e2d5713::t_199506f7f8a666 4
+models/moonshot/kimi-k2.7-code-highspeed.yaml
+  s_d210f54e2d5713::t_b8ea633e1f8356 4
+models/moonshot/kimi-k2.7-code-subscription.yaml
+  s_d210f54e2d5713::t_1380fa1fac6023 4
+models/moonshot/kimi-k2.7-code.yaml
+  s_d210f54e2d5713::t_abba2195caa4b6 4
+models/moonshot/kimi-k3.yaml
+  s_d210f54e2d5713::t_73c6672a568c50 4
+models/moonshot/moonshot-v1-128k.yaml
+  s_d210f54e2d5713::t_d354c4e4b019be 4
+models/moonshot/moonshot-v1-32k.yaml
+  s_d210f54e2d5713::t_779f759f08aa95 4
+models/moonshot/moonshot-v1-8k.yaml
+  s_d210f54e2d5713::t_1cb2e132efbc2a 4
+models/nvidia/deepseek-v4-flash-0731.yaml
+  s_d210f54e2d5713::t_f27e0fefad7669 4
+models/nvidia/gliner-pii.yaml
+  s_d210f54e2d5713::t_3d3b933091b50b 4
+models/nvidia/llama-3.1-nemoguard-8b-topic-control.yaml
+  s_d210f54e2d5713::t_641cdbc9a5dd9d 4
+models/nvidia/llama-3.1-nemotron-nano-8b-v1.yaml
+  s_d210f54e2d5713::t_1d76362a97700c 4
+models/nvidia/llama-3.1-nemotron-safety-guard-8b-v3.yaml
+  s_d210f54e2d5713::t_e5dcb0937d66f1 4
+models/nvidia/llama-3.1-nemotron-ultra-253b-v1.yaml
+  s_d210f54e2d5713::t_c23d909d9f288c 4
+models/nvidia/llama-3.3-nemotron-super-49b-v1.5.yaml
+  s_d210f54e2d5713::t_91f1ee75b3a82f 4
+models/nvidia/llama-3.3-nemotron-super-49b-v1.yaml
+  s_d210f54e2d5713::t_98532ebfc0f391 4
+models/nvidia/nemoguard-jailbreak-detect.yaml
+  s_d210f54e2d5713::t_e9e5b3c20f5cdd 4
+models/nvidia/nemotron-3-nano-30b-a3b.yaml
+  s_d210f54e2d5713::t_f2c91feb375997 4
+models/nvidia/nemotron-3-super-120b-a12b.yaml
+  s_d210f54e2d5713::t_740623263445cb 4
+models/nvidia/nemotron-3-ultra-550b-a55b.yaml
+  s_d210f54e2d5713::t_de002dc194e601 4
+models/nvidia/nemotron-3-ultra-subscription.yaml
+  s_d210f54e2d5713::t_ea1913e1c8f727 4
+models/nvidia/nemotron-content-safety-reasoning-4b.yaml
+  s_d210f54e2d5713::t_2604a2cfe0d90a 4
+models/nvidia/nemotron-mini-4b-instruct.yaml
+  s_d210f54e2d5713::t_35ae52d6fcfb7e 4
+models/nvidia/riva-translate-4b-instruct-v1.1.yaml
+  s_d210f54e2d5713::t_b3961c85f952f6 4
+models/nvidia/usdcode-llama-3.1-70b-instruct.yaml
+  s_d210f54e2d5713::t_32adc1b7d9babb 4
+models/openai/chatgpt-4o-latest.yaml
+  s_d210f54e2d5713::t_7183f0eb3d694a 4
+models/openai/gpt-3.5-turbo-16k.yaml
+  s_d210f54e2d5713::t_34b2fcfa02945a 4
+models/openai/gpt-3.5-turbo.yaml
+  s_d210f54e2d5713::t_a43196ab65bab0 4
+models/openai/gpt-4-0613.yaml
+  s_d210f54e2d5713::t_10e36037197dc0 4
+models/openai/gpt-4-turbo-2024-04-09.yaml
+  s_d210f54e2d5713::t_ae6cef248defc8 4
+models/openai/gpt-4-turbo.yaml
+  s_d210f54e2d5713::t_d04b27ef4c21d7 4
+models/openai/gpt-4.1-mini.yaml
+  s_d210f54e2d5713::t_13b39c482973d7 4
+models/openai/gpt-4.1-nano.yaml
+  s_d210f54e2d5713::t_7a1c75c933ad37 4
+models/openai/gpt-4.1.yaml
+  s_d210f54e2d5713::t_875f7edef4b65e 4
+models/openai/gpt-4.yaml
+  s_d210f54e2d5713::t_4f27905afdd887 4
+models/openai/gpt-4o-2024-11-20.yaml
+  s_d210f54e2d5713::t_523311ea2991a8 4
+models/openai/gpt-4o-mini.yaml
+  s_d210f54e2d5713::t_affab2e37e613f 4
+models/openai/gpt-4o.yaml
+  s_d210f54e2d5713::t_f783b58d5daaf8 4
+models/openai/gpt-5-chat-latest.yaml
+  s_d210f54e2d5713::t_bc275a230b6c6d 4
+models/openai/gpt-5-mini.yaml
+  s_d210f54e2d5713::t_6e45996376498c 4
+models/openai/gpt-5-nano.yaml
+  s_d210f54e2d5713::t_225b8892a86a1f 4
+models/openai/gpt-5.1-codex-max-subscription.yaml
+  s_d210f54e2d5713::t_a687606ece9d52 4
+models/openai/gpt-5.1-codex-subscription.yaml
+  s_d210f54e2d5713::t_d47d450ae82515 4
+models/openai/gpt-5.1.yaml
+  s_d210f54e2d5713::t_b756f71f460e02 4
+models/openai/gpt-5.2-codex-subscription.yaml
+  s_d210f54e2d5713::t_5f94334a8aebcd 4
+models/openai/gpt-5.2-subscription.yaml
+  s_d210f54e2d5713::t_abb6130a2c4c58 4
+models/openai/gpt-5.2.yaml
+  s_d210f54e2d5713::t_a57e6c78016586 4
+models/openai/gpt-5.3-codex-spark-subscription.yaml
+  s_d210f54e2d5713::t_c0f9c147f168d5 4
+models/openai/gpt-5.3-codex-subscription.yaml
+  s_d210f54e2d5713::t_ede335fd576f5a 4
+models/openai/gpt-5.3-codex.yaml
+  s_d210f54e2d5713::t_bbc89a764d707b 4
+models/openai/gpt-5.4-mini-subscription.yaml
+  s_d210f54e2d5713::t_5ae4026654d91c 4
+models/openai/gpt-5.4-mini.yaml
+  s_d210f54e2d5713::t_ee31261e99a1b6 4
+models/openai/gpt-5.4-nano.yaml
+  s_d210f54e2d5713::t_639fc748210e94 4
+models/openai/gpt-5.4-pro-subscription.yaml
+  s_d210f54e2d5713::t_e847f163b562e5 4
+models/openai/gpt-5.4-pro.yaml
+  s_d210f54e2d5713::t_d4b4b454bcf7cb 4
+models/openai/gpt-5.4-subscription.yaml
+  s_d210f54e2d5713::t_57fbaab39d4af6 4
+models/openai/gpt-5.4.yaml
+  s_d210f54e2d5713::t_9524c230bf75c2 4
+models/openai/gpt-5.5-pro-subscription.yaml
+  s_d210f54e2d5713::t_f39d86529d3c86 4
+models/openai/gpt-5.5-pro.yaml
+  s_d210f54e2d5713::t_760d0762512e11 4
+models/openai/gpt-5.5-subscription.yaml
+  s_d210f54e2d5713::t_69abde06077af2 4
+models/openai/gpt-5.5.yaml
+  s_d210f54e2d5713::t_5e209c5de11fc0 4
+models/openai/gpt-5.6-luna-subscription.yaml
+  s_d210f54e2d5713::t_dc1b6d705d1762 4
+models/openai/gpt-5.6-luna.yaml
+  s_d210f54e2d5713::t_bc10826fe945ff 4
+models/openai/gpt-5.6-sol-subscription.yaml
+  s_d210f54e2d5713::t_260303a5b863c7 4
+models/openai/gpt-5.6-sol.yaml
+  s_d210f54e2d5713::t_6c211ef8419247 4
+models/openai/gpt-5.6-terra-subscription.yaml
+  s_d210f54e2d5713::t_d43a46441266e6 4
+models/openai/gpt-5.6-terra.yaml
+  s_d210f54e2d5713::t_d7f9e7fec9e527 4
+models/openai/gpt-5.6.yaml
+  s_d210f54e2d5713::t_01c24a979cc02a 4
+models/openai/gpt-5.yaml
+  s_d210f54e2d5713::t_e5550011fed205 4
+models/openai/gpt-oss-120b.yaml
+  s_d210f54e2d5713::t_0d49d2129edd5f 4
+models/openai/gpt-oss-20b.yaml
+  s_d210f54e2d5713::t_7080f33a957bee 4
+models/openai/gpt-oss-safeguard-120b.yaml
+  s_d210f54e2d5713::t_880b5d0defba09 4
+models/openai/gpt-oss-safeguard-20b.yaml
+  s_d210f54e2d5713::t_5c62fbb1874f7c 4
+models/openai/o1-mini.yaml
+  s_d210f54e2d5713::t_67faa20ff59cf0 4
+models/openai/o1-preview.yaml
+  s_d210f54e2d5713::t_3c835331231c91 4
+models/openai/o1.yaml
+  s_d210f54e2d5713::t_00e9c522fabbf7 4
+models/openai/o3-mini.yaml
+  s_d210f54e2d5713::t_c0976391f5a3e5 4
+models/openai/o3-pro.yaml
+  s_d210f54e2d5713::t_3d47005a5c94f0 4
+models/openai/o3.yaml
+  s_d210f54e2d5713::t_346378713d832d 4
+models/openai/o4-mini.yaml
+  s_d210f54e2d5713::t_b4e560fe1265cb 4
+models/perplexity/sonar-deep-research.yaml
+  s_d210f54e2d5713::t_27911f9b2d62c1 4
+models/perplexity/sonar-pro.yaml
+  s_d210f54e2d5713::t_842403a540046e 4
+models/perplexity/sonar-reasoning-pro.yaml
+  s_d210f54e2d5713::t_ccdb65fa946b1a 4
+models/perplexity/sonar.yaml
+  s_d210f54e2d5713::t_2b07fba0a684f3 4
+models/thinking-machines/Inkling.yaml
+  s_d210f54e2d5713::t_bfae020eb86733 4
+models/vertex/gemini-2.5-flash-lite.yaml
+  s_d210f54e2d5713::t_4ff63b2b039c05 4
+models/vertex/gemini-2.5-flash.yaml
+  s_d210f54e2d5713::t_9d0beb1237134c 4
+models/vertex/gemini-2.5-pro.yaml
+  s_d210f54e2d5713::t_ab6e42c9f1dd6b 4
+models/vertex/gemini-3-flash-preview.yaml
+  s_d210f54e2d5713::t_dbb52e3bfd4e63 4
+models/vertex/gemini-3.1-flash-lite.yaml
+  s_d210f54e2d5713::t_f5a91e0512bb7a 4
+models/vertex/gemini-3.1-pro-preview-customtools.yaml
+  s_d210f54e2d5713::t_b2624933569161 4
+models/vertex/gemini-3.1-pro-preview.yaml
+  s_d210f54e2d5713::t_73b85dc151e167 4
+models/vertex/gemini-3.5-flash-lite.yaml
+  s_d210f54e2d5713::t_a1f752dd95aac8 4
+models/vertex/gemini-3.5-flash.yaml
+  s_d210f54e2d5713::t_019278a744a95e 4
+models/vertex/gemini-3.6-flash.yaml
+  s_d210f54e2d5713::t_64a8b1e6a00340 4
+models/vertex/gemini-3.7-flash.yaml
+  s_d210f54e2d5713::t_5955e6e896aabc 4
+models/xai/grok-4.20-0309-non-reasoning-subscription.yaml
+  s_d210f54e2d5713::t_a4f7c028248697 4
+models/xai/grok-4.20-0309-non-reasoning.yaml
+  s_d210f54e2d5713::t_5c22fa6a9234d0 4
+models/xai/grok-4.20-0309-reasoning-subscription.yaml
+  s_d210f54e2d5713::t_7118db3707f464 4
+models/xai/grok-4.20-0309-reasoning.yaml
+  s_d210f54e2d5713::t_52e76da99a860c 4
+models/xai/grok-4.20-multi-agent-0309.yaml
+  s_d210f54e2d5713::t_bc75a868f6ce1d 4
+models/xai/grok-4.3-subscription.yaml
+  s_d210f54e2d5713::t_a9c012c6301832 4
+models/xai/grok-4.3.yaml
+  s_d210f54e2d5713::t_254bf05cc6c70f 4
+models/xai/grok-4.5-subscription.yaml
+  s_d210f54e2d5713::t_9147289892052d 4
+models/xai/grok-4.5.yaml
+  s_d210f54e2d5713::t_b3362f73b1c8d5 4
+models/xai/grok-4.6.yaml
+  s_d210f54e2d5713::t_ddf44d23ef668e 4
+models/xai/grok-build-0.1-subscription.yaml
+  s_d210f54e2d5713::t_bc8b14eda91a34 4
+models/xai/grok-build-0.1.yaml
+  s_d210f54e2d5713::t_e7b26cb560998a 4
+models/xiaomi/mimo-v2.5-pro.yaml
+  s_d210f54e2d5713::t_ac5660ec86edee 4
+models/xiaomi/mimo-v2.5-subscription.yaml
+  s_d210f54e2d5713::t_d61993d6cafa51 4
+models/xiaomi/mimo-v2.5.yaml
+  s_d210f54e2d5713::t_5090e53c32f0db 4
+models/z-ai/glm-4.5-air-subscription.yaml
+  s_d210f54e2d5713::t_8d1cc7f396393e 4
+models/z-ai/glm-4.5-air.yaml
+  s_d210f54e2d5713::t_97bc0c74e6bf72 4
+models/z-ai/glm-4.5-airx.yaml
+  s_d210f54e2d5713::t_d8108c3c650e95 4
+models/z-ai/glm-4.5-flash.yaml
+  s_d210f54e2d5713::t_e07f0755696920 4
+models/z-ai/glm-4.5-subscription.yaml
+  s_d210f54e2d5713::t_fb521111882ea2 4
+models/z-ai/glm-4.5-x.yaml
+  s_d210f54e2d5713::t_969ca9f725106e 4
+models/z-ai/glm-4.5.yaml
+  s_d210f54e2d5713::t_0e53fa3013eaf6 4
+models/z-ai/glm-4.6-subscription.yaml
+  s_d210f54e2d5713::t_98b29319ae145b 4
+models/z-ai/glm-4.6.yaml
+  s_d210f54e2d5713::t_d4c5eb45fd85f8 4
+models/z-ai/glm-4.7-flash.yaml
+  s_d210f54e2d5713::t_0335e10810ed75 4
+models/z-ai/glm-4.7-flashx.yaml
+  s_d210f54e2d5713::t_81bb2839999a07 4
+models/z-ai/glm-4.7-subscription.yaml
+  s_d210f54e2d5713::t_06710ba837d5a8 4
+models/z-ai/glm-4.7.yaml
+  s_d210f54e2d5713::t_165deb91308642 4
+models/z-ai/glm-5-subscription.yaml
+  s_d210f54e2d5713::t_9f6f379660b4fb 4
+models/z-ai/glm-5-turbo-subscription.yaml
+  s_d210f54e2d5713::t_7d779faa3e1cd5 4
+models/z-ai/glm-5-turbo.yaml
+  s_d210f54e2d5713::t_aa1632962de8b0 4
+models/z-ai/glm-5.1-subscription.yaml
+  s_d210f54e2d5713::t_46cf3acd1d4d95 4
+models/z-ai/glm-5.1.yaml
+  s_d210f54e2d5713::t_b022f12cad4ba8 4
+models/z-ai/glm-5.2-subscription.yaml
+  s_d210f54e2d5713::t_b9fcefb77285be 4
+models/z-ai/glm-5.2.yaml
+  s_d210f54e2d5713::t_1b7359d23db892 4
+models/z-ai/glm-5.3.yaml
+  s_d210f54e2d5713::t_b38148afb42f56 4
+models/z-ai/glm-5.yaml
+  s_d210f54e2d5713::t_ea75af94fac630 4
+packages/modelparams-python/src/modelparams/_generated/catalog.json
+  s_d210f54e2d5713::t_a6ae0a50bb0ec0 5,81,157,233,309,385,461,537,613,674,735,796,857,918,979,1040,1093,1146,1202,1264,1325,1386,1447,1508,1569,1630,1691,1752,1813,1874,1950,2026,2103,2182,2258,2334,2411,2488,2564,2640,2716,2769,2859,2949,3039,3129,3247,3365,3455,3542,3606,3670,3785,3901,4021,4141,4257,4372,4513,4654,4785,4916,5068,5220,5378,5536,5602,5668,5734,5800,5916,5990,6064,6195,6326,6443,6563,6683,6800,6958,7116,7232,7298,7364,7451,7538,7625,7712,7799,7849,7899,7949,7999,8049,8099,8149,8199,8249,8299,8349,8399,8449,8499,8549,8599,8649,8699,8749,8799,8849,8936,8986,9036,9123,9173,9223,9283,9343,9393,9453,9513,9563,9613,9663,9713,9773,9834,9895,9956,10006,10056,10106,10156,10206,10256,10306,10356,10406,10456,10506,10621,10760,10899,11065,11204,11343,11472,11601,11740,11814,11905,11994,12083,12172,12261,12350,12439,12528,12617,12706,12795,12884,12973,13062,13151,13240,13329,13418,13507,13604,13697,13790,13887,13983,14079,14178,14277,14376,14476,14576,14675,14773,14870,14966,15064,15162,15260,15357,15448,15498,15548,15598,15648,15698,15748,15797,15899,16001,16050,16099,16220,16341,16462,16582,16703,16773,16843,16913,16983,17112,17241,17293,17338,17390,17442,17487,17532,17584,17636,17681,17726,17778,17830,17875,17920,17972,18017,18124,18231,18341,18448,18565,18682,18789,18896,19003,19110,19217,19324,19431,19538,19645,19752,19859,19966,20073,20181,20269,20367,20422,20509,20596,20638,20680,20756,20897,21038,21179,21266,21318,21391,21477,21497,21583,21669,21755,21762,21822,21907,21992,22066,22126,22200,22274,22331,22379,22427,22472,22551,22599,22647,22695,22741,22787,22835,22881,22926,22972,23008,23030,23066,23102,23135,23188,23240,23274,23327,23377,23411,23462,23513,23548,23583,23634,23669,23702,23751,23802,23837,23870,23919,23970,24004,24039,24090,24125,24176,24211,24262,24339,24416,24468,24520,24556,24592,24628,24664,24700,24736,24772,24899,25031,25158,25285,25347,25483,25601,25737,25898,26060,26221,26382,26544,26684,26824,26964,27036,27108,27173,27238,27309,27388,27467,27546,27625,27696,27761,27826,27905,28017,28096,28185,28274,28363,28452,28541,28630,28719,28808,28897,28986,29075,29164,29253,29342,29431,29520,29609,29698,29787,29898,30009
+packages/modelparams/src/generated/data.ts
+  s_d210f54e2d5713::t_825952976dc900 10,86,162,238,314,390,466,542,618,679,740,801,862,923,984,1045,1098,1151,1207,1269,1330,1391,1452,1513,1574,1635,1696,1757,1818,1879,1955,2031,2108,2187,2263,2339,2416,2493,2569,2645,2721,2774,2864,2954,3044,3134,3252,3370,3460,3547,3611,3675,3790,3906,4026,4146,4262,4377,4518,4659,4790,4921,5073,5225,5383,5541,5607,5673,5739,5805,5921,5995,6069,6200,6331,6448,6568,6688,6805,6963,7121,7237,7303,7369,7456,7543,7630,7717,7804,7854,7904,7954,8004,8054,8104,8154,8204,8254,8304,8354,8404,8454,8504,8554,8604,8654,8704,8754,8804,8854,8941,8991,9041,9128,9178,9228,9288,9348,9398,9458,9518,9568,9618,9668,9718,9778,9839,9900,9961,10011,10061,10111,10161,10211,10261,10311,10361,10411,10461,10511,10626,10765,10904,11070,11209,11348,11477,11606,11745,11819,11910,11999,12088,12177,12266,12355,12444,12533,12622,12711,12800,12889,12978,13067,13156,13245,13334,13423,13512,13609,13702,13795,13892,13988,14084,14183,14282,14381,14481,14581,14680,14778,14875,14971,15069,15167,15265,15362,15453,15503,15553,15603,15653,15703,15753,15802,15904,16006,16055,16104,16225,16346,16467,16587,16708,16778,16848,16918,16988,17117,17246,17298,17343,17395,17447,17492,17537,17589,17641,17686,17731,17783,17835,17880,17925,17977,18022,18129,18236,18346,18453,18570,18687,18794,18901,19008,19115,19222,19329,19436,19543,19650,19757,19864,19971,20078,20186,20274,20372,20427,20514,20601,20643,20685,20761,20902,21043,21184,21271,21323,21396,21482,21502,21588,21674,21760,21767,21827,21912,21997,22071,22131,22205,22279,22336,22384,22432,22477,22556,22604,22652,22700,22746,22792,22840,22886,22931,22977,23013,23035,23071,23107,23140,23193,23245,23279,23332,23382,23416,23467,23518,23553,23588,23639,23674,23707,23756,23807,23842,23875,23924,23975,24009,24044,24095,24130,24181,24216,24267,24344,24421,24473,24525,24561,24597,24633,24669,24705,24741,24777,24904,25036,25163,25290,25352,25488,25606,25742,25903,26065,26226,26387,26549,26689,26829,26969,27041,27113,27178,27243,27314,27393,27472,27551,27630,27701,27766,27831,27910,28022,28101,28190,28279,28368,28457,28546,28635,28724,28813,28902,28991,29080,29169,29258,29347,29436,29525,29614,29703,29792,29903,30014,30114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "e3f6cbd8c6ab37a64e5a5f468953a9865203ce76",
+  "prompts": {},
+  "sessions": {
+    "s_d210f54e2d5713": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03092-1eab-78d1-8249-ee806b666f51",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}

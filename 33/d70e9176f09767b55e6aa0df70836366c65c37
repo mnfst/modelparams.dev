@@ -1,0 +1,28 @@
+models/deepseek/deepseek-v4-flash.yaml
+  s_d55d26a37e6be3::t_5418971d8eae6c 9-26
+models/deepseek/deepseek-reasoner.yaml
+  s_d55d26a37e6be3::t_505d6bdae6179f 6-13
+models/deepseek/deepseek-chat.yaml
+  s_d55d26a37e6be3::t_01c3af695f8d22 6-45,49-50
+  s_d55d26a37e6be3::t_063cd454791ad6 53
+models/deepseek/deepseek-v4-pro.yaml
+  s_d55d26a37e6be3::t_5418971d8eae6c 9-26
+models/anthropic/claude-opus-4-5-20251101.yaml
+  s_d55d26a37e6be3::t_badda4cbd177af 2,4,6-61,65-66,69-105
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.11",
+  "base_commit_sha": "33d70e9176f09767b55e6aa0df70836366c65c37",
+  "prompts": {},
+  "sessions": {
+    "s_d55d26a37e6be3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e3cc4-24e3-74b0-a24b-ea4a41761278",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
