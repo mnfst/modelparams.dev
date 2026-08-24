@@ -1,0 +1,24 @@
+tests/api-usage.test.ts
+  s_7497fa8131fb77::t_4506d49defc0d8 21-25
+src/tracking/api-usage.ts
+  s_7497fa8131fb77::t_17575ede477c94 39
+  s_7497fa8131fb77::t_e3b27bd4031c85 52-54
+middleware.ts
+  s_7497fa8131fb77::t_cf4b333686527e 4-8,11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "d1f617bd01c4614998b9250b2eb449790b76217c",
+  "prompts": {},
+  "sessions": {
+    "s_7497fa8131fb77": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "94b648f8-dc52-4fd3-be7e-43ecc761693b",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
