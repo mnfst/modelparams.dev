@@ -67,6 +67,8 @@ curl https://modelparams.dev/api/v1/models/openai/gpt-5.5.json
 
 Schema at `https://modelparams.dev/api/v1/schema.json`, per the [Model Parameters convention](docs/model-parameters-schema.md).
 
+API requests are counted at the edge and reported to Vercel Web Analytics as `api_request` custom events (endpoint, model, client type), so API usage lands in the same dashboard as page views. Off Vercel it's a no-op; see [`src/tracking/api-usage.ts`](src/tracking/api-usage.ts).
+
 ### Validate a request
 
 POST the parameters you're about to send. You get back what's wrong — including combinations the provider rejects — and a corrected payload.
