@@ -1,5 +1,5 @@
 import express from "express";
-import { buildCapabilityFacets, buildCatalog, buildProviderFacets } from "../data/catalog.js";
+import { buildCapabilityFacets, buildCatalog } from "../data/catalog.js";
 import { buildLlmsFullTxt, buildLlmsTxt } from "../data/llms.js";
 import { findModelParams } from "../data/model-params.js";
 import { buildParameterIndex } from "../data/parameters.js";
@@ -12,6 +12,7 @@ import { renderProviderPage } from "../build/render-provider.js";
 import { renderGlossaryPage } from "../build/render-glossary.js";
 import { renderDisambiguationPage } from "../build/render-disambiguation.js";
 import { renderApiPage } from "../build/render-api.js";
+import { renderMcpPage } from "../build/render-mcp.js";
 import { SITE_URL } from "../data/site.js";
 import { DISAMBIGUATION_PATH } from "../data/urls.js";
 import { modelId, type Model } from "../schema/model.js";
@@ -44,8 +45,7 @@ export function makeApp(loadModels: LoadModels): express.Express {
       const models = await loadModels();
       const catalog = buildCatalog(models);
       const capabilities = buildCapabilityFacets(models);
-      const providers = buildProviderFacets(models);
-      const html = await renderIndex({ catalog, capabilities, providers });
+      const html = await renderIndex({ catalog, capabilities });
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(html);
     } catch (err) {
@@ -58,6 +58,16 @@ export function makeApp(loadModels: LoadModels): express.Express {
       const models = await loadModels();
       res.setHeader("Cache-Control", "no-store");
       res.type("html").send(await renderApiPage(models));
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/mcp-server", async (_req, res, next) => {
+    try {
+      const models = await loadModels();
+      res.setHeader("Cache-Control", "no-store");
+      res.type("html").send(await renderMcpPage(models));
     } catch (err) {
       next(err);
     }
@@ -142,6 +152,8 @@ export function makeApp(loadModels: LoadModels): express.Express {
     res.json(buildModelJsonSchema());
   });
 
+  // Legacy providerless lookup, kept for compatibility with pre-existing
+  // consumers — prefer /api/v1/models/{provider}/{model}.json.
   app.get("/api/v1/params/:slug.json", async (req, res, next) => {
     try {
       const params = findModelParams(await loadModels(), req.params.slug);

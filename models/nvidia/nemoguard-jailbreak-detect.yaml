@@ -1,5 +1,6 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: nvidia
 authType: api_key
+apiSurface: openai-chat-completions
 model: nemoguard-jailbreak-detect
 params: []

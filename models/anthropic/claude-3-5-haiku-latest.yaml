@@ -1,7 +1,11 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
+apiSurface: anthropic-messages
 model: claude-3-5-haiku-latest
+status: retired
+replacement: anthropic/claude-haiku-4-5-20251001
+shutdownOn: 2026-02-19
 params:
   - path: max_tokens
     type: integer

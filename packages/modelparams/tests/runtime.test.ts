@@ -56,7 +56,9 @@ describe("getModel", () => {
     const m = getModel(HAIKU);
     expect(m.provider).toBe("anthropic");
     expect(m.authType).toBe("api_key");
+    expect(m.apiSurface).toBe("anthropic-messages");
     expect(m.model).toBe("claude-haiku-4-5-20251001");
+    expect(m.status).toBe("active");
     expect(m.params.length).toBeGreaterThan(0);
   });
 });

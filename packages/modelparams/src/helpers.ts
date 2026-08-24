@@ -4,7 +4,7 @@ import { MODEL_IDS, type ModelId, type Provider } from "./generated/model-ids.js
 
 /**
  * Return the catalog entry for a model id. The returned object includes the
- * provider, authType, and the full list of parameters with their ranges,
+ * provider, authType, apiSurface, and the full list of parameters with their ranges,
  * defaults, enum values, applicability rules, etc.
  *
  * @example

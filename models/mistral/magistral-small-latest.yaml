@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: mistral
 authType: api_key
+apiSurface: openai-chat-completions
 model: magistral-small-latest
 params:
   - path: max_tokens
@@ -30,7 +31,7 @@ params:
     description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
     default: 1
     range:
-      min: 0
+      min: 0.01
       max: 1
       step: 0.01
     group: sampling
@@ -76,6 +77,7 @@ params:
     values:
       - text
       - json_object
+      - json_schema
     group: output_format
   - path: safe_prompt
     type: boolean

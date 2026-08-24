@@ -29,7 +29,17 @@ You don't need to know the schema to file one. A link to the official docs is th
    # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
    ```
 
-3. **Required top-level fields:** `provider`, `authType` (`api_key` or `subscription`), `model`, `params`.
+3. **Required top-level fields:** `provider`, `authType` (`api_key` or `subscription`),
+   `apiSurface`, `model`, `params`.
+
+   `apiSurface` names the API or SDK request family that accepts these paths.
+   Use one of the values in the [schema convention](docs/model-parameters-schema.md#catalog-entry).
+   Do not mix Chat Completions and Responses fields, or any other two surfaces,
+   in one entry.
+
+   Optional lifecycle fields are `status` (`active`, `deprecated`, or
+   `retired`), `replacement` (a provider-qualified model id), and `shutdownOn`
+   (ISO `YYYY-MM-DD`). Omit `status` when lifecycle status has not been tracked.
 
 4. **Parameter shape:** each item in `params` has:
    - `path` (required): exact provider API request parameter path; supports dot notation for nested fields (`thinking.type`, `generationConfig.topK`).
@@ -47,6 +57,13 @@ You don't need to know the schema to file one. A link to the official docs is th
    - `except`: object (or array of objects) of `path: value-or-array`. The parameter does _not_ apply when any of the listed conditions match.
    - You can also use `{ not: <value> }` to say "any value except this one".
    - See the [schema doc](docs/model-parameters-schema.md#applicability) for the exact rule syntax and evaluation semantics.
+
+   These rules are **enforced at runtime**, not just rendered on the site. The
+   `modelparams` package rejects parameter combinations your rules forbid, so a rule
+   that's too strict makes someone's valid request fail validation. Check it against
+   the provider's docs. When a rule references a parameter the request didn't set,
+   evaluation falls back to that parameter's `default`, because that is what the
+   provider applies in its place.
 
 6. **Auth-type rules of thumb:**
    - **`api_key`:** list parameters from the official API reference. Don't invent ones the API doesn't accept.
@@ -72,6 +89,7 @@ You don't need to know the schema to file one. A link to the official docs is th
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
+apiSurface: anthropic-messages
 model: claude-sonnet-4-6
 params:
   - path: max_tokens
@@ -179,12 +197,25 @@ The website code lives under `src/`:
 - `src/server/` — Express dev server.
 - `src/tracking/` — API usage tracking; the root `middleware.ts` posts one Web Analytics custom event per JSON API request at the edge.
 
+Everything the catalog ships beyond the static site:
+
+- `api/` — Vercel Functions, currently `POST /api/v1/validate`. These serve paths the
+  static build doesn't emit; the rest of `/api/v1/*` stays static JSON from `dist/`.
+- `packages/modelparams/` — the npm package: generated types plus the runtime
+  validation helpers. `src/generated/` is committed and CI checks it against the YAML,
+  so run `npm run codegen --workspace=modelparams` after changing the catalog.
+- `packages/modelparams-mcp/` — the MCP server. Not published to npm; its
+  `createServer()` is what `api/mcp.ts` serves over HTTP at `/mcp`.
+- `skills/` — agent skills, installable with `npx skills add mnfst/modelparams.dev`.
+
 Conventions:
 
 - TypeScript, ES modules, strict mode.
 - No file over 300 lines, no function over 50 lines.
 - Format with Prettier, lint with ESLint. `npm run format` and `npm run lint` will set you straight.
-- Tests live under `tests/` and run with Vitest.
+- Tests live under `tests/` and run with Vitest. Each package has its own suite;
+  `npm test --workspaces` runs them.
+- `npm run typecheck` covers the site and `api/` (via `tsconfig.api.json`).
 
 ## Pull requests
 
@@ -194,3 +225,30 @@ The PR description starts from a template with a short "type of change" checklis
 - Make sure CI is green before requesting review.
 - A bot labels your PR by the files it touches (`model`, `provider`, `site`, `meta`). Nothing for you to do.
 - For a new provider, link the official docs and add a logo at `src/client/logos/<slug>.svg`. Without one, the site shows a generic mark.
+
+## Releases
+
+Merging your PR does **not** publish a package. Releases are batched: every merge
+to `main` runs `Prepare release`, which recomputes what the next version would be
+given everything unreleased, and force-pushes a single open PR titled
+`chore: release modelparams@x.y.z`. A day of merged model PRs collects into that
+one PR instead of a version per merge.
+
+Merging the release PR is what publishes — it lands the version bump in
+`packages/modelparams/package.json` and `packages/modelparams-python/pyproject.toml`,
+and the two release workflows publish the version they find committed there.
+
+The bump level is derived from the catalog, not declared by hand:
+
+- a parameter removed from a model that still exists → **major**
+- any other catalog change → **patch**
+- nothing semantic changed → no release PR
+
+Each release PR carries a generated changelog of the models added, models removed,
+and parameters added, removed, or edited since the last release, which is also
+written to each package's `CHANGELOG.md` and used as the GitHub release body.
+
+Maintainers can run `Prepare release` manually from the Actions tab (with an
+optional forced bump level), and can re-run a release workflow via
+`workflow_dispatch` to republish the version `main` already declares — useful
+when a publish step fails partway.

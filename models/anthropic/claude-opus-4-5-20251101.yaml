@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: anthropic
 authType: api_key
+apiSurface: anthropic-messages
 model: claude-opus-4-5-20251101
+status: active
 params:
   - path: max_tokens
     type: integer

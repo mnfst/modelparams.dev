@@ -1,7 +1,11 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: google
 authType: subscription
+apiSurface: google-generate-content
 model: gemini-3.1-flash-lite-preview
+status: retired
+replacement: google/gemini-3.1-flash-lite
+shutdownOn: 2026-05-25
 params:
   - path: generationConfig.maxOutputTokens
     type: integer

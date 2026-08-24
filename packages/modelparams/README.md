@@ -96,6 +96,41 @@ import { paramsSchema } from "modelparams";
 app.post("/chat", validator("json", paramsSchema("openai/gpt-4.1")), handler);
 ```
 
+### Conflicting parameters
+
+Some parameters are only accepted for certain values of _other_ parameters. Anthropic rejects `top_p` unless `temperature` is 1; a thinking budget does nothing unless thinking is on. `parseParams` enforces these rules, and `checkApplicability` reports them on their own:
+
+```ts
+import { checkApplicability } from "modelparams";
+
+checkApplicability("anthropic/claude-3-opus-20240229", { temperature: 0.5, top_p: 0.9 });
+// [{ path: "top_p",
+//    message: "top_p does not apply when temperature ≠ 1",
+//    conflictsWith: ["temperature"] }]
+```
+
+A parameter you never set still counts, because the provider applies its own default in your place.
+
+### Drop what won't fly
+
+`dropUnsupported` is the catalog-driven equivalent of LiteLLM's `drop_params`, extended to conditional conflicts. It returns a payload that is always safe to spread into a provider call, plus what it removed and why:
+
+```ts
+import { dropUnsupported } from "modelparams";
+
+const { params, dropped } = dropUnsupported("openai/gpt-5.5", {
+  temperature: 0.7, // gpt-5.5 exposes no temperature
+  reasoning_effort: "low",
+});
+
+// params  → { reasoning_effort: "low" }
+// dropped → [{ path: "temperature", code: "unknown_parameter", reason: "…" }]
+
+await openai.chat.completions.create({ model: "gpt-5.5", messages, ...params });
+```
+
+Each dropped entry carries a `code`: `unknown_parameter`, `invalid_value`, or `not_applicable`.
+
 ## API
 
 ### Types
@@ -106,6 +141,7 @@ app.post("/chat", validator("json", paramsSchema("openai/gpt-4.1")), handler);
 | `StrictParamsOf<Id>` | Same shape, every field required.                                                                                     |
 | `ModelId`            | Union of all `"provider/model"` ids (including `-subscription` variants).                                             |
 | `Provider`           | Union of provider slugs (`"anthropic"`, `"openai"`, …).                                                               |
+| `ApiSurface`         | Union of request and SDK surfaces (`"openai-responses"`, `"anthropic-messages"`, …).                                  |
 | `ParamsById`         | Mapped type: `{ [Id in ModelId]: ParamsByIdMap[Id] }`.                                                                |
 | `CatalogEntry`       | The full catalog object for one model.                                                                                |
 | `Param`              | A parameter definition in a loose, iterable shape — `getModel(id).params` assigns to `readonly Param[]` with no cast. |
@@ -114,15 +150,19 @@ app.post("/chat", validator("json", paramsSchema("openai/gpt-4.1")), handler);
 
 ### Functions
 
-| Function                   | Description                                                 |
-| -------------------------- | ----------------------------------------------------------- |
-| `getModel(id)`             | The full catalog entry for a model id.                      |
-| `getDefaults(id)`          | The catalog-declared defaults.                              |
-| `getParam(id, path)`       | A single parameter's definition (range, enum values, etc.). |
-| `listModels({ provider })` | List model ids, optionally filtered by provider.            |
-| `listAllModels()`          | The full `CATALOG` array.                                   |
-| `parseParams(id, input)`   | Validate an untrusted params object against the catalog.    |
-| `paramsSchema(id)`         | A Standard Schema that validates a params object for `id`.  |
+| Function                         | Description                                                 |
+| -------------------------------- | ----------------------------------------------------------- |
+| `getModel(id)`                   | The full catalog entry for a model id.                      |
+| `getDefaults(id)`                | The catalog-declared defaults.                              |
+| `getParam(id, path)`             | A single parameter's definition (range, enum values, etc.). |
+| `listModels({ provider })`       | List model ids, optionally filtered by provider.            |
+| `listAllModels()`                | The full `CATALOG` array.                                   |
+| `parseParams(id, input)`         | Validate an untrusted params object against the catalog.    |
+| `paramsSchema(id)`               | A Standard Schema that validates a params object for `id`.  |
+| `checkApplicability(id, params)` | Report parameters that conflict with others in the request. |
+| `isApplicable(id, path, params)` | Is one parameter accepted alongside the rest?               |
+| `dropUnsupported(id, params)`    | Strip everything the model won't accept.                    |
+| `resolveModelId(input)`          | Resolve a bare model slug or full id to a catalog id.       |
 
 ### Constants
 

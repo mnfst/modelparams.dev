@@ -1,7 +1,16 @@
 import path from "node:path";
 import ejs from "ejs";
 import { describeApplicability } from "../data/applicability.js";
-import { buildProviderFacets, type CapabilityFacet, type ProviderFacet } from "../data/catalog.js";
+import {
+  apiSurfaceLabel,
+  apiSurfaceSdkMethod,
+  buildApiSurfaceFacets,
+} from "../data/api-surfaces.js";
+import {
+  buildProviderFacets,
+  type CapabilityFacet,
+  type ProviderFacet,
+} from "../data/catalog.js";
 import {
   authLabel,
   conditionIcon,
@@ -27,6 +36,7 @@ import {
 } from "../data/urls.js";
 import { modelId, type Catalog, type Model } from "../schema/model.js";
 import { fitDescription, fitTitle } from "./meta.js";
+import { highlightJson } from "./highlight.js";
 import { buildHomeStructuredData } from "./structured-data.js";
 
 const LAYOUT_PATH = path.join(VIEWS_DIR, "layout.ejs");
@@ -37,6 +47,8 @@ export const viewHelpers = {
   modelLabel,
   providerLabel,
   authLabel,
+  apiSurfaceLabel,
+  apiSurfaceSdkMethod,
   paramGroupColor,
   paramGroupLabel,
   paramGroupIcon,
@@ -49,6 +61,7 @@ export const viewHelpers = {
   parameterPagePath,
   parameterAnchorId,
   providerPagePath,
+  highlightJson,
 };
 
 export interface HubLink {
@@ -106,7 +119,6 @@ export async function renderShell(meta: ShellMeta, body: string): Promise<string
 export interface RenderOptions {
   catalog: Catalog;
   capabilities: CapabilityFacet[];
-  providers: ProviderFacet[];
   initialThemeClass?: string;
   /** Inject the Vercel Web Analytics snippet. Enabled for production builds; off in dev. */
   analytics?: boolean;
@@ -152,10 +164,12 @@ export function homeDescription(
 }
 
 export async function renderIndex(opts: RenderOptions): Promise<string> {
+  const providers = buildProviderFacets(opts.catalog.models);
   const body = await ejs.renderFile(path.join(VIEWS_DIR, "index.ejs"), {
     models: opts.catalog.models,
+    apiSurfaces: buildApiSurfaceFacets(opts.catalog.models),
     capabilities: opts.capabilities,
-    providers: opts.providers,
+    providers,
     helpers: viewHelpers,
   });
 
@@ -163,7 +177,11 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
   return renderShell(
     {
       title: homeTitle(opts.catalog.models.length),
-      description: homeDescription(opts.catalog.models.length, opts.providers.length, sampleParams),
+      description: homeDescription(
+        opts.catalog.models.length,
+        providers.length,
+        sampleParams,
+      ),
       canonicalUrl: `${SITE_URL}/`,
       ogImage: ogImagePath("/"),
       structuredData: buildHomeStructuredData(

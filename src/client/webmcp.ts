@@ -4,6 +4,15 @@
 // server-side modules (and no zod) into the client bundle.
 
 type AuthType = "api_key" | "subscription";
+type ApiSurface =
+  | "openai-chat-completions"
+  | "openai-responses"
+  | "anthropic-messages"
+  | "google-generate-content"
+  | "amazon-bedrock-converse"
+  | "google-vertex-generate-content"
+  | "cohere-chat";
+type LifecycleStatus = "active" | "deprecated" | "retired";
 
 interface CatalogParam {
   path: string;
@@ -17,7 +26,11 @@ interface CatalogParam {
 interface CatalogModel {
   provider: string;
   authType: AuthType;
+  apiSurface: ApiSurface;
   model: string;
+  status?: LifecycleStatus;
+  replacement?: string;
+  shutdownOn?: string;
   params: CatalogParam[];
 }
 
@@ -88,6 +101,7 @@ function asStringList(value: unknown): string[] {
 function reflectInUi(filters: {
   query?: string;
   auth?: string;
+  apiSurface?: string;
   providers: string[];
   capabilities: string[];
 }): void {
@@ -98,6 +112,11 @@ function reflectInUi(filters: {
   }
   if (filters.auth) {
     document.querySelector<HTMLButtonElement>(`[data-auth-filter="${filters.auth}"]`)?.click();
+  }
+  if (filters.apiSurface) {
+    document
+      .querySelector<HTMLButtonElement>(`[data-api-surface-filter="${filters.apiSurface}"]`)
+      ?.click();
   }
   setToggleGroup("[data-provider]", "provider", filters.providers);
   setToggleGroup("[data-capability]", "capability", filters.capabilities);
@@ -119,12 +138,14 @@ function setToggleGroup(selector: string, key: string, wanted: string[]): void {
 export function searchCatalog(catalog: Catalog, params: Record<string, unknown>) {
   const query = asString(params.query)?.toLowerCase();
   const auth = asString(params.auth);
+  const apiSurface = asString(params.apiSurface);
   const providers = asStringList(params.provider);
   const capabilities = asStringList(params.capability);
   const limit = typeof params.limit === "number" ? Math.max(1, Math.floor(params.limit)) : 25;
 
   const matches = catalog.models.filter((model) => {
     if (auth && auth !== "all" && model.authType !== auth) return false;
+    if (apiSurface && apiSurface !== "all" && model.apiSurface !== apiSurface) return false;
     if (providers.length > 0 && !providers.includes(model.provider)) return false;
     const paths = new Set(model.params.map((p) => p.path));
     if (!capabilities.every((cap) => paths.has(cap))) return false;
@@ -144,6 +165,10 @@ export function searchCatalog(catalog: Catalog, params: Record<string, unknown>)
       provider: model.provider,
       model: model.model,
       authType: model.authType,
+      apiSurface: model.apiSurface,
+      status: model.status,
+      replacement: model.replacement,
+      shutdownOn: model.shutdownOn,
       parameterCount: model.params.length,
       parameters: model.params.map((p) => p.path),
     })),
@@ -155,6 +180,7 @@ function searchModels(catalog: Catalog, params: Record<string, unknown>) {
   reflectInUi({
     query: asString(params.query) ?? "",
     auth: asString(params.auth),
+    apiSurface: asString(params.apiSurface),
     providers: asStringList(params.provider),
     capabilities: asStringList(params.capability),
   });
@@ -182,7 +208,7 @@ function buildTools(): ToolDefinition[] {
       name: "search_models",
       description:
         "Search the LLM parameter catalog. Filter by free-text query, provider slug, " +
-        "required parameter path(s), and auth type (api_key | subscription | all). Also " +
+        "required parameter path(s), API surface, and auth type (api_key | subscription | all). Also " +
         "mirrors the query onto the page's visible filters. Returns matching model ids.",
       inputSchema: {
         type: "object",
@@ -202,6 +228,19 @@ function buildTools(): ToolDefinition[] {
             enum: ["all", "api_key", "subscription"],
             description: "Auth variant to include. Defaults to all.",
           },
+          apiSurface: {
+            type: "string",
+            enum: [
+              "openai-chat-completions",
+              "openai-responses",
+              "anthropic-messages",
+              "google-generate-content",
+              "amazon-bedrock-converse",
+              "google-vertex-generate-content",
+              "cohere-chat",
+            ],
+            description: "API/SDK surface, e.g. openai-responses or anthropic-messages.",
+          },
           limit: { type: "number", description: "Max models to return (default 25)." },
         },
       },
@@ -212,7 +251,8 @@ function buildTools(): ToolDefinition[] {
       description:
         "Fetch the full parameter set for one model by id (e.g. anthropic/claude-opus-4-7, " +
         "or append -subscription for the subscription variant). Returns every parameter with " +
-        "type, default, range, allowed values, and applicability conditions.",
+        "type, default, range, allowed values, applicability conditions, and deprecation " +
+        "status.",
       inputSchema: {
         type: "object",
         properties: {

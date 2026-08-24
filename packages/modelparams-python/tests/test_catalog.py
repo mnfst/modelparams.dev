@@ -44,7 +44,9 @@ def test_get_model_returns_frozen_pythonic_metadata() -> None:
     model = get_model(HAIKU)
     assert model.provider == "anthropic"
     assert model.auth_type == "api_key"
+    assert model.api_surface == "anthropic-messages"
     assert model.model == "claude-haiku-4-5-20251001"
+    assert model.status == "active"
     assert model.params
     with pytest.raises(ValidationError):
         model.model = "changed"

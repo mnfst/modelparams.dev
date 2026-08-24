@@ -32,6 +32,42 @@ Gpt_3_5_TurboParams = TypedDict(
 )
 setattr(Gpt_3_5_TurboParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_3_5_Turbo_16kParams = TypedDict(
+    "Gpt_3_5_Turbo_16kParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+    },
+    total=False,
+)
+setattr(Gpt_3_5_Turbo_16kParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_4Params = TypedDict(
+    "Gpt_4Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "reasoning_effort": Literal["low", "medium", "high"],
+        "response_format.type": Literal["text", "json_schema"],
+        "tool_choice": Literal["auto", "none", "required"],
+    },
+    total=False,
+)
+setattr(Gpt_4Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Gpt_4_0613Params = TypedDict(
+    "Gpt_4_0613Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+    },
+    total=False,
+)
+setattr(Gpt_4_0613Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_4_TurboParams = TypedDict(
     "Gpt_4_TurboParams",
     {
@@ -370,11 +406,21 @@ Gpt_5_5_SubscriptionParams = TypedDict(
 )
 setattr(Gpt_5_5_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_5_6Params = TypedDict(
+    "Gpt_5_6Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["none", "low", "medium", "high", "xhigh"],
+    },
+    total=False,
+)
+setattr(Gpt_5_6Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_5_6_LunaParams = TypedDict(
     "Gpt_5_6_LunaParams",
     {
-        "max_completion_tokens": Annotated[int, Field(ge=16)],
-        "reasoning_effort": Literal["none", "low", "medium", "high"],
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["none", "low", "medium", "high", "xhigh"],
     },
     total=False,
 )
@@ -394,8 +440,8 @@ setattr(Gpt_5_6_Luna_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Gpt_5_6_SolParams = TypedDict(
     "Gpt_5_6_SolParams",
     {
-        "max_completion_tokens": Annotated[int, Field(ge=16)],
-        "reasoning_effort": Literal["none", "low", "medium", "high"],
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["none", "low", "medium", "high", "xhigh"],
     },
     total=False,
 )
@@ -415,8 +461,8 @@ setattr(Gpt_5_6_Sol_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Gpt_5_6_TerraParams = TypedDict(
     "Gpt_5_6_TerraParams",
     {
-        "max_completion_tokens": Annotated[int, Field(ge=16)],
-        "reasoning_effort": Literal["none", "low", "medium", "high"],
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["none", "low", "medium", "high", "xhigh"],
     },
     total=False,
 )
@@ -558,6 +604,9 @@ setattr(O4_MiniParams, "__pydantic_config__", _PARAMS_CONFIG)
 __all__ = [
     "Chatgpt_4o_LatestParams",
     "Gpt_3_5_TurboParams",
+    "Gpt_3_5_Turbo_16kParams",
+    "Gpt_4Params",
+    "Gpt_4_0613Params",
     "Gpt_4_TurboParams",
     "Gpt_4_Turbo_2024_04_09Params",
     "Gpt_4_1Params",
@@ -590,6 +639,7 @@ __all__ = [
     "Gpt_5_5_ProParams",
     "Gpt_5_5_Pro_SubscriptionParams",
     "Gpt_5_5_SubscriptionParams",
+    "Gpt_5_6Params",
     "Gpt_5_6_LunaParams",
     "Gpt_5_6_Luna_SubscriptionParams",
     "Gpt_5_6_SolParams",

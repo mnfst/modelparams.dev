@@ -1,7 +1,11 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: deepseek
 authType: api_key
+apiSurface: openai-chat-completions
 model: deepseek-chat
+status: retired
+replacement: deepseek/deepseek-v4-flash
+shutdownOn: 2026-07-24
 params:
   - path: max_tokens
     type: integer

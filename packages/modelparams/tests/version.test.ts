@@ -5,6 +5,7 @@ import { bumpVersion, canonicalCatalog, decideBump } from "../scripts/lib/versio
 const baseModel: Model = {
   provider: "anthropic",
   authType: "api_key",
+  apiSurface: "anthropic-messages",
   model: "claude-test",
   params: [
     {

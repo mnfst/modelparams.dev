@@ -8,6 +8,7 @@ function makeModel(overrides: Partial<Model> = {}): Model {
   return {
     provider: "anthropic",
     authType: "api_key",
+    apiSurface: "anthropic-messages",
     model: "claude-opus-4-7",
     params: [
       {
@@ -39,8 +40,8 @@ describe("usageGuideMarkdown", () => {
     const md = usageGuideMarkdown(SITE);
     expect(md.startsWith("# How to use modelparams.dev")).toBe(true);
     expect(md).toContain(`curl ${SITE}/api/v1/models.json`);
-    expect(md).toContain(`curl ${SITE}/api/v1/params/gpt-5.5.json`);
-    expect(md).toContain(`curl ${SITE}/api/v1/params/gpt-5.5-subscription.json`);
+    expect(md).toContain(`curl ${SITE}/api/v1/models/openai/gpt-5.5.json`);
+    expect(md).toContain(`curl ${SITE}/api/v1/models/openai/gpt-5.5-subscription.json`);
     expect(md).toContain(`curl ${SITE}/api/v1/schema.json`);
     expect(md).toContain(`${SITE}/llms-full.txt`);
     expect(md).toContain("WebMCP");
@@ -49,7 +50,7 @@ describe("usageGuideMarkdown", () => {
   it("threads the provided site url through every reference", () => {
     const md = usageGuideMarkdown("http://localhost:3000");
     expect(md).toContain("curl http://localhost:3000/api/v1/models.json");
-    expect(md).toContain("curl http://localhost:3000/api/v1/params/gpt-5.5.json");
+    expect(md).toContain("curl http://localhost:3000/api/v1/models/openai/gpt-5.5.json");
     expect(md).not.toContain("https://modelparams.dev");
   });
 });
@@ -60,7 +61,7 @@ describe("buildLlmsTxt", () => {
     expect(txt.startsWith("# modelparams.dev")).toBe(true);
     expect(txt).toContain("\n> An open, community-maintained catalog");
     expect(txt).toContain("## API");
-    expect(txt).toContain(`${SITE}/api/v1/params/gpt-5.5.json`);
+    expect(txt).toContain(`${SITE}/api/v1/models/openai/gpt-5.5.json`);
     expect(txt).toContain("## Models");
     expect(txt).toContain("## Optional");
     expect(txt).toContain(

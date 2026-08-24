@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: xai
 authType: api_key
+apiSurface: openai-responses
 model: grok-4.20-multi-agent-0309
+status: active
 params:
   - path: max_output_tokens
     type: integer

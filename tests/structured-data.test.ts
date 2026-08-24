@@ -16,6 +16,7 @@ function model(over: Partial<Model> = {}): Model {
   return {
     provider: "anthropic",
     authType: "api_key",
+    apiSurface: "anthropic-messages",
     model: "claude-opus-4-7",
     params: [
       {

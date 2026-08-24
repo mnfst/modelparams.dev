@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: fireworks
+authType: api_key
+apiSurface: openai-chat-completions
+model: kimi-k2p6
+wireId: accounts/fireworks/models/kimi-k2p6
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate in the response.
+    range:
+      min: 1
+    group: generation_length
+  - path: temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: top_p
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: top_k
+    type: integer
+    label: Top K
+    description: Limits token sampling to the top K most likely next tokens.
+    range:
+      min: 1
+      max: 100
+    group: sampling
+  - path: presence_penalty
+    type: number
+    label: Presence penalty
+    description: Penalizes tokens that have already appeared to encourage a wider variety of content.
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: frequency_penalty
+    type: number
+    label: Frequency penalty
+    description: Penalizes tokens in proportion to how often they have already appeared.
+    range:
+      min: -2
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Choose plain text or force valid JSON output.
+    values:
+      - text
+      - json_object
+    group: output_format

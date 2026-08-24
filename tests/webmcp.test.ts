@@ -3,11 +3,18 @@ import { modelId, searchCatalog } from "../src/client/webmcp.js";
 
 type AuthType = "api_key" | "subscription";
 
-function model(provider: string, name: string, authType: AuthType, paths: string[]) {
+function model(
+  provider: string,
+  name: string,
+  authType: AuthType,
+  paths: string[],
+  apiSurface = provider === "anthropic" ? "anthropic-messages" : "openai-chat-completions",
+) {
   return {
     provider,
     model: name,
     authType,
+    apiSurface,
     params: paths.map((path) => ({
       path,
       type: "number",
@@ -73,6 +80,11 @@ describe("searchCatalog", () => {
     expect(searchCatalog(CATALOG, { auth: "all" }).total).toBe(4);
   });
 
+  it("filters by API surface", () => {
+    expect(searchCatalog(CATALOG, { apiSurface: "anthropic-messages" }).total).toBe(2);
+    expect(searchCatalog(CATALOG, { apiSurface: "openai-chat-completions" }).total).toBe(2);
+  });
+
   it("combines filters (AND semantics)", () => {
     const result = searchCatalog(CATALOG, { provider: "anthropic", auth: "api_key" });
     expect(result.total).toBe(1);
@@ -97,6 +109,7 @@ describe("searchCatalog", () => {
       id: "anthropic/claude-opus-4-7-subscription",
       provider: "anthropic",
       authType: "subscription",
+      apiSurface: "anthropic-messages",
       parameterCount: 2,
     });
     expect(sub?.parameters).toEqual(["temperature", "thinking.type"]);

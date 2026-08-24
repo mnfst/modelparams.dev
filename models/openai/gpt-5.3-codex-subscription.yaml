@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: openai
 authType: subscription
+apiSurface: openai-responses
 model: gpt-5.3-codex
+status: active
 params:
   - path: reasoning.effort
     type: enum

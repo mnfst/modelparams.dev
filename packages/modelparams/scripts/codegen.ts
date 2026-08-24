@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAllModels } from "../../../src/data/load.js";
+import { loadProviderEndpoints } from "../../../src/data/provider-endpoints.js";
 import { authSuffix, modelId, type Model, type Parameter } from "../../../src/schema/model.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -65,7 +66,6 @@ async function main(): Promise<void> {
 
   const ids = models.map(modelId);
   const providers = [...new Set(models.map((m) => m.provider))].sort();
-
   // 1. model-ids.ts — ModelId union + Provider union
   await fs.writeFile(
     path.join(OUT_DIR, "model-ids.ts"),
@@ -102,8 +102,19 @@ async function main(): Promise<void> {
     path.join(OUT_DIR, "data.ts"),
     HEADER +
       `import type { ModelId } from "./model-ids.js";\n\n` +
-      `export const CATALOG = ${JSON.stringify(models, null, 2)} as const;\n\n` +
-      `export type CatalogEntry = (typeof CATALOG)[number];\n\n` +
+      `const GENERATED_CATALOG = ${JSON.stringify(models, null, 2)} as const;\n\n` +
+      `type GeneratedCatalogEntry = (typeof GENERATED_CATALOG)[number];\n` +
+      `export type ApiSurface = GeneratedCatalogEntry["apiSurface"];\n` +
+      `export type LifecycleStatus = "active" | "deprecated" | "retired";\n` +
+      `type WithLifecycle<T> = T extends unknown\n` +
+      `  ? Omit<T, "status" | "replacement" | "shutdownOn"> & {\n` +
+      `      readonly status?: LifecycleStatus;\n` +
+      `      readonly replacement?: string;\n` +
+      `      readonly shutdownOn?: string;\n` +
+      `    }\n` +
+      `  : never;\n` +
+      `export type CatalogEntry = WithLifecycle<GeneratedCatalogEntry>;\n\n` +
+      `export const CATALOG: readonly CatalogEntry[] = GENERATED_CATALOG;\n\n` +
       `function authSuffix(authType: CatalogEntry["authType"]): "" | "-subscription" {\n` +
       `  return authType === "api_key" ? "" : "-subscription";\n` +
       `}\n\n` +
@@ -114,21 +125,29 @@ async function main(): Promise<void> {
       `) as Readonly<Record<ModelId, CatalogEntry>>;\n`,
   );
 
-  // 5. index.ts — barrel for the generated dir
+  // 5. provider-endpoints.ts — base URLs an SDK configures per provider
+  const endpoints = loadProviderEndpoints();
+  await fs.writeFile(
+    path.join(OUT_DIR, "provider-endpoints.ts"),
+    HEADER + `export const PROVIDER_ENDPOINTS = ${JSON.stringify(endpoints, null, 2)} as const;\n`,
+  );
+
+  // 6. index.ts — barrel for the generated dir
   await fs.writeFile(
     path.join(OUT_DIR, "index.ts"),
     HEADER +
       `export * from "./model-ids.js";\n` +
       `export * from "./params-by-id.js";\n` +
       `export * from "./defaults.js";\n` +
-      `export * from "./data.js";\n`,
+      `export * from "./data.js";\n` +
+      `export * from "./provider-endpoints.js";\n`,
   );
 
   // Reference authSuffix so its `import` isn't tree-shaken from the type-checker's view.
   void authSuffix;
 
   console.log(
-    `codegen: wrote 5 files for ${models.length} models across ${providers.length} providers → ${path.relative(process.cwd(), OUT_DIR)}/`,
+    `codegen: wrote 6 files for ${models.length} models across ${providers.length} providers → ${path.relative(process.cwd(), OUT_DIR)}/`,
   );
 }
 

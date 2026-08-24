@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: alibaba
 authType: api_key
+apiSurface: openai-chat-completions
 model: qwen3-coder-flash
 params:
   - path: max_tokens
@@ -16,7 +17,7 @@ params:
     description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
     range:
       min: 0
-      max: 2
+      max: 1.9
       step: 0.1
     group: sampling
   - path: top_p

@@ -62,12 +62,115 @@ Prefer raw JSON?
 
 ```
 curl https://modelparams.dev/api/v1/models.json
-curl https://modelparams.dev/api/v1/params/gpt-5.5.json
+curl https://modelparams.dev/api/v1/models/openai/gpt-5.5.json
 ```
 
 Schema at `https://modelparams.dev/api/v1/schema.json`, per the [Model Parameters convention](docs/model-parameters-schema.md).
 
 API requests are counted at the edge and reported to Vercel Web Analytics as `api_request` custom events (endpoint, model, client type), so API usage lands in the same dashboard as page views. Off Vercel it's a no-op; see [`src/tracking/api-usage.ts`](src/tracking/api-usage.ts).
+
+### Validate a request
+
+POST the parameters you're about to send. You get back what's wrong — including combinations the provider rejects — and a corrected payload.
+
+```bash
+curl -s https://modelparams.dev/api/v1/validate \
+  -H 'Content-Type: application/json' \
+  -d '{"model":"anthropic/claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'
+```
+
+Or pass what your SDK is actually configured with — the base URL and the wire model string:
+
+```bash
+curl -s https://modelparams.dev/api/v1/validate \
+  -H 'Content-Type: application/json' \
+  -d '{"baseUrl":"https://api.fireworks.ai/inference/v1","model":"accounts/fireworks/models/kimi-k3","params":{"top_k":40}}'
+```
+
+```json
+{
+  "valid": false,
+  "issues": [
+    {
+      "path": "top_p",
+      "code": "not_applicable",
+      "message": "top_p does not apply when temperature ≠ 1",
+      "conflictsWith": ["temperature"]
+    }
+  ],
+  "safeParams": { "temperature": 0.5 }
+}
+```
+
+### Model lifecycle
+
+Full model records also expose lifecycle metadata:
+
+```yaml
+status: deprecated
+replacement: openai/gpt-5.6-sol
+shutdownOn: 2026-10-23
+```
+
+`status` is `active`, `deprecated`, or `retired`. When lifecycle status has not
+been tracked, the field stays absent from YAML, the API, and package data.
+`replacement` and `shutdownOn` stay absent until the provider publishes them.
+
+## Agents
+
+Give a coding agent the catalog, so it looks parameters up instead of recalling them.
+
+**MCP server** — hosted at `https://modelparams.dev/mcp`, nothing to install, always the catalog this site is serving:
+
+```bash
+claude mcp add --transport http modelparams https://modelparams.dev/mcp
+codex mcp add modelparams --url https://modelparams.dev/mcp
+```
+
+Four tools: `validate_model_params` to check a params object before you send it, `get_model_params` for one model's parameter surface and lifecycle metadata, `list_provider_models` for everything one provider serves, and `list_models` to search the catalog.
+
+**Without MCP** — `npx skills add mnfst/modelparams.dev` installs the companion agent skill, and [llms.txt](https://modelparams.dev/llms.txt) points an agent at a URL.
+
+## One model, many providers
+
+The same model accepts different parameters on each host that serves it. The catalog has one entry per host, each probed against that host's own endpoint.
+
+|                    | `moonshot/kimi-k3` | `fireworks/kimi-k3`                 |
+| ------------------ | ------------------ | ----------------------------------- |
+| Wire id            | `kimi-k3`          | `accounts/fireworks/models/kimi-k3` |
+| `temperature: 1.8` | ✗ 400              | ✓                                   |
+| `top_k`            | ✗                  | ✓                                   |
+| Thinking control   | ✓                  | ✗                                   |
+
+- **`wireId`** — the exact string to send when it differs from the catalog slug. Every API response and MCP tool returns it.
+- **Provider is mandatory** — `kimi-k3` alone is refused with both qualified ids to retry with; the catalog never guesses a host.
+- **`{scope}` in a `wireId`** — substitute your routing geography before sending. Bedrock serves most newer models only through a cross-region inference profile, whose id is the model id behind a geography prefix: `us`, `eu`, `apac`, `jp`, `au`, `ca`, `sa`, or `global`. So `"{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0"` becomes `eu.anthropic.…` in Frankfurt and `global.anthropic.…` if you want AWS to route it for you. A `wireId` with no placeholder is already complete and works in every region that serves it. The catalog deliberately does not enumerate which model exists in which region — that is per-account, changes constantly, and your own `ListInferenceProfiles` is the accurate source.
+
+## API surfaces
+
+Every catalog entry declares an `apiSurface`. It scopes the parameter paths to
+one request and SDK family, independently of provider, model, and auth type.
+
+| Surface                                                                                               | Status |
+| ----------------------------------------------------------------------------------------------------- | ------ |
+| OpenAI Chat Completions — openai, deepseek, xai, mistral, moonshot, alibaba, z-ai, groq, fireworks, … | ✅     |
+| OpenAI Responses — OpenAI subscription entries and xAI multi-agent models                             | ✅     |
+| Anthropic Messages                                                                                    | ✅     |
+| Google `generateContent`                                                                              | ✅     |
+| Amazon Bedrock `Converse` — every `bedrock/*` entry                                                   | ✅     |
+| Vertex AI `generateContent` — every `vertex/*` entry                                                  | ✅     |
+| Cohere Chat                                                                                           | ✅     |
+| Amazon Bedrock `InvokeModel` (native per-vendor bodies)                                               | ❌     |
+| Vertex AI `rawPredict` (Anthropic, Meta, Mistral on Vertex)                                           | ❌     |
+| MiniMax native endpoint                                                                               | ❌     |
+| Google Interactions API                                                                               | ❌     |
+| xAI native SDK                                                                                        | ❌     |
+
+Embeddings, audio, image, and batch APIs are out of scope. Missing a surface? [Open an issue](https://github.com/mnfst/modelparams.dev/issues/new/choose) or a PR.
+
+`vertex/*` covers the Gemini models Vertex serves through `generateContent`, which shares the `generationConfig` vocabulary with the first-party Gemini API but not its model list or its bounds. Third-party models on Vertex (Claude, Llama, Mistral) go through `rawPredict` with each vendor's native body, which is a different surface and is not covered.
+
+Bedrock is the sharpest case, because one host serves both surfaces and the SDK you pick decides which. `ConverseCommand` (`@aws-sdk/client-bedrock-runtime`) takes `inferenceConfig.maxTokens` and puts vendor extras in `additionalModelRequestFields` — that is what `bedrock/*` documents. `AnthropicBedrock` (`@anthropic-ai/bedrock-sdk`) calls `InvokeModel` with the native Anthropic body (`max_tokens`, top-level `thinking`) instead, so these entries do not describe it. Same model, same key, two vocabularies.
 
 ## Adding a model
 
@@ -80,8 +183,9 @@ npm install
 npm run dev          # http://localhost:3000
 npm run build        # → dist/
 npm run validate     # check every YAML
+npm test             # site tests, including the /api/v1/validate function
+npm test --workspaces # + every published package
 npm run codegen:python # regenerate the Python package catalog and types
-npm test
 ```
 
 ## License

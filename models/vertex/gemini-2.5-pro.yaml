@@ -1,0 +1,103 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: vertex
+authType: api_key
+apiSurface: google-vertex-generate-content
+model: gemini-2.5-pro
+status: deprecated
+replacement: vertex/gemini-3.5-flash
+shutdownOn: 2026-10-20
+params:
+  - path: generationConfig.maxOutputTokens
+    type: integer
+    label: Max output tokens
+    description: Maximum number of tokens to include in a response candidate.
+    range:
+      min: 1
+      max: 65536
+    group: generation_length
+  - path: generationConfig.temperature
+    type: number
+    label: Temperature
+    description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
+    default: 1
+    range:
+      min: 0
+      max: 2
+      step: 0.1
+    group: sampling
+  - path: generationConfig.topP
+    type: number
+    label: Top P
+    description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
+    default: 0.95
+    range:
+      min: 0
+      max: 1
+      step: 0.01
+    group: sampling
+  - path: generationConfig.topK
+    type: integer
+    label: Top K
+    description: Limits token sampling to the top K most likely next tokens.
+    default: 64
+    range:
+      min: 1
+    group: sampling
+  - path: generationConfig.seed
+    type: integer
+    label: Seed
+    description: Optional seed used for decoding when reproducible sampling is desired.
+    group: sampling
+  - path: generationConfig.candidateCount
+    type: integer
+    label: Candidate count
+    description: How many independent completions to generate for one request.
+    range:
+      min: 1
+      max: 8
+    group: generation_length
+  - path: generationConfig.stopSequences
+    type: string
+    label: Stop sequences
+    description: A list of strings where the model stops generating further tokens.
+    group: generation_length
+  - path: generationConfig.presencePenalty
+    type: number
+    label: Presence penalty
+    description: Penalises tokens that already appeared, pushing the model toward new topics.
+    range:
+      min: -2
+      max: 1
+    group: sampling
+  - path: generationConfig.frequencyPenalty
+    type: number
+    label: Frequency penalty
+    description: Penalises tokens in proportion to how often they have already appeared.
+    range:
+      min: -2
+      max: 1
+    group: sampling
+  - path: generationConfig.responseMimeType
+    type: enum
+    label: Response MIME type
+    description: MIME type for generated text candidates.
+    default: text/plain
+    values:
+      - text/plain
+      - application/json
+    group: output_format
+  - path: generationConfig.thinkingConfig.thinkingBudget
+    type: integer
+    label: Thinking budget
+    description: >-
+      Token budget the model may spend on internal reasoning before answering. 0 disables
+      thinking. Cannot be combined with thinkingLevel.
+    range:
+      min: 0
+    group: reasoning
+  - path: generationConfig.thinkingConfig.includeThoughts
+    type: boolean
+    label: Include thoughts
+    description: Controls whether Gemini returns available thought summaries in the response parts.
+    default: false
+    group: reasoning

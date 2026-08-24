@@ -3,6 +3,20 @@ import { z } from "zod";
 export const AuthType = z.enum(["api_key", "subscription"]);
 export type AuthType = z.infer<typeof AuthType>;
 
+export const ApiSurface = z.enum([
+  "openai-chat-completions",
+  "openai-responses",
+  "anthropic-messages",
+  "google-generate-content",
+  "amazon-bedrock-converse",
+  "google-vertex-generate-content",
+  "cohere-chat",
+]);
+export type ApiSurface = z.infer<typeof ApiSurface>;
+
+export const LifecycleStatus = z.enum(["active", "deprecated", "retired"]);
+export type LifecycleStatus = z.infer<typeof LifecycleStatus>;
+
 export const ParameterType = z.enum(["boolean", "enum", "integer", "number", "string"]);
 export type ParameterType = z.infer<typeof ParameterType>;
 
@@ -19,8 +33,21 @@ export type ParameterGroup = z.infer<typeof ParameterGroup>;
 
 const PROVIDER_SLUG = /^[a-z0-9][a-z0-9-]*$/;
 const MODEL_ID = /^[A-Za-z0-9][A-Za-z0-9._:-]*$/;
+const MODEL_REFERENCE = /^[a-z0-9][a-z0-9-]*\/[A-Za-z0-9][A-Za-z0-9._:-]*$/;
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const PARAM_PATH = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*$/;
 const BLOCKED_PARAM_PATHS = new Set(["stream"]);
+
+const IsoDate = z
+  .string()
+  .regex(ISO_DATE, "date must use ISO YYYY-MM-DD")
+  .refine(
+    (value) => {
+      const parsed = new Date(`${value}T00:00:00Z`);
+      return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+    },
+    { message: "date must be a real calendar date" },
+  );
 
 export const Range = z
   .object({
@@ -161,10 +188,34 @@ export const Model = z
       .min(1)
       .regex(PROVIDER_SLUG, "provider must be a kebab-case slug (e.g. `anthropic`)"),
     authType: AuthType,
+    /** The request/SDK surface whose parameter paths this entry documents. */
+    apiSurface: ApiSurface,
     model: z
       .string()
       .min(1)
       .regex(MODEL_ID, "model must be a provider-native model id without path separators"),
+    /**
+     * The exact string to put in the request's own `model` field, for hosts
+     * whose wire id cannot double as the catalog slug: pathed ids
+     * (`accounts/fireworks/models/kimi-k3`, `openai/gpt-oss-20b`) or ids
+     * wrapped in vendor and version segments
+     * (`anthropic.claude-sonnet-4-5-20250929-v1:0`).
+     *
+     * Absent means the slug is already the wire id — send `model` as-is.
+     *
+     * May contain `{scope}`, a placeholder the caller replaces with a routing
+     * geography (`us`, `eu`, `global`, …) before sending.
+     */
+    wireId: z.string().min(1).regex(/^\S+$/, "wireId must not contain whitespace").optional(),
+    /** Omitted when lifecycle status has not been tracked for this model. */
+    status: LifecycleStatus.optional(),
+    /** Provider-qualified model id suggested as the migration target. */
+    replacement: z
+      .string()
+      .regex(MODEL_REFERENCE, "replacement must be a provider-qualified model id")
+      .optional(),
+    /** Provider-published shutdown date. */
+    shutdownOn: IsoDate.optional(),
     params: z.array(Parameter),
   })
   .strict();

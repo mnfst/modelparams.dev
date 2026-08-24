@@ -5,3 +5,4 @@ export * from "./model-ids.js";
 export * from "./params-by-id.js";
 export * from "./defaults.js";
 export * from "./data.js";
+export * from "./provider-endpoints.js";

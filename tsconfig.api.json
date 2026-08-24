@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true
+  },
+  "include": [
+    "api/**/*.ts",
+    "packages/modelparams/src/**/*.ts",
+    "packages/modelparams-mcp/src/**/*.ts"
+  ]
+}

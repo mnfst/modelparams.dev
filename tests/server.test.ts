@@ -8,6 +8,7 @@ function makeModel(overrides: Partial<Model> = {}): Model {
   return {
     provider: "anthropic",
     authType: "api_key",
+    apiSurface: "anthropic-messages",
     model: "claude-opus-4-7",
     params: [
       {
@@ -37,6 +38,7 @@ const MODELS: Model[] = [
   makeModel({ authType: "subscription" }),
   makeModel({
     provider: "openai",
+    apiSurface: "openai-chat-completions",
     model: "gpt-4o",
     params: [
       { path: "top_p", type: "number", label: "Top P", description: "Nucleus.", group: "sampling" },
@@ -134,6 +136,7 @@ describe("GET /api/v1/models/:provider/:slug.json", () => {
     expect(body.provider).toBe("anthropic");
     expect(body.model).toBe("claude-opus-4-7");
     expect(body.authType).toBe("api_key");
+    expect(body.apiSurface).toBe("anthropic-messages");
     expect(body.$schema).toBe("https://modelparams.dev/api/v1/schema.json");
   });
 
@@ -164,6 +167,12 @@ describe("GET / (home)", () => {
   it("carries a concrete title and a crawlable browse-by-parameter section", async () => {
     const body = await get("/").then((r) => r.text());
     expect(body).toContain("modelparams.dev · LLM API Parameters for 3 Models");
+    expect(body).toContain("API surface");
+    expect(body).toContain("Chat Completions");
+    expect(body.match(/data-model-name="claude opus 4\.7"/g)).toHaveLength(2);
+    expect(body.match(/data-model-api-surface="anthropic-messages"/g)).toHaveLength(2);
+    expect(body).not.toContain("data-model-variant-trigger");
+    expect(body).toContain("SDK method");
     expect(body).toContain("Browse by API parameter");
     expect(body).toContain('href="/parameters/temperature"');
     expect(body).toContain('href="/parameters/max_tokens"');
@@ -212,7 +221,9 @@ describe("GET /providers/:provider", () => {
     const res = await get("/providers/anthropic");
     expect(res.status).toBe(200);
     expect(res.headers.get("content-type")).toContain("text/html");
-    expect(await res.text()).toContain("Anthropic");
+    const body = await res.text();
+    expect(body).toContain("Anthropic");
+    expect(body).toContain("Messages");
   });
 
   it("404s for an unknown provider", async () => {
@@ -227,7 +238,9 @@ describe("GET /models/:provider/:slug", () => {
     const res = await get("/models/openai/gpt-4o");
     expect(res.status).toBe(200);
     expect(res.headers.get("content-type")).toContain("text/html");
-    expect(await res.text()).toContain("<!doctype html>");
+    const body = await res.text();
+    expect(body).toContain("<!doctype html>");
+    expect(body).toContain("Chat Completions");
   });
 
   it("404s for an unknown model", async () => {

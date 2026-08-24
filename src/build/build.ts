@@ -3,7 +3,6 @@ import path from "node:path";
 import {
   buildCapabilityFacets,
   buildCatalog,
-  buildProviderFacets,
   uniqueProviders,
 } from "../data/catalog.js";
 import { loadAllModels } from "../data/load.js";
@@ -23,18 +22,21 @@ import {
   API_PATH,
   DISAMBIGUATION_PATH,
   GLOSSARY_PATH,
+  MCP_PATH,
   modelPagePath,
   parameterPagePath,
   providerPagePath,
 } from "../data/urls.js";
 import { modelId, type Model } from "../schema/model.js";
 import { buildModelJsonSchema } from "../schema/generate.js";
+import { loadProviderEndpoints } from "../data/provider-endpoints.js";
 import { bundleClientScript, compileStyles, copyStaticAssets } from "./assets.js";
 import { gitLastmodMap, modelLastmod, newestLastmod } from "./lastmod.js";
 import { renderIndex } from "./render.js";
 import { renderApiPage } from "./render-api.js";
 import { renderDisambiguationPage } from "./render-disambiguation.js";
 import { renderGlossaryPage } from "./render-glossary.js";
+import { renderMcpPage } from "./render-mcp.js";
 import { renderModelPage } from "./render-model.js";
 import { defaultSummary,renderParameterPage, rangeSummary } from "./render-parameter.js";
 import { renderNotFoundPage } from "./render-not-found.js";
@@ -79,6 +81,7 @@ async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
     { path: GLOSSARY_PATH, priority: "0.7", lastmod: freshest(models) },
     { path: DISAMBIGUATION_PATH, priority: "0.6", lastmod: freshest(models) },
     { path: API_PATH, priority: "0.5", lastmod: freshest(models) },
+    { path: MCP_PATH, priority: "0.5", lastmod: freshest(models) },
     ...uniqueProviders(models).map((provider) => ({
       path: providerPagePath(provider),
       priority: "0.8",
@@ -132,6 +135,7 @@ async function writeHtmlPages(models: Model[]): Promise<void> {
     "utf8",
   );
   await fs.writeFile(path.join(DIST_DIR, "api.html"), await renderApiPage(models), "utf8");
+  await fs.writeFile(path.join(DIST_DIR, "mcp-server.html"), await renderMcpPage(models), "utf8");
   await fs.writeFile(path.join(DIST_DIR, "404.html"), await renderNotFoundPage(models), "utf8");
 }
 
@@ -162,10 +166,14 @@ async function writeApiIndex(modelCount: number): Promise<void> {
       schema: "/api/v1/schema.json",
       modelByIdApiKey: "/api/v1/models/{provider}/{model}.json",
       modelByIdSubscription: "/api/v1/models/{provider}/{model}-subscription.json",
+      // Legacy providerless lookups, kept for compatibility — prefer the
+      // provider-qualified modelById paths above.
       paramsByModelApiKey: "/api/v1/params/{model}.json",
       paramsByModelSubscription: "/api/v1/params/{model}-subscription.json",
+      validate: "POST /api/v1/validate",
     },
     modelCount,
+    mcp: "https://modelparams.dev/mcp",
     docs: "https://github.com/mnfst/modelparams.dev#api",
   };
   await writeJson(path.join(DIST_API_DIR, "index.json"), body);
@@ -188,15 +196,14 @@ export async function build(): Promise<{ models: number }> {
 
   const catalog = buildCatalog(models);
   const capabilities = buildCapabilityFacets(models);
-  const providers = buildProviderFacets(models);
-
   console.log(`Rendering HTML for ${models.length} model(s)...`);
-  const html = await renderIndex({ catalog, capabilities, providers, analytics: true });
+  const html = await renderIndex({ catalog, capabilities, analytics: true });
   await fs.writeFile(path.join(DIST_DIR, "index.html"), html, "utf8");
 
   console.log("Writing JSON API...");
   await writeJson(path.join(DIST_API_DIR, "models.json"), catalog);
   await writeJson(path.join(DIST_API_DIR, "schema.json"), buildModelJsonSchema());
+  await writeJson(path.join(DIST_API_DIR, "providers.json"), loadProviderEndpoints());
   await writeApiIndex(catalog.count);
   for (const model of models) {
     const [provider, slug] = modelId(model).split("/");

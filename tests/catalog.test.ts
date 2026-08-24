@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest";
 import { buildCapabilityFacets, buildCatalog, uniqueProviders } from "../src/data/catalog.js";
 import { describeApplicability } from "../src/data/applicability.js";
+import {
+  apiSurfaceLabel,
+  apiSurfaceSdkMethod,
+  buildApiSurfaceFacets,
+} from "../src/data/api-surfaces.js";
 import { modelFullLabel, modelLabel, paramLabel, providerLabel } from "../src/data/display.js";
 import {
   findModelParams,
@@ -16,6 +21,7 @@ function makeModel(overrides: Partial<Model> = {}): Model {
   return {
     provider: "anthropic",
     authType: "api_key",
+    apiSurface: "anthropic-messages",
     model: "claude-opus-4-7",
     params: [
       {
@@ -64,6 +70,26 @@ describe("buildCapabilityFacets", () => {
     expect(facets[0]).toEqual({ path: "temperature", count: 2 });
     expect(facets.map((f) => f.path)).toContain("logprobs");
     expect(facets.map((f) => f.path)).toContain("top_p");
+  });
+});
+
+describe("buildApiSurfaceFacets", () => {
+  it("counts each API-surface-specific model entry", () => {
+    const chat = makeModel({
+      provider: "openai",
+      model: "gpt-5.5",
+      apiSurface: "openai-chat-completions",
+    });
+    const responses = makeModel({
+      provider: "openai",
+      model: "gpt-5.5",
+      authType: "subscription",
+      apiSurface: "openai-responses",
+    });
+    expect(buildApiSurfaceFacets([responses, chat])).toEqual([
+      { apiSurface: "openai-chat-completions", count: 1 },
+      { apiSurface: "openai-responses", count: 1 },
+    ]);
   });
 });
 
@@ -126,7 +152,7 @@ describe("providerless model params", () => {
     expect(listModelParamsResponses([one, two])).toEqual([modelParamsResponse(one)]);
   });
 
-  it("rejects conflicting providerless model param sets", () => {
+  it("omits providerless slugs whose serving providers disagree on params", () => {
     const one = makeModel({ provider: "anthropic" });
     const two = makeModel({
       provider: "openrouter",
@@ -141,13 +167,16 @@ describe("providerless model params", () => {
       ],
     });
 
-    expect(() => listModelParamsResponses([one, two])).toThrow(
-      'Conflicting params for providerless model slug "claude-opus-4-7"',
-    );
+    expect(listModelParamsResponses([one, two])).toEqual([]);
   });
 });
 
 describe("display helpers", () => {
+  it("labels API surfaces with their representative SDK method", () => {
+    expect(apiSurfaceLabel("openai-responses")).toBe("Responses API");
+    expect(apiSurfaceSdkMethod("openai-responses")).toBe("responses.create");
+  });
+
   it("knows the canonical provider names", () => {
     expect(providerLabel("anthropic")).toBe("Anthropic");
     expect(providerLabel("openai")).toBe("OpenAI");

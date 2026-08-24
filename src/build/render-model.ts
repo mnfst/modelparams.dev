@@ -1,6 +1,7 @@
 import path from "node:path";
 import ejs from "ejs";
 import { describeApplicability } from "../data/applicability.js";
+import { apiSurfaceLabel } from "../data/api-surfaces.js";
 import { modelFullLabel, modelLabel, paramGroupLabel, providerLabel } from "../data/display.js";
 import { modelFaq } from "../data/faq.js";
 import { groupParams } from "../data/group.js";
@@ -42,7 +43,7 @@ export function modelPageTitle(model: Model): string {
 const PARAM_TAIL = ". Type, default, range, and gating conditions for each.";
 
 export function modelPageDescription(model: Model): string {
-  const who = `${modelFullLabel(model)}${authNote(model)}`;
+  const who = `${modelFullLabel(model)} on ${apiSurfaceLabel(model.apiSurface)}${authNote(model)}`;
   if (model.params.length === 0) {
     return `${who}: no API parameters documented yet. Browse the open catalog of LLM API parameters on ${SITE_NAME}.`;
   }
@@ -98,11 +99,19 @@ export function modelIntro(model: Model): string {
   if (model.params.length === 0) {
     return `No API parameters are documented yet for ${who}. The data is community-maintained, so this page fills in as entries land.`;
   }
-  const access =
-    model.authType === "subscription"
-      ? " when you reach it through a subscription rather than an API key"
-      : "";
-  return `These are the API parameters ${SITE_NAME} tracks for ${who}${access} — the settings you send in a request. Each row gives the type, default, valid range or values, and the conditions that gate it. It's the same data the JSON API serves.`;
+  const access = model.authType === "subscription" ? " through a subscription" : " with an API key";
+  const surface = apiSurfaceLabel(model.apiSurface);
+  return `These are the API parameters ${SITE_NAME} tracks for ${who} on ${surface}${access} — the settings you send in a request. Each row gives the type, default, valid range or values, and the conditions that gate it. It's the same data the JSON API serves.`;
+}
+
+export function modelLifecycleSummary(model: Model): string | null {
+  const status = model.status;
+  const parts: string[] = [];
+  if (status === "deprecated") parts.push("This model is deprecated.");
+  if (status === "retired") parts.push("This model is retired.");
+  if (model.shutdownOn) parts.push(`Shutdown date: ${model.shutdownOn}.`);
+  if (model.replacement) parts.push(`Suggested replacement: ${model.replacement}.`);
+  return parts.length > 0 ? parts.join(" ") : null;
 }
 
 export async function renderModelPage(model: Model, allModels: Model[]): Promise<string> {
@@ -117,7 +126,9 @@ export async function renderModelPage(model: Model, allModels: Model[]): Promise
     siblings,
     faqs,
     intro: modelIntro(model),
+    lifecycleSummary: modelLifecycleSummary(model),
     providerName: providerLabel(model.provider),
+    surfaceName: apiSurfaceLabel(model.apiSurface),
     modelName: modelLabel(model),
     fullName: modelFullLabel(model),
     providerPath: providerPagePath(model.provider),

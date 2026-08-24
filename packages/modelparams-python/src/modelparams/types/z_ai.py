@@ -13,7 +13,7 @@ _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 Glm_4_5Params = TypedDict(
     "Glm_4_5Params",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=98304)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -27,7 +27,7 @@ setattr(Glm_4_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_5_AirParams = TypedDict(
     "Glm_4_5_AirParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=98304)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -41,7 +41,7 @@ setattr(Glm_4_5_AirParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_5_Air_SubscriptionParams = TypedDict(
     "Glm_4_5_Air_SubscriptionParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=98304)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -55,7 +55,7 @@ setattr(Glm_4_5_Air_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_5_AirxParams = TypedDict(
     "Glm_4_5_AirxParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=98304)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -69,7 +69,7 @@ setattr(Glm_4_5_AirxParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_5_FlashParams = TypedDict(
     "Glm_4_5_FlashParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=98304)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -83,7 +83,7 @@ setattr(Glm_4_5_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_5_SubscriptionParams = TypedDict(
     "Glm_4_5_SubscriptionParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=98304)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -97,7 +97,7 @@ setattr(Glm_4_5_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_5_XParams = TypedDict(
     "Glm_4_5_XParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=98304)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -111,7 +111,7 @@ setattr(Glm_4_5_XParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_6Params = TypedDict(
     "Glm_4_6Params",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -125,7 +125,7 @@ setattr(Glm_4_6Params, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_6_SubscriptionParams = TypedDict(
     "Glm_4_6_SubscriptionParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -139,7 +139,7 @@ setattr(Glm_4_6_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_7Params = TypedDict(
     "Glm_4_7Params",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -153,7 +153,7 @@ setattr(Glm_4_7Params, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_7_FlashParams = TypedDict(
     "Glm_4_7_FlashParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -167,7 +167,7 @@ setattr(Glm_4_7_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_7_FlashxParams = TypedDict(
     "Glm_4_7_FlashxParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -181,7 +181,7 @@ setattr(Glm_4_7_FlashxParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_4_7_SubscriptionParams = TypedDict(
     "Glm_4_7_SubscriptionParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -195,7 +195,7 @@ setattr(Glm_4_7_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_5Params = TypedDict(
     "Glm_5Params",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -209,7 +209,7 @@ setattr(Glm_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_5_SubscriptionParams = TypedDict(
     "Glm_5_SubscriptionParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -223,7 +223,7 @@ setattr(Glm_5_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_5_TurboParams = TypedDict(
     "Glm_5_TurboParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -237,7 +237,7 @@ setattr(Glm_5_TurboParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_5_Turbo_SubscriptionParams = TypedDict(
     "Glm_5_Turbo_SubscriptionParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -251,7 +251,7 @@ setattr(Glm_5_Turbo_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_5_1Params = TypedDict(
     "Glm_5_1Params",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -265,7 +265,7 @@ setattr(Glm_5_1Params, "__pydantic_config__", _PARAMS_CONFIG)
 Glm_5_1_SubscriptionParams = TypedDict(
     "Glm_5_1_SubscriptionParams",
     {
-        "max_tokens": Annotated[int, Field(ge=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
         "temperature": Annotated[float, Field(ge=0, le=1)],
         "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "do_sample": bool,
@@ -306,6 +306,21 @@ Glm_5_2_SubscriptionParams = TypedDict(
 )
 setattr(Glm_5_2_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Glm_5_3Params = TypedDict(
+    "Glm_5_3Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "do_sample": bool,
+        "thinking.type": Literal["enabled"],
+        "reasoning_effort": Literal["low", "high", "max"],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Glm_5_3Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Glm_4_5Params",
     "Glm_4_5_AirParams",
@@ -328,4 +343,5 @@ __all__ = [
     "Glm_5_1_SubscriptionParams",
     "Glm_5_2Params",
     "Glm_5_2_SubscriptionParams",
+    "Glm_5_3Params",
 ]

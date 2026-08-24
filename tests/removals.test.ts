@@ -7,7 +7,13 @@ function param(path: string): Parameter {
 }
 
 function model(provider: string, authType: AuthType, name: string, paths: string[]): Model {
-  return { provider, authType, model: name, params: paths.map(param) };
+  return {
+    provider,
+    authType,
+    apiSurface: "openai-chat-completions",
+    model: name,
+    params: paths.map(param),
+  };
 }
 
 describe("findRemovedParams", () => {

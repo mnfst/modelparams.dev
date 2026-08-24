@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: perplexity
 authType: api_key
+apiSurface: openai-chat-completions
 model: sonar-deep-research
 params:
   - path: max_tokens

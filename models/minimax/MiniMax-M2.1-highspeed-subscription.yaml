@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: minimax
 authType: subscription
+apiSurface: openai-chat-completions
 model: MiniMax-M2.1-highspeed
+status: active
 params:
   - path: max_tokens
     type: integer

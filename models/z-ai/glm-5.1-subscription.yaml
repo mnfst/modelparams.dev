@@ -1,14 +1,18 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: z-ai
 authType: subscription
+apiSurface: openai-chat-completions
 model: glm-5.1
+status: active
 params:
   - path: max_tokens
     type: integer
     label: Max tokens
     description: Maximum number of tokens to generate in the response.
+    default: 65536
     range:
       min: 1
+      max: 131072
     group: generation_length
   - path: temperature
     type: number

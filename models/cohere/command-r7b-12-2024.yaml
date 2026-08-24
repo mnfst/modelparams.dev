@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: cohere
 authType: api_key
+apiSurface: cohere-chat
 model: command-r7b-12-2024
+status: active
 params:
   - path: max_tokens
     type: integer

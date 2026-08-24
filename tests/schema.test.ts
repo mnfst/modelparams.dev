@@ -5,6 +5,7 @@ import { buildModelJsonSchema } from "../src/schema/generate.js";
 const VALID_MODEL = {
   provider: "anthropic",
   authType: "api_key",
+  apiSurface: "anthropic-messages",
   model: "claude-opus-4-7",
   params: [
     {
@@ -38,6 +39,13 @@ describe("Model schema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("requires a known API surface", () => {
+    expect(Model.safeParse({ ...VALID_MODEL, apiSurface: "openai-completions" }).success).toBe(
+      false,
+    );
+    expect(Model.safeParse({ ...VALID_MODEL, apiSurface: undefined }).success).toBe(false);
+  });
+
   it("accepts provider-native model ids with dots", () => {
     const result = Model.safeParse({ ...VALID_MODEL, provider: "openai", model: "gpt-4.1" });
     expect(result.success).toBe(true);
@@ -55,6 +63,37 @@ describe("Model schema", () => {
       model: "deepseek/deepseek-chat",
     });
     expect(result.success).toBe(false);
+  });
+
+  it("accepts a pathed wireId alongside the catalog slug", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      provider: "fireworks",
+      model: "kimi-k3",
+      wireId: "accounts/fireworks/models/kimi-k3",
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects a wireId containing whitespace", () => {
+    const result = Model.safeParse({ ...VALID_MODEL, wireId: "kimi k3" });
+    expect(result.success).toBe(false);
+  });
+
+  it("accepts lifecycle metadata", () => {
+    const result = Model.safeParse({
+      ...VALID_MODEL,
+      status: "deprecated",
+      replacement: "anthropic/claude-opus-4-8",
+      shutdownOn: "2026-10-01",
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects invalid lifecycle metadata", () => {
+    expect(Model.safeParse({ ...VALID_MODEL, status: "legacy" }).success).toBe(false);
+    expect(Model.safeParse({ ...VALID_MODEL, replacement: "claude-opus-4-8" }).success).toBe(false);
+    expect(Model.safeParse({ ...VALID_MODEL, shutdownOn: "2026-02-30" }).success).toBe(false);
   });
 
   it("rejects unknown top-level fields", () => {
@@ -333,5 +372,12 @@ describe("JSON Schema generator", () => {
     expect(schema.$schema).toBe("http://json-schema.org/draft-07/schema#");
     expect(schema.$id).toBe("https://modelparams.dev/api/v1/schema.json");
     expect(typeof schema.title).toBe("string");
+  });
+
+  it("includes lifecycle metadata", () => {
+    const schema = JSON.stringify(buildModelJsonSchema());
+    expect(schema).toContain('"status"');
+    expect(schema).toContain('"replacement"');
+    expect(schema).toContain('"shutdownOn"');
   });
 });

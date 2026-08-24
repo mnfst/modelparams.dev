@@ -1,4 +1,5 @@
 import { describeApplicability } from "./applicability.js";
+import { apiSurfaceLabel } from "./api-surfaces.js";
 import { buildProviderFacets } from "./catalog.js";
 import { authLabel, modelFullLabel, paramGroupLabel, providerLabel } from "./display.js";
 import { groupParams } from "./group.js";
@@ -14,7 +15,7 @@ function modelJsonUrl(siteUrl: string, model: Model): string {
 
 function modelTitle(model: Model): string {
   const variant = model.authType === "subscription" ? ` (${authLabel(model.authType)})` : "";
-  return `${modelFullLabel(model)}${variant}`;
+  return `${modelFullLabel(model)}${variant} on ${apiSurfaceLabel(model.apiSurface)}`;
 }
 
 function plural(n: number, word: string): string {
@@ -37,6 +38,20 @@ function guideIntro(siteUrl: string): string[] {
     "The same model accessed via an **API key** and via a **subscription** usually exposes a",
     "different set of parameters. We list both as separate entries so the data stays honest.",
     "",
+    "A `wireId` containing `{scope}` needs one substitution before you send it: Bedrock",
+    "reaches most newer models through a cross-region inference profile whose id is the model id",
+    "behind a geography prefix, so `{scope}.anthropic.claude-sonnet-4-5-20250929-v1:0` becomes",
+    "`eu.anthropic....` in Frankfurt, or `global.anthropic....` to let AWS route it. Valid scopes:",
+    "us, eu, apac, jp, au, ca, sa, global. A wireId with no placeholder is already complete.",
+    "",
+    "Every entry names its request and SDK family in `apiSurface`; **one entry documents one",
+    "wire format**. Where a host serves two, use the entry for the surface your code calls:",
+    "`bedrock/*` currently declares `amazon-bedrock-converse` and",
+    "documents Amazon Bedrock's `Converse` API (`inferenceConfig.maxTokens`, vendor extras",
+    "under `additionalModelRequestFields`), not `InvokeModel` with native per-vendor bodies",
+    "(`max_tokens`, top-level `thinking`) as the `AnthropicBedrock` client sends. If your",
+    "code calls the surface an entry does not cover, its parameter names will not match.",
+    "",
   ];
 }
 
@@ -57,8 +72,8 @@ function guideApi(siteUrl: string): string[] {
     "params endpoint. Subscription contracts are model slugs with `-subscription`:",
     "",
     "```bash",
-    `curl ${siteUrl}/api/v1/params/gpt-5.5.json`,
-    `curl ${siteUrl}/api/v1/params/gpt-5.5-subscription.json`,
+    `curl ${siteUrl}/api/v1/models/openai/gpt-5.5.json`,
+    `curl ${siteUrl}/api/v1/models/openai/gpt-5.5-subscription.json`,
     "```",
     "",
     "## Single model",
@@ -67,6 +82,36 @@ function guideApi(siteUrl: string): string[] {
     `curl ${siteUrl}/api/v1/models/anthropic/claude-opus-4-7.json`,
     `curl ${siteUrl}/api/v1/models/anthropic/claude-opus-4-7-subscription.json`,
     "```",
+    "",
+    "## Validate a request before you send it",
+    "",
+    "POST a model and a params object; the response reports unknown parameters, values",
+    "outside their range, and combinations the provider rejects — plus a corrected payload",
+    "under `safeParams` that is always safe to send as-is:",
+    "",
+    "```bash",
+    `curl -s ${siteUrl}/api/v1/validate \\`,
+    `  -H 'Content-Type: application/json' \\`,
+    `  -d '{"model":"claude-3-opus-20240229","params":{"temperature":0.5,"top_p":0.9}}'`,
+    "```",
+    "",
+    "Each issue carries a `code`: `unknown_parameter` (no such knob on this model),",
+    "`invalid_value` (out of range or not in the enum), or `not_applicable` (the knob",
+    "exists but conflicts with another value in the same request, listed in",
+    "`conflictsWith`).",
+    "",
+    "## MCP server",
+    "",
+    "Agents can query the catalog over the Model Context Protocol instead of HTTP.",
+    "The server is hosted, over Streamable HTTP — nothing to install:",
+    "",
+    "```bash",
+    `claude mcp add --transport http modelparams ${siteUrl}/mcp`,
+    `codex mcp add modelparams --url ${siteUrl}/mcp`,
+    "```",
+    "",
+    "Tools: `validate_model_params`, `get_model_params`, `list_models`,",
+    "`list_provider_models`.",
     "",
     "## JSON Schema",
     "",
@@ -169,9 +214,9 @@ export function buildLlmsTxt(siteUrl: string, models: Model[]): string {
     "",
     "## API",
     `- [Full catalog](${siteUrl}/api/v1/models.json): Every model and its parameters in one JSON file (${plural(models.length, "model")}).`,
-    `- [Providerless params](${siteUrl}/api/v1/params/gpt-5.5.json): Params for one model slug; append \`-subscription\` for subscription contracts.`,
     `- [JSON Schema](${siteUrl}/api/v1/schema.json): Validates every entry; use it for editor autocomplete or CI checks.`,
     `- [API index](${siteUrl}/api/v1/index.json): Endpoint map and live model count.`,
+    `- [One model](${siteUrl}/api/v1/models/openai/gpt-5.5.json): Single entry at /api/v1/models/{provider}/{model}.json; append \`-subscription\` for subscription contracts.`,
     "",
     "## Guides",
     `- [Usage guide + full parameter dump](${siteUrl}/llms-full.txt): How to call the API plus every model's parameters inline.`,

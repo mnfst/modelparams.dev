@@ -1,7 +1,9 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
 provider: moonshot
 authType: subscription
+apiSurface: openai-chat-completions
 model: kimi-k2.7-code-highspeed
+status: active
 params:
   - path: max_completion_tokens
     type: integer
@@ -10,6 +12,16 @@ params:
     range:
       min: 1
     group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Thinking is always on for this model. Enabled is the only accepted value; disabled returns an
+      error.
+    default: enabled
+    values:
+      - enabled
+    group: reasoning
   - path: response_format.type
     type: enum
     label: Response format

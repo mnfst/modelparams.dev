@@ -6,6 +6,7 @@
   "framework": null,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [{ "source": "/mcp", "destination": "/api/mcp" }],
   "headers": [
     {
       "source": "/api/(.*)",
@@ -17,6 +18,25 @@
     {
       "source": "/api/v1/(.*)",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/api/mcp",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, GET, OPTIONS" },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Accept, Mcp-Protocol-Version, Mcp-Session-Id"
+        }
+      ]
+    },
+    {
+      "source": "/api/v1/validate",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
     },
     {
       "source": "/(llms.txt|llms-full.txt)",

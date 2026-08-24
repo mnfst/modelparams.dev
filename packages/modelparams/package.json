@@ -1,6 +1,6 @@
 {
   "name": "modelparams",
-  "version": "0.0.1",
+  "version": "0.0.58",
   "description": "TypeScript types and runtime data for model parameters. Generated from the modelparams.dev open catalog.",
   "keywords": [
     "llm",
@@ -52,6 +52,7 @@
   "files": [
     "dist",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "engines": {
@@ -59,6 +60,7 @@
   },
   "scripts": {
     "codegen": "tsx scripts/codegen.ts",
+    "prepare": "npm run build",
     "prebuild": "npm run codegen",
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",

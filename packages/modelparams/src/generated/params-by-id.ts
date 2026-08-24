@@ -7,7 +7,78 @@
  * parameters they want to override.
  */
 export type ParamsById = {
+  "alibaba/deepseek-v3.2": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-flash": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-flash-0731": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-pro": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/deepseek-v4-pro-0813": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/glm-5.1": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/glm-5.2": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/kimi-k2.7-code": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwen-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen-max": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -21,7 +92,41 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen-turbo": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-235b-a22b-thinking-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-30b-a3b-instruct-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-30b-a3b-thinking-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3-coder-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+  };
+  "alibaba/qwen3-coder-next": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -40,7 +145,63 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3-next-80b-a3b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-next-80b-a3b-thinking": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-235b-a22b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-235b-a22b-thinking": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3.5": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-122b-a10b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-27b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-35b-a3b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-397b-a17b": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -54,7 +215,47 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3.6-27b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.6-35b-a3b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwen3.6-flash": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.6-max-preview": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.6-plus": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.7-flash": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -71,6 +272,22 @@ export type ParamsById = {
     "extra_body.thinking_budget": number;
   };
   "alibaba/qwen3.7-plus": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.8-2.4t-a95b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.8-27b": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -404,12 +621,380 @@ export type ParamsById = {
   };
   "anthropic/claude-sonnet-5": {
     max_tokens: number;
-    temperature: number;
-    top_p: number;
-    top_k: number;
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
-    "output_config.effort": "low" | "medium" | "high" | "max";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "anthropic/claude-sonnet-5-subscription": {
+    max_tokens: number;
+    "thinking.type": "disabled" | "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "bedrock/claude-haiku-4-5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/claude-opus-4-5-20251101": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/claude-opus-4-6": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/claude-sonnet-4-5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/claude-sonnet-4-6": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/deepseek-r1": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/deepseek-v3.2": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/devstral-2-123b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gemma-3-12b-it": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gemma-3-27b-it": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gemma-3-4b-it": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/glm-4.7": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/glm-4.7-flash": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/glm-5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-120b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-20b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-safeguard-120b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/gpt-oss-safeguard-20b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/kimi-k2-thinking": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/kimi-k2.5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-1-70b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-1-8b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-3-70b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-70b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/llama3-8b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/magistral-small-2509": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/minimax-m2": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/minimax-m2.1": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/minimax-m2.5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/ministral-3-14b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
+  "bedrock/ministral-3-3b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/ministral-3-8b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/mistral-7b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/mistral-large-2402": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/mistral-large-3-675b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/mistral-small-2402": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/mixtral-8x7b-instruct": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+  };
+  "bedrock/nemotron-nano-12b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nemotron-nano-3-30b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nemotron-nano-9b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nemotron-super-3-120b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/nova-2-lite": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
+  "bedrock/nova-lite": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
+  "bedrock/nova-micro": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
+  "bedrock/nova-pro": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.inferenceConfig.topK": number;
+  };
+  "bedrock/palmyra-vision-7b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/palmyra-x4": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/palmyra-x5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/pixtral-large-2502": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-32b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-coder-30b-a3b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-coder-next": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-next-80b-a3b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/qwen3-vl-235b-a22b": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/voxtral-mini-3b-2507": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+  };
+  "bedrock/voxtral-small-24b-2507": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
   };
   "cerebras/zai-glm-4.7": {
     max_completion_tokens: number;
@@ -562,6 +1147,150 @@ export type ParamsById = {
     "thinking.type": "enabled" | "disabled";
     reasoning_effort: "high" | "max";
   };
+  "fireworks/deepseek-v4-flash-0731": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/deepseek-v4-pro": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/deepseek-v4-pro-0813": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/glm-5p2": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/gpt-oss-120b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/gpt-oss-20b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/inkling": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/kimi-k2p6": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/kimi-k2p7-code": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/kimi-k3": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/minimax-m2p7": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/minimax-m3": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/muse-glimmer-30b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/qwen3p7-plus": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/qwen3p8-2p4t-a95b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/qwen3p8-max": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "google/gemini-2.5-flash": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -622,6 +1351,16 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-3-flash-preview": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-3-flash-preview-subscription": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -633,6 +1372,16 @@ export type ParamsById = {
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
   "google/gemini-3.1-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.1-flash-lite-preview": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
     "generationConfig.topP": number;
@@ -662,6 +1411,26 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-3.1-pro-preview": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.1-pro-preview-customtools": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-3.1-pro-preview-subscription": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -673,6 +1442,36 @@ export type ParamsById = {
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
   "google/gemini-3.5-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.5-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.6-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.7-flash": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
     "generationConfig.topP": number;
@@ -768,7 +1567,55 @@ export type ParamsById = {
     top_p: number;
     top_k: number;
   };
+  "groq/gpt-oss-120b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
+  };
+  "groq/gpt-oss-20b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
+  };
+  "groq/gpt-oss-safeguard-20b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
+  };
   "groq/qwen3-32b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "none" | "default";
+    reasoning_format: "hidden" | "raw" | "parsed";
+    "response_format.type": "text" | "json_object";
+  };
+  "groq/qwen3.6-27b": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -815,6 +1662,28 @@ export type ParamsById = {
     repetition_penalty: number;
     "response_format.type": "text" | "json_schema";
     tool_choice: "auto" | "none" | "required";
+  };
+  "meta/muse-spark-1.1": {
+    max_completion_tokens: number;
+    reasoning_effort: "minimal" | "low" | "medium" | "high" | "xhigh";
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    prompt_cache_retention: "in_memory" | "24h";
+  };
+  "meta/muse-spark-1.2-contributor": {
+    max_completion_tokens: number;
+    reasoning_effort: "minimal" | "low" | "medium" | "high" | "xhigh";
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
+    prompt_cache_retention: "in_memory" | "24h";
   };
   "minimax/minimax-m2": {
     max_completion_tokens: number;
@@ -912,7 +1781,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/codestral-latest": {
@@ -923,7 +1792,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/devstral-2512": {
@@ -934,7 +1803,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/devstral-latest": {
@@ -945,7 +1814,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/magistral-medium-latest": {
@@ -957,7 +1826,7 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     prompt_mode: "reasoning";
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/magistral-small-latest": {
@@ -969,7 +1838,18 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     prompt_mode: "reasoning";
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/ministral-14b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-14b-latest": {
@@ -980,7 +1860,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/ministral-3b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-3b-latest": {
@@ -991,7 +1882,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/ministral-8b-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/ministral-8b-latest": {
@@ -1002,7 +1904,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-large-2512": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-large-latest": {
@@ -1013,7 +1926,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-medium-3": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-medium-3.5": {
@@ -1024,7 +1948,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-medium-latest": {
@@ -1035,7 +1959,18 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-small-2603": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/mistral-small-latest": {
@@ -1046,7 +1981,7 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "mistral/open-mistral-nemo": {
@@ -1057,71 +1992,117 @@ export type ParamsById = {
     random_seed: number;
     presence_penalty: number;
     frequency_penalty: number;
-    "response_format.type": "text" | "json_object";
+    "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
   "moonshot/kimi-k2.5": {
     max_completion_tokens: number;
+    stop: string;
     "thinking.type": "enabled" | "disabled";
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.6": {
     max_completion_tokens: number;
+    stop: string;
     "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.6-subscription": {
     max_completion_tokens: number;
     "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k2.7-code": {
     max_completion_tokens: number;
+    stop: string;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.7-code-highspeed": {
     max_completion_tokens: number;
+    stop: string;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object" | "json_schema";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/kimi-k2.7-code-highspeed-subscription": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k2.7-code-subscription": {
     max_completion_tokens: number;
+    "thinking.type": "enabled";
     "response_format.type": "text" | "json_object";
   };
   "moonshot/kimi-k3": {
     max_completion_tokens: number;
+    stop: string;
     "thinking.type": "enabled" | "disabled";
+    reasoning_effort: "low" | "high" | "max";
     "response_format.type": "text" | "json_object" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
   };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;
+    stop: string;
     temperature: number;
     top_p: number;
     n: number;
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none" | "required";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/moonshot-v1-32k": {
     max_completion_tokens: number;
+    stop: string;
     temperature: number;
     top_p: number;
     n: number;
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none" | "required";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/moonshot-v1-8k": {
     max_completion_tokens: number;
+    stop: string;
     temperature: number;
     top_p: number;
     n: number;
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none" | "required";
+    logprobs: boolean;
+    top_logprobs: number;
+  };
+  "nvidia/deepseek-v4-flash-0731": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
   };
   "nvidia/gliner-pii": {
     threshold: number;
@@ -1245,6 +2226,24 @@ export type ParamsById = {
     top_p: number;
   };
   "openai/gpt-3.5-turbo": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
+  "openai/gpt-3.5-turbo-16k": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
+  "openai/gpt-4": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
+  "openai/gpt-4-0613": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -1395,9 +2394,13 @@ export type ParamsById = {
     "reasoning.summary": "auto" | "concise" | "detailed" | "none";
     "text.verbosity": "low" | "medium" | "high";
   };
+  "openai/gpt-5.6": {
+    max_completion_tokens: number;
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
+  };
   "openai/gpt-5.6-luna": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-luna-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -1406,7 +2409,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6-sol": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-sol-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -1415,7 +2418,7 @@ export type ParamsById = {
   };
   "openai/gpt-5.6-terra": {
     max_completion_tokens: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "none" | "low" | "medium" | "high" | "xhigh";
   };
   "openai/gpt-5.6-terra-subscription": {
     "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
@@ -1541,6 +2544,160 @@ export type ParamsById = {
     reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh";
     separate_reasoning: boolean;
   };
+  "vertex/gemini-2.5-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+  };
+  "vertex/gemini-2.5-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "vertex/gemini-2.5-pro": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+  };
+  "vertex/gemini-3-flash-preview": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
+  "vertex/gemini-3.1-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
+  "vertex/gemini-3.1-pro-preview": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
+  "vertex/gemini-3.1-pro-preview-customtools": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
+  "vertex/gemini-3.5-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.presencePenalty": number;
+    "generationConfig.frequencyPenalty": number;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
+  "vertex/gemini-3.5-flash-lite": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
+  "vertex/gemini-3.6-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
+  "vertex/gemini-3.7-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.candidateCount": number;
+    "generationConfig.stopSequences": string;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+  };
   "xai/grok-4.20-0309-non-reasoning": {
     max_completion_tokens: number;
     temperature: number;
@@ -1608,6 +2765,14 @@ export type ParamsById = {
     top_p: number;
     seed: number;
     reasoning_effort: "none" | "low" | "medium" | "high";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.6": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    stop: string;
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "xai/grok-build-0.1": {
@@ -1816,6 +2981,15 @@ export type ParamsById = {
     do_sample: boolean;
     "thinking.type": "enabled" | "disabled";
     reasoning_effort: "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
+    "response_format.type": "text" | "json_object";
+  };
+  "z-ai/glm-5.3": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    do_sample: boolean;
+    "thinking.type": "enabled";
+    reasoning_effort: "low" | "high" | "max";
     "response_format.type": "text" | "json_object";
   };
 };
