@@ -2756,7 +2756,7 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
     seed: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "low" | "medium" | "high";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "xai/grok-4.5-subscription": {
@@ -2764,7 +2764,7 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
     seed: number;
-    reasoning_effort: "none" | "low" | "medium" | "high";
+    reasoning_effort: "low" | "medium" | "high";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "xai/grok-4.6": {
@@ -2773,6 +2773,15 @@ export type ParamsById = {
     top_p: number;
     seed: number;
     stop: string;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
+  "xai/grok-4.6-subscription": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
   "xai/grok-build-0.1": {

@@ -1771,18 +1771,25 @@ export const DEFAULTS = {
   "xai/grok-4.5": {
     temperature: 1,
     top_p: 1,
-    reasoning_effort: "low",
+    reasoning_effort: "high",
     "response_format.type": "text",
   },
   "xai/grok-4.5-subscription": {
     temperature: 1,
     top_p: 1,
-    reasoning_effort: "low",
+    reasoning_effort: "high",
     "response_format.type": "text",
   },
   "xai/grok-4.6": {
     temperature: 1,
     top_p: 1,
+    reasoning_effort: "high",
+    "response_format.type": "text",
+  },
+  "xai/grok-4.6-subscription": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "high",
     "response_format.type": "text",
   },
   "xai/grok-build-0.1": {

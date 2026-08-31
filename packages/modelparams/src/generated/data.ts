@@ -27519,12 +27519,11 @@ const GENERATED_CATALOG = [
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls how much reasoning Grok performs before responding. Set to none for non-reasoning requests.",
+        "description": "Controls how much reasoning Grok performs before responding. Defaults to high. Reasoning cannot be disabled.",
         "group": "reasoning",
         "type": "enum",
-        "default": "low",
+        "default": "high",
         "values": [
-          "none",
           "low",
           "medium",
           "high"
@@ -27598,12 +27597,11 @@ const GENERATED_CATALOG = [
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls how much reasoning Grok performs before responding. Set to none for non-reasoning requests.",
+        "description": "Controls how much reasoning Grok performs before responding. Defaults to high. Reasoning cannot be disabled.",
         "group": "reasoning",
         "type": "enum",
-        "default": "low",
+        "default": "high",
         "values": [
-          "none",
           "low",
           "medium",
           "high"
@@ -27629,6 +27627,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "grok-4.6",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -27676,9 +27675,102 @@ const GENERATED_CATALOG = [
       {
         "path": "stop",
         "label": "Stop sequence",
-        "description": "Stops generation when this sequence is produced. xAI accepts up to four stop sequences.",
+        "description": "Stops generation when this sequence is produced. xAI accepts up to four stop sequences. grok-4.6 rejects stop because reasoning cannot be disabled.",
         "group": "generation_length",
         "type": "string"
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning Grok performs before responding. Defaults to high. Reasoning cannot be disabled. xhigh is grok-4.6 and later.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Controls whether the model returns text, JSON mode output, or structured JSON schema output.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object",
+          "json_schema"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "xai",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "grok-4.6",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max completion tokens",
+        "description": "Upper bound for visible output tokens generated in the chat completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Optional seed used for decoding when reproducible sampling is desired.",
+        "group": "sampling",
+        "type": "integer"
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning Grok performs before responding. Defaults to high. Reasoning cannot be disabled. xhigh is grok-4.6 and later.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh"
+        ]
       },
       {
         "path": "response_format.type",

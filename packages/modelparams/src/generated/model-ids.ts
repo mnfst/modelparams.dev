@@ -357,6 +357,7 @@ export const MODEL_IDS = [
   "xai/grok-4.5",
   "xai/grok-4.5-subscription",
   "xai/grok-4.6",
+  "xai/grok-4.6-subscription",
   "xai/grok-build-0.1",
   "xai/grok-build-0.1-subscription",
   "xiaomi/mimo-v2.5",

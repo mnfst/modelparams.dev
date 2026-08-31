@@ -40,10 +40,9 @@ params:
   - path: reasoning_effort
     type: enum
     label: Reasoning effort
-    description: Controls how much reasoning Grok performs before responding. Set to none for non-reasoning requests.
-    default: low
+    description: Controls how much reasoning Grok performs before responding. Defaults to high. Reasoning cannot be disabled.
+    default: high
     values:
-      - none
       - low
       - medium
       - high
