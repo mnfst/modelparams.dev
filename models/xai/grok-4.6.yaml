@@ -3,6 +3,7 @@ provider: xai
 authType: api_key
 apiSurface: openai-chat-completions
 model: grok-4.6
+status: active
 params:
   - path: max_completion_tokens
     type: integer
@@ -39,8 +40,19 @@ params:
   - path: stop
     type: string
     label: Stop sequence
-    description: Stops generation when this sequence is produced. xAI accepts up to four stop sequences.
+    description: Stops generation when this sequence is produced. xAI accepts up to four stop sequences. grok-4.6 rejects stop because reasoning cannot be disabled.
     group: generation_length
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Controls how much reasoning Grok performs before responding. Defaults to high. Reasoning cannot be disabled. xhigh is grok-4.6 and later.
+    default: high
+    values:
+      - low
+      - medium
+      - high
+      - xhigh
+    group: reasoning
   - path: response_format.type
     type: enum
     label: Response format
