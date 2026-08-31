@@ -5,6 +5,18 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.59
+
+### Models added
+
+- `xai/grok-4.6-subscription`
+
+### Parameters changed
+
+- `xai/grok-4.5`: updated `reasoning_effort`
+- `xai/grok-4.5-subscription`: updated `reasoning_effort`
+- `xai/grok-4.6`: added `reasoning_effort`; updated `stop`
+
 ## 0.0.58
 
 ### Models added
