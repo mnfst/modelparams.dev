@@ -1070,6 +1070,13 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/glm-5-2": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    "response_format.type": "text",
+    safe_prompt: false,
+  },
   "mistral/magistral-medium-latest": {
     top_p: 1,
     presence_penalty: 0,
