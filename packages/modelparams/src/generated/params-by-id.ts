@@ -1178,6 +1178,15 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "fireworks/deepseek-v4-flash-vision-exp": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "fireworks/deepseek-v4-pro": {
     max_tokens: number;
     temperature: number;
@@ -1503,6 +1512,16 @@ export type ParamsById = {
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
   "google/gemini-3.7-flash": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
+  "google/gemini-3.8-flash": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
     "generationConfig.topP": number;
