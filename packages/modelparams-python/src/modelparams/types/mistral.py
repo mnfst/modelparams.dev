@@ -78,6 +78,24 @@ Devstral_LatestParams = TypedDict(
 )
 setattr(Devstral_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Glm_5_2Params = TypedDict(
+    "Glm_5_2Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "stop": str,
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "prompt_mode": Literal["reasoning"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Glm_5_2Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Magistral_Medium_LatestParams = TypedDict(
     "Magistral_Medium_LatestParams",
     {
@@ -357,6 +375,7 @@ __all__ = [
     "Codestral_LatestParams",
     "Devstral_2512Params",
     "Devstral_LatestParams",
+    "Glm_5_2Params",
     "Magistral_Medium_LatestParams",
     "Magistral_Small_LatestParams",
     "Ministral_14b_2512Params",

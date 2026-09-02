@@ -18,6 +18,7 @@ from modelparams.types import mistral
 from modelparams.types import moonshot
 from modelparams.types import nvidia
 from modelparams.types import openai
+from modelparams.types import opencode_go
 from modelparams.types import perplexity
 from modelparams.types import thinking_machines
 from modelparams.types import vertex
@@ -78,6 +79,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "anthropic/claude-3-opus-20240229": anthropic.Claude_3_Opus_20240229Params,
     "anthropic/claude-3-opus-latest": anthropic.Claude_3_Opus_LatestParams,
     "anthropic/claude-fable-5": anthropic.Claude_Fable_5Params,
+    "anthropic/claude-fable-5-1": anthropic.Claude_Fable_5_1Params,
     "anthropic/claude-fable-5-subscription": anthropic.Claude_Fable_5_SubscriptionParams,
     "anthropic/claude-haiku-4": anthropic.Claude_Haiku_4Params,
     "anthropic/claude-haiku-4-5": anthropic.Claude_Haiku_4_5Params,
@@ -184,6 +186,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "fireworks/deepseek-v4-pro": fireworks.Deepseek_V4_ProParams,
     "fireworks/deepseek-v4-pro-0813": fireworks.Deepseek_V4_Pro_0813Params,
     "fireworks/glm-5p2": fireworks.Glm_5p2Params,
+    "fireworks/glm-5p3": fireworks.Glm_5p3Params,
     "fireworks/gpt-oss-120b": fireworks.Gpt_Oss_120bParams,
     "fireworks/gpt-oss-20b": fireworks.Gpt_Oss_20bParams,
     "fireworks/inkling": fireworks.InklingParams,
@@ -259,6 +262,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "mistral/codestral-latest": mistral.Codestral_LatestParams,
     "mistral/devstral-2512": mistral.Devstral_2512Params,
     "mistral/devstral-latest": mistral.Devstral_LatestParams,
+    "mistral/glm-5-2": mistral.Glm_5_2Params,
     "mistral/magistral-medium-latest": mistral.Magistral_Medium_LatestParams,
     "mistral/magistral-small-latest": mistral.Magistral_Small_LatestParams,
     "mistral/ministral-14b-2512": mistral.Ministral_14b_2512Params,
@@ -358,6 +362,14 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "openai/o3-mini": openai.O3_MiniParams,
     "openai/o3-pro": openai.O3_ProParams,
     "openai/o4-mini": openai.O4_MiniParams,
+    "opencode-go/deepseek-v4-flash-vision-exp-subscription": opencode_go.Deepseek_V4_Flash_Vision_Exp_SubscriptionParams,
+    "opencode-go/glm-5.3-flash-subscription": opencode_go.Glm_5_3_Flash_SubscriptionParams,
+    "opencode-go/glm-5.3-subscription": opencode_go.Glm_5_3_SubscriptionParams,
+    "opencode-go/grok-4.6-subscription": opencode_go.Grok_4_6_SubscriptionParams,
+    "opencode-go/hy4-preview-subscription": opencode_go.Hy4_Preview_SubscriptionParams,
+    "opencode-go/longcat-2.0-subscription": opencode_go.Longcat_2_0_SubscriptionParams,
+    "opencode-go/qwen3.8-flash-subscription": opencode_go.Qwen3_8_Flash_SubscriptionParams,
+    "opencode-go/qwen3.8-max-subscription": opencode_go.Qwen3_8_Max_SubscriptionParams,
     "perplexity/sonar": perplexity.SonarParams,
     "perplexity/sonar-deep-research": perplexity.Sonar_Deep_ResearchParams,
     "perplexity/sonar-pro": perplexity.Sonar_ProParams,
