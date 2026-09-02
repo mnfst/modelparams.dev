@@ -44,5 +44,8 @@ export const PROVIDER_ENDPOINTS = {
   "vertex": [
     "https://aiplatform.googleapis.com",
     "https://*-aiplatform.googleapis.com"
+  ],
+  "opencode-go": [
+    "https://opencode.ai/zen/go/v1"
   ]
 } as const;
