@@ -41,6 +41,7 @@ export const MODEL_IDS = [
   "alibaba/qwen3.7-plus",
   "alibaba/qwen3.8-2.4t-a95b",
   "alibaba/qwen3.8-27b",
+  "alibaba/qwen3.8-flash",
   "alibaba/qwen3.8-max",
   "alibaba/qwq-plus",
   "anthropic/claude-3-5-haiku-20241022",
@@ -52,6 +53,7 @@ export const MODEL_IDS = [
   "anthropic/claude-3-opus-20240229",
   "anthropic/claude-3-opus-latest",
   "anthropic/claude-fable-5",
+  "anthropic/claude-fable-5-1",
   "anthropic/claude-fable-5-subscription",
   "anthropic/claude-haiku-4",
   "anthropic/claude-haiku-4-5",
@@ -334,6 +336,14 @@ export const MODEL_IDS = [
   "openai/o3-mini",
   "openai/o3-pro",
   "openai/o4-mini",
+  "opencode-go/deepseek-v4-flash-vision-exp-subscription",
+  "opencode-go/glm-5.3-flash-subscription",
+  "opencode-go/glm-5.3-subscription",
+  "opencode-go/grok-4.6-subscription",
+  "opencode-go/hy4-preview-subscription",
+  "opencode-go/longcat-2.0-subscription",
+  "opencode-go/qwen3.8-flash-subscription",
+  "opencode-go/qwen3.8-max-subscription",
   "perplexity/sonar",
   "perplexity/sonar-deep-research",
   "perplexity/sonar-pro",
@@ -387,7 +397,8 @@ export const MODEL_IDS = [
   "z-ai/glm-5.1-subscription",
   "z-ai/glm-5.2",
   "z-ai/glm-5.2-subscription",
-  "z-ai/glm-5.3"
+  "z-ai/glm-5.3",
+  "z-ai/glm-5.3-flash"
 ] as const;
 
 export type ModelId = (typeof MODEL_IDS)[number];
@@ -408,6 +419,7 @@ export const PROVIDERS = [
   "moonshot",
   "nvidia",
   "openai",
+  "opencode-go",
   "perplexity",
   "thinking-machines",
   "vertex",
