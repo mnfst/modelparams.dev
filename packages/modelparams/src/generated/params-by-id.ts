@@ -367,6 +367,12 @@ export type ParamsById = {
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
   };
+  "anthropic/claude-fable-5-1": {
+    max_tokens: number;
+    "thinking.type": "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
   "anthropic/claude-fable-5-subscription": {
     max_tokens: number;
     "thinking.type": "adaptive";
@@ -2510,6 +2516,74 @@ export type ParamsById = {
   "openai/o4-mini": {
     max_completion_tokens: number;
     reasoning_effort: "low" | "medium" | "high" | "xhigh";
+  };
+  "opencode-go/deepseek-v4-flash-vision-exp-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/glm-5.3-flash-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/glm-5.3-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/grok-4.6-subscription": {
+    max_output_tokens: number;
+    temperature: number;
+    top_p: number;
+  };
+  "opencode-go/hy4-preview-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/longcat-2.0-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/qwen3.8-flash-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/qwen3.8-max-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
   };
   "perplexity/sonar": {
     max_tokens: number;
