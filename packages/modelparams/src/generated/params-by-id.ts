@@ -367,6 +367,12 @@ export type ParamsById = {
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
   };
+  "anthropic/claude-fable-5-1": {
+    max_tokens: number;
+    "thinking.type": "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
   "anthropic/claude-fable-5-subscription": {
     max_tokens: number;
     "thinking.type": "adaptive";

@@ -78,6 +78,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "anthropic/claude-3-opus-20240229": anthropic.Claude_3_Opus_20240229Params,
     "anthropic/claude-3-opus-latest": anthropic.Claude_3_Opus_LatestParams,
     "anthropic/claude-fable-5": anthropic.Claude_Fable_5Params,
+    "anthropic/claude-fable-5-1": anthropic.Claude_Fable_5_1Params,
     "anthropic/claude-fable-5-subscription": anthropic.Claude_Fable_5_SubscriptionParams,
     "anthropic/claude-haiku-4": anthropic.Claude_Haiku_4Params,
     "anthropic/claude-haiku-4-5": anthropic.Claude_Haiku_4_5Params,

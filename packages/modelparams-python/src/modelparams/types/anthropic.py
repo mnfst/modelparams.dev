@@ -122,6 +122,18 @@ Claude_Fable_5Params = TypedDict(
 )
 setattr(Claude_Fable_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Claude_Fable_5_1Params = TypedDict(
+    "Claude_Fable_5_1Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["adaptive"],
+        "thinking.display": Literal["summarized", "omitted"],
+        "output_config.effort": Literal["low", "medium", "high", "xhigh", "max"],
+    },
+    total=False,
+)
+setattr(Claude_Fable_5_1Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Claude_Fable_5_SubscriptionParams = TypedDict(
     "Claude_Fable_5_SubscriptionParams",
     {
@@ -594,6 +606,7 @@ __all__ = [
     "Claude_3_Opus_20240229Params",
     "Claude_3_Opus_LatestParams",
     "Claude_Fable_5Params",
+    "Claude_Fable_5_1Params",
     "Claude_Fable_5_SubscriptionParams",
     "Claude_Haiku_4Params",
     "Claude_Haiku_4_5Params",
