@@ -311,6 +311,14 @@ export type ParamsById = {
     "extra_body.enable_thinking": boolean;
     "extra_body.thinking_budget": number;
   };
+  "alibaba/qwen3.8-max-0902": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwq-plus": {
     max_tokens: number;
     temperature: number;
