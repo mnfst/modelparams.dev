@@ -395,7 +395,8 @@ export const MODEL_IDS = [
   "z-ai/glm-5.1-subscription",
   "z-ai/glm-5.2",
   "z-ai/glm-5.2-subscription",
-  "z-ai/glm-5.3"
+  "z-ai/glm-5.3",
+  "z-ai/glm-5.3-flash"
 ] as const;
 
 export type ModelId = (typeof MODEL_IDS)[number];

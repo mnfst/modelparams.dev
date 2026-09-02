@@ -2022,4 +2022,13 @@ export const DEFAULTS = {
     reasoning_effort: "max",
     "response_format.type": "text",
   },
+  "z-ai/glm-5.3-flash": {
+    max_tokens: 65536,
+    temperature: 1,
+    top_p: 0.95,
+    do_sample: true,
+    "thinking.type": "enabled",
+    reasoning_effort: "max",
+    "response_format.type": "text",
+  },
 } as const satisfies { [K in ModelId]: Partial<ParamsById[K]> };
