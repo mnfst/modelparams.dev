@@ -85,6 +85,21 @@ Glm_5p2Params = TypedDict(
 )
 setattr(Glm_5p2Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Glm_5p3Params = TypedDict(
+    "Glm_5p3Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Glm_5p3Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_Oss_120bParams = TypedDict(
     "Gpt_Oss_120bParams",
     {
@@ -271,6 +286,7 @@ __all__ = [
     "Deepseek_V4_ProParams",
     "Deepseek_V4_Pro_0813Params",
     "Glm_5p2Params",
+    "Glm_5p3Params",
     "Gpt_Oss_120bParams",
     "Gpt_Oss_20bParams",
     "InklingParams",
