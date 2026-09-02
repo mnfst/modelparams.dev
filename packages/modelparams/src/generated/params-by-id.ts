@@ -1817,6 +1817,18 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
+  "mistral/glm-5-2": {
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    prompt_mode: "reasoning";
+    "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
   "mistral/magistral-medium-latest": {
     max_tokens: number;
     stop: string;

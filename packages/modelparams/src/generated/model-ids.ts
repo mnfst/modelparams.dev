@@ -232,6 +232,7 @@ export const MODEL_IDS = [
   "mistral/codestral-latest",
   "mistral/devstral-2512",
   "mistral/devstral-latest",
+  "mistral/glm-5-2",
   "mistral/magistral-medium-latest",
   "mistral/magistral-small-latest",
   "mistral/ministral-14b-2512",
