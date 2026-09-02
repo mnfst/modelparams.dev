@@ -222,6 +222,11 @@ export const DEFAULTS = {
     "thinking.display": "omitted",
     "output_config.effort": "high",
   },
+  "anthropic/claude-fable-5-1": {
+    max_tokens: 4096,
+    "thinking.display": "omitted",
+    "output_config.effort": "high",
+  },
   "anthropic/claude-fable-5-subscription": {
     max_tokens: 4096,
     "thinking.display": "omitted",
@@ -1626,6 +1631,14 @@ export const DEFAULTS = {
     max_completion_tokens: 4096,
     reasoning_effort: "medium",
   },
+  "opencode-go/deepseek-v4-flash-vision-exp-subscription": {},
+  "opencode-go/glm-5.3-flash-subscription": {},
+  "opencode-go/glm-5.3-subscription": {},
+  "opencode-go/grok-4.6-subscription": {},
+  "opencode-go/hy4-preview-subscription": {},
+  "opencode-go/longcat-2.0-subscription": {},
+  "opencode-go/qwen3.8-flash-subscription": {},
+  "opencode-go/qwen3.8-max-subscription": {},
   "perplexity/sonar": {
     "web_search_options.search_context_size": "low",
     return_images: false,
