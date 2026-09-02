@@ -68,6 +68,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "alibaba/qwen3.7-plus": alibaba.Qwen3_7_PlusParams,
     "alibaba/qwen3.8-2.4t-a95b": alibaba.Qwen3_8_2_4t_A95bParams,
     "alibaba/qwen3.8-27b": alibaba.Qwen3_8_27bParams,
+    "alibaba/qwen3.8-flash": alibaba.Qwen3_8_FlashParams,
     "alibaba/qwen3.8-max": alibaba.Qwen3_8_MaxParams,
     "alibaba/qwq-plus": alibaba.Qwq_PlusParams,
     "anthropic/claude-3-5-haiku-20241022": anthropic.Claude_3_5_Haiku_20241022Params,
