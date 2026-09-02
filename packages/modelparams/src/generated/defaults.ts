@@ -162,6 +162,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/qwen3.8-max-0902": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwq-plus": {
     "extra_body.top_k": 20,
   },
