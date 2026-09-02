@@ -679,6 +679,7 @@ export const DEFAULTS = {
     reasoning_effort: "high",
   },
   "fireworks/deepseek-v4-flash-0731": {},
+  "fireworks/deepseek-v4-flash-vision-exp": {},
   "fireworks/deepseek-v4-pro": {},
   "fireworks/deepseek-v4-pro-0813": {},
   "fireworks/glm-5p2": {},
@@ -839,6 +840,14 @@ export const DEFAULTS = {
     "generationConfig.responseMimeType": "text/plain",
   },
   "google/gemini-3.7-flash": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
+  "google/gemini-3.8-flash": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
     "generationConfig.topK": 64,
