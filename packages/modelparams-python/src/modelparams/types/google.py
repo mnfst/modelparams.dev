@@ -314,6 +314,22 @@ Gemini_3_7_FlashParams = TypedDict(
 )
 setattr(Gemini_3_7_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gemini_3_8_FlashParams = TypedDict(
+    "Gemini_3_8_FlashParams",
+    {
+        "generationConfig.maxOutputTokens": Annotated[int, Field(ge=1, le=65536)],
+        "generationConfig.temperature": Annotated[float, Field(ge=0, le=2)],
+        "generationConfig.topP": Annotated[float, Field(ge=0, le=1)],
+        "generationConfig.topK": Annotated[int, Field(ge=0)],
+        "generationConfig.seed": int,
+        "generationConfig.thinkingConfig.thinkingLevel": Literal["minimal", "low", "medium", "high"],
+        "generationConfig.thinkingConfig.includeThoughts": bool,
+        "generationConfig.responseMimeType": Literal["text/plain", "application/json"],
+    },
+    total=False,
+)
+setattr(Gemini_3_8_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gemini_Flash_LatestParams = TypedDict(
     "Gemini_Flash_LatestParams",
     {
@@ -492,6 +508,7 @@ __all__ = [
     "Gemini_3_5_Flash_LiteParams",
     "Gemini_3_6_FlashParams",
     "Gemini_3_7_FlashParams",
+    "Gemini_3_8_FlashParams",
     "Gemini_Flash_LatestParams",
     "Gemma_3_12b_ItParams",
     "Gemma_3_1b_ItParams",
