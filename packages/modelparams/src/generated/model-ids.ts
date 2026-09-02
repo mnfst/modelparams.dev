@@ -41,6 +41,7 @@ export const MODEL_IDS = [
   "alibaba/qwen3.7-plus",
   "alibaba/qwen3.8-2.4t-a95b",
   "alibaba/qwen3.8-27b",
+  "alibaba/qwen3.8-flash",
   "alibaba/qwen3.8-max",
   "alibaba/qwq-plus",
   "anthropic/claude-3-5-haiku-20241022",
