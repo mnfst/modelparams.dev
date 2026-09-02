@@ -36,3 +36,6 @@ vertex:
   # regions that change.
   - https://aiplatform.googleapis.com
   - https://*-aiplatform.googleapis.com
+opencode-go:
+  # OpenCode Go subscription gateway (OpenAI-compatible bearer token).
+  - https://opencode.ai/zen/go/v1
