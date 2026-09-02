@@ -43,6 +43,7 @@ ModelId = Literal[
     "alibaba/qwen3.7-plus",
     "alibaba/qwen3.8-2.4t-a95b",
     "alibaba/qwen3.8-27b",
+    "alibaba/qwen3.8-flash",
     "alibaba/qwen3.8-max",
     "alibaba/qwen3.8-max-0902",
     "alibaba/qwq-plus",
@@ -399,6 +400,7 @@ ModelId = Literal[
     "z-ai/glm-5.2",
     "z-ai/glm-5.2-subscription",
     "z-ai/glm-5.3",
+    "z-ai/glm-5.3-flash",
 ]
 
 MODEL_IDS: tuple[ModelId, ...] = (
@@ -441,6 +443,7 @@ MODEL_IDS: tuple[ModelId, ...] = (
     "alibaba/qwen3.7-plus",
     "alibaba/qwen3.8-2.4t-a95b",
     "alibaba/qwen3.8-27b",
+    "alibaba/qwen3.8-flash",
     "alibaba/qwen3.8-max",
     "alibaba/qwen3.8-max-0902",
     "alibaba/qwq-plus",
@@ -797,6 +800,7 @@ MODEL_IDS: tuple[ModelId, ...] = (
     "z-ai/glm-5.2",
     "z-ai/glm-5.2-subscription",
     "z-ai/glm-5.3",
+    "z-ai/glm-5.3-flash",
 )
 
 Provider = Literal[

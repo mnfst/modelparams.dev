@@ -2643,6 +2643,82 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "qwen3.8-flash",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.8-max",
     "params": [
       {
@@ -31102,6 +31178,106 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "glm-5.3",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 65536,
+        "range": {
+          "min": 1,
+          "max": 131072
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "do_sample": false
+          }
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "do_sample": false
+          }
+        },
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "do_sample",
+        "label": "Do sample",
+        "description": "When false, the model uses greedy decoding and ignores temperature and top_p.",
+        "group": "sampling",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "GLM-5.3 always engages in extended reasoning; thinking cannot be disabled.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning effort GLM-5.3 spends on its always-on thinking.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "max",
+        "values": [
+          "low",
+          "high",
+          "max"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "z-ai",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "glm-5.3-flash",
     "params": [
       {
         "path": "max_tokens",

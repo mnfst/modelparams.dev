@@ -321,6 +321,21 @@ Glm_5_3Params = TypedDict(
 )
 setattr(Glm_5_3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Glm_5_3_FlashParams = TypedDict(
+    "Glm_5_3_FlashParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "do_sample": bool,
+        "thinking.type": Literal["enabled"],
+        "reasoning_effort": Literal["low", "high", "max"],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Glm_5_3_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Glm_4_5Params",
     "Glm_4_5_AirParams",
@@ -344,4 +359,5 @@ __all__ = [
     "Glm_5_2Params",
     "Glm_5_2_SubscriptionParams",
     "Glm_5_3Params",
+    "Glm_5_3_FlashParams",
 ]
