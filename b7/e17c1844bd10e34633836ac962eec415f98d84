@@ -1,0 +1,19 @@
+.gitignore
+  s_3f017a037889c0::t_898576d30de1db 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "b7e17c1844bd10e34633836ac962eec415f98d84",
+  "prompts": {},
+  "sessions": {
+    "s_3f017a037889c0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8ac6bbe9-f028-4406-a4cd-fdc19a264ff6",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Guillaume Gay <guillaume.gay@protonmail.com>"
+    }
+  }
+}
