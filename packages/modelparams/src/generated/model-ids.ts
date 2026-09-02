@@ -274,6 +274,7 @@ export const MODEL_IDS = [
   "nvidia/llama-3.1-nemotron-ultra-253b-v1",
   "nvidia/llama-3.3-nemotron-super-49b-v1",
   "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+  "nvidia/minimax-m3",
   "nvidia/nemoguard-jailbreak-detect",
   "nvidia/nemotron-3-nano-30b-a3b",
   "nvidia/nemotron-3-super-120b-a12b",

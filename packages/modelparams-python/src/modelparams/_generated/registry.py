@@ -301,6 +301,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "nvidia/llama-3.1-nemotron-ultra-253b-v1": nvidia.Llama_3_1_Nemotron_Ultra_253b_V1Params,
     "nvidia/llama-3.3-nemotron-super-49b-v1": nvidia.Llama_3_3_Nemotron_Super_49b_V1Params,
     "nvidia/llama-3.3-nemotron-super-49b-v1.5": nvidia.Llama_3_3_Nemotron_Super_49b_V1_5Params,
+    "nvidia/minimax-m3": nvidia.Minimax_M3Params,
     "nvidia/nemoguard-jailbreak-detect": nvidia.Nemoguard_Jailbreak_DetectParams,
     "nvidia/nemotron-3-nano-30b-a3b": nvidia.Nemotron_3_Nano_30b_A3bParams,
     "nvidia/nemotron-3-super-120b-a12b": nvidia.Nemotron_3_Super_120b_A12bParams,

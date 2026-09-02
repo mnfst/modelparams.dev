@@ -1343,6 +1343,14 @@ export const DEFAULTS = {
     presence_penalty: 0,
     seed: 0,
   },
+  "nvidia/minimax-m3": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    seed: 0,
+  },
   "nvidia/nemoguard-jailbreak-detect": {},
   "nvidia/nemotron-3-nano-30b-a3b": {
     temperature: 1,
