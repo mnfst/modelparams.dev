@@ -158,6 +158,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/qwen3.8-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwen3.8-max": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
@@ -2022,6 +2026,15 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5.3": {
+    max_tokens: 65536,
+    temperature: 1,
+    top_p: 0.95,
+    do_sample: true,
+    "thinking.type": "enabled",
+    reasoning_effort: "max",
+    "response_format.type": "text",
+  },
+  "z-ai/glm-5.3-flash": {
     max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,
