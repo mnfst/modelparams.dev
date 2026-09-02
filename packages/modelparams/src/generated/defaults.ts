@@ -670,6 +670,7 @@ export const DEFAULTS = {
     reasoning_effort: "high",
   },
   "fireworks/deepseek-v4-flash-0731": {},
+  "fireworks/deepseek-v4-flash-vision-exp": {},
   "fireworks/deepseek-v4-pro": {},
   "fireworks/deepseek-v4-pro-0813": {},
   "fireworks/glm-5p2": {},
