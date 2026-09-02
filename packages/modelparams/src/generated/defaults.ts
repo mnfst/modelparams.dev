@@ -1302,6 +1302,14 @@ export const DEFAULTS = {
     overlap: 128,
     flat_ner: false,
   },
+  "nvidia/laguna-xs-2.1": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    seed: 0,
+  },
   "nvidia/llama-3.1-nemoguard-8b-topic-control": {
     temperature: 0.5,
     top_p: 1,
