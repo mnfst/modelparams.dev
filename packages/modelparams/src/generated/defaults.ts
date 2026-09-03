@@ -968,6 +968,14 @@ export const DEFAULTS = {
     reasoning_effort: "default",
     "response_format.type": "text",
   },
+  "groq/qwen3.8-27b": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    reasoning_effort: "default",
+    "response_format.type": "text",
+  },
   "meta/Llama-3.3-70B-Instruct": {
     "response_format.type": "text",
   },
