@@ -295,6 +295,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "moonshot/moonshot-v1-32k": moonshot.Moonshot_V1_32kParams,
     "moonshot/moonshot-v1-8k": moonshot.Moonshot_V1_8kParams,
     "nvidia/deepseek-v4-flash-0731": nvidia.Deepseek_V4_Flash_0731Params,
+    "nvidia/deepseek-v4-pro-0813": nvidia.Deepseek_V4_Pro_0813Params,
     "nvidia/gliner-pii": nvidia.Gliner_PiiParams,
     "nvidia/llama-3.1-nemoguard-8b-topic-control": nvidia.Llama_3_1_Nemoguard_8b_Topic_ControlParams,
     "nvidia/llama-3.1-nemotron-nano-8b-v1": nvidia.Llama_3_1_Nemotron_Nano_8b_V1Params,

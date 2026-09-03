@@ -21969,6 +21969,93 @@ const GENERATED_CATALOG = [
     "provider": "nvidia",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "deepseek-v4-pro-0813",
+    "wireId": "deepseek-ai/deepseek-v4-pro-0813",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 16384
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "seed",
+        "label": "Seed",
+        "description": "Best-effort deterministic sampling seed. Changing the seed produces a different response with similar characteristics. Fix the seed to reproduce results.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 0,
+        "range": {
+          "min": 0,
+          "max": 18446744073709552000
+        }
+      },
+      {
+        "path": "stop",
+        "label": "Stop",
+        "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
+        "group": "generation_length",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gliner-pii",
     "params": [
       {

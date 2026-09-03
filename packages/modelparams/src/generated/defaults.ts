@@ -1296,6 +1296,14 @@ export const DEFAULTS = {
     presence_penalty: 0,
     seed: 0,
   },
+  "nvidia/deepseek-v4-pro-0813": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    seed: 0,
+  },
   "nvidia/gliner-pii": {
     threshold: 0.5,
     chunk_length: 384,

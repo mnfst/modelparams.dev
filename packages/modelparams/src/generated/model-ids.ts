@@ -268,6 +268,7 @@ export const MODEL_IDS = [
   "moonshot/moonshot-v1-32k",
   "moonshot/moonshot-v1-8k",
   "nvidia/deepseek-v4-flash-0731",
+  "nvidia/deepseek-v4-pro-0813",
   "nvidia/gliner-pii",
   "nvidia/llama-3.1-nemoguard-8b-topic-control",
   "nvidia/llama-3.1-nemotron-nano-8b-v1",
