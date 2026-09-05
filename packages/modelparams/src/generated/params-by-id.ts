@@ -2249,6 +2249,15 @@ export type ParamsById = {
     seed: number;
     stop: string;
   };
+  "nvidia/minimax-m3": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
   "nvidia/nemoguard-jailbreak-detect": Record<string, never>;
   "nvidia/nemotron-3-nano-30b-a3b": {
     temperature: number;
