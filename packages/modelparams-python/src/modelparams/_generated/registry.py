@@ -357,6 +357,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "openai/gpt-5.6-sol-subscription": openai.Gpt_5_6_Sol_SubscriptionParams,
     "openai/gpt-5.6-terra": openai.Gpt_5_6_TerraParams,
     "openai/gpt-5.6-terra-subscription": openai.Gpt_5_6_Terra_SubscriptionParams,
+    "openai/gpt-6-astra": openai.Gpt_6_AstraParams,
     "openai/gpt-oss-120b": openai.Gpt_Oss_120bParams,
     "openai/gpt-oss-20b": openai.Gpt_Oss_20bParams,
     "openai/gpt-oss-safeguard-120b": openai.Gpt_Oss_Safeguard_120bParams,

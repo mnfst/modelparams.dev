@@ -479,6 +479,20 @@ Gpt_5_6_Terra_SubscriptionParams = TypedDict(
 )
 setattr(Gpt_5_6_Terra_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_6_AstraParams = TypedDict(
+    "Gpt_6_AstraParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "reasoning_effort": Literal["low", "medium", "high"],
+        "response_format.type": Literal["text", "json_schema"],
+        "tool_choice": Literal["auto", "none", "required"],
+    },
+    total=False,
+)
+setattr(Gpt_6_AstraParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_Oss_120bParams = TypedDict(
     "Gpt_Oss_120bParams",
     {
@@ -646,6 +660,7 @@ __all__ = [
     "Gpt_5_6_Sol_SubscriptionParams",
     "Gpt_5_6_TerraParams",
     "Gpt_5_6_Terra_SubscriptionParams",
+    "Gpt_6_AstraParams",
     "Gpt_Oss_120bParams",
     "Gpt_Oss_20bParams",
     "Gpt_Oss_Safeguard_120bParams",
