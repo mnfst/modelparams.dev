@@ -2196,6 +2196,15 @@ export type ParamsById = {
     seed: number;
     stop: string;
   };
+  "nvidia/gemma-4-31b-it": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
   "nvidia/gliner-pii": {
     threshold: number;
     chunk_length: number;
