@@ -2517,6 +2517,14 @@ export type ParamsById = {
     "reasoning.summary": "auto" | "concise" | "detailed";
     "text.verbosity": "low" | "medium" | "high";
   };
+  "openai/gpt-6-astra": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
   "openai/gpt-oss-120b": {
     max_completion_tokens: number;
     temperature: number;

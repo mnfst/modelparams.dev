@@ -1615,6 +1615,12 @@ export const DEFAULTS = {
     "reasoning.summary": "auto",
     "text.verbosity": "medium",
   },
+  "openai/gpt-6-astra": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "medium",
+    "response_format.type": "text",
+  },
   "openai/gpt-oss-120b": {
     temperature: 1,
     top_p: 1,
