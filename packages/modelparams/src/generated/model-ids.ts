@@ -271,6 +271,7 @@ export const MODEL_IDS = [
   "nvidia/deepseek-v4-flash-0731",
   "nvidia/deepseek-v4-pro-0813",
   "nvidia/gliner-pii",
+  "nvidia/laguna-xs-2.1",
   "nvidia/llama-3.1-nemoguard-8b-topic-control",
   "nvidia/llama-3.1-nemotron-nano-8b-v1",
   "nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
