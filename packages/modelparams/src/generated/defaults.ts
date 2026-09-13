@@ -25,6 +25,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/deepseek-v4.1-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/glm-5.1": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
