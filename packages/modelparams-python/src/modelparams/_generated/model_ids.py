@@ -418,6 +418,7 @@ ModelId = Literal[
     "z-ai/glm-5.2-subscription",
     "z-ai/glm-5.3",
     "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flashx",
 ]
 
 MODEL_IDS: tuple[ModelId, ...] = (
@@ -835,6 +836,7 @@ MODEL_IDS: tuple[ModelId, ...] = (
     "z-ai/glm-5.2-subscription",
     "z-ai/glm-5.3",
     "z-ai/glm-5.3-flash",
+    "z-ai/glm-5.3-flashx",
 )
 
 Provider = Literal[
