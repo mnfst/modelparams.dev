@@ -37,6 +37,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "alibaba/deepseek-v4.1-flash": alibaba.Deepseek_V4_1_FlashParams,
     "alibaba/glm-5.1": alibaba.Glm_5_1Params,
     "alibaba/glm-5.2": alibaba.Glm_5_2Params,
+    "alibaba/glm-5.3": alibaba.Glm_5_3Params,
     "alibaba/kimi-k2.7-code": alibaba.Kimi_K2_7_CodeParams,
     "alibaba/kimi-k3": alibaba.Kimi_K3Params,
     "alibaba/qwen-flash": alibaba.Qwen_FlashParams,
