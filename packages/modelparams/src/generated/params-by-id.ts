@@ -3057,6 +3057,15 @@ export type ParamsById = {
     reasoning_effort: "low" | "medium" | "high" | "xhigh";
     "response_format.type": "text" | "json_object" | "json_schema";
   };
+  "xai/grok-4.7": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    seed: number;
+    stop: string;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh";
+    "response_format.type": "text" | "json_object" | "json_schema";
+  };
   "xai/grok-build-0.1": {
     max_completion_tokens: number;
     temperature: number;

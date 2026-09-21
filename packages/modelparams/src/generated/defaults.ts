@@ -1930,6 +1930,12 @@ export const DEFAULTS = {
     reasoning_effort: "high",
     "response_format.type": "text",
   },
+  "xai/grok-4.7": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "high",
+    "response_format.type": "text",
+  },
   "xai/grok-build-0.1": {
     temperature: 1,
     top_p: 1,
