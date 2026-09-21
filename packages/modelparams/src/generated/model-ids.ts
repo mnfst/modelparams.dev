@@ -274,6 +274,7 @@ export const MODEL_IDS = [
   "moonshot/moonshot-v1-8k",
   "nvidia/deepseek-v4-flash-0731",
   "nvidia/deepseek-v4-pro-0813",
+  "nvidia/deepseek-v4.1-flash",
   "nvidia/gemma-4-31b-it",
   "nvidia/gliner-pii",
   "nvidia/glm-5.3-flash",

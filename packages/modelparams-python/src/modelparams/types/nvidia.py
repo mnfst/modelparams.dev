@@ -40,6 +40,21 @@ Deepseek_V4_Pro_0813Params = TypedDict(
 )
 setattr(Deepseek_V4_Pro_0813Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Deepseek_V4_1_FlashParams = TypedDict(
+    "Deepseek_V4_1_FlashParams",
+    {
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=16384)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "seed": Annotated[int, Field(ge=0, le=18446744073709552000)],
+        "stop": str,
+    },
+    total=False,
+)
+setattr(Deepseek_V4_1_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gemma_4_31b_ItParams = TypedDict(
     "Gemma_4_31b_ItParams",
     {
@@ -377,6 +392,7 @@ setattr(Usdcode_Llama_3_1_70b_InstructParams, "__pydantic_config__", _PARAMS_CON
 __all__ = [
     "Deepseek_V4_Flash_0731Params",
     "Deepseek_V4_Pro_0813Params",
+    "Deepseek_V4_1_FlashParams",
     "Gemma_4_31b_ItParams",
     "Gliner_PiiParams",
     "Glm_5_3_FlashParams",
