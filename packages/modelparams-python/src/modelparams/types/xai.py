@@ -162,6 +162,21 @@ Grok_4_6_SubscriptionParams = TypedDict(
 )
 setattr(Grok_4_6_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Grok_4_7Params = TypedDict(
+    "Grok_4_7Params",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "seed": int,
+        "stop": str,
+        "reasoning_effort": Literal["low", "medium", "high", "xhigh"],
+        "response_format.type": Literal["text", "json_object", "json_schema"],
+    },
+    total=False,
+)
+setattr(Grok_4_7Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Grok_Build_0_1Params = TypedDict(
     "Grok_Build_0_1Params",
     {
@@ -200,6 +215,7 @@ __all__ = [
     "Grok_4_5_SubscriptionParams",
     "Grok_4_6Params",
     "Grok_4_6_SubscriptionParams",
+    "Grok_4_7Params",
     "Grok_Build_0_1Params",
     "Grok_Build_0_1_SubscriptionParams",
 ]
