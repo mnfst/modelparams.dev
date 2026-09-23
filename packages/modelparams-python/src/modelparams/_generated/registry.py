@@ -303,6 +303,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "nvidia/deepseek-v4-pro-0813": nvidia.Deepseek_V4_Pro_0813Params,
     "nvidia/gemma-4-31b-it": nvidia.Gemma_4_31b_ItParams,
     "nvidia/gliner-pii": nvidia.Gliner_PiiParams,
+    "nvidia/glm-5.3": nvidia.Glm_5_3Params,
     "nvidia/glm-5.3-flash": nvidia.Glm_5_3_FlashParams,
     "nvidia/gpt-oss-120b": nvidia.Gpt_Oss_120bParams,
     "nvidia/gpt-oss-20b": nvidia.Gpt_Oss_20bParams,
