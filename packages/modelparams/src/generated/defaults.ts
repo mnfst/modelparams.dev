@@ -1707,6 +1707,12 @@ export const DEFAULTS = {
     reasoning_effort: "medium",
     "response_format.type": "text",
   },
+  "openai/gpt-6-luna": {
+    temperature: 1,
+    top_p: 1,
+    reasoning_effort: "medium",
+    "response_format.type": "text",
+  },
   "openai/gpt-6-sol": {
     temperature: 1,
     top_p: 1,

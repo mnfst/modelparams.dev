@@ -2643,6 +2643,14 @@ export type ParamsById = {
     "response_format.type": "text" | "json_schema";
     tool_choice: "auto" | "none" | "required";
   };
+  "openai/gpt-6-luna": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    reasoning_effort: "low" | "medium" | "high";
+    "response_format.type": "text" | "json_schema";
+    tool_choice: "auto" | "none" | "required";
+  };
   "openai/gpt-6-sol": {
     max_completion_tokens: number;
     temperature: number;
