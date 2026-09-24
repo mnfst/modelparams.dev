@@ -26,6 +26,22 @@ Gemini_2_5_FlashParams = TypedDict(
 )
 setattr(Gemini_2_5_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gemini_2_5_Flash_ImageParams = TypedDict(
+    "Gemini_2_5_Flash_ImageParams",
+    {
+        "generationConfig.maxOutputTokens": Annotated[int, Field(ge=1, le=65536)],
+        "generationConfig.temperature": Annotated[float, Field(ge=0, le=2)],
+        "generationConfig.topP": Annotated[float, Field(ge=0, le=1)],
+        "generationConfig.topK": Annotated[int, Field(ge=0)],
+        "generationConfig.seed": int,
+        "generationConfig.thinkingConfig.thinkingBudget": int,
+        "generationConfig.thinkingConfig.includeThoughts": bool,
+        "generationConfig.responseMimeType": Literal["text/plain", "application/json"],
+    },
+    total=False,
+)
+setattr(Gemini_2_5_Flash_ImageParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gemini_2_5_Flash_LiteParams = TypedDict(
     "Gemini_2_5_Flash_LiteParams",
     {
@@ -490,6 +506,7 @@ setattr(Gemma_4_E4b_ItParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
     "Gemini_2_5_FlashParams",
+    "Gemini_2_5_Flash_ImageParams",
     "Gemini_2_5_Flash_LiteParams",
     "Gemini_2_5_Flash_Lite_SubscriptionParams",
     "Gemini_2_5_Flash_SubscriptionParams",

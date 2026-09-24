@@ -1391,6 +1391,16 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-2.5-flash-image": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-2.5-flash-lite": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;

@@ -182,6 +182,7 @@ export const MODEL_IDS = [
   "fireworks/qwen3p8-2p4t-a95b",
   "fireworks/qwen3p8-max",
   "google/gemini-2.5-flash",
+  "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-lite",
   "google/gemini-2.5-flash-lite-subscription",
   "google/gemini-2.5-flash-subscription",
