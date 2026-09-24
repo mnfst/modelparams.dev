@@ -329,6 +329,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "openai/chatgpt-4o-latest": openai.Chatgpt_4o_LatestParams,
     "openai/gpt-3.5-turbo": openai.Gpt_3_5_TurboParams,
     "openai/gpt-3.5-turbo-0125": openai.Gpt_3_5_Turbo_0125Params,
+    "openai/gpt-3.5-turbo-1106": openai.Gpt_3_5_Turbo_1106Params,
     "openai/gpt-3.5-turbo-16k": openai.Gpt_3_5_Turbo_16kParams,
     "openai/gpt-4": openai.Gpt_4Params,
     "openai/gpt-4-0613": openai.Gpt_4_0613Params,
