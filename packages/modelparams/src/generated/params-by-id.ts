@@ -2252,6 +2252,15 @@ export type ParamsById = {
     overlap: number;
     flat_ner: boolean;
   };
+  "nvidia/glm-5.3": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    seed: number;
+    stop: string;
+  };
   "nvidia/glm-5.3-flash": {
     temperature: number;
     top_p: number;

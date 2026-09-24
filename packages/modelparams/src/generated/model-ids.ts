@@ -277,6 +277,7 @@ export const MODEL_IDS = [
   "nvidia/deepseek-v4-pro-0813",
   "nvidia/gemma-4-31b-it",
   "nvidia/gliner-pii",
+  "nvidia/glm-5.3",
   "nvidia/glm-5.3-flash",
   "nvidia/gpt-oss-120b",
   "nvidia/gpt-oss-20b",
