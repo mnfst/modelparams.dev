@@ -136,6 +136,20 @@ Glm_5_3Params = TypedDict(
 )
 setattr(Glm_5_3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Glm_5_3_PrimeParams = TypedDict(
+    "Glm_5_3_PrimeParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Glm_5_3_PrimeParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Kimi_K2_7_CodeParams = TypedDict(
     "Kimi_K2_7_CodeParams",
     {
@@ -638,6 +652,7 @@ __all__ = [
     "Glm_5_1Params",
     "Glm_5_2Params",
     "Glm_5_3Params",
+    "Glm_5_3_PrimeParams",
     "Kimi_K2_7_CodeParams",
     "Kimi_K3Params",
     "Qwen_FlashParams",
