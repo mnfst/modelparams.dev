@@ -11,6 +11,7 @@ export const MODEL_IDS = [
   "alibaba/glm-5.1",
   "alibaba/glm-5.2",
   "alibaba/glm-5.3",
+  "alibaba/glm-5.3-prime",
   "alibaba/kimi-k2.7-code",
   "alibaba/kimi-k3",
   "alibaba/qwen-flash",
