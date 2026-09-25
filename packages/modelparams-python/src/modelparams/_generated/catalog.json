@@ -24557,6 +24557,9 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "gpt-3.5-turbo-1106",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.4-mini",
+    "shutdownOn": "2026-09-28",
     "params": [
       {
         "path": "max_tokens",
