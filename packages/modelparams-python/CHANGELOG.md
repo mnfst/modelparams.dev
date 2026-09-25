@@ -5,6 +5,21 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.42
+
+### Models added
+
+- `alibaba/deepseek-v4.1-flash`
+- `alibaba/glm-5.3`
+- `alibaba/glm-5.3-prime`
+- `fireworks/deepseek-v4p1-flash`
+- `fireworks/ember-1`
+- `nvidia/glm-5.3-flash`
+- `openai/gpt-3.5-turbo-0125`
+- `openai/gpt-3.5-turbo-1106`
+- `openai/gpt-6-sol`
+- `xai/grok-4.7`
+
 ## 0.0.41
 
 ### Models added
