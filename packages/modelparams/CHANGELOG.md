@@ -5,6 +5,68 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.62
+
+### Models added
+
+- `alibaba/qvq-max`
+- `alibaba/qwen-coder-plus`
+- `alibaba/qwen-flash-character`
+- `alibaba/qwen-plus-character`
+- `alibaba/qwen-plus-latest`
+- `alibaba/qwen-vl-max`
+- `alibaba/qwen-vl-plus`
+- `alibaba/qwen3-14b`
+- `alibaba/qwen3-235b-a22b`
+- `alibaba/qwen3-235b-a22b-instruct-2507`
+- `alibaba/qwen3-30b-a3b`
+- `alibaba/qwen3-8b`
+- `alibaba/qwen3-coder-480b-a35b-instruct`
+- `alibaba/qwen3-max-preview`
+- `alibaba/qwen3-omni-flash`
+- `alibaba/qwen3-omni-flash-2025-09-15`
+- `alibaba/qwen3-omni-flash-2025-12-01`
+- `alibaba/qwen3-vl-flash`
+- `alibaba/qwen3-vl-flash-2026-01-22`
+- `alibaba/qwen3-vl-plus`
+- `alibaba/qwen3-vl-plus-2025-09-23`
+- `alibaba/qwen3-vl-plus-2025-12-19`
+- `alibaba/qwen3.5-omni-flash`
+- `alibaba/qwen3.5-omni-flash-2026-03-15`
+- `alibaba/qwen3.5-omni-plus`
+- `alibaba/qwen3.5-omni-plus-2026-03-15`
+- `alibaba/qwen3.5-plus`
+- `alibaba/qwen3.5-plus-2026-02-15`
+- `alibaba/qwen3.5-plus-2026-04-20`
+- `alibaba/qwen3.7-max-preview`
+- `alibaba/qwen3.8-omni-flash`
+- `fireworks/nemotron-3-ultra-nvfp4`
+- `fireworks/nemotron-lightning-3p5-30b-a3b`
+- `groq/allam-2-7b`
+- `mistral/mistral-code-latest`
+- `mistral/mistral-medium`
+- `mistral/mistral-medium-2604`
+- `mistral/voxtral-small-2507`
+- `mistral/voxtral-small-latest`
+- `mistral/zai-glm-5`
+- `mistral/zai-glm-5-2`
+- `mistral/zai-glm-5-3`
+- `mistral/zai-glm-latest`
+- `nvidia/diffusiongemma-26b-a4b-it`
+- `nvidia/llama-3.2-11b-vision-instruct`
+- `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`
+- `nvidia/nemotron-3.5-lightning-30b-a3b`
+- `openai/gpt-5.2-pro`
+- `openai/gpt-6-luna`
+- `opencode-go/deepseek-flash-subscription`
+- `opencode-go/hy3-subscription`
+- `opencode-go/longcat-2.5-preview-free-subscription`
+- `opencode-go/mimo-v2.6-flash-subscription`
+- `opencode-go/mimo-v2.6-pro-subscription`
+- `opencode-go/omen-alpha-subscription`
+- `opencode-go/space-bunny-free-subscription`
+- `z-ai/glm-5.3-flashx`
+
 ## 0.0.61
 
 ### Models added
