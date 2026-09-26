@@ -40,6 +40,19 @@ Deepseek_V4_Pro_0813Params = TypedDict(
 )
 setattr(Deepseek_V4_Pro_0813Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Diffusiongemma_26b_A4b_ItParams = TypedDict(
+    "Diffusiongemma_26b_A4b_ItParams",
+    {
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=16384)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+    },
+    total=False,
+)
+setattr(Diffusiongemma_26b_A4b_ItParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gemma_4_31b_ItParams = TypedDict(
     "Gemma_4_31b_ItParams",
     {
@@ -195,6 +208,19 @@ Llama_3_1_Nemotron_Ultra_253b_V1Params = TypedDict(
 )
 setattr(Llama_3_1_Nemotron_Ultra_253b_V1Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Llama_3_2_11b_Vision_InstructParams = TypedDict(
+    "Llama_3_2_11b_Vision_InstructParams",
+    {
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=16384)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+    },
+    total=False,
+)
+setattr(Llama_3_2_11b_Vision_InstructParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Llama_3_3_Nemotron_Super_49b_V1Params = TypedDict(
     "Llama_3_3_Nemotron_Super_49b_V1Params",
     {
@@ -277,6 +303,17 @@ Nemotron_3_Nano_30b_A3bParams = TypedDict(
 )
 setattr(Nemotron_3_Nano_30b_A3bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Nemotron_3_Nano_Omni_30b_A3b_ReasoningParams = TypedDict(
+    "Nemotron_3_Nano_Omni_30b_A3b_ReasoningParams",
+    {
+        "temperature": Annotated[float, Field(le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=32768)],
+    },
+    total=False,
+)
+setattr(Nemotron_3_Nano_Omni_30b_A3b_ReasoningParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Nemotron_3_Super_120b_A12bParams = TypedDict(
     "Nemotron_3_Super_120b_A12bParams",
     {
@@ -320,6 +357,19 @@ Nemotron_3_Ultra_SubscriptionParams = TypedDict(
     total=False,
 )
 setattr(Nemotron_3_Ultra_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Nemotron_3_5_Lightning_30b_A3bParams = TypedDict(
+    "Nemotron_3_5_Lightning_30b_A3bParams",
+    {
+        "temperature": Annotated[float, Field(le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=32768)],
+        "reasoning_effort": Literal["none", "low", "high"],
+        "reasoning_budget": Annotated[int, Field(ge=-1, le=32768)],
+    },
+    total=False,
+)
+setattr(Nemotron_3_5_Lightning_30b_A3bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Nemotron_Content_Safety_Reasoning_4bParams = TypedDict(
     "Nemotron_Content_Safety_Reasoning_4bParams",
@@ -377,6 +427,7 @@ setattr(Usdcode_Llama_3_1_70b_InstructParams, "__pydantic_config__", _PARAMS_CON
 __all__ = [
     "Deepseek_V4_Flash_0731Params",
     "Deepseek_V4_Pro_0813Params",
+    "Diffusiongemma_26b_A4b_ItParams",
     "Gemma_4_31b_ItParams",
     "Gliner_PiiParams",
     "Glm_5_3_FlashParams",
@@ -388,15 +439,18 @@ __all__ = [
     "Llama_3_1_Nemotron_Nano_8b_V1Params",
     "Llama_3_1_Nemotron_Safety_Guard_8b_V3Params",
     "Llama_3_1_Nemotron_Ultra_253b_V1Params",
+    "Llama_3_2_11b_Vision_InstructParams",
     "Llama_3_3_Nemotron_Super_49b_V1Params",
     "Llama_3_3_Nemotron_Super_49b_V1_5Params",
     "Minimax_M3Params",
     "Muse_Glimmer_30bParams",
     "Nemoguard_Jailbreak_DetectParams",
     "Nemotron_3_Nano_30b_A3bParams",
+    "Nemotron_3_Nano_Omni_30b_A3b_ReasoningParams",
     "Nemotron_3_Super_120b_A12bParams",
     "Nemotron_3_Ultra_550b_A55bParams",
     "Nemotron_3_Ultra_SubscriptionParams",
+    "Nemotron_3_5_Lightning_30b_A3bParams",
     "Nemotron_Content_Safety_Reasoning_4bParams",
     "Nemotron_Mini_4b_InstructParams",
     "Riva_Translate_4b_Instruct_V1_1Params",

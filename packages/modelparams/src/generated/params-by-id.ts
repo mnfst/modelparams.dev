@@ -103,7 +103,29 @@ export type ParamsById = {
     "extra_body.enable_thinking": boolean;
     "extra_body.thinking_budget": number;
   };
+  "alibaba/qvq-max": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen-coder-plus": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen-flash-character": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -124,6 +146,20 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen-plus-character": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen-plus-latest": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen-turbo": {
     max_tokens: number;
     temperature: number;
@@ -131,7 +167,49 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen-vl-max": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen-vl-plus": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-14b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-235b-a22b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-235b-a22b-instruct-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3-235b-a22b-thinking-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-30b-a3b": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -151,6 +229,19 @@ export type ParamsById = {
     top_p: number;
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-8b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-coder-480b-a35b-instruct": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
   };
   "alibaba/qwen3-coder-flash": {
     max_tokens: number;
@@ -177,6 +268,13 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3-max-preview": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3-next-80b-a3b-instruct": {
     max_tokens: number;
     temperature: number;
@@ -191,6 +289,27 @@ export type ParamsById = {
     "extra_body.top_k": number;
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
+  "alibaba/qwen3-omni-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-omni-flash-2025-09-15": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-omni-flash-2025-12-01": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
   "alibaba/qwen3-vl-235b-a22b-instruct": {
     max_tokens: number;
     temperature: number;
@@ -199,6 +318,41 @@ export type ParamsById = {
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
   "alibaba/qwen3-vl-235b-a22b-thinking": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-flash-2026-01-22": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-plus": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-plus-2025-09-23": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3-vl-plus-2025-12-19": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -241,6 +395,55 @@ export type ParamsById = {
     "extra_body.chat_template_kwargs.enable_thinking": boolean;
   };
   "alibaba/qwen3.5-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-omni-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-omni-flash-2026-03-15": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-omni-plus": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-omni-plus-2026-03-15": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-plus": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-plus-2026-02-15": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.chat_template_kwargs.enable_thinking": boolean;
+  };
+  "alibaba/qwen3.5-plus-2026-04-20": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -303,6 +506,14 @@ export type ParamsById = {
     "extra_body.enable_thinking": boolean;
     "extra_body.thinking_budget": number;
   };
+  "alibaba/qwen3.7-max-preview": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qwen3.7-plus": {
     max_completion_tokens: number;
     temperature: number;
@@ -344,6 +555,14 @@ export type ParamsById = {
     "extra_body.thinking_budget": number;
   };
   "alibaba/qwen3.8-max-0902": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/qwen3.8-omni-flash": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -1363,6 +1582,24 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "fireworks/nemotron-3-ultra-nvfp4": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/nemotron-lightning-3p5-30b-a3b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "fireworks/qwen3p7-plus": {
     max_tokens: number;
     temperature: number;
@@ -1675,6 +1912,15 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
     top_k: number;
+  };
+  "groq/allam-2-7b": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+    reasoning_effort: "none" | "default";
+    "response_format.type": "text" | "json_object";
   };
   "groq/gpt-oss-120b": {
     max_completion_tokens: number;
@@ -2040,6 +2286,15 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
+  "mistral/mistral-code-latest": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    safe_prompt: boolean;
+  };
   "mistral/mistral-large-2512": {
     max_tokens: number;
     stop: string;
@@ -2060,6 +2315,24 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-medium": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-medium-2604": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
     safe_prompt: boolean;
   };
   "mistral/mistral-medium-3": {
@@ -2126,6 +2399,64 @@ export type ParamsById = {
     presence_penalty: number;
     frequency_penalty: number;
     "response_format.type": "text" | "json_object" | "json_schema";
+    safe_prompt: boolean;
+  };
+  "mistral/voxtral-small-2507": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    safe_prompt: boolean;
+  };
+  "mistral/voxtral-small-latest": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    safe_prompt: boolean;
+  };
+  "mistral/zai-glm-5": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    prompt_mode: "reasoning";
+    safe_prompt: boolean;
+  };
+  "mistral/zai-glm-5-2": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    prompt_mode: "reasoning";
+    safe_prompt: boolean;
+  };
+  "mistral/zai-glm-5-3": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    prompt_mode: "reasoning";
+    safe_prompt: boolean;
+  };
+  "mistral/zai-glm-latest": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    prompt_mode: "reasoning";
     safe_prompt: boolean;
   };
   "moonshot/kimi-k2.5": {
@@ -2246,6 +2577,13 @@ export type ParamsById = {
     seed: number;
     stop: string;
   };
+  "nvidia/diffusiongemma-26b-a4b-it": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+  };
   "nvidia/gemma-4-31b-it": {
     temperature: number;
     top_p: number;
@@ -2335,6 +2673,13 @@ export type ParamsById = {
     seed: number;
     stop: string;
   };
+  "nvidia/llama-3.2-11b-vision-instruct": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+  };
   "nvidia/llama-3.3-nemotron-super-49b-v1": {
     temperature: number;
     top_p: number;
@@ -2379,6 +2724,11 @@ export type ParamsById = {
     seed: number;
     stop: string;
   };
+  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+  };
   "nvidia/nemotron-3-super-120b-a12b": {
     temperature: number;
     top_p: number;
@@ -2404,6 +2754,13 @@ export type ParamsById = {
     reasoning_effort: "none" | "medium" | "high";
     reasoning_budget: number;
     stop: string;
+  };
+  "nvidia/nemotron-3.5-lightning-30b-a3b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "low" | "high";
+    reasoning_budget: number;
   };
   "nvidia/nemotron-content-safety-reasoning-4b": {
     temperature: number;
@@ -2550,6 +2907,9 @@ export type ParamsById = {
     "reasoning.summary": "auto" | "concise" | "detailed" | "none";
     "text.verbosity": "low" | "medium" | "high";
   };
+  "openai/gpt-5.2-pro": {
+    max_completion_tokens: number;
+  };
   "openai/gpt-5.2-subscription": {
     "reasoning.effort": "minimal" | "low" | "medium" | "high" | "xhigh";
     "reasoning.summary": "auto" | "concise" | "detailed" | "none";
@@ -2657,6 +3017,11 @@ export type ParamsById = {
     "response_format.type": "text" | "json_schema";
     tool_choice: "auto" | "none" | "required";
   };
+  "openai/gpt-6-luna": {
+    max_completion_tokens: number;
+    temperature: number;
+    reasoning_effort: "low" | "medium" | "high";
+  };
   "openai/gpt-6-sol": {
     max_completion_tokens: number;
     temperature: number;
@@ -2721,6 +3086,15 @@ export type ParamsById = {
     max_completion_tokens: number;
     reasoning_effort: "low" | "medium" | "high" | "xhigh";
   };
+  "opencode-go/deepseek-flash-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "opencode-go/deepseek-v4-flash-vision-exp-subscription": {
     max_tokens: number;
     temperature: number;
@@ -2753,6 +3127,14 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
+  "opencode-go/hy3-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+  };
   "opencode-go/hy4-preview-subscription": {
     max_tokens: number;
     temperature: number;
@@ -2771,6 +3153,40 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "opencode-go/longcat-2.5-preview-free-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/mimo-v2.6-flash-subscription": {
+    max_tokens: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/mimo-v2.6-pro-subscription": {
+    max_tokens: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/omen-alpha-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "opencode-go/qwen3.8-flash-subscription": {
     max_tokens: number;
     temperature: number;
@@ -2781,6 +3197,15 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
   };
   "opencode-go/qwen3.8-max-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/space-bunny-free-subscription": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -3319,6 +3744,15 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
   };
   "z-ai/glm-5.3-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    do_sample: boolean;
+    "thinking.type": "enabled";
+    reasoning_effort: "low" | "high" | "max";
+    "response_format.type": "text" | "json_object";
+  };
+  "z-ai/glm-5.3-flashx": {
     max_tokens: number;
     temperature: number;
     top_p: number;

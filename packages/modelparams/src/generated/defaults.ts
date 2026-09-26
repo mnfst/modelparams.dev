@@ -53,7 +53,19 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/qvq-max": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen-coder-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
   "alibaba/qwen-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen-flash-character": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
@@ -65,11 +77,43 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen-plus-character": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen-plus-latest": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
   "alibaba/qwen-turbo": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
+  "alibaba/qwen-vl-max": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen-vl-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3-14b": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-235b-a22b": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-235b-a22b-instruct-2507": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
   "alibaba/qwen3-235b-a22b-thinking-2507": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-30b-a3b": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
   },
@@ -80,6 +124,13 @@ export const DEFAULTS = {
   "alibaba/qwen3-30b-a3b-thinking-2507": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-8b": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-coder-480b-a35b-instruct": {
+    "extra_body.top_k": 20,
   },
   "alibaba/qwen3-coder-flash": {
     "extra_body.top_k": 20,
@@ -94,6 +145,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
   },
+  "alibaba/qwen3-max-preview": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
   "alibaba/qwen3-next-80b-a3b-instruct": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
@@ -102,11 +157,43 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
   },
+  "alibaba/qwen3-omni-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-omni-flash-2025-09-15": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-omni-flash-2025-12-01": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
   "alibaba/qwen3-vl-235b-a22b-instruct": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
   },
   "alibaba/qwen3-vl-235b-a22b-thinking": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-vl-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-vl-flash-2026-01-22": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-vl-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-vl-plus-2025-09-23": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": false,
+  },
+  "alibaba/qwen3-vl-plus-2025-12-19": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": false,
   },
@@ -131,6 +218,34 @@ export const DEFAULTS = {
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
   "alibaba/qwen3.5-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-omni-flash": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-omni-flash-2026-03-15": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-omni-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-omni-plus-2026-03-15": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-plus": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-plus-2026-02-15": {
+    "extra_body.top_k": 20,
+    "extra_body.chat_template_kwargs.enable_thinking": true,
+  },
+  "alibaba/qwen3.5-plus-2026-04-20": {
     "extra_body.top_k": 20,
     "extra_body.chat_template_kwargs.enable_thinking": true,
   },
@@ -162,6 +277,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/qwen3.7-max-preview": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qwen3.7-plus": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
@@ -183,6 +302,10 @@ export const DEFAULTS = {
     "extra_body.enable_thinking": true,
   },
   "alibaba/qwen3.8-max-0902": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/qwen3.8-omni-flash": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
@@ -716,6 +839,8 @@ export const DEFAULTS = {
   "fireworks/minimax-m2p7": {},
   "fireworks/minimax-m3": {},
   "fireworks/muse-glimmer-30b": {},
+  "fireworks/nemotron-3-ultra-nvfp4": {},
+  "fireworks/nemotron-lightning-3p5-30b-a3b": {},
   "fireworks/qwen3p7-plus": {},
   "fireworks/qwen3p8-2p4t-a95b": {},
   "fireworks/qwen3p8-max": {},
@@ -945,6 +1070,14 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 0.95,
     top_k: 64,
+  },
+  "groq/allam-2-7b": {
+    temperature: 1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    reasoning_effort: "default",
+    "response_format.type": "text",
   },
   "groq/gpt-oss-120b": {
     temperature: 1,
@@ -1183,6 +1316,12 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/mistral-code-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
   "mistral/mistral-large-2512": {
     top_p: 1,
     presence_penalty: 0,
@@ -1195,6 +1334,18 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/mistral-medium": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
+  "mistral/mistral-medium-2604": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
     safe_prompt: false,
   },
   "mistral/mistral-medium-3": {
@@ -1237,6 +1388,42 @@ export const DEFAULTS = {
     presence_penalty: 0,
     frequency_penalty: 0,
     "response_format.type": "text",
+    safe_prompt: false,
+  },
+  "mistral/voxtral-small-2507": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
+  "mistral/voxtral-small-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
+  "mistral/zai-glm-5": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
+  "mistral/zai-glm-5-2": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
+  "mistral/zai-glm-5-3": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
+  "mistral/zai-glm-latest": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
     safe_prompt: false,
   },
   "moonshot/kimi-k2.5": {
@@ -1330,6 +1517,13 @@ export const DEFAULTS = {
     presence_penalty: 0,
     seed: 0,
   },
+  "nvidia/diffusiongemma-26b-a4b-it": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  },
   "nvidia/gemma-4-31b-it": {
     temperature: 0.6,
     top_p: 0.95,
@@ -1410,6 +1604,13 @@ export const DEFAULTS = {
     presence_penalty: 0,
     seed: 0,
   },
+  "nvidia/llama-3.2-11b-vision-instruct": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  },
   "nvidia/llama-3.3-nemotron-super-49b-v1": {
     temperature: 0.6,
     top_p: 0.95,
@@ -1448,6 +1649,11 @@ export const DEFAULTS = {
     top_p: 1,
     max_tokens: 16384,
   },
+  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning": {
+    temperature: 1,
+    top_p: 1,
+    max_tokens: 16384,
+  },
   "nvidia/nemotron-3-super-120b-a12b": {
     temperature: 1,
     top_p: 0.95,
@@ -1463,6 +1669,13 @@ export const DEFAULTS = {
     reasoning_budget: 16384,
   },
   "nvidia/nemotron-3-ultra-subscription": {
+    temperature: 1,
+    top_p: 0.95,
+    max_tokens: 16384,
+    reasoning_effort: "high",
+    reasoning_budget: 16384,
+  },
+  "nvidia/nemotron-3.5-lightning-30b-a3b": {
     temperature: 1,
     top_p: 0.95,
     max_tokens: 16384,
@@ -1608,6 +1821,9 @@ export const DEFAULTS = {
     "reasoning.summary": "auto",
     "text.verbosity": "medium",
   },
+  "openai/gpt-5.2-pro": {
+    max_completion_tokens: 4096,
+  },
   "openai/gpt-5.2-subscription": {
     "reasoning.effort": "medium",
     "reasoning.summary": "auto",
@@ -1713,6 +1929,10 @@ export const DEFAULTS = {
     reasoning_effort: "medium",
     "response_format.type": "text",
   },
+  "openai/gpt-6-luna": {
+    temperature: 1,
+    reasoning_effort: "medium",
+  },
   "openai/gpt-6-sol": {
     temperature: 1,
     top_p: 1,
@@ -1769,14 +1989,21 @@ export const DEFAULTS = {
     max_completion_tokens: 4096,
     reasoning_effort: "medium",
   },
+  "opencode-go/deepseek-flash-subscription": {},
   "opencode-go/deepseek-v4-flash-vision-exp-subscription": {},
   "opencode-go/glm-5.3-flash-subscription": {},
   "opencode-go/glm-5.3-subscription": {},
   "opencode-go/grok-4.6-subscription": {},
+  "opencode-go/hy3-subscription": {},
   "opencode-go/hy4-preview-subscription": {},
   "opencode-go/longcat-2.0-subscription": {},
+  "opencode-go/longcat-2.5-preview-free-subscription": {},
+  "opencode-go/mimo-v2.6-flash-subscription": {},
+  "opencode-go/mimo-v2.6-pro-subscription": {},
+  "opencode-go/omen-alpha-subscription": {},
   "opencode-go/qwen3.8-flash-subscription": {},
   "opencode-go/qwen3.8-max-subscription": {},
+  "opencode-go/space-bunny-free-subscription": {},
   "perplexity/sonar": {
     "web_search_options.search_context_size": "low",
     return_images: false,
@@ -2167,6 +2394,15 @@ export const DEFAULTS = {
     "response_format.type": "text",
   },
   "z-ai/glm-5.3-flash": {
+    max_tokens: 65536,
+    temperature: 1,
+    top_p: 0.95,
+    do_sample: true,
+    "thinking.type": "enabled",
+    reasoning_effort: "max",
+    "response_format.type": "text",
+  },
+  "z-ai/glm-5.3-flashx": {
     max_tokens: 65536,
     temperature: 1,
     top_p: 0.95,

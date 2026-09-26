@@ -10,6 +10,21 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Deepseek_Flash_SubscriptionParams = TypedDict(
+    "Deepseek_Flash_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Deepseek_Flash_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Deepseek_V4_Flash_Vision_Exp_SubscriptionParams = TypedDict(
     "Deepseek_V4_Flash_Vision_Exp_SubscriptionParams",
     {
@@ -66,6 +81,20 @@ Grok_4_6_SubscriptionParams = TypedDict(
 )
 setattr(Grok_4_6_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Hy3_SubscriptionParams = TypedDict(
+    "Hy3_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+    },
+    total=False,
+)
+setattr(Hy3_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Hy4_Preview_SubscriptionParams = TypedDict(
     "Hy4_Preview_SubscriptionParams",
     {
@@ -95,6 +124,64 @@ Longcat_2_0_SubscriptionParams = TypedDict(
     total=False,
 )
 setattr(Longcat_2_0_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Longcat_2_5_Preview_Free_SubscriptionParams = TypedDict(
+    "Longcat_2_5_Preview_Free_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Longcat_2_5_Preview_Free_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Mimo_V2_6_Flash_SubscriptionParams = TypedDict(
+    "Mimo_V2_6_Flash_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Mimo_V2_6_Flash_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Mimo_V2_6_Pro_SubscriptionParams = TypedDict(
+    "Mimo_V2_6_Pro_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Mimo_V2_6_Pro_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Omen_Alpha_SubscriptionParams = TypedDict(
+    "Omen_Alpha_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Omen_Alpha_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Qwen3_8_Flash_SubscriptionParams = TypedDict(
     "Qwen3_8_Flash_SubscriptionParams",
@@ -126,13 +213,35 @@ Qwen3_8_Max_SubscriptionParams = TypedDict(
 )
 setattr(Qwen3_8_Max_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Space_Bunny_Free_SubscriptionParams = TypedDict(
+    "Space_Bunny_Free_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Space_Bunny_Free_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
+    "Deepseek_Flash_SubscriptionParams",
     "Deepseek_V4_Flash_Vision_Exp_SubscriptionParams",
     "Glm_5_3_Flash_SubscriptionParams",
     "Glm_5_3_SubscriptionParams",
     "Grok_4_6_SubscriptionParams",
+    "Hy3_SubscriptionParams",
     "Hy4_Preview_SubscriptionParams",
     "Longcat_2_0_SubscriptionParams",
+    "Longcat_2_5_Preview_Free_SubscriptionParams",
+    "Mimo_V2_6_Flash_SubscriptionParams",
+    "Mimo_V2_6_Pro_SubscriptionParams",
+    "Omen_Alpha_SubscriptionParams",
     "Qwen3_8_Flash_SubscriptionParams",
     "Qwen3_8_Max_SubscriptionParams",
+    "Space_Bunny_Free_SubscriptionParams",
 ]

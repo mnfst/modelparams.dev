@@ -10,6 +10,21 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Allam_2_7bParams = TypedDict(
+    "Allam_2_7bParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "reasoning_effort": Literal["none", "default"],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Allam_2_7bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_Oss_120bParams = TypedDict(
     "Gpt_Oss_120bParams",
     {
@@ -119,6 +134,7 @@ Qwen3_8_27bParams = TypedDict(
 setattr(Qwen3_8_27bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
+    "Allam_2_7bParams",
     "Gpt_Oss_120bParams",
     "Gpt_Oss_20bParams",
     "Gpt_Oss_Safeguard_20bParams",

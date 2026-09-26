@@ -280,6 +280,36 @@ Muse_Glimmer_30bParams = TypedDict(
 )
 setattr(Muse_Glimmer_30bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Nemotron_3_Ultra_Nvfp4Params = TypedDict(
+    "Nemotron_3_Ultra_Nvfp4Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Nemotron_3_Ultra_Nvfp4Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Nemotron_Lightning_3p5_30b_A3bParams = TypedDict(
+    "Nemotron_Lightning_3p5_30b_A3bParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Nemotron_Lightning_3p5_30b_A3bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qwen3p7_PlusParams = TypedDict(
     "Qwen3p7_PlusParams",
     {
@@ -344,6 +374,8 @@ __all__ = [
     "Minimax_M2p7Params",
     "Minimax_M3Params",
     "Muse_Glimmer_30bParams",
+    "Nemotron_3_Ultra_Nvfp4Params",
+    "Nemotron_Lightning_3p5_30b_A3bParams",
     "Qwen3p7_PlusParams",
     "Qwen3p8_2p4t_A95bParams",
     "Qwen3p8_MaxParams",
