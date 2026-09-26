@@ -234,6 +234,21 @@ Ministral_8b_LatestParams = TypedDict(
 )
 setattr(Ministral_8b_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Mistral_Code_LatestParams = TypedDict(
+    "Mistral_Code_LatestParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Code_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Mistral_Large_2512Params = TypedDict(
     "Mistral_Large_2512Params",
     {
@@ -267,6 +282,36 @@ Mistral_Large_LatestParams = TypedDict(
     total=False,
 )
 setattr(Mistral_Large_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Mistral_MediumParams = TypedDict(
+    "Mistral_MediumParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_MediumParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Mistral_Medium_2604Params = TypedDict(
+    "Mistral_Medium_2604Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Medium_2604Params, "__pydantic_config__", _PARAMS_CONFIG)
 
 Mistral_Medium_3Params = TypedDict(
     "Mistral_Medium_3Params",
@@ -370,6 +415,100 @@ Open_Mistral_NemoParams = TypedDict(
 )
 setattr(Open_Mistral_NemoParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Voxtral_Small_2507Params = TypedDict(
+    "Voxtral_Small_2507Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Voxtral_Small_2507Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Voxtral_Small_LatestParams = TypedDict(
+    "Voxtral_Small_LatestParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Voxtral_Small_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Zai_Glm_5Params = TypedDict(
+    "Zai_Glm_5Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "prompt_mode": Literal["reasoning"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Zai_Glm_5Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Zai_Glm_5_2Params = TypedDict(
+    "Zai_Glm_5_2Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "prompt_mode": Literal["reasoning"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Zai_Glm_5_2Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Zai_Glm_5_3Params = TypedDict(
+    "Zai_Glm_5_3Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "prompt_mode": Literal["reasoning"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Zai_Glm_5_3Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Zai_Glm_LatestParams = TypedDict(
+    "Zai_Glm_LatestParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "prompt_mode": Literal["reasoning"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Zai_Glm_LatestParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Codestral_2508Params",
     "Codestral_LatestParams",
@@ -384,12 +523,21 @@ __all__ = [
     "Ministral_3b_LatestParams",
     "Ministral_8b_2512Params",
     "Ministral_8b_LatestParams",
+    "Mistral_Code_LatestParams",
     "Mistral_Large_2512Params",
     "Mistral_Large_LatestParams",
+    "Mistral_MediumParams",
+    "Mistral_Medium_2604Params",
     "Mistral_Medium_3Params",
     "Mistral_Medium_3_5Params",
     "Mistral_Medium_LatestParams",
     "Mistral_Small_2603Params",
     "Mistral_Small_LatestParams",
     "Open_Mistral_NemoParams",
+    "Voxtral_Small_2507Params",
+    "Voxtral_Small_LatestParams",
+    "Zai_Glm_5Params",
+    "Zai_Glm_5_2Params",
+    "Zai_Glm_5_3Params",
+    "Zai_Glm_LatestParams",
 ]

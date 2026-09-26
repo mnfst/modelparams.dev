@@ -270,6 +270,15 @@ Gpt_5_2_Codex_SubscriptionParams = TypedDict(
 )
 setattr(Gpt_5_2_Codex_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_5_2_ProParams = TypedDict(
+    "Gpt_5_2_ProParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=16)],
+    },
+    total=False,
+)
+setattr(Gpt_5_2_ProParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_5_2_SubscriptionParams = TypedDict(
     "Gpt_5_2_SubscriptionParams",
     {
@@ -515,6 +524,17 @@ Gpt_6_AstraParams = TypedDict(
 )
 setattr(Gpt_6_AstraParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_6_LunaParams = TypedDict(
+    "Gpt_6_LunaParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "reasoning_effort": Literal["low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_6_LunaParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_6_SolParams = TypedDict(
     "Gpt_6_SolParams",
     {
@@ -676,6 +696,7 @@ __all__ = [
     "Gpt_5_1_Codex_SubscriptionParams",
     "Gpt_5_2Params",
     "Gpt_5_2_Codex_SubscriptionParams",
+    "Gpt_5_2_ProParams",
     "Gpt_5_2_SubscriptionParams",
     "Gpt_5_3_CodexParams",
     "Gpt_5_3_Codex_Spark_SubscriptionParams",
@@ -699,6 +720,7 @@ __all__ = [
     "Gpt_5_6_TerraParams",
     "Gpt_5_6_Terra_SubscriptionParams",
     "Gpt_6_AstraParams",
+    "Gpt_6_LunaParams",
     "Gpt_6_SolParams",
     "Gpt_Oss_120bParams",
     "Gpt_Oss_20bParams",

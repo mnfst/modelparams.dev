@@ -920,7 +920,205 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "qvq-max",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen-coder-plus",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen-flash-character",
     "params": [
       {
         "path": "max_tokens",
@@ -1103,6 +1301,128 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "qwen-plus-character",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen-plus-latest",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen-turbo",
     "params": [
       {
@@ -1164,7 +1484,373 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "qwen-vl-max",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen-vl-plus",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-14b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-235b-a22b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-235b-a22b-instruct-2507",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b-thinking-2507",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-30b-a3b",
     "params": [
       {
         "path": "max_tokens",
@@ -1340,6 +2026,120 @@ const GENERATED_CATALOG = [
         "group": "reasoning",
         "type": "boolean",
         "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-8b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-coder-480b-a35b-instruct",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
       }
     ]
   },
@@ -1571,6 +2371,68 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "qwen3-max-preview",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-next-80b-a3b-instruct",
     "params": [
       {
@@ -1693,6 +2555,189 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "qwen3-omni-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-omni-flash-2025-09-15",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-omni-flash-2025-12-01",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-instruct",
     "params": [
       {
@@ -1755,6 +2800,311 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-thinking",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-vl-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-vl-flash-2026-01-22",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-vl-plus",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-vl-plus-2025-09-23",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3-vl-plus-2025-12-19",
     "params": [
       {
         "path": "max_tokens",
@@ -2121,6 +3471,433 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3.5-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.5-omni-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.5-omni-flash-2026-03-15",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.5-omni-plus",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.5-omni-plus-2026-03-15",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.5-plus",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.5-plus-2026-02-15",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "extra_body.chat_template_kwargs.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Controls Qwen3 thinking mode when using OpenAI-compatible clients that pass provider-specific extra body fields.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.5-plus-2026-04-20",
     "params": [
       {
         "path": "max_tokens",
@@ -2718,6 +4495,83 @@ const GENERATED_CATALOG = [
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "qwen3.7-max-preview",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3.7-plus",
     "status": "active",
     "params": [
@@ -3120,6 +4974,82 @@ const GENERATED_CATALOG = [
         "range": {
           "min": 0,
           "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "qwen3.8-omni-flash",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
           "step": 0.1
         }
       },
@@ -14208,6 +16138,184 @@ const GENERATED_CATALOG = [
     "provider": "fireworks",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "nemotron-3-ultra-nvfp4",
+    "wireId": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 100
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "fireworks",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "nemotron-lightning-3p5-30b-a3b",
+    "wireId": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 100
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "fireworks",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qwen3p7-plus",
     "wireId": "accounts/fireworks/models/qwen3p7-plus",
     "params": [
@@ -17160,6 +19268,100 @@ const GENERATED_CATALOG = [
         "range": {
           "min": 0
         }
+      }
+    ]
+  },
+  {
+    "provider": "groq",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "allam-2-7b",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens by how often they have appeared, reducing verbatim repetition.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared, encouraging the model to introduce new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls whether the model reasons before answering. 'none' disables reasoning; 'default' lets the model reason.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "default",
+        "values": [
+          "none",
+          "default"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
       }
     ]
   },
@@ -20630,6 +22832,93 @@ const GENERATED_CATALOG = [
     "provider": "mistral",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "mistral-code-latest",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "mistral-large-2512",
     "params": [
       {
@@ -20829,6 +23118,180 @@ const GENERATED_CATALOG = [
           "json_object",
           "json_schema"
         ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "mistral-medium",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "mistral-medium-2604",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
       },
       {
         "path": "safe_prompt",
@@ -21471,6 +23934,568 @@ const GENERATED_CATALOG = [
           "text",
           "json_object",
           "json_schema"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "voxtral-small-2507",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "voxtral-small-latest",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "zai-glm-5",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "prompt_mode",
+        "label": "Prompt mode",
+        "description": "Enables Mistral's reasoning system prompt; leave unset to disable the default reasoning behavior.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "reasoning"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "zai-glm-5-2",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "prompt_mode",
+        "label": "Prompt mode",
+        "description": "Enables Mistral's reasoning system prompt; leave unset to disable the default reasoning behavior.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "reasoning"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "zai-glm-5-3",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "prompt_mode",
+        "label": "Prompt mode",
+        "description": "Enables Mistral's reasoning system prompt; leave unset to disable the default reasoning behavior.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "reasoning"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "zai-glm-latest",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "prompt_mode",
+        "label": "Prompt mode",
+        "description": "Enables Mistral's reasoning system prompt; leave unset to disable the default reasoning behavior.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "reasoning"
         ]
       },
       {
@@ -22659,6 +25684,74 @@ const GENERATED_CATALOG = [
     "provider": "nvidia",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "diffusiongemma-26b-a4b-it",
+    "wireId": "google/diffusiongemma-26b-a4b-it",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 16384
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gemma-4-31b-it",
     "wireId": "google/gemma-4-31b-it",
     "params": [
@@ -23498,6 +26591,74 @@ const GENERATED_CATALOG = [
     "provider": "nvidia",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "llama-3.2-11b-vision-instruct",
+    "wireId": "meta/llama-3.2-11b-vision-instruct",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 16384
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "llama-3.3-nemotron-super-49b-v1",
     "params": [
       {
@@ -23911,6 +27072,49 @@ const GENERATED_CATALOG = [
     "provider": "nvidia",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "nemotron-3-nano-omni-30b-a3b-reasoning",
+    "wireId": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-3-super-120b-a12b",
     "params": [
       {
@@ -24148,6 +27352,74 @@ const GENERATED_CATALOG = [
         "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
         "group": "generation_length",
         "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "nemotron-3.5-lightning-30b-a3b",
+    "wireId": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls the reasoning mode. 'none' disables reasoning tokens, 'low' enables low-effort reasoning, and 'high' enables full reasoning.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "none",
+          "low",
+          "high"
+        ]
+      },
+      {
+        "path": "reasoning_budget",
+        "label": "Reasoning budget",
+        "description": "Maximum number of tokens the model may use for internal reasoning before being forced to end the reasoning trace. Use -1 to disable budget enforcement.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": -1,
+          "max": 32768
+        }
       }
     ]
   },
@@ -25504,6 +28776,25 @@ const GENERATED_CATALOG = [
   },
   {
     "provider": "openai",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "gpt-5.2-pro",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 16
+        }
+      }
+    ]
+  },
+  {
+    "provider": "openai",
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.2",
@@ -26520,6 +29811,49 @@ const GENERATED_CATALOG = [
     "provider": "openai",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "gpt-6-luna",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.6-sol",
+    "shutdownOn": "2026-10-23",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 131072
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. OpenAI recommends sampling at 1.0.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "medium",
+        "values": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "openai",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "gpt-6-sol",
     "status": "deprecated",
     "replacement": "openai/gpt-5.6-sol",
@@ -27109,6 +30443,94 @@ const GENERATED_CATALOG = [
     "provider": "opencode-go",
     "authType": "subscription",
     "apiSurface": "openai-chat-completions",
+    "model": "deepseek-flash",
+    "wireId": "opencode-go/deepseek-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash-vision-exp",
     "params": [
       {
@@ -27412,6 +30834,83 @@ const GENERATED_CATALOG = [
     "provider": "opencode-go",
     "authType": "subscription",
     "apiSurface": "openai-chat-completions",
+    "model": "hy3",
+    "wireId": "opencode-go/hy3",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "hy4-preview",
     "params": [
       {
@@ -27520,6 +31019,334 @@ const GENERATED_CATALOG = [
         "range": {
           "min": 0,
           "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "longcat-2.5-preview-free",
+    "wireId": "opencode-go/longcat-2.5-preview-free",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "mimo-v2.6-flash",
+    "wireId": "opencode-go/mimo-v2.6-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "mimo-v2.6-pro",
+    "wireId": "opencode-go/mimo-v2.6-pro",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "omen-alpha",
+    "wireId": "opencode-go/omen-alpha",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
           "step": 0.1
         }
       },
@@ -27705,6 +31532,94 @@ const GENERATED_CATALOG = [
         "type": "number",
         "range": {
           "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "space-bunny-free",
+    "wireId": "opencode-go/space-bunny-free",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -33276,6 +37191,106 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "glm-5.3-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 65536,
+        "range": {
+          "min": 1,
+          "max": 131072
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "do_sample": false
+          }
+        },
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "applicability": {
+          "except": {
+            "do_sample": false
+          }
+        },
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "do_sample",
+        "label": "Do sample",
+        "description": "When false, the model uses greedy decoding and ignores temperature and top_p.",
+        "group": "sampling",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "GLM-5.3 always engages in extended reasoning; thinking cannot be disabled.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled"
+        ]
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls how much reasoning effort GLM-5.3 spends on its always-on thinking.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "max",
+        "values": [
+          "low",
+          "high",
+          "max"
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "z-ai",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "glm-5.3-flashx",
     "params": [
       {
         "path": "max_tokens",
