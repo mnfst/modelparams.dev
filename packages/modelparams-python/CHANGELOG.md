@@ -5,6 +5,37 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.44
+
+### Models added
+
+- `minimax/MiniMax-M2`
+- `minimax/MiniMax-M2.1`
+- `minimax/MiniMax-M2.1-highspeed`
+- `minimax/MiniMax-M2.5`
+- `minimax/MiniMax-M2.5-highspeed`
+- `minimax/MiniMax-M2.7`
+- `minimax/MiniMax-M2.7-highspeed`
+- `minimax/MiniMax-M3`
+
+### Models removed
+
+- `minimax/minimax-m2`
+- `minimax/minimax-m2.1`
+- `minimax/minimax-m2.1-highspeed`
+- `minimax/minimax-m2.5`
+- `minimax/minimax-m2.5-highspeed`
+- `minimax/minimax-m2.7`
+- `minimax/minimax-m2.7-highspeed`
+- `minimax/minimax-m3`
+
+### Parameters changed
+
+- `alibaba/qwen3.8-2.4t-a95b`: updated `temperature`
+- `alibaba/qwen3.8-27b`: updated `temperature`
+- `alibaba/qwen3.8-flash`: updated `temperature`
+- `alibaba/qwen3.8-omni-flash`: updated `temperature`
+
 ## 0.0.43
 
 ### Models added
