@@ -1763,7 +1763,7 @@ export type ParamsById = {
     "generationConfig.topP": number;
     "generationConfig.topK": number;
     "generationConfig.seed": number;
-    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.thinkingLevel": "low" | "medium" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
@@ -2974,8 +2974,8 @@ export type ParamsById = {
     "text.verbosity": "low" | "medium" | "high";
   };
   "openai/gpt-5.5-subscription": {
-    "reasoning.effort": "minimal" | "low" | "medium" | "high" | "xhigh";
-    "reasoning.summary": "auto" | "concise" | "detailed" | "none";
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh";
+    "reasoning.summary": "concise" | "detailed" | "auto";
     "text.verbosity": "low" | "medium" | "high";
   };
   "openai/gpt-5.6": {
