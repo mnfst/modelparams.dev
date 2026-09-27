@@ -20632,7 +20632,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m2",
+    "model": "MiniMax-M2",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20729,7 +20729,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m2.1",
+    "model": "MiniMax-M2.1",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20781,7 +20781,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m2.1-highspeed",
+    "model": "MiniMax-M2.1-highspeed",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20923,7 +20923,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m2.5",
+    "model": "MiniMax-M2.5",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20975,7 +20975,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m2.5-highspeed",
+    "model": "MiniMax-M2.5-highspeed",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21117,7 +21117,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m2.7",
+    "model": "MiniMax-M2.7",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21169,7 +21169,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m2.7-highspeed",
+    "model": "MiniMax-M2.7-highspeed",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21311,7 +21311,7 @@ const GENERATED_CATALOG = [
     "provider": "minimax",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
-    "model": "minimax-m3",
+    "model": "MiniMax-M3",
     "params": [
       {
         "path": "max_completion_tokens",
