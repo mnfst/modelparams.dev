@@ -429,8 +429,8 @@ setattr(Gpt_5_5_Pro_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 Gpt_5_5_SubscriptionParams = TypedDict(
     "Gpt_5_5_SubscriptionParams",
     {
-        "reasoning.effort": Literal["minimal", "low", "medium", "high", "xhigh"],
-        "reasoning.summary": Literal["auto", "concise", "detailed", "none"],
+        "reasoning.effort": Literal["none", "low", "medium", "high", "xhigh"],
+        "reasoning.summary": Literal["concise", "detailed", "auto"],
         "text.verbosity": Literal["low", "medium", "high"],
     },
     total=False,

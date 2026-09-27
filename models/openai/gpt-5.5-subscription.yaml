@@ -11,7 +11,7 @@ params:
     description: Controls how much reasoning the model should perform before producing an answer.
     default: medium
     values:
-      - minimal
+      - none
       - low
       - medium
       - high
@@ -23,10 +23,9 @@ params:
     description: Controls the level of reasoning summary returned with the response.
     default: auto
     values:
-      - auto
       - concise
       - detailed
-      - none
+      - auto
     group: reasoning
   - path: text.verbosity
     type: enum
