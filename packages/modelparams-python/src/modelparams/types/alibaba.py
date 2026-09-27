@@ -955,7 +955,7 @@ Qwen3_8_2_4t_A95bParams = TypedDict(
     "Qwen3_8_2_4t_A95bParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
-        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "extra_body.top_k": Annotated[int, Field(ge=0)],
         "extra_body.enable_thinking": bool,
@@ -969,7 +969,7 @@ Qwen3_8_27bParams = TypedDict(
     "Qwen3_8_27bParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
-        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "extra_body.top_k": Annotated[int, Field(ge=0)],
         "extra_body.enable_thinking": bool,
@@ -983,7 +983,7 @@ Qwen3_8_FlashParams = TypedDict(
     "Qwen3_8_FlashParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
-        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "extra_body.top_k": Annotated[int, Field(ge=0)],
         "extra_body.enable_thinking": bool,
@@ -1025,7 +1025,7 @@ Qwen3_8_Omni_FlashParams = TypedDict(
     "Qwen3_8_Omni_FlashParams",
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
-        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
         "top_p": Annotated[float, Field(ge=0, le=1)],
         "extra_body.top_k": Annotated[int, Field(ge=0)],
         "extra_body.enable_thinking": bool,
