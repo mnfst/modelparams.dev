@@ -2052,7 +2052,7 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object" | "json_schema";
     prompt_cache_retention: "in_memory" | "24h";
   };
-  "minimax/minimax-m2": {
+  "minimax/MiniMax-M2": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -2063,13 +2063,13 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
-  "minimax/minimax-m2.1": {
+  "minimax/MiniMax-M2.1": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
     reasoning_split: boolean;
   };
-  "minimax/minimax-m2.1-highspeed": {
+  "minimax/MiniMax-M2.1-highspeed": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -2085,13 +2085,13 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
-  "minimax/minimax-m2.5": {
+  "minimax/MiniMax-M2.5": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
     reasoning_split: boolean;
   };
-  "minimax/minimax-m2.5-highspeed": {
+  "minimax/MiniMax-M2.5-highspeed": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -2107,13 +2107,13 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
-  "minimax/minimax-m2.7": {
+  "minimax/MiniMax-M2.7": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
     reasoning_split: boolean;
   };
-  "minimax/minimax-m2.7-highspeed": {
+  "minimax/MiniMax-M2.7-highspeed": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -2129,7 +2129,7 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
-  "minimax/minimax-m3": {
+  "minimax/MiniMax-M3": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;

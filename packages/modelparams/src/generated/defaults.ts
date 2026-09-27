@@ -1153,7 +1153,7 @@ export const DEFAULTS = {
     presence_penalty: 0,
     "response_format.type": "text",
   },
-  "minimax/minimax-m2": {
+  "minimax/MiniMax-M2": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,
@@ -1162,12 +1162,12 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 0.95,
   },
-  "minimax/minimax-m2.1": {
+  "minimax/MiniMax-M2.1": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,
   },
-  "minimax/minimax-m2.1-highspeed": {
+  "minimax/MiniMax-M2.1-highspeed": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,
@@ -1180,12 +1180,12 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 0.95,
   },
-  "minimax/minimax-m2.5": {
+  "minimax/MiniMax-M2.5": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,
   },
-  "minimax/minimax-m2.5-highspeed": {
+  "minimax/MiniMax-M2.5-highspeed": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,
@@ -1198,12 +1198,12 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 0.95,
   },
-  "minimax/minimax-m2.7": {
+  "minimax/MiniMax-M2.7": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,
   },
-  "minimax/minimax-m2.7-highspeed": {
+  "minimax/MiniMax-M2.7-highspeed": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,
@@ -1216,7 +1216,7 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 0.95,
   },
-  "minimax/minimax-m3": {
+  "minimax/MiniMax-M3": {
     temperature: 1,
     top_p: 0.95,
     reasoning_split: false,

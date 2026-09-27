@@ -2,7 +2,7 @@
 provider: minimax
 authType: api_key
 apiSurface: openai-chat-completions
-model: minimax-m2.7-highspeed
+model: MiniMax-M2.7-highspeed
 params:
   - path: max_completion_tokens
     type: integer
