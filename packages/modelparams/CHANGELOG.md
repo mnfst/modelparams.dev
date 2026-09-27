@@ -5,6 +5,13 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.64
+
+### Parameters changed
+
+- `google/gemini-3.1-pro-preview-customtools`: updated `generationConfig.thinkingConfig.thinkingLevel`
+- `openai/gpt-5.5-subscription`: updated `reasoning.effort`, `reasoning.summary`
+
 ## 0.0.63
 
 ### Models added
