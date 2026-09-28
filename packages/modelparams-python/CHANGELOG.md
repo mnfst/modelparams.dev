@@ -5,6 +5,18 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.46
+
+### Models added
+
+- `nvidia/mistral-nemotron`
+- `opencode-go/minimax-m2.7-subscription`
+
+### Parameters changed
+
+- `groq/gpt-oss-120b`: updated `reasoning_format`
+- `xai/grok-4.3`: updated `top_p`
+
 ## 0.0.45
 
 ### Parameters changed
