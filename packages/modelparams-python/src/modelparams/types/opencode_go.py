@@ -168,6 +168,20 @@ Mimo_V2_6_Pro_SubscriptionParams = TypedDict(
 )
 setattr(Mimo_V2_6_Pro_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Minimax_M2_7_SubscriptionParams = TypedDict(
+    "Minimax_M2_7_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Minimax_M2_7_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Omen_Alpha_SubscriptionParams = TypedDict(
     "Omen_Alpha_SubscriptionParams",
     {
@@ -240,6 +254,7 @@ __all__ = [
     "Longcat_2_5_Preview_Free_SubscriptionParams",
     "Mimo_V2_6_Flash_SubscriptionParams",
     "Mimo_V2_6_Pro_SubscriptionParams",
+    "Minimax_M2_7_SubscriptionParams",
     "Omen_Alpha_SubscriptionParams",
     "Qwen3_8_Flash_SubscriptionParams",
     "Qwen3_8_Max_SubscriptionParams",

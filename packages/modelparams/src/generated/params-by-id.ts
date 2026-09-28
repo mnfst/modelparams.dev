@@ -1931,7 +1931,7 @@ export type ParamsById = {
     seed: number;
     stop: string;
     reasoning_effort: "none" | "default";
-    reasoning_format: "hidden" | "raw" | "parsed";
+    reasoning_format: "hidden" | "parsed";
     "response_format.type": "text" | "json_object";
   };
   "groq/gpt-oss-20b": {
@@ -2707,6 +2707,13 @@ export type ParamsById = {
     seed: number;
     stop: string;
   };
+  "nvidia/mistral-nemotron": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+  };
   "nvidia/muse-glimmer-30b": {
     temperature: number;
     top_p: number;
@@ -3171,6 +3178,14 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
   };
   "opencode-go/mimo-v2.6-pro-subscription": {
+    max_tokens: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/minimax-m2.7-subscription": {
     max_tokens: number;
     top_p: number;
     top_k: number;

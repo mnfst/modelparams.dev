@@ -1635,6 +1635,13 @@ export const DEFAULTS = {
     presence_penalty: 0,
     seed: 0,
   },
+  "nvidia/mistral-nemotron": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  },
   "nvidia/muse-glimmer-30b": {
     temperature: 0.6,
     top_p: 0.95,
@@ -2000,6 +2007,7 @@ export const DEFAULTS = {
   "opencode-go/longcat-2.5-preview-free-subscription": {},
   "opencode-go/mimo-v2.6-flash-subscription": {},
   "opencode-go/mimo-v2.6-pro-subscription": {},
+  "opencode-go/minimax-m2.7-subscription": {},
   "opencode-go/omen-alpha-subscription": {},
   "opencode-go/qwen3.8-flash-subscription": {},
   "opencode-go/qwen3.8-max-subscription": {},

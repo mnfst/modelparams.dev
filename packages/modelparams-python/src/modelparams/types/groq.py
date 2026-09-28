@@ -36,7 +36,7 @@ Gpt_Oss_120bParams = TypedDict(
         "seed": int,
         "stop": str,
         "reasoning_effort": Literal["none", "default"],
-        "reasoning_format": Literal["hidden", "raw", "parsed"],
+        "reasoning_format": Literal["hidden", "parsed"],
         "response_format.type": Literal["text", "json_object"],
     },
     total=False,
