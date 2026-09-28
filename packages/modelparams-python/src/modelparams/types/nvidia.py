@@ -266,6 +266,19 @@ Minimax_M3Params = TypedDict(
 )
 setattr(Minimax_M3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Mistral_NemotronParams = TypedDict(
+    "Mistral_NemotronParams",
+    {
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=16384)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+    },
+    total=False,
+)
+setattr(Mistral_NemotronParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Muse_Glimmer_30bParams = TypedDict(
     "Muse_Glimmer_30bParams",
     {
@@ -443,6 +456,7 @@ __all__ = [
     "Llama_3_3_Nemotron_Super_49b_V1Params",
     "Llama_3_3_Nemotron_Super_49b_V1_5Params",
     "Minimax_M3Params",
+    "Mistral_NemotronParams",
     "Muse_Glimmer_30bParams",
     "Nemoguard_Jailbreak_DetectParams",
     "Nemotron_3_Nano_30b_A3bParams",

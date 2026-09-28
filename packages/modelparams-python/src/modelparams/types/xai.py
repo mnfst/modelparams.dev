@@ -82,7 +82,7 @@ Grok_4_3Params = TypedDict(
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
         "temperature": Annotated[float, Field(ge=0, le=2)],
-        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "seed": int,
         "reasoning_effort": Literal["none", "low", "medium", "high"],
         "response_format.type": Literal["text", "json_object", "json_schema"],
