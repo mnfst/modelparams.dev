@@ -5,6 +5,13 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.66
+
+### Parameters changed
+
+- `xai/grok-4.20-0309-non-reasoning`: updated `top_p`
+- `xai/grok-4.20-0309-reasoning`: updated `top_p`
+
 ## 0.0.65
 
 ### Models added
