@@ -28948,7 +28948,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.3-codex-spark",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "reasoning.effort",
@@ -29120,7 +29120,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.4-mini",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "reasoning.effort",
@@ -29288,7 +29288,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.4",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "reasoning.effort",
@@ -34042,7 +34042,7 @@ const GENERATED_CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -34186,7 +34186,7 @@ const GENERATED_CATALOG = [
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }

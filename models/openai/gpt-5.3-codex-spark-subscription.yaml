@@ -3,7 +3,7 @@ provider: openai
 authType: subscription
 apiSurface: openai-responses
 model: gpt-5.3-codex-spark
-status: active
+status: retired
 params:
   - path: reasoning.effort
     type: enum
