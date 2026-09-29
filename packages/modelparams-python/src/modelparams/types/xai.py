@@ -15,7 +15,7 @@ Grok_4_20_0309_Non_ReasoningParams = TypedDict(
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
         "temperature": Annotated[float, Field(ge=0, le=2)],
-        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "seed": int,
         "stop": str,
         "response_format.type": Literal["text", "json_object", "json_schema"],
@@ -43,7 +43,7 @@ Grok_4_20_0309_ReasoningParams = TypedDict(
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
         "temperature": Annotated[float, Field(ge=0, le=2)],
-        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "seed": int,
         "response_format.type": Literal["text", "json_object", "json_schema"],
     },
