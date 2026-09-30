@@ -5,6 +5,12 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.48
+
+### Models added
+
+- `openai/gpt-6.1-sol`
+
 ## 0.0.47
 
 ### Parameters changed
