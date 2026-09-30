@@ -1946,6 +1946,10 @@ export const DEFAULTS = {
     reasoning_effort: "medium",
     "response_format.type": "text",
   },
+  "openai/gpt-6.1-sol": {
+    temperature: 1,
+    reasoning_effort: "medium",
+  },
   "openai/gpt-oss-120b": {
     temperature: 1,
     top_p: 1,

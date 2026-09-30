@@ -3037,6 +3037,11 @@ export type ParamsById = {
     "response_format.type": "text" | "json_schema";
     tool_choice: "auto" | "none" | "required";
   };
+  "openai/gpt-6.1-sol": {
+    max_completion_tokens: number;
+    temperature: number;
+    reasoning_effort: "low" | "medium" | "high";
+  };
   "openai/gpt-oss-120b": {
     max_completion_tokens: number;
     temperature: number;
