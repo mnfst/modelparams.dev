@@ -549,6 +549,17 @@ Gpt_6_SolParams = TypedDict(
 )
 setattr(Gpt_6_SolParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Gpt_6_1_SolParams = TypedDict(
+    "Gpt_6_1_SolParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1, le=131072)],
+        "temperature": float,
+        "reasoning_effort": Literal["low", "medium", "high"],
+    },
+    total=False,
+)
+setattr(Gpt_6_1_SolParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Gpt_Oss_120bParams = TypedDict(
     "Gpt_Oss_120bParams",
     {
@@ -722,6 +733,7 @@ __all__ = [
     "Gpt_6_AstraParams",
     "Gpt_6_LunaParams",
     "Gpt_6_SolParams",
+    "Gpt_6_1_SolParams",
     "Gpt_Oss_120bParams",
     "Gpt_Oss_20bParams",
     "Gpt_Oss_Safeguard_120bParams",

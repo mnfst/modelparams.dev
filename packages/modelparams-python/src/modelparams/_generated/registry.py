@@ -425,6 +425,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "openai/gpt-6-astra": openai.Gpt_6_AstraParams,
     "openai/gpt-6-luna": openai.Gpt_6_LunaParams,
     "openai/gpt-6-sol": openai.Gpt_6_SolParams,
+    "openai/gpt-6.1-sol": openai.Gpt_6_1_SolParams,
     "openai/gpt-oss-120b": openai.Gpt_Oss_120bParams,
     "openai/gpt-oss-20b": openai.Gpt_Oss_20bParams,
     "openai/gpt-oss-safeguard-120b": openai.Gpt_Oss_Safeguard_120bParams,
