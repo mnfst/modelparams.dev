@@ -5,6 +5,18 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.68
+
+### Models added
+
+- `nvidia/llama-3.2-90b-vision-instruct`
+
+### Parameters changed
+
+- `fireworks/inkling`: updated `top_p`
+- `google/gemini-3.7-flash`: updated `generationConfig.thinkingConfig.thinkingLevel`
+- `groq/gpt-oss-20b`: updated `reasoning_format`
+
 ## 0.0.67
 
 ### Models added
