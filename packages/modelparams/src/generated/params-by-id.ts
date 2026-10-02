@@ -1813,7 +1813,7 @@ export type ParamsById = {
     "generationConfig.topP": number;
     "generationConfig.topK": number;
     "generationConfig.seed": number;
-    "generationConfig.thinkingConfig.thinkingLevel": "minimal" | "low" | "medium" | "high";
+    "generationConfig.thinkingConfig.thinkingLevel": "low" | "medium" | "high";
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
@@ -1943,7 +1943,7 @@ export type ParamsById = {
     seed: number;
     stop: string;
     reasoning_effort: "none" | "default";
-    reasoning_format: "hidden" | "raw" | "parsed";
+    reasoning_format: "hidden" | "parsed";
     "response_format.type": "text" | "json_object";
   };
   "groq/gpt-oss-safeguard-20b": {
@@ -2674,6 +2674,13 @@ export type ParamsById = {
     stop: string;
   };
   "nvidia/llama-3.2-11b-vision-instruct": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
+  };
+  "nvidia/llama-3.2-90b-vision-instruct": {
     temperature: number;
     top_p: number;
     max_tokens: number;

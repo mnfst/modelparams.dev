@@ -180,7 +180,7 @@ InklingParams = TypedDict(
     {
         "max_tokens": Annotated[int, Field(ge=1)],
         "temperature": Annotated[float, Field(ge=0, le=2)],
-        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "top_k": Annotated[int, Field(ge=1, le=100)],
         "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
         "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
