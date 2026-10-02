@@ -359,6 +359,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "nvidia/llama-3.1-nemotron-safety-guard-8b-v3": nvidia.Llama_3_1_Nemotron_Safety_Guard_8b_V3Params,
     "nvidia/llama-3.1-nemotron-ultra-253b-v1": nvidia.Llama_3_1_Nemotron_Ultra_253b_V1Params,
     "nvidia/llama-3.2-11b-vision-instruct": nvidia.Llama_3_2_11b_Vision_InstructParams,
+    "nvidia/llama-3.2-90b-vision-instruct": nvidia.Llama_3_2_90b_Vision_InstructParams,
     "nvidia/llama-3.3-nemotron-super-49b-v1": nvidia.Llama_3_3_Nemotron_Super_49b_V1Params,
     "nvidia/llama-3.3-nemotron-super-49b-v1.5": nvidia.Llama_3_3_Nemotron_Super_49b_V1_5Params,
     "nvidia/minimax-m3": nvidia.Minimax_M3Params,

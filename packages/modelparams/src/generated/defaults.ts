@@ -990,7 +990,7 @@ export const DEFAULTS = {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
     "generationConfig.topK": 64,
-    "generationConfig.thinkingConfig.thinkingLevel": "minimal",
+    "generationConfig.thinkingConfig.thinkingLevel": "low",
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
@@ -1605,6 +1605,13 @@ export const DEFAULTS = {
     seed: 0,
   },
   "nvidia/llama-3.2-11b-vision-instruct": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  },
+  "nvidia/llama-3.2-90b-vision-instruct": {
     temperature: 0.6,
     top_p: 0.95,
     max_tokens: 4096,

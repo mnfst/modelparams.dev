@@ -221,6 +221,19 @@ Llama_3_2_11b_Vision_InstructParams = TypedDict(
 )
 setattr(Llama_3_2_11b_Vision_InstructParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Llama_3_2_90b_Vision_InstructParams = TypedDict(
+    "Llama_3_2_90b_Vision_InstructParams",
+    {
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=16384)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+    },
+    total=False,
+)
+setattr(Llama_3_2_90b_Vision_InstructParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Llama_3_3_Nemotron_Super_49b_V1Params = TypedDict(
     "Llama_3_3_Nemotron_Super_49b_V1Params",
     {
@@ -453,6 +466,7 @@ __all__ = [
     "Llama_3_1_Nemotron_Safety_Guard_8b_V3Params",
     "Llama_3_1_Nemotron_Ultra_253b_V1Params",
     "Llama_3_2_11b_Vision_InstructParams",
+    "Llama_3_2_90b_Vision_InstructParams",
     "Llama_3_3_Nemotron_Super_49b_V1Params",
     "Llama_3_3_Nemotron_Super_49b_V1_5Params",
     "Minimax_M3Params",
