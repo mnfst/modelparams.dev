@@ -2306,6 +2306,24 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object" | "json_schema";
     safe_prompt: boolean;
   };
+  "mistral/mistral-large-4": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    safe_prompt: boolean;
+  };
+  "mistral/mistral-large-4-0": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    safe_prompt: boolean;
+  };
   "mistral/mistral-large-latest": {
     max_tokens: number;
     stop: string;
@@ -3233,6 +3251,15 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
   };
   "opencode-go/space-bunny-free-subscription": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "opencode-go/space-bunny-subscription": {
     max_tokens: number;
     temperature: number;
     top_p: number;

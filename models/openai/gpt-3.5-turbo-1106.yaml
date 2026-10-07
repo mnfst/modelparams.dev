@@ -3,6 +3,7 @@ provider: openai
 authType: api_key
 apiSurface: openai-chat-completions
 model: gpt-3.5-turbo-1106
+status: retired
 params:
   - path: max_tokens
     type: integer

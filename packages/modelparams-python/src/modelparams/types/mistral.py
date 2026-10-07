@@ -266,6 +266,36 @@ Mistral_Large_2512Params = TypedDict(
 )
 setattr(Mistral_Large_2512Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Mistral_Large_4Params = TypedDict(
+    "Mistral_Large_4Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0.1, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Large_4Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Mistral_Large_4_0Params = TypedDict(
+    "Mistral_Large_4_0Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0.1, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Mistral_Large_4_0Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Mistral_Large_LatestParams = TypedDict(
     "Mistral_Large_LatestParams",
     {
@@ -525,6 +555,8 @@ __all__ = [
     "Ministral_8b_LatestParams",
     "Mistral_Code_LatestParams",
     "Mistral_Large_2512Params",
+    "Mistral_Large_4Params",
+    "Mistral_Large_4_0Params",
     "Mistral_Large_LatestParams",
     "Mistral_MediumParams",
     "Mistral_Medium_2604Params",
