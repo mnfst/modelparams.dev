@@ -242,6 +242,21 @@ Space_Bunny_Free_SubscriptionParams = TypedDict(
 )
 setattr(Space_Bunny_Free_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Space_Bunny_SubscriptionParams = TypedDict(
+    "Space_Bunny_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "top_k": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Space_Bunny_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Deepseek_Flash_SubscriptionParams",
     "Deepseek_V4_Flash_Vision_Exp_SubscriptionParams",
@@ -259,4 +274,5 @@ __all__ = [
     "Qwen3_8_Flash_SubscriptionParams",
     "Qwen3_8_Max_SubscriptionParams",
     "Space_Bunny_Free_SubscriptionParams",
+    "Space_Bunny_SubscriptionParams",
 ]

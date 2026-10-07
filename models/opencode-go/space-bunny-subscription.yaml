@@ -1,10 +1,9 @@
 # yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
-provider: fireworks
-authType: api_key
+provider: opencode-go
+authType: subscription
 apiSurface: openai-chat-completions
-model: glm-5p2
-wireId: accounts/fireworks/models/glm-5p2
-status: retired
+model: space-bunny
+wireId: opencode-go/space-bunny
 params:
   - path: max_tokens
     type: integer
@@ -19,7 +18,7 @@ params:
     description: Controls randomness. Lower values make outputs more focused; higher values make them more varied.
     range:
       min: 0
-      max: 2
+      max: 1.9
       step: 0.1
     group: sampling
   - path: top_p
@@ -27,7 +26,7 @@ params:
     label: Top P
     description: Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.
     range:
-      min: 0
+      min: 0.01
       max: 1
       step: 0.01
     group: sampling
@@ -37,7 +36,6 @@ params:
     description: Limits token sampling to the top K most likely next tokens.
     range:
       min: 1
-      max: 100
     group: sampling
   - path: presence_penalty
     type: number

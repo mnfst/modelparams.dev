@@ -1329,6 +1329,18 @@ export const DEFAULTS = {
     "response_format.type": "text",
     safe_prompt: false,
   },
+  "mistral/mistral-large-4": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
+  "mistral/mistral-large-4-0": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
   "mistral/mistral-large-latest": {
     top_p: 1,
     presence_penalty: 0,
@@ -2023,6 +2035,7 @@ export const DEFAULTS = {
   "opencode-go/qwen3.8-flash-subscription": {},
   "opencode-go/qwen3.8-max-subscription": {},
   "opencode-go/space-bunny-free-subscription": {},
+  "opencode-go/space-bunny-subscription": {},
   "perplexity/sonar": {
     "web_search_options.search_context_size": "low",
     return_images: false,
