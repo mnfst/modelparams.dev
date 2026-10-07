@@ -5,6 +5,14 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.69
+
+### Models added
+
+- `mistral/mistral-large-4`
+- `mistral/mistral-large-4-0`
+- `opencode-go/space-bunny-subscription`
+
 ## 0.0.68
 
 ### Models added
