@@ -5,6 +5,12 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.51
+
+### Models added
+
+- `opencode-go/claude-haiku-5-5-subscription`
+
 ## 0.0.50
 
 ### Models added
