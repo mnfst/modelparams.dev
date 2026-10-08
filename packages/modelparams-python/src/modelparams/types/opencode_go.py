@@ -10,6 +10,18 @@ from typing_extensions import TypedDict
 
 _PARAMS_CONFIG = ConfigDict(strict=True, extra="forbid")
 
+Claude_Haiku_5_5_SubscriptionParams = TypedDict(
+    "Claude_Haiku_5_5_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Claude_Haiku_5_5_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Deepseek_Flash_SubscriptionParams = TypedDict(
     "Deepseek_Flash_SubscriptionParams",
     {
@@ -258,6 +270,7 @@ Space_Bunny_SubscriptionParams = TypedDict(
 setattr(Space_Bunny_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 __all__ = [
+    "Claude_Haiku_5_5_SubscriptionParams",
     "Deepseek_Flash_SubscriptionParams",
     "Deepseek_V4_Flash_Vision_Exp_SubscriptionParams",
     "Glm_5_3_Flash_SubscriptionParams",

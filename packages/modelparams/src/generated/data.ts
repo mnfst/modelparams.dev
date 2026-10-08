@@ -30793,6 +30793,60 @@ const GENERATED_CATALOG = [
     "provider": "opencode-go",
     "authType": "subscription",
     "apiSurface": "openai-chat-completions",
+    "model": "claude-haiku-5-5",
+    "wireId": "opencode-go/claude-haiku-5-5",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "opencode-go",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
     "model": "deepseek-flash",
     "wireId": "opencode-go/deepseek-flash",
     "params": [
