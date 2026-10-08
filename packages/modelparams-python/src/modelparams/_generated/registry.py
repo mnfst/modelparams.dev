@@ -440,6 +440,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "openai/o3-mini": openai.O3_MiniParams,
     "openai/o3-pro": openai.O3_ProParams,
     "openai/o4-mini": openai.O4_MiniParams,
+    "opencode-go/claude-haiku-5-5-subscription": opencode_go.Claude_Haiku_5_5_SubscriptionParams,
     "opencode-go/deepseek-flash-subscription": opencode_go.Deepseek_Flash_SubscriptionParams,
     "opencode-go/deepseek-v4-flash-vision-exp-subscription": opencode_go.Deepseek_V4_Flash_Vision_Exp_SubscriptionParams,
     "opencode-go/glm-5.3-flash-subscription": opencode_go.Glm_5_3_Flash_SubscriptionParams,

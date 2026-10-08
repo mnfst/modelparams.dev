@@ -3123,6 +3123,12 @@ export type ParamsById = {
     max_completion_tokens: number;
     reasoning_effort: "low" | "medium" | "high" | "xhigh";
   };
+  "opencode-go/claude-haiku-5-5-subscription": {
+    max_tokens: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "opencode-go/deepseek-flash-subscription": {
     max_tokens: number;
     temperature: number;

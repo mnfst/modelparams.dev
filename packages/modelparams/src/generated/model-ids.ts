@@ -413,6 +413,7 @@ export const MODEL_IDS = [
   "openai/o3-mini",
   "openai/o3-pro",
   "openai/o4-mini",
+  "opencode-go/claude-haiku-5-5-subscription",
   "opencode-go/deepseek-flash-subscription",
   "opencode-go/deepseek-v4-flash-vision-exp-subscription",
   "opencode-go/glm-5.3-flash-subscription",

@@ -2019,6 +2019,7 @@ export const DEFAULTS = {
     max_completion_tokens: 4096,
     reasoning_effort: "medium",
   },
+  "opencode-go/claude-haiku-5-5-subscription": {},
   "opencode-go/deepseek-flash-subscription": {},
   "opencode-go/deepseek-v4-flash-vision-exp-subscription": {},
   "opencode-go/glm-5.3-flash-subscription": {},
