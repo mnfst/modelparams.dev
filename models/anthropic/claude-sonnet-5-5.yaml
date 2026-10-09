@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: anthropic
+authType: api_key
+apiSurface: anthropic-messages
+model: claude-sonnet-5-5
+status: active
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    default: 4096
+    range:
+      min: 1
+    group: generation_length
+  - path: output_config.effort
+    type: enum
+    label: Effort
+    description: Controls Anthropic response thoroughness and token spend.
+    default: high
+    values:
+      - low
+      - medium
+      - high
+      - max
+    group: reasoning

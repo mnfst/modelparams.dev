@@ -71,6 +71,14 @@ export type ParamsById = {
     "extra_body.enable_thinking": boolean;
     "extra_body.thinking_budget": number;
   };
+  "alibaba/glm-5.2-fast-preview": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/glm-5.3": {
     max_completion_tokens: number;
     temperature: number;
@@ -694,6 +702,10 @@ export type ParamsById = {
     "thinking.type": "disabled" | "enabled";
     "thinking.budget_tokens": number;
   };
+  "anthropic/claude-haiku-5-5": {
+    max_tokens: number;
+    "thinking.type": "disabled";
+  };
   "anthropic/claude-opus-4-1-20250805": {
     max_tokens: number;
     temperature: number;
@@ -808,6 +820,12 @@ export type ParamsById = {
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
   };
+  "anthropic/claude-opus-5-5": {
+    max_tokens: number;
+    "thinking.type": "adaptive";
+    "thinking.display": "summarized" | "omitted";
+    "output_config.effort": "low" | "medium" | "high" | "max";
+  };
   "anthropic/claude-opus-5-subscription": {
     max_tokens: number;
     "thinking.type": "disabled" | "adaptive";
@@ -897,6 +915,10 @@ export type ParamsById = {
     "thinking.type": "disabled" | "adaptive";
     "thinking.display": "summarized" | "omitted";
     "output_config.effort": "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "anthropic/claude-sonnet-5-5": {
+    max_tokens: number;
+    "output_config.effort": "low" | "medium" | "high" | "max";
   };
   "anthropic/claude-sonnet-5-subscription": {
     max_tokens: number;
