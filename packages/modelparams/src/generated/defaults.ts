@@ -37,6 +37,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/glm-5.2-fast-preview": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/glm-5.3": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
@@ -427,6 +431,10 @@ export const DEFAULTS = {
     "thinking.type": "disabled",
     "thinking.budget_tokens": 4096,
   },
+  "anthropic/claude-haiku-5-5": {
+    max_tokens: 4096,
+    "thinking.type": "disabled",
+  },
   "anthropic/claude-opus-4-1-20250805": {
     max_tokens: 4096,
     temperature: 1,
@@ -541,6 +549,12 @@ export const DEFAULTS = {
     "thinking.display": "omitted",
     "output_config.effort": "high",
   },
+  "anthropic/claude-opus-5-5": {
+    max_tokens: 4096,
+    "thinking.type": "adaptive",
+    "thinking.display": "summarized",
+    "output_config.effort": "high",
+  },
   "anthropic/claude-opus-5-subscription": {
     max_tokens: 4096,
     "thinking.type": "adaptive",
@@ -629,6 +643,10 @@ export const DEFAULTS = {
     max_tokens: 4096,
     "thinking.type": "disabled",
     "thinking.display": "summarized",
+    "output_config.effort": "high",
+  },
+  "anthropic/claude-sonnet-5-5": {
+    max_tokens: 4096,
     "output_config.effort": "high",
   },
   "anthropic/claude-sonnet-5-subscription": {

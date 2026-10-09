@@ -230,6 +230,16 @@ Claude_Haiku_4_SubscriptionParams = TypedDict(
 )
 setattr(Claude_Haiku_4_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Claude_Haiku_5_5Params = TypedDict(
+    "Claude_Haiku_5_5Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["disabled"],
+    },
+    total=False,
+)
+setattr(Claude_Haiku_5_5Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Claude_Opus_4_1_20250805Params = TypedDict(
     "Claude_Opus_4_1_20250805Params",
     {
@@ -428,6 +438,18 @@ Claude_Opus_5Params = TypedDict(
 )
 setattr(Claude_Opus_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Claude_Opus_5_5Params = TypedDict(
+    "Claude_Opus_5_5Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["adaptive"],
+        "thinking.display": Literal["summarized", "omitted"],
+        "output_config.effort": Literal["low", "medium", "high", "max"],
+    },
+    total=False,
+)
+setattr(Claude_Opus_5_5Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Claude_Opus_5_SubscriptionParams = TypedDict(
     "Claude_Opus_5_SubscriptionParams",
     {
@@ -584,6 +606,16 @@ Claude_Sonnet_5Params = TypedDict(
 )
 setattr(Claude_Sonnet_5Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Claude_Sonnet_5_5Params = TypedDict(
+    "Claude_Sonnet_5_5Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "output_config.effort": Literal["low", "medium", "high", "max"],
+    },
+    total=False,
+)
+setattr(Claude_Sonnet_5_5Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Claude_Sonnet_5_SubscriptionParams = TypedDict(
     "Claude_Sonnet_5_SubscriptionParams",
     {
@@ -614,6 +646,7 @@ __all__ = [
     "Claude_Haiku_4_5_20251001_SubscriptionParams",
     "Claude_Haiku_4_5_SubscriptionParams",
     "Claude_Haiku_4_SubscriptionParams",
+    "Claude_Haiku_5_5Params",
     "Claude_Opus_4_1_20250805Params",
     "Claude_Opus_4_1_20250805_SubscriptionParams",
     "Claude_Opus_4_20250514Params",
@@ -628,6 +661,7 @@ __all__ = [
     "Claude_Opus_4_8_SubscriptionParams",
     "Claude_Opus_4_SubscriptionParams",
     "Claude_Opus_5Params",
+    "Claude_Opus_5_5Params",
     "Claude_Opus_5_SubscriptionParams",
     "Claude_Sonnet_4_20250514Params",
     "Claude_Sonnet_4_20250514_SubscriptionParams",
@@ -639,5 +673,6 @@ __all__ = [
     "Claude_Sonnet_4_6_SubscriptionParams",
     "Claude_Sonnet_4_SubscriptionParams",
     "Claude_Sonnet_5Params",
+    "Claude_Sonnet_5_5Params",
     "Claude_Sonnet_5_SubscriptionParams",
 ]
