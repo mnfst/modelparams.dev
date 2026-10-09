@@ -5,6 +5,15 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.52
+
+### Models added
+
+- `alibaba/glm-5.2-fast-preview`
+- `anthropic/claude-haiku-5-5`
+- `anthropic/claude-opus-5-5`
+- `anthropic/claude-sonnet-5-5`
+
 ## 0.0.51
 
 ### Models added
