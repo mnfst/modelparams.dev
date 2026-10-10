@@ -5,6 +5,13 @@ prepared, and describe the catalog changes a version ships. Versions published
 before this file existed are listed under
 [Releases](https://github.com/mnfst/modelparams.dev/releases).
 
+## 0.0.53
+
+### Parameters changed
+
+- `google/gemini-3.1-pro-preview`: updated `generationConfig.thinkingConfig.thinkingLevel`
+- `groq/gpt-oss-safeguard-20b`: updated `reasoning_format`
+
 ## 0.0.52
 
 ### Models added
