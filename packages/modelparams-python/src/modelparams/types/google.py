@@ -210,7 +210,7 @@ Gemini_3_1_Pro_PreviewParams = TypedDict(
         "generationConfig.topP": Annotated[float, Field(ge=0, le=1)],
         "generationConfig.topK": Annotated[int, Field(ge=0)],
         "generationConfig.seed": int,
-        "generationConfig.thinkingConfig.thinkingLevel": Literal["minimal", "low", "medium", "high"],
+        "generationConfig.thinkingConfig.thinkingLevel": Literal["low", "medium", "high"],
         "generationConfig.thinkingConfig.includeThoughts": bool,
         "generationConfig.responseMimeType": Literal["text/plain", "application/json"],
     },

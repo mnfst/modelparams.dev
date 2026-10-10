@@ -18022,9 +18022,8 @@ const GENERATED_CATALOG = [
         "description": "Controls Gemini 3.1 Flash-Lite reasoning effort.",
         "group": "reasoning",
         "type": "enum",
-        "default": "minimal",
+        "default": "low",
         "values": [
-          "minimal",
           "low",
           "medium",
           "high"
@@ -19913,7 +19912,6 @@ const GENERATED_CATALOG = [
         "type": "enum",
         "values": [
           "hidden",
-          "raw",
           "parsed"
         ]
       },
