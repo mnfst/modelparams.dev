@@ -1683,6 +1683,9 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-14b",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3.6-flash",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_tokens",
@@ -1927,6 +1930,9 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3.7-plus",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_tokens",
@@ -2110,6 +2116,9 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-8b",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3.6-flash",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_tokens",
@@ -2448,7 +2457,9 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-max-preview",
-    "status": "active",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3-max",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_tokens",
@@ -2937,6 +2948,9 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-flash",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3.6-flash",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_tokens",
@@ -2998,6 +3012,9 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-flash-2026-01-22",
+    "status": "deprecated",
+    "replacement": "alibaba/qwen3.6-flash",
+    "shutdownOn": "2026-10-10",
     "params": [
       {
         "path": "max_tokens",
@@ -3730,6 +3747,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3.5-omni-plus",
+    "status": "active",
     "params": [
       {
         "path": "max_tokens",
@@ -20834,6 +20852,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20931,6 +20950,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.1",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -20983,6 +21003,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.1-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21125,6 +21146,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.5",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21177,6 +21199,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.5-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21319,6 +21342,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.7",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21371,6 +21395,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.7-highspeed",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21513,6 +21538,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M3",
+    "status": "active",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -28345,7 +28371,9 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "gpt-3.5-turbo-1106",
-    "status": "retired",
+    "status": "deprecated",
+    "replacement": "openai/gpt-5.4-mini",
+    "shutdownOn": "2026-09-28",
     "params": [
       {
         "path": "max_tokens",
@@ -29394,7 +29422,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.3-codex-spark",
-    "status": "retired",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -29566,7 +29594,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.4-mini",
-    "status": "retired",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
@@ -29734,7 +29762,7 @@ const GENERATED_CATALOG = [
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.4",
-    "status": "retired",
+    "status": "active",
     "params": [
       {
         "path": "reasoning.effort",
