@@ -77,7 +77,6 @@ params:
     description: Controls how reasoning tokens are returned — hidden from the response, raw within the content, or parsed into a separate field.
     values:
       - hidden
-      - raw
       - parsed
     group: reasoning
   - path: response_format.type
