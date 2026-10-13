@@ -32273,6 +32273,7 @@ const GENERATED_CATALOG = [
     "apiSurface": "openai-chat-completions",
     "model": "space-bunny-free",
     "wireId": "opencode-go/space-bunny-free",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
