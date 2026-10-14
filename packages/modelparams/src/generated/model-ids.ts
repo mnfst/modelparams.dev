@@ -239,6 +239,7 @@ export const MODEL_IDS = [
   "google/gemini-3.6-flash",
   "google/gemini-3.7-flash",
   "google/gemini-3.8-flash",
+  "google/gemini-4-argon",
   "google/gemini-flash-latest",
   "google/gemma-3-12b-it",
   "google/gemma-3-1b-it",
