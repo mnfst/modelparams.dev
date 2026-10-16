@@ -979,6 +979,15 @@ export type ParamsById = {
     "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
     "additionalModelRequestFields.thinking.budget_tokens": number;
   };
+  "bedrock/claude-sonnet-5-5": {
+    "inferenceConfig.maxTokens": number;
+    "inferenceConfig.temperature": number;
+    "inferenceConfig.topP": number;
+    "inferenceConfig.stopSequences": string;
+    "additionalModelRequestFields.top_k": number;
+    "additionalModelRequestFields.thinking.type": "disabled" | "enabled";
+    "additionalModelRequestFields.thinking.budget_tokens": number;
+  };
   "bedrock/deepseek-r1": {
     "inferenceConfig.maxTokens": number;
     "inferenceConfig.temperature": number;

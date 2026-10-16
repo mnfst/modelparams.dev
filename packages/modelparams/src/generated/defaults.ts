@@ -674,6 +674,9 @@ export const DEFAULTS = {
   "bedrock/claude-sonnet-4-6": {
     "additionalModelRequestFields.thinking.type": "disabled",
   },
+  "bedrock/claude-sonnet-5-5": {
+    "additionalModelRequestFields.thinking.type": "disabled",
+  },
   "bedrock/deepseek-r1": {},
   "bedrock/deepseek-v3.2": {},
   "bedrock/devstral-2-123b": {},

@@ -133,6 +133,7 @@ export const MODEL_IDS = [
   "bedrock/claude-opus-4-6",
   "bedrock/claude-sonnet-4-5",
   "bedrock/claude-sonnet-4-6",
+  "bedrock/claude-sonnet-5-5",
   "bedrock/deepseek-r1",
   "bedrock/deepseek-v3.2",
   "bedrock/devstral-2-123b",
