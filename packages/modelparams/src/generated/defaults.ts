@@ -57,6 +57,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/pre-mock_new_gateway_session_affinity": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/qvq-max": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
@@ -857,6 +861,7 @@ export const DEFAULTS = {
   "fireworks/minimax-m2p7": {},
   "fireworks/minimax-m3": {},
   "fireworks/muse-glimmer-30b": {},
+  "fireworks/muse-spark-open": {},
   "fireworks/nemotron-3-ultra-nvfp4": {},
   "fireworks/nemotron-lightning-3p5-30b-a3b": {},
   "fireworks/qwen3p7-plus": {},
@@ -1734,6 +1739,13 @@ export const DEFAULTS = {
     reasoning_effort: "high",
     reasoning_budget: 16384,
   },
+  "nvidia/nemotron-3.5-super-vl-120b-a12b": {
+    temperature: 1,
+    top_p: 0.95,
+    max_tokens: 16384,
+    reasoning_effort: "high",
+    reasoning_budget: 16384,
+  },
   "nvidia/nemotron-content-safety-reasoning-4b": {
     temperature: 1,
     top_p: 1,
@@ -1750,6 +1762,13 @@ export const DEFAULTS = {
     temperature: 0,
     top_p: 0.9,
     max_tokens: 512,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  },
+  "nvidia/step-5-preview": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
     frequency_penalty: 0,
     presence_penalty: 0,
   },

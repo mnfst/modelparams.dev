@@ -111,6 +111,14 @@ export type ParamsById = {
     "extra_body.enable_thinking": boolean;
     "extra_body.thinking_budget": number;
   };
+  "alibaba/pre-mock_new_gateway_session_affinity": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/qvq-max": {
     max_completion_tokens: number;
     temperature: number;
@@ -1604,6 +1612,15 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "fireworks/muse-spark-open": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "fireworks/nemotron-3-ultra-nvfp4": {
     max_tokens: number;
     temperature: number;
@@ -2825,6 +2842,13 @@ export type ParamsById = {
     reasoning_effort: "none" | "low" | "high";
     reasoning_budget: number;
   };
+  "nvidia/nemotron-3.5-super-vl-120b-a12b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "low" | "high";
+    reasoning_budget: number;
+  };
   "nvidia/nemotron-content-safety-reasoning-4b": {
     temperature: number;
     top_p: number;
@@ -2847,6 +2871,13 @@ export type ParamsById = {
     frequency_penalty: number;
     presence_penalty: number;
     stop: string;
+  };
+  "nvidia/step-5-preview": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
   };
   "nvidia/usdcode-llama-3.1-70b-instruct": {
     temperature: number;

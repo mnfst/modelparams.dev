@@ -167,7 +167,7 @@ Grok_4_7Params = TypedDict(
     {
         "max_completion_tokens": Annotated[int, Field(ge=1)],
         "temperature": Annotated[float, Field(ge=0, le=2)],
-        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
         "seed": int,
         "stop": str,
         "reasoning_effort": Literal["low", "medium", "high", "xhigh"],
