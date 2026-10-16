@@ -1115,7 +1115,7 @@ export const DEFAULTS = {
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    reasoning_effort: "default",
+    reasoning_effort: "medium",
     "response_format.type": "text",
   },
   "groq/gpt-oss-20b": {
@@ -1123,7 +1123,7 @@ export const DEFAULTS = {
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    reasoning_effort: "default",
+    reasoning_effort: "medium",
     "response_format.type": "text",
   },
   "groq/gpt-oss-safeguard-20b": {

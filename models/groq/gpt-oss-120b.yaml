@@ -65,11 +65,12 @@ params:
   - path: reasoning_effort
     type: enum
     label: Reasoning effort
-    description: Controls whether the model reasons before answering. 'none' disables reasoning; 'default' lets the model reason.
-    default: default
+    description: Controls how much reasoning the model should perform before producing an answer.
+    default: medium
     values:
-      - none
-      - default
+      - low
+      - medium
+      - high
     group: reasoning
   - path: reasoning_format
     type: enum

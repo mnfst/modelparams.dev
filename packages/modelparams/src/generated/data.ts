@@ -19906,13 +19906,14 @@ const GENERATED_CATALOG = [
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls whether the model reasons before answering. 'none' disables reasoning; 'default' lets the model reason.",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
         "group": "reasoning",
         "type": "enum",
-        "default": "default",
+        "default": "medium",
         "values": [
-          "none",
-          "default"
+          "low",
+          "medium",
+          "high"
         ]
       },
       {
@@ -20026,13 +20027,14 @@ const GENERATED_CATALOG = [
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls whether the model reasons before answering. 'none' disables reasoning; 'default' lets the model reason.",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
         "group": "reasoning",
         "type": "enum",
-        "default": "default",
+        "default": "medium",
         "values": [
-          "none",
-          "default"
+          "low",
+          "medium",
+          "high"
         ]
       },
       {

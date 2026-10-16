@@ -1978,7 +1978,7 @@ export type ParamsById = {
     presence_penalty: number;
     seed: number;
     stop: string;
-    reasoning_effort: "none" | "default";
+    reasoning_effort: "low" | "medium" | "high";
     reasoning_format: "hidden" | "parsed";
     "response_format.type": "text" | "json_object";
   };
@@ -1990,7 +1990,7 @@ export type ParamsById = {
     presence_penalty: number;
     seed: number;
     stop: string;
-    reasoning_effort: "none" | "default";
+    reasoning_effort: "low" | "medium" | "high";
     reasoning_format: "hidden" | "parsed";
     "response_format.type": "text" | "json_object";
   };
