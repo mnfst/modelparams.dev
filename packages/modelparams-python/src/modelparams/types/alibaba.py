@@ -192,6 +192,20 @@ Kimi_K3Params = TypedDict(
 )
 setattr(Kimi_K3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Pre_Mock_New_Gateway_Session_AffinityParams = TypedDict(
+    "Pre_Mock_New_Gateway_Session_AffinityParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.9)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "extra_body.top_k": Annotated[int, Field(ge=0)],
+        "extra_body.enable_thinking": bool,
+        "extra_body.thinking_budget": Annotated[int, Field(ge=1)],
+    },
+    total=False,
+)
+setattr(Pre_Mock_New_Gateway_Session_AffinityParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Qvq_MaxParams = TypedDict(
     "Qvq_MaxParams",
     {
@@ -1075,6 +1089,7 @@ __all__ = [
     "Glm_5_3_PrimeParams",
     "Kimi_K2_7_CodeParams",
     "Kimi_K3Params",
+    "Pre_Mock_New_Gateway_Session_AffinityParams",
     "Qvq_MaxParams",
     "Qwen_Coder_PlusParams",
     "Qwen_FlashParams",
