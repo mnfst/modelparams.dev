@@ -9,6 +9,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "deepseek-v3.2",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -85,6 +86,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -1073,6 +1075,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qvq-max",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -1149,6 +1152,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-coder-plus",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1576,6 +1580,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-turbo",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1637,6 +1642,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-vl-max",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1698,6 +1704,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-vl-plus",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1759,6 +1766,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-14b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1820,6 +1828,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1881,6 +1890,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b-instruct-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1942,6 +1952,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b-thinking-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2003,6 +2014,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2064,6 +2076,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b-instruct-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2125,6 +2138,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b-thinking-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2186,6 +2200,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-8b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2247,6 +2262,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-coder-480b-a35b-instruct",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2353,6 +2369,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-coder-next",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2462,7 +2479,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-max",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2524,7 +2541,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-max-preview",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2586,6 +2603,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-next-80b-a3b-instruct",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2647,6 +2665,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-next-80b-a3b-thinking",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2769,6 +2788,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-omni-flash-2025-09-15",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2830,6 +2850,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-omni-flash-2025-12-01",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2891,6 +2912,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-instruct",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2952,6 +2974,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-thinking",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -3013,6 +3036,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-flash",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -3074,6 +3098,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-flash-2026-01-22",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -3196,6 +3221,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-plus-2025-09-23",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -3257,6 +3283,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-plus-2025-12-19",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -5258,6 +5285,7 @@ const GENERATED_CATALOG = [
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwq-plus",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
