@@ -3,6 +3,7 @@ provider: alibaba
 authType: api_key
 apiSurface: openai-chat-completions
 model: qvq-max
+status: retired
 params:
   - path: max_completion_tokens
     type: integer
