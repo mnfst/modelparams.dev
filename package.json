@@ -23,6 +23,8 @@
     "build": "tsx src/build/build.ts",
     "codegen:python": "tsx packages/modelparams-python/scripts/codegen.ts",
     "dev": "tsx watch src/server/dev.ts",
+    "cf:dev": "npm run build && wrangler dev",
+    "deploy": "wrangler deploy --var COMMIT_SHA:${WORKERS_CI_COMMIT_SHA:-dev}",
     "validate": "tsx src/data/validate.ts",
     "sync:status": "tsx src/sync/run.ts",
     "guard:params": "tsx src/data/check-removals.ts",
@@ -60,7 +62,8 @@
     "tailwindcss": "^3.4.4",
     "tsx": "^4.15.6",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "wrangler": "^4.151.1"
   },
   "lint-staged": {
     "*.{ts,js}": [

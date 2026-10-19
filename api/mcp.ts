@@ -16,9 +16,10 @@ import { createServer } from "../packages/modelparams-mcp/src/server.js";
 
 const MAX_BODY_BYTES = 256 * 1024;
 
-// Vercel exposes the deployment sha; the catalog is whatever that build carried,
+// The deployment sha (Vercel sets VERCEL_GIT_COMMIT_SHA; the Cloudflare deploy
+// passes COMMIT_SHA as a Worker var). The catalog is whatever that build carried,
 // so it is the honest answer to "which version am I talking to?".
-const VERSION = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? "dev";
+const VERSION = (process.env.VERCEL_GIT_COMMIT_SHA ?? process.env.COMMIT_SHA)?.slice(0, 7) || "dev";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",

@@ -199,8 +199,13 @@ The website code lives under `src/`:
 
 Everything the catalog ships beyond the static site:
 
-- `api/` — Vercel Functions, currently `POST /api/v1/validate`. These serve paths the
-  static build doesn't emit; the rest of `/api/v1/*` stays static JSON from `dist/`.
+- `api/` — the dynamic endpoints, `POST /api/v1/validate` and `/mcp`, as web-standard
+  `fetch` handlers. These serve paths the static build doesn't emit; the rest of
+  `/api/v1/*` stays static JSON from `dist/`.
+- `worker/` — the Cloudflare Worker (`wrangler.jsonc`): routes to `api/`, serves `dist/`,
+  redirects modelparameters.dev and the www hosts, sets the API headers, and logs one
+  `api_request` line per API call. `npm run cf:dev` builds and runs it locally. The same
+  `api/` handlers still deploy as Vercel Functions through `vercel.json`.
 - `packages/modelparams/` — the npm package: generated types plus the runtime
   validation helpers. `src/generated/` is committed and CI checks it against the YAML,
   so run `npm run codegen --workspace=modelparams` after changing the catalog.
