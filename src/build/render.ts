@@ -94,7 +94,6 @@ export interface ShellMeta {
   /** Robots directive; omitted (index, follow) for every indexable page. */
   robots?: string;
   initialThemeClass?: string;
-  analytics?: boolean;
 }
 
 /** Wrap a rendered body in the shared HTML layout (head, header, footer, modal). */
@@ -111,7 +110,6 @@ export async function renderShell(meta: ShellMeta, body: string): Promise<string
     helpers: viewHelpers,
     usageGuide: usageGuideMarkdown(SITE_URL),
     initialThemeClass: meta.initialThemeClass ?? "",
-    analytics: meta.analytics ?? false,
     body,
   });
 }
@@ -120,8 +118,6 @@ export interface RenderOptions {
   catalog: Catalog;
   capabilities: CapabilityFacet[];
   initialThemeClass?: string;
-  /** Inject the Vercel Web Analytics snippet. Enabled for production builds; off in dev. */
-  analytics?: boolean;
 }
 
 /**
@@ -191,7 +187,6 @@ export async function renderIndex(opts: RenderOptions): Promise<string> {
       ),
       providerHubs: hubLinks(opts.catalog.models),
       initialThemeClass: opts.initialThemeClass,
-      analytics: opts.analytics,
     },
     body,
   );
