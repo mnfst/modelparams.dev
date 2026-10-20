@@ -69,7 +69,7 @@ curl https://modelparams.dev/api/v1/models/openai/gpt-5.5.json
 
 Schema at `https://modelparams.dev/api/v1/schema.json`, per the [Model Parameters convention](docs/model-parameters-schema.md).
 
-API requests are counted at the edge and reported to Vercel Web Analytics as `api_request` custom events (endpoint, model, client type), so API usage lands in the same dashboard as page views. On Cloudflare Workers the Worker logs the same event as a JSON line in Workers Logs instead; see [`src/tracking/api-usage.ts`](src/tracking/api-usage.ts).
+Requests that reach the Cloudflare Worker (MCP, validate) are logged as an `api_request` JSON line in Workers Logs (endpoint, model, auth mode); see [`src/tracking/api-usage.ts`](src/tracking/api-usage.ts). Static API files are served straight from Cloudflare's assets and are not logged.
 
 ### Validate a request
 

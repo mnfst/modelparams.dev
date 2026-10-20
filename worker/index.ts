@@ -1,12 +1,11 @@
 // Cloudflare Worker for modelparams.dev. Serves the static build in dist/ and
-// the two dynamic endpoints, and carries what vercel.json and middleware.ts
-// did on Vercel:
+// the two dynamic endpoints, and carries what vercel.json did on Vercel:
 //
 // - modelparameters.dev and the www hosts redirect (308) to modelparams.dev
 // - /mcp and /api/mcp → api/mcp.ts; /api/v1/validate → api/v1/validate.ts
 // - the response headers vercel.json set on /api/*, /api/v1/* and llms*.txt
 // - clean URLs: the asset layer's 307s become 308s, as on Vercel
-// - API usage is logged (Workers Logs) instead of sent to Vercel Analytics
+// - API usage is logged to Workers Logs
 import mcp from "../api/mcp.js";
 import validate from "../api/v1/validate.js";
 import { classifyEndpoint } from "../src/tracking/api-usage.js";
@@ -30,7 +29,7 @@ const ROUTES: Record<string, Handler> = {
   "/api/v1/validate": validate.fetch,
 };
 
-/** Paths the Vercel middleware counted: the JSON API, MCP and llms*.txt. */
+/** Paths worth a usage log line: the JSON API, MCP and llms*.txt. */
 function isTracked(pathname: string): boolean {
   return (
     pathname.startsWith("/api/") ||
@@ -40,7 +39,7 @@ function isTracked(pathname: string): boolean {
   );
 }
 
-/** Stand-in for Vercel Analytics custom events: one structured log line. */
+/** One structured usage log line per tracked request. */
 function logApiUsage(request: Request, url: URL): void {
   if (!isTracked(url.pathname)) return;
   console.log(

@@ -206,7 +206,7 @@ export async function build(): Promise<{ models: number }> {
   const catalog = buildCatalog(models);
   const capabilities = buildCapabilityFacets(models);
   console.log(`Rendering HTML for ${models.length} model(s)...`);
-  const html = await renderIndex({ catalog, capabilities, analytics: true });
+  const html = await renderIndex({ catalog, capabilities });
   await fs.writeFile(path.join(DIST_DIR, "index.html"), html, "utf8");
 
   console.log("Writing JSON API...");
