@@ -31635,6 +31635,7 @@ const GENERATED_CATALOG = [
     "apiSurface": "openai-chat-completions",
     "model": "deepseek-flash",
     "wireId": "opencode-go/deepseek-flash",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
