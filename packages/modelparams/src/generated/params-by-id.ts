@@ -1620,6 +1620,15 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "fireworks/minimax-m3p1-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "fireworks/muse-glimmer-30b": {
     max_tokens: number;
     temperature: number;
@@ -2532,6 +2541,16 @@ export type ParamsById = {
     prompt_mode: "reasoning";
     safe_prompt: boolean;
   };
+  "mistral/zai-glm-5-3-flash": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    random_seed: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    prompt_mode: "reasoning";
+    safe_prompt: boolean;
+  };
   "mistral/zai-glm-latest": {
     max_tokens: number;
     temperature: number;
@@ -2602,6 +2621,24 @@ export type ParamsById = {
     reasoning_effort: "low" | "high" | "max";
     "response_format.type": "text" | "json_object" | "json_schema";
     tool_choice: "auto" | "none" | "required";
+  };
+  "moonshot/kimi-k3.1-pro": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
+    "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
+  };
+  "moonshot/kimi-k3.1-pro-highspeed": {
+    max_completion_tokens: number;
+    "thinking.type": "enabled" | "disabled";
+    "thinking.keep": "all" | null;
+    "response_format.type": "text" | "json_object";
+    tool_choice: "auto" | "none";
+    logprobs: boolean;
+    top_logprobs: number;
   };
   "moonshot/moonshot-v1-128k": {
     max_completion_tokens: number;
@@ -2851,6 +2888,13 @@ export type ParamsById = {
     reasoning_effort: "none" | "medium" | "high";
     reasoning_budget: number;
     stop: string;
+  };
+  "nvidia/nemotron-3.5-bolt-e4b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "low" | "high";
+    reasoning_budget: number;
   };
   "nvidia/nemotron-3.5-lightning-30b-a3b": {
     temperature: number;

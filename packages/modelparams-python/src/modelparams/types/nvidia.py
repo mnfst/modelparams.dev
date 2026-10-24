@@ -384,6 +384,19 @@ Nemotron_3_Ultra_SubscriptionParams = TypedDict(
 )
 setattr(Nemotron_3_Ultra_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Nemotron_3_5_Bolt_E4bParams = TypedDict(
+    "Nemotron_3_5_Bolt_E4bParams",
+    {
+        "temperature": Annotated[float, Field(le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=32768)],
+        "reasoning_effort": Literal["none", "low", "high"],
+        "reasoning_budget": Annotated[int, Field(ge=-1, le=32768)],
+    },
+    total=False,
+)
+setattr(Nemotron_3_5_Bolt_E4bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Nemotron_3_5_Lightning_30b_A3bParams = TypedDict(
     "Nemotron_3_5_Lightning_30b_A3bParams",
     {
@@ -504,6 +517,7 @@ __all__ = [
     "Nemotron_3_Super_120b_A12bParams",
     "Nemotron_3_Ultra_550b_A55bParams",
     "Nemotron_3_Ultra_SubscriptionParams",
+    "Nemotron_3_5_Bolt_E4bParams",
     "Nemotron_3_5_Lightning_30b_A3bParams",
     "Nemotron_3_5_Super_Vl_120b_A12bParams",
     "Nemotron_Content_Safety_Reasoning_4bParams",
