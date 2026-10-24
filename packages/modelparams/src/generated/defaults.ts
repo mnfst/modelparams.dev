@@ -865,6 +865,7 @@ export const DEFAULTS = {
   "fireworks/kimi-k3": {},
   "fireworks/minimax-m2p7": {},
   "fireworks/minimax-m3": {},
+  "fireworks/minimax-m3p1-flash": {},
   "fireworks/muse-glimmer-30b": {},
   "fireworks/muse-spark-open": {},
   "fireworks/nemotron-3-ultra-nvfp4": {},
@@ -1468,6 +1469,12 @@ export const DEFAULTS = {
     frequency_penalty: 0,
     safe_prompt: false,
   },
+  "mistral/zai-glm-5-3-flash": {
+    top_p: 1,
+    presence_penalty: 0,
+    frequency_penalty: 0,
+    safe_prompt: false,
+  },
   "mistral/zai-glm-latest": {
     top_p: 1,
     presence_penalty: 0,
@@ -1518,6 +1525,20 @@ export const DEFAULTS = {
     reasoning_effort: "max",
     "response_format.type": "text",
     tool_choice: "auto",
+  },
+  "moonshot/kimi-k3.1-pro": {
+    "thinking.type": "enabled",
+    "thinking.keep": null,
+    "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
+  },
+  "moonshot/kimi-k3.1-pro-highspeed": {
+    "thinking.type": "enabled",
+    "thinking.keep": null,
+    "response_format.type": "text",
+    tool_choice: "auto",
+    logprobs: false,
   },
   "moonshot/moonshot-v1-128k": {
     temperature: 0.3,
@@ -1731,6 +1752,13 @@ export const DEFAULTS = {
     reasoning_budget: 16384,
   },
   "nvidia/nemotron-3-ultra-subscription": {
+    temperature: 1,
+    top_p: 0.95,
+    max_tokens: 16384,
+    reasoning_effort: "high",
+    reasoning_budget: 16384,
+  },
+  "nvidia/nemotron-3.5-bolt-e4b": {
     temperature: 1,
     top_p: 0.95,
     max_tokens: 16384,

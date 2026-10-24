@@ -4,6 +4,7 @@ authType: api_key
 apiSurface: openai-chat-completions
 model: kimi-k3
 wireId: moonshotai/kimi-k3
+status: retired
 params:
   - path: temperature
     type: number

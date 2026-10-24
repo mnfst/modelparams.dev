@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: moonshot
+authType: api_key
+apiSurface: openai-chat-completions
+model: kimi-k3.1-pro-highspeed
+status: active
+params:
+  - path: max_completion_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate in the chat completion.
+    range:
+      min: 1
+    group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: >-
+      Controls whether Kimi reasons step by step before answering. Thinking is enabled by default;
+      set disabled to respond directly.
+    default: enabled
+    values:
+      - enabled
+      - disabled
+    group: reasoning
+  - path: thinking.keep
+    type: enum
+    label: Keep prior reasoning
+    description: >-
+      Set to all to carry reasoning content from earlier assistant turns into the request; leave
+      null to send only the final answers.
+    default: null
+    values:
+      - all
+      - null
+    group: reasoning
+  - path: response_format.type
+    type: enum
+    label: Response format
+    description: Forces the response into plain text or a JSON object.
+    default: text
+    values:
+      - text
+      - json_object
+    group: output_format
+  - path: tool_choice
+    type: enum
+    label: Tool choice
+    description: >-
+      Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects
+      required while thinking is enabled, which is the default on this model.
+    default: auto
+    values:
+      - auto
+      - none
+    group: tooling
+  - path: logprobs
+    type: boolean
+    label: Log probabilities
+    description: Controls whether the response includes log probabilities for the generated tokens.
+    default: false
+    group: observability
+  - path: top_logprobs
+    type: integer
+    label: Top log probabilities
+    description: Number of most likely tokens to return a log probability for at each position.
+    range:
+      min: 0
+      max: 20
+    group: observability
+    applicability:
+      only:
+        logprobs: true

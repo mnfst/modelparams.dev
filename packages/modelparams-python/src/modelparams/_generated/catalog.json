@@ -16520,6 +16520,95 @@
     "provider": "fireworks",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "minimax-m3p1-flash",
+    "wireId": "accounts/fireworks/models/minimax-m3p1-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 100
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "fireworks",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "muse-glimmer-30b",
     "wireId": "accounts/fireworks/models/muse-glimmer-30b",
     "params": [
@@ -21275,6 +21364,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21372,6 +21462,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.1",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21424,6 +21515,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.1-highspeed",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21566,6 +21658,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.5",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21618,6 +21711,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.5-highspeed",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21760,6 +21854,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.7",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -21812,6 +21907,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "MiniMax-M2.7-highspeed",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -25231,6 +25327,103 @@
     "provider": "mistral",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "zai-glm-5-3-flash",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.5,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0.01,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "random_seed",
+        "label": "Random seed",
+        "description": "Seed used for deterministic sampling when reproducible outputs are desired.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes repeated words or phrases to encourage a wider variety of generated content.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes words based on how often they already appear in the generated text.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "prompt_mode",
+        "label": "Prompt mode",
+        "description": "Enables Mistral's reasoning system prompt; leave unset to disable the default reasoning behavior.",
+        "group": "reasoning",
+        "type": "enum",
+        "values": [
+          "reasoning"
+        ]
+      },
+      {
+        "path": "safe_prompt",
+        "label": "Safe prompt",
+        "description": "Controls whether Mistral injects its safety prompt before the conversation.",
+        "group": "provider_metadata",
+        "type": "boolean",
+        "default": false
+      }
+    ]
+  },
+  {
+    "provider": "mistral",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "zai-glm-latest",
     "params": [
       {
@@ -25896,6 +26089,188 @@
           "none",
           "required"
         ]
+      }
+    ]
+  },
+  {
+    "provider": "moonshot",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "kimi-k3.1-pro",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the chat completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls whether Kimi reasons step by step before answering. Thinking is enabled by default; set disabled to respond directly.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      {
+        "path": "thinking.keep",
+        "label": "Keep prior reasoning",
+        "description": "Set to all to carry reasoning content from earlier assistant turns into the request; leave null to send only the final answers.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": null,
+        "values": [
+          "all",
+          null
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ]
+  },
+  {
+    "provider": "moonshot",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "kimi-k3.1-pro-highspeed",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the chat completion.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls whether Kimi reasons step by step before answering. Thinking is enabled by default; set disabled to respond directly.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "enabled",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      {
+        "path": "thinking.keep",
+        "label": "Keep prior reasoning",
+        "description": "Set to all to carry reasoning content from earlier assistant turns into the request; leave null to send only the final answers.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": null,
+        "values": [
+          "all",
+          null
+        ]
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Forces the response into plain text or a JSON object.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      },
+      {
+        "path": "tool_choice",
+        "label": "Tool choice",
+        "description": "Controls tool calling: auto lets the model decide and none blocks tool calls. Moonshot rejects required while thinking is enabled, which is the default on this model.",
+        "group": "tooling",
+        "type": "enum",
+        "default": "auto",
+        "values": [
+          "auto",
+          "none"
+        ]
+      },
+      {
+        "path": "logprobs",
+        "label": "Log probabilities",
+        "description": "Controls whether the response includes log probabilities for the generated tokens.",
+        "group": "observability",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "top_logprobs",
+        "label": "Top log probabilities",
+        "description": "Number of most likely tokens to return a log probability for at each position.",
+        "group": "observability",
+        "applicability": {
+          "only": {
+            "logprobs": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 0,
+          "max": 20
+        }
       }
     ]
   },
@@ -26970,6 +27345,7 @@
     "apiSurface": "openai-chat-completions",
     "model": "kimi-k3",
     "wireId": "moonshotai/kimi-k3",
+    "status": "retired",
     "params": [
       {
         "path": "temperature",
@@ -28304,6 +28680,74 @@
         "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
         "group": "generation_length",
         "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "nemotron-3.5-bolt-e4b",
+    "wireId": "nvidia/nemotron-3.5-bolt-e4b",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls the reasoning mode. 'none' disables reasoning tokens, 'low' enables low-effort reasoning, and 'high' enables full reasoning.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "none",
+          "low",
+          "high"
+        ]
+      },
+      {
+        "path": "reasoning_budget",
+        "label": "Reasoning budget",
+        "description": "Maximum number of tokens the model may use for internal reasoning before being forced to end the reasoning trace. Use -1 to disable budget enforcement.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": -1,
+          "max": 32768
+        }
       }
     ]
   },
@@ -30479,7 +30923,7 @@
     "authType": "subscription",
     "apiSurface": "openai-responses",
     "model": "gpt-5.5",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "reasoning.effort",
