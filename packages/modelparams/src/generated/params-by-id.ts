@@ -2205,6 +2205,14 @@ export type ParamsById = {
     temperature: number;
     top_p: number;
   };
+  "minimax/MiniMax-M3.1-Flash": {
+    max_completion_tokens: number;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "minimax/MiniMax-M3.1-Flash-subscription": {
+    max_tokens: number;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh" | "max";
+  };
   "mistral/codestral-2508": {
     max_tokens: number;
     stop: string;

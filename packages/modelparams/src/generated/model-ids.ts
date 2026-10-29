@@ -285,6 +285,8 @@ export const MODEL_IDS = [
   "minimax/MiniMax-M2.7-subscription",
   "minimax/MiniMax-M3",
   "minimax/MiniMax-M3-subscription",
+  "minimax/MiniMax-M3.1-Flash",
+  "minimax/MiniMax-M3.1-Flash-subscription",
   "mistral/codestral-2508",
   "mistral/codestral-latest",
   "mistral/devstral-2512",

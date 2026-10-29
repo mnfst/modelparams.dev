@@ -1261,6 +1261,12 @@ export const DEFAULTS = {
     temperature: 1,
     top_p: 0.95,
   },
+  "minimax/MiniMax-M3.1-Flash": {
+    reasoning_effort: "max",
+  },
+  "minimax/MiniMax-M3.1-Flash-subscription": {
+    reasoning_effort: "max",
+  },
   "mistral/codestral-2508": {
     top_p: 1,
     presence_penalty: 0,

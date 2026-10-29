@@ -22052,6 +22052,74 @@ const GENERATED_CATALOG = [
     ]
   },
   {
+    "provider": "minimax",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "MiniMax-M3.1-Flash",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max completion tokens",
+        "description": "Maximum number of tokens to generate in the completion. Thinking tokens count toward it.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Sets how deeply the model thinks. Higher levels produce more thinking tokens at higher latency.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "max",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "minimax",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "MiniMax-M3.1-Flash",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response. Thinking tokens count toward it.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Sets how deeply the model thinks. Higher levels produce more thinking tokens at higher latency.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "max",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
     "provider": "mistral",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
