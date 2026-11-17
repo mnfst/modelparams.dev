@@ -1920,6 +1920,16 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-flash-lite-latest": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.seed": number;
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemma-3-12b-it": {
     max_completion_tokens: number;
     temperature: number;
@@ -3206,6 +3216,16 @@ export type ParamsById = {
     max_completion_tokens: number;
     temperature: number;
     reasoning_effort: "low" | "medium" | "high";
+  };
+  "openai/gpt-6.1-terra": {
+    max_completion_tokens: number;
+    temperature: number;
+    reasoning_effort: "low" | "medium" | "high";
+  };
+  "openai/gpt-6.1-terra-subscription": {
+    "reasoning.effort": "none" | "low" | "medium" | "high" | "xhigh" | "max";
+    "reasoning.summary": "auto" | "concise" | "detailed";
+    "text.verbosity": "low" | "medium" | "high";
   };
   "openai/gpt-oss-120b": {
     max_completion_tokens: number;
