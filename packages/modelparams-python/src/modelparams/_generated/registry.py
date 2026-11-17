@@ -161,6 +161,7 @@ PARAM_TYPES: dict[ModelId, Any] = {
     "bedrock/claude-opus-4-6": bedrock.Claude_Opus_4_6Params,
     "bedrock/claude-sonnet-4-5": bedrock.Claude_Sonnet_4_5Params,
     "bedrock/claude-sonnet-4-6": bedrock.Claude_Sonnet_4_6Params,
+    "bedrock/claude-sonnet-5-5": bedrock.Claude_Sonnet_5_5Params,
     "bedrock/deepseek-r1": bedrock.Deepseek_R1Params,
     "bedrock/deepseek-v3.2": bedrock.Deepseek_V3_2Params,
     "bedrock/devstral-2-123b": bedrock.Devstral_2_123bParams,

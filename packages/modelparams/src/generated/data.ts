@@ -10638,6 +10638,93 @@ const GENERATED_CATALOG = [
     "provider": "bedrock",
     "authType": "api_key",
     "apiSurface": "amazon-bedrock-converse",
+    "model": "claude-sonnet-5-5",
+    "wireId": "{scope}.anthropic.claude-sonnet-5-5",
+    "params": [
+      {
+        "path": "inferenceConfig.maxTokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "inferenceConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Bedrock rejects values above 1 for this model.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "inferenceConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens whose cumulative probability reaches this value.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "inferenceConfig.stopSequences",
+        "label": "Stop sequences",
+        "description": "A list of strings where the model stops generating further tokens.",
+        "group": "generation_length",
+        "type": "string"
+      },
+      {
+        "path": "additionalModelRequestFields.top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens. Converse carries it through additionalModelRequestFields; it is not part of inferenceConfig.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.type",
+        "label": "Thinking mode",
+        "description": "Controls Anthropic extended thinking on Bedrock. Bedrock rejects the adaptive mode the first-party Anthropic API accepts, so only disabled and enabled are listed here.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "disabled",
+        "values": [
+          "disabled",
+          "enabled"
+        ]
+      },
+      {
+        "path": "additionalModelRequestFields.thinking.budget_tokens",
+        "label": "Budget tokens",
+        "description": "Maximum token budget the model may use for extended thinking before producing the final answer. Must be less than inferenceConfig.maxTokens.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "additionalModelRequestFields.thinking.type": "enabled"
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1024
+        }
+      }
+    ]
+  },
+  {
+    "provider": "bedrock",
+    "authType": "api_key",
+    "apiSurface": "amazon-bedrock-converse",
     "model": "deepseek-r1",
     "wireId": "{scope}.deepseek.r1-v1:0",
     "params": [

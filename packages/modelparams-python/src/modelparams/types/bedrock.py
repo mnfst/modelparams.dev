@@ -85,6 +85,21 @@ Claude_Sonnet_4_6Params = TypedDict(
 )
 setattr(Claude_Sonnet_4_6Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Claude_Sonnet_5_5Params = TypedDict(
+    "Claude_Sonnet_5_5Params",
+    {
+        "inferenceConfig.maxTokens": Annotated[int, Field(ge=1)],
+        "inferenceConfig.temperature": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.topP": Annotated[float, Field(ge=0, le=1)],
+        "inferenceConfig.stopSequences": str,
+        "additionalModelRequestFields.top_k": Annotated[int, Field(ge=0)],
+        "additionalModelRequestFields.thinking.type": Literal["disabled", "enabled"],
+        "additionalModelRequestFields.thinking.budget_tokens": Annotated[int, Field(ge=1024)],
+    },
+    total=False,
+)
+setattr(Claude_Sonnet_5_5Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Deepseek_R1Params = TypedDict(
     "Deepseek_R1Params",
     {
@@ -717,6 +732,7 @@ __all__ = [
     "Claude_Opus_4_6Params",
     "Claude_Sonnet_4_5Params",
     "Claude_Sonnet_4_6Params",
+    "Claude_Sonnet_5_5Params",
     "Deepseek_R1Params",
     "Deepseek_V3_2Params",
     "Devstral_2_123bParams",
