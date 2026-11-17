@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: minimax
+authType: subscription
+apiSurface: openai-chat-completions
+model: MiniMax-M3.1-Flash
+status: active
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of tokens to generate in the response. Thinking tokens count toward it.
+    range:
+      min: 1
+    group: generation_length
+  - path: reasoning_effort
+    type: enum
+    label: Reasoning effort
+    description: Sets how deeply the model thinks. Higher levels produce more thinking tokens at higher latency.
+    default: max
+    values:
+      - low
+      - medium
+      - high
+      - xhigh
+      - max
+    group: reasoning

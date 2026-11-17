@@ -6,6 +6,7 @@
   },
   "include": [
     "api/**/*.ts",
+    "worker/**/*.ts",
     "packages/modelparams/src/**/*.ts",
     "packages/modelparams-mcp/src/**/*.ts"
   ]

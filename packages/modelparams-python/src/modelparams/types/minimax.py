@@ -194,6 +194,26 @@ Minimax_M3_SubscriptionParams = TypedDict(
 )
 setattr(Minimax_M3_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Minimax_M3_1_FlashParams = TypedDict(
+    "Minimax_M3_1_FlashParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["low", "medium", "high", "xhigh", "max"],
+    },
+    total=False,
+)
+setattr(Minimax_M3_1_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Minimax_M3_1_Flash_SubscriptionParams = TypedDict(
+    "Minimax_M3_1_Flash_SubscriptionParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "reasoning_effort": Literal["low", "medium", "high", "xhigh", "max"],
+    },
+    total=False,
+)
+setattr(Minimax_M3_1_Flash_SubscriptionParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 __all__ = [
     "Minimax_M2Params",
     "Minimax_M2_SubscriptionParams",
@@ -211,4 +231,6 @@ __all__ = [
     "Minimax_M2_7_SubscriptionParams",
     "Minimax_M3Params",
     "Minimax_M3_SubscriptionParams",
+    "Minimax_M3_1_FlashParams",
+    "Minimax_M3_1_Flash_SubscriptionParams",
 ]

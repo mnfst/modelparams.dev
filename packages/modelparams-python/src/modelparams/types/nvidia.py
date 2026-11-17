@@ -397,6 +397,19 @@ Nemotron_3_5_Lightning_30b_A3bParams = TypedDict(
 )
 setattr(Nemotron_3_5_Lightning_30b_A3bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Nemotron_3_5_Super_Vl_120b_A12bParams = TypedDict(
+    "Nemotron_3_5_Super_Vl_120b_A12bParams",
+    {
+        "temperature": Annotated[float, Field(le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=32768)],
+        "reasoning_effort": Literal["none", "low", "high"],
+        "reasoning_budget": Annotated[int, Field(ge=-1, le=32768)],
+    },
+    total=False,
+)
+setattr(Nemotron_3_5_Super_Vl_120b_A12bParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Nemotron_Content_Safety_Reasoning_4bParams = TypedDict(
     "Nemotron_Content_Safety_Reasoning_4bParams",
     {
@@ -437,6 +450,19 @@ Riva_Translate_4b_Instruct_V1_1Params = TypedDict(
     total=False,
 )
 setattr(Riva_Translate_4b_Instruct_V1_1Params, "__pydantic_config__", _PARAMS_CONFIG)
+
+Step_5_PreviewParams = TypedDict(
+    "Step_5_PreviewParams",
+    {
+        "temperature": Annotated[float, Field(ge=0, le=1)],
+        "top_p": Annotated[float, Field(le=1)],
+        "max_tokens": Annotated[int, Field(ge=1, le=16384)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+    },
+    total=False,
+)
+setattr(Step_5_PreviewParams, "__pydantic_config__", _PARAMS_CONFIG)
 
 Usdcode_Llama_3_1_70b_InstructParams = TypedDict(
     "Usdcode_Llama_3_1_70b_InstructParams",
@@ -479,8 +505,10 @@ __all__ = [
     "Nemotron_3_Ultra_550b_A55bParams",
     "Nemotron_3_Ultra_SubscriptionParams",
     "Nemotron_3_5_Lightning_30b_A3bParams",
+    "Nemotron_3_5_Super_Vl_120b_A12bParams",
     "Nemotron_Content_Safety_Reasoning_4bParams",
     "Nemotron_Mini_4b_InstructParams",
     "Riva_Translate_4b_Instruct_V1_1Params",
+    "Step_5_PreviewParams",
     "Usdcode_Llama_3_1_70b_InstructParams",
 ]

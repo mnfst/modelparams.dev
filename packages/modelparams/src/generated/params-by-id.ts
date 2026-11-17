@@ -55,6 +55,14 @@ export type ParamsById = {
     "extra_body.enable_thinking": boolean;
     "extra_body.thinking_budget": number;
   };
+  "alibaba/deepseek-v4.1-flash-1017": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
   "alibaba/glm-5.1": {
     max_completion_tokens: number;
     temperature: number;
@@ -104,6 +112,14 @@ export type ParamsById = {
     "extra_body.thinking_budget": number;
   };
   "alibaba/kimi-k3": {
+    max_completion_tokens: number;
+    temperature: number;
+    top_p: number;
+    "extra_body.top_k": number;
+    "extra_body.enable_thinking": boolean;
+    "extra_body.thinking_budget": number;
+  };
+  "alibaba/pre-mock_new_gateway_session_affinity": {
     max_completion_tokens: number;
     temperature: number;
     top_p: number;
@@ -1496,6 +1512,15 @@ export type ParamsById = {
     frequency_penalty: number;
     "response_format.type": "text" | "json_object";
   };
+  "fireworks/deepseek-v4p1-flash-1017": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
   "fireworks/ember-1": {
     max_tokens: number;
     temperature: number;
@@ -1605,6 +1630,15 @@ export type ParamsById = {
     "response_format.type": "text" | "json_object";
   };
   "fireworks/muse-glimmer-30b": {
+    max_tokens: number;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    "response_format.type": "text" | "json_object";
+  };
+  "fireworks/muse-spark-open": {
     max_tokens: number;
     temperature: number;
     top_p: number;
@@ -1858,6 +1892,15 @@ export type ParamsById = {
     "generationConfig.thinkingConfig.includeThoughts": boolean;
     "generationConfig.responseMimeType": "text/plain" | "application/json";
   };
+  "google/gemini-4-argon": {
+    "generationConfig.maxOutputTokens": number;
+    "generationConfig.temperature": number;
+    "generationConfig.topP": number;
+    "generationConfig.topK": number;
+    "generationConfig.thinkingConfig.thinkingBudget": number;
+    "generationConfig.thinkingConfig.includeThoughts": boolean;
+    "generationConfig.responseMimeType": "text/plain" | "application/json";
+  };
   "google/gemini-flash-latest": {
     "generationConfig.maxOutputTokens": number;
     "generationConfig.temperature": number;
@@ -1961,7 +2004,7 @@ export type ParamsById = {
     presence_penalty: number;
     seed: number;
     stop: string;
-    reasoning_effort: "none" | "default";
+    reasoning_effort: "low" | "medium" | "high";
     reasoning_format: "hidden" | "parsed";
     "response_format.type": "text" | "json_object";
   };
@@ -1973,7 +2016,7 @@ export type ParamsById = {
     presence_penalty: number;
     seed: number;
     stop: string;
-    reasoning_effort: "none" | "default";
+    reasoning_effort: "low" | "medium" | "high";
     reasoning_format: "hidden" | "parsed";
     "response_format.type": "text" | "json_object";
   };
@@ -2170,6 +2213,14 @@ export type ParamsById = {
     max_tokens: number;
     temperature: number;
     top_p: number;
+  };
+  "minimax/MiniMax-M3.1-Flash": {
+    max_completion_tokens: number;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh" | "max";
+  };
+  "minimax/MiniMax-M3.1-Flash-subscription": {
+    max_tokens: number;
+    reasoning_effort: "low" | "medium" | "high" | "xhigh" | "max";
   };
   "mistral/codestral-2508": {
     max_tokens: number;
@@ -2825,6 +2876,13 @@ export type ParamsById = {
     reasoning_effort: "none" | "low" | "high";
     reasoning_budget: number;
   };
+  "nvidia/nemotron-3.5-super-vl-120b-a12b": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    reasoning_effort: "none" | "low" | "high";
+    reasoning_budget: number;
+  };
   "nvidia/nemotron-content-safety-reasoning-4b": {
     temperature: number;
     top_p: number;
@@ -2847,6 +2905,13 @@ export type ParamsById = {
     frequency_penalty: number;
     presence_penalty: number;
     stop: string;
+  };
+  "nvidia/step-5-preview": {
+    temperature: number;
+    top_p: number;
+    max_tokens: number;
+    frequency_penalty: number;
+    presence_penalty: number;
   };
   "nvidia/usdcode-llama-3.1-70b-instruct": {
     temperature: number;

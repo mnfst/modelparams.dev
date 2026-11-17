@@ -4,6 +4,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "deepseek-v3.2",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -80,6 +81,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4-flash",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -384,6 +386,82 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "deepseek-v4.1-flash",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "deepseek-v4.1-flash-1017",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -991,7 +1069,84 @@
     "provider": "alibaba",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "pre-mock_new_gateway_session_affinity",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate, including both reasoning and the final answer.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1.9,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "extra_body.top_k",
+        "label": "Top K",
+        "description": "Limits generation to the selected number of highest-probability tokens. Values above 100 disable top-k sampling.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 20,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "extra_body.enable_thinking",
+        "label": "Enable thinking",
+        "description": "Toggles the model's hybrid thinking mode, sent as a provider-specific extra body field on OpenAI-compatible clients.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": true
+      },
+      {
+        "path": "extra_body.thinking_budget",
+        "label": "Thinking budget",
+        "description": "Maximum number of tokens the model may spend on reasoning before it starts the final answer; defaults to the model's maximum reasoning length.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "extra_body.enable_thinking": true
+          }
+        },
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  {
+    "provider": "alibaba",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "qvq-max",
+    "status": "retired",
     "params": [
       {
         "path": "max_completion_tokens",
@@ -1068,6 +1223,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-coder-plus",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1495,6 +1651,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-turbo",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1556,6 +1713,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-vl-max",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1617,6 +1775,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen-vl-plus",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1678,6 +1837,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-14b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1739,6 +1899,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1800,6 +1961,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b-instruct-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1861,6 +2023,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-235b-a22b-thinking-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1922,6 +2085,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -1983,6 +2147,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b-instruct-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2044,6 +2209,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-30b-a3b-thinking-2507",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2105,6 +2271,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-8b",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2166,6 +2333,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-coder-480b-a35b-instruct",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2272,6 +2440,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-coder-next",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2381,7 +2550,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-max",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2443,7 +2612,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-max-preview",
-    "status": "active",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2505,6 +2674,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-next-80b-a3b-instruct",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2566,6 +2736,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-next-80b-a3b-thinking",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2688,6 +2859,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-omni-flash-2025-09-15",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2749,6 +2921,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-omni-flash-2025-12-01",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2810,6 +2983,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-instruct",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2871,6 +3045,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-235b-a22b-thinking",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2932,6 +3107,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-flash",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -2993,6 +3169,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-flash-2026-01-22",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -3115,6 +3292,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-plus-2025-09-23",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -3176,6 +3354,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwen3-vl-plus-2025-12-19",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -5177,6 +5356,7 @@
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
     "model": "qwq-plus",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -15269,6 +15449,95 @@
     "provider": "fireworks",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "deepseek-v4p1-flash-1017",
+    "wireId": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 100
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "fireworks",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "ember-1",
     "wireId": "accounts/fireworks/models/ember-1",
     "params": [
@@ -16340,6 +16609,95 @@
     "apiSurface": "openai-chat-completions",
     "model": "muse-glimmer-30b",
     "wireId": "accounts/fireworks/models/muse-glimmer-30b",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "top_k",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 100
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Penalizes tokens that have already appeared to encourage a wider variety of content.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes tokens in proportion to how often they have already appeared.",
+        "group": "sampling",
+        "type": "number",
+        "range": {
+          "min": -2,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "response_format.type",
+        "label": "Response format",
+        "description": "Choose plain text or force valid JSON output.",
+        "group": "output_format",
+        "type": "enum",
+        "values": [
+          "text",
+          "json_object"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "fireworks",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "muse-spark-open",
+    "wireId": "accounts/fireworks/models/muse-spark-open",
     "params": [
       {
         "path": "max_tokens",
@@ -18819,6 +19177,92 @@
     "provider": "google",
     "authType": "api_key",
     "apiSurface": "google-generate-content",
+    "model": "gemini-4-argon",
+    "status": "active",
+    "replacement": "google/gemini-3.1-flash-lite",
+    "params": [
+      {
+        "path": "generationConfig.maxOutputTokens",
+        "label": "Max output tokens",
+        "description": "Maximum number of tokens to include in a response candidate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 65536
+        }
+      },
+      {
+        "path": "generationConfig.temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "min": 0,
+          "max": 2,
+          "step": 0.1
+        }
+      },
+      {
+        "path": "generationConfig.topP",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      },
+      {
+        "path": "generationConfig.topK",
+        "label": "Top K",
+        "description": "Limits token sampling to the top K most likely next tokens.",
+        "group": "sampling",
+        "type": "integer",
+        "default": 64,
+        "range": {
+          "min": 0
+        }
+      },
+      {
+        "path": "generationConfig.thinkingConfig.thinkingBudget",
+        "label": "Thinking budget",
+        "description": "Number of thinking tokens Gemini should use; -1 uses dynamic thinking, 0 disables thinking, and fixed budgets start at 512 tokens.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 0
+      },
+      {
+        "path": "generationConfig.thinkingConfig.includeThoughts",
+        "label": "Include thoughts",
+        "description": "Controls whether Gemini returns available thought summaries in the response parts.",
+        "group": "reasoning",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "path": "generationConfig.responseMimeType",
+        "label": "Response MIME type",
+        "description": "MIME type for generated text candidates.",
+        "group": "output_format",
+        "type": "enum",
+        "default": "text/plain",
+        "values": [
+          "text/plain",
+          "application/json"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "google",
+    "authType": "api_key",
+    "apiSurface": "google-generate-content",
     "model": "gemini-flash-latest",
     "params": [
       {
@@ -19737,13 +20181,14 @@
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls whether the model reasons before answering. 'none' disables reasoning; 'default' lets the model reason.",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
         "group": "reasoning",
         "type": "enum",
-        "default": "default",
+        "default": "medium",
         "values": [
-          "none",
-          "default"
+          "low",
+          "medium",
+          "high"
         ]
       },
       {
@@ -19857,13 +20302,14 @@
       {
         "path": "reasoning_effort",
         "label": "Reasoning effort",
-        "description": "Controls whether the model reasons before answering. 'none' disables reasoning; 'default' lets the model reason.",
+        "description": "Controls how much reasoning the model should perform before producing an answer.",
         "group": "reasoning",
         "type": "enum",
-        "default": "default",
+        "default": "medium",
         "values": [
-          "none",
-          "default"
+          "low",
+          "medium",
+          "high"
         ]
       },
       {
@@ -21684,6 +22130,74 @@
           "max": 1,
           "step": 0.01
         }
+      }
+    ]
+  },
+  {
+    "provider": "minimax",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "MiniMax-M3.1-Flash",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_completion_tokens",
+        "label": "Max completion tokens",
+        "description": "Maximum number of tokens to generate in the completion. Thinking tokens count toward it.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Sets how deeply the model thinks. Higher levels produce more thinking tokens at higher latency.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "max",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "minimax",
+    "authType": "subscription",
+    "apiSurface": "openai-chat-completions",
+    "model": "MiniMax-M3.1-Flash",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate in the response. Thinking tokens count toward it.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Sets how deeply the model thinks. Higher levels produce more thinking tokens at higher latency.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "max",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
       }
     ]
   },
@@ -28020,6 +28534,74 @@
     "provider": "nvidia",
     "authType": "api_key",
     "apiSurface": "openai-chat-completions",
+    "model": "nemotron-3.5-super-vl-120b-a12b",
+    "wireId": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 1,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": 1,
+          "max": 32768
+        }
+      },
+      {
+        "path": "reasoning_effort",
+        "label": "Reasoning effort",
+        "description": "Controls the reasoning mode. 'none' disables reasoning tokens, 'low' enables low-effort reasoning, and 'high' enables full reasoning.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "none",
+          "low",
+          "high"
+        ]
+      },
+      {
+        "path": "reasoning_budget",
+        "label": "Reasoning budget",
+        "description": "Maximum number of tokens the model may use for internal reasoning before being forced to end the reasoning trace. Use -1 to disable budget enforcement.",
+        "group": "reasoning",
+        "type": "integer",
+        "default": 16384,
+        "range": {
+          "min": -1,
+          "max": 32768
+        }
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
     "model": "nemotron-content-safety-reasoning-4b",
     "params": [
       {
@@ -28221,6 +28803,74 @@
         "description": "A string or list of strings where the API will stop generating further tokens. The returned text will not contain the stop sequence.",
         "group": "generation_length",
         "type": "string"
+      }
+    ]
+  },
+  {
+    "provider": "nvidia",
+    "authType": "api_key",
+    "apiSurface": "openai-chat-completions",
+    "model": "step-5-preview",
+    "wireId": "stepfun-ai/step-5-preview",
+    "params": [
+      {
+        "path": "temperature",
+        "label": "Temperature",
+        "description": "Controls randomness. Lower values make outputs more focused; higher values make them more varied. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.6,
+        "range": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      {
+        "path": "top_p",
+        "label": "Top P",
+        "description": "Controls nucleus sampling by limiting generation to tokens within the selected cumulative probability. Not recommended to modify both temperature and top_p in the same call.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0.95,
+        "range": {
+          "max": 1
+        }
+      },
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of tokens to generate. Generation stops when this limit is reached.",
+        "group": "generation_length",
+        "type": "integer",
+        "default": 4096,
+        "range": {
+          "min": 1,
+          "max": 16384
+        }
+      },
+      {
+        "path": "frequency_penalty",
+        "label": "Frequency penalty",
+        "description": "Penalizes new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
+      },
+      {
+        "path": "presence_penalty",
+        "label": "Presence penalty",
+        "description": "Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.",
+        "group": "sampling",
+        "type": "number",
+        "default": 0,
+        "range": {
+          "min": -2,
+          "max": 2
+        }
       }
     ]
   },
@@ -31135,6 +31785,7 @@
     "apiSurface": "openai-chat-completions",
     "model": "deepseek-flash",
     "wireId": "opencode-go/deepseek-flash",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -32355,6 +33006,7 @@
     "apiSurface": "openai-chat-completions",
     "model": "space-bunny-free",
     "wireId": "opencode-go/space-bunny-free",
+    "status": "retired",
     "params": [
       {
         "path": "max_tokens",
@@ -35414,7 +36066,7 @@
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }
@@ -35579,7 +36231,7 @@
         "type": "number",
         "default": 1,
         "range": {
-          "min": 0,
+          "min": 0.01,
           "max": 1,
           "step": 0.01
         }

@@ -85,6 +85,21 @@ Deepseek_V4p1_FlashParams = TypedDict(
 )
 setattr(Deepseek_V4p1_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Deepseek_V4p1_Flash_1017Params = TypedDict(
+    "Deepseek_V4p1_Flash_1017Params",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Deepseek_V4p1_Flash_1017Params, "__pydantic_config__", _PARAMS_CONFIG)
+
 Ember_1Params = TypedDict(
     "Ember_1Params",
     {
@@ -280,6 +295,21 @@ Muse_Glimmer_30bParams = TypedDict(
 )
 setattr(Muse_Glimmer_30bParams, "__pydantic_config__", _PARAMS_CONFIG)
 
+Muse_Spark_OpenParams = TypedDict(
+    "Muse_Spark_OpenParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Muse_Spark_OpenParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Nemotron_3_Ultra_Nvfp4Params = TypedDict(
     "Nemotron_3_Ultra_Nvfp4Params",
     {
@@ -361,6 +391,7 @@ __all__ = [
     "Deepseek_V4_ProParams",
     "Deepseek_V4_Pro_0813Params",
     "Deepseek_V4p1_FlashParams",
+    "Deepseek_V4p1_Flash_1017Params",
     "Ember_1Params",
     "Glm_5p2Params",
     "Glm_5p3Params",
@@ -374,6 +405,7 @@ __all__ = [
     "Minimax_M2p7Params",
     "Minimax_M3Params",
     "Muse_Glimmer_30bParams",
+    "Muse_Spark_OpenParams",
     "Nemotron_3_Ultra_Nvfp4Params",
     "Nemotron_Lightning_3p5_30b_A3bParams",
     "Qwen3p7_PlusParams",

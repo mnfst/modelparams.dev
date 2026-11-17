@@ -18,6 +18,7 @@ import {
 } from "../data/paths.js";
 import { SITE_URL } from "../data/site.js";
 import { buildRobotsTxt } from "../data/robots.js";
+import { buildHeadersFile } from "../data/headers.js";
 import {
   API_PATH,
   DISAMBIGUATION_PATH,
@@ -66,6 +67,14 @@ async function writeLlmsFiles(models: Model[]): Promise<void> {
 
 async function writeRobotsAndSitemap(models: Model[]): Promise<void> {
   await fs.writeFile(path.join(DIST_DIR, "robots.txt"), buildRobotsTxt(SITE_URL), "utf8");
+  await fs.writeFile(path.join(DIST_DIR, "_headers"), buildHeadersFile(), "utf8");
+  // The asset layer answers a miss with the nearest 404.html, so API callers
+  // get a JSON body (typed by _headers) instead of the HTML not-found page.
+  await fs.writeFile(
+    path.join(DIST_API_DIR, "404.html"),
+    JSON.stringify({ error: "not_found" }) + "\n",
+    "utf8",
+  );
 
   // Sitemaps list canonical, indexable HTML pages only — the JSON API and the
   // .txt agent files are intentionally excluded (they're not search results).
@@ -197,7 +206,7 @@ export async function build(): Promise<{ models: number }> {
   const catalog = buildCatalog(models);
   const capabilities = buildCapabilityFacets(models);
   console.log(`Rendering HTML for ${models.length} model(s)...`);
-  const html = await renderIndex({ catalog, capabilities, analytics: true });
+  const html = await renderIndex({ catalog, capabilities });
   await fs.writeFile(path.join(DIST_DIR, "index.html"), html, "utf8");
 
   console.log("Writing JSON API...");

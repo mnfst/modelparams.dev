@@ -29,6 +29,10 @@ export const DEFAULTS = {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
+  "alibaba/deepseek-v4.1-flash-1017": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
   "alibaba/glm-5.1": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
@@ -54,6 +58,10 @@ export const DEFAULTS = {
     "extra_body.enable_thinking": true,
   },
   "alibaba/kimi-k3": {
+    "extra_body.top_k": 20,
+    "extra_body.enable_thinking": true,
+  },
+  "alibaba/pre-mock_new_gateway_session_affinity": {
     "extra_body.top_k": 20,
     "extra_body.enable_thinking": true,
   },
@@ -847,6 +855,7 @@ export const DEFAULTS = {
   "fireworks/deepseek-v4-pro": {},
   "fireworks/deepseek-v4-pro-0813": {},
   "fireworks/deepseek-v4p1-flash": {},
+  "fireworks/deepseek-v4p1-flash-1017": {},
   "fireworks/ember-1": {},
   "fireworks/glm-5p2": {},
   "fireworks/glm-5p3": {},
@@ -860,6 +869,7 @@ export const DEFAULTS = {
   "fireworks/minimax-m2p7": {},
   "fireworks/minimax-m3": {},
   "fireworks/muse-glimmer-30b": {},
+  "fireworks/muse-spark-open": {},
   "fireworks/nemotron-3-ultra-nvfp4": {},
   "fireworks/nemotron-lightning-3p5-30b-a3b": {},
   "fireworks/qwen3p7-plus": {},
@@ -1023,6 +1033,14 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemini-4-argon": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingBudget": 0,
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
   "google/gemini-flash-latest": {
     "generationConfig.temperature": 1,
     "generationConfig.topP": 0.95,
@@ -1105,7 +1123,7 @@ export const DEFAULTS = {
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    reasoning_effort: "default",
+    reasoning_effort: "medium",
     "response_format.type": "text",
   },
   "groq/gpt-oss-20b": {
@@ -1113,7 +1131,7 @@ export const DEFAULTS = {
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    reasoning_effort: "default",
+    reasoning_effort: "medium",
     "response_format.type": "text",
   },
   "groq/gpt-oss-safeguard-20b": {
@@ -1245,6 +1263,12 @@ export const DEFAULTS = {
   "minimax/MiniMax-M3-subscription": {
     temperature: 1,
     top_p: 0.95,
+  },
+  "minimax/MiniMax-M3.1-Flash": {
+    reasoning_effort: "max",
+  },
+  "minimax/MiniMax-M3.1-Flash-subscription": {
+    reasoning_effort: "max",
   },
   "mistral/codestral-2508": {
     top_p: 1,
@@ -1729,6 +1753,13 @@ export const DEFAULTS = {
     reasoning_effort: "high",
     reasoning_budget: 16384,
   },
+  "nvidia/nemotron-3.5-super-vl-120b-a12b": {
+    temperature: 1,
+    top_p: 0.95,
+    max_tokens: 16384,
+    reasoning_effort: "high",
+    reasoning_budget: 16384,
+  },
   "nvidia/nemotron-content-safety-reasoning-4b": {
     temperature: 1,
     top_p: 1,
@@ -1745,6 +1776,13 @@ export const DEFAULTS = {
     temperature: 0,
     top_p: 0.9,
     max_tokens: 512,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+  },
+  "nvidia/step-5-preview": {
+    temperature: 0.6,
+    top_p: 0.95,
+    max_tokens: 4096,
     frequency_penalty: 0,
     presence_penalty: 0,
   },
