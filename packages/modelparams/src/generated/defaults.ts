@@ -1050,6 +1050,14 @@ export const DEFAULTS = {
     "generationConfig.thinkingConfig.includeThoughts": false,
     "generationConfig.responseMimeType": "text/plain",
   },
+  "google/gemini-flash-lite-latest": {
+    "generationConfig.temperature": 1,
+    "generationConfig.topP": 0.95,
+    "generationConfig.topK": 64,
+    "generationConfig.thinkingConfig.thinkingBudget": 0,
+    "generationConfig.thinkingConfig.includeThoughts": false,
+    "generationConfig.responseMimeType": "text/plain",
+  },
   "google/gemma-3-12b-it": {
     temperature: 1,
     top_p: 0.95,
@@ -2055,6 +2063,15 @@ export const DEFAULTS = {
   "openai/gpt-6.1-sol": {
     temperature: 1,
     reasoning_effort: "medium",
+  },
+  "openai/gpt-6.1-terra": {
+    temperature: 1,
+    reasoning_effort: "medium",
+  },
+  "openai/gpt-6.1-terra-subscription": {
+    "reasoning.effort": "medium",
+    "reasoning.summary": "auto",
+    "text.verbosity": "medium",
   },
   "openai/gpt-oss-120b": {
     temperature: 1,
