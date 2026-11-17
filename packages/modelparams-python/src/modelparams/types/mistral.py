@@ -523,6 +523,22 @@ Zai_Glm_5_3Params = TypedDict(
 )
 setattr(Zai_Glm_5_3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Zai_Glm_5_3_FlashParams = TypedDict(
+    "Zai_Glm_5_3_FlashParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=1.5)],
+        "top_p": Annotated[float, Field(ge=0.01, le=1)],
+        "random_seed": Annotated[int, Field(ge=0)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "prompt_mode": Literal["reasoning"],
+        "safe_prompt": bool,
+    },
+    total=False,
+)
+setattr(Zai_Glm_5_3_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Zai_Glm_LatestParams = TypedDict(
     "Zai_Glm_LatestParams",
     {
@@ -571,5 +587,6 @@ __all__ = [
     "Zai_Glm_5Params",
     "Zai_Glm_5_2Params",
     "Zai_Glm_5_3Params",
+    "Zai_Glm_5_3_FlashParams",
     "Zai_Glm_LatestParams",
 ]
