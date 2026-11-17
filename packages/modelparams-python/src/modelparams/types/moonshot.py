@@ -119,6 +119,36 @@ Kimi_K3Params = TypedDict(
 )
 setattr(Kimi_K3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Kimi_K3_1_ProParams = TypedDict(
+    "Kimi_K3_1_ProParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["enabled", "disabled"],
+        "thinking.keep": Literal["all", None],
+        "response_format.type": Literal["text", "json_object"],
+        "tool_choice": Literal["auto", "none"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
+    },
+    total=False,
+)
+setattr(Kimi_K3_1_ProParams, "__pydantic_config__", _PARAMS_CONFIG)
+
+Kimi_K3_1_Pro_HighspeedParams = TypedDict(
+    "Kimi_K3_1_Pro_HighspeedParams",
+    {
+        "max_completion_tokens": Annotated[int, Field(ge=1)],
+        "thinking.type": Literal["enabled", "disabled"],
+        "thinking.keep": Literal["all", None],
+        "response_format.type": Literal["text", "json_object"],
+        "tool_choice": Literal["auto", "none"],
+        "logprobs": bool,
+        "top_logprobs": Annotated[int, Field(ge=0, le=20)],
+    },
+    total=False,
+)
+setattr(Kimi_K3_1_Pro_HighspeedParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Moonshot_V1_128kParams = TypedDict(
     "Moonshot_V1_128kParams",
     {
@@ -185,6 +215,8 @@ __all__ = [
     "Kimi_K2_7_Code_Highspeed_SubscriptionParams",
     "Kimi_K2_7_Code_SubscriptionParams",
     "Kimi_K3Params",
+    "Kimi_K3_1_ProParams",
+    "Kimi_K3_1_Pro_HighspeedParams",
     "Moonshot_V1_128kParams",
     "Moonshot_V1_32kParams",
     "Moonshot_V1_8kParams",

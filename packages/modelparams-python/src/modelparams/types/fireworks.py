@@ -280,6 +280,21 @@ Minimax_M3Params = TypedDict(
 )
 setattr(Minimax_M3Params, "__pydantic_config__", _PARAMS_CONFIG)
 
+Minimax_M3p1_FlashParams = TypedDict(
+    "Minimax_M3p1_FlashParams",
+    {
+        "max_tokens": Annotated[int, Field(ge=1)],
+        "temperature": Annotated[float, Field(ge=0, le=2)],
+        "top_p": Annotated[float, Field(ge=0, le=1)],
+        "top_k": Annotated[int, Field(ge=1, le=100)],
+        "presence_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "frequency_penalty": Annotated[float, Field(ge=-2, le=2)],
+        "response_format.type": Literal["text", "json_object"],
+    },
+    total=False,
+)
+setattr(Minimax_M3p1_FlashParams, "__pydantic_config__", _PARAMS_CONFIG)
+
 Muse_Glimmer_30bParams = TypedDict(
     "Muse_Glimmer_30bParams",
     {
@@ -404,6 +419,7 @@ __all__ = [
     "Kimi_K3Params",
     "Minimax_M2p7Params",
     "Minimax_M3Params",
+    "Minimax_M3p1_FlashParams",
     "Muse_Glimmer_30bParams",
     "Muse_Spark_OpenParams",
     "Nemotron_3_Ultra_Nvfp4Params",
