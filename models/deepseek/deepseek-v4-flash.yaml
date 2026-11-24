@@ -3,7 +3,8 @@ provider: deepseek
 authType: api_key
 apiSurface: openai-chat-completions
 model: deepseek-v4-flash
-status: active
+status: deprecated
+replacement: deepseek/deepseek-flash
 params:
   - path: max_tokens
     type: integer

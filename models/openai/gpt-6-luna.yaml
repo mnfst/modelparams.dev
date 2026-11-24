@@ -3,9 +3,7 @@ provider: openai
 authType: api_key
 apiSurface: openai-chat-completions
 model: gpt-6-luna
-status: deprecated
-replacement: openai/gpt-5.6-sol
-shutdownOn: 2026-10-23
+status: active
 params:
   - path: max_completion_tokens
     type: integer
