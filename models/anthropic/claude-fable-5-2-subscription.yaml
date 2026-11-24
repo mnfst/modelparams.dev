@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=https://modelparams.dev/api/v1/schema.json
+provider: anthropic
+authType: subscription
+apiSurface: anthropic-messages
+model: claude-fable-5-2
+status: active
+params:
+  - path: max_tokens
+    type: integer
+    label: Max tokens
+    description: Maximum number of output tokens the model may generate.
+    range:
+      min: 1
+      max: 128000
+    group: generation_length
+  - path: thinking.type
+    type: enum
+    label: Thinking mode
+    description: Adaptive thinking is always on, including when this parameter is omitted.
+    default: adaptive
+    values:
+      - adaptive
+    group: reasoning
+  - path: thinking.display
+    type: enum
+    label: Thinking display
+    description: Controls whether the response includes a summary of the model's thinking.
+    default: omitted
+    values:
+      - summarized
+      - omitted
+    group: reasoning
+    applicability:
+      only:
+        thinking.type:
+          - adaptive
+  - path: output_config.effort
+    type: enum
+    label: Effort
+    description: Controls Anthropic response thoroughness and token spend.
+    default: high
+    values:
+      - low
+      - medium
+      - high
+      - xhigh
+      - max
+    group: reasoning

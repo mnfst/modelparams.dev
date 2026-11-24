@@ -69,6 +69,35 @@ describe("parseParams", () => {
   });
 });
 
+describe.each(["anthropic/claude-fable-5-2", "anthropic/claude-fable-5-2-subscription"] as const)(
+  "Fable 5.2 parameter validation for %s",
+  (model) => {
+    it("accepts all documented effort levels with adaptive thinking", () => {
+      for (const effort of ["low", "medium", "high", "xhigh", "max"]) {
+        const params = {
+          max_tokens: 128000,
+          "thinking.display": "summarized",
+          "output_config.effort": effort,
+        };
+        expect(parseParams(model, params)).toEqual({ success: true, value: params });
+      }
+    });
+
+    it("rejects sampling controls, fixed thinking budgets, and out-of-range output", () => {
+      const result = parseParams(model, {
+        max_tokens: 128001,
+        temperature: 0.2,
+        top_p: 0.9,
+        top_k: 20,
+        "thinking.type": "disabled",
+        "thinking.budget_tokens": 2048,
+      });
+      expect(result.success).toBe(false);
+      if (!result.success) expect(result.issues).toHaveLength(6);
+    });
+  },
+);
+
 describe("paramsSchema (Standard Schema)", () => {
   it("exposes the v1 contract", () => {
     const schema = paramsSchema(GPT);
