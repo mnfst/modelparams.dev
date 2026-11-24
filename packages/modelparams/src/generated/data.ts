@@ -6313,6 +6313,136 @@ const GENERATED_CATALOG = [
   },
   {
     "provider": "anthropic",
+    "authType": "api_key",
+    "apiSurface": "anthropic-messages",
+    "model": "claude-fable-5-2",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 128000
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Adaptive thinking is always on, including when this parameter is omitted.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "adaptive",
+        "values": [
+          "adaptive"
+        ]
+      },
+      {
+        "path": "thinking.display",
+        "label": "Thinking display",
+        "description": "Controls whether the response includes a summary of the model's thinking.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "thinking.type": [
+              "adaptive"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "omitted",
+        "values": [
+          "summarized",
+          "omitted"
+        ]
+      },
+      {
+        "path": "output_config.effort",
+        "label": "Effort",
+        "description": "Controls Anthropic response thoroughness and token spend.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "anthropic",
+    "authType": "subscription",
+    "apiSurface": "anthropic-messages",
+    "model": "claude-fable-5-2",
+    "status": "active",
+    "params": [
+      {
+        "path": "max_tokens",
+        "label": "Max tokens",
+        "description": "Maximum number of output tokens the model may generate.",
+        "group": "generation_length",
+        "type": "integer",
+        "range": {
+          "min": 1,
+          "max": 128000
+        }
+      },
+      {
+        "path": "thinking.type",
+        "label": "Thinking mode",
+        "description": "Adaptive thinking is always on, including when this parameter is omitted.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "adaptive",
+        "values": [
+          "adaptive"
+        ]
+      },
+      {
+        "path": "thinking.display",
+        "label": "Thinking display",
+        "description": "Controls whether the response includes a summary of the model's thinking.",
+        "group": "reasoning",
+        "applicability": {
+          "only": {
+            "thinking.type": [
+              "adaptive"
+            ]
+          }
+        },
+        "type": "enum",
+        "default": "omitted",
+        "values": [
+          "summarized",
+          "omitted"
+        ]
+      },
+      {
+        "path": "output_config.effort",
+        "label": "Effort",
+        "description": "Controls Anthropic response thoroughness and token spend.",
+        "group": "reasoning",
+        "type": "enum",
+        "default": "high",
+        "values": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      }
+    ]
+  },
+  {
+    "provider": "anthropic",
     "authType": "subscription",
     "apiSurface": "anthropic-messages",
     "model": "claude-fable-5",

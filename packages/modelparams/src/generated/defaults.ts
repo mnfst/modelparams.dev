@@ -386,6 +386,16 @@ export const DEFAULTS = {
     "thinking.display": "omitted",
     "output_config.effort": "high",
   },
+  "anthropic/claude-fable-5-2": {
+    "thinking.type": "adaptive",
+    "thinking.display": "omitted",
+    "output_config.effort": "high",
+  },
+  "anthropic/claude-fable-5-2-subscription": {
+    "thinking.type": "adaptive",
+    "thinking.display": "omitted",
+    "output_config.effort": "high",
+  },
   "anthropic/claude-fable-5-subscription": {
     max_tokens: 4096,
     "thinking.display": "omitted",
