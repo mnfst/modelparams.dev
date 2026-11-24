@@ -4,7 +4,7 @@ authType: api_key
 apiSurface: anthropic-messages
 model: claude-3-5-sonnet-20241022
 status: retired
-replacement: anthropic/claude-sonnet-4-6
+replacement: anthropic/claude-sonnet-5-5
 shutdownOn: 2025-10-28
 params:
   - path: max_tokens

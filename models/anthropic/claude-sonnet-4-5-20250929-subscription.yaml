@@ -3,7 +3,9 @@ provider: anthropic
 authType: subscription
 apiSurface: anthropic-messages
 model: claude-sonnet-4-5-20250929
-status: active
+status: deprecated
+replacement: anthropic/claude-sonnet-5-5
+shutdownOn: 2026-11-30
 params:
   - path: max_tokens
     type: integer
